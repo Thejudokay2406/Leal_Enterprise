@@ -1,0 +1,561 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{716A8365-44BB-46CF-ABF9-98368A1AA860}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Presentacion</RootNamespace>
+    <AssemblyName>Leal Enterprise</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>E58AABF75EE8DC1799EE4CCEC04AA9F618FCF653</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Presentacion_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icono_Leal_Enterprise.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Archivo\frmBodega.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Archivo\frmBodega.Designer.cs">
+      <DependentUpon>frmBodega.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Archivo\frmImpuesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Archivo\frmImpuesto.Designer.cs">
+      <DependentUpon>frmImpuesto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Archivo\frmCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Archivo\frmCliente.Designer.cs">
+      <DependentUpon>frmCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Botones.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Botones.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Filtros\frmFiltro_Bodega.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Filtros\frmFiltro_Bodega.Designer.cs">
+      <DependentUpon>frmFiltro_Bodega.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financiera\frmCuentaPorPagar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financiera\frmCuentaPorPagar.Designer.cs">
+      <DependentUpon>frmCuentaPorPagar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\frmFacturaDeCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmFacturaDeCompra.Designer.cs">
+      <DependentUpon>frmFacturaDeCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\frmTotalizar_OrdenDeCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmTotalizar_OrdenDeCompra.Designer.cs">
+      <DependentUpon>frmTotalizar_OrdenDeCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\frmTotalizar_FacturaDeCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmTotalizar_FacturaDeCompra.Designer.cs">
+      <DependentUpon>frmTotalizar_FacturaDeCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\frmCotizacionDeCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmCotizacionDeCompra.Designer.cs">
+      <DependentUpon>frmCotizacionDeCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\frmTotalizar_CotizacionDeCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmTotalizar_CotizacionDeCompra.Designer.cs">
+      <DependentUpon>frmTotalizar_CotizacionDeCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Filtros\frmFiltro_CotizacionDeCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Filtros\frmFiltro_CotizacionDeCompra.Designer.cs">
+      <DependentUpon>frmFiltro_CotizacionDeCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Filtros\frmFiltro_ActualizarPrecios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Filtros\frmFiltro_ActualizarPrecios.Designer.cs">
+      <DependentUpon>frmFiltro_ActualizarPrecios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\frmInventario_Inicial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\frmInventario_Inicial.Designer.cs">
+      <DependentUpon>frmInventario_Inicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\frmGastosDeIngreso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\frmGastosDeIngreso.Designer.cs">
+      <DependentUpon>frmGastosDeIngreso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\frmOrdenDeCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmOrdenDeCompra.Designer.cs">
+      <DependentUpon>frmOrdenDeCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\frmInventario_Ingreso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\frmInventario_Ingreso.Designer.cs">
+      <DependentUpon>frmInventario_Ingreso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Filtros\frmFiltro_Producto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Filtros\frmFiltro_Producto.Designer.cs">
+      <DependentUpon>frmFiltro_Producto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Archivo\frmRegularizacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Archivo\frmRegularizacion.Designer.cs">
+      <DependentUpon>frmRegularizacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\frmFacturacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\frmFacturacion.Designer.cs">
+      <DependentUpon>frmFacturacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Filtros\frmFiltro_Proveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Filtros\frmFiltro_Proveedor.Designer.cs">
+      <DependentUpon>frmFiltro_Proveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Filtros\frmFiltro_Impuestos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Filtros\frmFiltro_Impuestos.Designer.cs">
+      <DependentUpon>frmFiltro_Impuestos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sistema\frmEquipos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sistema\frmEquipos.Designer.cs">
+      <DependentUpon>frmEquipos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Archivo\frmEmpaque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Archivo\frmEmpaque.Designer.cs">
+      <DependentUpon>frmEmpaque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Archivo\frmTipoDeProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Archivo\frmTipoDeProducto.Designer.cs">
+      <DependentUpon>frmTipoDeProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Archivo\frmGrupo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Archivo\frmGrupo.Designer.cs">
+      <DependentUpon>frmGrupo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="General\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="General\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Archivo\frmProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Archivo\frmProveedor.Designer.cs">
+      <DependentUpon>frmProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Archivo\frmMarca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Archivo\frmMarca.Designer.cs">
+      <DependentUpon>frmMarca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sistema\frmTipoDeCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sistema\frmTipoDeCliente.Designer.cs">
+      <DependentUpon>frmTipoDeCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Archivo\frmProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Archivo\frmProductos.Designer.cs">
+      <DependentUpon>frmProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Archivo\frmServicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Archivo\frmServicio.Designer.cs">
+      <DependentUpon>frmServicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Archivo\frmSucurzal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Archivo\frmSucurzal.Designer.cs">
+      <DependentUpon>frmSucurzal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion Humana\frmDepartamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion Humana\frmDepartamento.Designer.cs">
+      <DependentUpon>frmDepartamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="General\frmMenuPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="General\frmMenuPrincipal.Designer.cs">
+      <DependentUpon>frmMenuPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion Humana\frmEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion Humana\frmEmpleados.Designer.cs">
+      <DependentUpon>frmEmpleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sistema\Informacion_Computer.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tablas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Tablas.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Titulos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Titulos.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Archivo\frmBodega.resx">
+      <DependentUpon>frmBodega.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Archivo\frmImpuesto.resx">
+      <DependentUpon>frmImpuesto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Archivo\frmCliente.resx">
+      <DependentUpon>frmCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Botones.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Botones.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\frmFacturaDeCompra.resx">
+      <DependentUpon>frmFacturaDeCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Filtros\frmFiltro_Bodega.resx">
+      <DependentUpon>frmFiltro_Bodega.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financiera\frmCuentaPorPagar.resx">
+      <DependentUpon>frmCuentaPorPagar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\frmTotalizar_OrdenDeCompra.resx">
+      <DependentUpon>frmTotalizar_OrdenDeCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\frmCotizacionDeCompra.resx">
+      <DependentUpon>frmCotizacionDeCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\frmTotalizar_CotizacionDeCompra.resx">
+      <DependentUpon>frmTotalizar_CotizacionDeCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Filtros\frmFiltro_CotizacionDeCompra.resx">
+      <DependentUpon>frmFiltro_CotizacionDeCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Filtros\frmFiltro_ActualizarPrecios.resx">
+      <DependentUpon>frmFiltro_ActualizarPrecios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\frmGastosDeIngreso.resx">
+      <DependentUpon>frmGastosDeIngreso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\frmOrdenDeCompra.resx">
+      <DependentUpon>frmOrdenDeCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\frmInventario_Ingreso.resx">
+      <DependentUpon>frmInventario_Ingreso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Filtros\frmFiltro_Producto.resx">
+      <DependentUpon>frmFiltro_Producto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Archivo\frmRegularizacion.resx">
+      <DependentUpon>frmRegularizacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\frmFacturacion.resx">
+      <DependentUpon>frmFacturacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Filtros\frmFiltro_Proveedor.resx">
+      <DependentUpon>frmFiltro_Proveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Filtros\frmFiltro_Impuestos.resx">
+      <DependentUpon>frmFiltro_Impuestos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\frmInventario_Inicial.resx">
+      <DependentUpon>frmInventario_Inicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sistema\frmEquipos.resx">
+      <DependentUpon>frmEquipos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Archivo\frmEmpaque.resx">
+      <DependentUpon>frmEmpaque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Archivo\frmTipoDeProducto.resx">
+      <DependentUpon>frmTipoDeProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Archivo\frmGrupo.resx">
+      <DependentUpon>frmGrupo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="General\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Archivo\frmProveedor.resx">
+      <DependentUpon>frmProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Archivo\frmMarca.resx">
+      <DependentUpon>frmMarca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sistema\frmTipoDeCliente.resx">
+      <DependentUpon>frmTipoDeCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Archivo\frmProductos.resx">
+      <DependentUpon>frmProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Archivo\frmServicio.resx">
+      <DependentUpon>frmServicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Archivo\frmSucurzal.resx">
+      <DependentUpon>frmSucurzal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion Humana\frmDepartamento.resx">
+      <DependentUpon>frmDepartamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="General\frmMenuPrincipal.resx">
+      <DependentUpon>frmMenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion Humana\frmEmpleados.resx">
+      <DependentUpon>frmEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Tablas.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Tablas.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Titulos.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Titulos.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Almacen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BR_Agregar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BR_Cancelar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BR_Editar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BR_Eliminar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BR_Guardar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BR_Imprimir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BR_Nuevo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnExaminar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BV_Agregar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BV_Cancelar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BV_Editar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BV_Eliminar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BV_Guardar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BV_Imprimir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BV_Nuevo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Configuracion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gestion_Humana.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Productos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reportes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ventas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Negocio\Negocio.csproj">
+      <Project>{a7d5e2c3-46ef-4bbf-ab22-ba631316458b}</Project>
+      <Name>Negocio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SQL Server\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo_Leal_Enterprise.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fondo_LealEnterprise.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Icono_Leal_Enterprise.ico" />
+    <None Include="Resources\Producto - Cantidad de Compra.jpg" />
+    <None Include="Resources\btnPrecios.png" />
+    <None Include="Resources\Valor Final - Orden de Compra.jpg" />
+    <None Include="Resources\Empleados - Datos Financieros1.jpg" />
+    <None Include="Resources\Empleados - Datos Financieros.jpg" />
+    <None Include="Resources\Totalizacion - Cotizacion de Compra.jpg" />
+    <None Include="Resources\Valor Final - Cotizacion de Compra.jpg" />
+    <None Include="Resources\Orden de Compra - Totalizacion.jpg" />
+    <None Include="Resources\Producto - Valores  Iniciales.jpg" />
+    <None Include="Resources\Producto - Cantidad de Venta.jpg" />
+    <None Include="Resources\Totalizacion - Orden de Compra.jpg" />
+    <None Include="Resources\btnImprimir.png" />
+    <None Include="Resources\btnAgregar.png" />
+    <None Include="Resources\btnGuardar.png" />
+    <None Include="Resources\btnEliminar.png" />
+    <None Include="Resources\btnEditar.png" />
+    <None Include="Resources\btnCancelar.png" />
+    <None Include="Resources\x32-guardar.png" />
+    <None Include="Resources\Compras.png" />
+    <None Include="Resources\Financiera.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
