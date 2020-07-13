@@ -113,7 +113,7 @@ namespace Presentacion
             this.CBUnidad.SelectedIndex = 0;
             
             //
-            this.PB_Imagen.BackgroundImage = Properties.Resources.Logo_Leal_Enterprise;
+            this.PB_Imagen.Image = Properties.Resources.Logo_Leal_Enterprise;
         }
 
         private void Habilitar()
@@ -446,13 +446,6 @@ namespace Presentacion
             }
 
             //
-            //this.Mon_Promedio = TBCompraPromedio.Text;
-            //this.Mon_Final = TBCompraFinal.Text;
-            //this.Mon_Excento = TBValorVenta_Excento.Text;
-            //this.Mon_NoExcento = TBValorVenta_NoExcento.Text;
-            //this.Mon_Mayorista = TBVentaMayorista.Text;
-            //this.Mon_Comision = TBComision_Valor.Text;
-
             if (DGDetalles_Ubicacion.Rows.Count == 0)
             {
                 this.Tran_Ubicacion = "1";
@@ -507,7 +500,6 @@ namespace Presentacion
                 this.Tran_Proveedor = "0";
             }
         }
-
 
         private void Diseño_TablasGenerales()
         {
@@ -615,8 +607,6 @@ namespace Presentacion
                 this.DGDetalles_Lotes.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 this.DGDetalles_Lotes.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-
-
                 //************************************* Aliniacion de Emcabezados *************************************
 
                 //Panel Codigo de Barra
@@ -648,10 +638,12 @@ namespace Presentacion
                 this.DGDetalles_Lotes.Columns[4].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
                 //************************************* Ocultacion de Columnas *************************************
+                this.DGDetalles_Lotes.Columns[0].Visible = false; 
                 this.DGDetalle_Igualdad.Columns[0].Visible = false;
                 this.DGDetalle_Impuesto.Columns[0].Visible = false;
                 this.DGDetalle_Proveedor.Columns[0].Visible = false;
                 this.DGDetalles_Ubicacion.Columns[0].Visible = false;
+                this.DGDetalle_CodigoDeBarra.Columns[0].Visible = false;
 
             }
             catch (Exception ex)
@@ -690,7 +682,7 @@ namespace Presentacion
             }
         }
 
-        public void DetalleImpuesto_SQL(int idimpuesto, string impuesto, string valor)
+        public void DetalleImpuesto_SQL(int idproducto, int idimpuesto, string impuesto, string valor)
         {
             try
             {
@@ -707,6 +699,7 @@ namespace Presentacion
                 if (Agregar)
                 {
                     DataRow Fila = DtDetalle_Impuesto.NewRow();
+                    Fila["Idproducto"] = TBIdproducto_AutoSQL.Text;
                     Fila["Idimpuesto"] = idimpuesto;
                     Fila["Impuesto"] = impuesto;
                     Fila["Valor"] = valor;
@@ -719,7 +712,7 @@ namespace Presentacion
             }
         }
 
-        public void DetalleProveedor_SQL(int idproveedor, string proveedor, string documento)
+        public void DetalleProveedor_SQL(int idproducto, int idproveedor, string proveedor, string documento)
         {
             try
             {
@@ -736,6 +729,7 @@ namespace Presentacion
                 if (Agregar)
                 {
                     DataRow Fila = DtDetalle_Proveedor.NewRow();
+                    Fila["Idproducto"] = TBIdproducto_AutoSQL.Text;
                     Fila["Idproveedor"] = idproveedor;
                     Fila["Proveedor"] = proveedor;
                     Fila["Documento"] = documento;
@@ -764,50 +758,9 @@ namespace Presentacion
                     //Captura de Valores en la Base de Datos
 
                     Idproducto = Datos.Rows[0][0].ToString();
-                    //Nombre = Datos.Rows[0][1].ToString();
-                    //Descripcion = Datos.Rows[0][2].ToString();
-                    //Director = Datos.Rows[0][3].ToString();
-                    //Ciudad = Datos.Rows[0][4].ToString();
-                    //Telefono = Datos.Rows[0][5].ToString();
-                    //Movil = Datos.Rows[0][6].ToString();
-                    //Correo = Datos.Rows[0][7].ToString();
 
-                    //Recepcion = Datos.Rows[0][8].ToString();
-                    //Despacho = Datos.Rows[0][9].ToString();
-                    //InicioLaboral = Datos.Rows[0][10].ToString();
-                    //FinalLaboral = Datos.Rows[0][11].ToString();
-                    //Diadepagos = Datos.Rows[0][12].ToString();
-                    //Diadedespacho = Datos.Rows[0][13].ToString();
-                    //Medidas = Datos.Rows[0][14].ToString();
-                    //Direccion01 = Datos.Rows[0][15].ToString();
-                    //Direccion02 = Datos.Rows[0][16].ToString();
-                    //Documento = Datos.Rows[0][17].ToString();
-
-                    //Se procede a completar los campos de texto segun las consulta
-                    //Realizada anteriormente en la base de datos
-
+                    //Se procede a completar los campos de texto segun las consulta realizada anteriormente en la base de datos
                     this.TBIdproducto_AutoSQL.Text = Idproducto;
-
-                    //this.TBBodega.Text = Nombre;
-                    //this.TBDocumento.Text = Documento;
-                    //this.TBDescripcion.Text = Descripcion;
-                    //this.TBDirector.Text = Director;
-                    //this.TBCiudad.Text = Ciudad;
-                    //this.TBTelefono.Text = Telefono;
-                    //this.TBMovil.Text = Movil;
-                    //this.TBCorreo.Text = Correo;
-
-                    ////
-                    //this.TBRecepcion.Text = Recepcion;
-                    //this.TBDespacho.Text = Despacho;
-                    //this.TBInicioLaboral.Text = InicioLaboral;
-                    //this.TBFinalHorarioLaboral.Text = FinalLaboral;
-                    //this.TBMedidas.Text = Medidas;
-                    //this.TBDiadepagos.Text = Diadepagos;
-                    //this.TBDespacho.Text = Despacho;
-                    //this.TBDireccion01.Text = Direccion01;
-                    //this.TBDireccion02.Text = Direccion02;
-
                 }
             }
             catch (Exception ex)
@@ -836,16 +789,6 @@ namespace Presentacion
                 {
                     MensajeError("Ingrese el Codigo del Producto");
                 }
-
-                //else if (DGDetalle_Impuesto.DataSource == null)
-                //{
-                //    MensajeError("Por Favor Cargue el Impuesto del Producto a Registrar");
-                //}
-                //else if (DGDetalle_Proveedor.DataSource == null)
-                //{
-                //    MensajeError("Por Favor Cargue el Proveedor que Distribuye el Producto a Registrar");
-                //}
-
                 else if (this.CBGrupo.SelectedIndex == 0)
                 {
                     MensajeError("Seleccione el Grupo al cual pertenece el Producto");
@@ -855,13 +798,6 @@ namespace Presentacion
                     MensajeError("Seleccione la Marca del Producto");
                 }
 
-                //else if (this.DGDetalles_Ubicacion.DataSource == null)
-                //{
-                //    MensajeError("Seleccione la Bodega donde se Ubicara el Producto");
-                //    this.TCPrincipal.SelectedIndex = 2;
-                //    this.TBUbicacion.Select();
-                //}
-
                 else
                 {
                     //Parametros para poder guardar la imagen del producto
@@ -870,7 +806,6 @@ namespace Presentacion
                     this.PB_Imagen.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
 
                     byte[] Imagen_Producto = ms.GetBuffer();
-
 
                     this.Validaciones_SQL();
 
@@ -905,9 +840,11 @@ namespace Presentacion
                                  Imagen_Producto,
 
                                  //Variables Para Confirmar el Insertar en la Transaccion en SQL
+                                 //Donde esten las Validaciones IF NOT
                                  1, 1, 1, 1, 1, 1,
 
                                  //Variables para Ordenar Si se Ejecutan o No las Transacciones en SQL
+                                 //Si los Datagriview estan vacios seran Iguales a 0 Si Tienen Datos Seran Iguales a 1
                                  Convert.ToInt32(Tran_Ubicacion), Convert.ToInt32(Tran_Igualdad), Convert.ToInt32(Tran_Lote), Convert.ToInt32(Tran_CodBarra),
                                  Convert.ToInt32(Tran_Proveedor), Convert.ToInt32(Tran_Impuesto),
 
@@ -1092,6 +1029,7 @@ namespace Presentacion
                 {
 
                     DataRow fila = this.DtDetalle_Ubicacion.NewRow();
+                    fila["Idproducto"] = Convert.ToInt32(this.TBIdproducto_AutoSQL.Text);
                     fila["Idbodega"] = Convert.ToInt32(this.CBBodega.SelectedValue);
                     fila["Ubicacion"] = this.TBUbicacion.Text;
                     fila["Estante"] = this.TBEstante.Text;
@@ -1099,6 +1037,7 @@ namespace Presentacion
                     this.DtDetalle_Ubicacion.Rows.Add(fila);
 
                     //
+                    this.CBBodega.SelectedIndex = 0;
                     this.TBUbicacion.Clear();
                     this.TBEstante.Clear();
                     this.TBNivel.Clear();
@@ -1149,6 +1088,7 @@ namespace Presentacion
                     if (agregar)
                     {
                         DataRow fila = this.DtDetalle_CodigoDeBarra.NewRow();
+                        fila["Idproducto"] = Convert.ToInt32(this.TBIdproducto_AutoSQL.Text);
                         fila["Codigo de Barra"] = this.TBBuscar_CodigodeBarra.Text;
                         this.DtDetalle_CodigoDeBarra.Rows.Add(fila);
                     }
@@ -2770,6 +2710,7 @@ namespace Presentacion
                     if (agregar)
                     {
                         DataRow fila = this.DtDetalle_Proveedor.NewRow();
+                        fila["Idproducto"] = Convert.ToInt32(this.TBIdproducto_AutoSQL.Text);
                         fila["Idproveedor"] = Convert.ToInt32(this.TBIdproveedor.Text);
                         fila["Proveedor"] = this.TBBuscar_Proveedor.Text;
                         fila["Documento"] = this.TBEstante.Text;
@@ -2823,6 +2764,7 @@ namespace Presentacion
                     if (agregar)
                     {
                         DataRow fila = this.DtDetalle_Lote.NewRow();
+                        fila["Idproducto"] = Convert.ToInt32(this.TBIdproducto_AutoSQL.Text);
                         fila["Lote"] = this.TBLotedeingreso.Text;
                         fila["Valor de Compra"] = this.TBValor_Lote.Text;
                         fila["Valor de Venta"] = this.TBLote_Venta.Text;
@@ -2930,6 +2872,7 @@ namespace Presentacion
                     {
                         this.DetalleImpuesto_SQL
                             (
+                                Convert.ToInt32(this.TBIdproducto_AutoSQL.Text),
                                 Convert.ToInt32(Tabla.Rows[0][0]),
                                 Convert.ToString(Tabla.Rows[0][1]),
                                 Convert.ToString(Tabla.Rows[0][2])
@@ -2965,6 +2908,7 @@ namespace Presentacion
                     {
                         this.DetalleProveedor_SQL
                             (
+                                DGDetalle_Proveedor.Rows.Add(TBIdproducto_AutoSQL.Text),
                                 Convert.ToInt32(Tabla.Rows[0][0]),
                                 Convert.ToString(Tabla.Rows[0][1]),
                                 Convert.ToString(Tabla.Rows[0][2])
@@ -4754,69 +4698,69 @@ namespace Presentacion
 
         private void TBIdproducto_AutoSQL_TextChanged(object sender, EventArgs e)
         {
-            try
-            {
-                DataTable Datos = Negocio.fProductos.AutoComplementar_SQL(Convert.ToInt32(this.TBIdproducto_AutoSQL.Text));
-                //Evaluamos si  existen los Datos
-                if (Datos.Rows.Count == 0)
-                {
-                    MessageBox.Show("Actualmente no se encuentran registros en la Base de Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    //Captura de Valores en la Base de Datos
+            //try
+            //{
+            //    DataTable Datos = Negocio.fProductos.AutoComplementar_SQL(Convert.ToInt32(this.TBIdproducto_AutoSQL.Text));
+            //    //Evaluamos si  existen los Datos
+            //    if (Datos.Rows.Count == 0)
+            //    {
+            //        MessageBox.Show("Actualmente no se encuentran registros en la Base de Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    }
+            //    else
+            //    {
+            //        //Captura de Valores en la Base de Datos
 
-                    Idproducto = Datos.Rows[0][0].ToString();
-                    //Nombre = Datos.Rows[0][1].ToString();
-                    //Descripcion = Datos.Rows[0][2].ToString();
-                    //Director = Datos.Rows[0][3].ToString();
-                    //Ciudad = Datos.Rows[0][4].ToString();
-                    //Telefono = Datos.Rows[0][5].ToString();
-                    //Movil = Datos.Rows[0][6].ToString();
-                    //Correo = Datos.Rows[0][7].ToString();
+            //        Idproducto = Datos.Rows[0][0].ToString();
+            //        //Nombre = Datos.Rows[0][1].ToString();
+            //        //Descripcion = Datos.Rows[0][2].ToString();
+            //        //Director = Datos.Rows[0][3].ToString();
+            //        //Ciudad = Datos.Rows[0][4].ToString();
+            //        //Telefono = Datos.Rows[0][5].ToString();
+            //        //Movil = Datos.Rows[0][6].ToString();
+            //        //Correo = Datos.Rows[0][7].ToString();
 
-                    //Recepcion = Datos.Rows[0][8].ToString();
-                    //Despacho = Datos.Rows[0][9].ToString();
-                    //InicioLaboral = Datos.Rows[0][10].ToString();
-                    //FinalLaboral = Datos.Rows[0][11].ToString();
-                    //Diadepagos = Datos.Rows[0][12].ToString();
-                    //Diadedespacho = Datos.Rows[0][13].ToString();
-                    //Medidas = Datos.Rows[0][14].ToString();
-                    //Direccion01 = Datos.Rows[0][15].ToString();
-                    //Direccion02 = Datos.Rows[0][16].ToString();
-                    //Documento = Datos.Rows[0][17].ToString();
+            //        //Recepcion = Datos.Rows[0][8].ToString();
+            //        //Despacho = Datos.Rows[0][9].ToString();
+            //        //InicioLaboral = Datos.Rows[0][10].ToString();
+            //        //FinalLaboral = Datos.Rows[0][11].ToString();
+            //        //Diadepagos = Datos.Rows[0][12].ToString();
+            //        //Diadedespacho = Datos.Rows[0][13].ToString();
+            //        //Medidas = Datos.Rows[0][14].ToString();
+            //        //Direccion01 = Datos.Rows[0][15].ToString();
+            //        //Direccion02 = Datos.Rows[0][16].ToString();
+            //        //Documento = Datos.Rows[0][17].ToString();
 
-                    //Se procede a completar los campos de texto segun las consulta
-                    //Realizada anteriormente en la base de datos
+            //        //Se procede a completar los campos de texto segun las consulta
+            //        //Realizada anteriormente en la base de datos
 
-                    this.TBIdproducto_AutoSQL.Text = Idproducto;
+            //        this.TBIdproducto_AutoSQL.Text = Idproducto;
 
-                    //this.TBBodega.Text = Nombre;
-                    //this.TBDocumento.Text = Documento;
-                    //this.TBDescripcion.Text = Descripcion;
-                    //this.TBDirector.Text = Director;
-                    //this.TBCiudad.Text = Ciudad;
-                    //this.TBTelefono.Text = Telefono;
-                    //this.TBMovil.Text = Movil;
-                    //this.TBCorreo.Text = Correo;
+            //        //this.TBBodega.Text = Nombre;
+            //        //this.TBDocumento.Text = Documento;
+            //        //this.TBDescripcion.Text = Descripcion;
+            //        //this.TBDirector.Text = Director;
+            //        //this.TBCiudad.Text = Ciudad;
+            //        //this.TBTelefono.Text = Telefono;
+            //        //this.TBMovil.Text = Movil;
+            //        //this.TBCorreo.Text = Correo;
 
-                    ////
-                    //this.TBRecepcion.Text = Recepcion;
-                    //this.TBDespacho.Text = Despacho;
-                    //this.TBInicioLaboral.Text = InicioLaboral;
-                    //this.TBFinalHorarioLaboral.Text = FinalLaboral;
-                    //this.TBMedidas.Text = Medidas;
-                    //this.TBDiadepagos.Text = Diadepagos;
-                    //this.TBDespacho.Text = Despacho;
-                    //this.TBDireccion01.Text = Direccion01;
-                    //this.TBDireccion02.Text = Direccion02;
+            //        ////
+            //        //this.TBRecepcion.Text = Recepcion;
+            //        //this.TBDespacho.Text = Despacho;
+            //        //this.TBInicioLaboral.Text = InicioLaboral;
+            //        //this.TBFinalHorarioLaboral.Text = FinalLaboral;
+            //        //this.TBMedidas.Text = Medidas;
+            //        //this.TBDiadepagos.Text = Diadepagos;
+            //        //this.TBDespacho.Text = Despacho;
+            //        //this.TBDireccion01.Text = Direccion01;
+            //        //this.TBDireccion02.Text = Direccion02;
 
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message + ex.StackTrace);
+            //}
         }
 
         private void btnExaminar_Proveedor_Click(object sender, EventArgs e)
@@ -5872,7 +5816,7 @@ namespace Presentacion
                     if (TBBuscar.Text != "")
                     {
                         this.DGResultados.DataSource = fProductos.Buscar(this.TBBuscar.Text, 1);
-                        this.DGResultados.Columns[0].Visible = false;
+                        //this.DGResultados.Columns[0].Visible = false;
 
                         lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGResultados.Rows.Count);
 
@@ -6109,19 +6053,19 @@ namespace Presentacion
         {
             try
             {
-                this.Digitar = false;
-
                 if (Editar == "1")
                 {
                     this.TBIdproducto.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells["ID"].Value);
                     this.TBNombre.Select();
 
                     //
+                    this.Digitar = false;
                     this.Botones();
                 }
                 else
                 {
                     MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Actualizar Datos en el Sistema", "Leal Enterprise - 'Acceso Denegado' ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
                 }
             }
             catch (Exception ex)

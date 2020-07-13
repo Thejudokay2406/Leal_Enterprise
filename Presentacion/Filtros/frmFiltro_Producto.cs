@@ -17,9 +17,9 @@ namespace Presentacion
         //********** Parametros para AutoCompletar los Texboxt **********************************
 
         //Panel Datos Basicos
-        private string Codigo, Nombre, Referencia, Descripcion, Presentacion = "";
-        private string Marca, Unidad, UnidadDeVenta, CantidadMinimaCliente, CantidadMaximaCliente = "";
-        private string CantidadMinimaMayorista, CantidadMaximaMayorista, Bodega, Stock, Lote = "";
+        private string Codigo, Nombre, Referencia, Descripcion, Presentacion, Bodega, Lote, Marca, Unidad = "";
+        private string CompraMinimaCliente, CompraMaximaCliente, CompraMinimaMayorista, CompraMaximaMayorista = "";
+        private string VentaMinimaCliente, VentaMaximaCliente, VentaMinimaMayorista, VentaMaximaMayorista = "";
 
         //***************************************************************************************
 
@@ -28,13 +28,14 @@ namespace Presentacion
             InitializeComponent();
         }
 
+
         private void frmFiltro_Producto_Load(object sender, EventArgs e)
         {
             //Inicio de Clase y Botones
             this.Habilitar();
 
             //Focus a Texboxt y Combobox
-            this.TBBuscar.Select();
+            this.TBBuscar_General.Select();
 
             //Ocultacion de Texboxt
             this.TBIdproducto.Visible = false;
@@ -68,22 +69,20 @@ namespace Presentacion
             this.TBMarca.BackColor = Color.FromArgb(3, 155, 229);
             this.TBUnidad.ReadOnly = true;
             this.TBUnidad.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBUnidadDeVenta.ReadOnly = true;
-            this.TBUnidadDeVenta.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBMininoCliente.ReadOnly = true;
-            this.TBMininoCliente.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBMaximoCliente.ReadOnly = true;
-            this.TBMaximoCliente.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBMinimoMayorista.ReadOnly = true;
-            this.TBMinimoMayorista.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBMaximaMayorista.ReadOnly = true;
-            this.TBMaximaMayorista.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBUnidad_Valor.ReadOnly = true;
+            this.TBUnidad_Valor.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBComMin_Cliente.ReadOnly = true;
+            this.TBComMin_Cliente.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBComMax_Cliente.ReadOnly = true;
+            this.TBComMax_Cliente.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBComMin_Mayorista.ReadOnly = true;
+            this.TBComMin_Mayorista.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBComMax_Mayorista.ReadOnly = true;
+            this.TBComMax_Mayorista.BackColor = Color.FromArgb(3, 155, 229);
             this.TBBodega.ReadOnly = true;
             this.TBBodega.BackColor = Color.FromArgb(3, 155, 229);
             this.TBStock.ReadOnly = true;
             this.TBStock.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBlote.ReadOnly = true;
-            this.TBlote.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void Limpiar_Datos()
@@ -94,15 +93,14 @@ namespace Presentacion
             this.TBDescripcion01.Clear();
             this.TBPresentacion.Clear();
             this.TBMarca.Clear();
-            this.TBUnidad.Clear();
-            this.TBUnidadDeVenta.Clear();
-            this.TBMininoCliente.Clear();
-            this.TBMaximoCliente.Clear();
-            this.TBMinimoMayorista.Clear();
-            this.TBMaximaMayorista.Clear();
+            this.TBComMin_Cliente.Clear();
+            this.TBComMax_Cliente.Clear();
+            this.TBComMin_Mayorista.Clear();
+            this.TBComMax_Mayorista.Clear();
             this.TBBodega.Clear();
             this.TBStock.Clear();
-            this.TBlote.Clear();
+            this.TBUnidad.Clear();
+            this.TBUnidad_Valor.Clear();
         }
     
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -119,32 +117,32 @@ namespace Presentacion
 
                 if (frmBI.Examinar)
                 {   
-                    idproducto = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
-                    producto = Convert.ToString(this.DGFiltro_Resultados.CurrentRow.Cells[2].Value);
+                    idproducto = this.DGFiltro_General.CurrentRow.Cells[0].Value.ToString();
+                    producto = Convert.ToString(this.DGFiltro_General.CurrentRow.Cells[2].Value);
                     frmBI.setProducto(idproducto, producto);
                     this.Hide();
                 }
 
                 if (frmOC.Examinar)
                 {
-                    idproducto = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
-                    producto = Convert.ToString(this.DGFiltro_Resultados.CurrentRow.Cells[2].Value);
+                    idproducto = this.DGFiltro_General.CurrentRow.Cells[0].Value.ToString();
+                    producto = Convert.ToString(this.DGFiltro_General.CurrentRow.Cells[2].Value);
                     frmOC.setProducto(idproducto, producto);
                     this.Hide();
                 }
 
                 if (frmCot.Examinar)
                 {
-                    idproducto = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
-                    producto = Convert.ToString(this.DGFiltro_Resultados.CurrentRow.Cells[2].Value);
+                    idproducto = this.DGFiltro_General.CurrentRow.Cells[0].Value.ToString();
+                    producto = Convert.ToString(this.DGFiltro_General.CurrentRow.Cells[2].Value);
                     frmCot.setProducto(idproducto, producto);
                     this.Hide();
                 }
 
                 if (frmOCom.Examinar)
                 {
-                    idproducto = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
-                    producto = Convert.ToString(this.DGFiltro_Resultados.CurrentRow.Cells[2].Value);
+                    idproducto = this.DGFiltro_General.CurrentRow.Cells[0].Value.ToString();
+                    producto = Convert.ToString(this.DGFiltro_General.CurrentRow.Cells[2].Value);
                     frmOCom.setProducto(idproducto, producto);
                     this.Hide();
                 }
@@ -155,38 +153,43 @@ namespace Presentacion
             }
         }
 
+        private void btnAgregar_Lotes_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void TBBuscar_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                if (TBBuscar.Text != "")
+                if (TBBuscar_General.Text != "")
                 {
-                    this.DGFiltro_Resultados.DataSource = fProductos.Buscar(this.TBBuscar.Text, 1);
-                    this.DGFiltro_Resultados.Columns[0].Visible = false;
+                    this.DGFiltro_General.DataSource = fProductos.Buscar(this.TBBuscar_General.Text, 1);
+                    this.DGFiltro_General.Columns[0].Visible = false;
                     
-                    this.lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGFiltro_Resultados.Rows.Count);
+                    this.lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGFiltro_General.Rows.Count);
 
                     this.btnAgregar.Enabled = true;
-                    this.DGFiltro_Resultados.Enabled = true;
+                    this.DGFiltro_General.Enabled = true;
 
-                    this.DGFiltro_Resultados.Columns[1].Width = 120;
-                    this.DGFiltro_Resultados.Columns[2].Width = 337;
+                    this.DGFiltro_General.Columns[1].Width = 120;
+                    this.DGFiltro_General.Columns[2].Width = 337;
 
                     //Aliniacion de las Celdas de Cada Columna
-                    this.DGFiltro_Resultados.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    this.DGFiltro_Resultados.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    this.DGFiltro_General.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    this.DGFiltro_General.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
                     //Alineacion de los Encabezados de Cada Columna
-                    this.DGFiltro_Resultados.Columns[1].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    this.DGFiltro_Resultados.Columns[2].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    this.DGFiltro_General.Columns[1].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    this.DGFiltro_General.Columns[2].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 }
                 else
                 {
                     this.Limpiar_Datos();
 
                     //Se Limpian las Filas y Columnas de la tabla
-                    this.DGFiltro_Resultados.DataSource = null;
-                    this.DGFiltro_Resultados.Enabled = false;
+                    this.DGFiltro_General.DataSource = null;
+                    this.DGFiltro_General.Enabled = false;
                     this.lblTotal.Text = "Datos Registrados: 0";
 
                     this.btnAgregar.Enabled = false;
@@ -197,7 +200,12 @@ namespace Presentacion
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
-        
+
+        private void TBBuscar_Filtro_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void TBIdproducto_TextChanged(object sender, EventArgs e)
         {
             try
@@ -213,21 +221,23 @@ namespace Presentacion
                     //Captura de Valores en la Base de Datos
 
                     //Panel Datos Basicos
-                    Codigo = Datos.Rows[0][7].ToString();
-                    Nombre = Datos.Rows[0][8].ToString();
-                    Referencia = Datos.Rows[0][9].ToString();
-                    Descripcion = Datos.Rows[0][10].ToString();
-                    Presentacion = Datos.Rows[0][11].ToString();
-                    Stock = Datos.Rows[0][14].ToString();
-                    Unidad = Datos.Rows[0][15].ToString();
-                    UnidadDeVenta = Datos.Rows[0][16].ToString();
-                    CantidadMinimaCliente = Datos.Rows[0][32].ToString();
-                    CantidadMaximaCliente = Datos.Rows[0][33].ToString();
-                    CantidadMinimaMayorista = Datos.Rows[0][34].ToString();
-                    CantidadMaximaMayorista = Datos.Rows[0][35].ToString();
-                    Bodega = Datos.Rows[0][36].ToString();
-                    Lote = Datos.Rows[0][40].ToString();
-                    Marca = Datos.Rows[0][44].ToString();
+                    Codigo = Datos.Rows[0][4].ToString();
+                    Nombre = Datos.Rows[0][5].ToString();
+                    Referencia = Datos.Rows[0][6].ToString();
+                    Descripcion = Datos.Rows[0][7].ToString();
+                    Presentacion = Datos.Rows[0][8].ToString();
+                    Unidad = Datos.Rows[0][11].ToString();
+                    VentaMinimaCliente = Datos.Rows[0][29].ToString();
+                    VentaMaximaCliente = Datos.Rows[0][30].ToString();
+                    VentaMinimaMayorista = Datos.Rows[0][31].ToString();
+                    VentaMaximaMayorista = Datos.Rows[0][32].ToString();
+                    CompraMinimaCliente = Datos.Rows[0][33].ToString();
+                    CompraMaximaCliente = Datos.Rows[0][34].ToString();
+                    CompraMinimaMayorista = Datos.Rows[0][35].ToString();
+                    CompraMaximaMayorista = Datos.Rows[0][36].ToString();
+                    //Bodega = Datos.Rows[0][36].ToString();
+                    //Lote = Datos.Rows[0][40].ToString();
+                    //Marca = Datos.Rows[0][44].ToString();
                     
                     //Se lleva acabo el complemento de los campos de Texto
                     this.TBCodigo.Text = Codigo;
@@ -237,14 +247,17 @@ namespace Presentacion
                     this.TBPresentacion.Text = Presentacion;
                     this.TBMarca.Text = Marca;
                     this.TBUnidad.Text = Unidad;
-                    this.TBUnidadDeVenta.Text = UnidadDeVenta;
-                    this.TBMininoCliente.Text = CantidadMinimaCliente;
-                    this.TBMaximoCliente.Text = CantidadMaximaCliente;
-                    this.TBMinimoMayorista.Text = CantidadMinimaMayorista;
-                    this.TBMaximaMayorista.Text = CantidadMaximaMayorista;
-                    this.TBBodega.Text = Bodega;
-                    this.TBStock.Text = Stock;
-                    this.TBlote.Text = Lote;
+                    this.TBComMin_Cliente.Text = CompraMinimaCliente;
+                    this.TBComMax_Cliente.Text = CompraMaximaCliente;
+                    this.TBComMin_Mayorista.Text = CompraMinimaMayorista;
+                    this.TBComMax_Mayorista.Text = CompraMaximaMayorista;
+                    this.TBVenMin_Personal.Text = VentaMinimaCliente;
+                    this.TBVenMax_Personal.Text = VentaMaximaCliente;
+                    this.TBVenMin_Mayorista.Text = VentaMinimaMayorista;
+                    this.TBVenMax_Mayorista.Text = VentaMaximaMayorista;
+                    //this.TBBodega.Text = Bodega;
+                    //this.TBStock.Text = Stock;
+                    this.TBUnidad.Text = Lote;
 
                 }
             }
@@ -258,7 +271,7 @@ namespace Presentacion
         {
             try
             {
-                this.TBIdproducto.Text = this.DGFiltro_Resultados.CurrentRow.Cells["ID"].Value.ToString();
+                this.TBIdproducto.Text = this.DGFiltro_General.CurrentRow.Cells["ID"].Value.ToString();
             }
             catch (Exception ex)
             {
@@ -273,12 +286,12 @@ namespace Presentacion
 
         private void TBBuscar_Enter(object sender, EventArgs e)
         {
-            this.TBBuscar.BackColor = Color.Azure;
+            this.TBBuscar_General.BackColor = Color.Azure;
         }
 
         private void TBBuscar_Leave(object sender, EventArgs e)
         {
-            this.TBBuscar.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBBuscar_General.BackColor = Color.FromArgb(3, 155, 229);
         }
     }
 }

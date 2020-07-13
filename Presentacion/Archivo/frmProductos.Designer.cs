@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProductos));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TBIdproducto_AutoSQL = new System.Windows.Forms.TextBox();
             this.TBIdproveedor = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.TCPrincipal = new System.Windows.Forms.TabControl();
@@ -190,7 +191,6 @@
             this.TBBuscar = new System.Windows.Forms.TextBox();
             this.lblTotal = new System.Windows.Forms.Label();
             this.DGResultados = new System.Windows.Forms.DataGridView();
-            this.TBIdproducto_AutoSQL = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.TCPrincipal.SuspendLayout();
             this.TPDatosBasicos.SuspendLayout();
@@ -232,6 +232,14 @@
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Leal Enterprise - Registro de Productos";
+            // 
+            // TBIdproducto_AutoSQL
+            // 
+            this.TBIdproducto_AutoSQL.Location = new System.Drawing.Point(273, 460);
+            this.TBIdproducto_AutoSQL.Name = "TBIdproducto_AutoSQL";
+            this.TBIdproducto_AutoSQL.Size = new System.Drawing.Size(18, 21);
+            this.TBIdproducto_AutoSQL.TabIndex = 14;
+            this.TBIdproducto_AutoSQL.TextChanged += new System.EventHandler(this.TBIdproducto_AutoSQL_TextChanged);
             // 
             // TBIdproveedor
             // 
@@ -2623,19 +2631,12 @@
             this.DGResultados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGResultados_CellDoubleClick);
             this.DGResultados.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DGResultados_KeyPress);
             // 
-            // TBIdproducto_AutoSQL
-            // 
-            this.TBIdproducto_AutoSQL.Location = new System.Drawing.Point(273, 460);
-            this.TBIdproducto_AutoSQL.Name = "TBIdproducto_AutoSQL";
-            this.TBIdproducto_AutoSQL.Size = new System.Drawing.Size(18, 21);
-            this.TBIdproducto_AutoSQL.TabIndex = 14;
-            this.TBIdproducto_AutoSQL.TextChanged += new System.EventHandler(this.TBIdproducto_AutoSQL_TextChanged);
-            // 
             // frmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1049, 513);
             this.Controls.Add(this.groupBox2);
