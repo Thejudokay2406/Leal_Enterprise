@@ -67,6 +67,10 @@ namespace Presentacion
             this.TBPresentacion.BackColor = Color.FromArgb(3, 155, 229);
             this.TBMarca.ReadOnly = true;
             this.TBMarca.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBBodega.ReadOnly = true;
+            this.TBBodega.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBStock.ReadOnly = true;
+            this.TBStock.BackColor = Color.FromArgb(3, 155, 229);
             this.TBUnidad.ReadOnly = true;
             this.TBUnidad.BackColor = Color.FromArgb(3, 155, 229);
             this.TBUnidad_Valor.ReadOnly = true;
@@ -79,10 +83,14 @@ namespace Presentacion
             this.TBComMin_Mayorista.BackColor = Color.FromArgb(3, 155, 229);
             this.TBComMax_Mayorista.ReadOnly = true;
             this.TBComMax_Mayorista.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBBodega.ReadOnly = true;
-            this.TBBodega.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBStock.ReadOnly = true;
-            this.TBStock.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBVenMax_Mayorista.ReadOnly = true;
+            this.TBVenMax_Mayorista.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBVenMax_Personal.ReadOnly = true;
+            this.TBVenMax_Personal.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBVenMin_Mayorista.ReadOnly = true;
+            this.TBVenMin_Mayorista.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBVenMin_Personal.ReadOnly = true;
+            this.TBVenMin_Personal.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void Limpiar_Datos()
@@ -93,14 +101,18 @@ namespace Presentacion
             this.TBDescripcion01.Clear();
             this.TBPresentacion.Clear();
             this.TBMarca.Clear();
-            this.TBComMin_Cliente.Clear();
-            this.TBComMax_Cliente.Clear();
-            this.TBComMin_Mayorista.Clear();
-            this.TBComMax_Mayorista.Clear();
             this.TBBodega.Clear();
             this.TBStock.Clear();
             this.TBUnidad.Clear();
             this.TBUnidad_Valor.Clear();
+            this.TBComMin_Cliente.Clear();
+            this.TBComMax_Cliente.Clear();
+            this.TBComMin_Mayorista.Clear();
+            this.TBComMax_Mayorista.Clear();
+            this.TBVenMax_Mayorista.Clear();
+            this.TBVenMax_Personal.Clear();
+            this.TBVenMin_Mayorista.Clear();
+            this.TBVenMin_Personal.Clear();
         }
     
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -235,10 +247,10 @@ namespace Presentacion
                     CompraMaximaCliente = Datos.Rows[0][34].ToString();
                     CompraMinimaMayorista = Datos.Rows[0][35].ToString();
                     CompraMaximaMayorista = Datos.Rows[0][36].ToString();
+                    Marca = Datos.Rows[0][38].ToString();
                     //Bodega = Datos.Rows[0][36].ToString();
                     //Lote = Datos.Rows[0][40].ToString();
-                    //Marca = Datos.Rows[0][44].ToString();
-                    
+
                     //Se lleva acabo el complemento de los campos de Texto
                     this.TBCodigo.Text = Codigo;
                     this.TBNombre.Text = Nombre;
@@ -257,7 +269,7 @@ namespace Presentacion
                     this.TBVenMax_Mayorista.Text = VentaMaximaMayorista;
                     //this.TBBodega.Text = Bodega;
                     //this.TBStock.Text = Stock;
-                    this.TBUnidad.Text = Lote;
+                    //this.TBUnidad.Text = Lote;
 
                 }
             }
