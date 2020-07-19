@@ -156,6 +156,12 @@
     <Compile Include="Filtros\frmFiltro_ActualizarPrecios.Designer.cs">
       <DependentUpon>frmFiltro_ActualizarPrecios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sistema\frmCodigoID_Productos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sistema\frmCodigoID_Productos.Designer.cs">
+      <DependentUpon>frmCodigoID_Productos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inventario\frmInventario_Inicial.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -325,43 +325,50 @@ namespace Presentacion
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (Eliminar == "1")
+            try
             {
-                DialogResult Opcion;
-                string Respuesta = "";
-                int Eliminacion;
-
-                Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-                if (Opcion == DialogResult.OK)
+                if (Eliminar == "1")
                 {
-                    if (DGResultados.SelectedRows.Count > 0)
-                    {
-                        Eliminacion = Convert.ToInt32(DGResultados.CurrentRow.Cells["Codigo"].Value.ToString());
-                        Respuesta = Negocio.fBodega.Eliminar(Eliminacion, 0);
-                    }
+                    DialogResult Opcion;
+                    string Respuesta = "";
+                    int Eliminacion;
 
-                    if (Respuesta.Equals("OK"))
-                    {
-                        this.MensajeOk("Registro Eliminado Correctamente");
-                    }
-                    else
-                    {
-                        this.MensajeError(Respuesta);
-                    }
+                    Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
-                    //Botones Comunes
-                    this.Limpiar_Datos();
-                    this.TBBuscar.Clear();
+                    if (Opcion == DialogResult.OK)
+                    {
+                        if (DGResultados.SelectedRows.Count > 0)
+                        {
+                            Eliminacion = Convert.ToInt32(DGResultados.CurrentRow.Cells["Codigo"].Value.ToString());
+                            Respuesta = Negocio.fBodega.Eliminar(Eliminacion, 0);
+                        }
 
-                    //Se regresa el focus al campo principal
-                    this.TCPrincipal.SelectedIndex = 0;
-                    this.TBBodega.Select();
+                        if (Respuesta.Equals("OK"))
+                        {
+                            this.MensajeOk("Registro Eliminado Correctamente");
+                        }
+                        else
+                        {
+                            this.MensajeError(Respuesta);
+                        }
+
+                        //Botones Comunes
+                        this.Limpiar_Datos();
+                        this.TBBuscar.Clear();
+
+                        //Se regresa el focus al campo principal
+                        this.TCPrincipal.SelectedIndex = 0;
+                        this.TBBodega.Select();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
 
