@@ -181,6 +181,14 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
+            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ubicacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.codigosDeBarraToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.igualdadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.impuestosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.proveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lotesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -196,6 +204,7 @@
             this.financieraToolStripMenuItem,
             this.gestionHumanaToolStripMenuItem,
             this.operacionesToolStripMenuItem,
+            this.reportesToolStripMenuItem,
             this.sistemaToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
@@ -1306,6 +1315,63 @@
             this.toolStripLabel5.Size = new System.Drawing.Size(37, 22);
             this.toolStripLabel5.Text = "------";
             // 
+            // reportesToolStripMenuItem
+            // 
+            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.productosToolStripMenuItem});
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 36);
+            this.reportesToolStripMenuItem.Text = "Reportes";
+            // 
+            // productosToolStripMenuItem
+            // 
+            this.productosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.codigosDeBarraToolStripMenuItem1,
+            this.igualdadToolStripMenuItem,
+            this.impuestosToolStripMenuItem,
+            this.proveedoresToolStripMenuItem,
+            this.lotesToolStripMenuItem1,
+            this.ubicacionToolStripMenuItem});
+            this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
+            this.productosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.productosToolStripMenuItem.Text = "Productos";
+            // 
+            // ubicacionToolStripMenuItem
+            // 
+            this.ubicacionToolStripMenuItem.Name = "ubicacionToolStripMenuItem";
+            this.ubicacionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ubicacionToolStripMenuItem.Text = "Ubicacion";
+            // 
+            // codigosDeBarraToolStripMenuItem1
+            // 
+            this.codigosDeBarraToolStripMenuItem1.Name = "codigosDeBarraToolStripMenuItem1";
+            this.codigosDeBarraToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.codigosDeBarraToolStripMenuItem1.Text = "Codigos de Barra";
+            // 
+            // igualdadToolStripMenuItem
+            // 
+            this.igualdadToolStripMenuItem.Name = "igualdadToolStripMenuItem";
+            this.igualdadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.igualdadToolStripMenuItem.Text = "Igualdad";
+            // 
+            // impuestosToolStripMenuItem
+            // 
+            this.impuestosToolStripMenuItem.Name = "impuestosToolStripMenuItem";
+            this.impuestosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.impuestosToolStripMenuItem.Text = "Impuestos";
+            // 
+            // proveedoresToolStripMenuItem
+            // 
+            this.proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
+            this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.proveedoresToolStripMenuItem.Text = "Proveedores";
+            // 
+            // lotesToolStripMenuItem1
+            // 
+            this.lotesToolStripMenuItem1.Name = "lotesToolStripMenuItem1";
+            this.lotesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.lotesToolStripMenuItem1.Text = "Lotes";
+            // 
             // frmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1488,6 +1554,14 @@
         private System.Windows.Forms.ToolStripMenuItem tiposDePagoToolStripMenuItem;
         private System.Windows.Forms.ToolStripLabel toolStripLabel3;
         private System.Windows.Forms.ToolStripLabel toolStripLabel5;
+        private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem productosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ubicacionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem codigosDeBarraToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem igualdadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem impuestosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem proveedoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lotesToolStripMenuItem1;
     }
 }
 

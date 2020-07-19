@@ -327,7 +327,6 @@ namespace Presentacion
         {
             if (Eliminar == "1")
             {
-
                 DialogResult Opcion;
                 string Respuesta = "";
                 int Eliminacion;

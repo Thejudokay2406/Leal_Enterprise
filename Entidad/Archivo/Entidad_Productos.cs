@@ -87,6 +87,21 @@ namespace Entidad
         private int _Tran_CodBarra;
         private int _Tran_Lote;
 
+        //Datos Para Filtrar los Multiples registro del Producto Como Ubicacion, Lotes ETC
+        private int _Auto_Ubicacion;
+        private int _Auto_Igualdad;
+        private int _Auto_Impuesto;
+        private int _Auto_Proveedor;
+        private int _Auto_CodBarra;
+        private int _Auto_Lote;
+
+        private int _Det_Ubicacion;
+        private int _Det_Igualdad;
+        private int _Det_Impuesto;
+        private int _Det_Proveedor;
+        private int _Det_CodBarra;
+        private int _Det_Lote;
+
         //Datos Auxiliares
         private int _Auto;
         private int _Eliminar;
@@ -155,5 +170,17 @@ namespace Entidad
         public int Tran_Proveedor { get => _Tran_Proveedor; set => _Tran_Proveedor = value; }
         public int Tran_CodBarra { get => _Tran_CodBarra; set => _Tran_CodBarra = value; }
         public int Tran_Lote { get => _Tran_Lote; set => _Tran_Lote = value; }
+        public int Det_Ubicacion { get => _Det_Ubicacion; set => _Det_Ubicacion = value; }
+        public int Det_Igualdad { get => _Det_Igualdad; set => _Det_Igualdad = value; }
+        public int Det_Impuesto { get => _Det_Impuesto; set => _Det_Impuesto = value; }
+        public int Det_Proveedor { get => _Det_Proveedor; set => _Det_Proveedor = value; }
+        public int Det_CodBarra { get => _Det_CodBarra; set => _Det_CodBarra = value; }
+        public int Det_Lote { get => _Det_Lote; set => _Det_Lote = value; }
+        public int Auto_Ubicacion { get => _Auto_Ubicacion; set => _Auto_Ubicacion = value; }
+        public int Auto_Igualdad { get => _Auto_Igualdad; set => _Auto_Igualdad = value; }
+        public int Auto_Impuesto { get => _Auto_Impuesto; set => _Auto_Impuesto = value; }
+        public int Auto_Proveedor { get => _Auto_Proveedor; set => _Auto_Proveedor = value; }
+        public int Auto_CodBarra { get => _Auto_CodBarra; set => _Auto_CodBarra = value; }
+        public int Auto_Lote { get => _Auto_Lote; set => _Auto_Lote = value; }
     }
 }

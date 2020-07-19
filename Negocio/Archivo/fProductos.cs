@@ -24,10 +24,40 @@ namespace Negocio
             return Datos.Buscar(Filtro, auto);
         }
 
-        public static DataTable Buscar_Igualdad(string Filtro)
+        public static DataTable Buscar_Igualdad(int Auto_Igualdad, int Filtro)
         {
             Conexion_Producto Datos = new Conexion_Producto();
-            return Datos.Buscar_Igualdad(Filtro);
+            return Datos.Buscar_Igualdad(Auto_Igualdad, Filtro);
+        }
+
+        public static DataTable Buscar_Impuesto(int Auto_Impuesto, int Filtro)
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            return Datos.Buscar_Impuesto(Auto_Impuesto,Filtro);
+        }
+
+        public static DataTable Buscar_Proveedor(int Auto_Proveedor, int Filtro)
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            return Datos.Buscar_Proveedor(Auto_Proveedor,Filtro);
+        }
+
+        public static DataTable Buscar_Lote(int Auto_Lote, int Filtro)
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            return Datos.Buscar_Lote(Auto_Lote, Filtro);
+        }
+
+        public static DataTable Buscar_Ubicacion(int Auto_Ubicacion, int Filtro)
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            return Datos.Buscar_Ubicacion(Auto_Ubicacion, Filtro);
+        }
+
+        public static DataTable Buscar_CodigoDeBarra(int Auto_CodigoDeBarra, int Filtro)
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            return Datos.Buscar_CodigoDeBarra(Auto_CodigoDeBarra, Filtro);
         }
 
         public static DataTable AutoComplementar_SQL(int auto)
@@ -298,5 +328,42 @@ namespace Negocio
             Conexion_Producto Datos = new Conexion_Producto();
             return Datos.Eliminar(IDEliminar_SQL, auto);
         }
+
+        public static string Eliminar_CodigoDeBara(int IDEliminar_SQL, int auto)
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            return Datos.Eliminar_CodigoDeBara(IDEliminar_SQL, auto);
+        }
+
+        public static string Eliminar_Igualdad(int IDEliminar_SQL, int auto)
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            return Datos.Eliminar_Igualdad(IDEliminar_SQL, auto);
+        }
+
+        public static string Eliminar_Lote(int IDEliminar_SQL, int auto)
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            return Datos.Eliminar_Lote(IDEliminar_SQL, auto);
+        }
+
+        public static string Eliminar_Proveedor(int IDEliminar_SQL, int auto)
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            return Datos.Eliminar_Proveedor(IDEliminar_SQL, auto);
+        }
+
+        public static string Eliminar_Ubicacion(int IDEliminar_SQL, int auto)
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            return Datos.Eliminar_Ubicacion(IDEliminar_SQL, auto);
+        }
+
+        public static string Eliminar_Impuesto(int IDEliminar_SQL, int auto)
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            return Datos.Eliminar_Impuesto(IDEliminar_SQL, auto);
+        }
+
     }
 }

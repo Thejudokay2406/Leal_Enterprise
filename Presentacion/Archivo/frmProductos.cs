@@ -32,6 +32,15 @@ namespace Presentacion
         public bool Filtro = true;
         public bool Examinar = true;
 
+        //Variables para Eliminar y ejecutar los procedimientos Internos en los paneles
+        //Ubicacion, Lote, Proveedor ETC donde se realizan multiplex registros
+        private bool Eliminar_Lote = false;
+        private bool Eliminar_Igualdad = false;
+        private bool Eliminar_Impuesto = false;
+        private bool Eliminar_Ubicacion = false;
+        private bool Eliminar_Proveedor = false;
+        private bool Eliminar_CodigoDeBarra = false;
+
         //Variable para Agregar los Detalles a la Base de Datos
         private DataTable DtDetalle_Lote = new DataTable();
         private DataTable DtDetalle_Impuesto = new DataTable();
@@ -330,6 +339,13 @@ namespace Presentacion
 
                 this.btnEliminar.Enabled = false;
                 this.btnCancelar.Enabled = false;
+
+                this.btnEditar_Lote.Enabled = false;
+                this.brnEditar_Impuesto.Enabled = false;
+                this.btnEditar_Igualdad.Enabled = false;
+                this.btnEditar_Proveedor.Enabled = false;
+                this.btnEditar_Ubicacion.Enabled = false;
+                this.btnEditar_CodigoDeBarra.Enabled = false;
             }
             else if (!Digitar)
             {
@@ -338,6 +354,14 @@ namespace Presentacion
 
                 this.btnEliminar.Enabled = false;
                 this.btnCancelar.Enabled = true;
+
+                this.btnEditar_Lote.Enabled = true;
+                this.brnEditar_Impuesto.Enabled = true;
+                this.btnEditar_Igualdad.Enabled = true;
+                this.btnEditar_Proveedor.Enabled = true;
+                this.btnEditar_Ubicacion.Enabled = true;
+                this.btnEditar_CodigoDeBarra.Enabled = true;
+
             }
         }
 
@@ -988,7 +1012,6 @@ namespace Presentacion
 
                 //Se Limpian las Filas y Columnas de la tabla
                 this.DGResultados.DataSource = null;
-                this.DGResultados.Enabled = false;
                 this.lblTotal.Text = "Datos Registrados: 0";
 
                 //Se restablece la imagen predeterminada del boton
@@ -1052,11 +1075,47 @@ namespace Presentacion
         {
             try
             {
-                int Fila = this.DGDetalles_Ubicacion.CurrentCell.RowIndex;
-                DataRow row = this.DtDetalle_Ubicacion.Rows[Fila];
+                if (Eliminar_Ubicacion)
+                {
+                    if (Eliminar == "1")
+                    {
+                        DialogResult Opcion;
+                        string Respuesta = "";
+                        int Eliminacion;
 
-                //Se remueve la fila
-                this.DtDetalle_Ubicacion.Rows.Remove(row);
+                        Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                        if (Opcion == DialogResult.OK)
+                        {
+                            if (DGDetalles_Ubicacion.SelectedRows.Count > 0)
+                            {
+                                Eliminacion = Convert.ToInt32(DGDetalles_Ubicacion.CurrentRow.Cells["Idproducto"].Value.ToString());
+                                Respuesta = Negocio.fProductos.Eliminar_Ubicacion(Eliminacion, 0);
+                            }
+
+                            if (Respuesta.Equals("OK"))
+                            {
+                                this.MensajeOk("Registro Eliminado Correctamente");
+                            }
+                            else
+                            {
+                                this.MensajeError(Respuesta);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+                else
+                {
+                    int Fila = this.DGDetalles_Ubicacion.CurrentCell.RowIndex;
+                    DataRow row = this.DtDetalle_Ubicacion.Rows[Fila];
+
+                    //Se remueve la fila
+                    this.DtDetalle_Ubicacion.Rows.Remove(row);
+                }
             }
             catch (Exception ex)
             {
@@ -2789,15 +2848,51 @@ namespace Presentacion
         {
             try
             {
-                int Fila = this.DGDetalles_Lotes.CurrentCell.RowIndex;
-                DataRow row = this.DtDetalle_Lote.Rows[Fila];
+                if (Eliminar_Lote)
+                {
+                    if (Eliminar == "1")
+                    {
+                        DialogResult Opcion;
+                        string Respuesta = "";
+                        int Eliminacion;
 
-                //Se remueve la fila
-                this.DtDetalle_Lote.Rows.Remove(row);
+                        Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                        if (Opcion == DialogResult.OK)
+                        {
+                            if (DGDetalles_Lotes.SelectedRows.Count > 0)
+                            {
+                                Eliminacion = Convert.ToInt32(DGDetalles_Lotes.CurrentRow.Cells["Idproducto"].Value.ToString());
+                                Respuesta = Negocio.fProductos.Eliminar_Lote(Eliminacion, 0);
+                            }
+
+                            if (Respuesta.Equals("OK"))
+                            {
+                                this.MensajeOk("Registro Eliminado Correctamente");
+                            }
+                            else
+                            {
+                                this.MensajeError(Respuesta);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+                else
+                {
+                    int Fila = this.DGDetalles_Lotes.CurrentCell.RowIndex;
+                    DataRow row = this.DtDetalle_Lote.Rows[Fila];
+
+                    //Se remueve la fila
+                    this.DtDetalle_Lote.Rows.Remove(row);
+                }
             }
             catch (Exception ex)
             {
-                MensajeError("Por favor seleccione el Nº de Lote que desea Remover del registo");
+                MensajeError("Por favor seleccione la Ubicacion que desea Remover del registo");
             }
         }
 
@@ -2810,15 +2905,51 @@ namespace Presentacion
         {
             try
             {
-                int Fila = this.DGDetalle_Igualdad.CurrentCell.RowIndex;
-                DataRow row = this.DtDetalle_Igualdad.Rows[Fila];
+                if (Eliminar_Igualdad)
+                {
+                    if (Eliminar == "1")
+                    {
+                        DialogResult Opcion;
+                        string Respuesta = "";
+                        int Eliminacion;
 
-                //Se remueve la fila
-                this.DtDetalle_Igualdad.Rows.Remove(row);
+                        Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                        if (Opcion == DialogResult.OK)
+                        {
+                            if (DGDetalle_Igualdad.SelectedRows.Count > 0)
+                            {
+                                Eliminacion = Convert.ToInt32(DGDetalle_Igualdad.CurrentRow.Cells["Idproducto"].Value.ToString());
+                                Respuesta = Negocio.fProductos.Eliminar_Igualdad(Eliminacion, 0);
+                            }
+
+                            if (Respuesta.Equals("OK"))
+                            {
+                                this.MensajeOk("Registro Eliminado Correctamente");
+                            }
+                            else
+                            {
+                                this.MensajeError(Respuesta);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+                else
+                {
+                    int Fila = this.DGDetalle_Igualdad.CurrentCell.RowIndex;
+                    DataRow row = this.DtDetalle_Igualdad.Rows[Fila];
+
+                    //Se remueve la fila
+                    this.DtDetalle_Igualdad.Rows.Remove(row);
+                }
             }
             catch (Exception ex)
             {
-                MensajeError("Por favor seleccione la Igualdad que desea Remover del registo");
+                MensajeError("Por favor seleccione la Ubicacion que desea Remover del registo");
             }
         }
 
@@ -2880,7 +3011,7 @@ namespace Presentacion
                                 Convert.ToString(Tabla.Rows[0][2])
                             );
 
-                        lblTotalImpuesto.Text = "Impuestos Agregados: " + Convert.ToString(DGDetalle_Impuesto.Rows.Count);
+                        lblTotal_Impuesto.Text = "Impuestos Agregados: " + Convert.ToString(DGDetalle_Impuesto.Rows.Count);
 
                         //Se procede a limpiar los campos de texto utilizados para el Filtro
 
@@ -2916,7 +3047,7 @@ namespace Presentacion
                                 Convert.ToString(Tabla.Rows[0][2])
                             );
 
-                        lblTotalProveedor.Text = "Proveedores Agregados: " + Convert.ToString(DGDetalle_Proveedor.Rows.Count);
+                        lblTotal_Proveedor.Text = "Proveedores Agregados: " + Convert.ToString(DGDetalle_Proveedor.Rows.Count);
 
                         //Se procede a limpiar los campos de texto utilizados para el Filtro
 
@@ -2934,15 +3065,51 @@ namespace Presentacion
         {
             try
             {
-                int Fila = this.DGDetalle_Impuesto.CurrentCell.RowIndex;
-                DataRow row = this.DtDetalle_Impuesto.Rows[Fila];
+                if (Eliminar_Impuesto)
+                {
+                    if (Eliminar == "1")
+                    {
+                        DialogResult Opcion;
+                        string Respuesta = "";
+                        int Eliminacion;
 
-                //Se remueve la fila
-                this.DtDetalle_Impuesto.Rows.Remove(row);
+                        Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                        if (Opcion == DialogResult.OK)
+                        {
+                            if (DGDetalle_Impuesto.SelectedRows.Count > 0)
+                            {
+                                Eliminacion = Convert.ToInt32(DGDetalle_Impuesto.CurrentRow.Cells["Idproducto"].Value.ToString());
+                                Respuesta = Negocio.fProductos.Eliminar_Impuesto(Eliminacion, 0);
+                            }
+
+                            if (Respuesta.Equals("OK"))
+                            {
+                                this.MensajeOk("Registro Eliminado Correctamente");
+                            }
+                            else
+                            {
+                                this.MensajeError(Respuesta);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+                else
+                {
+                    int Fila = this.DGDetalle_Impuesto.CurrentCell.RowIndex;
+                    DataRow row = this.DtDetalle_Impuesto.Rows[Fila];
+
+                    //Se remueve la fila
+                    this.DtDetalle_Impuesto.Rows.Remove(row);
+                }
             }
             catch (Exception ex)
             {
-                MensajeError("Por favor seleccione el Impuesto que desea Remover del registo");
+                MensajeError("Por favor seleccione la Ubicacion que desea Remover del registo");
             }
         }
 
@@ -2950,15 +3117,51 @@ namespace Presentacion
         {
             try
             {
-                int Fila = this.DGDetalle_Proveedor.CurrentCell.RowIndex;
-                DataRow row = this.DtDetalle_Proveedor.Rows[Fila];
+                if (Eliminar_Proveedor)
+                {
+                    if (Eliminar == "1")
+                    {
+                        DialogResult Opcion;
+                        string Respuesta = "";
+                        int Eliminacion;
 
-                //Se remueve la fila
-                this.DtDetalle_Impuesto.Rows.Remove(row);
+                        Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                        if (Opcion == DialogResult.OK)
+                        {
+                            if (DGDetalle_Proveedor.SelectedRows.Count > 0)
+                            {
+                                Eliminacion = Convert.ToInt32(DGDetalle_Proveedor.CurrentRow.Cells["Idproducto"].Value.ToString());
+                                Respuesta = Negocio.fProductos.Eliminar_Proveedor(Eliminacion, 0);
+                            }
+
+                            if (Respuesta.Equals("OK"))
+                            {
+                                this.MensajeOk("Registro Eliminado Correctamente");
+                            }
+                            else
+                            {
+                                this.MensajeError(Respuesta);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+                else
+                {
+                    int Fila = this.DGDetalle_Proveedor.CurrentCell.RowIndex;
+                    DataRow row = this.DtDetalle_Proveedor.Rows[Fila];
+
+                    //Se remueve la fila
+                    this.DtDetalle_Proveedor.Rows.Remove(row);
+                }
             }
             catch (Exception ex)
             {
-                MensajeError("Por favor seleccione el Proveedor que desea Remover del registo");
+                MensajeError("Por favor seleccione la Ubicacion que desea Remover del registo");
             }
         }
 
@@ -4817,6 +5020,11 @@ namespace Presentacion
             }
         }
 
+        private void btnEditar_Ubicacion_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void TBVentaMayorista_KeyPress(object sender, KeyPressEventArgs e)
         {
             //Para obligar a que sólo se introduzcan números
@@ -5776,11 +5984,8 @@ namespace Presentacion
                     }
                     else
                     {
-                        //this.Limpiar_Datos();
-
                         //Se Limpian las Filas y Columnas de la tabla
                         this.DGResultados.DataSource = null;
-                        this.DGResultados.Enabled = false;
                         this.lblTotal.Text = "Datos Registrados: 0";
 
                         this.btnEliminar.Enabled = false;
@@ -5974,13 +6179,27 @@ namespace Presentacion
                         this.CBManejaComision.Checked = true;
                     }
 
-                    //Se realizan las consultas para llenar los DataGriview donde se mostrarian las ubicaciones, codigos de barra.
+                    //************************************************************************************************************************
+                    //Se realizan las consultas para llenar los DataGriview donde se mostrarian los MultiPlex Registros.
 
-                    //this.DGResultados.DataSource = fProductos.Buscar(this.TBBuscar.Text, 1);
-                    //this.DGResultados.Columns[0].Visible = false;
+                    this.DGDetalle_Igualdad.DataSource = fProductos.Buscar_Igualdad(1, Convert.ToInt32(this.TBIdproducto.Text));
+                    lblTotal_Igualdad.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Igualdad.Rows.Count);
 
-                    //lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGResultados.Rows.Count);
+                    this.DGDetalle_Impuesto.DataSource = fProductos.Buscar_Impuesto(1, Convert.ToInt32(this.TBIdproducto.Text));
+                    lblTotal_Impuesto.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Impuesto.Rows.Count);
 
+                    this.DGDetalle_Proveedor.DataSource = fProductos.Buscar_Proveedor(1, Convert.ToInt32(this.TBIdproducto.Text));
+                    lblTotal_Proveedor.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Proveedor.Rows.Count);
+
+                    this.DGDetalle_CodigoDeBarra.DataSource = fProductos.Buscar_CodigoDeBarra(1, Convert.ToInt32(this.TBIdproducto.Text));
+                    lblTotal_Codigodebarra.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_CodigoDeBarra.Rows.Count);
+
+                    this.DGDetalles_Lotes.DataSource = fProductos.Buscar_Lote(1, Convert.ToInt32(this.TBIdproducto.Text));
+                    lblTotal_Lotes.Text = "Datos Registrados: " + Convert.ToString(DGDetalles_Lotes.Rows.Count);
+
+                    //this.TBIdubicacion.Text = TBIdproducto.Text;
+                    this.DGDetalles_Ubicacion.DataSource = fProductos.Buscar_Ubicacion(1, Convert.ToInt32(this.TBIdproducto.Text));
+                    lblTotal_Ubicacion.Text = "Datos Registrados: " + Convert.ToString(DGDetalles_Ubicacion.Rows.Count);
                 }
             }
             catch (Exception ex)
@@ -5996,11 +6215,21 @@ namespace Presentacion
                 if (Editar == "1")
                 {
                     this.TBIdproducto.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells["ID"].Value);
+                    //this.TBIdubicacion.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells["ID"].Value);
                     this.TBNombre.Select();
 
                     //
                     this.Digitar = false;
+                    this.Eliminar_Lote = true;
+                    this.Eliminar_Igualdad = true;
+                    this.Eliminar_Impuesto = true;
+                    this.Eliminar_Ubicacion = true;
+                    this.Eliminar_Proveedor = true;
+                    this.Eliminar_CodigoDeBarra = true;
+
+                    //
                     this.Botones();
+                    this.TCPrincipal.SelectedIndex = 0;
                 }
                 else
                 {
@@ -6024,16 +6253,21 @@ namespace Presentacion
 
                     if (Editar == "1")
                     {
-                        //
                         this.TBIdproducto.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells["ID"].Value);
                         this.TBNombre.Select();
 
-                        //Se procede Habilitar los campos de Textos y Botones
-                        //cuando se le realice el evento Clip del Boton Ediatar/Guardar
+                        //
+                        this.Digitar = false;
+                        this.Eliminar_Lote = true;
+                        this.Eliminar_Igualdad = true;
+                        this.Eliminar_Impuesto = true;
+                        this.Eliminar_Ubicacion = true;
+                        this.Eliminar_Proveedor = true;
+                        this.Eliminar_CodigoDeBarra = true;
 
-                        this.Habilitar();
-                        this.btnGuardar.Enabled = true;
-                        this.btnCancelar.Enabled = true;
+                        //
+                        this.Botones();
+                        this.TCPrincipal.SelectedIndex = 0;
                     }
                     else
                     {
