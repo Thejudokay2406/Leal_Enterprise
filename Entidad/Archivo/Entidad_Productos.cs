@@ -13,12 +13,19 @@ namespace Entidad
         //Llave primaria
         private int _Idproducto;
 
-        //Llaves Auxiliares
+        //Llaves Auxiliares Datos Basicos
         private int _Idmarca;
         private int _Idgrupo;
         private int _Idtipo;
-        private int _Idlote;
         private int _Idempaque;
+
+        //Llaves Auxiliares de los Detalles
+        private int _Ubicacion_SQL;
+        private int _Proveedor_SQL;
+        private int _Lote_SQL;
+        private int _Codigodebarra_SQL;
+        private int _Igualdad_SQL;
+        private int _Impuesto_SQL;
 
         //Datos Basicos
         private string _Codigo;
@@ -112,7 +119,6 @@ namespace Entidad
         public int Idmarca { get => _Idmarca; set => _Idmarca = value; }
         public int Idgrupo { get => _Idgrupo; set => _Idgrupo = value; }
         public int Idtipo { get => _Idtipo; set => _Idtipo = value; }
-        public int Idlote { get => _Idlote; set => _Idlote = value; }
         public int Idempaque { get => _Idempaque; set => _Idempaque = value; }
         public string Codigo { get => _Codigo; set => _Codigo = value; }
         public string Producto { get => _Producto; set => _Producto = value; }
@@ -182,5 +188,11 @@ namespace Entidad
         public int Auto_Proveedor { get => _Auto_Proveedor; set => _Auto_Proveedor = value; }
         public int Auto_CodBarra { get => _Auto_CodBarra; set => _Auto_CodBarra = value; }
         public int Auto_Lote { get => _Auto_Lote; set => _Auto_Lote = value; }
+        public int Ubicacion_SQL { get => _Ubicacion_SQL; set => _Ubicacion_SQL = value; }
+        public int Proveedor_SQL { get => _Proveedor_SQL; set => _Proveedor_SQL = value; }
+        public int Lote_SQL { get => _Lote_SQL; set => _Lote_SQL = value; }
+        public int Codigodebarra_SQL { get => _Codigodebarra_SQL; set => _Codigodebarra_SQL = value; }
+        public int Igualdad_SQL { get => _Igualdad_SQL; set => _Igualdad_SQL = value; }
+        public int Impuesto_SQL { get => _Impuesto_SQL; set => _Impuesto_SQL = value; }
     }
 }

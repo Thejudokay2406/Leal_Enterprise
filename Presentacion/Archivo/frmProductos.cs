@@ -29,6 +29,7 @@ namespace Presentacion
         // Variable con la cual se define si el procecimiento 
         // A realizar es Editar, Guardar, Buscar, Eliminar
         private bool Digitar = true;
+        private bool Modificar = true;
         public bool Filtro = true;
         public bool Examinar = true;
 
@@ -295,33 +296,33 @@ namespace Presentacion
 
             //Panel Igualdad
             this.TBBuscar_Igualdad.Clear();
-            this.DGDetalle_Igualdad.DataSource = null;
+            this.DtDetalle_Igualdad.Clear();
 
             //Panel Impuesto
             this.TBBuscar_Impuesto.Clear();
-            this.DGDetalle_Impuesto.DataSource = null;
+            this.DtDetalle_Impuesto.Clear();
 
             //Panel Proveedor
             this.TBBuscar_Proveedor.Clear();
-            this.DGDetalle_Proveedor.DataSource = null;
+            this.DtDetalle_Proveedor.Clear();
 
             //Panel Codigo de Barra
             this.TBBuscar_CodigodeBarra.Clear();
-            this.DGDetalle_CodigoDeBarra.DataSource = null;
+            this.DtDetalle_CodigoDeBarra.Clear();
 
             //Panel - Ubicacion
             this.CBBodega.SelectedIndex = 0;
             this.TBUbicacion.Clear();
             this.TBEstante.Clear();
             this.TBNivel.Clear();
-            this.DGDetalles_Ubicacion.DataSource = null;
+            this.DtDetalle_Ubicacion.Clear();
 
             //Panel - Lote
             this.TBLotedeingreso.Clear();
             this.TBValor_Lote.Clear();
             this.TBLote_Stock.Clear();
             this.DTLote_Vencimiento.Enabled = true;
-            this.DGDetalles_Lotes.DataSource = null;
+            this.DtDetalle_Lote.Clear();
 
             this.PB_Imagen.Image = Properties.Resources.Logo_Leal_Enterprise;
 
@@ -626,6 +627,7 @@ namespace Presentacion
                 this.DGDetalles_Lotes.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 this.DGDetalles_Lotes.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 this.DGDetalles_Lotes.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                this.DGDetalles_Lotes.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
                 //************************************* Aliniacion de Emcabezados *************************************
 
@@ -655,10 +657,10 @@ namespace Presentacion
                 this.DGDetalles_Lotes.Columns[1].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 this.DGDetalles_Lotes.Columns[2].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 this.DGDetalles_Lotes.Columns[3].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                this.DGDetalles_Lotes.Columns[4].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                this.DGDetalles_Lotes.Columns[5].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
                 //************************************* Ocultacion de Columnas *************************************
-                this.DGDetalles_Lotes.Columns[0].Visible = false; 
+                this.DGDetalles_Lotes.Columns[0].Visible = false;
                 this.DGDetalle_Igualdad.Columns[0].Visible = false;
                 this.DGDetalle_Impuesto.Columns[0].Visible = false;
                 this.DGDetalle_Impuesto.Columns[1].Visible = false;
@@ -1074,32 +1076,68 @@ namespace Presentacion
         {
             try
             {
-                if (this.CBBodega.SelectedIndex == 0)
-                {
-                    this.MensajeError("Por favor seleccione la Bodega perteneciente a la Ubicación que desea generar");
-                }
-                else if (this.TBUbicacion.Text == String.Empty)
-                {
-                    this.MensajeError("Por favor Especifique la Ubicación dentro de la Bodega seleccionada");
-                    this.TBUbicacion.Select();
-                }
-                else
-                {
+                //if (DtDetalle_Ubicacion != null)
+                //{
+                //    DataRow fila = this.DtDetalle_Ubicacion.NewRow();
+                //    fila["Idproducto"] = Convert.ToInt32(this.TBIdproducto_AutoSQL.Text);
+                //    fila["Idbodega"] = Convert.ToInt32(this.CBBodega.SelectedValue);
+                //    fila["Ubicacion"] = this.TBUbicacion.Text;
+                //    fila["Estante"] = this.TBEstante.Text;
+                //    fila["Nivel"] = this.TBNivel.Text;
+                //    this.DtDetalle_Ubicacion.Rows.Add(fila);
+                //}
+                //else
+                //{
+                //    DataRow fila = this.DtDetalle_Ubicacion.NewRow();
+                //    fila["Idproducto"] = Convert.ToInt32(this.TBIdproducto_AutoSQL.Text);
+                //    fila["Idbodega"] = Convert.ToInt32(this.CBBodega.SelectedValue);
+                //    fila["Ubicacion"] = this.TBUbicacion.Text;
+                //    fila["Estante"] = this.TBEstante.Text;
+                //    fila["Nivel"] = this.TBNivel.Text;
+                //    this.DtDetalle_Ubicacion.Rows.Add(fila);
+                //}
 
-                    DataRow fila = this.DtDetalle_Ubicacion.NewRow();
-                    fila["Idproducto"] = Convert.ToInt32(this.TBIdproducto_AutoSQL.Text);
-                    fila["Idbodega"] = Convert.ToInt32(this.CBBodega.SelectedValue);
-                    fila["Ubicacion"] = this.TBUbicacion.Text;
-                    fila["Estante"] = this.TBEstante.Text;
-                    fila["Nivel"] = this.TBNivel.Text;
-                    this.DtDetalle_Ubicacion.Rows.Add(fila);
+                if (Digitar)
+                {
+                    if (this.CBBodega.SelectedIndex == 0)
+                    {
+                        this.MensajeError("Por favor seleccione la Bodega perteneciente a la Ubicación que desea generar");
+                    }
+                    else if (this.TBUbicacion.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique la Ubicación dentro de la Bodega seleccionada");
+                        this.TBUbicacion.Select();
+                    }
+                    else
+                    {
+                        DataRow fila = this.DtDetalle_Ubicacion.NewRow();
+                        fila["Idproducto"] = Convert.ToInt32(this.TBIdproducto_AutoSQL.Text);
+                        fila["Idbodega"] = Convert.ToInt32(this.CBBodega.SelectedValue);
+                        fila["Ubicacion"] = this.TBUbicacion.Text;
+                        fila["Estante"] = this.TBEstante.Text;
+                        fila["Nivel"] = this.TBNivel.Text;
+                        this.DtDetalle_Ubicacion.Rows.Add(fila);
 
-                    //
-                    this.CBBodega.SelectedIndex = 0;
-                    this.TBUbicacion.Clear();
-                    this.TBEstante.Clear();
-                    this.TBNivel.Clear();
+                        //
+                        this.CBBodega.SelectedIndex = 0;
+                        this.TBUbicacion.Clear();
+                        this.TBEstante.Clear();
+                        this.TBNivel.Clear();
+                    }
                 }
+                //else
+                //{
+                //    DtDetalle_Ubicacion.Clear();
+
+                //    DataRow fila = this.DtDetalle_Ubicacion.NewRow();
+                //    fila["Idproducto"] = Convert.ToInt32(this.TBIdproducto_AutoSQL.Text);
+                //    fila["Idbodega"] = Convert.ToInt32(this.CBBodega.SelectedValue);
+                //    fila["Ubicacion"] = this.TBUbicacion.Text;
+                //    fila["Estante"] = this.TBEstante.Text;
+                //    fila["Nivel"] = this.TBNivel.Text;
+                //    this.DtDetalle_Ubicacion.Rows.Add(fila);
+                //}
+
             }
             catch (Exception ex)
             {
@@ -2964,7 +3002,7 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                MensajeError("Por favor seleccione El Lote que desea Remover del registo");
+                MensajeError("Por favor seleccione 'El Lote' que desea Remover del Registro");
             }
         }
 
@@ -3021,7 +3059,7 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                MensajeError("Por favor seleccione la Ubicacion que desea Remover del registo");
+                MensajeError("Por favor seleccione la 'Ubicacion' que desea Remover del Registro");
             }
         }
 
@@ -3181,7 +3219,7 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                MensajeError("Por favor seleccione la Ubicacion que desea Remover del registo");
+                MensajeError("Por favor seleccione 'El Impuesto' que desea Remover del Registro");
             }
         }
 
@@ -3233,7 +3271,7 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                MensajeError("Por favor seleccione el Proveedor que desea Remover del registo");
+                MensajeError("Por favor seleccione 'El Proveedor' que desea Remover del Registro");
             }
         }
 
@@ -5094,7 +5132,47 @@ namespace Presentacion
 
         private void btnEditar_Ubicacion_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string rptaEditarUbicacion = "";
 
+                if (Editar == "1")
+                {
+                    if (DtDetalle_Ubicacion != null)
+                    {
+                        this.MensajeError("Agregue la Ubicacion o Ubicaciones que desea Establecer del Producto: " + Convert.ToString(TBNombre.Text) + " Con Codigo: " + Convert.ToString(TBCodigo.Text));
+                    }
+                    else
+                    {
+                        rptaEditarUbicacion = fProductos.Editar_Ubicacion(Convert.ToInt32(TBIdproducto.Text), this.DtDetalle_Ubicacion, 2);
+                    }
+                }
+
+                else
+                {
+                    MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Modificar Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+
+                if (rptaEditarUbicacion.Equals("OK"))
+                {
+                    if (!Digitar)
+                    {
+                        this.MensajeOk("Ubicacion Actualizada");
+                    }
+                }
+                
+                //
+                this.CBBodega.SelectedIndex = 0;
+                this.TBUbicacion.Clear();
+                this.TBEstante.Clear();
+                this.TBNivel.Clear();
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
 
         private void TBVentaMayorista_KeyPress(object sender, KeyPressEventArgs e)

@@ -156,6 +156,12 @@
     <Compile Include="Filtros\frmFiltro_ActualizarPrecios.Designer.cs">
       <DependentUpon>frmFiltro_ActualizarPrecios.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUsuario.Designer.cs">
+      <DependentUpon>frmUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sistema\frmCodigoID_Productos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -349,6 +355,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Filtros\frmFiltro_ActualizarPrecios.resx">
       <DependentUpon>frmFiltro_ActualizarPrecios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUsuario.resx">
+      <DependentUpon>frmUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario\frmGastosDeIngreso.resx">
       <DependentUpon>frmGastosDeIngreso.cs</DependentUpon>

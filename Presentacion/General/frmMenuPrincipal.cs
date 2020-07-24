@@ -397,5 +397,12 @@ namespace Presentacion
             frmEmpaque.Consultar = Convert.ToString(this.SQL_Consultar);
             frmEmpaque.Imprimir = Convert.ToString(this.SQL_Imprimir);
         }
+
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUsuario frmUsuario = new frmUsuario();
+            frmUsuario.MdiParent = this;
+            frmUsuario.Show();
+        }
     }
 }
