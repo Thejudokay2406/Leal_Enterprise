@@ -366,6 +366,7 @@
             // 
             this.CBTipo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CBTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBTipo.FormattingEnabled = true;
             this.CBTipo.Items.AddRange(new object[] {
             "-",
@@ -374,7 +375,7 @@
             "Natural"});
             this.CBTipo.Location = new System.Drawing.Point(100, 6);
             this.CBTipo.Name = "CBTipo";
-            this.CBTipo.Size = new System.Drawing.Size(250, 23);
+            this.CBTipo.Size = new System.Drawing.Size(250, 21);
             this.CBTipo.Sorted = true;
             this.CBTipo.TabIndex = 13;
             this.CBTipo.SelectedIndexChanged += new System.EventHandler(this.CBTipo_SelectedIndexChanged);
@@ -527,7 +528,7 @@
             this.TPDatosDeEnvio.Location = new System.Drawing.Point(4, 24);
             this.TPDatosDeEnvio.Name = "TPDatosDeEnvio";
             this.TPDatosDeEnvio.Padding = new System.Windows.Forms.Padding(3);
-            this.TPDatosDeEnvio.Size = new System.Drawing.Size(357, 343);
+            this.TPDatosDeEnvio.Size = new System.Drawing.Size(357, 307);
             this.TPDatosDeEnvio.TabIndex = 1;
             this.TPDatosDeEnvio.Text = "Datos de Envio";
             this.TPDatosDeEnvio.UseVisualStyleBackColor = true;
@@ -725,7 +726,7 @@
             this.TPDatosFinancieros.Location = new System.Drawing.Point(4, 24);
             this.TPDatosFinancieros.Name = "TPDatosFinancieros";
             this.TPDatosFinancieros.Padding = new System.Windows.Forms.Padding(3);
-            this.TPDatosFinancieros.Size = new System.Drawing.Size(357, 343);
+            this.TPDatosFinancieros.Size = new System.Drawing.Size(357, 307);
             this.TPDatosFinancieros.TabIndex = 2;
             this.TPDatosFinancieros.Text = "Datos Financieros";
             this.TPDatosFinancieros.UseVisualStyleBackColor = true;

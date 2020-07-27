@@ -217,7 +217,7 @@ namespace Presentacion
 
         private void clienteToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            frmCliente frmCliente = new frmCliente();
+            frmCliente frmCliente = frmCliente.GetInstancia();
             frmCliente.MdiParent = this;
             frmCliente.Show();
 

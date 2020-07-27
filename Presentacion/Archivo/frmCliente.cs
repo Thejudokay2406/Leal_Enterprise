@@ -14,6 +14,19 @@ namespace Presentacion
 {
     public partial class frmCliente : Form
     {
+        //Instancia para el Filtro de los Clientes 
+        private static frmCliente _Instancia;
+
+        public static frmCliente GetInstancia()
+        {
+            if (_Instancia == null)
+            {
+                _Instancia = new frmCliente();
+            }
+            return _Instancia;
+        }
+
+
         // Variable con la cual se define si el procecimiento 
         // A realizar es Editar, Guardar, Buscar,Eliminar
         private bool Digitar = true;
@@ -58,6 +71,12 @@ namespace Presentacion
 
         private void Habilitar()
         {
+            //Datos Basicos
+            this.CBTipo.Enabled = true;
+            this.CBTipo.BackColor = Color.FromArgb(3, 155, 229);
+            this.CBGrupo.Enabled = true;
+            this.CBGrupo.BackColor = Color.FromArgb(3, 155, 229);
+
             this.TBCodigo.ReadOnly = false;
             this.TBCodigo.BackColor = Color.FromArgb(3, 155, 229);
             this.TBCodigo.ForeColor = Color.FromArgb(255, 255, 255);
@@ -70,7 +89,6 @@ namespace Presentacion
             this.TBDocumento.BackColor = Color.FromArgb(3, 155, 229);
             this.TBDocumento.ForeColor = Color.FromArgb(255, 255, 255);
             this.TBDocumento.Text = Campo;
-
             this.TBTelefono.ReadOnly = false;
             this.TBTelefono.BackColor = Color.FromArgb(3, 155, 229);
             this.TBMovil.ReadOnly = false;
@@ -85,6 +103,8 @@ namespace Presentacion
             this.TBDepartamento.BackColor = Color.FromArgb(3, 155, 229);
 
             //Datos de Envio
+            this.TBSucurzal_Despacho.ReadOnly = false;
+            this.TBSucurzal_Despacho.BackColor = Color.FromArgb(3, 155, 229);
             this.TBPais_Despacho.ReadOnly = false;
             this.TBPais_Despacho.BackColor = Color.FromArgb(3, 155, 229);
             this.TBCiudad_Despacho.ReadOnly = false;
@@ -97,24 +117,26 @@ namespace Presentacion
             this.TBApartamento.BackColor = Color.FromArgb(3, 155, 229);
             this.TBDireccion_Despacho.ReadOnly = false;
             this.TBDireccion_Despacho.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBTelefono_Despacho.ReadOnly = false;
-            this.TBTelefono_Despacho.BackColor = Color.FromArgb(3, 155, 229);
             this.TBMovil_Despacho.ReadOnly = false;
             this.TBMovil_Despacho.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBHorario_Despacho.ReadOnly = false;
-            this.TBHorario_Despacho.BackColor = Color.FromArgb(3, 155, 229);
             this.TBObservacion_Despacho.ReadOnly = false;
             this.TBObservacion_Despacho.BackColor = Color.FromArgb(3, 155, 229);
 
             //Datos Financieros
+            this.TBCodigo_Banco.ReadOnly = false;
+            this.TBCodigo_Banco.BackColor = Color.FromArgb(3, 155, 229);
             this.TBBancoPrincipal.ReadOnly = false;
             this.TBBancoPrincipal.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBBancoAuxiliar.ReadOnly = false;
-            this.TBBancoAuxiliar.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBCuentaPrincipal.ReadOnly = false;
-            this.TBCuentaPrincipal.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBCuentaAuxiliar.ReadOnly = false;
-            this.TBCuentaAuxiliar.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBNumeroDeCuenta.ReadOnly = false;
+            this.TBNumeroDeCuenta.BackColor = Color.FromArgb(3, 155, 229);
+
+            //Datos de Creditos
+            this.TBCreditoMinimo.ReadOnly = false;
+            this.TBCreditoMinimo.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBCreditoMaximo.ReadOnly = false;
+            this.TBCreditoMaximo.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDebitoMinimo.ReadOnly = false;
+            this.TBDebitoMinimo.BackColor = Color.FromArgb(3, 155, 229);
             this.TBMinCuotaCredito.ReadOnly = false;
             this.TBMinCuotaCredito.BackColor = Color.FromArgb(3, 155, 229);
             this.TBMaxCuotaCredito.ReadOnly = false;
@@ -125,17 +147,14 @@ namespace Presentacion
             this.TBDiasDeProrroga.BackColor = Color.FromArgb(3, 155, 229);
             this.TBInteresesmora.ReadOnly = false;
             this.TBInteresesmora.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBCreditoMinimo.ReadOnly = false;
-            this.TBCreditoMinimo.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBCreditoMaximo.ReadOnly = false;
-            this.TBCreditoMaximo.BackColor = Color.FromArgb(3, 155, 229);
-
-            this.TBFac_Nombre.ReadOnly = false;
-            this.TBFac_Nombre.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBFac_Documentos.ReadOnly = false;
-            this.TBFac_Documentos.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBFac_Telefono.ReadOnly = false;
-            this.TBFac_Telefono.BackColor = Color.FromArgb(3, 155, 229);
+            
+            //Datos de Facturacion
+            this.TBFac_Cliente.ReadOnly = false;
+            this.TBFac_Cliente.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBFac_DocumentoCliente.ReadOnly = false;
+            this.TBFac_DocumentoCliente.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBFac_DocumentoAsesor.ReadOnly = false;
+            this.TBFac_DocumentoAsesor.BackColor = Color.FromArgb(3, 155, 229);
             this.TBFac_Movil.ReadOnly = false;
             this.TBFac_Movil.BackColor = Color.FromArgb(3, 155, 229);
             this.TBFac_Correo.ReadOnly = false;
@@ -155,6 +174,7 @@ namespace Presentacion
         {
             //Panel - Datos Basicos
             this.CBTipo.SelectedIndex = 0;
+            this.CBGrupo.SelectedIndex = 0;
             this.TBCodigo.Clear();
             this.TBCodigo.Text = Campo;
             this.TBNombre.Clear();
@@ -163,46 +183,42 @@ namespace Presentacion
             this.TBDocumento.Text = Campo;
 
             this.TBTelefono.Clear();
-            this.TBTelefono.BackColor = Color.FromArgb(3, 155, 229);
             this.TBMovil.Clear();
-            this.TBMovil.BackColor = Color.FromArgb(3, 155, 229);
             this.TBCorreo.Clear();
-            this.TBCorreo.BackColor = Color.FromArgb(3, 155, 229);
             this.TBPais.Clear();
-            this.TBPais.BackColor = Color.FromArgb(3, 155, 229);
             this.TBCiudad.Clear();
-            this.TBCiudad.BackColor = Color.FromArgb(3, 155, 229);
             this.TBDepartamento.Clear();
-            this.TBDepartamento.BackColor = Color.FromArgb(3, 155, 229);
 
             //Datos de Envio
+            this.TBSucurzal_Despacho.Clear();
             this.TBPais_Despacho.Clear();
             this.TBCiudad_Despacho.Clear();
             this.TBReceptor.Clear();
             this.TBBarrio.Clear();
             this.TBApartamento.Clear();
             this.TBDireccion_Despacho.Clear();
-            this.TBTelefono_Despacho.Clear();
             this.TBMovil_Despacho.Clear();
-            this.TBHorario_Despacho.Clear();
             this.TBObservacion_Despacho.Clear();
 
             //Datos Financieros
+            this.TBCodigo_Banco.Clear();
             this.TBBancoPrincipal.Clear();
-            this.TBBancoAuxiliar.Clear();
-            this.TBCuentaPrincipal.Clear();
-            this.TBCuentaAuxiliar.Clear();
+            this.TBNumeroDeCuenta.Clear();
+
+            //Datos de Creditos
+            this.TBCreditoMinimo.Clear();
+            this.TBCreditoMaximo.Clear();
+            this.TBDebitoMinimo.Clear();
             this.TBMinCuotaCredito.Clear();
             this.TBMaxCuotaCredito.Clear();
             this.TBDiasdecredito.Clear();
             this.TBDiasDeProrroga.Clear();
             this.TBInteresesmora.Clear();
-            this.TBCreditoMinimo.Clear();
-            this.TBCreditoMaximo.Clear();
 
-            this.TBFac_Nombre.Clear();
-            this.TBFac_Documentos.Clear();
-            this.TBFac_Telefono.Clear();
+            //Datos de Facturacion
+            this.TBFac_Cliente.Clear();
+            this.TBFac_DocumentoCliente.Clear();
+            this.TBFac_DocumentoAsesor.Clear();
             this.TBFac_Movil.Clear();
             this.TBFac_Correo.Clear();
             this.TBFac_Pais.Clear();
@@ -572,7 +588,7 @@ namespace Presentacion
                     this.TBCiudad_Despacho.Text = CiudadDeEnvio;
                     this.TBReceptor.Text = Receptor;
                     this.TBDireccion_Despacho.Text = DireccionPrincipal;
-                    this.TBTelefono_Despacho.Text = TelefonoDeEnvio;
+                    this.TBMovil_Despacho.Text = TelefonoDeEnvio;
                     this.TBMovil_Despacho.Text = MovilDeEnvio;
                     this.TBObservacion_Despacho.Text = Observacion;
 
@@ -1592,7 +1608,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBTelefono_Despacho.Select();
+                            this.TBMovil_Despacho.Select();
                         }
                     }
                     else
@@ -1609,7 +1625,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBTelefono_Despacho.Select();
+                            this.TBMovil_Despacho.Select();
                         }
                     }
                 }
@@ -1628,7 +1644,7 @@ namespace Presentacion
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
-                    this.TBHorario_Despacho.Select();
+                    //this.TBHorario_Despacho.Select();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
                 {
@@ -2199,7 +2215,7 @@ namespace Presentacion
 
         private void TBTelefono_01_Enter(object sender, EventArgs e)
         {
-            this.TBTelefono_Despacho.BackColor = Color.Azure;
+            this.TBMovil_Despacho.BackColor = Color.Azure;
         }
 
         private void TBMovil_01_Enter(object sender, EventArgs e)
@@ -2314,7 +2330,7 @@ namespace Presentacion
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
-                    this.TBTelefono_Despacho.Select();
+                    this.TBMovil_Despacho.Select();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
                 {
@@ -2440,6 +2456,16 @@ namespace Presentacion
             }
         }
 
+        private void frmCliente_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _Instancia = null;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
         //******************** FOCUS LEVAE DATOS BASICOS ********************
 
         private void TBCodigo_Leave(object sender, EventArgs e)
@@ -2544,7 +2570,7 @@ namespace Presentacion
 
         private void TBTelefono_01_Leave(object sender, EventArgs e)
         {
-            this.TBTelefono_Despacho.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBMovil_Despacho.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBMovil_01_Leave(object sender, EventArgs e)
