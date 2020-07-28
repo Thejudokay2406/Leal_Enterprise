@@ -241,6 +241,8 @@ namespace Presentacion
                         MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Guardar Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                         //Llamada de Clase
+                        this.Digitar = true;
+                        this.Botones();
                         this.Limpiar_Datos();
                     }
                 }
@@ -257,12 +259,11 @@ namespace Presentacion
                         MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Editar Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                         //Llamada de Clase
-                        this.Digitar = false;
+                        this.Digitar = true;
+                        this.Botones();
                         this.Limpiar_Datos();
                     }
-
                 }
-
             }
             catch (Exception ex)
             {
@@ -275,17 +276,13 @@ namespace Presentacion
             try
             {
                 this.Digitar = true;
+                this.Botones();
                 this.Limpiar_Datos();
                 this.TBBuscar.Clear();
 
                 //Se Limpian las Filas y Columnas de la tabla
-                DGResultados.DataSource = null;
-                this.DGResultados.Enabled = false;
+                this.DGResultados.DataSource = null;
                 this.lblTotal.Text = "Datos Registrados: 0";
-
-                //Se restablece la imagen predeterminada del boton
-                //this.btnGuardar.Image = Properties.Resources.BV_Guardar;
-
             }
             catch (Exception ex)
             {
@@ -295,7 +292,47 @@ namespace Presentacion
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (Eliminar == "1")
+                {
+                    DialogResult Opcion;
+                    string Respuesta = "";
+                    int Eliminacion;
 
+                    Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                    if (Opcion == DialogResult.OK)
+                    {
+                        if (DGResultados.SelectedRows.Count > 0)
+                        {
+                            Eliminacion = Convert.ToInt32(DGResultados.CurrentRow.Cells["ID"].Value.ToString());
+                            Respuesta = Negocio.fTipoDeProducto.Eliminar(Eliminacion, 1);
+                        }
+
+                        if (Respuesta.Equals("OK"))
+                        {
+                            this.MensajeOk("Registro Eliminado Correctamente");
+                        }
+                        else
+                        {
+                            this.MensajeError(Respuesta);
+                        }
+                    }
+
+                    //
+                    this.TBBuscar.Clear();
+
+                }
+                else
+                {
+                    MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
 
         private void btnImprimir_Click(object sender, EventArgs e)
@@ -305,7 +342,40 @@ namespace Presentacion
 
         private void TBBuscar_TextChanged(object sender, EventArgs e)
         {
+            try
+            {
+                if (Consultar == "1")
+                {
+                    if (TBBuscar.Text != "")
+                    {
+                        this.DGResultados.DataSource = fTipoDeProducto.Buscar(this.TBBuscar.Text, 1);
+                        //this.DGResultados.Columns[0].Visible = false;
 
+                        lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGResultados.Rows.Count);
+
+                        this.btnEliminar.Enabled = true;
+                        this.btnImprimir.Enabled = true;
+                    }
+                    else
+                    {
+                        //Se Limpian las Filas y Columnas de la tabla
+                        this.DGResultados.DataSource = null;
+                        this.lblTotal.Text = "Datos Registrados: 0";
+
+                        this.btnEliminar.Enabled = false;
+                        this.btnImprimir.Enabled = false;
+                    }
+                }
+
+                else
+                {
+                    MessageBox.Show(" El Usuario Iniciado no Contiene Permisos Para Realizar Consultas", "Leal Enterprise - 'Acceso Denegado' ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
 
         private void DGResultados_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

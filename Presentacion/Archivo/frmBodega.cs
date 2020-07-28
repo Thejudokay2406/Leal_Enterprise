@@ -86,22 +86,26 @@ namespace Presentacion
             this.TBDireccion01.BackColor = Color.FromArgb(3, 155, 229);
             this.TBDireccion02.ReadOnly = false;
             this.TBDireccion02.BackColor = Color.FromArgb(3, 155, 229);
-
-            //
-            this.TBRecepcion.ReadOnly = false;
-            this.TBRecepcion.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBDespacho.ReadOnly = false;
-            this.TBDespacho.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBInicioLaboral.ReadOnly = false;
-            this.TBInicioLaboral.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBFinalHorarioLaboral.ReadOnly = false;
-            this.TBFinalHorarioLaboral.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBDiadepagos.ReadOnly = false;
-            this.TBDiadepagos.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBDiaDespacho.ReadOnly = false;
-            this.TBDiaDespacho.BackColor = Color.FromArgb(3, 155, 229);
             this.TBMedidas.ReadOnly = false;
             this.TBMedidas.BackColor = Color.FromArgb(3, 155, 229);
+
+            //Dias de Recepcion
+            this.TBRecepcion.ReadOnly = false;
+            this.TBRecepcion.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBInicioRecepcion.ReadOnly = false;
+            this.TBInicioRecepcion.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBFinRecepcion.ReadOnly = false;
+            this.TBFinRecepcion.BackColor = Color.FromArgb(3, 155, 229);
+
+            //Dias de Despacho
+            this.TBDespacho.ReadOnly = false;
+            this.TBDespacho.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBInicioDespacho.ReadOnly = false;
+            this.TBInicioDespacho.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBFinDeDespacho.ReadOnly = false;
+            this.TBFinDeDespacho.BackColor = Color.FromArgb(3, 155, 229);
+            
+            
 
             //Texboxt de Consulta
             this.TBBuscar.BackColor = Color.FromArgb(3, 155, 229);
@@ -127,14 +131,15 @@ namespace Presentacion
             this.TBDireccion01.Clear();
             this.TBDireccion02.Clear();
 
-            //
+            //Dias de Recepcion
             this.TBRecepcion.Clear();
+            this.TBInicioRecepcion.Clear();
+            this.TBFinRecepcion.Clear();
+
+            //Dias de Despacho
             this.TBDespacho.Clear();
-            this.TBInicioLaboral.Clear();
-            this.TBFinalHorarioLaboral.Clear();
-            this.TBDiadepagos.Clear();
-            this.TBDiaDespacho.Clear();
-            this.TBMedidas.Clear();
+            this.TBInicioDespacho.Clear();
+            this.TBFinDeDespacho.Clear();
 
             //Se realiza el FOCUS al panel y campo de texto iniciales
             this.TCPrincipal.SelectedIndex = 0;
@@ -203,32 +208,32 @@ namespace Presentacion
                 {
                     if (this.Digitar)
                     {
-                        rptaDatosBasicos = fBodega.Guardar_DatosBasicos
-                                (
+                        //rptaDatosBasicos = fBodega.Guardar_DatosBasicos
+                        //        (
 
-                                 //Datos Auxiliares
-                                 1,
+                        //         //Datos Auxiliares
+                        //         1,
 
-                                 //Panel Datos Basicos
-                                 Convert.ToInt32(this.CBSucurzal.SelectedValue), this.TBBodega.Text, this.TBDocumento.Text, this.TBDescripcion.Text, this.TBDirector.Text, this.TBCiudad.Text, this.TBMovil.Text,
-                                 this.TBTelefono.Text, this.TBCorreo.Text, this.TBDireccion01.Text, this.TBDireccion02.Text, this.TBRecepcion.Text, this.TBDespacho.Text, this.TBInicioLaboral.Text,
-                                 this.TBFinalHorarioLaboral.Text, this.TBDiadepagos.Text, this.TBDiaDespacho.Text, this.TBMedidas.Text
-                                );
+                        //         //Panel Datos Basicos
+                        //         Convert.ToInt32(this.CBSucurzal.SelectedValue), this.TBBodega.Text, this.TBDocumento.Text, this.TBDescripcion.Text, this.TBDirector.Text, this.TBCiudad.Text, this.TBMovil.Text,
+                        //         this.TBTelefono.Text, this.TBCorreo.Text, this.TBDireccion01.Text, this.TBDireccion02.Text, this.TBRecepcion.Text, this.TBDespacho.Text, this.TBInicioLaboral.Text,
+                        //         this.TBFinalHorarioLaboral.Text, this.TBDiadepagos.Text, this.TBDiaDespacho.Text, this.TBMedidas.Text
+                        //        );
                     }
 
                     else
                     {
-                        rptaDatosBasicos = fBodega.Editar_DatosBasicos
+                        //rptaDatosBasicos = fBodega.Editar_DatosBasicos
 
-                            (
-                                 //Datos Auxiliares
-                                 2, Convert.ToInt32(TBIdbodega.Text),
+                        //    (
+                        //         //Datos Auxiliares
+                        //         2, Convert.ToInt32(TBIdbodega.Text),
 
-                                 //Panel Datos Basicos
-                                 Convert.ToInt32(this.CBSucurzal.SelectedValue), this.TBBodega.Text, this.TBDocumento.Text, this.TBDescripcion.Text, this.TBDirector.Text, this.TBCiudad.Text, this.TBMovil.Text,
-                                 this.TBTelefono.Text, this.TBCorreo.Text, this.TBDireccion01.Text, this.TBDireccion02.Text, this.TBRecepcion.Text, this.TBDespacho.Text, this.TBInicioLaboral.Text,
-                                 this.TBFinalHorarioLaboral.Text, this.TBDiadepagos.Text, this.TBDiaDespacho.Text, this.TBMedidas.Text
-                            );
+                        //         //Panel Datos Basicos
+                        //         Convert.ToInt32(this.CBSucurzal.SelectedValue), this.TBBodega.Text, this.TBDocumento.Text, this.TBDescripcion.Text, this.TBDirector.Text, this.TBCiudad.Text, this.TBMovil.Text,
+                        //         this.TBTelefono.Text, this.TBCorreo.Text, this.TBDireccion01.Text, this.TBDireccion02.Text, this.TBRecepcion.Text, this.TBDespacho.Text, this.TBInicioLaboral.Text,
+                        //         this.TBFinalHorarioLaboral.Text, this.TBDiadepagos.Text, this.TBDiaDespacho.Text, this.TBMedidas.Text
+                        //    );
                     }
 
                     if (rptaDatosBasicos.Equals("OK"))
@@ -290,6 +295,8 @@ namespace Presentacion
                         MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Guardar Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                         //Llamada de Clase
+                        this.Digitar = true;
+                        this.Botones();
                         this.Limpiar_Datos();
                     }
                 }
@@ -306,11 +313,11 @@ namespace Presentacion
                         MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Editar Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                         //Llamada de Clase
+                        this.Digitar = true;
+                        this.Botones();
                         this.Limpiar_Datos();
                     }
-
                 }
-
             }
             catch (Exception ex)
             {
@@ -320,7 +327,21 @@ namespace Presentacion
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                this.Digitar = true;
+                this.Botones();
+                this.Limpiar_Datos();
+                this.TBBuscar.Clear();
 
+                //Se Limpian las Filas y Columnas de la tabla
+                this.DGResultados.DataSource = null;
+                this.lblTotal.Text = "Datos Registrados: 0";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -462,15 +483,15 @@ namespace Presentacion
                     this.TBCorreo.Text = Correo;
 
                     //
-                    this.TBRecepcion.Text = Recepcion;
-                    this.TBDespacho.Text = Despacho;
-                    this.TBInicioLaboral.Text = InicioLaboral;
-                    this.TBFinalHorarioLaboral.Text = FinalLaboral;
-                    this.TBMedidas.Text = Medidas;
-                    this.TBDiadepagos.Text = Diadepagos;
-                    this.TBDespacho.Text = Despacho;
-                    this.TBDireccion01.Text = Direccion01;
-                    this.TBDireccion02.Text = Direccion02;
+                    //this.TBRecepcion.Text = Recepcion;
+                    //this.TBDespacho.Text = Despacho;
+                    //this.TBInicioLaboral.Text = InicioLaboral;
+                    //this.TBFinalHorarioLaboral.Text = FinalLaboral;
+                    //this.TBMedidas.Text = Medidas;
+                    //this.TBDiadepagos.Text = Diadepagos;
+                    //this.TBDespacho.Text = Despacho;
+                    //this.TBDireccion01.Text = Direccion01;
+                    //this.TBDireccion02.Text = Direccion02;
 
                 }
             }
@@ -626,29 +647,9 @@ namespace Presentacion
             this.TBDespacho.BackColor = Color.Azure;
         }
 
-        private void TBInicioLaboral_Enter(object sender, EventArgs e)
-        {
-            this.TBInicioLaboral.BackColor = Color.Azure;
-        }
-
-        private void TBFinalHorarioLaboral_Enter(object sender, EventArgs e)
-        {
-            this.TBFinalHorarioLaboral.BackColor = Color.Azure;
-        }
-
         private void TBMedidas_Enter(object sender, EventArgs e)
         {
             this.TBMedidas.BackColor = Color.Azure;
-        }
-
-        private void TBDiadepagos_Enter(object sender, EventArgs e)
-        {
-            this.TBDiadepagos.BackColor = Color.Azure;
-        }
-
-        private void TBDiaDespacho_Enter(object sender, EventArgs e)
-        {
-            this.TBDiaDespacho.BackColor = Color.Azure;
         }
 
         private void TBDireccion01_Enter(object sender, EventArgs e)
@@ -749,29 +750,9 @@ namespace Presentacion
             this.TBDespacho.BackColor = Color.FromArgb(3, 155, 229);
         }
 
-        private void TBInicioLaboral_Leave(object sender, EventArgs e)
-        {
-            this.TBInicioLaboral.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBFinalHorarioLaboral_Leave(object sender, EventArgs e)
-        {
-            this.TBFinalHorarioLaboral.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
         private void TBMedidas_Leave(object sender, EventArgs e)
         {
             this.TBMedidas.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBDiadepagos_Leave(object sender, EventArgs e)
-        {
-            this.TBDiadepagos.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBDiaDespacho_Leave(object sender, EventArgs e)
-        {
-            this.TBDiaDespacho.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBDireccion01_Leave_1(object sender, EventArgs e)
@@ -787,28 +768,6 @@ namespace Presentacion
         private void TBBuscar_Leave(object sender, EventArgs e)
         {
             this.TBBuscar.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBBuscar_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Tab))
-                {
-
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
-                {
-                    //Al precionar la tecla Control+TAB Se cambia al campo de Texto TBBuscar
-                    //Para realizar consultas en el sistema Y se realiza Focus al primer Texboxt
-
-                    this.TBBuscar.Select();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
         }
 
         private void TBBodega_KeyUp(object sender, KeyEventArgs e)
@@ -1354,210 +1313,6 @@ namespace Presentacion
             }
         }
 
-        private void TBDespacho_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
-                {
-                    //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
-
-                    this.TBInicioLaboral.Select();
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
-                {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
-                    //Y se realizara las validaciones en el sistema
-
-                    if (Digitar)
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            if (Guardar == "1")
-                            {
-                                //Llamada de Clase
-                                this.Guardar_SQL();
-                            }
-                            else
-                            {
-                                MessageBox.Show("El usuario iniciado no contiene permisos para Guardar datos en el sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
-                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
-
-                                this.Limpiar_Datos();
-                            }
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBDespacho.Select();
-                        }
-                    }
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            //Llamada de Clase
-                            this.Digitar = false;
-                            this.Guardar_SQL();
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBDespacho.Select();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        private void TBInicioLaboral_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
-                {
-                    //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
-
-                    this.TBFinalHorarioLaboral.Select();
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
-                {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
-                    //Y se realizara las validaciones en el sistema
-
-                    if (Digitar)
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            if (Guardar == "1")
-                            {
-                                //Llamada de Clase
-                                this.Guardar_SQL();
-                            }
-                            else
-                            {
-                                MessageBox.Show("El usuario iniciado no contiene permisos para Guardar datos en el sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
-                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
-
-                                this.Limpiar_Datos();
-                            }
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBInicioLaboral.Select();
-                        }
-                    }
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            //Llamada de Clase
-                            this.Digitar = false;
-                            this.Guardar_SQL();
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBInicioLaboral.Select();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        private void TBFinalHorarioLaboral_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
-                {
-                    //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
-
-                    this.TBMedidas.Select();
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
-                {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
-                    //Y se realizara las validaciones en el sistema
-
-                    if (Digitar)
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            if (Guardar == "1")
-                            {
-                                //Llamada de Clase
-                                this.Guardar_SQL();
-                            }
-                            else
-                            {
-                                MessageBox.Show("El usuario iniciado no contiene permisos para Guardar datos en el sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
-                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
-
-                                this.Limpiar_Datos();
-                            }
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBFinalHorarioLaboral.Select();
-                        }
-                    }
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            //Llamada de Clase
-                            this.Digitar = false;
-                            this.Guardar_SQL();
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBFinalHorarioLaboral.Select();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
         private void TBMedidas_KeyUp(object sender, KeyEventArgs e)
         {
             try
@@ -1566,16 +1321,9 @@ namespace Presentacion
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
-                    this.TBDiadepagos.Select();
+                    //this.TBDiadepagos.Select();
                 }
 
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
-                {
-                    //Al precionar la tecla Control+TAB Se cambia al campo de Texto TBBuscar
-                    //Para realizar consultas en el sistema Y se realiza Focus al primer Texboxt
-
-                    this.TCPrincipal.SelectedIndex = 2;
-                }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
                 {
                     //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
@@ -1713,159 +1461,6 @@ namespace Presentacion
             }
         }
 
-        private void TBDiadepagos_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
-                {
-                    //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
-
-                    this.TBDiaDespacho.Select();
-                }
-
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
-                {
-                    //Al precionar la tecla Control+TAB Se cambia al campo de Texto TBBuscar
-                    //Para realizar consultas en el sistema Y se realiza Focus al primer Texboxt
-
-                    this.TCPrincipal.SelectedIndex = 2;
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
-                {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
-                    //Y se realizara las validaciones en el sistema
-
-                    if (Digitar)
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            if (Guardar == "1")
-                            {
-                                //Llamada de Clase
-                                this.Guardar_SQL();
-                            }
-                            else
-                            {
-                                MessageBox.Show("El usuario iniciado no contiene permisos para Guardar datos en el sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
-                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
-
-                                this.Limpiar_Datos();
-                            }
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBDiadepagos.Select();
-                        }
-                    }
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            //Llamada de Clase
-                            this.Digitar = false;
-                            this.Guardar_SQL();
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBDiadepagos.Select();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        private void TBDiaDespacho_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
-                {
-                    //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
-
-                    this.TBDireccion01.Select();
-                }
-
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
-                {
-                    //Al precionar la tecla Control+TAB Se cambia al campo de Texto TBBuscar
-                    //Para realizar consultas en el sistema Y se realiza Focus al primer Texboxt
-
-                    this.TCPrincipal.SelectedIndex = 2;
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
-                {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
-                    //Y se realizara las validaciones en el sistema
-
-                    if (Digitar)
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            if (Guardar == "1")
-                            {
-                                //Llamada de Clase
-                                this.Guardar_SQL();
-                            }
-                            else
-                            {
-                                MessageBox.Show("El usuario iniciado no contiene permisos para Guardar datos en el sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
-                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
-
-                                this.Limpiar_Datos();
-                            }
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBDiaDespacho.Select();
-                        }
-                    }
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            //Llamada de Clase
-                            this.Digitar = false;
-                            this.Guardar_SQL();
-                            this.Limpiar_Datos();
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBDiaDespacho.Select();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
         private void TBDireccion01_KeyUp_1(object sender, KeyEventArgs e)
         {
             try
@@ -1877,13 +1472,6 @@ namespace Presentacion
                     this.TBDireccion02.Select();
                 }
 
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
-                {
-                    //Al precionar la tecla Control+TAB Se cambia al campo de Texto TBBuscar
-                    //Para realizar consultas en el sistema Y se realiza Focus al primer Texboxt
-
-                    this.TCPrincipal.SelectedIndex = 2;
-                }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
                 {
                     //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
@@ -1953,13 +1541,6 @@ namespace Presentacion
                     this.TBRecepcion.Select();
                 }
 
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
-                {
-                    //Al precionar la tecla Control+TAB Se cambia al campo de Texto TBBuscar
-                    //Para realizar consultas en el sistema Y se realiza Focus al primer Texboxt
-
-                    this.TCPrincipal.SelectedIndex = 2;
-                }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
                 {
                     //Al precionar las teclas Control+Enter se realizara el registro en la base de datos

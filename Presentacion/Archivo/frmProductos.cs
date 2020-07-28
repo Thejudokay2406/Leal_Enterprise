@@ -992,7 +992,8 @@ namespace Presentacion
                         MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Editar Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                         //Llamada de Clase
-                        this.Digitar = false;
+                        this.Digitar = true;
+                        this.Botones();
                         this.Limpiar_Datos();
                     }
                 }

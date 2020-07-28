@@ -314,13 +314,8 @@ namespace Presentacion
                 this.TBBuscar.Clear();
 
                 //Se Limpian las Filas y Columnas de la tabla
-                DGResultados.DataSource = null;
-                this.DGResultados.Enabled = false;
+                this.DGResultados.DataSource = null;
                 this.lblTotal.Text = "Datos Registrados: 0";
-
-                //Se restablece la imagen predeterminada del boton
-                //this.btnGuardar.Image = Properties.Resources.BV_Guardar;
-
             }
             catch (Exception ex)
             {
@@ -330,7 +325,47 @@ namespace Presentacion
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (Eliminar == "1")
+                {
+                    DialogResult Opcion;
+                    string Respuesta = "";
+                    int Eliminacion;
 
+                    Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                    if (Opcion == DialogResult.OK)
+                    {
+                        if (DGResultados.SelectedRows.Count > 0)
+                        {
+                            Eliminacion = Convert.ToInt32(DGResultados.CurrentRow.Cells["Codigo"].Value.ToString());
+                            Respuesta = Negocio.fImpuesto.Eliminar(Eliminacion, 1);
+                        }
+
+                        if (Respuesta.Equals("OK"))
+                        {
+                            this.MensajeOk("Registro Eliminado Correctamente");
+                        }
+                        else
+                        {
+                            this.MensajeError(Respuesta);
+                        }
+                    }
+
+                    //
+                    this.TBBuscar.Clear();
+
+                }
+                else
+                {
+                    MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
 
         private void btnImprimir_Click(object sender, EventArgs e)
@@ -346,20 +381,18 @@ namespace Presentacion
                 {
                     if (TBBuscar.Text != "")
                     {
-                        this.DGResultados.DataSource = fImpuesto.Buscar(this.TBBuscar.Text);
+                        //this.DGResultados.DataSource = fImpuesto.Buscar(this.TBBuscar.Text, 1);
                         //this.DGResultados.Columns[0].Visible = false;
 
                         lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGResultados.Rows.Count);
 
                         this.btnEliminar.Enabled = true;
                         this.btnImprimir.Enabled = true;
-                        this.DGResultados.Enabled = true;
                     }
                     else
                     {
                         //Se Limpian las Filas y Columnas de la tabla
                         this.DGResultados.DataSource = null;
-                        this.DGResultados.Enabled = false;
                         this.lblTotal.Text = "Datos Registrados: 0";
 
                         this.btnEliminar.Enabled = false;

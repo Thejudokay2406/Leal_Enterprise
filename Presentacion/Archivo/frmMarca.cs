@@ -85,50 +85,36 @@ namespace Presentacion
 
         private void Limpiar_Datos()
         {
-            if (!Digitar)
-            {
-                //Panel - Datos Basicos
+            //Panel - Datos Basicos
+            this.textBox1.Clear();
+            this.TBNombre.Clear();
+            this.TBNombre.Text = Campo;
+            this.TBDescripcion.Clear();
+            this.TBDescripcion.Text = Campo;
+            this.TBReferencia.Clear();
+            this.TBObservacion.Clear();
 
-                this.TBNombre.Clear();
-                this.TBNombre.Text = Campo;
-                this.TBDescripcion.Clear();
-                this.TBDescripcion.Text = Campo;
-                this.TBReferencia.Clear();
-                this.TBObservacion.Clear();
-
-                //Se habilitan los botones a su estado por DEFAULT
-                this.Digitar = true;
-                this.Botones();
-                this.Habilitar();
-                //this.PB_Imagen.Image = Properties.Resources.
-
-                //Se realiza el FOCUS al panel y campo de texto iniciales
-                this.TBObservacion.Focus();
-            }
-
+            //Se realiza el FOCUS al panel y campo de texto iniciales
+            this.TBObservacion.Focus();
         }
 
         private void Botones()
         {
             if (Digitar)
             {
-                ////El boton btnGuardar Mantendra su imagen original
-                //this.btnGuardar.Enabled = true;
-                //this.btnGuardar.Image = Properties.Resources.BV_Guardar;
+                this.btnGuardar.Enabled = true;
+                this.btnGuardar.Text = "Guardar";
 
                 this.btnEliminar.Enabled = false;
                 this.btnCancelar.Enabled = false;
-                this.btnImprimir.Enabled = false;
             }
             else if (!Digitar)
             {
-                ////El boton btnGuardar cambiara su imagen original de Guardar a Editar
-                //this.btnGuardar.Enabled = true;
-                //this.btnGuardar.Image = Properties.Resources.BV_Editar;
+                this.btnGuardar.Enabled = true;
+                this.btnGuardar.Text = "Editar";
 
                 this.btnEliminar.Enabled = false;
                 this.btnCancelar.Enabled = true;
-                this.btnImprimir.Enabled = false;
             }
         }
 
@@ -203,7 +189,8 @@ namespace Presentacion
                     }
 
                     //Llamada de Clase
-                    this.Digitar = false;
+                    this.Digitar = true;
+                    this.Botones();
                     this.Limpiar_Datos();
                 }
 
@@ -243,7 +230,8 @@ namespace Presentacion
                         MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Guardar Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                         //Llamada de Clase
-                        this.Digitar = false;
+                        this.Digitar = true;
+                        this.Botones();
                         this.Limpiar_Datos();
                     }
                 }
@@ -260,12 +248,11 @@ namespace Presentacion
                         MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Editar Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                         //Llamada de Clase
-                        this.Digitar = false;
+                        this.Digitar = true;
+                        this.Botones();
                         this.Limpiar_Datos();
                     }
-
                 }
-
             }
             catch (Exception ex)
             {
@@ -278,17 +265,13 @@ namespace Presentacion
             try
             {
                 this.Digitar = true;
+                this.Botones();
                 this.Limpiar_Datos();
                 this.TBBuscar.Clear();
 
                 //Se Limpian las Filas y Columnas de la tabla
                 this.DGResultados.DataSource = null;
-                this.DGResultados.Enabled = false;
                 this.lblTotal.Text = "Datos Registrados: 0";
-
-                //Se restablece la imagen predeterminada del boton
-                //this.btnGuardar.Image = Properties.Resources.BV_Guardar;
-
             }
             catch (Exception ex)
             {
@@ -298,7 +281,47 @@ namespace Presentacion
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (Eliminar == "1")
+                {
+                    DialogResult Opcion;
+                    string Respuesta = "";
+                    int Eliminacion;
 
+                    Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                    if (Opcion == DialogResult.OK)
+                    {
+                        if (DGResultados.SelectedRows.Count > 0)
+                        {
+                            Eliminacion = Convert.ToInt32(DGResultados.CurrentRow.Cells["ID"].Value.ToString());
+                            Respuesta = Negocio.fMarca.Eliminar(Eliminacion, 1);
+                        }
+
+                        if (Respuesta.Equals("OK"))
+                        {
+                            this.MensajeOk("Registro Eliminado Correctamente");
+                        }
+                        else
+                        {
+                            this.MensajeError(Respuesta);
+                        }
+                    }
+
+                    //
+                    this.TBBuscar.Clear();
+
+                }
+                else
+                {
+                    MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
 
         private void btnImprimir_Click(object sender, EventArgs e)
@@ -315,21 +338,15 @@ namespace Presentacion
                     if (TBBuscar.Text != "")
                     {
                         this.DGResultados.DataSource = fMarca.Buscar(this.TBBuscar.Text, 1);
-                        //this.DGResultadoss.Columns[1].Visible = false;
-
                         lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGResultados.Rows.Count);
 
                         this.btnEliminar.Enabled = true;
                         this.btnImprimir.Enabled = true;
-                        this.DGResultados.Enabled = true;
                     }
                     else
                     {
-                        this.Limpiar_Datos();
-
                         //Se Limpian las Filas y Columnas de la tabla
                         this.DGResultados.DataSource = null;
-                        this.DGResultados.Enabled = false;
                         this.lblTotal.Text = "Datos Registrados: 0";
 
                         this.btnEliminar.Enabled = false;

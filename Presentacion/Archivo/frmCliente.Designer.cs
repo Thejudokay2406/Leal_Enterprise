@@ -1306,7 +1306,7 @@
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(5, 329);
+            this.label41.Location = new System.Drawing.Point(6, 326);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(42, 15);
             this.label41.TabIndex = 169;
@@ -1321,7 +1321,7 @@
             this.button5.FlatAppearance.BorderSize = 0;
             this.button5.Image = global::Presentacion.Botones.btnEditar;
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(556, 321);
+            this.button5.Location = new System.Drawing.Point(556, 318);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(90, 30);
             this.button5.TabIndex = 166;
@@ -1339,7 +1339,7 @@
             this.button6.FlatAppearance.BorderSize = 0;
             this.button6.Image = global::Presentacion.Botones.btnEliminar;
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(460, 321);
+            this.button6.Location = new System.Drawing.Point(460, 318);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(90, 30);
             this.button6.TabIndex = 168;
@@ -1357,7 +1357,7 @@
             this.button7.FlatAppearance.BorderSize = 0;
             this.button7.Image = global::Presentacion.Botones.btnAgregar;
             this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.Location = new System.Drawing.Point(364, 321);
+            this.button7.Location = new System.Drawing.Point(364, 318);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(90, 30);
             this.button7.TabIndex = 167;
@@ -1377,7 +1377,7 @@
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(639, 255);
+            this.dataGridView2.Size = new System.Drawing.Size(639, 252);
             this.dataGridView2.TabIndex = 165;
             // 
             // button1
@@ -1625,6 +1625,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1220, 465);
@@ -1635,7 +1636,7 @@
             this.MaximizeBox = false;
             this.Name = "frmCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Almacen - Cliente";
+            this.Text = "Archivo - Cliente";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCliente_FormClosing);
             this.Load += new System.EventHandler(this.frmCliente_Load);
             this.groupBox1.ResumeLayout(false);

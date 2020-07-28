@@ -28,9 +28,77 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Bonos");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Cheques");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Debito");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Efectivo");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Sodexo");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Transferencias");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Otro Tipo de Pago");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Metodos de Pagos Autorizados", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4,
+            treeNode5,
+            treeNode6,
+            treeNode7});
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Lunes");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Martes");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Miercoles");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Jueves");
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Viernes");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Sabado");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Domingo");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Dias de Pagos Autorizados", new System.Windows.Forms.TreeNode[] {
+            treeNode9,
+            treeNode10,
+            treeNode11,
+            treeNode12,
+            treeNode13,
+            treeNode14,
+            treeNode15});
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Lunes");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Martes");
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Miercoles");
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Jueves");
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Viernes");
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Sabado");
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Domingo");
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Dias de Recepción de Mercancia", new System.Windows.Forms.TreeNode[] {
+            treeNode17,
+            treeNode18,
+            treeNode19,
+            treeNode20,
+            treeNode21,
+            treeNode22,
+            treeNode23});
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Lunes");
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Martes");
+            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("Miercoles");
+            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("Jueves");
+            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("Viernes");
+            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("Sabado");
+            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Domingo");
+            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Dias de Recepción de Mercancia", new System.Windows.Forms.TreeNode[] {
+            treeNode25,
+            treeNode26,
+            treeNode27,
+            treeNode28,
+            treeNode29,
+            treeNode30,
+            treeNode31});
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.TCPrincipal = new System.Windows.Forms.TabControl();
             this.TPDatosBasicos = new System.Windows.Forms.TabPage();
+            this.label11 = new System.Windows.Forms.Label();
+            this.TBDireccion01 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.TBDireccion02 = new System.Windows.Forms.TextBox();
+            this.TBMedidas = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.CBZona = new System.Windows.Forms.ComboBox();
+            this.label24 = new System.Windows.Forms.Label();
             this.TBDocumento = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -50,24 +118,34 @@
             this.label5 = new System.Windows.Forms.Label();
             this.TBTelefono = new System.Windows.Forms.TextBox();
             this.TPDatosAuxiliares = new System.Windows.Forms.TabPage();
-            this.TBDiaDespacho = new System.Windows.Forms.TextBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.TBDireccion01 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.TBDireccion02 = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.TBMedidas = new System.Windows.Forms.TextBox();
-            this.TBRecepcion = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.TBDespacho = new System.Windows.Forms.TextBox();
-            this.TBDiadepagos = new System.Windows.Forms.TextBox();
+            this.treeView4 = new System.Windows.Forms.TreeView();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.treeView3 = new System.Windows.Forms.TreeView();
             this.label19 = new System.Windows.Forms.Label();
-            this.TBFinalHorarioLaboral = new System.Windows.Forms.TextBox();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.TBObservacion_Recepcion = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.TBInicioLaboral = new System.Windows.Forms.TextBox();
+            this.TBEncargado_Despacho = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.label16 = new System.Windows.Forms.Label();
+            this.TBFinRecepcion = new System.Windows.Forms.MaskedTextBox();
+            this.TBInicioRecepcion = new System.Windows.Forms.MaskedTextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.TBRecepcion = new System.Windows.Forms.TextBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.TBObservacion_Despacho = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.treeView2 = new System.Windows.Forms.TreeView();
+            this.label15 = new System.Windows.Forms.Label();
+            this.TBFinDeDespacho = new System.Windows.Forms.MaskedTextBox();
+            this.TBInicioDespacho = new System.Windows.Forms.MaskedTextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.TBDespacho = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.TBIdbodega = new System.Windows.Forms.TextBox();
@@ -82,6 +160,8 @@
             this.TCPrincipal.SuspendLayout();
             this.TPDatosBasicos.SuspendLayout();
             this.TPDatosAuxiliares.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGResultados)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -97,23 +177,37 @@
             this.groupBox1.Controls.Add(this.TBIdbodega);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(363, 403);
+            this.groupBox1.Size = new System.Drawing.Size(363, 453);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Leal Enterprise - Registro de Bodegas";
             // 
             // TCPrincipal
             // 
+            this.TCPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TCPrincipal.Controls.Add(this.TPDatosBasicos);
             this.TCPrincipal.Controls.Add(this.TPDatosAuxiliares);
+            this.TCPrincipal.Controls.Add(this.tabPage1);
+            this.TCPrincipal.Controls.Add(this.tabPage2);
             this.TCPrincipal.Location = new System.Drawing.Point(10, 23);
+            this.TCPrincipal.Multiline = true;
             this.TCPrincipal.Name = "TCPrincipal";
             this.TCPrincipal.SelectedIndex = 0;
-            this.TCPrincipal.Size = new System.Drawing.Size(348, 338);
+            this.TCPrincipal.Size = new System.Drawing.Size(348, 388);
             this.TCPrincipal.TabIndex = 42;
             // 
             // TPDatosBasicos
             // 
+            this.TPDatosBasicos.Controls.Add(this.label11);
+            this.TPDatosBasicos.Controls.Add(this.TBDireccion01);
+            this.TPDatosBasicos.Controls.Add(this.label12);
+            this.TPDatosBasicos.Controls.Add(this.TBDireccion02);
+            this.TPDatosBasicos.Controls.Add(this.TBMedidas);
+            this.TPDatosBasicos.Controls.Add(this.label20);
+            this.TPDatosBasicos.Controls.Add(this.CBZona);
+            this.TPDatosBasicos.Controls.Add(this.label24);
             this.TPDatosBasicos.Controls.Add(this.TBDocumento);
             this.TPDatosBasicos.Controls.Add(this.label29);
             this.TPDatosBasicos.Controls.Add(this.label2);
@@ -135,19 +229,122 @@
             this.TPDatosBasicos.Location = new System.Drawing.Point(4, 24);
             this.TPDatosBasicos.Name = "TPDatosBasicos";
             this.TPDatosBasicos.Padding = new System.Windows.Forms.Padding(3);
-            this.TPDatosBasicos.Size = new System.Drawing.Size(340, 310);
+            this.TPDatosBasicos.Size = new System.Drawing.Size(340, 360);
             this.TPDatosBasicos.TabIndex = 0;
             this.TPDatosBasicos.Text = "Datos Basicos";
             this.TPDatosBasicos.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(6, 306);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(76, 15);
+            this.label11.TabIndex = 63;
+            this.label11.Text = "Direccion 01";
+            // 
+            // TBDireccion01
+            // 
+            this.TBDireccion01.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TBDireccion01.Location = new System.Drawing.Point(84, 303);
+            this.TBDireccion01.Name = "TBDireccion01";
+            this.TBDireccion01.Size = new System.Drawing.Size(250, 21);
+            this.TBDireccion01.TabIndex = 62;
+            // 
+            // label12
+            // 
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 333);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(76, 15);
+            this.label12.TabIndex = 60;
+            this.label12.Text = "Direccion 02";
+            // 
+            // TBDireccion02
+            // 
+            this.TBDireccion02.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TBDireccion02.Location = new System.Drawing.Point(84, 330);
+            this.TBDireccion02.Name = "TBDireccion02";
+            this.TBDireccion02.Size = new System.Drawing.Size(250, 21);
+            this.TBDireccion02.TabIndex = 61;
+            // 
+            // TBMedidas
+            // 
+            this.TBMedidas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TBMedidas.Location = new System.Drawing.Point(85, 276);
+            this.TBMedidas.Name = "TBMedidas";
+            this.TBMedidas.Size = new System.Drawing.Size(249, 21);
+            this.TBMedidas.TabIndex = 59;
+            // 
+            // label20
+            // 
+            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(6, 279);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(80, 15);
+            this.label20.TabIndex = 58;
+            this.label20.Text = "Dimensiones";
+            // 
+            // CBZona
+            // 
+            this.CBZona.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.CBZona.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CBZona.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBZona.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBZona.FormattingEnabled = true;
+            this.CBZona.Items.AddRange(new object[] {
+            "-",
+            "Este",
+            "NorEste",
+            "NorOeste",
+            "Norte",
+            "Oeste",
+            "Sur",
+            "SurEste",
+            "SurOeste"});
+            this.CBZona.Location = new System.Drawing.Point(84, 33);
+            this.CBZona.Name = "CBZona";
+            this.CBZona.Size = new System.Drawing.Size(250, 21);
+            this.CBZona.Sorted = true;
+            this.CBZona.TabIndex = 57;
+            // 
+            // label24
+            // 
+            this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(6, 36);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(77, 15);
+            this.label24.TabIndex = 56;
+            this.label24.Text = "Zona de Ubi.";
             // 
             // TBDocumento
             // 
             this.TBDocumento.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBDocumento.Location = new System.Drawing.Point(85, 63);
+            this.TBDocumento.Location = new System.Drawing.Point(85, 87);
             this.TBDocumento.Name = "TBDocumento";
-            this.TBDocumento.Size = new System.Drawing.Size(250, 21);
+            this.TBDocumento.Size = new System.Drawing.Size(249, 21);
             this.TBDocumento.TabIndex = 17;
             this.TBDocumento.Enter += new System.EventHandler(this.TBDocumento_Enter);
             this.TBDocumento.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBDocumento_KeyUp);
@@ -159,7 +356,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(6, 66);
+            this.label29.Location = new System.Drawing.Point(6, 90);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(71, 15);
             this.label29.TabIndex = 16;
@@ -183,7 +380,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(3, 93);
+            this.label10.Location = new System.Drawing.Point(6, 117);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(72, 15);
             this.label10.TabIndex = 15;
@@ -194,9 +391,9 @@
             this.TBDescripcion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBDescripcion.Location = new System.Drawing.Point(85, 90);
+            this.TBDescripcion.Location = new System.Drawing.Point(85, 114);
             this.TBDescripcion.Name = "TBDescripcion";
-            this.TBDescripcion.Size = new System.Drawing.Size(250, 21);
+            this.TBDescripcion.Size = new System.Drawing.Size(249, 21);
             this.TBDescripcion.TabIndex = 14;
             this.TBDescripcion.Enter += new System.EventHandler(this.TBDescripcion_Enter);
             this.TBDescripcion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBDescripcion_KeyUp);
@@ -208,7 +405,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 36);
+            this.label1.Location = new System.Drawing.Point(6, 60);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 15);
             this.label1.TabIndex = 0;
@@ -219,7 +416,7 @@
             this.TBBodega.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBBodega.Location = new System.Drawing.Point(84, 36);
+            this.TBBodega.Location = new System.Drawing.Point(84, 60);
             this.TBBodega.Name = "TBBodega";
             this.TBBodega.Size = new System.Drawing.Size(250, 21);
             this.TBBodega.TabIndex = 1;
@@ -236,9 +433,9 @@
             this.CBSucurzal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBSucurzal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBSucurzal.FormattingEnabled = true;
-            this.CBSucurzal.Location = new System.Drawing.Point(84, 9);
+            this.CBSucurzal.Location = new System.Drawing.Point(84, 6);
             this.CBSucurzal.Name = "CBSucurzal";
-            this.CBSucurzal.Size = new System.Drawing.Size(251, 21);
+            this.CBSucurzal.Size = new System.Drawing.Size(250, 21);
             this.CBSucurzal.Sorted = true;
             this.CBSucurzal.TabIndex = 3;
             this.CBSucurzal.SelectedIndexChanged += new System.EventHandler(this.CBSucurzal_SelectedIndexChanged);
@@ -248,9 +445,9 @@
             this.TBCorreo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBCorreo.Location = new System.Drawing.Point(85, 225);
+            this.TBCorreo.Location = new System.Drawing.Point(85, 249);
             this.TBCorreo.Name = "TBCorreo";
-            this.TBCorreo.Size = new System.Drawing.Size(250, 21);
+            this.TBCorreo.Size = new System.Drawing.Size(249, 21);
             this.TBCorreo.TabIndex = 13;
             this.TBCorreo.Enter += new System.EventHandler(this.TBCorreo_Enter);
             this.TBCorreo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCorreo_KeyUp);
@@ -262,7 +459,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 147);
+            this.label3.Location = new System.Drawing.Point(6, 171);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 15);
             this.label3.TabIndex = 4;
@@ -274,7 +471,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 228);
+            this.label7.Location = new System.Drawing.Point(6, 252);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(44, 15);
             this.label7.TabIndex = 12;
@@ -285,9 +482,9 @@
             this.TBCiudad.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBCiudad.Location = new System.Drawing.Point(85, 144);
+            this.TBCiudad.Location = new System.Drawing.Point(85, 168);
             this.TBCiudad.Name = "TBCiudad";
-            this.TBCiudad.Size = new System.Drawing.Size(250, 21);
+            this.TBCiudad.Size = new System.Drawing.Size(249, 21);
             this.TBCiudad.TabIndex = 5;
             this.TBCiudad.Enter += new System.EventHandler(this.TBCiudad_Enter);
             this.TBCiudad.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCiudad_KeyUp);
@@ -299,7 +496,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 120);
+            this.label6.Location = new System.Drawing.Point(6, 144);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(50, 15);
             this.label6.TabIndex = 11;
@@ -310,9 +507,9 @@
             this.TBMovil.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBMovil.Location = new System.Drawing.Point(85, 171);
+            this.TBMovil.Location = new System.Drawing.Point(85, 195);
             this.TBMovil.Name = "TBMovil";
-            this.TBMovil.Size = new System.Drawing.Size(250, 21);
+            this.TBMovil.Size = new System.Drawing.Size(249, 21);
             this.TBMovil.TabIndex = 8;
             this.TBMovil.Enter += new System.EventHandler(this.TBMovil_Enter);
             this.TBMovil.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBMovil_KeyUp);
@@ -324,7 +521,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 201);
+            this.label4.Location = new System.Drawing.Point(6, 225);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 15);
             this.label4.TabIndex = 6;
@@ -335,9 +532,9 @@
             this.TBDirector.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBDirector.Location = new System.Drawing.Point(85, 117);
+            this.TBDirector.Location = new System.Drawing.Point(85, 141);
             this.TBDirector.Name = "TBDirector";
-            this.TBDirector.Size = new System.Drawing.Size(250, 21);
+            this.TBDirector.Size = new System.Drawing.Size(249, 21);
             this.TBDirector.TabIndex = 10;
             this.TBDirector.Enter += new System.EventHandler(this.TBDirector_Enter);
             this.TBDirector.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBDirector_KeyUp);
@@ -349,7 +546,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 174);
+            this.label5.Location = new System.Drawing.Point(6, 198);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(36, 15);
             this.label5.TabIndex = 9;
@@ -360,9 +557,9 @@
             this.TBTelefono.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBTelefono.Location = new System.Drawing.Point(85, 198);
+            this.TBTelefono.Location = new System.Drawing.Point(85, 222);
             this.TBTelefono.Name = "TBTelefono";
-            this.TBTelefono.Size = new System.Drawing.Size(250, 21);
+            this.TBTelefono.Size = new System.Drawing.Size(249, 21);
             this.TBTelefono.TabIndex = 7;
             this.TBTelefono.Enter += new System.EventHandler(this.TBTelefono_Enter);
             this.TBTelefono.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBTelefono_KeyUp);
@@ -370,194 +567,85 @@
             // 
             // TPDatosAuxiliares
             // 
-            this.TPDatosAuxiliares.Controls.Add(this.TBDiaDespacho);
-            this.TPDatosAuxiliares.Controls.Add(this.label28);
-            this.TPDatosAuxiliares.Controls.Add(this.label11);
-            this.TPDatosAuxiliares.Controls.Add(this.TBDireccion01);
-            this.TPDatosAuxiliares.Controls.Add(this.label12);
-            this.TPDatosAuxiliares.Controls.Add(this.TBDireccion02);
-            this.TPDatosAuxiliares.Controls.Add(this.label22);
-            this.TPDatosAuxiliares.Controls.Add(this.TBMedidas);
-            this.TPDatosAuxiliares.Controls.Add(this.TBRecepcion);
-            this.TPDatosAuxiliares.Controls.Add(this.label8);
-            this.TPDatosAuxiliares.Controls.Add(this.label20);
-            this.TPDatosAuxiliares.Controls.Add(this.TBDespacho);
-            this.TPDatosAuxiliares.Controls.Add(this.TBDiadepagos);
+            this.TPDatosAuxiliares.Controls.Add(this.treeView4);
+            this.TPDatosAuxiliares.Controls.Add(this.textBox5);
+            this.TPDatosAuxiliares.Controls.Add(this.treeView3);
             this.TPDatosAuxiliares.Controls.Add(this.label19);
-            this.TPDatosAuxiliares.Controls.Add(this.TBFinalHorarioLaboral);
-            this.TPDatosAuxiliares.Controls.Add(this.label9);
-            this.TPDatosAuxiliares.Controls.Add(this.TBInicioLaboral);
-            this.TPDatosAuxiliares.Controls.Add(this.label17);
             this.TPDatosAuxiliares.Location = new System.Drawing.Point(4, 24);
             this.TPDatosAuxiliares.Name = "TPDatosAuxiliares";
             this.TPDatosAuxiliares.Padding = new System.Windows.Forms.Padding(3);
-            this.TPDatosAuxiliares.Size = new System.Drawing.Size(340, 310);
+            this.TPDatosAuxiliares.Size = new System.Drawing.Size(340, 360);
             this.TPDatosAuxiliares.TabIndex = 1;
-            this.TPDatosAuxiliares.Text = "Datos Auxiliares";
+            this.TPDatosAuxiliares.Text = "Datos de Pagos";
             this.TPDatosAuxiliares.UseVisualStyleBackColor = true;
             // 
-            // TBDiaDespacho
+            // treeView4
             // 
-            this.TBDiaDespacho.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.treeView4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBDiaDespacho.Location = new System.Drawing.Point(120, 171);
-            this.TBDiaDespacho.Name = "TBDiaDespacho";
-            this.TBDiaDespacho.Size = new System.Drawing.Size(214, 21);
-            this.TBDiaDespacho.TabIndex = 47;
-            this.TBDiaDespacho.Enter += new System.EventHandler(this.TBDiaDespacho_Enter);
-            this.TBDiaDespacho.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBDiaDespacho_KeyUp);
-            this.TBDiaDespacho.Leave += new System.EventHandler(this.TBDiaDespacho_Leave);
+            this.treeView4.CheckBoxes = true;
+            this.treeView4.Location = new System.Drawing.Point(6, 189);
+            this.treeView4.Name = "treeView4";
+            treeNode1.Name = "Pag_Bonos";
+            treeNode1.Text = "Bonos";
+            treeNode2.Name = "Pag_Cheques";
+            treeNode2.Text = "Cheques";
+            treeNode3.Name = "Pag_Debito";
+            treeNode3.Text = "Debito";
+            treeNode4.Name = "Pag_";
+            treeNode4.Text = "Efectivo";
+            treeNode5.Name = "Pag_Sodexo";
+            treeNode5.Text = "Sodexo";
+            treeNode6.Name = "Pag_Transferencias";
+            treeNode6.Text = "Transferencias";
+            treeNode7.Name = "Pag_Otros";
+            treeNode7.Text = "Otro Tipo de Pago";
+            treeNode8.Name = "Nodo0";
+            treeNode8.Text = "Metodos de Pagos Autorizados";
+            this.treeView4.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode8});
+            this.treeView4.Size = new System.Drawing.Size(328, 154);
+            this.treeView4.TabIndex = 42;
             // 
-            // label28
+            // textBox5
             // 
-            this.label28.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(6, 174);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(108, 15);
-            this.label28.TabIndex = 46;
-            this.label28.Text = "Dia de Despachos";
+            this.textBox5.Location = new System.Drawing.Point(86, 6);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(248, 21);
+            this.textBox5.TabIndex = 41;
             // 
-            // label11
+            // treeView3
             // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.treeView3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 198);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(76, 15);
-            this.label11.TabIndex = 45;
-            this.label11.Text = "Direccion 01";
-            // 
-            // TBDireccion01
-            // 
-            this.TBDireccion01.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBDireccion01.Location = new System.Drawing.Point(92, 198);
-            this.TBDireccion01.Name = "TBDireccion01";
-            this.TBDireccion01.Size = new System.Drawing.Size(242, 21);
-            this.TBDireccion01.TabIndex = 44;
-            this.TBDireccion01.Enter += new System.EventHandler(this.TBDireccion01_Enter);
-            this.TBDireccion01.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBDireccion01_KeyUp_1);
-            this.TBDireccion01.Leave += new System.EventHandler(this.TBDireccion01_Leave_1);
-            // 
-            // label12
-            // 
-            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 225);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(76, 15);
-            this.label12.TabIndex = 42;
-            this.label12.Text = "Direccion 02";
-            // 
-            // TBDireccion02
-            // 
-            this.TBDireccion02.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBDireccion02.Location = new System.Drawing.Point(92, 225);
-            this.TBDireccion02.Name = "TBDireccion02";
-            this.TBDireccion02.Size = new System.Drawing.Size(242, 21);
-            this.TBDireccion02.TabIndex = 43;
-            this.TBDireccion02.Enter += new System.EventHandler(this.TBDireccion02_Enter);
-            this.TBDireccion02.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBDireccion02_KeyUp_1);
-            this.TBDireccion02.Leave += new System.EventHandler(this.TBDireccion02_Leave_1);
-            // 
-            // label22
-            // 
-            this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(6, 9);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(66, 15);
-            this.label22.TabIndex = 21;
-            this.label22.Text = "Recepcion";
-            // 
-            // TBMedidas
-            // 
-            this.TBMedidas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBMedidas.Location = new System.Drawing.Point(92, 117);
-            this.TBMedidas.Name = "TBMedidas";
-            this.TBMedidas.Size = new System.Drawing.Size(242, 21);
-            this.TBMedidas.TabIndex = 41;
-            this.TBMedidas.Enter += new System.EventHandler(this.TBMedidas_Enter);
-            this.TBMedidas.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBMedidas_KeyUp);
-            this.TBMedidas.Leave += new System.EventHandler(this.TBMedidas_Leave);
-            // 
-            // TBRecepcion
-            // 
-            this.TBRecepcion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBRecepcion.Location = new System.Drawing.Point(92, 9);
-            this.TBRecepcion.Name = "TBRecepcion";
-            this.TBRecepcion.Size = new System.Drawing.Size(242, 21);
-            this.TBRecepcion.TabIndex = 22;
-            this.TBRecepcion.Enter += new System.EventHandler(this.TBRecepcion_Enter);
-            this.TBRecepcion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBRecepcion_KeyUp);
-            this.TBRecepcion.Leave += new System.EventHandler(this.TBRecepcion_Leave);
-            // 
-            // label8
-            // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 36);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(63, 15);
-            this.label8.TabIndex = 23;
-            this.label8.Text = "Despacho";
-            // 
-            // label20
-            // 
-            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(6, 117);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(80, 15);
-            this.label20.TabIndex = 40;
-            this.label20.Text = "Dimensiones";
-            // 
-            // TBDespacho
-            // 
-            this.TBDespacho.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBDespacho.Location = new System.Drawing.Point(92, 36);
-            this.TBDespacho.Name = "TBDespacho";
-            this.TBDespacho.Size = new System.Drawing.Size(242, 21);
-            this.TBDespacho.TabIndex = 24;
-            this.TBDespacho.Enter += new System.EventHandler(this.TBDespacho_Enter);
-            this.TBDespacho.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBDespacho_KeyUp);
-            this.TBDespacho.Leave += new System.EventHandler(this.TBDespacho_Leave);
-            // 
-            // TBDiadepagos
-            // 
-            this.TBDiadepagos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBDiadepagos.Location = new System.Drawing.Point(92, 144);
-            this.TBDiadepagos.Name = "TBDiadepagos";
-            this.TBDiadepagos.Size = new System.Drawing.Size(242, 21);
-            this.TBDiadepagos.TabIndex = 39;
-            this.TBDiadepagos.Enter += new System.EventHandler(this.TBDiadepagos_Enter);
-            this.TBDiadepagos.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBDiadepagos_KeyUp);
-            this.TBDiadepagos.Leave += new System.EventHandler(this.TBDiadepagos_Leave);
+            this.treeView3.CheckBoxes = true;
+            this.treeView3.Location = new System.Drawing.Point(6, 33);
+            this.treeView3.Name = "treeView3";
+            treeNode9.Name = "Dia_Lunes";
+            treeNode9.Text = "Lunes";
+            treeNode10.Name = "Dia_Martes";
+            treeNode10.Text = "Martes";
+            treeNode11.Name = "Dia_Miercoles";
+            treeNode11.Text = "Miercoles";
+            treeNode12.Name = "Dia_Jueves";
+            treeNode12.Text = "Jueves";
+            treeNode13.Name = "Dia_Viernes";
+            treeNode13.Text = "Viernes";
+            treeNode14.Name = "Dia_Sabado";
+            treeNode14.Text = "Sabado";
+            treeNode15.Name = "Dia_Domingo";
+            treeNode15.Text = "Domingo";
+            treeNode16.Name = "Nodo0";
+            treeNode16.Text = "Dias de Pagos Autorizados";
+            this.treeView3.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode16});
+            this.treeView3.Size = new System.Drawing.Size(328, 150);
+            this.treeView3.TabIndex = 40;
             // 
             // label19
             // 
@@ -565,24 +653,43 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(6, 144);
+            this.label19.Location = new System.Drawing.Point(6, 9);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(81, 15);
+            this.label19.Size = new System.Drawing.Size(74, 15);
             this.label19.TabIndex = 38;
-            this.label19.Text = "Dia de Pagos";
+            this.label19.Text = "Autorización";
             // 
-            // TBFinalHorarioLaboral
+            // tabPage1
             // 
-            this.TBFinalHorarioLaboral.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tabPage1.Controls.Add(this.TBObservacion_Recepcion);
+            this.tabPage1.Controls.Add(this.label9);
+            this.tabPage1.Controls.Add(this.TBEncargado_Despacho);
+            this.tabPage1.Controls.Add(this.label8);
+            this.tabPage1.Controls.Add(this.treeView1);
+            this.tabPage1.Controls.Add(this.label16);
+            this.tabPage1.Controls.Add(this.TBFinRecepcion);
+            this.tabPage1.Controls.Add(this.TBInicioRecepcion);
+            this.tabPage1.Controls.Add(this.label18);
+            this.tabPage1.Controls.Add(this.label22);
+            this.tabPage1.Controls.Add(this.TBRecepcion);
+            this.tabPage1.Location = new System.Drawing.Point(4, 24);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(340, 360);
+            this.tabPage1.TabIndex = 2;
+            this.tabPage1.Text = "Recepción";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // TBObservacion_Recepcion
+            // 
+            this.TBObservacion_Recepcion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBFinalHorarioLaboral.Location = new System.Drawing.Point(92, 90);
-            this.TBFinalHorarioLaboral.Name = "TBFinalHorarioLaboral";
-            this.TBFinalHorarioLaboral.Size = new System.Drawing.Size(242, 21);
-            this.TBFinalHorarioLaboral.TabIndex = 37;
-            this.TBFinalHorarioLaboral.Enter += new System.EventHandler(this.TBFinalHorarioLaboral_Enter);
-            this.TBFinalHorarioLaboral.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBFinalHorarioLaboral_KeyUp);
-            this.TBFinalHorarioLaboral.Leave += new System.EventHandler(this.TBFinalHorarioLaboral_Leave);
+            this.TBObservacion_Recepcion.Location = new System.Drawing.Point(87, 245);
+            this.TBObservacion_Recepcion.Multiline = true;
+            this.TBObservacion_Recepcion.Name = "TBObservacion_Recepcion";
+            this.TBObservacion_Recepcion.Size = new System.Drawing.Size(247, 109);
+            this.TBObservacion_Recepcion.TabIndex = 51;
             // 
             // label9
             // 
@@ -590,24 +697,164 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 90);
+            this.label9.Location = new System.Drawing.Point(6, 248);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(68, 15);
-            this.label9.TabIndex = 36;
-            this.label9.Text = "Fin Horario";
+            this.label9.Size = new System.Drawing.Size(75, 15);
+            this.label9.TabIndex = 50;
+            this.label9.Text = "Observación";
             // 
-            // TBInicioLaboral
+            // TBEncargado_Despacho
             // 
-            this.TBInicioLaboral.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TBEncargado_Despacho.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBInicioLaboral.Location = new System.Drawing.Point(92, 63);
-            this.TBInicioLaboral.Name = "TBInicioLaboral";
-            this.TBInicioLaboral.Size = new System.Drawing.Size(242, 21);
-            this.TBInicioLaboral.TabIndex = 35;
-            this.TBInicioLaboral.Enter += new System.EventHandler(this.TBInicioLaboral_Enter);
-            this.TBInicioLaboral.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBInicioLaboral_KeyUp);
-            this.TBInicioLaboral.Leave += new System.EventHandler(this.TBInicioLaboral_Leave);
+            this.TBEncargado_Despacho.Location = new System.Drawing.Point(87, 218);
+            this.TBEncargado_Despacho.Name = "TBEncargado_Despacho";
+            this.TBEncargado_Despacho.Size = new System.Drawing.Size(247, 21);
+            this.TBEncargado_Despacho.TabIndex = 49;
+            // 
+            // label8
+            // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 221);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(67, 15);
+            this.label8.TabIndex = 48;
+            this.label8.Text = "Encargado";
+            // 
+            // treeView1
+            // 
+            this.treeView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.treeView1.CheckBoxes = true;
+            this.treeView1.Location = new System.Drawing.Point(9, 60);
+            this.treeView1.Name = "treeView1";
+            treeNode17.Name = "Rec_Lunes";
+            treeNode17.Text = "Lunes";
+            treeNode18.Name = "Rec_Martes";
+            treeNode18.Text = "Martes";
+            treeNode19.Name = "Rec_Miercoles";
+            treeNode19.Text = "Miercoles";
+            treeNode20.Name = "Rec_Jueves";
+            treeNode20.Text = "Jueves";
+            treeNode21.Name = "Rec_Viernes";
+            treeNode21.Text = "Viernes";
+            treeNode22.Name = "Rec_Sabado";
+            treeNode22.Text = "Sabado";
+            treeNode23.Name = "Rec_Domingo";
+            treeNode23.Text = "Domingo";
+            treeNode24.Name = "Nodo0";
+            treeNode24.Text = "Dias de Recepción de Mercancia";
+            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode24});
+            this.treeView1.Size = new System.Drawing.Size(325, 152);
+            this.treeView1.TabIndex = 47;
+            // 
+            // label16
+            // 
+            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(171, 36);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(85, 15);
+            this.label16.TabIndex = 46;
+            this.label16.Text = "Fin de Horario";
+            // 
+            // TBFinRecepcion
+            // 
+            this.TBFinRecepcion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TBFinRecepcion.Location = new System.Drawing.Point(261, 33);
+            this.TBFinRecepcion.Mask = "00:00";
+            this.TBFinRecepcion.Name = "TBFinRecepcion";
+            this.TBFinRecepcion.Size = new System.Drawing.Size(73, 21);
+            this.TBFinRecepcion.TabIndex = 45;
+            this.TBFinRecepcion.ValidatingType = typeof(System.DateTime);
+            // 
+            // TBInicioRecepcion
+            // 
+            this.TBInicioRecepcion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TBInicioRecepcion.Location = new System.Drawing.Point(92, 33);
+            this.TBInicioRecepcion.Mask = "00:00";
+            this.TBInicioRecepcion.Name = "TBInicioRecepcion";
+            this.TBInicioRecepcion.Size = new System.Drawing.Size(73, 21);
+            this.TBInicioRecepcion.TabIndex = 44;
+            this.TBInicioRecepcion.ValidatingType = typeof(System.DateTime);
+            // 
+            // label18
+            // 
+            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(6, 33);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(80, 15);
+            this.label18.TabIndex = 43;
+            this.label18.Text = "Inicio Horario";
+            // 
+            // label22
+            // 
+            this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(6, 6);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(66, 15);
+            this.label22.TabIndex = 23;
+            this.label22.Text = "Recepcion";
+            // 
+            // TBRecepcion
+            // 
+            this.TBRecepcion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TBRecepcion.Location = new System.Drawing.Point(92, 6);
+            this.TBRecepcion.Name = "TBRecepcion";
+            this.TBRecepcion.Size = new System.Drawing.Size(242, 21);
+            this.TBRecepcion.TabIndex = 24;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.TBObservacion_Despacho);
+            this.tabPage2.Controls.Add(this.label17);
+            this.tabPage2.Controls.Add(this.textBox4);
+            this.tabPage2.Controls.Add(this.label23);
+            this.tabPage2.Controls.Add(this.treeView2);
+            this.tabPage2.Controls.Add(this.label15);
+            this.tabPage2.Controls.Add(this.TBFinDeDespacho);
+            this.tabPage2.Controls.Add(this.TBInicioDespacho);
+            this.tabPage2.Controls.Add(this.label13);
+            this.tabPage2.Controls.Add(this.TBDespacho);
+            this.tabPage2.Controls.Add(this.label14);
+            this.tabPage2.Location = new System.Drawing.Point(4, 24);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(340, 360);
+            this.tabPage2.TabIndex = 3;
+            this.tabPage2.Text = "Despacho";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // TBObservacion_Despacho
+            // 
+            this.TBObservacion_Despacho.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TBObservacion_Despacho.Location = new System.Drawing.Point(87, 245);
+            this.TBObservacion_Despacho.Multiline = true;
+            this.TBObservacion_Despacho.Name = "TBObservacion_Despacho";
+            this.TBObservacion_Despacho.Size = new System.Drawing.Size(247, 109);
+            this.TBObservacion_Despacho.TabIndex = 56;
             // 
             // label17
             // 
@@ -615,20 +862,135 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(6, 63);
+            this.label17.Location = new System.Drawing.Point(6, 248);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(80, 15);
-            this.label17.TabIndex = 34;
-            this.label17.Text = "Inicio Horario";
+            this.label17.Size = new System.Drawing.Size(75, 15);
+            this.label17.TabIndex = 55;
+            this.label17.Text = "Observación";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox4.Location = new System.Drawing.Point(87, 218);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(247, 21);
+            this.textBox4.TabIndex = 54;
+            // 
+            // label23
+            // 
+            this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(6, 221);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(67, 15);
+            this.label23.TabIndex = 53;
+            this.label23.Text = "Encargado";
+            // 
+            // treeView2
+            // 
+            this.treeView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.treeView2.CheckBoxes = true;
+            this.treeView2.Location = new System.Drawing.Point(9, 60);
+            this.treeView2.Name = "treeView2";
+            treeNode25.Name = "Rec_Lunes";
+            treeNode25.Text = "Lunes";
+            treeNode26.Name = "Rec_Martes";
+            treeNode26.Text = "Martes";
+            treeNode27.Name = "Rec_Miercoles";
+            treeNode27.Text = "Miercoles";
+            treeNode28.Name = "Rec_Jueves";
+            treeNode28.Text = "Jueves";
+            treeNode29.Name = "Rec_Viernes";
+            treeNode29.Text = "Viernes";
+            treeNode30.Name = "Rec_Sabado";
+            treeNode30.Text = "Sabado";
+            treeNode31.Name = "Rec_Domingo";
+            treeNode31.Text = "Domingo";
+            treeNode32.Name = "Nodo0";
+            treeNode32.Text = "Dias de Recepción de Mercancia";
+            this.treeView2.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode32});
+            this.treeView2.Size = new System.Drawing.Size(325, 152);
+            this.treeView2.TabIndex = 52;
+            // 
+            // label15
+            // 
+            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(171, 36);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(85, 15);
+            this.label15.TabIndex = 42;
+            this.label15.Text = "Fin de Horario";
+            // 
+            // TBFinDeDespacho
+            // 
+            this.TBFinDeDespacho.Location = new System.Drawing.Point(261, 33);
+            this.TBFinDeDespacho.Mask = "00:00";
+            this.TBFinDeDespacho.Name = "TBFinDeDespacho";
+            this.TBFinDeDespacho.Size = new System.Drawing.Size(73, 21);
+            this.TBFinDeDespacho.TabIndex = 41;
+            this.TBFinDeDespacho.ValidatingType = typeof(System.DateTime);
+            // 
+            // TBInicioDespacho
+            // 
+            this.TBInicioDespacho.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TBInicioDespacho.Location = new System.Drawing.Point(92, 33);
+            this.TBInicioDespacho.Mask = "00:00";
+            this.TBInicioDespacho.Name = "TBInicioDespacho";
+            this.TBInicioDespacho.Size = new System.Drawing.Size(73, 21);
+            this.TBInicioDespacho.TabIndex = 40;
+            this.TBInicioDespacho.ValidatingType = typeof(System.DateTime);
+            // 
+            // label13
+            // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 6);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(63, 15);
+            this.label13.TabIndex = 36;
+            this.label13.Text = "Despacho";
+            // 
+            // TBDespacho
+            // 
+            this.TBDespacho.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TBDespacho.Location = new System.Drawing.Point(92, 6);
+            this.TBDespacho.Name = "TBDespacho";
+            this.TBDespacho.Size = new System.Drawing.Size(242, 21);
+            this.TBDespacho.TabIndex = 37;
+            // 
+            // label14
+            // 
+            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(6, 33);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(80, 15);
+            this.label14.TabIndex = 38;
+            this.label14.Text = "Inicio Horario";
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelar.Image = global::Presentacion.Botones.btnCancelar;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(268, 367);
+            this.btnCancelar.Location = new System.Drawing.Point(264, 417);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(90, 30);
             this.btnCancelar.TabIndex = 4;
@@ -639,12 +1001,9 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGuardar.Image = global::Presentacion.Botones.btnGuardar;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(10, 367);
+            this.btnGuardar.Location = new System.Drawing.Point(10, 417);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(90, 30);
             this.btnGuardar.TabIndex = 3;
@@ -658,7 +1017,7 @@
             this.TBIdbodega.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBIdbodega.Location = new System.Drawing.Point(202, 370);
+            this.TBIdbodega.Location = new System.Drawing.Point(202, 418);
             this.TBIdbodega.Name = "TBIdbodega";
             this.TBIdbodega.Size = new System.Drawing.Size(29, 21);
             this.TBIdbodega.TabIndex = 31;
@@ -670,7 +1029,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(6, 375);
+            this.lblTotal.Location = new System.Drawing.Point(6, 418);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(31, 15);
             this.lblTotal.TabIndex = 3;
@@ -691,7 +1050,7 @@
             this.DGResultados.Name = "DGResultados";
             this.DGResultados.ReadOnly = true;
             this.DGResultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGResultados.Size = new System.Drawing.Size(500, 314);
+            this.DGResultados.Size = new System.Drawing.Size(500, 364);
             this.DGResultados.TabIndex = 2;
             this.DGResultados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGResultados_CellDoubleClick);
             this.DGResultados.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DGResultados_KeyPress);
@@ -707,7 +1066,6 @@
             this.TBBuscar.TabIndex = 1;
             this.TBBuscar.TextChanged += new System.EventHandler(this.TBBuscar_TextChanged);
             this.TBBuscar.Enter += new System.EventHandler(this.TBBuscar_Enter);
-            this.TBBuscar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBBuscar_KeyUp);
             this.TBBuscar.Leave += new System.EventHandler(this.TBBuscar_Leave);
             // 
             // label21
@@ -735,7 +1093,7 @@
             this.groupBox2.Controls.Add(this.TBBuscar);
             this.groupBox2.Location = new System.Drawing.Point(381, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(514, 403);
+            this.groupBox2.Size = new System.Drawing.Size(514, 453);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Leal Enterprise - Consulta de Bodegas Registrados";
@@ -747,7 +1105,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEliminar.Image = global::Presentacion.Botones.btnEliminar;
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(322, 367);
+            this.btnEliminar.Location = new System.Drawing.Point(320, 417);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(90, 30);
             this.btnEliminar.TabIndex = 6;
@@ -763,7 +1121,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnImprimir.Image = global::Presentacion.Botones.btnImprimir;
             this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImprimir.Location = new System.Drawing.Point(418, 367);
+            this.btnImprimir.Location = new System.Drawing.Point(416, 417);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(90, 30);
             this.btnImprimir.TabIndex = 5;
@@ -776,15 +1134,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(904, 427);
+            this.ClientSize = new System.Drawing.Size(904, 474);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaximizeBox = false;
             this.Name = "frmBodega";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Almacen - Bodega";
+            this.Text = "Archivo - Bodega";
             this.Load += new System.EventHandler(this.frmBodega_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -793,6 +1153,10 @@
             this.TPDatosBasicos.PerformLayout();
             this.TPDatosAuxiliares.ResumeLayout(false);
             this.TPDatosAuxiliares.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGResultados)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -823,34 +1187,52 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.DataGridView DGResultados;
-        private System.Windows.Forms.TextBox TBDespacho;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox TBRecepcion;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox TBMedidas;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox TBDiadepagos;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox TBFinalHorarioLaboral;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox TBInicioLaboral;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox TBIdbodega;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TabControl TCPrincipal;
         private System.Windows.Forms.TabPage TPDatosBasicos;
         private System.Windows.Forms.TabPage TPDatosAuxiliares;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox TBDireccion02;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox TBDireccion01;
-        private System.Windows.Forms.TextBox TBDiaDespacho;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.TextBox TBDocumento;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox TBRecepcion;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox TBDespacho;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.MaskedTextBox TBFinDeDespacho;
+        private System.Windows.Forms.MaskedTextBox TBInicioDespacho;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.MaskedTextBox TBFinRecepcion;
+        private System.Windows.Forms.MaskedTextBox TBInicioRecepcion;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.TextBox TBEncargado_Despacho;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox TBObservacion_Recepcion;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox TBObservacion_Despacho;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TreeView treeView2;
+        private System.Windows.Forms.TextBox TBDocumento;
+        private System.Windows.Forms.ComboBox CBZona;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox TBDireccion01;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox TBDireccion02;
+        private System.Windows.Forms.TextBox TBMedidas;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TreeView treeView3;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TreeView treeView4;
     }
 }

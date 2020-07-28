@@ -404,5 +404,18 @@ namespace Presentacion
             frmUsuario.MdiParent = this;
             frmUsuario.Show();
         }
+
+        private void serviciosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmServicio frmServicio =new frmServicio();
+            frmServicio.MdiParent = this;
+            frmServicio.Show();
+
+            frmServicio.Guardar = Convert.ToString(this.SQL_Guardar);
+            frmServicio.Editar = Convert.ToString(this.SQL_Editar);
+            frmServicio.Eliminar = Convert.ToString(this.SQL_Eliminar);
+            frmServicio.Consultar = Convert.ToString(this.SQL_Consultar);
+            frmServicio.Imprimir = Convert.ToString(this.SQL_Imprimir);
+        }
     }
 }

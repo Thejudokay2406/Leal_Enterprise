@@ -52,6 +52,7 @@ namespace Datos
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 Comando.Parameters.Add("@Filtro", SqlDbType.VarChar).Value = Valor;
+                //Comando.Parameters.Add("@Filtro", SqlDbType.VarChar).Value = AUTO;
 
                 SqlCon.Open();
                 Resultado = Comando.ExecuteReader();
