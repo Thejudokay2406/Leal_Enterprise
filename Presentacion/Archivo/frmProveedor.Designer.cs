@@ -912,7 +912,7 @@
             this.MaximizeBox = false;
             this.Name = "frmProveedor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Almacen - Proveedor";
+            this.Text = "Archivo - Proveedor";
             this.Load += new System.EventHandler(this.frmProveedor_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();

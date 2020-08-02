@@ -142,34 +142,12 @@ namespace Presentacion
 
                     if (this.Digitar)
                     {
-                        rptaDatosBasicos = fGrupo.Guardar_DatosBasicos
-
-                            (
-                                 //Datos Auxiliares
-                                 1,
-
-                                 //Panel Datos Basicos
-                                 this.TBGrupo.Text, this.TBDescripcion.Text, this.TBObservacion.Text,
-
-                                 //                                 
-                                 1
-                            );
+                        rptaDatosBasicos = fGrupo.Guardar_DatosBasicos(1, this.TBGrupo.Text, this.TBDescripcion.Text, this.TBObservacion.Text, 1);
                     }
 
                     else
                     {
-                        rptaDatosBasicos = fGrupo.Editar_DatosBasicos
-
-                            (
-                                 //Datos Auxiliares
-                                 2, Convert.ToInt32(this.TBIdgrupo.Text),
-
-                                 //Panel Datos Basicos
-                                 this.TBGrupo.Text, this.TBDescripcion.Text, this.TBObservacion.Text,
-
-                                 //                                 
-                                 1
-                            );
+                        rptaDatosBasicos = fGrupo.Editar_DatosBasicos(2, Convert.ToInt32(this.TBIdgrupo.Text), this.TBGrupo.Text, this.TBDescripcion.Text, this.TBObservacion.Text, 1);
                     }
 
                     if (rptaDatosBasicos.Equals("OK"))
@@ -178,7 +156,6 @@ namespace Presentacion
                         {
                             this.MensajeOk("Registro Exitoso");
                         }
-
                         else
                         {
                             this.MensajeOk("Registro Actualizado");

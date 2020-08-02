@@ -227,7 +227,6 @@ namespace Presentacion
                             this.MensajeOk("Registro Actualizado");
                         }
                     }
-
                     else
                     {
                         this.MensajeError(rptaDatosBasicos);

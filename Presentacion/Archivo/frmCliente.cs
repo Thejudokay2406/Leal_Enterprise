@@ -513,7 +513,6 @@ namespace Presentacion
                         this.lblTotal.Text = "Datos Registrados: 0";
                     }
                 }
-
                 else
                 {
                     MessageBox.Show(" El Usuario Iniciado no Contiene Permisos Para Realizar Consultas", "Leal Enterprise - 'Acceso Denegado' ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

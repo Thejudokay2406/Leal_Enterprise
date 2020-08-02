@@ -156,10 +156,16 @@
     <Compile Include="Filtros\frmFiltro_ActualizarPrecios.Designer.cs">
       <DependentUpon>frmFiltro_ActualizarPrecios.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmUsuario.cs">
+    <Compile Include="Archivo\frmTipoDePago.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmUsuario.Designer.cs">
+    <Compile Include="Archivo\frmTipoDePago.Designer.cs">
+      <DependentUpon>frmTipoDePago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sistema\frmUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sistema\frmUsuario.Designer.cs">
       <DependentUpon>frmUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Sistema\frmCodigoID_Productos.cs">
@@ -328,6 +334,9 @@
     <EmbeddedResource Include="Archivo\frmCliente.resx">
       <DependentUpon>frmCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Archivo\frmTipoDePago.resx">
+      <DependentUpon>frmTipoDePago.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Botones.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Botones.Designer.cs</LastGenOutput>
@@ -356,7 +365,7 @@
     <EmbeddedResource Include="Filtros\frmFiltro_ActualizarPrecios.resx">
       <DependentUpon>frmFiltro_ActualizarPrecios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmUsuario.resx">
+    <EmbeddedResource Include="Sistema\frmUsuario.resx">
       <DependentUpon>frmUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario\frmGastosDeIngreso.resx">

@@ -9,24 +9,26 @@ namespace Entidad
     public class Entidad_TipoDePago
     {
         //Llave primaria
-        private int _Idtipodepago;
+        private int _Idtipo;
 
         //Datos Basicos
-        private string _Nombre;
-        private int _Compra;
-        private int _Venta;
-        private int _Inventario;
-        private string _Decripcion;
+        private string _Tipo;
+        private string _Descripcion;
+        private string _Observacion;
+        private int _Estado;
 
         //Datos Auxiliares
         private int _Auto;
+        private int _Eliminar;
+        private string _Filtro;
 
-        public int Idtipodepago { get => _Idtipodepago; set => _Idtipodepago = value; }
-        public string Nombre { get => _Nombre; set => _Nombre = value; }
-        public int Compra { get => _Compra; set => _Compra = value; }
-        public int Venta { get => _Venta; set => _Venta = value; }
-        public int Inventario { get => _Inventario; set => _Inventario = value; }
-        public string Decripcion { get => _Decripcion; set => _Decripcion = value; }
+        public int Idtipo { get => _Idtipo; set => _Idtipo = value; }
+        public string Tipo { get => _Tipo; set => _Tipo = value; }
+        public string Descripcion { get => _Descripcion; set => _Descripcion = value; }
+        public string Observacion { get => _Observacion; set => _Observacion = value; }
+        public int Estado { get => _Estado; set => _Estado = value; }
         public int Auto { get => _Auto; set => _Auto = value; }
+        public int Eliminar { get => _Eliminar; set => _Eliminar = value; }
+        public string Filtro { get => _Filtro; set => _Filtro = value; }
     }
 }

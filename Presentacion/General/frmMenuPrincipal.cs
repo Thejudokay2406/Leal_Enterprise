@@ -407,7 +407,7 @@ namespace Presentacion
 
         private void serviciosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            frmServicio frmServicio =new frmServicio();
+            frmServicio frmServicio = new frmServicio();
             frmServicio.MdiParent = this;
             frmServicio.Show();
 
@@ -416,6 +416,19 @@ namespace Presentacion
             frmServicio.Eliminar = Convert.ToString(this.SQL_Eliminar);
             frmServicio.Consultar = Convert.ToString(this.SQL_Consultar);
             frmServicio.Imprimir = Convert.ToString(this.SQL_Imprimir);
+        }
+
+        private void tiposDePagoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmTipoDePago frmTipoDePago = new frmTipoDePago();
+            frmTipoDePago.MdiParent = this;
+            frmTipoDePago.Show();
+
+            frmTipoDePago.Guardar = Convert.ToString(this.SQL_Guardar);
+            frmTipoDePago.Editar = Convert.ToString(this.SQL_Editar);
+            frmTipoDePago.Eliminar = Convert.ToString(this.SQL_Eliminar);
+            frmTipoDePago.Consultar = Convert.ToString(this.SQL_Consultar);
+            frmTipoDePago.Imprimir = Convert.ToString(this.SQL_Imprimir);
         }
     }
 }

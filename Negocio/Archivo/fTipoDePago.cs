@@ -14,74 +14,64 @@ namespace Negocio
     {
         public static DataTable Lista()
         {
-            Conexion_Pagos Datos = new Conexion_Pagos();
+            Conexion_TipoDePagos Datos = new Conexion_TipoDePagos();
             return Datos.Lista();
         }
 
         public static DataTable Buscar(string Filtro, int auto)
         {
-            Conexion_Pagos Datos = new Conexion_Pagos();
+            Conexion_TipoDePagos Datos = new Conexion_TipoDePagos();
             return Datos.Buscar(Filtro, auto);
         }
 
-        //public static string Guardar_DatosBasicos
-        //    (
-        //        //Datos Auxiliares y Llaves Primaria
-        //        int auto,
+        public static string Guardar_DatosBasicos
+            (
+                //Datos Auxiliares y Llaves Primaria
+                int auto,
 
-        //        //Datos Basicos
-        //        string marca, string descripcion, string referencia, string observacion,
+                //Datos Basicos
+                string tipo, string descripcion, string observacion
+            )
+        {
+            Conexion_TipoDePagos Datos = new Conexion_TipoDePagos();
+            Entidad_TipoDePago Obj = new Entidad_TipoDePago();
 
-        //        //
-        //        int estado
-        //    )
-        //{
-        //    Conexion_Pagos Datos = new Conexion_Pagos();
-        //    Entidad_TipoDePago Obj = new Entidad_TipoDePago();
+            //Datos Basicos
+            Obj.Tipo = tipo;
+            Obj.Descripcion = descripcion;
+            Obj.Observacion = observacion;
 
-        //    //Datos Basicos
-        //    Obj.Marca = marca;
-        //    Obj.Descripcion = descripcion;
-        //    Obj.Referencia = referencia;
-        //    Obj.Observacion = observacion;
-        //    Obj.Estado = estado;
+            Obj.Auto = auto;
+            return Datos.Guardar_DatosBasicos(Obj);
+        }
 
-        //    Obj.Auto = auto;
-        //    return Datos.Guardar_DatosBasicos(Obj);
-        //}
+        public static string Editar_DatosBasicos
+            (
+                //Datos Auxiliares y Llaves Primaria
+                int auto, int idtipo,
 
-        //public static string Editar_DatosBasicos
-        //    (
-        //        //Datos Auxiliares y Llaves Primaria
-        //        int auto, int idmarca,
+                //Datos Basicos
+                string tipo, string descripcion, string observacion
+            )
+        {
+            Conexion_TipoDePagos Datos = new Conexion_TipoDePagos();
+            Entidad_TipoDePago Obj = new Entidad_TipoDePago();
 
-        //        //Datos Basicos
-        //        string marca, string descripcion, string referencia, string observacion,
+            //Llaves Auxiliares
+            Obj.Idtipo = idtipo;
 
-        //        //
-        //        int estado
-        //    )
-        //{
-        //    Conexion_Pagos Datos = new Conexion_Pagos();
-        //    Entidad_TipoDePago Obj = new Entidad_TipoDePago();
+            //Datos Basicos
+            Obj.Tipo = tipo;
+            Obj.Descripcion = descripcion;
+            Obj.Observacion = observacion;
 
-        //    //Llaves Auxiliares
-        //    Obj.Idmarca = idmarca;
-
-        //    //Datos Basicos
-        //    Obj.Marca = marca;
-        //    Obj.Descripcion = descripcion;
-        //    Obj.Referencia = referencia;
-        //    Obj.Observacion = observacion;
-        //    Obj.Estado = estado;
-
-        //    Obj.Auto = auto;
-        //    return Datos.Editar_DatosBasicos(Obj);
-        //}
+            Obj.Auto = auto;
+            return Datos.Editar_DatosBasicos(Obj);
+        }
 
         public static string Eliminar(int IDEliminar_SQL, int auto)
         {
-            Conexion_Pagos Datos = new Conexion_Pagos();
+            Conexion_TipoDePagos Datos = new Conexion_TipoDePagos();
             return Datos.Eliminar(IDEliminar_SQL, auto);
         }
     }

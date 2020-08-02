@@ -1,6 +1,6 @@
 ﻿namespace Presentacion
 {
-    partial class frmGrupo
+    partial class frmTipoDePago
     {
         /// <summary>
         /// Required designer variable.
@@ -33,18 +33,18 @@
             this.TBBuscar = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.DGResultados = new System.Windows.Forms.DataGridView();
-            this.btnImprimir = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.TBIdgrupo = new System.Windows.Forms.TextBox();
+            this.TBIdtipo = new System.Windows.Forms.TextBox();
             this.TBObservacion = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.TBDescripcion = new System.Windows.Forms.TextBox();
+            this.btnImprimir = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.TBGrupo = new System.Windows.Forms.TextBox();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.TBTipo = new System.Windows.Forms.TextBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGResultados)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -61,12 +61,12 @@
             this.groupBox2.Controls.Add(this.DGResultados);
             this.groupBox2.Controls.Add(this.btnImprimir);
             this.groupBox2.Controls.Add(this.btnEliminar);
-            this.groupBox2.Location = new System.Drawing.Point(411, 14);
+            this.groupBox2.Location = new System.Drawing.Point(411, 11);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(503, 243);
-            this.groupBox2.TabIndex = 7;
+            this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Consulta de Origenes de Grupos Registrados - Leal Enterprise";
+            this.groupBox2.Text = "Consulta de Tipo de Pagos Registrados - Leal Enterprise";
             // 
             // lblTotal
             // 
@@ -74,7 +74,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(6, 217);
+            this.lblTotal.Location = new System.Drawing.Point(6, 203);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(31, 15);
             this.lblTotal.TabIndex = 3;
@@ -85,14 +85,11 @@
             this.TBBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBBuscar.Location = new System.Drawing.Point(181, 20);
+            this.TBBuscar.Location = new System.Drawing.Point(157, 20);
             this.TBBuscar.Name = "TBBuscar";
-            this.TBBuscar.Size = new System.Drawing.Size(316, 21);
+            this.TBBuscar.Size = new System.Drawing.Size(340, 21);
             this.TBBuscar.TabIndex = 2;
             this.TBBuscar.TextChanged += new System.EventHandler(this.TBBuscar_TextChanged);
-            this.TBBuscar.Enter += new System.EventHandler(this.TBBuscar_Enter);
-            this.TBBuscar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBBuscar_KeyUp);
-            this.TBBuscar.Leave += new System.EventHandler(this.TBBuscar_Leave);
             // 
             // label4
             // 
@@ -102,14 +99,12 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(6, 23);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(169, 15);
+            this.label4.Size = new System.Drawing.Size(145, 15);
             this.label4.TabIndex = 1;
-            this.label4.Text = "Origen de Grupos a Consultar";
+            this.label4.Text = "Tipo de Pago a Consultar";
             // 
             // DGResultados
             // 
-            this.DGResultados.AllowUserToAddRows = false;
-            this.DGResultados.AllowUserToDeleteRows = false;
             this.DGResultados.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -119,93 +114,51 @@
             this.DGResultados.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DGResultados.Location = new System.Drawing.Point(6, 47);
             this.DGResultados.Name = "DGResultados";
-            this.DGResultados.ReadOnly = true;
-            this.DGResultados.Size = new System.Drawing.Size(491, 156);
+            this.DGResultados.Size = new System.Drawing.Size(491, 153);
             this.DGResultados.TabIndex = 0;
             this.DGResultados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGResultados_CellDoubleClick);
-            this.DGResultados.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DGResultados_KeyPress);
-            // 
-            // btnImprimir
-            // 
-            this.btnImprimir.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnImprimir.FlatAppearance.BorderSize = 0;
-            this.btnImprimir.Image = global::Presentacion.Botones.btnImprimir;
-            this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImprimir.Location = new System.Drawing.Point(407, 207);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(90, 30);
-            this.btnImprimir.TabIndex = 3;
-            this.btnImprimir.Text = "Imprimir";
-            this.btnImprimir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnImprimir.UseVisualStyleBackColor = true;
-            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar.FlatAppearance.BorderSize = 0;
-            this.btnEliminar.Image = global::Presentacion.Botones.btnEliminar;
-            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(311, 207);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(90, 30);
-            this.btnEliminar.TabIndex = 2;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.TBIdgrupo);
+            this.groupBox1.Controls.Add(this.TBIdtipo);
             this.groupBox1.Controls.Add(this.TBObservacion);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.TBDescripcion);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.TBGrupo);
+            this.groupBox1.Controls.Add(this.TBTipo);
+            this.groupBox1.Controls.Add(this.btnCancelar);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnGuardar);
-            this.groupBox1.Controls.Add(this.btnCancelar);
-            this.groupBox1.Location = new System.Drawing.Point(12, 14);
+            this.groupBox1.Location = new System.Drawing.Point(12, 11);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(393, 243);
-            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Registro de Grupos de Productos - Leal Enterprise";
+            this.groupBox1.Text = "Registro de Tipo de Pagos - Leal Enterprise";
             // 
-            // TBIdgrupo
+            // TBIdtipo
             // 
-            this.TBIdgrupo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TBIdtipo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBIdgrupo.Location = new System.Drawing.Point(29, 126);
-            this.TBIdgrupo.Name = "TBIdgrupo";
-            this.TBIdgrupo.Size = new System.Drawing.Size(39, 21);
-            this.TBIdgrupo.TabIndex = 10;
-            this.TBIdgrupo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBIdorigen_KeyUp);
+            this.TBIdtipo.Location = new System.Drawing.Point(118, 211);
+            this.TBIdtipo.Name = "TBIdtipo";
+            this.TBIdtipo.Size = new System.Drawing.Size(39, 21);
+            this.TBIdtipo.TabIndex = 10;
             // 
             // TBObservacion
             // 
             this.TBObservacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBObservacion.Location = new System.Drawing.Point(87, 77);
+            this.TBObservacion.Location = new System.Drawing.Point(87, 74);
             this.TBObservacion.Multiline = true;
             this.TBObservacion.Name = "TBObservacion";
             this.TBObservacion.Size = new System.Drawing.Size(300, 126);
             this.TBObservacion.TabIndex = 9;
-            this.TBObservacion.Enter += new System.EventHandler(this.TBObservacion_Enter);
-            this.TBObservacion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBObservacion_KeyUp);
-            this.TBObservacion.Leave += new System.EventHandler(this.TBObservacion_Leave);
             // 
             // label3
             // 
@@ -213,7 +166,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 78);
+            this.label3.Location = new System.Drawing.Point(6, 77);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 15);
             this.label3.TabIndex = 8;
@@ -224,13 +177,27 @@
             this.TBDescripcion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBDescripcion.Location = new System.Drawing.Point(87, 50);
+            this.TBDescripcion.Location = new System.Drawing.Point(87, 47);
             this.TBDescripcion.Name = "TBDescripcion";
             this.TBDescripcion.Size = new System.Drawing.Size(300, 21);
             this.TBDescripcion.TabIndex = 7;
-            this.TBDescripcion.Enter += new System.EventHandler(this.TBDescripcion_Enter);
-            this.TBDescripcion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBDescripcion_KeyUp);
-            this.TBDescripcion.Leave += new System.EventHandler(this.TBDescripcion_Leave);
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnImprimir.Image = global::Presentacion.Botones.btnImprimir;
+            this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImprimir.Location = new System.Drawing.Point(407, 206);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(90, 30);
+            this.btnImprimir.TabIndex = 3;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // label2
             // 
@@ -238,54 +205,38 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 51);
+            this.label2.Location = new System.Drawing.Point(6, 50);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 15);
             this.label2.TabIndex = 6;
             this.label2.Text = "Descripcion";
             // 
-            // TBGrupo
+            // btnEliminar
             // 
-            this.TBGrupo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBGrupo.Location = new System.Drawing.Point(87, 23);
-            this.TBGrupo.Name = "TBGrupo";
-            this.TBGrupo.Size = new System.Drawing.Size(300, 21);
-            this.TBGrupo.TabIndex = 5;
-            this.TBGrupo.Enter += new System.EventHandler(this.TBOrigen_Enter);
-            this.TBGrupo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBOrigen_KeyUp);
-            this.TBGrupo.Leave += new System.EventHandler(this.TBOrigen_Leave);
+            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminar.Image = global::Presentacion.Botones.btnEliminar;
+            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminar.Location = new System.Drawing.Point(311, 206);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(90, 30);
+            this.btnEliminar.TabIndex = 2;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // label1
+            // TBTipo
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TBTipo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 15);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Grupo";
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGuardar.FlatAppearance.BorderSize = 0;
-            this.btnGuardar.Image = global::Presentacion.Botones.btnGuardar;
-            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(9, 207);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(90, 30);
-            this.btnGuardar.TabIndex = 0;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            this.TBTipo.Location = new System.Drawing.Point(87, 20);
+            this.TBTipo.Name = "TBTipo";
+            this.TBTipo.Size = new System.Drawing.Size(300, 21);
+            this.TBTipo.TabIndex = 5;
             // 
             // btnCancelar
             // 
@@ -293,10 +244,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancelar.FlatAppearance.BorderSize = 0;
             this.btnCancelar.Image = global::Presentacion.Botones.btnCancelar;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(297, 207);
+            this.btnCancelar.Location = new System.Drawing.Point(297, 206);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(90, 30);
             this.btnCancelar.TabIndex = 1;
@@ -305,22 +255,51 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // frmGrupo
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(31, 15);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Tipo";
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardar.Image = global::Presentacion.Botones.btnGuardar;
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGuardar.Location = new System.Drawing.Point(6, 206);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(90, 30);
+            this.btnGuardar.TabIndex = 0;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // frmTipoDePago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(926, 267);
+            this.ClientSize = new System.Drawing.Size(923, 264);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaximizeBox = false;
-            this.Name = "frmGrupo";
+            this.Name = "frmTipoDePago";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Archivo - Grupos";
-            this.Load += new System.EventHandler(this.frmGrupo_Load);
+            this.Text = "Archivo - Tipo de Pago";
+            this.Load += new System.EventHandler(this.frmTipoDePago_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGResultados)).EndInit();
@@ -338,16 +317,16 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView DGResultados;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox TBIdgrupo;
+        private System.Windows.Forms.TextBox TBIdtipo;
         private System.Windows.Forms.TextBox TBObservacion;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox TBDescripcion;
+        private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox TBGrupo;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.TextBox TBTipo;
+        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnImprimir;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnEliminar;
     }
 }

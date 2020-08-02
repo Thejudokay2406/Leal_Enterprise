@@ -85,48 +85,35 @@ namespace Presentacion
 
         private void Limpiar_Datos()
         {
-            if (!Digitar)
-            {
-                //Panel - Datos Basicos
+            //Panel - Datos Basicos
 
-                this.TBTipo.Clear();
-                this.TBTipo.Text = Campo;
-                this.TBDescripcion.Clear();
-                this.TBDescripcion.Text = Campo;
-                this.TBObservacion.Clear();
+            this.TBTipo.Clear();
+            this.TBTipo.Text = Campo;
+            this.TBDescripcion.Clear();
+            this.TBDescripcion.Text = Campo;
+            this.TBObservacion.Clear();
 
-                //Se habilitan los botones a su estado por DEFAULT
-                this.Digitar = true;
-                this.Botones();
-                this.Habilitar();
-
-                //Se realiza el FOCUS al panel y campo de texto iniciales
-                this.TBIdtipo.Focus();
-            }
-
+            //Se realiza el FOCUS al panel y campo de texto iniciales
+            this.TBIdtipo.Focus();
         }
 
         private void Botones()
         {
             if (Digitar)
             {
-                ////El boton btnGuardar Mantendra su imagen original
-                //this.btnGuardar.Enabled = true;
-                //this.btnGuardar.Image = Properties.Resources.BV_Guardar;
+                this.btnGuardar.Enabled = true;
+                this.btnGuardar.Text = "Guardar";
 
                 this.btnEliminar.Enabled = false;
                 this.btnCancelar.Enabled = false;
-                this.btnImprimir.Enabled = false;
             }
             else if (!Digitar)
             {
-                ////El boton btnGuardar cambiara su imagen original de Guardar a Editar
-                //this.btnGuardar.Enabled = true;
-                //this.btnGuardar.Image = Properties.Resources.BV_Editar;
+                this.btnGuardar.Enabled = true;
+                this.btnGuardar.Text = "Editar";
 
-                this.btnEliminar.Enabled = false;
+                this.btnEliminar.Enabled = true;
                 this.btnCancelar.Enabled = true;
-                this.btnImprimir.Enabled = false;
             }
         }
 
@@ -136,8 +123,6 @@ namespace Presentacion
             {
                 string rptaDatosBasicos = "";
 
-                // <<<<<<------ Panel Datos Basicos ------>>>>>
-
                 if (this.TBTipo.Text == Campo)
                 {
                     MensajeError("Ingrese el nombre del Tipo");
@@ -146,40 +131,15 @@ namespace Presentacion
                 {
                     MensajeError("Ingrese la Descripcion del Tipo");
                 }
-
                 else
                 {
-
                     if (this.Digitar)
                     {
-                        rptaDatosBasicos = fTipoDeProducto.Guardar_DatosBasicos
-
-                            (
-                                 //Datos Auxiliares
-                                 1,
-
-                                 //Panel Datos Basicos
-                                 this.TBTipo.Text, this.TBDescripcion.Text, this.TBObservacion.Text,
-
-                                 //                                 
-                                 1
-                            );
+                        rptaDatosBasicos = fTipoDeProducto.Guardar_DatosBasicos(1, this.TBTipo.Text, this.TBDescripcion.Text, this.TBObservacion.Text, 1);
                     }
-
                     else
                     {
-                        rptaDatosBasicos = fTipoDeProducto.Editar_DatosBasicos
-
-                            (
-                                 //Datos Auxiliares
-                                 2, Convert.ToInt32(this.TBIdtipo.Text),
-
-                                 //Panel Datos Basicos
-                                 this.TBTipo.Text, this.TBDescripcion.Text, this.TBObservacion.Text,
-
-                                 //                                 
-                                 1
-                            );
+                        rptaDatosBasicos = fTipoDeProducto.Editar_DatosBasicos(2, Convert.ToInt32(this.TBIdtipo.Text), this.TBTipo.Text, this.TBDescripcion.Text, this.TBObservacion.Text, 1);
                     }
 
                     if (rptaDatosBasicos.Equals("OK"))
@@ -188,20 +148,19 @@ namespace Presentacion
                         {
                             this.MensajeOk("Registro Exitoso");
                         }
-
                         else
                         {
                             this.MensajeOk("Registro Actualizado");
                         }
                     }
-
                     else
                     {
                         this.MensajeError(rptaDatosBasicos);
                     }
 
                     //Llamada de Clase
-                    this.Digitar = false;
+                    this.Digitar = true;
+                    this.Botones();
                     this.Limpiar_Datos();
                 }
 
@@ -235,7 +194,6 @@ namespace Presentacion
                         //Metodo Guardar y editar
                         this.Guardar_SQL();
                     }
-
                     else
                     {
                         MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Guardar Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -246,7 +204,6 @@ namespace Presentacion
                         this.Limpiar_Datos();
                     }
                 }
-
                 else
                 {
                     if (Editar == "1")
@@ -275,14 +232,14 @@ namespace Presentacion
         {
             try
             {
-                this.Digitar = true;
-                this.Botones();
                 this.Limpiar_Datos();
-                this.TBBuscar.Clear();
 
                 //Se Limpian las Filas y Columnas de la tabla
                 this.DGResultados.DataSource = null;
+                this.DGResultados.Enabled = false;
                 this.lblTotal.Text = "Datos Registrados: 0";
+                this.TBBuscar.Clear();
+
             }
             catch (Exception ex)
             {
@@ -319,10 +276,8 @@ namespace Presentacion
                             this.MensajeError(Respuesta);
                         }
                     }
-
                     //
                     this.TBBuscar.Clear();
-
                 }
                 else
                 {
@@ -366,7 +321,6 @@ namespace Presentacion
                         this.btnImprimir.Enabled = false;
                     }
                 }
-
                 else
                 {
                     MessageBox.Show(" El Usuario Iniciado no Contiene Permisos Para Realizar Consultas", "Leal Enterprise - 'Acceso Denegado' ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

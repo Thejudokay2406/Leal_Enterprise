@@ -297,7 +297,7 @@ namespace Presentacion
             //Panel Igualdad
             this.TBBuscar_Igualdad.Clear();
             this.DtDetalle_Igualdad.Clear();
-
+            
             //Panel Impuesto
             this.TBBuscar_Impuesto.Clear();
             this.DtDetalle_Impuesto.Clear();
@@ -1011,6 +1011,8 @@ namespace Presentacion
                 this.Digitar = true;
                 this.Botones();
                 this.Limpiar_Datos();
+                this.Diseño_TablasGenerales();
+
                 this.TBBuscar.Clear();
 
                 //Se Limpian las Filas y Columnas de la tabla
@@ -1077,27 +1079,6 @@ namespace Presentacion
         {
             try
             {
-                //if (DtDetalle_Ubicacion != null)
-                //{
-                //    DataRow fila = this.DtDetalle_Ubicacion.NewRow();
-                //    fila["Idproducto"] = Convert.ToInt32(this.TBIdproducto_AutoSQL.Text);
-                //    fila["Idbodega"] = Convert.ToInt32(this.CBBodega.SelectedValue);
-                //    fila["Ubicacion"] = this.TBUbicacion.Text;
-                //    fila["Estante"] = this.TBEstante.Text;
-                //    fila["Nivel"] = this.TBNivel.Text;
-                //    this.DtDetalle_Ubicacion.Rows.Add(fila);
-                //}
-                //else
-                //{
-                //    DataRow fila = this.DtDetalle_Ubicacion.NewRow();
-                //    fila["Idproducto"] = Convert.ToInt32(this.TBIdproducto_AutoSQL.Text);
-                //    fila["Idbodega"] = Convert.ToInt32(this.CBBodega.SelectedValue);
-                //    fila["Ubicacion"] = this.TBUbicacion.Text;
-                //    fila["Estante"] = this.TBEstante.Text;
-                //    fila["Nivel"] = this.TBNivel.Text;
-                //    this.DtDetalle_Ubicacion.Rows.Add(fila);
-                //}
-
                 if (Digitar)
                 {
                     if (this.CBBodega.SelectedIndex == 0)
@@ -1126,19 +1107,6 @@ namespace Presentacion
                         this.TBNivel.Clear();
                     }
                 }
-                //else
-                //{
-                //    DtDetalle_Ubicacion.Clear();
-
-                //    DataRow fila = this.DtDetalle_Ubicacion.NewRow();
-                //    fila["Idproducto"] = Convert.ToInt32(this.TBIdproducto_AutoSQL.Text);
-                //    fila["Idbodega"] = Convert.ToInt32(this.CBBodega.SelectedValue);
-                //    fila["Ubicacion"] = this.TBUbicacion.Text;
-                //    fila["Estante"] = this.TBEstante.Text;
-                //    fila["Nivel"] = this.TBNivel.Text;
-                //    this.DtDetalle_Ubicacion.Rows.Add(fila);
-                //}
-
             }
             catch (Exception ex)
             {

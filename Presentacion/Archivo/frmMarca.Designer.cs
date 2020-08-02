@@ -61,8 +61,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.btnImprimir);
-            this.groupBox1.Controls.Add(this.btnEliminar);
             this.groupBox1.Controls.Add(this.btnCancelar);
             this.groupBox1.Controls.Add(this.btnGuardar);
             this.groupBox1.Controls.Add(this.TBIdmarca);
@@ -76,7 +74,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(398, 266);
+            this.groupBox1.Size = new System.Drawing.Size(391, 304);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Registro de Marcas - Leal Enterprise";
@@ -112,7 +110,7 @@
             this.btnImprimir.FlatAppearance.BorderSize = 0;
             this.btnImprimir.Image = global::Presentacion.Botones.btnImprimir;
             this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImprimir.Location = new System.Drawing.Point(302, 189);
+            this.btnImprimir.Location = new System.Drawing.Point(416, 267);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(90, 30);
             this.btnImprimir.TabIndex = 12;
@@ -130,7 +128,7 @@
             this.btnEliminar.FlatAppearance.BorderSize = 0;
             this.btnEliminar.Image = global::Presentacion.Botones.btnEliminar;
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(206, 189);
+            this.btnEliminar.Location = new System.Drawing.Point(320, 267);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(90, 30);
             this.btnEliminar.TabIndex = 11;
@@ -148,7 +146,7 @@
             this.btnCancelar.FlatAppearance.BorderSize = 0;
             this.btnCancelar.Image = global::Presentacion.Botones.btnCancelar;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(102, 189);
+            this.btnCancelar.Location = new System.Drawing.Point(294, 267);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(90, 30);
             this.btnCancelar.TabIndex = 10;
@@ -166,7 +164,7 @@
             this.btnGuardar.FlatAppearance.BorderSize = 0;
             this.btnGuardar.Image = global::Presentacion.Botones.btnGuardar;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(6, 189);
+            this.btnGuardar.Location = new System.Drawing.Point(9, 267);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(90, 30);
             this.btnGuardar.TabIndex = 9;
@@ -180,9 +178,9 @@
             this.TBIdmarca.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBIdmarca.Location = new System.Drawing.Point(154, 162);
+            this.TBIdmarca.Location = new System.Drawing.Point(139, 272);
             this.TBIdmarca.Name = "TBIdmarca";
-            this.TBIdmarca.Size = new System.Drawing.Size(62, 21);
+            this.TBIdmarca.Size = new System.Drawing.Size(38, 21);
             this.TBIdmarca.TabIndex = 8;
             this.TBIdmarca.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBIdmarca_KeyUp);
             // 
@@ -192,8 +190,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TBObservacion.Location = new System.Drawing.Point(84, 135);
+            this.TBObservacion.Multiline = true;
             this.TBObservacion.Name = "TBObservacion";
-            this.TBObservacion.Size = new System.Drawing.Size(300, 21);
+            this.TBObservacion.Size = new System.Drawing.Size(300, 126);
             this.TBObservacion.TabIndex = 7;
             this.TBObservacion.Enter += new System.EventHandler(this.TBObservacion_Enter);
             this.TBObservacion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBObservacion_KeyUp);
@@ -293,11 +292,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.TBBuscar);
             this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.btnImprimir);
+            this.groupBox2.Controls.Add(this.btnEliminar);
             this.groupBox2.Controls.Add(this.lblTotal);
             this.groupBox2.Controls.Add(this.DGResultados);
-            this.groupBox2.Location = new System.Drawing.Point(416, 12);
+            this.groupBox2.Location = new System.Drawing.Point(409, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(516, 266);
+            this.groupBox2.Size = new System.Drawing.Size(516, 304);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Consulta de Marcas Registradas - Leal Enterprise";
@@ -334,7 +335,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(6, 248);
+            this.lblTotal.Location = new System.Drawing.Point(6, 275);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(31, 15);
             this.lblTotal.TabIndex = 1;
@@ -355,7 +356,7 @@
             this.DGResultados.Name = "DGResultados";
             this.DGResultados.ReadOnly = true;
             this.DGResultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGResultados.Size = new System.Drawing.Size(500, 198);
+            this.DGResultados.Size = new System.Drawing.Size(500, 214);
             this.DGResultados.TabIndex = 0;
             this.DGResultados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGResultados_CellDoubleClick);
             // 
@@ -366,7 +367,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(945, 290);
+            this.ClientSize = new System.Drawing.Size(936, 327);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

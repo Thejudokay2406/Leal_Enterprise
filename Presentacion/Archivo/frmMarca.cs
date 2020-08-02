@@ -140,34 +140,11 @@ namespace Presentacion
                     
                     if (this.Digitar)
                     {
-                        rptaDatosBasicos = fMarca.Guardar_DatosBasicos
-
-                            (
-                                 //Datos Auxiliares
-                                 1,
-
-                                 //Panel Datos Basicos
-                                 this.TBNombre.Text, this.TBDescripcion.Text, this.TBReferencia.Text, this.TBObservacion.Text,
-
-                                 //                                 
-                                 1
-                            );
+                        rptaDatosBasicos = fMarca.Guardar_DatosBasicos(1, this.TBNombre.Text, this.TBDescripcion.Text, this.TBReferencia.Text, this.TBObservacion.Text, 1);
                     }
-
                     else
                     {
-                        rptaDatosBasicos = fMarca.Editar_DatosBasicos
-
-                            (
-                                 //Datos Auxiliares
-                                 2, Convert.ToInt32(this.TBIdmarca.Text),
-
-                                 //Panel Datos Basicos
-                                 this.TBNombre.Text, this.TBDescripcion.Text, this.TBReferencia.Text, this.TBObservacion.Text,
-
-                                 //                                 
-                                 1
-                            );
+                        rptaDatosBasicos = fMarca.Editar_DatosBasicos(2, Convert.ToInt32(this.TBIdmarca.Text), this.TBNombre.Text, this.TBDescripcion.Text, this.TBReferencia.Text, this.TBObservacion.Text, 1);
                     }
 
                     if (rptaDatosBasicos.Equals("OK"))
@@ -182,7 +159,6 @@ namespace Presentacion
                             this.MensajeOk("Registro Actualizado");
                         }
                     }
-
                     else
                     {
                         this.MensajeError(rptaDatosBasicos);

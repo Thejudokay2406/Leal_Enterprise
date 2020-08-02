@@ -112,23 +112,19 @@ namespace Presentacion
         {
             if (Digitar)
             {
-                ////El boton btnGuardar Mantendra su imagen original
-                //this.btnGuardar.Enabled = true;
-                //this.btnGuardar.Image = Properties.Resources.BV_Guardar;
+                this.btnGuardar.Enabled = true;
+                this.btnGuardar.Text = "Guardar";
 
                 this.btnEliminar.Enabled = false;
                 this.btnCancelar.Enabled = false;
-                this.btnImprimir.Enabled = false;
             }
             else if (!Digitar)
             {
-                ////El boton btnGuardar cambiara su imagen original de Guardar a Editar
-                //this.btnGuardar.Enabled = true;
-                //this.btnGuardar.Image = Properties.Resources.BV_Editar;
+                this.btnGuardar.Enabled = true;
+                this.btnGuardar.Text = "Editar";
 
-                this.btnEliminar.Enabled = false;
+                this.btnEliminar.Enabled = true;
                 this.btnCancelar.Enabled = true;
-                this.btnImprimir.Enabled = false;
             }
         }
 
@@ -137,8 +133,6 @@ namespace Presentacion
             try
             {
                 string rptaDatosBasicos = "";
-
-                // <<<<<<------ Panel Datos Basicos ------>>>>>
 
                 if (this.TBGrupo.Text == Campo)
                 {
@@ -154,34 +148,11 @@ namespace Presentacion
 
                     if (this.Digitar)
                     {
-                        rptaDatosBasicos = fEmpaque.Guardar_DatosBasicos
-
-                            (
-                                 //Datos Auxiliares
-                                 1,
-
-                                 //Panel Datos Basicos
-                                 this.TBGrupo.Text, this.TBDescripcion.Text, this.TBObservacion.Text,
-
-                                 //                                 
-                                 1
-                            );
+                        rptaDatosBasicos = fEmpaque.Guardar_DatosBasicos(1, this.TBGrupo.Text, this.TBDescripcion.Text, this.TBObservacion.Text, 1);
                     }
-
                     else
                     {
-                        rptaDatosBasicos = fEmpaque.Editar_DatosBasicos
-
-                            (
-                                 //Datos Auxiliares
-                                 2, Convert.ToInt32(this.TBIdorigen.Text),
-
-                                 //Panel Datos Basicos
-                                 this.TBGrupo.Text, this.TBDescripcion.Text, this.TBObservacion.Text,
-
-                                 //                                 
-                                 1
-                            );
+                        rptaDatosBasicos = fEmpaque.Editar_DatosBasicos(2, Convert.ToInt32(this.TBIdorigen.Text), this.TBGrupo.Text, this.TBDescripcion.Text, this.TBObservacion.Text, 1);
                     }
 
                     if (rptaDatosBasicos.Equals("OK"))
@@ -190,7 +161,6 @@ namespace Presentacion
                         {
                             this.MensajeOk("Registro Exitoso");
                         }
-
                         else
                         {
                             this.MensajeOk("Registro Actualizado");

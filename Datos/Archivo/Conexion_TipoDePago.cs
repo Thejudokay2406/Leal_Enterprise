@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 
 namespace Datos
 {
-    public class Conexion_Pagos
+    public class Conexion_TipoDePagos
     {
         public DataTable Lista()
         {
@@ -78,25 +78,56 @@ namespace Datos
             SqlConnection SqlCon = new SqlConnection();
             try
             {
-                //SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                //SqlCommand Comando = new SqlCommand("Compras.LI_Cotizacion", SqlCon);
-                //Comando.CommandType = CommandType.StoredProcedure;
+                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
+                SqlCommand Comando = new SqlCommand("Archivo.LI_TipoDePago", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
 
-                ////Datos Auxiliares
-                //Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Obj.Auto;
+                //Datos Auxiliares
+                Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Obj.Auto;
 
-                ////Panel Datos Basicos -- Campos Obligatorios
-                //Comando.Parameters.Add("@Idbodega", SqlDbType.Int).Value = Obj.Idbodega;
-                //Comando.Parameters.Add("@Idproveedor", SqlDbType.Int).Value = Obj.Idproveedor;
-                //Comando.Parameters.Add("@Idtipodepago", SqlDbType.Int).Value = Obj.Idtipodepago;
-                //Comando.Parameters.Add("@Idordendecompra", SqlDbType.Int).Value = Obj.Idordendecompra;
-                //Comando.Parameters.Add("@Idempleado", SqlDbType.Int).Value = Obj.Idempleado;
-                //Comando.Parameters.Add("@Codigo", SqlDbType.VarChar).Value = Obj.Codigo;
-                //Comando.Parameters.Add("@Almacen", SqlDbType.VarChar).Value = Obj.Almacen;
-                //Comando.Parameters.Add("@Codigo_Almacen", SqlDbType.VarChar).Value = Obj.Codigo_Almacen;
-                
-                //SqlCon.Open();
-                //Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Realizar el Registro";
+                //Panel Datos Basicos
+                Comando.Parameters.Add("@Tipo", SqlDbType.VarChar).Value = Obj.Tipo;
+                Comando.Parameters.Add("@Descripcion", SqlDbType.VarChar).Value = Obj.Descripcion;
+                Comando.Parameters.Add("@Observacion", SqlDbType.VarChar).Value = Obj.Observacion;
+
+                SqlCon.Open();
+                Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Realizar el Registro";
+            }
+            catch (Exception ex)
+            {
+                Rpta = ex.Message;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open)
+                {
+                    SqlCon.Close();
+                }
+            }
+            return Rpta;
+        }
+
+        public string Editar_DatosBasicos(Entidad_TipoDePago Obj)
+        {
+            string Rpta = "";
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
+                SqlCommand Comando = new SqlCommand("Archivo.LI_TipoDePago", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
+
+                //Datos Auxiliares
+                Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Obj.Auto;
+                Comando.Parameters.Add("@Idtipodepago", SqlDbType.Int).Value = Obj.Idtipo;
+
+                //Panel Datos Basicos
+                Comando.Parameters.Add("@Tipo", SqlDbType.VarChar).Value = Obj.Tipo;
+                Comando.Parameters.Add("@Descripcion", SqlDbType.VarChar).Value = Obj.Descripcion;
+                Comando.Parameters.Add("@Observacion", SqlDbType.VarChar).Value = Obj.Observacion;
+
+                SqlCon.Open();
+                Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Actualizar el Registro";
             }
             catch (Exception ex)
             {
@@ -119,16 +150,16 @@ namespace Datos
             SqlConnection SqlCon = new SqlConnection();
             try
             {
-                //SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                //SqlCommand Comando = new SqlCommand("Consulta.TipoDePago", SqlCon);
-                //Comando.CommandType = CommandType.StoredProcedure;
+                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
+                SqlCommand Comando = new SqlCommand("Consulta.TipoDePago", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
 
-                ////Panel Datos Basicos
-                //Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Auto;
-                //Comando.Parameters.Add("@Idtipodepago", SqlDbType.Int).Value = IDEliminar_Sql;
+                //Panel Datos Basicos
+                Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Idtipodepago", SqlDbType.Int).Value = IDEliminar_Sql;
 
-                //SqlCon.Open();
-                //Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Eliminar el Registro";
+                SqlCon.Open();
+                Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Eliminar el Registro";
             }
             catch (Exception ex)
             {

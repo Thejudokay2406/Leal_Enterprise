@@ -51,7 +51,6 @@ namespace Presentacion
         {
             //Inicio de Clase y Botones
             this.Botones();
-            this.Combobox_Impuesto();
             this.Habilitar();
 
             //Focus a Texboxt y Combobox
@@ -98,10 +97,6 @@ namespace Presentacion
             this.TBCosto.BackColor = Color.FromArgb(3, 155, 229);
             this.TBComision.ReadOnly = false;
             this.TBComision.BackColor = Color.FromArgb(3, 155, 229);
-            this.CBVentas.Enabled = true;
-            this.CBVentas.BackColor = Color.FromArgb(3, 155, 229);
-            this.CBImpuesto.Enabled = true;
-            this.CBImpuesto.BackColor = Color.FromArgb(3, 155, 229);
 
             //Texboxt de Consulta
             this.TBBuscar.BackColor = Color.FromArgb(3, 155, 229);
@@ -109,74 +104,42 @@ namespace Presentacion
 
         private void Limpiar_Datos()
         {
-            if (!Digitar)
-            {
-                //Panel - Datos Basicos
+            //Panel - Datos Basicos
+            this.TBCodigo.Clear();
+            this.TBCodigo.Text = Campo;
+            this.TBServicio.Clear();
+            this.TBServicio.Text = Campo;
+            this.TBDescripcion.Clear();
+            this.TBDescripcion.Text = Campo;
+            this.TBClase.Clear();
+            this.TBRetencion.Clear();
+            this.TBCosto.Clear();
+            this.TBValor01.Clear();
+            this.TBValor02.Clear();
+            this.TBValor03.Clear();
+            this.TBComision.Clear();
 
-                this.TBCodigo.Clear();
-                this.TBCodigo.Text = Campo;
-                this.TBServicio.Clear();
-                this.TBServicio.Text = Campo;
-                this.TBDescripcion.Clear();
-                this.TBDescripcion.Text = Campo;
-                this.TBClase.Clear();
-                this.TBRetencion.Clear();
-                this.TBCosto.Clear();
-                this.TBValor01.Clear();
-                this.TBValor02.Clear();
-                this.TBValor03.Clear();
-                this.TBComision.Clear();
-
-                //Combobox
-                this.CBImpuesto.SelectedIndex = 0;
-                this.CBVentas.SelectedIndex = 0;
-
-                //Se habilitan los botones a su estado por DEFAULT
-                this.Digitar = true;
-                this.Botones();
-                this.Habilitar();
-
-                //Se realiza el FOCUS al panel y campo de texto iniciales
-                this.TBServicio.Select();
-            }
-
+            //Se realiza el FOCUS al panel y campo de texto iniciales
+            this.TBServicio.Select();
         }
 
         private void Botones()
         {
             if (Digitar)
             {
-                ////El boton btnGuardar Mantendra su imagen original
-                //this.btnGuardar.Enabled = true;
-                //this.btnGuardar.Image = Properties.Resources.BV_Guardar;
+                this.btnGuardar.Enabled = true;
+                this.btnGuardar.Text = "Guardar";
 
                 this.btnEliminar.Enabled = false;
                 this.btnCancelar.Enabled = false;
-                this.btnImprimir.Enabled = false;
             }
             else if (!Digitar)
             {
-                ////El boton btnGuardar cambiara su imagen original de Guardar a Editar
-                //this.btnGuardar.Enabled = true;
-                //this.btnGuardar.Image = Properties.Resources.BV_Editar;
+                this.btnGuardar.Enabled = true;
+                this.btnGuardar.Text = "Editar";
 
-                this.btnEliminar.Enabled = false;
+                this.btnEliminar.Enabled = true;
                 this.btnCancelar.Enabled = true;
-                this.btnImprimir.Enabled = false;
-            }
-        }
-
-        private void Combobox_Impuesto()
-        {
-            try
-            {
-                this.CBImpuesto.DataSource = fImpuesto.Lista();
-                this.CBImpuesto.ValueMember = "Codigo";
-                this.CBImpuesto.DisplayMember = "Impuesto";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
 
@@ -185,8 +148,6 @@ namespace Presentacion
             try
             {
                 string rptaDatosBasicos = "";
-
-                // <<<<<<------ Panel Datos Basicos ------>>>>>
 
                 if (this.TBCodigo.Text == Campo)
                 {
@@ -205,32 +166,32 @@ namespace Presentacion
                 {
                     if (this.Digitar)
                     {
-                        rptaDatosBasicos = fServicio.Guardar_DatosBasicos
+                        //rptaDatosBasicos = fServicio.Guardar_DatosBasicos
 
-                            (
-                                 //Datos Auxiliares
-                                 1,
+                        //    (
+                        //         //Datos Auxiliares
+                        //         1,
 
-                                 //Panel Datos Basicos
-                                 Convert.ToInt32(CBImpuesto.SelectedValue), this.TBCodigo.Text, this.TBServicio.Text, this.TBDescripcion.Text, this.TBClase.Text,
-                                 this.TBRetencion.Text, this.TBCosto.Text, this.TBValor01.Text, this.TBValor02.Text, this.TBValor03.Text, this.TBComision.Text,
-                                 this.CBVentas.Text, 1
-                            );
+                        //         //Panel Datos Basicos
+                        //         Convert.ToInt32(CBImpuesto.SelectedValue), this.TBCodigo.Text, this.TBServicio.Text, this.TBDescripcion.Text, this.TBClase.Text,
+                        //         this.TBRetencion.Text, this.TBCosto.Text, this.TBValor01.Text, this.TBValor02.Text, this.TBValor03.Text, this.TBComision.Text,
+                        //         this.CBVentas.Text, 1
+                        //    );
                     }
 
                     else
                     {
-                        rptaDatosBasicos = fServicio.Editar_DatosBasicos
+                        //rptaDatosBasicos = fServicio.Editar_DatosBasicos
 
-                            (
-                                 //Datos Auxiliares
-                                 2,
+                        //    (
+                        //         //Datos Auxiliares
+                        //         2,
 
-                                 //Panel Datos Basicos
-                                 Convert.ToInt32(CBImpuesto.SelectedValue), this.TBCodigo.Text, this.TBServicio.Text, this.TBDescripcion.Text, this.TBClase.Text,
-                                 this.TBRetencion.Text, this.TBCosto.Text, this.TBValor01.Text, this.TBValor02.Text, this.TBValor03.Text, this.TBComision.Text,
-                                 this.CBVentas.Text, 1
-                            );
+                        //         //Panel Datos Basicos
+                        //         Convert.ToInt32(CBImpuesto.SelectedValue), this.TBCodigo.Text, this.TBServicio.Text, this.TBDescripcion.Text, this.TBClase.Text,
+                        //         this.TBRetencion.Text, this.TBCosto.Text, this.TBValor01.Text, this.TBValor02.Text, this.TBValor03.Text, this.TBComision.Text,
+                        //         this.CBVentas.Text, 1
+                        //    );
                     }
 
                     if (rptaDatosBasicos.Equals("OK"))
@@ -239,20 +200,19 @@ namespace Presentacion
                         {
                             this.MensajeOk("Registro Exitoso");
                         }
-
                         else
                         {
                             this.MensajeOk("Registro Actualizado");
                         }
                     }
-
                     else
                     {
                         this.MensajeError(rptaDatosBasicos);
                     }
 
                     //Llamada de Clase
-                    this.Digitar = false;
+                    this.Digitar = true;
+                    this.Botones();
                     this.Limpiar_Datos();
                 }
 
@@ -286,7 +246,6 @@ namespace Presentacion
                         //Metodo Guardar y editar
                         this.Guardar_SQL();
                     }
-
                     else
                     {
                         MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Guardar Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -295,7 +254,6 @@ namespace Presentacion
                         this.Limpiar_Datos();
                     }
                 }
-
                 else
                 {
                     if (Editar == "1")
@@ -308,12 +266,9 @@ namespace Presentacion
                         MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Editar Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                         //Llamada de Clase
-                        this.Digitar = false;
                         this.Limpiar_Datos();
                     }
-
                 }
-
             }
             catch (Exception ex)
             {
@@ -325,18 +280,13 @@ namespace Presentacion
         {
             try
             {
-                this.Digitar = true;
                 this.Limpiar_Datos();
-                this.TBBuscar.Clear();
 
                 //Se Limpian las Filas y Columnas de la tabla
-                DGResultados.DataSource = null;
+                this.DGResultados.DataSource = null;
                 this.DGResultados.Enabled = false;
                 this.lblTotal.Text = "Datos Registrados: 0";
-
-                //Se restablece la imagen predeterminada del boton
-                //this.btnGuardar.Image = Properties.Resources.BV_Guardar;
-
+                this.TBBuscar.Clear();
             }
             catch (Exception ex)
             {
@@ -346,7 +296,41 @@ namespace Presentacion
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            if (Eliminar == "1")
+            {
 
+                DialogResult Opcion;
+                string Respuesta = "";
+                int Eliminacion;
+
+                Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                if (Opcion == DialogResult.OK)
+                {
+                    if (DGResultados.SelectedRows.Count > 0)
+                    {
+                        Eliminacion = Convert.ToInt32(DGResultados.CurrentRow.Cells["Codigo"].Value.ToString());
+                        Respuesta = Negocio.fServicio.Eliminar(Eliminacion, 0);
+                    }
+
+                    if (Respuesta.Equals("OK"))
+                    {
+                        this.MensajeOk("Registro Eliminado Correctamente");
+                    }
+                    else
+                    {
+                        this.MensajeError(Respuesta);
+                    }
+
+                    //Botones Comunes
+                    this.TBBuscar.Clear();
+                    this.Limpiar_Datos();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void btnImprimir_Click(object sender, EventArgs e)
@@ -367,7 +351,7 @@ namespace Presentacion
                 {
                     if (TBBuscar.Text != "")
                     {
-                        this.DGResultados.DataSource = fGestion_Empleados.Buscar(this.TBBuscar.Text, 1);
+                        this.DGResultados.DataSource = fServicio.Buscar(this.TBBuscar.Text, 1);
                         //this.DGResultadoss.Columns[1].Visible = false;
 
                         lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGResultados.Rows.Count);
@@ -378,15 +362,10 @@ namespace Presentacion
                     }
                     else
                     {
-                        this.Limpiar_Datos();
-
                         //Se Limpian las Filas y Columnas de la tabla
                         this.DGResultados.DataSource = null;
                         this.DGResultados.Enabled = false;
                         this.lblTotal.Text = "Datos Registrados: 0";
-
-                        this.btnEliminar.Enabled = false;
-                        this.btnImprimir.Enabled = false;
                     }
                 }
 
