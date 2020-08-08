@@ -413,27 +413,29 @@ namespace Negocio
             return Datos.Editar_Proveedor(Obj);
         }
 
-        public static string Editar_Ubicacion
+        public static string Guardar_Ubicacion
             (
-
                 //Ubicacion[]
-                int idproducto, DataTable detalle_ubicacion,
+                int idproducto, int idbodega, string ubicacion, string estante, string nivel,
 
                 //Datos Auxiliares
-                int auto
+                int autodet_ubicacion
             )
         {
             Conexion_Producto Datos = new Conexion_Producto();
             Entidad_Productos Obj = new Entidad_Productos();
 
-            //Ubicacion
+            //Ubicacion[]
             Obj.Idproducto = idproducto;
-            Obj.Detalle_Ubicacion = detalle_ubicacion;
+            Obj.Idbodega = idbodega;
+            Obj.Ubicacion = ubicacion;
+            Obj.Estante = estante;
+            Obj.Nivel = nivel;
 
             //Datos Auxiliares
-            Obj.Auto = auto;
+            Obj.AutoDet_Ubicacion = autodet_ubicacion;
 
-            return Datos.Editar_Ubicacion(Obj);
+            return Datos.Guardar_Ubicacion(Obj);
         }
 
         public static string Editar_CodigoDeBarra

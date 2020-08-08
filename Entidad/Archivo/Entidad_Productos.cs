@@ -27,6 +27,14 @@ namespace Entidad
         private int _Igualdad_SQL;
         private int _Impuesto_SQL;
 
+        //Datos Auxiliares para Editar los Detalles
+        private int _AutoDet_Ubicacion;
+        private int _AutoDet_Proveedor;
+        private int _AutoDet_Lote;
+        private int _AutoDet_Codigodebarra;
+        private int _AutoDet_Igualdad;
+        private int _AutoDet_Impuesto;
+
         //Datos Basicos
         private string _Codigo;
         private string _Producto;
@@ -75,10 +83,16 @@ namespace Entidad
         private DataTable _Detalle_Ubicacion;
         private DataTable _Detalle_CodigoDeBarra;
 
+        //Panel Ubicacion
+        private int _Idbodega;
+        private string _Ubicacion;
+        private string _Estante;
+        private string _Nivel;
+
         //Panel de Imagenes
         private byte[] _Imagen;
 
-        //Datos para Ejecutar las Transacciones
+        //Datos para Ejecutar las Transacciones en SQL
         private int _Ubicacion_AutoSQL;
         private int _Igualdad_AutoSQL;
         private int _Impuesto_AutoSQL;
@@ -194,5 +208,15 @@ namespace Entidad
         public int Codigodebarra_SQL { get => _Codigodebarra_SQL; set => _Codigodebarra_SQL = value; }
         public int Igualdad_SQL { get => _Igualdad_SQL; set => _Igualdad_SQL = value; }
         public int Impuesto_SQL { get => _Impuesto_SQL; set => _Impuesto_SQL = value; }
+        public string Ubicacion { get => _Ubicacion; set => _Ubicacion = value; }
+        public string Estante { get => _Estante; set => _Estante = value; }
+        public string Nivel { get => _Nivel; set => _Nivel = value; }
+        public int AutoDet_Ubicacion { get => _AutoDet_Ubicacion; set => _AutoDet_Ubicacion = value; }
+        public int AutoDet_Proveedor { get => _AutoDet_Proveedor; set => _AutoDet_Proveedor = value; }
+        public int AutoDet_Lote { get => _AutoDet_Lote; set => _AutoDet_Lote = value; }
+        public int AutoDet_Codigodebarra { get => _AutoDet_Codigodebarra; set => _AutoDet_Codigodebarra = value; }
+        public int AutoDet_Igualdad { get => _AutoDet_Igualdad; set => _AutoDet_Igualdad = value; }
+        public int AutoDet_Impuesto { get => _AutoDet_Impuesto; set => _AutoDet_Impuesto = value; }
+        public int Idbodega { get => _Idbodega; set => _Idbodega = value; }
     }
 }

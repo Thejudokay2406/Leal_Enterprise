@@ -247,7 +247,7 @@ namespace Presentacion
                     CompraMaximaCliente = Datos.Rows[0][34].ToString();
                     CompraMinimaMayorista = Datos.Rows[0][35].ToString();
                     CompraMaximaMayorista = Datos.Rows[0][36].ToString();
-                    Marca = Datos.Rows[0][38].ToString();
+                    //Marca = Datos.Rows[0][38].ToString();
                     //Bodega = Datos.Rows[0][36].ToString();
                     //Lote = Datos.Rows[0][40].ToString();
 

@@ -162,6 +162,18 @@
     <Compile Include="Archivo\frmTipoDePago.Designer.cs">
       <DependentUpon>frmTipoDePago.cs</DependentUpon>
     </Compile>
+    <Compile Include="Archivo\frmMateriales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Archivo\frmMateriales.Designer.cs">
+      <DependentUpon>frmMateriales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Filtros_Secundario\frmAgregar_UbicacionProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Filtros_Secundario\frmAgregar_UbicacionProductos.Designer.cs">
+      <DependentUpon>frmAgregar_UbicacionProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sistema\frmUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -334,6 +346,9 @@
     <EmbeddedResource Include="Archivo\frmCliente.resx">
       <DependentUpon>frmCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Archivo\frmMateriales.resx">
+      <DependentUpon>frmMateriales.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Archivo\frmTipoDePago.resx">
       <DependentUpon>frmTipoDePago.cs</DependentUpon>
     </EmbeddedResource>
@@ -364,6 +379,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Filtros\frmFiltro_ActualizarPrecios.resx">
       <DependentUpon>frmFiltro_ActualizarPrecios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Filtros_Secundario\frmAgregar_UbicacionProductos.resx">
+      <DependentUpon>frmAgregar_UbicacionProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sistema\frmUsuario.resx">
       <DependentUpon>frmUsuario.cs</DependentUpon>

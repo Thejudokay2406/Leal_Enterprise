@@ -95,7 +95,6 @@
             this.label26 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.TPUbicacion = new System.Windows.Forms.TabPage();
-            this.btnEditar_Ubicacion = new System.Windows.Forms.Button();
             this.lblTotal_Ubicacion = new System.Windows.Forms.Label();
             this.DGDetalles_Ubicacion = new System.Windows.Forms.DataGridView();
             this.CBBodega = new System.Windows.Forms.ComboBox();
@@ -239,7 +238,6 @@
             this.TBIdproducto_AutoSQL.Name = "TBIdproducto_AutoSQL";
             this.TBIdproducto_AutoSQL.Size = new System.Drawing.Size(18, 21);
             this.TBIdproducto_AutoSQL.TabIndex = 14;
-            this.TBIdproducto_AutoSQL.TextChanged += new System.EventHandler(this.TBIdproducto_AutoSQL_TextChanged);
             // 
             // TBIdproveedor
             // 
@@ -1164,7 +1162,6 @@
             // 
             this.TPUbicacion.BackColor = System.Drawing.Color.White;
             this.TPUbicacion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TPUbicacion.Controls.Add(this.btnEditar_Ubicacion);
             this.TPUbicacion.Controls.Add(this.lblTotal_Ubicacion);
             this.TPUbicacion.Controls.Add(this.DGDetalles_Ubicacion);
             this.TPUbicacion.Controls.Add(this.CBBodega);
@@ -1183,24 +1180,6 @@
             this.TPUbicacion.Size = new System.Drawing.Size(384, 381);
             this.TPUbicacion.TabIndex = 4;
             this.TPUbicacion.Text = "Ubicación";
-            // 
-            // btnEditar_Ubicacion
-            // 
-            this.btnEditar_Ubicacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEditar_Ubicacion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditar_Ubicacion.FlatAppearance.BorderSize = 0;
-            this.btnEditar_Ubicacion.Image = global::Presentacion.Botones.btnEditar;
-            this.btnEditar_Ubicacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar_Ubicacion.Location = new System.Drawing.Point(286, 343);
-            this.btnEditar_Ubicacion.Name = "btnEditar_Ubicacion";
-            this.btnEditar_Ubicacion.Size = new System.Drawing.Size(90, 30);
-            this.btnEditar_Ubicacion.TabIndex = 15;
-            this.btnEditar_Ubicacion.Text = "Modificar";
-            this.btnEditar_Ubicacion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEditar_Ubicacion.UseVisualStyleBackColor = true;
-            this.btnEditar_Ubicacion.Click += new System.EventHandler(this.btnEditar_Ubicacion_Click);
             // 
             // lblTotal_Ubicacion
             // 
@@ -1346,7 +1325,7 @@
             this.btnEliminar_Ubicacion.FlatAppearance.BorderSize = 0;
             this.btnEliminar_Ubicacion.Image = global::Presentacion.Botones.btnEliminar;
             this.btnEliminar_Ubicacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar_Ubicacion.Location = new System.Drawing.Point(190, 343);
+            this.btnEliminar_Ubicacion.Location = new System.Drawing.Point(286, 343);
             this.btnEliminar_Ubicacion.Name = "btnEliminar_Ubicacion";
             this.btnEliminar_Ubicacion.Size = new System.Drawing.Size(90, 30);
             this.btnEliminar_Ubicacion.TabIndex = 58;
@@ -1365,7 +1344,7 @@
             this.btnAgregar_Ubicacion.FlatAppearance.BorderSize = 0;
             this.btnAgregar_Ubicacion.Image = global::Presentacion.Botones.btnAgregar;
             this.btnAgregar_Ubicacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar_Ubicacion.Location = new System.Drawing.Point(94, 343);
+            this.btnAgregar_Ubicacion.Location = new System.Drawing.Point(190, 343);
             this.btnAgregar_Ubicacion.Name = "btnAgregar_Ubicacion";
             this.btnAgregar_Ubicacion.Size = new System.Drawing.Size(90, 30);
             this.btnAgregar_Ubicacion.TabIndex = 57;
@@ -2695,7 +2674,6 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox TBIdproducto;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.TabControl TCPrincipal;
         private System.Windows.Forms.TabPage TPDatosBasicos;
@@ -2713,7 +2691,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox TBNombre;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox TBCodigo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage TPValores;
         private System.Windows.Forms.TextBox TBValorVenta_NoExcento;
@@ -2721,7 +2698,6 @@
         private System.Windows.Forms.TabPage TPUbicacion;
         private System.Windows.Forms.ComboBox CBBodega;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TextBox TBUbicacion;
         private System.Windows.Forms.TextBox TBNivel;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox TBEstante;
@@ -2761,7 +2737,6 @@
         private System.Windows.Forms.PictureBox PB_Imagen;
         private System.Windows.Forms.CheckBox CBOfertable;
         private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.DataGridView DGDetalles_Ubicacion;
         private System.Windows.Forms.DataGridView DGDetalles_Lotes;
         private System.Windows.Forms.Button btnEliminar_Ubicacion;
         private System.Windows.Forms.Button btnAgregar_Ubicacion;
@@ -2814,7 +2789,6 @@
         private System.Windows.Forms.Button btnEliminar_Igualdad;
         private System.Windows.Forms.DataGridView DGDetalle_Igualdad;
         private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.Button btnEditar_Ubicacion;
         private System.Windows.Forms.Button btnEditar_Lote;
         private System.Windows.Forms.Button btnAgregar_Proveedor;
         private System.Windows.Forms.Button btnAgregar_Impuesto;
@@ -2854,5 +2828,9 @@
         private System.Windows.Forms.TextBox TBLote_Venta;
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.TextBox TBIdproducto_AutoSQL;
+        public System.Windows.Forms.TextBox TBUbicacion;
+        public System.Windows.Forms.TextBox TBCodigo;
+        public System.Windows.Forms.TextBox TBIdproducto;
+        private System.Windows.Forms.DataGridView DGDetalles_Ubicacion;
     }
 }

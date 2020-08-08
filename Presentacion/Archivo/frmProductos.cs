@@ -29,7 +29,6 @@ namespace Presentacion
         // Variable con la cual se define si el procecimiento 
         // A realizar es Editar, Guardar, Buscar, Eliminar
         private bool Digitar = true;
-        private bool Modificar = true;
         public bool Filtro = true;
         public bool Examinar = true;
 
@@ -43,12 +42,12 @@ namespace Presentacion
         private bool Eliminar_CodigoDeBarra = false;
 
         //Variable para Agregar los Detalles a la Base de Datos
-        private DataTable DtDetalle_Lote = new DataTable();
-        private DataTable DtDetalle_Impuesto = new DataTable();
-        private DataTable DtDetalle_Igualdad = new DataTable();
-        private DataTable DtDetalle_Ubicacion = new DataTable();
-        private DataTable DtDetalle_Proveedor = new DataTable();
-        private DataTable DtDetalle_CodigoDeBarra = new DataTable();
+        private DataTable DtDetalle_Lote;
+        private DataTable DtDetalle_Impuesto;
+        private DataTable DtDetalle_Igualdad;
+        private DataTable DtDetalle_Ubicacion;
+        private DataTable DtDetalle_Proveedor;
+        private DataTable DtDetalle_CodigoDeBarra;
 
         //Variables de Validaciones
         public int Idempleado; //Variable para Captura el Empleado Logueado
@@ -89,6 +88,10 @@ namespace Presentacion
 
         //Panel - Imagen
         private string Imagen = "";
+
+        //********** Variable para Agregar registros a los multiplex detalles como Ubicacio, Proveedores, Impuestos ETC *********************************************
+
+        private string Pro_Ubicacion = "";
 
         public frmProductos()
         {
@@ -240,9 +243,7 @@ namespace Presentacion
         private void Limpiar_Datos()
         {
             //Panel - Datos Basicos
-
-            //this.TBIdproducto.Clear();
-
+                        
             this.TBCodigo.Clear();
             this.TBNombre.Clear();
             this.TBDescripcion01.Clear();
@@ -296,33 +297,33 @@ namespace Presentacion
 
             //Panel Igualdad
             this.TBBuscar_Igualdad.Clear();
-            this.DtDetalle_Igualdad.Clear();
-            
+            this.DGDetalle_Igualdad.DataSource = null;
+
             //Panel Impuesto
             this.TBBuscar_Impuesto.Clear();
-            this.DtDetalle_Impuesto.Clear();
+            this.DGDetalle_Impuesto.DataSource = null;
 
             //Panel Proveedor
             this.TBBuscar_Proveedor.Clear();
-            this.DtDetalle_Proveedor.Clear();
+            this.DGDetalle_Proveedor.DataSource = null;
 
             //Panel Codigo de Barra
             this.TBBuscar_CodigodeBarra.Clear();
-            this.DtDetalle_CodigoDeBarra.Clear();
+            this.DGDetalle_CodigoDeBarra.DataSource = null;
 
             //Panel - Ubicacion
             this.CBBodega.SelectedIndex = 0;
             this.TBUbicacion.Clear();
             this.TBEstante.Clear();
             this.TBNivel.Clear();
-            this.DtDetalle_Ubicacion.Clear();
+            this.DGDetalles_Ubicacion.DataSource = null;
 
             //Panel - Lote
             this.TBLotedeingreso.Clear();
             this.TBValor_Lote.Clear();
             this.TBLote_Stock.Clear();
             this.DTLote_Vencimiento.Enabled = true;
-            this.DtDetalle_Lote.Clear();
+            this.DGDetalles_Lotes.DataSource = null;
 
             this.PB_Imagen.Image = Properties.Resources.Logo_Leal_Enterprise;
 
@@ -345,7 +346,6 @@ namespace Presentacion
                 this.brnEditar_Impuesto.Enabled = false;
                 this.btnEditar_Igualdad.Enabled = false;
                 this.btnEditar_Proveedor.Enabled = false;
-                this.btnEditar_Ubicacion.Enabled = false;
                 this.btnEditar_CodigoDeBarra.Enabled = false;
             }
             else if (!Digitar)
@@ -360,7 +360,6 @@ namespace Presentacion
                 this.brnEditar_Impuesto.Enabled = true;
                 this.btnEditar_Igualdad.Enabled = true;
                 this.btnEditar_Proveedor.Enabled = true;
-                this.btnEditar_Ubicacion.Enabled = true;
                 this.btnEditar_CodigoDeBarra.Enabled = true;
             }
         }
@@ -406,6 +405,24 @@ namespace Presentacion
             this.TBBuscar_Impuesto.Text = impuesto;
             this.TBIdimpuesto.Text = impuesto;
         }
+
+        //private void Completar_Ubicacion()
+        //{
+        //    frmAgregar_UbicacionProductos frmAU = new frmAgregar_UbicacionProductos();
+
+        //    //Variables Para Los Filtros
+        //    string idproducto_det, codigo, bodega, producto_det, referencia, descripcion, presentacion;
+
+        //    idproducto_det = this.TBIdproducto.Text;
+        //    codigo = this.TBCodigo.Text;
+        //    bodega = this.CBBodega.Text;
+        //    producto_det = this.TBNombre.Text;
+        //    referencia = this.TBReferencia.Text;
+        //    descripcion = this.TBDescripcion01.Text;
+        //    presentacion = this.TBPresentacion.Text;
+        //    frmAU.setProducto_Ubicacion(idproducto_det, codigo, bodega, producto_det, referencia, descripcion, presentacion);
+        //    this.Hide();
+        //}
                 
         private void Validaciones_SQL()
         {
@@ -527,49 +544,59 @@ namespace Presentacion
             try
             {
                 //Panel Ubicacion
+                this.DtDetalle_Ubicacion = new DataTable();
                 this.DtDetalle_Ubicacion.Columns.Add("Idproducto", System.Type.GetType("System.Int32"));
                 this.DtDetalle_Ubicacion.Columns.Add("Idbodega", System.Type.GetType("System.Int32"));
                 this.DtDetalle_Ubicacion.Columns.Add("Ubicacion", System.Type.GetType("System.String"));
                 this.DtDetalle_Ubicacion.Columns.Add("Estante", System.Type.GetType("System.String"));
                 this.DtDetalle_Ubicacion.Columns.Add("Nivel", System.Type.GetType("System.String"));
+                //Captura de los Datos en las Tablas
+                this.DGDetalles_Ubicacion.DataSource = DtDetalle_Ubicacion;
 
                 //Panel Lote
+                this.DtDetalle_Lote = new DataTable();
                 this.DtDetalle_Lote.Columns.Add("Idproducto", System.Type.GetType("System.Int32"));
                 this.DtDetalle_Lote.Columns.Add("Lote", System.Type.GetType("System.String"));
                 this.DtDetalle_Lote.Columns.Add("Stock", System.Type.GetType("System.String"));
                 this.DtDetalle_Lote.Columns.Add("Valor de Compra", System.Type.GetType("System.String"));
                 this.DtDetalle_Lote.Columns.Add("Valor de Venta", System.Type.GetType("System.String"));
                 this.DtDetalle_Lote.Columns.Add("Vencimiento", System.Type.GetType("System.String"));
+                //Captura de los Datos en las Tablas
+                this.DGDetalles_Lotes.DataSource = this.DtDetalle_Lote;
 
                 //Panel Codigo de Barra
+                this.DtDetalle_CodigoDeBarra = new DataTable();
                 this.DtDetalle_CodigoDeBarra.Columns.Add("Idproducto", System.Type.GetType("System.Int32"));
                 this.DtDetalle_CodigoDeBarra.Columns.Add("Codigo de Barra", System.Type.GetType("System.String"));
+                //Captura de los Datos en las Tablas
+                this.DGDetalle_CodigoDeBarra.DataSource = this.DtDetalle_CodigoDeBarra;
 
                 //Panel Proveedores
+                this.DtDetalle_Proveedor = new DataTable();
                 this.DtDetalle_Proveedor.Columns.Add("Idproducto", System.Type.GetType("System.Int32"));
                 this.DtDetalle_Proveedor.Columns.Add("Idproveedor", System.Type.GetType("System.Int32"));
                 this.DtDetalle_Proveedor.Columns.Add("Proveedor", System.Type.GetType("System.String"));
                 this.DtDetalle_Proveedor.Columns.Add("Documento", System.Type.GetType("System.String"));
+                //Captura de los Datos en las Tablas
+                this.DGDetalle_Proveedor.DataSource = this.DtDetalle_Proveedor;
 
                 //Panel Impuesto
+                this.DtDetalle_Impuesto = new DataTable();
                 this.DtDetalle_Impuesto.Columns.Add("Idproducto", System.Type.GetType("System.Int32"));
                 this.DtDetalle_Impuesto.Columns.Add("Idimpuesto", System.Type.GetType("System.Int32"));
                 this.DtDetalle_Impuesto.Columns.Add("Impuesto", System.Type.GetType("System.String"));
                 this.DtDetalle_Impuesto.Columns.Add("Valor", System.Type.GetType("System.String"));
+                //Captura de los Datos en las Tablas
+                this.DGDetalle_Impuesto.DataSource = this.DtDetalle_Impuesto;
 
                 //Panel Igualdad
+                this.DtDetalle_Igualdad = new DataTable();
                 this.DtDetalle_Igualdad.Columns.Add("Idproducto", System.Type.GetType("System.Int32"));
                 this.DtDetalle_Igualdad.Columns.Add("Codigo", System.Type.GetType("System.String"));
                 this.DtDetalle_Igualdad.Columns.Add("Producto", System.Type.GetType("System.String"));
                 this.DtDetalle_Igualdad.Columns.Add("Marca", System.Type.GetType("System.String"));
-                
                 //Captura de los Datos en las Tablas
-                this.DGDetalles_Lotes.DataSource = this.DtDetalle_Lote;
-                this.DGDetalle_Impuesto.DataSource = this.DtDetalle_Impuesto;
                 this.DGDetalle_Igualdad.DataSource = this.DtDetalle_Igualdad;
-                this.DGDetalle_Proveedor.DataSource = this.DtDetalle_Proveedor;
-                this.DGDetalles_Ubicacion.DataSource = this.DtDetalle_Ubicacion;
-                this.DGDetalle_CodigoDeBarra.DataSource = this.DtDetalle_CodigoDeBarra;
                 
 
                 //Medidas de las Columnas - Codigo de Barra
@@ -793,6 +820,18 @@ namespace Presentacion
             }
         }
 
+        //Mensaje de confirmacion
+        private void MensajeOk(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+        }
+
+        //Mensaje de Error
+        private void MensajeError(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Leal Enterprise - Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
         private void Guardar_SQL()
         {
             try
@@ -946,17 +985,6 @@ namespace Presentacion
             }
         }
 
-        //Mensaje de confirmacion
-        private void MensajeOk(string mensaje)
-        {
-            MessageBox.Show(mensaje, "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-        }
-
-        //Mensaje de Error
-        private void MensajeError(string mensaje)
-        {
-            MessageBox.Show(mensaje, "Leal Enterprise - Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             try
@@ -1011,12 +1039,11 @@ namespace Presentacion
                 this.Digitar = true;
                 this.Botones();
                 this.Limpiar_Datos();
-                this.Diseño_TablasGenerales();
 
                 this.TBBuscar.Clear();
 
                 //Se Limpian las Filas y Columnas de la tabla
-                this.DGResultados.DataSource = null;
+                this.DGResultados.DataSource = null; 
                 this.lblTotal.Text = "Datos Registrados: 0";
             }
             catch (Exception ex)
@@ -1076,6 +1103,7 @@ namespace Presentacion
         }
 
         private void btnAgregar_Ubicacion_Click(object sender, EventArgs e)
+        
         {
             try
             {
@@ -1106,6 +1134,21 @@ namespace Presentacion
                         this.TBEstante.Clear();
                         this.TBNivel.Clear();
                     }
+                }
+                else
+                {
+                    //SE PROCEDE AGREGAR LOS CAMPOS DE TEXTO DEL FORMULARIO PRINCIPAL AL SECUNDARIO
+
+                    frmAgregar_UbicacionProductos frmAU = new frmAgregar_UbicacionProductos();
+
+                    frmAU.TBIdproducto_UB.Text = TBIdproducto.Text;
+                    frmAU.TBCodigo_UB.Text = TBCodigo.Text;
+                    frmAU.TBNombre_UB.Text = TBNombre.Text;
+                    frmAU.TBReferencia_UB.Text = TBReferencia.Text;
+                    frmAU.TBDescripcion_UB.Text = TBDescripcion01.Text;
+                    frmAU.TBPresentacion_UB.Text = TBPresentacion.Text;
+
+                    frmAU.ShowDialog();
                 }
             }
             catch (Exception ex)
@@ -4979,74 +5022,7 @@ namespace Presentacion
         {
 
         }
-
-        private void TBIdproducto_AutoSQL_TextChanged(object sender, EventArgs e)
-        {
-            //try
-            //{
-            //    DataTable Datos = Negocio.fProductos.AutoComplementar_SQL(Convert.ToInt32(this.TBIdproducto_AutoSQL.Text));
-            //    //Evaluamos si  existen los Datos
-            //    if (Datos.Rows.Count == 0)
-            //    {
-            //        MessageBox.Show("Actualmente no se encuentran registros en la Base de Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    }
-            //    else
-            //    {
-            //        //Captura de Valores en la Base de Datos
-
-            //        Idproducto = Datos.Rows[0][0].ToString();
-            //        //Nombre = Datos.Rows[0][1].ToString();
-            //        //Descripcion = Datos.Rows[0][2].ToString();
-            //        //Director = Datos.Rows[0][3].ToString();
-            //        //Ciudad = Datos.Rows[0][4].ToString();
-            //        //Telefono = Datos.Rows[0][5].ToString();
-            //        //Movil = Datos.Rows[0][6].ToString();
-            //        //Correo = Datos.Rows[0][7].ToString();
-
-            //        //Recepcion = Datos.Rows[0][8].ToString();
-            //        //Despacho = Datos.Rows[0][9].ToString();
-            //        //InicioLaboral = Datos.Rows[0][10].ToString();
-            //        //FinalLaboral = Datos.Rows[0][11].ToString();
-            //        //Diadepagos = Datos.Rows[0][12].ToString();
-            //        //Diadedespacho = Datos.Rows[0][13].ToString();
-            //        //Medidas = Datos.Rows[0][14].ToString();
-            //        //Direccion01 = Datos.Rows[0][15].ToString();
-            //        //Direccion02 = Datos.Rows[0][16].ToString();
-            //        //Documento = Datos.Rows[0][17].ToString();
-
-            //        //Se procede a completar los campos de texto segun las consulta
-            //        //Realizada anteriormente en la base de datos
-
-            //        this.TBIdproducto_AutoSQL.Text = Idproducto;
-
-            //        //this.TBBodega.Text = Nombre;
-            //        //this.TBDocumento.Text = Documento;
-            //        //this.TBDescripcion.Text = Descripcion;
-            //        //this.TBDirector.Text = Director;
-            //        //this.TBCiudad.Text = Ciudad;
-            //        //this.TBTelefono.Text = Telefono;
-            //        //this.TBMovil.Text = Movil;
-            //        //this.TBCorreo.Text = Correo;
-
-            //        ////
-            //        //this.TBRecepcion.Text = Recepcion;
-            //        //this.TBDespacho.Text = Despacho;
-            //        //this.TBInicioLaboral.Text = InicioLaboral;
-            //        //this.TBFinalHorarioLaboral.Text = FinalLaboral;
-            //        //this.TBMedidas.Text = Medidas;
-            //        //this.TBDiadepagos.Text = Diadepagos;
-            //        //this.TBDespacho.Text = Despacho;
-            //        //this.TBDireccion01.Text = Direccion01;
-            //        //this.TBDireccion02.Text = Direccion02;
-
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message + ex.StackTrace);
-            //}
-        }
-
+                
         private void btnExaminar_Proveedor_Click(object sender, EventArgs e)
         {
             frmFiltro_Proveedor frmFiltro_Proveedor = new frmFiltro_Proveedor();
@@ -5103,41 +5079,74 @@ namespace Presentacion
         {
             try
             {
-                string rptaEditarUbicacion = "";
+                //this.DtDetalle_Ubicacion.Rows.Clear();
+                this.DtDetalle_Ubicacion.Clear();
 
-                if (Editar == "1")
-                {
-                    if (DtDetalle_Ubicacion != null)
-                    {
-                        this.MensajeError("Agregue la Ubicacion o Ubicaciones que desea Establecer del Producto: " + Convert.ToString(TBNombre.Text) + " Con Codigo: " + Convert.ToString(TBCodigo.Text));
-                    }
-                    else
-                    {
-                        rptaEditarUbicacion = fProductos.Editar_Ubicacion(Convert.ToInt32(TBIdproducto.Text), this.DtDetalle_Ubicacion, 2);
-                    }
-                }
-
-                else
-                {
-                    MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Modificar Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-
-                if (rptaEditarUbicacion.Equals("OK"))
-                {
-                    if (!Digitar)
-                    {
-                        this.MensajeOk("Ubicacion Actualizada");
-                    }
-                }
-                
-                //
                 this.CBBodega.SelectedIndex = 0;
                 this.TBUbicacion.Clear();
                 this.TBEstante.Clear();
                 this.TBNivel.Clear();
 
+                //if (!Digitar)
+                //{
+                //    if (Editar == "1")
+                //    {
+                //        this.DtDetalle_Ubicacion.Rows.Clear();
+                //        this.DtDetalle_Ubicacion.AcceptChanges();
+
+                //        ////'Primero se limpia el dataTable
+                //        //DtDetalle_Ubicacion.Clear();
+                //        ////'Luego se quita la relación del dataTable con el bindingSource y se limpia
+                //        //bindingSource1.DataSource = Nothing;
+                //        //bindingSource1.DataSource = "";
+                //        //bindingSource1.Clear();
+                //        //DataGridView1.DataSource = bindingSource1; //'Se vuelve a relacionar el bindingSource vacio con el grid
+                //        //DataGridView1.Columns.Clear(); //'Al final se limpian las columnas que pudieran haber
+
+                //        //SE VALIDA SI EL DATATABLE ESTA LLENO DE L 
+                //        //if (DtDetalle_Ubicacion != null)
+                //        //{
+                //        //    this.MensajeError("Agregue la Ubicacion o Ubicaciones que desea Establecer del Producto: " + Convert.ToString(TBNombre.Text) + " Con Codigo: " + Convert.ToString(TBCodigo.Text));
+                //        //}
+                //        //else
+                //        //{
+                //        //    rptaEditarUbicacion = fProductos.Editar_Ubicacion(Convert.ToInt32(TBIdproducto.Text), this.DtDetalle_Ubicacion, 2);
+                //        //}
+                //    }
+
+                //    else
+                //    {
+                //        MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Modificar Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                //    }
+
+                //    //if (rptaEditarUbicacion.Equals("OK"))
+                //    //{
+                //    //    if (!Digitar)
+                //    //    {
+                //    //        this.MensajeOk("Ubicacion Actualizada");
+                //    //    }
+                //    //}
+
+                //    //
+                //    this.CBBodega.SelectedIndex = 0;
+                //    this.TBUbicacion.Clear();
+                //    this.TBEstante.Clear();
+                //    this.TBNivel.Clear();
+                //}
             }
 
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void TBIdubicacion_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
@@ -6301,6 +6310,9 @@ namespace Presentacion
                     //************************************************************************************************************************
                     //Se realizan las consultas para llenar los DataGriview donde se mostrarian los MultiPlex Registros.
 
+                    this.DGDetalles_Ubicacion.DataSource = fProductos.Buscar_Ubicacion(1, Convert.ToInt32(this.TBIdproducto.Text));
+                    lblTotal_Ubicacion.Text = "Datos Registrados: " + Convert.ToString(DGDetalles_Ubicacion.Rows.Count);
+
                     this.DGDetalle_Igualdad.DataSource = fProductos.Buscar_Igualdad(1, Convert.ToInt32(this.TBIdproducto.Text));
                     lblTotal_Igualdad.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Igualdad.Rows.Count);
 
@@ -6315,10 +6327,6 @@ namespace Presentacion
 
                     this.DGDetalles_Lotes.DataSource = fProductos.Buscar_Lote(1, Convert.ToInt32(this.TBIdproducto.Text));
                     lblTotal_Lotes.Text = "Datos Registrados: " + Convert.ToString(DGDetalles_Lotes.Rows.Count);
-
-                    //this.TBIdubicacion.Text = TBIdproducto.Text;
-                    this.DGDetalles_Ubicacion.DataSource = fProductos.Buscar_Ubicacion(1, Convert.ToInt32(this.TBIdproducto.Text));
-                    lblTotal_Ubicacion.Text = "Datos Registrados: " + Convert.ToString(DGDetalles_Ubicacion.Rows.Count);
                 }
             }
             catch (Exception ex)
@@ -6333,12 +6341,12 @@ namespace Presentacion
             {
                 if (Editar == "1")
                 {
+                    this.Digitar = false;
                     this.TBIdproducto.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells["ID"].Value);
-                    //this.TBIdubicacion.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells["ID"].Value);
                     this.TBNombre.Select();
 
                     //
-                    this.Digitar = false;
+                    //this.Digitar = false;
                     this.Eliminar_Lote = true;
                     this.Eliminar_Igualdad = true;
                     this.Eliminar_Impuesto = true;
@@ -6353,7 +6361,6 @@ namespace Presentacion
                 else
                 {
                     MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Actualizar Datos en el Sistema", "Leal Enterprise - 'Acceso Denegado' ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
                 }
             }
             catch (Exception ex)

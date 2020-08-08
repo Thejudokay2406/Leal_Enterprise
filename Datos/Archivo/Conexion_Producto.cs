@@ -462,9 +462,6 @@ namespace Datos
                 Comando.Parameters.Add("@Seguri", SqlDbType.VarChar).Value = Obj.Seguro;
                 Comando.Parameters.Add("@Gastos", SqlDbType.VarChar).Value = Obj.Gastos;
 
-                //Panel Ubicaciones -- Campos Obligatorios
-                Comando.Parameters.Add("@Det_Ubicacion", SqlDbType.Structured).Value = Obj.Detalle_Ubicacion;
-
                 //Panel Cantidades -- Campos NO Obligatorios
                 Comando.Parameters.Add("@VeMinClie", SqlDbType.VarChar).Value = Obj.Venta_MinimaCliente;
                 Comando.Parameters.Add("@VeMaxClie", SqlDbType.VarChar).Value = Obj.Venta_MaximaCliente;
@@ -475,26 +472,11 @@ namespace Datos
                 Comando.Parameters.Add("@CoMinMayo", SqlDbType.VarChar).Value = Obj.Compra_MinimaMayorista;
                 Comando.Parameters.Add("@CoMaxMayo", SqlDbType.VarChar).Value = Obj.Compra_MaximaMayorista;
 
-                //Panel Impuestos -- Campos NO Obligatorios
-                Comando.Parameters.Add("@Det_Impuesto", SqlDbType.Structured).Value = Obj.Detalle_Impuesto;
-
-                //Panel Igualdad -- Campos NO Obligatorios
-                Comando.Parameters.Add("@Det_Igualdad", SqlDbType.Structured).Value = Obj.Detalle_Igualdad;
-
-                //Panel Lotes -- Campos NO Obligatorios
-                Comando.Parameters.Add("@Det_Lotes", SqlDbType.Structured).Value = Obj.Detalle_Lote;
-
-                //Panel Codigo de Barra -- Campos Obligatorios
-                Comando.Parameters.Add("@Det_CodigoBarra", SqlDbType.Structured).Value = Obj.Detalle_CodigoDeBarra;
-
-                //Panel Proveedor -- Campos NO Obligatorios
-                Comando.Parameters.Add("@Det_Proveedor", SqlDbType.Structured).Value = Obj.Detalle_Proveedor;
-
                 //Panel Imagenes -- Campos NO Obligatorios
                 Comando.Parameters.Add("@Imagen", SqlDbType.Image).Value = Obj.Imagen;
 
                 SqlCon.Open();
-                Rpta = Comando.ExecuteNonQuery() != 1 ? "OK" : "Error al Actualizar el Registro";
+                Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Actualizar el Registro";
             }
             catch (Exception ex)
             {
@@ -510,25 +492,28 @@ namespace Datos
             return Rpta;
         }
 
-        public string Editar_Ubicacion(Entidad_Productos Obj)
+        public string Guardar_Ubicacion(Entidad_Productos Obj)
         {
             string Rpta = "";
             SqlConnection SqlCon = new SqlConnection();
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Productos.LI_DatosBasicos", SqlCon);
+                SqlCommand Comando = new SqlCommand("Productos.Ubicaciones", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Datos Auxiliares
-                Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Obj.Auto;
-                Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = Obj.Idproducto;
+                Comando.Parameters.Add("@Auto_Ubicacion", SqlDbType.Int).Value = Obj.AutoDet_Ubicacion;
 
                 //Panel Ubicaciones -- Campos Obligatorios
-                Comando.Parameters.Add("@Det_Ubicacion", SqlDbType.Structured).Value = Obj.Detalle_Ubicacion;
+                Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = Obj.Idproducto;
+                Comando.Parameters.Add("@Idbodega", SqlDbType.Int).Value = Obj.Idbodega;
+                Comando.Parameters.Add("@Ubicacion_Edi", SqlDbType.VarChar).Value = Obj.Ubicacion;
+                Comando.Parameters.Add("@Estante_Edi", SqlDbType.VarChar).Value = Obj.Estante;
+                Comando.Parameters.Add("@Nivel_Edi", SqlDbType.VarChar).Value = Obj.Nivel;             
 
                 SqlCon.Open();
-                Rpta = Comando.ExecuteNonQuery() != 1 ? "OK" : "Error al Actualizar el Registro";
+                Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Realizar el Registro";
             }
             catch (Exception ex)
             {
