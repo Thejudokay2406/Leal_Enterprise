@@ -158,20 +158,58 @@ namespace Datos
                 Comando.Parameters.Add("@Movil", SqlDbType.VarChar).Value = Obj.Movil;
                 Comando.Parameters.Add("@Telefono", SqlDbType.VarChar).Value = Obj.Telefono;
                 Comando.Parameters.Add("@Correo", SqlDbType.VarChar).Value = Obj.Correo;
-
-                //Panel Datos Auxiliares
-                Comando.Parameters.Add("@Recepcion", SqlDbType.VarChar).Value = Obj.Recepcion;
-                Comando.Parameters.Add("@Despacho", SqlDbType.VarChar).Value = Obj.Despacho;
-                Comando.Parameters.Add("@InicioLaboral", SqlDbType.VarChar).Value = Obj.InicioLaboral;
-                Comando.Parameters.Add("@FinLaboral", SqlDbType.VarChar).Value = Obj.FinLaboral;
                 Comando.Parameters.Add("@Medidas", SqlDbType.VarChar).Value = Obj.Dimensiones;
-                Comando.Parameters.Add("@DiaDePagos", SqlDbType.VarChar).Value = Obj.DiaDePagos;
-                Comando.Parameters.Add("@DiaDeDespacho", SqlDbType.VarChar).Value = Obj.DiaDeDespacho;
                 Comando.Parameters.Add("@Direccion01", SqlDbType.VarChar).Value = Obj.Direccion01;
                 Comando.Parameters.Add("@Direccion02", SqlDbType.VarChar).Value = Obj.Direccion02;
+                Comando.Parameters.Add("@Zona", SqlDbType.VarChar).Value = Obj.Zona;
 
-                ////Panel Impuestos -- Campos NO Obligatorios
-                //Comando.Parameters.Add("@Det_Equipos", SqlDbType.Structured).Value = Obj.Detalle_Equipos;
+                //Panel Datos de Pago
+                Comando.Parameters.Add("@AutorizacionDePagos", SqlDbType.VarChar).Value = Obj.AutorizacionDePagos;
+                Comando.Parameters.Add("@InicioHorarioPagos", SqlDbType.VarChar).Value = Obj.InicioHorarioPagos;
+                Comando.Parameters.Add("@FinHorarioPagos", SqlDbType.VarChar).Value = Obj.FinHorarioPagos;
+                Comando.Parameters.Add("@Lunes_Pagos", SqlDbType.Int).Value = Obj.Lunes_Pagos;
+                Comando.Parameters.Add("@Martes_Pagos", SqlDbType.Int).Value = Obj.Martes_Pagos;
+                Comando.Parameters.Add("@Miercoles_Pagos", SqlDbType.Int).Value = Obj.Miercoles_Pagos;
+                Comando.Parameters.Add("@Jueves_Pagos", SqlDbType.Int).Value = Obj.Jueves_Pagos;
+                Comando.Parameters.Add("@Viernes_Pagos", SqlDbType.Int).Value = Obj.Viernes_Pagos;
+                Comando.Parameters.Add("@Sabado_Pagos", SqlDbType.Int).Value = Obj.Sabado_Pagos;
+                Comando.Parameters.Add("@Domingo_Pagos", SqlDbType.Int).Value = Obj.Domingo_Pagos;
+                Comando.Parameters.Add("@Bono", SqlDbType.Int).Value = Obj.Bono;
+                Comando.Parameters.Add("@Cheques", SqlDbType.Int).Value = Obj.Cheques;
+                Comando.Parameters.Add("@Debito", SqlDbType.Int).Value = Obj.Debito;
+                Comando.Parameters.Add("@Credito", SqlDbType.Int).Value = Obj.Credito;
+                Comando.Parameters.Add("@Efectivo", SqlDbType.Int).Value = Obj.Efectivo;
+                Comando.Parameters.Add("@Sodexo", SqlDbType.Int).Value = Obj.Sodexo;
+                Comando.Parameters.Add("@Transferencia", SqlDbType.Int).Value = Obj.Transferencia;
+                Comando.Parameters.Add("@Otros", SqlDbType.Int).Value = Obj.Otros;
+
+                //Panel Datos de Recepcion
+                Comando.Parameters.Add("@Recepcion", SqlDbType.VarChar).Value = Obj.Recepcion;
+                Comando.Parameters.Add("@InicioHorarioRecepcion", SqlDbType.VarChar).Value = Obj.InicioHorarioRecepcion;
+                Comando.Parameters.Add("@FinHorarioRecepcion", SqlDbType.VarChar).Value = Obj.FinHorarioRecepcion;
+                Comando.Parameters.Add("@Lunes_Recepcion", SqlDbType.Int).Value = Obj.Lunes_Recepcion;
+                Comando.Parameters.Add("@Martes_Recepcion", SqlDbType.Int).Value = Obj.Martes_Recepcion;
+                Comando.Parameters.Add("@Miercoles_Recepcion", SqlDbType.Int).Value = Obj.Miercoles_Recepcion;
+                Comando.Parameters.Add("@Jueves_Recepcion", SqlDbType.Int).Value = Obj.Jueves_Recepcion;
+                Comando.Parameters.Add("@Viernes_Recepcion", SqlDbType.Int).Value = Obj.Viernes_Recepcion;
+                Comando.Parameters.Add("@Sabado_Recepcion", SqlDbType.Int).Value = Obj.Sabado_Recepcion;
+                Comando.Parameters.Add("@Domingo_Recepcion", SqlDbType.Int).Value = Obj.Domingo_Recepcion;
+                Comando.Parameters.Add("@Encargado_Recepcion", SqlDbType.VarChar).Value = Obj.Encargado_Recepcion;
+                Comando.Parameters.Add("@Observacion_Recepcion", SqlDbType.VarChar).Value = Obj.Observacion_Recepcion;
+
+                //Panel Dias de Despacho
+                Comando.Parameters.Add("@Despacho", SqlDbType.VarChar).Value = Obj.Despacho;
+                Comando.Parameters.Add("@InicioHorarioDespacho", SqlDbType.VarChar).Value = Obj.InicioHorarioDespacho;
+                Comando.Parameters.Add("@FinHorarioDespacho", SqlDbType.VarChar).Value = Obj.FinHorarioDespacho;
+                Comando.Parameters.Add("@Lunes_Despacho", SqlDbType.Int).Value = Obj.Lunes_Despacho;
+                Comando.Parameters.Add("@Martes_Despacho", SqlDbType.Int).Value = Obj.Martes_Despacho;
+                Comando.Parameters.Add("@Miercoles_Despacho", SqlDbType.Int).Value = Obj.Miercoles_Despacho;
+                Comando.Parameters.Add("@Jueves_Despacho", SqlDbType.Int).Value = Obj.Jueves_Despacho;
+                Comando.Parameters.Add("@Viernes_Despacho", SqlDbType.Int).Value = Obj.Viernes_Despacho;
+                Comando.Parameters.Add("@Sabado_Despacho", SqlDbType.Int).Value = Obj.Sabado_Despacho;
+                Comando.Parameters.Add("@Domingo_Despacho", SqlDbType.Int).Value = Obj.Domingo_Despacho;
+                Comando.Parameters.Add("@Encargado_Despacho", SqlDbType.VarChar).Value = Obj.Encargado_Despacho;
+                Comando.Parameters.Add("@Observacion_Despacho", SqlDbType.VarChar).Value = Obj.Observacion_Despacho;
 
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() != 1 ? "OK" : "Error al Realizar el Registro";
@@ -214,17 +252,58 @@ namespace Datos
                 Comando.Parameters.Add("@Movil", SqlDbType.VarChar).Value = Obj.Movil;
                 Comando.Parameters.Add("@Telefono", SqlDbType.VarChar).Value = Obj.Telefono;
                 Comando.Parameters.Add("@Correo", SqlDbType.VarChar).Value = Obj.Correo;
-
-                //Panel Datos Auxiliares
-                Comando.Parameters.Add("@Recepcion", SqlDbType.VarChar).Value = Obj.Recepcion;
-                Comando.Parameters.Add("@Despacho", SqlDbType.VarChar).Value = Obj.Despacho;
-                Comando.Parameters.Add("@InicioLaboral", SqlDbType.VarChar).Value = Obj.InicioLaboral;
-                Comando.Parameters.Add("@FinLaboral", SqlDbType.VarChar).Value = Obj.FinLaboral;
                 Comando.Parameters.Add("@Medidas", SqlDbType.VarChar).Value = Obj.Dimensiones;
-                Comando.Parameters.Add("@DiaDePagos", SqlDbType.VarChar).Value = Obj.DiaDePagos;
-                Comando.Parameters.Add("@DiaDeDespacho", SqlDbType.VarChar).Value = Obj.DiaDeDespacho;
                 Comando.Parameters.Add("@Direccion01", SqlDbType.VarChar).Value = Obj.Direccion01;
                 Comando.Parameters.Add("@Direccion02", SqlDbType.VarChar).Value = Obj.Direccion02;
+                Comando.Parameters.Add("@Zona", SqlDbType.VarChar).Value = Obj.Zona;
+
+                //Panel Datos de Pago
+                Comando.Parameters.Add("@AutorizacionDePagos", SqlDbType.VarChar).Value = Obj.AutorizacionDePagos;
+                Comando.Parameters.Add("@InicioHorarioPagos", SqlDbType.VarChar).Value = Obj.InicioHorarioPagos;
+                Comando.Parameters.Add("@FinHorarioPagos", SqlDbType.VarChar).Value = Obj.FinHorarioPagos;
+                Comando.Parameters.Add("@Lunes_Pagos", SqlDbType.Int).Value = Obj.Lunes_Pagos;
+                Comando.Parameters.Add("@Martes_Pagos", SqlDbType.Int).Value = Obj.Martes_Pagos;
+                Comando.Parameters.Add("@Miercoles_Pagos", SqlDbType.Int).Value = Obj.Miercoles_Pagos;
+                Comando.Parameters.Add("@Jueves_Pagos", SqlDbType.Int).Value = Obj.Jueves_Pagos;
+                Comando.Parameters.Add("@Viernes_Pagos", SqlDbType.Int).Value = Obj.Viernes_Pagos;
+                Comando.Parameters.Add("@Sabado_Pagos", SqlDbType.Int).Value = Obj.Sabado_Pagos;
+                Comando.Parameters.Add("@Domingo_Pagos", SqlDbType.Int).Value = Obj.Domingo_Pagos;
+                Comando.Parameters.Add("@Bono", SqlDbType.Int).Value = Obj.Bono;
+                Comando.Parameters.Add("@Cheques", SqlDbType.Int).Value = Obj.Cheques;
+                Comando.Parameters.Add("@Credito", SqlDbType.Int).Value = Obj.Credito;
+                Comando.Parameters.Add("@Debito", SqlDbType.Int).Value = Obj.Debito;
+                Comando.Parameters.Add("@Efectivo", SqlDbType.Int).Value = Obj.Efectivo;
+                Comando.Parameters.Add("@Sodexo", SqlDbType.Int).Value = Obj.Sodexo;
+                Comando.Parameters.Add("@Transferencia", SqlDbType.Int).Value = Obj.Transferencia;
+                Comando.Parameters.Add("@Otros", SqlDbType.Int).Value = Obj.Otros;
+
+                //Panel Datos de Recepcion
+                Comando.Parameters.Add("@Recepcion", SqlDbType.VarChar).Value = Obj.Recepcion;
+                Comando.Parameters.Add("@InicioHorarioRecepcion", SqlDbType.VarChar).Value = Obj.InicioHorarioRecepcion;
+                Comando.Parameters.Add("@FinHorarioRecepcion", SqlDbType.VarChar).Value = Obj.FinHorarioRecepcion;
+                Comando.Parameters.Add("@Lunes_Recepcion", SqlDbType.Int).Value = Obj.Lunes_Recepcion;
+                Comando.Parameters.Add("@Martes_Recepcion", SqlDbType.Int).Value = Obj.Martes_Recepcion;
+                Comando.Parameters.Add("@Miercoles_Recepcion", SqlDbType.Int).Value = Obj.Miercoles_Recepcion;
+                Comando.Parameters.Add("@Jueves_Recepcion", SqlDbType.Int).Value = Obj.Jueves_Recepcion;
+                Comando.Parameters.Add("@Viernes_Recepcion", SqlDbType.Int).Value = Obj.Viernes_Recepcion;
+                Comando.Parameters.Add("@Sabado_Recepcion", SqlDbType.Int).Value = Obj.Sabado_Recepcion;
+                Comando.Parameters.Add("@Domingo_Recepcion", SqlDbType.Int).Value = Obj.Domingo_Recepcion;
+                Comando.Parameters.Add("@Encargado_Recepcion", SqlDbType.VarChar).Value = Obj.Encargado_Recepcion;
+                Comando.Parameters.Add("@Observacion_Recepcion", SqlDbType.VarChar).Value = Obj.Observacion_Recepcion;
+
+                //Panel Dias de Despacho
+                Comando.Parameters.Add("@Despacho", SqlDbType.VarChar).Value = Obj.Despacho;
+                Comando.Parameters.Add("@InicioHorarioDespacho", SqlDbType.VarChar).Value = Obj.InicioHorarioDespacho;
+                Comando.Parameters.Add("@FinHorarioDespacho", SqlDbType.VarChar).Value = Obj.FinHorarioDespacho;
+                Comando.Parameters.Add("@Lunes_Despacho", SqlDbType.Int).Value = Obj.Lunes_Despacho;
+                Comando.Parameters.Add("@Martes_Despacho", SqlDbType.Int).Value = Obj.Martes_Despacho;
+                Comando.Parameters.Add("@Miercoles_Despacho", SqlDbType.Int).Value = Obj.Miercoles_Despacho;
+                Comando.Parameters.Add("@Jueves_Despacho", SqlDbType.Int).Value = Obj.Jueves_Despacho;
+                Comando.Parameters.Add("@Viernes_Despacho", SqlDbType.Int).Value = Obj.Viernes_Despacho;
+                Comando.Parameters.Add("@Sabado_Despacho", SqlDbType.Int).Value = Obj.Sabado_Despacho;
+                Comando.Parameters.Add("@Domingo_Despacho", SqlDbType.Int).Value = Obj.Domingo_Despacho;
+                Comando.Parameters.Add("@Encargado_Despacho", SqlDbType.VarChar).Value = Obj.Encargado_Despacho;
+                Comando.Parameters.Add("@Observacion_Despacho", SqlDbType.VarChar).Value = Obj.Observacion_Despacho;
 
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() != 1 ? "OK" : "Error al Actualizar el Registro";

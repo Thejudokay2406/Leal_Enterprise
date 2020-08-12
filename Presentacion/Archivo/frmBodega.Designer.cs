@@ -58,12 +58,40 @@
             this.label5 = new System.Windows.Forms.Label();
             this.TBTelefono = new System.Windows.Forms.TextBox();
             this.TPDatosAuxiliares = new System.Windows.Forms.TabPage();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.TBFinHorario_Pagos = new System.Windows.Forms.MaskedTextBox();
+            this.TBInicioHorario_Pagos = new System.Windows.Forms.MaskedTextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.CHOtros = new System.Windows.Forms.CheckBox();
+            this.CHTransferencia = new System.Windows.Forms.CheckBox();
+            this.CHSodexo = new System.Windows.Forms.CheckBox();
+            this.CHEfectivo = new System.Windows.Forms.CheckBox();
+            this.CHDebito = new System.Windows.Forms.CheckBox();
+            this.CHCheques = new System.Windows.Forms.CheckBox();
+            this.CHBono = new System.Windows.Forms.CheckBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.CHDomingo_Pagos = new System.Windows.Forms.CheckBox();
+            this.CHSabado_Pagos = new System.Windows.Forms.CheckBox();
+            this.CHViernes_Pagos = new System.Windows.Forms.CheckBox();
+            this.CHJueves_Pagos = new System.Windows.Forms.CheckBox();
+            this.CHMiercoles_Pagos = new System.Windows.Forms.CheckBox();
+            this.CHMartes_Pagos = new System.Windows.Forms.CheckBox();
+            this.CHLunes_Pagos = new System.Windows.Forms.CheckBox();
+            this.TBAutorizacion_Pagos = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.CHDomingo_Recepcion = new System.Windows.Forms.CheckBox();
+            this.CHSabado_Recepcion = new System.Windows.Forms.CheckBox();
+            this.CHViernes_Recepcion = new System.Windows.Forms.CheckBox();
+            this.CHJueves_Recepcion = new System.Windows.Forms.CheckBox();
+            this.CHMiercoles_Recepcion = new System.Windows.Forms.CheckBox();
+            this.CHMartes_Recepcion = new System.Windows.Forms.CheckBox();
+            this.CHLunes_Recepcion = new System.Windows.Forms.CheckBox();
             this.TBObservacion_Recepcion = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.TBEncargado_Despacho = new System.Windows.Forms.TextBox();
+            this.TBEncargado_Recepcion = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.TBFinRecepcion = new System.Windows.Forms.MaskedTextBox();
@@ -72,9 +100,17 @@
             this.label22 = new System.Windows.Forms.Label();
             this.TBRecepcion = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.CHDomingo_Despacho = new System.Windows.Forms.CheckBox();
+            this.CHSabado_Despacho = new System.Windows.Forms.CheckBox();
+            this.CHViernes_Despacho = new System.Windows.Forms.CheckBox();
+            this.CHJueves_Despacho = new System.Windows.Forms.CheckBox();
+            this.CHMiercoles_Despacho = new System.Windows.Forms.CheckBox();
+            this.CHMartes_Despacho = new System.Windows.Forms.CheckBox();
+            this.CHLunes_Despacho = new System.Windows.Forms.CheckBox();
             this.TBObservacion_Despacho = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.TBEncargado_Despacho = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.TBFinDeDespacho = new System.Windows.Forms.MaskedTextBox();
@@ -82,60 +118,29 @@
             this.label13 = new System.Windows.Forms.Label();
             this.TBDespacho = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.TBIdbodega = new System.Windows.Forms.TextBox();
             this.lblTotal = new System.Windows.Forms.Label();
             this.DGResultados = new System.Windows.Forms.DataGridView();
             this.TBBuscar = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.checkBox9 = new System.Windows.Forms.CheckBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
-            this.checkBox10 = new System.Windows.Forms.CheckBox();
-            this.checkBox11 = new System.Windows.Forms.CheckBox();
-            this.checkBox12 = new System.Windows.Forms.CheckBox();
-            this.checkBox13 = new System.Windows.Forms.CheckBox();
-            this.checkBox15 = new System.Windows.Forms.CheckBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.checkBox14 = new System.Windows.Forms.CheckBox();
-            this.checkBox16 = new System.Windows.Forms.CheckBox();
-            this.checkBox17 = new System.Windows.Forms.CheckBox();
-            this.checkBox18 = new System.Windows.Forms.CheckBox();
-            this.checkBox19 = new System.Windows.Forms.CheckBox();
-            this.checkBox20 = new System.Windows.Forms.CheckBox();
-            this.checkBox21 = new System.Windows.Forms.CheckBox();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.checkBox22 = new System.Windows.Forms.CheckBox();
-            this.checkBox23 = new System.Windows.Forms.CheckBox();
-            this.checkBox24 = new System.Windows.Forms.CheckBox();
-            this.checkBox25 = new System.Windows.Forms.CheckBox();
-            this.checkBox26 = new System.Windows.Forms.CheckBox();
-            this.checkBox27 = new System.Windows.Forms.CheckBox();
-            this.checkBox28 = new System.Windows.Forms.CheckBox();
+            this.CHCredito = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.TCPrincipal.SuspendLayout();
             this.TPDatosBasicos.SuspendLayout();
             this.TPDatosAuxiliares.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGResultados)).BeginInit();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -163,7 +168,7 @@
             this.TCPrincipal.Controls.Add(this.TPDatosAuxiliares);
             this.TCPrincipal.Controls.Add(this.tabPage1);
             this.TCPrincipal.Controls.Add(this.tabPage2);
-            this.TCPrincipal.Location = new System.Drawing.Point(10, 23);
+            this.TCPrincipal.Location = new System.Drawing.Point(10, 20);
             this.TCPrincipal.Multiline = true;
             this.TCPrincipal.Name = "TCPrincipal";
             this.TCPrincipal.SelectedIndex = 0;
@@ -227,6 +232,9 @@
             this.TBDireccion01.Name = "TBDireccion01";
             this.TBDireccion01.Size = new System.Drawing.Size(250, 21);
             this.TBDireccion01.TabIndex = 62;
+            this.TBDireccion01.Enter += new System.EventHandler(this.TBDireccion01_Enter);
+            this.TBDireccion01.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBDireccion01_KeyUp);
+            this.TBDireccion01.Leave += new System.EventHandler(this.TBDireccion01_Leave);
             // 
             // label12
             // 
@@ -249,6 +257,9 @@
             this.TBDireccion02.Name = "TBDireccion02";
             this.TBDireccion02.Size = new System.Drawing.Size(250, 21);
             this.TBDireccion02.TabIndex = 61;
+            this.TBDireccion02.Enter += new System.EventHandler(this.TBDireccion02_Enter);
+            this.TBDireccion02.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBDireccion02_KeyUp);
+            this.TBDireccion02.Leave += new System.EventHandler(this.TBDireccion02_Leave);
             // 
             // TBMedidas
             // 
@@ -259,6 +270,9 @@
             this.TBMedidas.Name = "TBMedidas";
             this.TBMedidas.Size = new System.Drawing.Size(249, 21);
             this.TBMedidas.TabIndex = 59;
+            this.TBMedidas.Enter += new System.EventHandler(this.TBMedidas_Enter);
+            this.TBMedidas.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBMedidas_KeyUp_1);
+            this.TBMedidas.Leave += new System.EventHandler(this.TBMedidas_Leave);
             // 
             // label20
             // 
@@ -539,9 +553,13 @@
             // 
             // TPDatosAuxiliares
             // 
+            this.TPDatosAuxiliares.Controls.Add(this.label25);
+            this.TPDatosAuxiliares.Controls.Add(this.TBFinHorario_Pagos);
+            this.TPDatosAuxiliares.Controls.Add(this.TBInicioHorario_Pagos);
+            this.TPDatosAuxiliares.Controls.Add(this.label26);
             this.TPDatosAuxiliares.Controls.Add(this.groupBox4);
             this.TPDatosAuxiliares.Controls.Add(this.groupBox3);
-            this.TPDatosAuxiliares.Controls.Add(this.textBox5);
+            this.TPDatosAuxiliares.Controls.Add(this.TBAutorizacion_Pagos);
             this.TPDatosAuxiliares.Controls.Add(this.label19);
             this.TPDatosAuxiliares.Location = new System.Drawing.Point(4, 24);
             this.TPDatosAuxiliares.Name = "TPDatosAuxiliares";
@@ -551,15 +569,251 @@
             this.TPDatosAuxiliares.Text = "Datos de Pagos";
             this.TPDatosAuxiliares.UseVisualStyleBackColor = true;
             // 
-            // textBox5
+            // label25
             // 
-            this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox5.Location = new System.Drawing.Point(86, 6);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(248, 21);
-            this.textBox5.TabIndex = 41;
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(171, 36);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(85, 15);
+            this.label25.TabIndex = 50;
+            this.label25.Text = "Fin de Horario";
+            // 
+            // TBFinHorario_Pagos
+            // 
+            this.TBFinHorario_Pagos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TBFinHorario_Pagos.Location = new System.Drawing.Point(261, 33);
+            this.TBFinHorario_Pagos.Mask = "00:00";
+            this.TBFinHorario_Pagos.Name = "TBFinHorario_Pagos";
+            this.TBFinHorario_Pagos.Size = new System.Drawing.Size(73, 21);
+            this.TBFinHorario_Pagos.TabIndex = 49;
+            this.TBFinHorario_Pagos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBFinHorario_Pagos.ValidatingType = typeof(System.DateTime);
+            this.TBFinHorario_Pagos.Enter += new System.EventHandler(this.TBFinHorario_Pagos_Enter);
+            this.TBFinHorario_Pagos.Leave += new System.EventHandler(this.TBFinHorario_Pagos_Leave);
+            // 
+            // TBInicioHorario_Pagos
+            // 
+            this.TBInicioHorario_Pagos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TBInicioHorario_Pagos.Location = new System.Drawing.Point(92, 33);
+            this.TBInicioHorario_Pagos.Mask = "00:00";
+            this.TBInicioHorario_Pagos.Name = "TBInicioHorario_Pagos";
+            this.TBInicioHorario_Pagos.Size = new System.Drawing.Size(73, 21);
+            this.TBInicioHorario_Pagos.TabIndex = 48;
+            this.TBInicioHorario_Pagos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBInicioHorario_Pagos.ValidatingType = typeof(System.DateTime);
+            this.TBInicioHorario_Pagos.Enter += new System.EventHandler(this.TBInicioHorario_Pagos_Enter);
+            this.TBInicioHorario_Pagos.Leave += new System.EventHandler(this.TBInicioHorario_Pagos_Leave);
+            // 
+            // label26
+            // 
+            this.label26.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(6, 33);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(80, 15);
+            this.label26.TabIndex = 47;
+            this.label26.Text = "Inicio Horario";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.CHCredito);
+            this.groupBox4.Controls.Add(this.CHOtros);
+            this.groupBox4.Controls.Add(this.CHTransferencia);
+            this.groupBox4.Controls.Add(this.CHSodexo);
+            this.groupBox4.Controls.Add(this.CHEfectivo);
+            this.groupBox4.Controls.Add(this.CHDebito);
+            this.groupBox4.Controls.Add(this.CHCheques);
+            this.groupBox4.Controls.Add(this.CHBono);
+            this.groupBox4.Location = new System.Drawing.Point(6, 159);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(328, 96);
+            this.groupBox4.TabIndex = 44;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Metodos de Pago Autorizados - Leal Enterprise";
+            // 
+            // CHOtros
+            // 
+            this.CHOtros.AutoSize = true;
+            this.CHOtros.Location = new System.Drawing.Point(98, 70);
+            this.CHOtros.Name = "CHOtros";
+            this.CHOtros.Size = new System.Drawing.Size(55, 19);
+            this.CHOtros.TabIndex = 51;
+            this.CHOtros.Text = "Otros";
+            this.CHOtros.UseVisualStyleBackColor = true;
+            // 
+            // CHTransferencia
+            // 
+            this.CHTransferencia.AutoSize = true;
+            this.CHTransferencia.Location = new System.Drawing.Point(190, 45);
+            this.CHTransferencia.Name = "CHTransferencia";
+            this.CHTransferencia.Size = new System.Drawing.Size(107, 19);
+            this.CHTransferencia.TabIndex = 50;
+            this.CHTransferencia.Text = "Transferencias";
+            this.CHTransferencia.UseVisualStyleBackColor = true;
+            // 
+            // CHSodexo
+            // 
+            this.CHSodexo.AutoSize = true;
+            this.CHSodexo.Location = new System.Drawing.Point(98, 45);
+            this.CHSodexo.Name = "CHSodexo";
+            this.CHSodexo.Size = new System.Drawing.Size(68, 19);
+            this.CHSodexo.TabIndex = 49;
+            this.CHSodexo.Text = "Sodexo";
+            this.CHSodexo.UseVisualStyleBackColor = true;
+            // 
+            // CHEfectivo
+            // 
+            this.CHEfectivo.AutoSize = true;
+            this.CHEfectivo.Location = new System.Drawing.Point(6, 45);
+            this.CHEfectivo.Name = "CHEfectivo";
+            this.CHEfectivo.Size = new System.Drawing.Size(68, 19);
+            this.CHEfectivo.TabIndex = 48;
+            this.CHEfectivo.Text = "Efectivo";
+            this.CHEfectivo.UseVisualStyleBackColor = true;
+            // 
+            // CHDebito
+            // 
+            this.CHDebito.AutoSize = true;
+            this.CHDebito.Location = new System.Drawing.Point(190, 20);
+            this.CHDebito.Name = "CHDebito";
+            this.CHDebito.Size = new System.Drawing.Size(62, 19);
+            this.CHDebito.TabIndex = 47;
+            this.CHDebito.Text = "Debito";
+            this.CHDebito.UseVisualStyleBackColor = true;
+            // 
+            // CHCheques
+            // 
+            this.CHCheques.AutoSize = true;
+            this.CHCheques.Location = new System.Drawing.Point(6, 70);
+            this.CHCheques.Name = "CHCheques";
+            this.CHCheques.Size = new System.Drawing.Size(75, 19);
+            this.CHCheques.TabIndex = 46;
+            this.CHCheques.Text = "Cheques";
+            this.CHCheques.UseVisualStyleBackColor = true;
+            // 
+            // CHBono
+            // 
+            this.CHBono.AutoSize = true;
+            this.CHBono.Location = new System.Drawing.Point(6, 20);
+            this.CHBono.Name = "CHBono";
+            this.CHBono.Size = new System.Drawing.Size(55, 19);
+            this.CHBono.TabIndex = 45;
+            this.CHBono.Text = "Bono";
+            this.CHBono.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.CHDomingo_Pagos);
+            this.groupBox3.Controls.Add(this.CHSabado_Pagos);
+            this.groupBox3.Controls.Add(this.CHViernes_Pagos);
+            this.groupBox3.Controls.Add(this.CHJueves_Pagos);
+            this.groupBox3.Controls.Add(this.CHMiercoles_Pagos);
+            this.groupBox3.Controls.Add(this.CHMartes_Pagos);
+            this.groupBox3.Controls.Add(this.CHLunes_Pagos);
+            this.groupBox3.Location = new System.Drawing.Point(6, 60);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(328, 93);
+            this.groupBox3.TabIndex = 43;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Dias de Pagos Autorizados - Leal Enterprise";
+            // 
+            // CHDomingo_Pagos
+            // 
+            this.CHDomingo_Pagos.AutoSize = true;
+            this.CHDomingo_Pagos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CHDomingo_Pagos.Location = new System.Drawing.Point(6, 70);
+            this.CHDomingo_Pagos.Name = "CHDomingo_Pagos";
+            this.CHDomingo_Pagos.Size = new System.Drawing.Size(77, 19);
+            this.CHDomingo_Pagos.TabIndex = 6;
+            this.CHDomingo_Pagos.Text = "Domingo";
+            this.CHDomingo_Pagos.UseVisualStyleBackColor = true;
+            // 
+            // CHSabado_Pagos
+            // 
+            this.CHSabado_Pagos.AutoSize = true;
+            this.CHSabado_Pagos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CHSabado_Pagos.Location = new System.Drawing.Point(190, 45);
+            this.CHSabado_Pagos.Name = "CHSabado_Pagos";
+            this.CHSabado_Pagos.Size = new System.Drawing.Size(69, 19);
+            this.CHSabado_Pagos.TabIndex = 5;
+            this.CHSabado_Pagos.Text = "Sabado";
+            this.CHSabado_Pagos.UseVisualStyleBackColor = true;
+            // 
+            // CHViernes_Pagos
+            // 
+            this.CHViernes_Pagos.AutoSize = true;
+            this.CHViernes_Pagos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CHViernes_Pagos.Location = new System.Drawing.Point(98, 45);
+            this.CHViernes_Pagos.Name = "CHViernes_Pagos";
+            this.CHViernes_Pagos.Size = new System.Drawing.Size(67, 19);
+            this.CHViernes_Pagos.TabIndex = 4;
+            this.CHViernes_Pagos.Text = "Viernes";
+            this.CHViernes_Pagos.UseVisualStyleBackColor = true;
+            // 
+            // CHJueves_Pagos
+            // 
+            this.CHJueves_Pagos.AutoSize = true;
+            this.CHJueves_Pagos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CHJueves_Pagos.Location = new System.Drawing.Point(6, 45);
+            this.CHJueves_Pagos.Name = "CHJueves_Pagos";
+            this.CHJueves_Pagos.Size = new System.Drawing.Size(64, 19);
+            this.CHJueves_Pagos.TabIndex = 3;
+            this.CHJueves_Pagos.Text = "Jueves";
+            this.CHJueves_Pagos.UseVisualStyleBackColor = true;
+            // 
+            // CHMiercoles_Pagos
+            // 
+            this.CHMiercoles_Pagos.AutoSize = true;
+            this.CHMiercoles_Pagos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CHMiercoles_Pagos.Location = new System.Drawing.Point(190, 20);
+            this.CHMiercoles_Pagos.Name = "CHMiercoles_Pagos";
+            this.CHMiercoles_Pagos.Size = new System.Drawing.Size(80, 19);
+            this.CHMiercoles_Pagos.TabIndex = 2;
+            this.CHMiercoles_Pagos.Text = "Miercoles";
+            this.CHMiercoles_Pagos.UseVisualStyleBackColor = true;
+            // 
+            // CHMartes_Pagos
+            // 
+            this.CHMartes_Pagos.AutoSize = true;
+            this.CHMartes_Pagos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CHMartes_Pagos.Location = new System.Drawing.Point(98, 20);
+            this.CHMartes_Pagos.Name = "CHMartes_Pagos";
+            this.CHMartes_Pagos.Size = new System.Drawing.Size(64, 19);
+            this.CHMartes_Pagos.TabIndex = 1;
+            this.CHMartes_Pagos.Text = "Martes";
+            this.CHMartes_Pagos.UseVisualStyleBackColor = true;
+            // 
+            // CHLunes_Pagos
+            // 
+            this.CHLunes_Pagos.AutoSize = true;
+            this.CHLunes_Pagos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CHLunes_Pagos.Location = new System.Drawing.Point(6, 20);
+            this.CHLunes_Pagos.Name = "CHLunes_Pagos";
+            this.CHLunes_Pagos.Size = new System.Drawing.Size(60, 19);
+            this.CHLunes_Pagos.TabIndex = 0;
+            this.CHLunes_Pagos.Text = "Lunes";
+            this.CHLunes_Pagos.UseVisualStyleBackColor = true;
+            // 
+            // TBAutorizacion_Pagos
+            // 
+            this.TBAutorizacion_Pagos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TBAutorizacion_Pagos.Location = new System.Drawing.Point(86, 6);
+            this.TBAutorizacion_Pagos.Name = "TBAutorizacion_Pagos";
+            this.TBAutorizacion_Pagos.Size = new System.Drawing.Size(248, 21);
+            this.TBAutorizacion_Pagos.TabIndex = 41;
+            this.TBAutorizacion_Pagos.Enter += new System.EventHandler(this.TBAutorizacion_Pagos_Enter);
+            this.TBAutorizacion_Pagos.Leave += new System.EventHandler(this.TBAutorizacion_Pagos_Leave);
             // 
             // label19
             // 
@@ -578,7 +832,7 @@
             this.tabPage1.Controls.Add(this.groupBox5);
             this.tabPage1.Controls.Add(this.TBObservacion_Recepcion);
             this.tabPage1.Controls.Add(this.label9);
-            this.tabPage1.Controls.Add(this.TBEncargado_Despacho);
+            this.tabPage1.Controls.Add(this.TBEncargado_Recepcion);
             this.tabPage1.Controls.Add(this.label8);
             this.tabPage1.Controls.Add(this.label16);
             this.tabPage1.Controls.Add(this.TBFinRecepcion);
@@ -594,6 +848,99 @@
             this.tabPage1.Text = "Recepción";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.CHDomingo_Recepcion);
+            this.groupBox5.Controls.Add(this.CHSabado_Recepcion);
+            this.groupBox5.Controls.Add(this.CHViernes_Recepcion);
+            this.groupBox5.Controls.Add(this.CHJueves_Recepcion);
+            this.groupBox5.Controls.Add(this.CHMiercoles_Recepcion);
+            this.groupBox5.Controls.Add(this.CHMartes_Recepcion);
+            this.groupBox5.Controls.Add(this.CHLunes_Recepcion);
+            this.groupBox5.Location = new System.Drawing.Point(9, 60);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(325, 95);
+            this.groupBox5.TabIndex = 52;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Dias de Recepción de Mercancia";
+            // 
+            // CHDomingo_Recepcion
+            // 
+            this.CHDomingo_Recepcion.AutoSize = true;
+            this.CHDomingo_Recepcion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CHDomingo_Recepcion.Location = new System.Drawing.Point(6, 70);
+            this.CHDomingo_Recepcion.Name = "CHDomingo_Recepcion";
+            this.CHDomingo_Recepcion.Size = new System.Drawing.Size(77, 19);
+            this.CHDomingo_Recepcion.TabIndex = 13;
+            this.CHDomingo_Recepcion.Text = "Domingo";
+            this.CHDomingo_Recepcion.UseVisualStyleBackColor = true;
+            // 
+            // CHSabado_Recepcion
+            // 
+            this.CHSabado_Recepcion.AutoSize = true;
+            this.CHSabado_Recepcion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CHSabado_Recepcion.Location = new System.Drawing.Point(190, 45);
+            this.CHSabado_Recepcion.Name = "CHSabado_Recepcion";
+            this.CHSabado_Recepcion.Size = new System.Drawing.Size(69, 19);
+            this.CHSabado_Recepcion.TabIndex = 12;
+            this.CHSabado_Recepcion.Text = "Sabado";
+            this.CHSabado_Recepcion.UseVisualStyleBackColor = true;
+            // 
+            // CHViernes_Recepcion
+            // 
+            this.CHViernes_Recepcion.AutoSize = true;
+            this.CHViernes_Recepcion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CHViernes_Recepcion.Location = new System.Drawing.Point(98, 45);
+            this.CHViernes_Recepcion.Name = "CHViernes_Recepcion";
+            this.CHViernes_Recepcion.Size = new System.Drawing.Size(67, 19);
+            this.CHViernes_Recepcion.TabIndex = 11;
+            this.CHViernes_Recepcion.Text = "Viernes";
+            this.CHViernes_Recepcion.UseVisualStyleBackColor = true;
+            // 
+            // CHJueves_Recepcion
+            // 
+            this.CHJueves_Recepcion.AutoSize = true;
+            this.CHJueves_Recepcion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CHJueves_Recepcion.Location = new System.Drawing.Point(6, 45);
+            this.CHJueves_Recepcion.Name = "CHJueves_Recepcion";
+            this.CHJueves_Recepcion.Size = new System.Drawing.Size(64, 19);
+            this.CHJueves_Recepcion.TabIndex = 10;
+            this.CHJueves_Recepcion.Text = "Jueves";
+            this.CHJueves_Recepcion.UseVisualStyleBackColor = true;
+            // 
+            // CHMiercoles_Recepcion
+            // 
+            this.CHMiercoles_Recepcion.AutoSize = true;
+            this.CHMiercoles_Recepcion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CHMiercoles_Recepcion.Location = new System.Drawing.Point(190, 20);
+            this.CHMiercoles_Recepcion.Name = "CHMiercoles_Recepcion";
+            this.CHMiercoles_Recepcion.Size = new System.Drawing.Size(80, 19);
+            this.CHMiercoles_Recepcion.TabIndex = 9;
+            this.CHMiercoles_Recepcion.Text = "Miercoles";
+            this.CHMiercoles_Recepcion.UseVisualStyleBackColor = true;
+            // 
+            // CHMartes_Recepcion
+            // 
+            this.CHMartes_Recepcion.AutoSize = true;
+            this.CHMartes_Recepcion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CHMartes_Recepcion.Location = new System.Drawing.Point(98, 20);
+            this.CHMartes_Recepcion.Name = "CHMartes_Recepcion";
+            this.CHMartes_Recepcion.Size = new System.Drawing.Size(64, 19);
+            this.CHMartes_Recepcion.TabIndex = 8;
+            this.CHMartes_Recepcion.Text = "Martes";
+            this.CHMartes_Recepcion.UseVisualStyleBackColor = true;
+            // 
+            // CHLunes_Recepcion
+            // 
+            this.CHLunes_Recepcion.AutoSize = true;
+            this.CHLunes_Recepcion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CHLunes_Recepcion.Location = new System.Drawing.Point(6, 20);
+            this.CHLunes_Recepcion.Name = "CHLunes_Recepcion";
+            this.CHLunes_Recepcion.Size = new System.Drawing.Size(60, 19);
+            this.CHLunes_Recepcion.TabIndex = 7;
+            this.CHLunes_Recepcion.Text = "Lunes";
+            this.CHLunes_Recepcion.UseVisualStyleBackColor = true;
+            // 
             // TBObservacion_Recepcion
             // 
             this.TBObservacion_Recepcion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -604,6 +951,8 @@
             this.TBObservacion_Recepcion.Name = "TBObservacion_Recepcion";
             this.TBObservacion_Recepcion.Size = new System.Drawing.Size(247, 166);
             this.TBObservacion_Recepcion.TabIndex = 51;
+            this.TBObservacion_Recepcion.Enter += new System.EventHandler(this.TBObservacion_Recepcion_Enter);
+            this.TBObservacion_Recepcion.Leave += new System.EventHandler(this.TBObservacion_Recepcion_Leave);
             // 
             // label9
             // 
@@ -617,15 +966,17 @@
             this.label9.TabIndex = 50;
             this.label9.Text = "Observación";
             // 
-            // TBEncargado_Despacho
+            // TBEncargado_Recepcion
             // 
-            this.TBEncargado_Despacho.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TBEncargado_Recepcion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBEncargado_Despacho.Location = new System.Drawing.Point(87, 161);
-            this.TBEncargado_Despacho.Name = "TBEncargado_Despacho";
-            this.TBEncargado_Despacho.Size = new System.Drawing.Size(247, 21);
-            this.TBEncargado_Despacho.TabIndex = 49;
+            this.TBEncargado_Recepcion.Location = new System.Drawing.Point(87, 161);
+            this.TBEncargado_Recepcion.Name = "TBEncargado_Recepcion";
+            this.TBEncargado_Recepcion.Size = new System.Drawing.Size(247, 21);
+            this.TBEncargado_Recepcion.TabIndex = 49;
+            this.TBEncargado_Recepcion.Enter += new System.EventHandler(this.TBEncargado_Recepcion_Enter);
+            this.TBEncargado_Recepcion.Leave += new System.EventHandler(this.TBEncargado_Recepcion_Leave);
             // 
             // label8
             // 
@@ -661,7 +1012,10 @@
             this.TBFinRecepcion.Name = "TBFinRecepcion";
             this.TBFinRecepcion.Size = new System.Drawing.Size(73, 21);
             this.TBFinRecepcion.TabIndex = 45;
+            this.TBFinRecepcion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TBFinRecepcion.ValidatingType = typeof(System.DateTime);
+            this.TBFinRecepcion.Enter += new System.EventHandler(this.TBFinRecepcion_Enter);
+            this.TBFinRecepcion.Leave += new System.EventHandler(this.TBFinRecepcion_Leave);
             // 
             // TBInicioRecepcion
             // 
@@ -673,7 +1027,10 @@
             this.TBInicioRecepcion.Name = "TBInicioRecepcion";
             this.TBInicioRecepcion.Size = new System.Drawing.Size(73, 21);
             this.TBInicioRecepcion.TabIndex = 44;
+            this.TBInicioRecepcion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TBInicioRecepcion.ValidatingType = typeof(System.DateTime);
+            this.TBInicioRecepcion.Enter += new System.EventHandler(this.TBInicioRecepcion_Enter);
+            this.TBInicioRecepcion.Leave += new System.EventHandler(this.TBInicioRecepcion_Leave);
             // 
             // label18
             // 
@@ -708,13 +1065,15 @@
             this.TBRecepcion.Name = "TBRecepcion";
             this.TBRecepcion.Size = new System.Drawing.Size(242, 21);
             this.TBRecepcion.TabIndex = 24;
+            this.TBRecepcion.Enter += new System.EventHandler(this.TBRecepcion_Enter);
+            this.TBRecepcion.Leave += new System.EventHandler(this.TBRecepcion_Leave);
             // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.groupBox6);
             this.tabPage2.Controls.Add(this.TBObservacion_Despacho);
             this.tabPage2.Controls.Add(this.label17);
-            this.tabPage2.Controls.Add(this.textBox4);
+            this.tabPage2.Controls.Add(this.TBEncargado_Despacho);
             this.tabPage2.Controls.Add(this.label23);
             this.tabPage2.Controls.Add(this.label15);
             this.tabPage2.Controls.Add(this.TBFinDeDespacho);
@@ -730,6 +1089,99 @@
             this.tabPage2.Text = "Despacho";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.CHDomingo_Despacho);
+            this.groupBox6.Controls.Add(this.CHSabado_Despacho);
+            this.groupBox6.Controls.Add(this.CHViernes_Despacho);
+            this.groupBox6.Controls.Add(this.CHJueves_Despacho);
+            this.groupBox6.Controls.Add(this.CHMiercoles_Despacho);
+            this.groupBox6.Controls.Add(this.CHMartes_Despacho);
+            this.groupBox6.Controls.Add(this.CHLunes_Despacho);
+            this.groupBox6.Location = new System.Drawing.Point(9, 60);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(325, 95);
+            this.groupBox6.TabIndex = 57;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Dias de Despacho de Mercancia";
+            // 
+            // CHDomingo_Despacho
+            // 
+            this.CHDomingo_Despacho.AutoSize = true;
+            this.CHDomingo_Despacho.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CHDomingo_Despacho.Location = new System.Drawing.Point(6, 70);
+            this.CHDomingo_Despacho.Name = "CHDomingo_Despacho";
+            this.CHDomingo_Despacho.Size = new System.Drawing.Size(77, 19);
+            this.CHDomingo_Despacho.TabIndex = 13;
+            this.CHDomingo_Despacho.Text = "Domingo";
+            this.CHDomingo_Despacho.UseVisualStyleBackColor = true;
+            // 
+            // CHSabado_Despacho
+            // 
+            this.CHSabado_Despacho.AutoSize = true;
+            this.CHSabado_Despacho.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CHSabado_Despacho.Location = new System.Drawing.Point(190, 45);
+            this.CHSabado_Despacho.Name = "CHSabado_Despacho";
+            this.CHSabado_Despacho.Size = new System.Drawing.Size(69, 19);
+            this.CHSabado_Despacho.TabIndex = 12;
+            this.CHSabado_Despacho.Text = "Sabado";
+            this.CHSabado_Despacho.UseVisualStyleBackColor = true;
+            // 
+            // CHViernes_Despacho
+            // 
+            this.CHViernes_Despacho.AutoSize = true;
+            this.CHViernes_Despacho.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CHViernes_Despacho.Location = new System.Drawing.Point(98, 45);
+            this.CHViernes_Despacho.Name = "CHViernes_Despacho";
+            this.CHViernes_Despacho.Size = new System.Drawing.Size(67, 19);
+            this.CHViernes_Despacho.TabIndex = 11;
+            this.CHViernes_Despacho.Text = "Viernes";
+            this.CHViernes_Despacho.UseVisualStyleBackColor = true;
+            // 
+            // CHJueves_Despacho
+            // 
+            this.CHJueves_Despacho.AutoSize = true;
+            this.CHJueves_Despacho.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CHJueves_Despacho.Location = new System.Drawing.Point(6, 45);
+            this.CHJueves_Despacho.Name = "CHJueves_Despacho";
+            this.CHJueves_Despacho.Size = new System.Drawing.Size(64, 19);
+            this.CHJueves_Despacho.TabIndex = 10;
+            this.CHJueves_Despacho.Text = "Jueves";
+            this.CHJueves_Despacho.UseVisualStyleBackColor = true;
+            // 
+            // CHMiercoles_Despacho
+            // 
+            this.CHMiercoles_Despacho.AutoSize = true;
+            this.CHMiercoles_Despacho.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CHMiercoles_Despacho.Location = new System.Drawing.Point(190, 20);
+            this.CHMiercoles_Despacho.Name = "CHMiercoles_Despacho";
+            this.CHMiercoles_Despacho.Size = new System.Drawing.Size(80, 19);
+            this.CHMiercoles_Despacho.TabIndex = 9;
+            this.CHMiercoles_Despacho.Text = "Miercoles";
+            this.CHMiercoles_Despacho.UseVisualStyleBackColor = true;
+            // 
+            // CHMartes_Despacho
+            // 
+            this.CHMartes_Despacho.AutoSize = true;
+            this.CHMartes_Despacho.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CHMartes_Despacho.Location = new System.Drawing.Point(98, 20);
+            this.CHMartes_Despacho.Name = "CHMartes_Despacho";
+            this.CHMartes_Despacho.Size = new System.Drawing.Size(64, 19);
+            this.CHMartes_Despacho.TabIndex = 8;
+            this.CHMartes_Despacho.Text = "Martes";
+            this.CHMartes_Despacho.UseVisualStyleBackColor = true;
+            // 
+            // CHLunes_Despacho
+            // 
+            this.CHLunes_Despacho.AutoSize = true;
+            this.CHLunes_Despacho.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CHLunes_Despacho.Location = new System.Drawing.Point(6, 20);
+            this.CHLunes_Despacho.Name = "CHLunes_Despacho";
+            this.CHLunes_Despacho.Size = new System.Drawing.Size(60, 19);
+            this.CHLunes_Despacho.TabIndex = 7;
+            this.CHLunes_Despacho.Text = "Lunes";
+            this.CHLunes_Despacho.UseVisualStyleBackColor = true;
+            // 
             // TBObservacion_Despacho
             // 
             this.TBObservacion_Despacho.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -740,6 +1192,8 @@
             this.TBObservacion_Despacho.Name = "TBObservacion_Despacho";
             this.TBObservacion_Despacho.Size = new System.Drawing.Size(247, 166);
             this.TBObservacion_Despacho.TabIndex = 56;
+            this.TBObservacion_Despacho.Enter += new System.EventHandler(this.TBObservacion_Despacho_Enter);
+            this.TBObservacion_Despacho.Leave += new System.EventHandler(this.TBObservacion_Despacho_Leave);
             // 
             // label17
             // 
@@ -753,15 +1207,17 @@
             this.label17.TabIndex = 55;
             this.label17.Text = "Observación";
             // 
-            // textBox4
+            // TBEncargado_Despacho
             // 
-            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TBEncargado_Despacho.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox4.Location = new System.Drawing.Point(87, 161);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(247, 21);
-            this.textBox4.TabIndex = 54;
+            this.TBEncargado_Despacho.Location = new System.Drawing.Point(87, 161);
+            this.TBEncargado_Despacho.Name = "TBEncargado_Despacho";
+            this.TBEncargado_Despacho.Size = new System.Drawing.Size(247, 21);
+            this.TBEncargado_Despacho.TabIndex = 54;
+            this.TBEncargado_Despacho.Enter += new System.EventHandler(this.TBEncargado_Despacho_Enter);
+            this.TBEncargado_Despacho.Leave += new System.EventHandler(this.TBEncargado_Despacho_Leave);
             // 
             // label23
             // 
@@ -794,7 +1250,10 @@
             this.TBFinDeDespacho.Name = "TBFinDeDespacho";
             this.TBFinDeDespacho.Size = new System.Drawing.Size(73, 21);
             this.TBFinDeDespacho.TabIndex = 41;
+            this.TBFinDeDespacho.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TBFinDeDespacho.ValidatingType = typeof(System.DateTime);
+            this.TBFinDeDespacho.Enter += new System.EventHandler(this.TBFinDeDespacho_Enter);
+            this.TBFinDeDespacho.Leave += new System.EventHandler(this.TBFinDeDespacho_Leave);
             // 
             // TBInicioDespacho
             // 
@@ -806,7 +1265,10 @@
             this.TBInicioDespacho.Name = "TBInicioDespacho";
             this.TBInicioDespacho.Size = new System.Drawing.Size(73, 21);
             this.TBInicioDespacho.TabIndex = 40;
+            this.TBInicioDespacho.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TBInicioDespacho.ValidatingType = typeof(System.DateTime);
+            this.TBInicioDespacho.Enter += new System.EventHandler(this.TBInicioDespacho_Enter);
+            this.TBInicioDespacho.Leave += new System.EventHandler(this.TBInicioDespacho_Leave);
             // 
             // label13
             // 
@@ -829,6 +1291,8 @@
             this.TBDespacho.Name = "TBDespacho";
             this.TBDespacho.Size = new System.Drawing.Size(242, 21);
             this.TBDespacho.TabIndex = 37;
+            this.TBDespacho.Enter += new System.EventHandler(this.TBDespacho_Enter);
+            this.TBDespacho.Leave += new System.EventHandler(this.TBDespacho_Leave);
             // 
             // label14
             // 
@@ -841,6 +1305,32 @@
             this.label14.Size = new System.Drawing.Size(80, 15);
             this.label14.TabIndex = 38;
             this.label14.Text = "Inicio Horario";
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Image = global::Presentacion.Botones.btnCancelar;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelar.Location = new System.Drawing.Point(264, 417);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(90, 30);
+            this.btnCancelar.TabIndex = 4;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Image = global::Presentacion.Botones.btnGuardar;
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGuardar.Location = new System.Drawing.Point(10, 417);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(90, 30);
+            this.btnGuardar.TabIndex = 3;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // TBIdbodega
             // 
@@ -928,185 +1418,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Leal Enterprise - Consulta de Bodegas Registrados";
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.checkBox9);
-            this.groupBox3.Controls.Add(this.checkBox4);
-            this.groupBox3.Controls.Add(this.checkBox5);
-            this.groupBox3.Controls.Add(this.checkBox6);
-            this.groupBox3.Controls.Add(this.checkBox3);
-            this.groupBox3.Controls.Add(this.checkBox2);
-            this.groupBox3.Controls.Add(this.checkBox1);
-            this.groupBox3.Location = new System.Drawing.Point(6, 33);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(328, 93);
-            this.groupBox3.TabIndex = 43;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Dias de Pagos Autorizados - Leal Enterprise";
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox1.Location = new System.Drawing.Point(6, 20);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(60, 19);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Lunes";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox2.Location = new System.Drawing.Point(98, 20);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(64, 19);
-            this.checkBox2.TabIndex = 1;
-            this.checkBox2.Text = "Martes";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox3.Location = new System.Drawing.Point(190, 20);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(80, 19);
-            this.checkBox3.TabIndex = 2;
-            this.checkBox3.Text = "Miercoles";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox4.Location = new System.Drawing.Point(190, 45);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(69, 19);
-            this.checkBox4.TabIndex = 5;
-            this.checkBox4.Text = "Sabado";
-            this.checkBox4.UseVisualStyleBackColor = true;
-            // 
-            // checkBox5
-            // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox5.Location = new System.Drawing.Point(98, 45);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(67, 19);
-            this.checkBox5.TabIndex = 4;
-            this.checkBox5.Text = "Viernes";
-            this.checkBox5.UseVisualStyleBackColor = true;
-            // 
-            // checkBox6
-            // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox6.Location = new System.Drawing.Point(6, 45);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(64, 19);
-            this.checkBox6.TabIndex = 3;
-            this.checkBox6.Text = "Jueves";
-            this.checkBox6.UseVisualStyleBackColor = true;
-            // 
-            // checkBox9
-            // 
-            this.checkBox9.AutoSize = true;
-            this.checkBox9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox9.Location = new System.Drawing.Point(6, 70);
-            this.checkBox9.Name = "checkBox9";
-            this.checkBox9.Size = new System.Drawing.Size(77, 19);
-            this.checkBox9.TabIndex = 6;
-            this.checkBox9.Text = "Domingo";
-            this.checkBox9.UseVisualStyleBackColor = true;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.checkBox15);
-            this.groupBox4.Controls.Add(this.checkBox11);
-            this.groupBox4.Controls.Add(this.checkBox12);
-            this.groupBox4.Controls.Add(this.checkBox13);
-            this.groupBox4.Controls.Add(this.checkBox10);
-            this.groupBox4.Controls.Add(this.checkBox8);
-            this.groupBox4.Controls.Add(this.checkBox7);
-            this.groupBox4.Location = new System.Drawing.Point(6, 132);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(328, 96);
-            this.groupBox4.TabIndex = 44;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Metodos de Pago Autorizados - Leal Enterprise";
-            // 
-            // checkBox7
-            // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(6, 20);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(55, 19);
-            this.checkBox7.TabIndex = 45;
-            this.checkBox7.Text = "Bono";
-            this.checkBox7.UseVisualStyleBackColor = true;
-            // 
-            // checkBox8
-            // 
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.Location = new System.Drawing.Point(98, 20);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(75, 19);
-            this.checkBox8.TabIndex = 46;
-            this.checkBox8.Text = "Cheques";
-            this.checkBox8.UseVisualStyleBackColor = true;
-            // 
-            // checkBox10
-            // 
-            this.checkBox10.AutoSize = true;
-            this.checkBox10.Location = new System.Drawing.Point(190, 20);
-            this.checkBox10.Name = "checkBox10";
-            this.checkBox10.Size = new System.Drawing.Size(62, 19);
-            this.checkBox10.TabIndex = 47;
-            this.checkBox10.Text = "Debito";
-            this.checkBox10.UseVisualStyleBackColor = true;
-            // 
-            // checkBox11
-            // 
-            this.checkBox11.AutoSize = true;
-            this.checkBox11.Location = new System.Drawing.Point(190, 45);
-            this.checkBox11.Name = "checkBox11";
-            this.checkBox11.Size = new System.Drawing.Size(107, 19);
-            this.checkBox11.TabIndex = 50;
-            this.checkBox11.Text = "Transferencias";
-            this.checkBox11.UseVisualStyleBackColor = true;
-            // 
-            // checkBox12
-            // 
-            this.checkBox12.AutoSize = true;
-            this.checkBox12.Location = new System.Drawing.Point(98, 45);
-            this.checkBox12.Name = "checkBox12";
-            this.checkBox12.Size = new System.Drawing.Size(68, 19);
-            this.checkBox12.TabIndex = 49;
-            this.checkBox12.Text = "Sodexo";
-            this.checkBox12.UseVisualStyleBackColor = true;
-            // 
-            // checkBox13
-            // 
-            this.checkBox13.AutoSize = true;
-            this.checkBox13.Location = new System.Drawing.Point(6, 45);
-            this.checkBox13.Name = "checkBox13";
-            this.checkBox13.Size = new System.Drawing.Size(68, 19);
-            this.checkBox13.TabIndex = 48;
-            this.checkBox13.Text = "Efectivo";
-            this.checkBox13.UseVisualStyleBackColor = true;
-            // 
-            // checkBox15
-            // 
-            this.checkBox15.AutoSize = true;
-            this.checkBox15.Location = new System.Drawing.Point(6, 70);
-            this.checkBox15.Name = "checkBox15";
-            this.checkBox15.Size = new System.Drawing.Size(55, 19);
-            this.checkBox15.TabIndex = 51;
-            this.checkBox15.Text = "Otros";
-            this.checkBox15.UseVisualStyleBackColor = true;
-            // 
             // btnEliminar
             // 
             this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -1139,217 +1450,15 @@
             this.btnImprimir.UseVisualStyleBackColor = true;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
-            // btnCancelar
+            // CHCredito
             // 
-            this.btnCancelar.Image = global::Presentacion.Botones.btnCancelar;
-            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(264, 417);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(90, 30);
-            this.btnCancelar.TabIndex = 4;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Image = global::Presentacion.Botones.btnGuardar;
-            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(10, 417);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(90, 30);
-            this.btnGuardar.TabIndex = 3;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.checkBox14);
-            this.groupBox5.Controls.Add(this.checkBox16);
-            this.groupBox5.Controls.Add(this.checkBox17);
-            this.groupBox5.Controls.Add(this.checkBox18);
-            this.groupBox5.Controls.Add(this.checkBox19);
-            this.groupBox5.Controls.Add(this.checkBox20);
-            this.groupBox5.Controls.Add(this.checkBox21);
-            this.groupBox5.Location = new System.Drawing.Point(9, 60);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(325, 95);
-            this.groupBox5.TabIndex = 52;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Dias de Recepción de Mercancia";
-            // 
-            // checkBox14
-            // 
-            this.checkBox14.AutoSize = true;
-            this.checkBox14.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox14.Location = new System.Drawing.Point(6, 70);
-            this.checkBox14.Name = "checkBox14";
-            this.checkBox14.Size = new System.Drawing.Size(77, 19);
-            this.checkBox14.TabIndex = 13;
-            this.checkBox14.Text = "Domingo";
-            this.checkBox14.UseVisualStyleBackColor = true;
-            // 
-            // checkBox16
-            // 
-            this.checkBox16.AutoSize = true;
-            this.checkBox16.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox16.Location = new System.Drawing.Point(190, 45);
-            this.checkBox16.Name = "checkBox16";
-            this.checkBox16.Size = new System.Drawing.Size(69, 19);
-            this.checkBox16.TabIndex = 12;
-            this.checkBox16.Text = "Sabado";
-            this.checkBox16.UseVisualStyleBackColor = true;
-            // 
-            // checkBox17
-            // 
-            this.checkBox17.AutoSize = true;
-            this.checkBox17.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox17.Location = new System.Drawing.Point(98, 45);
-            this.checkBox17.Name = "checkBox17";
-            this.checkBox17.Size = new System.Drawing.Size(67, 19);
-            this.checkBox17.TabIndex = 11;
-            this.checkBox17.Text = "Viernes";
-            this.checkBox17.UseVisualStyleBackColor = true;
-            // 
-            // checkBox18
-            // 
-            this.checkBox18.AutoSize = true;
-            this.checkBox18.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox18.Location = new System.Drawing.Point(6, 45);
-            this.checkBox18.Name = "checkBox18";
-            this.checkBox18.Size = new System.Drawing.Size(64, 19);
-            this.checkBox18.TabIndex = 10;
-            this.checkBox18.Text = "Jueves";
-            this.checkBox18.UseVisualStyleBackColor = true;
-            // 
-            // checkBox19
-            // 
-            this.checkBox19.AutoSize = true;
-            this.checkBox19.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox19.Location = new System.Drawing.Point(190, 20);
-            this.checkBox19.Name = "checkBox19";
-            this.checkBox19.Size = new System.Drawing.Size(80, 19);
-            this.checkBox19.TabIndex = 9;
-            this.checkBox19.Text = "Miercoles";
-            this.checkBox19.UseVisualStyleBackColor = true;
-            // 
-            // checkBox20
-            // 
-            this.checkBox20.AutoSize = true;
-            this.checkBox20.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox20.Location = new System.Drawing.Point(98, 20);
-            this.checkBox20.Name = "checkBox20";
-            this.checkBox20.Size = new System.Drawing.Size(64, 19);
-            this.checkBox20.TabIndex = 8;
-            this.checkBox20.Text = "Martes";
-            this.checkBox20.UseVisualStyleBackColor = true;
-            // 
-            // checkBox21
-            // 
-            this.checkBox21.AutoSize = true;
-            this.checkBox21.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox21.Location = new System.Drawing.Point(6, 20);
-            this.checkBox21.Name = "checkBox21";
-            this.checkBox21.Size = new System.Drawing.Size(60, 19);
-            this.checkBox21.TabIndex = 7;
-            this.checkBox21.Text = "Lunes";
-            this.checkBox21.UseVisualStyleBackColor = true;
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.checkBox22);
-            this.groupBox6.Controls.Add(this.checkBox23);
-            this.groupBox6.Controls.Add(this.checkBox24);
-            this.groupBox6.Controls.Add(this.checkBox25);
-            this.groupBox6.Controls.Add(this.checkBox26);
-            this.groupBox6.Controls.Add(this.checkBox27);
-            this.groupBox6.Controls.Add(this.checkBox28);
-            this.groupBox6.Location = new System.Drawing.Point(9, 60);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(325, 95);
-            this.groupBox6.TabIndex = 57;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Dias de Despacho de Mercancia";
-            // 
-            // checkBox22
-            // 
-            this.checkBox22.AutoSize = true;
-            this.checkBox22.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox22.Location = new System.Drawing.Point(6, 70);
-            this.checkBox22.Name = "checkBox22";
-            this.checkBox22.Size = new System.Drawing.Size(77, 19);
-            this.checkBox22.TabIndex = 13;
-            this.checkBox22.Text = "Domingo";
-            this.checkBox22.UseVisualStyleBackColor = true;
-            // 
-            // checkBox23
-            // 
-            this.checkBox23.AutoSize = true;
-            this.checkBox23.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox23.Location = new System.Drawing.Point(190, 45);
-            this.checkBox23.Name = "checkBox23";
-            this.checkBox23.Size = new System.Drawing.Size(69, 19);
-            this.checkBox23.TabIndex = 12;
-            this.checkBox23.Text = "Sabado";
-            this.checkBox23.UseVisualStyleBackColor = true;
-            // 
-            // checkBox24
-            // 
-            this.checkBox24.AutoSize = true;
-            this.checkBox24.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox24.Location = new System.Drawing.Point(98, 45);
-            this.checkBox24.Name = "checkBox24";
-            this.checkBox24.Size = new System.Drawing.Size(67, 19);
-            this.checkBox24.TabIndex = 11;
-            this.checkBox24.Text = "Viernes";
-            this.checkBox24.UseVisualStyleBackColor = true;
-            // 
-            // checkBox25
-            // 
-            this.checkBox25.AutoSize = true;
-            this.checkBox25.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox25.Location = new System.Drawing.Point(6, 45);
-            this.checkBox25.Name = "checkBox25";
-            this.checkBox25.Size = new System.Drawing.Size(64, 19);
-            this.checkBox25.TabIndex = 10;
-            this.checkBox25.Text = "Jueves";
-            this.checkBox25.UseVisualStyleBackColor = true;
-            // 
-            // checkBox26
-            // 
-            this.checkBox26.AutoSize = true;
-            this.checkBox26.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox26.Location = new System.Drawing.Point(190, 20);
-            this.checkBox26.Name = "checkBox26";
-            this.checkBox26.Size = new System.Drawing.Size(80, 19);
-            this.checkBox26.TabIndex = 9;
-            this.checkBox26.Text = "Miercoles";
-            this.checkBox26.UseVisualStyleBackColor = true;
-            // 
-            // checkBox27
-            // 
-            this.checkBox27.AutoSize = true;
-            this.checkBox27.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox27.Location = new System.Drawing.Point(98, 20);
-            this.checkBox27.Name = "checkBox27";
-            this.checkBox27.Size = new System.Drawing.Size(64, 19);
-            this.checkBox27.TabIndex = 8;
-            this.checkBox27.Text = "Martes";
-            this.checkBox27.UseVisualStyleBackColor = true;
-            // 
-            // checkBox28
-            // 
-            this.checkBox28.AutoSize = true;
-            this.checkBox28.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox28.Location = new System.Drawing.Point(6, 20);
-            this.checkBox28.Name = "checkBox28";
-            this.checkBox28.Size = new System.Drawing.Size(60, 19);
-            this.checkBox28.TabIndex = 7;
-            this.checkBox28.Text = "Lunes";
-            this.checkBox28.UseVisualStyleBackColor = true;
+            this.CHCredito.AutoSize = true;
+            this.CHCredito.Location = new System.Drawing.Point(98, 20);
+            this.CHCredito.Name = "CHCredito";
+            this.CHCredito.Size = new System.Drawing.Size(65, 19);
+            this.CHCredito.TabIndex = 52;
+            this.CHCredito.Text = "Credito";
+            this.CHCredito.UseVisualStyleBackColor = true;
             // 
             // frmBodega
             // 
@@ -1374,21 +1483,21 @@
             this.TPDatosBasicos.PerformLayout();
             this.TPDatosAuxiliares.ResumeLayout(false);
             this.TPDatosAuxiliares.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGResultados)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1441,13 +1550,13 @@
         private System.Windows.Forms.MaskedTextBox TBFinRecepcion;
         private System.Windows.Forms.MaskedTextBox TBInicioRecepcion;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox TBEncargado_Despacho;
+        private System.Windows.Forms.TextBox TBEncargado_Recepcion;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox TBObservacion_Recepcion;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox TBObservacion_Despacho;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox TBEncargado_Despacho;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.TextBox TBDocumento;
         private System.Windows.Forms.ComboBox CBZona;
@@ -1458,38 +1567,43 @@
         private System.Windows.Forms.TextBox TBDireccion02;
         private System.Windows.Forms.TextBox TBMedidas;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox TBAutorizacion_Pagos;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.CheckBox checkBox11;
-        private System.Windows.Forms.CheckBox checkBox12;
-        private System.Windows.Forms.CheckBox checkBox13;
-        private System.Windows.Forms.CheckBox checkBox10;
-        private System.Windows.Forms.CheckBox checkBox8;
-        private System.Windows.Forms.CheckBox checkBox7;
-        private System.Windows.Forms.CheckBox checkBox9;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox6;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox15;
+        private System.Windows.Forms.CheckBox CHTransferencia;
+        private System.Windows.Forms.CheckBox CHSodexo;
+        private System.Windows.Forms.CheckBox CHEfectivo;
+        private System.Windows.Forms.CheckBox CHDebito;
+        private System.Windows.Forms.CheckBox CHCheques;
+        private System.Windows.Forms.CheckBox CHBono;
+        private System.Windows.Forms.CheckBox CHDomingo_Pagos;
+        private System.Windows.Forms.CheckBox CHSabado_Pagos;
+        private System.Windows.Forms.CheckBox CHViernes_Pagos;
+        private System.Windows.Forms.CheckBox CHJueves_Pagos;
+        private System.Windows.Forms.CheckBox CHMiercoles_Pagos;
+        private System.Windows.Forms.CheckBox CHMartes_Pagos;
+        private System.Windows.Forms.CheckBox CHLunes_Pagos;
+        private System.Windows.Forms.CheckBox CHOtros;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.CheckBox checkBox14;
-        private System.Windows.Forms.CheckBox checkBox16;
-        private System.Windows.Forms.CheckBox checkBox17;
-        private System.Windows.Forms.CheckBox checkBox18;
-        private System.Windows.Forms.CheckBox checkBox19;
-        private System.Windows.Forms.CheckBox checkBox20;
-        private System.Windows.Forms.CheckBox checkBox21;
+        private System.Windows.Forms.CheckBox CHDomingo_Recepcion;
+        private System.Windows.Forms.CheckBox CHSabado_Recepcion;
+        private System.Windows.Forms.CheckBox CHViernes_Recepcion;
+        private System.Windows.Forms.CheckBox CHJueves_Recepcion;
+        private System.Windows.Forms.CheckBox CHMiercoles_Recepcion;
+        private System.Windows.Forms.CheckBox CHMartes_Recepcion;
+        private System.Windows.Forms.CheckBox CHLunes_Recepcion;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.CheckBox checkBox22;
-        private System.Windows.Forms.CheckBox checkBox23;
-        private System.Windows.Forms.CheckBox checkBox24;
-        private System.Windows.Forms.CheckBox checkBox25;
-        private System.Windows.Forms.CheckBox checkBox26;
-        private System.Windows.Forms.CheckBox checkBox27;
-        private System.Windows.Forms.CheckBox checkBox28;
+        private System.Windows.Forms.CheckBox CHDomingo_Despacho;
+        private System.Windows.Forms.CheckBox CHSabado_Despacho;
+        private System.Windows.Forms.CheckBox CHViernes_Despacho;
+        private System.Windows.Forms.CheckBox CHJueves_Despacho;
+        private System.Windows.Forms.CheckBox CHMiercoles_Despacho;
+        private System.Windows.Forms.CheckBox CHMartes_Despacho;
+        private System.Windows.Forms.CheckBox CHLunes_Despacho;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.MaskedTextBox TBFinHorario_Pagos;
+        private System.Windows.Forms.MaskedTextBox TBInicioHorario_Pagos;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.CheckBox CHCredito;
     }
 }
