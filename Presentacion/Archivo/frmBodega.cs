@@ -545,6 +545,8 @@ namespace Presentacion
                     
                     else
                     {
+                        this.Validaciones_Chexbox();
+
                         rptaDatosBasicos = fBodega.Editar_DatosBasicos
 
                             (
