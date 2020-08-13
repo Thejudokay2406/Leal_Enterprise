@@ -142,12 +142,12 @@ namespace Presentacion
 
                     if (this.Digitar)
                     {
-                        rptaDatosBasicos = fGrupo.Guardar_DatosBasicos(1, this.TBGrupo.Text, this.TBDescripcion.Text, this.TBObservacion.Text, 1);
+                        rptaDatosBasicos = fGrupo.Guardar_DatosBasicos(1, this.TBGrupo.Text, this.TBDescripcion.Text, this.TBObservacion.Text);
                     }
 
                     else
                     {
-                        rptaDatosBasicos = fGrupo.Editar_DatosBasicos(2, Convert.ToInt32(this.TBIdgrupo.Text), this.TBGrupo.Text, this.TBDescripcion.Text, this.TBObservacion.Text, 1);
+                        rptaDatosBasicos = fGrupo.Editar_DatosBasicos(2, Convert.ToInt32(this.TBIdgrupo.Text), this.TBGrupo.Text, this.TBDescripcion.Text, this.TBObservacion.Text);
                     }
 
                     if (rptaDatosBasicos.Equals("OK"))
@@ -232,6 +232,9 @@ namespace Presentacion
                         this.Limpiar_Datos();
                     }
                 }
+
+                //Focus
+                this.TBGrupo.Select();
             }
             catch (Exception ex)
             {
@@ -246,6 +249,8 @@ namespace Presentacion
                 this.Digitar = true;
                 this.Botones();
                 this.Limpiar_Datos();
+
+                this.TBGrupo.Focus();
                 this.TBBuscar.Clear();
 
                 //Se Limpian las Filas y Columnas de la tabla
@@ -350,11 +355,12 @@ namespace Presentacion
         {
             try
             {
-                this.Digitar = false;
-
                 if (Editar == "1")
                 {
                     //
+                    this.Digitar = false;
+                    this.Botones();
+
                     this.TBIdgrupo.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells["Codigo"].Value);
                     this.TBGrupo.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells["Grupo"].Value);
                     this.TBDescripcion.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells["Descripcion"].Value);

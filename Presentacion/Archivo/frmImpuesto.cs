@@ -19,7 +19,7 @@ namespace Presentacion
         private bool Digitar = true;
         private bool Filtrar = false;
         public bool Filtro = true;
-        private string Campo = "Campo Obligatorio - Leal Enterprise";
+        private string Campo = "Campo Obligatorio";
 
         //Variable para Captura el Empleado Logueado
         public int Idempleado;
@@ -102,7 +102,7 @@ namespace Presentacion
             this.TBBuscar.Clear();
 
             //Se realiza el FOCUS al panel y campo de texto iniciales
-            this.TBImpuesto.Select();
+            this.TBServicio.Select();
         }
 
         private void Botones()
@@ -132,7 +132,7 @@ namespace Presentacion
             {
                 Checkbox_Compra = "1";
             }
-            else if (CHCompra.Checked)
+            else
             {
                 Checkbox_Compra = "0";
             }
@@ -141,7 +141,7 @@ namespace Presentacion
             {
                 Checkbox_Venta = "1";
             }
-            else if (CHVenta.Checked)
+            else
             {
                 Checkbox_Venta = "0";
             }
@@ -150,7 +150,7 @@ namespace Presentacion
             {
                 Checkbox_Servicio = "1";
             }
-            else if (CHServicio.Checked)
+            else
             {
                 Checkbox_Servicio = "0";
             }
@@ -198,7 +198,7 @@ namespace Presentacion
                                  1,
 
                                  //Panel Datos Basicos
-                                 this.TBImpuesto.Text, this.TBValor.Text, this.TBDescripcion.Text, this.TBCompra.Text, this.TBVenta.Text, this.TBServicio.Text, Checkbox_Compra, this.Checkbox_Venta, Checkbox_Servicio
+                                 this.TBImpuesto.Text, this.TBValor.Text, this.TBDescripcion.Text, this.TBCompra.Text, this.TBVenta.Text, this.TBServicio.Text, Convert.ToInt32(Checkbox_Compra), Convert.ToInt32(this.Checkbox_Venta), Convert.ToInt32(Checkbox_Servicio)
                             );
                     }
 
@@ -211,20 +211,19 @@ namespace Presentacion
                                  2, Convert.ToInt32(this.TBIdimpuesto.Text),
 
                                  //Panel Datos Basicos
-                                 this.TBImpuesto.Text, this.TBValor.Text, this.TBDescripcion.Text, this.TBCompra.Text, this.TBVenta.Text, this.TBServicio.Text, Checkbox_Compra, this.Checkbox_Venta, Checkbox_Servicio
+                                 this.TBImpuesto.Text, this.TBValor.Text, this.TBDescripcion.Text, this.TBCompra.Text, this.TBVenta.Text, this.TBServicio.Text, Convert.ToInt32(Checkbox_Compra), Convert.ToInt32(this.Checkbox_Venta), Convert.ToInt32(Checkbox_Servicio)
                             );
-
                     }
 
                     if (rptaDatosBasicos.Equals("OK"))
                     {
                         if (this.Digitar)
                         {
-                            this.MensajeOk("Registro Exitoso");
+                            this.MensajeOk("Impuesto: " + this.TBImpuesto.Text + " Registrado Exitosamente");
                         }
                         else
                         {
-                            this.MensajeOk("Registro Actualizado");
+                            this.MensajeOk("Registro del Impuesto: " + this.TBImpuesto.Text + " Actualizado Exitosamente");
                         }
                     }
                     else
@@ -296,6 +295,9 @@ namespace Presentacion
                         this.Limpiar_Datos();
                     }
                 }
+
+                //Focus
+                this.TBImpuesto.Select();
             }
             catch (Exception ex)
             {
@@ -380,8 +382,8 @@ namespace Presentacion
                 {
                     if (TBBuscar.Text != "")
                     {
-                        //this.DGResultados.DataSource = fImpuesto.Buscar(this.TBBuscar.Text, 1);
-                        //this.DGResultados.Columns[0].Visible = false;
+                        this.DGResultados.DataSource = fImpuesto.Buscar(this.TBBuscar.Text, 1);
+                        this.DGResultados.Columns[0].Visible = false;
 
                         lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGResultados.Rows.Count);
 
@@ -467,7 +469,7 @@ namespace Presentacion
         {
             try
             {
-                DataTable Datos = Negocio.fImpuesto.Buscar(this.TBIdimpuesto.Text);
+                DataTable Datos = Negocio.fImpuesto.BuscarExistencia_SQL(this.TBIdimpuesto.Text);
                 //Evaluamos si  existen los Datos
                 if (Datos.Rows.Count == 0)
                 {
@@ -478,17 +480,16 @@ namespace Presentacion
                     //Captura de Valores en la Base de Datos
 
                     //Panel Datos Basicos - Llaves Primarias
-                    Impuesto = Datos.Rows[0][1].ToString();
-                    Valor = Datos.Rows[0][2].ToString();
-                    MontoDeCompra = Datos.Rows[0][3].ToString();
-                    MontoDeVenta = Datos.Rows[0][4].ToString();
-                    MontoDeServicio = Datos.Rows[0][5].ToString();
-                    Compra = Datos.Rows[0][6].ToString();
-                    Venta = Datos.Rows[0][7].ToString();
-                    Servicio = Datos.Rows[0][8].ToString();
-                    Descripcion = Datos.Rows[0][9].ToString();
-
-
+                    Impuesto = Datos.Rows[0][0].ToString();
+                    Valor = Datos.Rows[0][1].ToString();
+                    Descripcion = Datos.Rows[0][2].ToString();
+                    Compra = Datos.Rows[0][3].ToString();
+                    Venta = Datos.Rows[0][4].ToString();
+                    Servicio = Datos.Rows[0][5].ToString();
+                    MontoDeCompra = Datos.Rows[0][6].ToString();
+                    MontoDeVenta = Datos.Rows[0][7].ToString();
+                    MontoDeServicio = Datos.Rows[0][8].ToString();
+                                      
                     //Se procede a completar los campos de texto segun las consulta
                     //Realizada anteriormente en la base de datos
 

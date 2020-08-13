@@ -33,18 +33,18 @@
             this.TBBuscar = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.DGResultados = new System.Windows.Forms.DataGridView();
+            this.btnImprimir = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.TBIdorigen = new System.Windows.Forms.TextBox();
+            this.TBIdempaque = new System.Windows.Forms.TextBox();
             this.TBObservacion = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.TBDescripcion = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.TBGrupo = new System.Windows.Forms.TextBox();
+            this.TBEmpaque = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnImprimir = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGResultados)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -124,17 +124,55 @@
             this.DGResultados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGResultados_CellDoubleClick);
             this.DGResultados.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DGResultados_KeyPress);
             // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnImprimir.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnImprimir.FlatAppearance.BorderSize = 0;
+            this.btnImprimir.Image = global::Presentacion.Botones.btnImprimir;
+            this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImprimir.Location = new System.Drawing.Point(407, 204);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(90, 30);
+            this.btnImprimir.TabIndex = 3;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnImprimir.UseVisualStyleBackColor = false;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminar.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.Image = global::Presentacion.Botones.btnEliminar;
+            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminar.Location = new System.Drawing.Point(311, 204);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(90, 30);
+            this.btnEliminar.TabIndex = 2;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.TBIdorigen);
+            this.groupBox1.Controls.Add(this.TBIdempaque);
             this.groupBox1.Controls.Add(this.TBObservacion);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.TBDescripcion);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.TBGrupo);
+            this.groupBox1.Controls.Add(this.TBEmpaque);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnGuardar);
             this.groupBox1.Controls.Add(this.btnCancelar);
@@ -145,16 +183,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Registro de Empaques - Leal Enterprise";
             // 
-            // TBIdorigen
+            // TBIdempaque
             // 
-            this.TBIdorigen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TBIdempaque.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBIdorigen.Location = new System.Drawing.Point(174, 209);
-            this.TBIdorigen.Name = "TBIdorigen";
-            this.TBIdorigen.Size = new System.Drawing.Size(39, 21);
-            this.TBIdorigen.TabIndex = 10;
-            this.TBIdorigen.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBIdorigen_KeyUp);
+            this.TBIdempaque.Location = new System.Drawing.Point(174, 209);
+            this.TBIdempaque.Name = "TBIdempaque";
+            this.TBIdempaque.Size = new System.Drawing.Size(39, 21);
+            this.TBIdempaque.TabIndex = 10;
+            this.TBIdempaque.TextChanged += new System.EventHandler(this.TBIdempaque_TextChanged);
+            this.TBIdempaque.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBIdorigen_KeyUp);
             // 
             // TBObservacion
             // 
@@ -207,18 +246,18 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Descripcion";
             // 
-            // TBGrupo
+            // TBEmpaque
             // 
-            this.TBGrupo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TBEmpaque.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBGrupo.Location = new System.Drawing.Point(87, 18);
-            this.TBGrupo.Name = "TBGrupo";
-            this.TBGrupo.Size = new System.Drawing.Size(300, 21);
-            this.TBGrupo.TabIndex = 5;
-            this.TBGrupo.Enter += new System.EventHandler(this.TBGrupo_Enter);
-            this.TBGrupo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBGrupo_KeyUp);
-            this.TBGrupo.Leave += new System.EventHandler(this.TBGrupo_Leave);
+            this.TBEmpaque.Location = new System.Drawing.Point(87, 18);
+            this.TBEmpaque.Name = "TBEmpaque";
+            this.TBEmpaque.Size = new System.Drawing.Size(300, 21);
+            this.TBEmpaque.TabIndex = 5;
+            this.TBEmpaque.Enter += new System.EventHandler(this.TBGrupo_Enter);
+            this.TBEmpaque.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBGrupo_KeyUp);
+            this.TBEmpaque.Leave += new System.EventHandler(this.TBGrupo_Leave);
             // 
             // label1
             // 
@@ -251,25 +290,6 @@
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // btnImprimir
-            // 
-            this.btnImprimir.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnImprimir.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnImprimir.FlatAppearance.BorderSize = 0;
-            this.btnImprimir.Image = global::Presentacion.Botones.btnImprimir;
-            this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImprimir.Location = new System.Drawing.Point(407, 204);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(90, 30);
-            this.btnImprimir.TabIndex = 3;
-            this.btnImprimir.Text = "Imprimir";
-            this.btnImprimir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnImprimir.UseVisualStyleBackColor = false;
-            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
-            // 
             // btnCancelar
             // 
             this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -288,25 +308,6 @@
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEliminar.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar.FlatAppearance.BorderSize = 0;
-            this.btnEliminar.Image = global::Presentacion.Botones.btnEliminar;
-            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(311, 204);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(90, 30);
-            this.btnEliminar.TabIndex = 2;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // frmEmpaque
             // 
@@ -341,12 +342,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView DGResultados;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox TBIdorigen;
+        private System.Windows.Forms.TextBox TBIdempaque;
         private System.Windows.Forms.TextBox TBObservacion;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox TBDescripcion;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox TBGrupo;
+        private System.Windows.Forms.TextBox TBEmpaque;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnImprimir;

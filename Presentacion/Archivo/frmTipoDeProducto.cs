@@ -19,31 +19,19 @@ namespace Presentacion
         private bool Digitar = true;
         public bool Filtro = true;
         private string Campo = "Campo Obligatorio - Leal Enterprise";
-        private string Numerico = "Campo Numerico - Leal Enterprise";
-
 
         //Variable para Captura el Empleado Logueado
         public int Idempleado;
 
-        //Variable para Metodo SQL Guardar, Eliminar, Editar, Consultar
-        public string Guardar = "";
-        public string Editar = "";
-        public string Consultar = "";
-        public string Eliminar = "";
-        public string Imprimir = "";
+        //********** Variable para Metodo SQL Guardar, Eliminar, Editar, Consultar *********************************************
 
-        //Parametros para AutoCompletar los Texboxt
+        public string Guardar, Editar, Consultar, Eliminar, Imprimir = "";
+
+        //********** Parametros para AutoCompletar los Texboxt *****************************************************************
 
         //Panel Datos Basicos
-        public string Idbodega = "";
-        public string Idsucurzal = "";
-        public string Nombre = "";
-        public string Tipo = "";
-        public string Ciudad = "";
-        public string Telefono = "";
-        public string Movil = "";
-        public string Correo = "";
-        public string Responsable = "";
+        public string Idbodega, Idsucurzal, Nombre, Tipo, Ciudad, Telefono, Movil, Correo, Responsable = "";
+
         public frmTipoDeProducto()
         {
             InitializeComponent();
@@ -54,7 +42,6 @@ namespace Presentacion
             //Inicio de Clase y Botones
             this.Botones();
             this.Habilitar();
-            this.Limpiar_Datos();
 
             //Focus a Texboxt y Combobox
             this.TBTipo.Select();
@@ -221,6 +208,9 @@ namespace Presentacion
                         this.Limpiar_Datos();
                     }
                 }
+
+                //Focus 
+                this.TBTipo.Focus();
             }
             catch (Exception ex)
             {

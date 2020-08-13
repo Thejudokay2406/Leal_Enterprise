@@ -518,14 +518,12 @@ namespace Presentacion
                 }
                 else
                 {
+                    this.Validaciones_Chexbox();
+
                     if (this.Digitar)
                     {
-                        this.Validaciones_Chexbox();
-
                         rptaDatosBasicos = fBodega.Guardar_DatosBasicos
-
                             (
-
                                 //Datos Auxiliares
                                 1,
 
@@ -545,8 +543,6 @@ namespace Presentacion
                     
                     else
                     {
-                        this.Validaciones_Chexbox();
-
                         rptaDatosBasicos = fBodega.Editar_DatosBasicos
 
                             (
@@ -648,6 +644,9 @@ namespace Presentacion
                         this.Limpiar_Datos();
                     }
                 }
+
+                //Focus
+                this.TBBodega.Select();
             }
             catch (Exception ex)
             {

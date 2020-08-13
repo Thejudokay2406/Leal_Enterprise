@@ -89,7 +89,6 @@ namespace Datos
                 Comando.Parameters.Add("@Grupo", SqlDbType.VarChar).Value = Obj.Grupo;
                 Comando.Parameters.Add("@Descripcion", SqlDbType.VarChar).Value = Obj.Descripcion;
                 Comando.Parameters.Add("@Observacion", SqlDbType.VarChar).Value = Obj.Observacion;
-                Comando.Parameters.Add("@Estado", SqlDbType.Int).Value = Obj.Estado;
 
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Realizar el Registro";
@@ -117,15 +116,14 @@ namespace Datos
                 SqlCommand Comando = new SqlCommand("Archivo.LI_Grupo", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
-                //Datos Auxiliares
+                //Datos Auxiliares y Llave Primaria
                 Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Obj.Auto;
+                Comando.Parameters.Add("@Idgrupo", SqlDbType.Int).Value = Obj.Idgrupo;
 
                 //Panel Datos Basicos
-                Comando.Parameters.Add("@Idgrupo", SqlDbType.Int).Value = Obj.Idgrupo;
                 Comando.Parameters.Add("@Origen", SqlDbType.VarChar).Value = Obj.Grupo;
                 Comando.Parameters.Add("@Descripcion", SqlDbType.VarChar).Value = Obj.Descripcion;
                 Comando.Parameters.Add("@Observacion", SqlDbType.VarChar).Value = Obj.Observacion;
-                Comando.Parameters.Add("@Estado", SqlDbType.Int).Value = Obj.Estado;
 
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Actualizar el Registro";

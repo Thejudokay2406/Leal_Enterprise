@@ -37,25 +37,14 @@ namespace Presentacion
         //Variable para Captura el Empleado Logueado
         public int Idempleado;
 
-        //Variable para Metodo SQL Guardar, Eliminar, Editar, Consultar
-        public string Guardar = "";
-        public string Editar = "";
-        public string Consultar = "";
-        public string Eliminar = "";
-        public string Imprimir = "";
+        //********** Variable para Metodo SQL Guardar, Eliminar, Editar, Consultar *************************
+        public string Guardar, Editar, Consultar, Eliminar, Imprimir = "";
 
         //Parametros para AutoCompletar los Texboxt
 
         //Panel Datos Basicos
-        public string Idbodega = "";
-        public string Idsucurzal = "";
-        public string Nombre = "";
-        public string Tipo = "";
-        public string Ciudad = "";
-        public string Telefono = "";
-        public string Movil = "";
-        public string Correo = "";
-        public string Responsable = "";
+        public string Idempaque, Empaque, Descripcion, Observacion = "";
+
         public frmEmpaque()
         {
             InitializeComponent();
@@ -66,22 +55,21 @@ namespace Presentacion
             //Inicio de Clase y Botones
             this.Botones();
             this.Habilitar();
-            this.Limpiar_Datos();
 
             //Focus a Texboxt y Combobox
-            this.TBGrupo.Select();
+            this.TBEmpaque.Select();
 
             //Ocultacion de Texboxt
-            this.TBIdorigen.Visible = false;
+            this.TBIdempaque.Visible = false;
         }
         private void Habilitar()
         {
             //Panel - Datos Basicos
 
-            this.TBGrupo.ReadOnly = false;
-            this.TBGrupo.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBGrupo.ForeColor = Color.FromArgb(255, 255, 255);
-            this.TBGrupo.Text = Campo;
+            this.TBEmpaque.ReadOnly = false;
+            this.TBEmpaque.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBEmpaque.ForeColor = Color.FromArgb(255, 255, 255);
+            this.TBEmpaque.Text = Campo;
             this.TBDescripcion.ReadOnly = false;
             this.TBDescripcion.BackColor = Color.FromArgb(3, 155, 229);
             this.TBDescripcion.ForeColor = Color.FromArgb(255, 255, 255);
@@ -98,14 +86,14 @@ namespace Presentacion
         {
             //Panel - Datos Basicos
 
-            this.TBGrupo.Clear();
-            this.TBGrupo.Text = Campo;
+            this.TBEmpaque.Clear();
+            this.TBEmpaque.Text = Campo;
             this.TBDescripcion.Clear();
             this.TBDescripcion.Text = Campo;
             this.TBObservacion.Clear();
 
             //Se realiza el FOCUS al panel y campo de texto iniciales
-            this.TBIdorigen.Focus();
+            this.TBObservacion.Focus();
         }
 
         private void Botones()
@@ -118,7 +106,7 @@ namespace Presentacion
                 this.btnEliminar.Enabled = false;
                 this.btnCancelar.Enabled = false;
             }
-            else if (!Digitar)
+            else
             {
                 this.btnGuardar.Enabled = true;
                 this.btnGuardar.Text = "Editar";
@@ -134,7 +122,7 @@ namespace Presentacion
             {
                 string rptaDatosBasicos = "";
 
-                if (this.TBGrupo.Text == Campo)
+                if (this.TBEmpaque.Text == Campo)
                 {
                     MensajeError("Ingrese el nombre del Empaque");
                 }
@@ -148,11 +136,11 @@ namespace Presentacion
 
                     if (this.Digitar)
                     {
-                        rptaDatosBasicos = fEmpaque.Guardar_DatosBasicos(1, this.TBGrupo.Text, this.TBDescripcion.Text, this.TBObservacion.Text, 1);
+                        rptaDatosBasicos = fEmpaque.Guardar_DatosBasicos(1, this.TBEmpaque.Text, this.TBDescripcion.Text, this.TBObservacion.Text);
                     }
                     else
                     {
-                        rptaDatosBasicos = fEmpaque.Editar_DatosBasicos(2, Convert.ToInt32(this.TBIdorigen.Text), this.TBGrupo.Text, this.TBDescripcion.Text, this.TBObservacion.Text, 1);
+                        rptaDatosBasicos = fEmpaque.Editar_DatosBasicos(2, Convert.ToInt32(this.TBIdempaque.Text), this.TBEmpaque.Text, this.TBDescripcion.Text, this.TBObservacion.Text);
                     }
 
                     if (rptaDatosBasicos.Equals("OK"))
@@ -238,6 +226,9 @@ namespace Presentacion
                         this.Limpiar_Datos();
                     }
                 }
+
+                //Focus
+                this.TBEmpaque.Select();
             }
             catch (Exception ex)
             {
@@ -250,6 +241,8 @@ namespace Presentacion
             try
             {
                 this.Digitar = true;
+                this.TBEmpaque.Focus();
+
                 this.Botones();
                 this.Limpiar_Datos();
                 this.TBBuscar.Clear();
@@ -280,7 +273,7 @@ namespace Presentacion
                     {
                         if (DGResultados.SelectedRows.Count > 0)
                         {
-                            Eliminacion = Convert.ToInt32(DGResultados.CurrentRow.Cells["ID"].Value.ToString());
+                            Eliminacion = Convert.ToInt32(DGResultados.CurrentRow.Cells["Codigo"].Value.ToString());
                             Respuesta = Negocio.fEmpaque.Eliminar(Eliminacion, 1);
                         }
 
@@ -323,6 +316,7 @@ namespace Presentacion
                     if (TBBuscar.Text != "")
                     {
                         this.DGResultados.DataSource = fEmpaque.Buscar(this.TBBuscar.Text, 1);
+                        this.DGResultados.Columns[0].Visible = false;
 
                         lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGResultados.Rows.Count);
 
@@ -355,17 +349,15 @@ namespace Presentacion
         {
             try
             {
-                this.Digitar = false;
-
                 if (Editar == "1")
                 {
                     //
-                    this.TBIdorigen.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells["Codigo"].Value);
-                    this.TBGrupo.Select();
+                    this.Digitar = false;
+                    this.Botones();
 
-                    //
-                    this.Limpiar_Datos();
-
+                    //Se procede a completar los campos de textos segun
+                    //la consulta realizada en la base de datos
+                    this.TBIdempaque.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells["Codigo"].Value);
                 }
                 else
                 {
@@ -391,7 +383,7 @@ namespace Presentacion
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
-                    this.TBGrupo.Select();
+                    this.TBEmpaque.Select();
                 }
             }
             catch (Exception ex)
@@ -449,7 +441,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBGrupo.Select();
+                            this.TBEmpaque.Select();
                         }
                     }
                     else
@@ -465,7 +457,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBGrupo.Select();
+                            this.TBEmpaque.Select();
                         }
                     }
                 }
@@ -560,7 +552,7 @@ namespace Presentacion
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
-                    this.TBGrupo.Select();
+                    this.TBEmpaque.Select();
                 }
 
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
@@ -631,16 +623,17 @@ namespace Presentacion
         private void TBGrupo_Enter(object sender, EventArgs e)
         {
             //Se evalua si el campo de texto esta vacio y se espeicifca que es obligatorio en la base de datos
-            if (TBGrupo.Text == Campo)
+            if (TBEmpaque.Text == Campo)
             {
-                this.TBGrupo.BackColor = Color.Azure;
-                this.TBGrupo.ForeColor = Color.FromArgb(0, 0, 0);
-                this.TBGrupo.Clear();
+                this.TBEmpaque.BackColor = Color.Azure;
+                this.TBEmpaque.ForeColor = Color.FromArgb(0, 0, 0);
+                this.TBEmpaque.Clear();
             }
             else
             {
                 //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
-                this.TBGrupo.BackColor = Color.Azure;
+                this.TBEmpaque.BackColor = Color.Azure;
+                this.TBEmpaque.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 
@@ -657,6 +650,7 @@ namespace Presentacion
             {
                 //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
                 this.TBDescripcion.BackColor = Color.Azure;
+                this.TBDescripcion.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 
@@ -672,17 +666,16 @@ namespace Presentacion
 
         private void TBGrupo_Leave(object sender, EventArgs e)
         {
-            if (TBGrupo.Text == string.Empty)
+            if (TBEmpaque.Text == string.Empty)
             {
                 //Color de texboxt cuando este posee el FOCUS Activado
-                this.TBGrupo.BackColor = Color.FromArgb(3, 155, 229);
-                this.TBGrupo.Text = Campo;
-                this.TBGrupo.ForeColor = Color.FromArgb(255, 255, 255);
+                this.TBEmpaque.BackColor = Color.FromArgb(3, 155, 229);
+                this.TBEmpaque.Text = Campo;
+                this.TBEmpaque.ForeColor = Color.FromArgb(255, 255, 255);
             }
-
             else
             {
-                TBGrupo.BackColor = Color.FromArgb(3, 155, 229);
+                this.TBEmpaque.BackColor = Color.FromArgb(3, 155, 229);
             }
         }
 
@@ -695,32 +688,54 @@ namespace Presentacion
                 this.TBDescripcion.Text = Campo;
                 this.TBDescripcion.ForeColor = Color.FromArgb(255, 255, 255);
             }
-
             else
             {
-                TBDescripcion.BackColor = Color.FromArgb(3, 155, 229);
+                this.TBDescripcion.BackColor = Color.FromArgb(3, 155, 229);
             }
         }
 
         private void TBObservacion_Leave(object sender, EventArgs e)
         {
-            if (TBObservacion.Text == string.Empty)
-            {
-                //Color de texboxt cuando este posee el FOCUS Activado
-                this.TBObservacion.BackColor = Color.FromArgb(3, 155, 229);
-                this.TBObservacion.Text = Campo;
-                this.TBObservacion.ForeColor = Color.FromArgb(255, 255, 255);
-            }
-
-            else
-            {
-                TBObservacion.BackColor = Color.FromArgb(3, 155, 229);
-            }
+            this.TBObservacion.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBBuscar_Leave(object sender, EventArgs e)
         {
             this.TBBuscar.BackColor = Color.FromArgb(3, 155, 229);
         }
+
+        private void TBIdempaque_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                DataTable Datos = Negocio.fEmpaque.BuscarExistencia_SQL(this.TBIdempaque.Text);
+                //Evaluamos si  existen los Datos
+                if (Datos.Rows.Count == 0)
+                {
+                    MessageBox.Show("Actualmente no se encuentran registros en la Base de Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    //Captura de Valores en la Base de Datos
+
+                    //Panel Datos Basicos - Llaves Primarias
+                    Empaque = Datos.Rows[0][0].ToString();
+                    Descripcion = Datos.Rows[0][1].ToString();
+                    Observacion = Datos.Rows[0][2].ToString();
+
+                    //Se procede a completar los campos de texto segun las consulta
+                    //Realizada anteriormente en la base de datos
+
+                    this.TBEmpaque.Text = Empaque;
+                    this.TBDescripcion.Text = Descripcion;
+                    this.TBObservacion.Text = Observacion;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
     }
 }
+

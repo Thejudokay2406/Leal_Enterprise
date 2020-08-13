@@ -42,7 +42,7 @@ namespace Presentacion
             {
                 if (TBBuscar.Text != "")
                 {
-                    this.DGFiltro_Resultados.DataSource = fImpuesto.Buscar(this.TBBuscar.Text);
+                    this.DGFiltro_Resultados.DataSource = fImpuesto.Buscar(this.TBBuscar.Text, 1);
                     this.DGFiltro_Resultados.Columns[0].Visible = false;
 
                     lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGFiltro_Resultados.Rows.Count);

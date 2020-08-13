@@ -19,31 +19,15 @@ namespace Presentacion
         private bool Digitar = true;
         public bool Filtro = true;
         private string Campo = "Campo Obligatorio - Leal Enterprise";
-        private string Numerico = "Campo Numerico - Leal Enterprise";
-
 
         //Variable para Captura el Empleado Logueado
         public int Idempleado;
 
         //Variable para Metodo SQL Guardar, Eliminar, Editar, Consultar
-        public string Guardar = "";
-        public string Editar = "";
-        public string Consultar = "";
-        public string Eliminar = "";
-        public string Imprimir = "";
+        public string Guardar, Editar, Consultar, Eliminar, Imprimir = "";
 
         //Parametros para AutoCompletar los Texboxt
 
-        //Panel Datos Basicos
-        public string Idbodega = "";
-        public string Idsucurzal = "";
-        public string Nombre = "";
-        public string Tipo = "";
-        public string Ciudad = "";
-        public string Telefono = "";
-        public string Movil = "";
-        public string Correo = "";
-        public string Responsable = "";
         public frmMarca()
         {
             InitializeComponent();
@@ -86,7 +70,7 @@ namespace Presentacion
         private void Limpiar_Datos()
         {
             //Panel - Datos Basicos
-            this.textBox1.Clear();
+            this.TBCodigo.Clear();
             this.TBNombre.Clear();
             this.TBNombre.Text = Campo;
             this.TBDescripcion.Clear();
@@ -140,23 +124,23 @@ namespace Presentacion
                     
                     if (this.Digitar)
                     {
-                        rptaDatosBasicos = fMarca.Guardar_DatosBasicos(1, this.TBNombre.Text, this.TBDescripcion.Text, this.TBReferencia.Text, this.TBObservacion.Text, 1);
+                        rptaDatosBasicos = fMarca.Guardar_DatosBasicos(1, this.TBCodigo.Text, this.TBNombre.Text, this.TBDescripcion.Text, this.TBReferencia.Text, this.TBObservacion.Text);
                     }
                     else
                     {
-                        rptaDatosBasicos = fMarca.Editar_DatosBasicos(2, Convert.ToInt32(this.TBIdmarca.Text), this.TBNombre.Text, this.TBDescripcion.Text, this.TBReferencia.Text, this.TBObservacion.Text, 1);
+                        rptaDatosBasicos = fMarca.Editar_DatosBasicos(2, Convert.ToInt32(this.TBIdmarca.Text), this.TBCodigo.Text, this.TBNombre.Text, this.TBDescripcion.Text, this.TBReferencia.Text, this.TBObservacion.Text);
                     }
 
                     if (rptaDatosBasicos.Equals("OK"))
                     {
                         if (this.Digitar)
                         {
-                            this.MensajeOk("Registro Exitoso");
+                            this.MensajeOk("Marca: " + this.TBNombre.Text + " a Sido Registrada Exitosamente");
                         }
 
                         else
                         {
-                            this.MensajeOk("Registro Actualizado");
+                            this.MensajeOk("El Registro de la Marca: " + this.TBNombre.Text + " a Sido Actualizado Exitosamente");
                         }
                     }
                     else
@@ -229,6 +213,9 @@ namespace Presentacion
                         this.Limpiar_Datos();
                     }
                 }
+
+                //Focus
+                this.TBNombre.Select();
             }
             catch (Exception ex)
             {
@@ -243,6 +230,8 @@ namespace Presentacion
                 this.Digitar = true;
                 this.Botones();
                 this.Limpiar_Datos();
+
+                this.TBNombre.Focus();
                 this.TBBuscar.Clear();
 
                 //Se Limpian las Filas y Columnas de la tabla
@@ -314,7 +303,7 @@ namespace Presentacion
                     if (TBBuscar.Text != "")
                     {
                         this.DGResultados.DataSource = fMarca.Buscar(this.TBBuscar.Text, 1);
-                        lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGResultados.Rows.Count);
+                        this.lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGResultados.Rows.Count);
 
                         this.btnEliminar.Enabled = true;
                         this.btnImprimir.Enabled = true;
@@ -412,7 +401,7 @@ namespace Presentacion
 
             else
             {
-                this.TBDescripcion.BackColor = Color.FromArgb(0, 0, 0);
+                this.TBDescripcion.ForeColor = Color.FromArgb(0, 0, 0);
                 this.TBDescripcion.BackColor = Color.FromArgb(3, 155, 229);
             }
         }
@@ -896,12 +885,15 @@ namespace Presentacion
         {
             try
             {
-                this.Digitar = false;
-
                 if (Editar == "1")
                 {
                     //
-                    this.TBIdmarca.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells["Codigo"].Value);
+                    this.Digitar = false;
+                    this.Botones();
+
+                    //
+                    this.TBIdmarca.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells["ID"].Value);
+                    this.TBCodigo.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells["Codigo"].Value);
                     this.TBNombre.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells["Marca"].Value);
                     this.TBDescripcion.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells["Descripcion"].Value);
                     this.TBReferencia.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells["Referencia"].Value);
@@ -918,6 +910,44 @@ namespace Presentacion
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void TBIdmarca_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_Enter(object sender, EventArgs e)
+        {
+            //Se evalua si el campo de texto esta vacio y se espeicifca que es obligatorio en la base de datos
+            if (TBCodigo.Text == Campo)
+            {
+                this.TBCodigo.BackColor = Color.Azure;
+                this.TBCodigo.ForeColor = Color.FromArgb(0, 0, 0);
+                this.TBCodigo.Clear();
+            }
+            else
+            {
+                //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
+                this.TBCodigo.BackColor = Color.Azure;
+            }
+        }
+
+        private void TBCodigo_Leave(object sender, EventArgs e)
+        {
+            if (TBCodigo.Text == string.Empty)
+            {
+                //Color de texboxt cuando este posee el FOCUS Activado
+                this.TBCodigo.BackColor = Color.FromArgb(3, 155, 229);
+                this.TBCodigo.Text = Campo;
+                this.TBCodigo.ForeColor = Color.FromArgb(255, 255, 255);
+            }
+
+            else
+            {
+                this.TBCodigo.ForeColor = Color.FromArgb(0, 0, 0);
+                this.TBCodigo.BackColor = Color.FromArgb(3, 155, 229);
             }
         }
     }

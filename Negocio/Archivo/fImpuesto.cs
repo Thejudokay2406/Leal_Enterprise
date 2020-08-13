@@ -18,10 +18,10 @@ namespace Negocio
             return Datos.Lista();
         }
 
-        public static DataTable Buscar(string Filtro)
+        public static DataTable Buscar(string Filtro, int auto)
         {
             Conexion_Impuesto Datos = new Conexion_Impuesto();
-            return Datos.Buscar(Filtro);
+            return Datos.Buscar(Filtro, auto);
         }
 
         public static DataTable BuscarExistencia_SQL(string Filtro)
@@ -37,7 +37,7 @@ namespace Negocio
 
                 //Datos Basicos
                 string impuesto, string valor, string descripcion, string montodecompra,
-                string montodeventa, string montodeservicio, string compra, string venta, string servicio
+                string montodeventa, string montodeservicio, int compra, int venta, int servicio
             )
         {
             Conexion_Impuesto Datos = new Conexion_Impuesto();
@@ -64,7 +64,7 @@ namespace Negocio
 
                 //Datos Basicos
                 string impuesto, string valor, string descripcion, string montodecompra,
-                string montodeventa, string montodeservicio, string compra, string venta, string servicio
+                string montodeventa, string montodeservicio, int compra, int venta, int servicio
             )
         {
             Conexion_Impuesto Datos = new Conexion_Impuesto();

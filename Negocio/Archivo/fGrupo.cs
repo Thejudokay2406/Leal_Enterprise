@@ -30,7 +30,7 @@ namespace Negocio
                 int auto,
 
                 //Datos Basicos
-                string grupo, string descripcion, string observacion, int estado
+                string grupo, string descripcion, string observacion
             )
         {
             Conexion_Grupo Datos = new Conexion_Grupo();
@@ -39,7 +39,6 @@ namespace Negocio
             Obj.Grupo = grupo;
             Obj.Descripcion = descripcion;
             Obj.Observacion = observacion;
-            Obj.Estado = estado;
 
             Obj.Auto = auto;
             return Datos.Guardar_DatosBasicos(Obj);
@@ -51,7 +50,7 @@ namespace Negocio
                 int auto, int idgrupo,
 
                 //Datos Basicos
-                string grupo, string descripcion, string observacion, int estado
+                string grupo, string descripcion, string observacion
             )
         {
             Conexion_Grupo Datos = new Conexion_Grupo();
@@ -61,7 +60,6 @@ namespace Negocio
             Obj.Grupo = grupo;
             Obj.Descripcion = descripcion;
             Obj.Observacion = observacion;
-            Obj.Estado = estado;
 
             Obj.Auto = auto;
             return Datos.Editar_DatosBasicos(Obj);

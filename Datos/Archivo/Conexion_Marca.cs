@@ -90,7 +90,6 @@ namespace Datos
                 Comando.Parameters.Add("@Descripcion", SqlDbType.VarChar).Value = Obj.Descripcion;
                 Comando.Parameters.Add("@Referencia", SqlDbType.VarChar).Value = Obj.Referencia;
                 Comando.Parameters.Add("@Observacion", SqlDbType.VarChar).Value = Obj.Observacion;
-                Comando.Parameters.Add("@Estado", SqlDbType.Int).Value = Obj.Estado;
 
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Realizar el Registro";
@@ -120,14 +119,15 @@ namespace Datos
 
                 //Datos Auxiliares
                 Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Obj.Auto;
+                Comando.Parameters.Add("@Idmarca", SqlDbType.Int).Value = Obj.Idmarca;
 
                 //Panel Datos Basicos
-                Comando.Parameters.Add("@Idmarca", SqlDbType.Int).Value = Obj.Idmarca;
+                Comando.Parameters.Add("@Codigo", SqlDbType.VarChar).Value = Obj.Codigo;
                 Comando.Parameters.Add("@Marca", SqlDbType.VarChar).Value = Obj.Marca;
                 Comando.Parameters.Add("@Descripcion", SqlDbType.VarChar).Value = Obj.Descripcion;
                 Comando.Parameters.Add("@Referencia", SqlDbType.VarChar).Value = Obj.Referencia;
                 Comando.Parameters.Add("@Observacion", SqlDbType.VarChar).Value = Obj.Observacion;
-                Comando.Parameters.Add("@Estado", SqlDbType.Int).Value = Obj.Estado;
+
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Actualizar el Registro";
             }

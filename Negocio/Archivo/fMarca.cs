@@ -30,21 +30,18 @@ namespace Negocio
                 int auto,
 
                 //Datos Basicos
-                string marca, string descripcion, string referencia, string observacion,
-                
-                //
-                int estado
+                string codigo, string marca, string descripcion, string referencia, string observacion
             )
         {
             Conexion_Marca Datos = new Conexion_Marca();
             Entidad_Marca Obj = new Entidad_Marca();
 
             //Datos Basicos
+            Obj.Codigo = codigo;
             Obj.Marca = marca;
             Obj.Descripcion = descripcion;
             Obj.Referencia = referencia;
             Obj.Observacion = observacion;
-            Obj.Estado = estado;
 
             Obj.Auto = auto;
             return Datos.Guardar_DatosBasicos(Obj);
@@ -56,10 +53,7 @@ namespace Negocio
                 int auto, int idmarca,
 
                 //Datos Basicos
-                string marca, string descripcion, string referencia, string observacion,
-
-                //
-                int estado
+                string codigo, string marca, string descripcion, string referencia, string observacion
             )
         {
             Conexion_Marca Datos = new Conexion_Marca();
@@ -69,11 +63,11 @@ namespace Negocio
             Obj.Idmarca = idmarca;
 
             //Datos Basicos
+            Obj.Codigo = codigo;
             Obj.Marca = marca;
             Obj.Descripcion = descripcion;
             Obj.Referencia = referencia;
             Obj.Observacion = observacion;
-            Obj.Estado = estado;
 
             Obj.Auto = auto;
             return Datos.Editar_DatosBasicos(Obj);
