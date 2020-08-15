@@ -12,18 +12,13 @@ using Negocio;
 
 namespace Presentacion
 {
-    public partial class frmFiltro_Impuestos : Form
+    public partial class frmFiltro_Impuesto : Form
     {
-        public frmFiltro_Impuestos()
+        public frmFiltro_Impuesto()
         {
             InitializeComponent();
         }
 
-        private void frmFiltro_Impuestos_Load(object sender, EventArgs e)
-        {
-
-        }
-        
         //Mensaje de confirmacion
         private void MensajeOk(string mensaje)
         {
@@ -36,6 +31,11 @@ namespace Presentacion
             MessageBox.Show(mensaje, "Leal Enterprise - Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
+        private void frmFiltro_Impuesto_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void TBBuscar_TextChanged(object sender, EventArgs e)
         {
             try
@@ -43,10 +43,13 @@ namespace Presentacion
                 if (TBBuscar.Text != "")
                 {
                     this.DGFiltro_Resultados.DataSource = fImpuesto.Buscar(this.TBBuscar.Text, 1);
-                    this.DGFiltro_Resultados.Columns[0].Visible = false;
+                    //this.DGFiltro_Resultados.Columns[0].Visible = false;
 
                     lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGFiltro_Resultados.Rows.Count);
                     this.DGFiltro_Resultados.Enabled = true;
+
+                    this.DGFiltro_Resultados.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    this.DGFiltro_Resultados.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 }
                 else
                 {
@@ -68,15 +71,16 @@ namespace Presentacion
         {
             try
             {
-                frmProductos frmPro = frmProductos.GetInstancia();
-                if (frmPro.Examinar)
-                {
-                    string impuesto;
-                    impuesto = this.DGFiltro_Resultados.CurrentRow.Cells["Impuesto"].Value.ToString();
-                    frmPro.setImpuesto(impuesto);
-                    this.Hide();
-                }
+                string idimpuesto, impuesto, valor, descripcion;
 
+                frmProductos frmPro = frmProductos.GetInstancia();
+
+                idimpuesto = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
+                impuesto = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
+                valor = this.DGFiltro_Resultados.CurrentRow.Cells[2].Value.ToString();
+                descripcion = this.DGFiltro_Resultados.CurrentRow.Cells[3].Value.ToString();
+                frmPro.setImpuesto(idimpuesto, impuesto, valor, descripcion);
+                this.Hide();
             }
             catch (Exception ex)
             {

@@ -499,7 +499,7 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Productos.Ubicaciones", SqlCon);
+                SqlCommand Comando = new SqlCommand("Productos.Detalles_Adicional", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Datos Auxiliares
@@ -511,6 +511,43 @@ namespace Datos
                 Comando.Parameters.Add("@Ubicacion_Edi", SqlDbType.VarChar).Value = Obj.Ubicacion;
                 Comando.Parameters.Add("@Estante_Edi", SqlDbType.VarChar).Value = Obj.Estante;
                 Comando.Parameters.Add("@Nivel_Edi", SqlDbType.VarChar).Value = Obj.Nivel;             
+
+                SqlCon.Open();
+                Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Realizar el Registro";
+            }
+            catch (Exception ex)
+            {
+                Rpta = ex.Message;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open)
+                {
+                    SqlCon.Close();
+                }
+            }
+            return Rpta;
+        }
+
+        public string Guardar_Impuestos(Entidad_Productos Obj)
+        {
+            string Rpta = "";
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
+                SqlCommand Comando = new SqlCommand("Productos.Detalles_Adicional", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
+
+                //Datos Auxiliares
+                Comando.Parameters.Add("@Auto_Impuesto", SqlDbType.Int).Value = Obj.AutoDet_Impuesto;
+
+                //Panel Ubicaciones -- Campos Obligatorios
+                Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = Obj.Idproducto;
+                Comando.Parameters.Add("@Idimpuesto", SqlDbType.Int).Value = Obj.Idimpueto;
+                Comando.Parameters.Add("@Impuesto_Edi", SqlDbType.VarChar).Value = Obj.Impuesto;
+                Comando.Parameters.Add("@Valor_Edi", SqlDbType.VarChar).Value = Obj.Impuesto_Valor;
+                Comando.Parameters.Add("@DescripcionImpu_Edi", SqlDbType.VarChar).Value = Obj.Impuesto_Descripcion;
 
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Realizar el Registro";

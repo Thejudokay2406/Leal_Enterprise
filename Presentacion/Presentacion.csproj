@@ -168,11 +168,23 @@
     <Compile Include="Archivo\frmMateriales.Designer.cs">
       <DependentUpon>frmMateriales.cs</DependentUpon>
     </Compile>
-    <Compile Include="Filtros_Secundario\frmAgregar_UbicacionProductos.cs">
+    <Compile Include="Filtros_Secundario\frmAgregar_ProductosUbicacion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Filtros_Secundario\frmAgregar_UbicacionProductos.Designer.cs">
-      <DependentUpon>frmAgregar_UbicacionProductos.cs</DependentUpon>
+    <Compile Include="Filtros_Secundario\frmAgregar_ProductosUbicacion.Designer.cs">
+      <DependentUpon>frmAgregar_ProductosUbicacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Filtros\frmFiltro_Impuesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Filtros\frmFiltro_Impuesto.Designer.cs">
+      <DependentUpon>frmFiltro_Impuesto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Filtros_Secundario\frmAgregar_ProductosImpuestos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Filtros_Secundario\frmAgregar_ProductosImpuestos.Designer.cs">
+      <DependentUpon>frmAgregar_ProductosImpuestos.cs</DependentUpon>
     </Compile>
     <Compile Include="Sistema\frmUsuario.cs">
       <SubType>Form</SubType>
@@ -233,12 +245,6 @@
     </Compile>
     <Compile Include="Filtros\frmFiltro_Proveedor.Designer.cs">
       <DependentUpon>frmFiltro_Proveedor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Filtros\frmFiltro_Impuestos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Filtros\frmFiltro_Impuestos.Designer.cs">
-      <DependentUpon>frmFiltro_Impuestos.cs</DependentUpon>
     </Compile>
     <Compile Include="Sistema\frmEquipos.cs">
       <SubType>Form</SubType>
@@ -362,6 +368,9 @@
     <EmbeddedResource Include="Filtros\frmFiltro_Bodega.resx">
       <DependentUpon>frmFiltro_Bodega.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Filtros_Secundario\frmAgregar_ProductosImpuestos.resx">
+      <DependentUpon>frmAgregar_ProductosImpuestos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Financiera\frmCuentaPorPagar.resx">
       <DependentUpon>frmCuentaPorPagar.cs</DependentUpon>
     </EmbeddedResource>
@@ -380,8 +389,11 @@
     <EmbeddedResource Include="Filtros\frmFiltro_ActualizarPrecios.resx">
       <DependentUpon>frmFiltro_ActualizarPrecios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Filtros_Secundario\frmAgregar_UbicacionProductos.resx">
-      <DependentUpon>frmAgregar_UbicacionProductos.cs</DependentUpon>
+    <EmbeddedResource Include="Filtros_Secundario\frmAgregar_ProductosUbicacion.resx">
+      <DependentUpon>frmAgregar_ProductosUbicacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Filtros\frmFiltro_Impuesto.resx">
+      <DependentUpon>frmFiltro_Impuesto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sistema\frmUsuario.resx">
       <DependentUpon>frmUsuario.cs</DependentUpon>
@@ -406,9 +418,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Filtros\frmFiltro_Proveedor.resx">
       <DependentUpon>frmFiltro_Proveedor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Filtros\frmFiltro_Impuestos.resx">
-      <DependentUpon>frmFiltro_Impuestos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario\frmInventario_Inicial.resx">
       <DependentUpon>frmInventario_Inicial.cs</DependentUpon>

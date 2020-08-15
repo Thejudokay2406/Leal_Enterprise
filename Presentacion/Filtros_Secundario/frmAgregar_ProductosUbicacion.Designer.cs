@@ -1,6 +1,6 @@
 ﻿namespace Presentacion
 {
-    partial class frmAgregar_UbicacionProductos
+    partial class frmAgregar_ProductosUbicacion
     {
         /// <summary>
         /// Required designer variable.
@@ -340,7 +340,7 @@
             this.CBBodega_UB.Sorted = true;
             this.CBBodega_UB.TabIndex = 50;
             // 
-            // frmAgregar_UbicacionProductos
+            // frmAgregar_ProductosUbicacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -351,10 +351,10 @@
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaximizeBox = false;
-            this.Name = "frmAgregar_UbicacionProductos";
+            this.Name = "frmAgregar_ProductosUbicacion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar - Ubicacion de Productos";
-            this.Load += new System.EventHandler(this.frmAgregar_UbicacionProductos_Load);
+            this.Load += new System.EventHandler(this.frmAgregar_ProductosUbicacion_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

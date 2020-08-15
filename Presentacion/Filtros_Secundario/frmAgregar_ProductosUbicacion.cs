@@ -12,14 +12,14 @@ using Negocio;
 
 namespace Presentacion
 {
-    public partial class frmAgregar_UbicacionProductos : Form
+    public partial class frmAgregar_ProductosUbicacion : Form
     {
-        public frmAgregar_UbicacionProductos()
+        public frmAgregar_ProductosUbicacion()
         {
             InitializeComponent();
         }
 
-        private void frmAgregar_UbicacionProductos_Load(object sender, EventArgs e)
+        private void frmAgregar_ProductosUbicacion_Load(object sender, EventArgs e)
         {
             //Inicio de Clases
             this.Habilitar();
@@ -117,7 +117,7 @@ namespace Presentacion
 
                     if (rptaDatosBasicos.Equals("OK"))
                     {
-                        this.MensajeOk("Ubicación del Producto: " + TBNombre_UB.Text + " con Codigo: " + this.TBCodigo_UB.Text + " Registrada Exitosamente");
+                        this.MensajeOk("Ubicación del Producto: " + TBNombre_UB.Text + " con Codigo: " + this.TBCodigo_UB.Text + " A Sido Registrada Exitosamente");
                     }
 
                     else
@@ -159,6 +159,5 @@ namespace Presentacion
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
-
     }
 }

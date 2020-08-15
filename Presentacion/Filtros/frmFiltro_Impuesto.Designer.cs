@@ -1,6 +1,6 @@
 ﻿namespace Presentacion
 {
-    partial class frmFiltro_Impuestos
+    partial class frmFiltro_Impuesto
     {
         /// <summary>
         /// Required designer variable.
@@ -43,12 +43,12 @@
             this.groupBox1.Controls.Add(this.lblTotal);
             this.groupBox1.Controls.Add(this.TBBuscar);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(11, 11);
+            this.groupBox1.Location = new System.Drawing.Point(12, 11);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(611, 322);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Consulta de Impuestos - Leal Enterprise";
+            this.groupBox1.Text = "Consulta de Filtros - Leal Enterprise";
             // 
             // DGFiltro_Resultados
             // 
@@ -76,9 +76,9 @@
             // 
             // TBBuscar
             // 
-            this.TBBuscar.Location = new System.Drawing.Point(135, 20);
+            this.TBBuscar.Location = new System.Drawing.Point(133, 20);
             this.TBBuscar.Name = "TBBuscar";
-            this.TBBuscar.Size = new System.Drawing.Size(470, 21);
+            this.TBBuscar.Size = new System.Drawing.Size(472, 21);
             this.TBBuscar.TabIndex = 1;
             this.TBBuscar.TextChanged += new System.EventHandler(this.TBBuscar_TextChanged);
             // 
@@ -87,11 +87,11 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 15);
+            this.label1.Size = new System.Drawing.Size(99, 15);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Impuesto a Consultar";
+            this.label1.Text = "Filtro a Consultar";
             // 
-            // frmFiltro_Impuestos
+            // frmFiltro_Impuesto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -100,10 +100,10 @@
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaximizeBox = false;
-            this.Name = "frmFiltro_Impuestos";
+            this.Name = "frmFiltro_Impuesto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Filtro de Impuestos - Leal Enterprise";
-            this.Load += new System.EventHandler(this.frmFiltro_Impuestos_Load);
+            this.Text = "Filtro de Impuesto - Leal Enterprise";
+            this.Load += new System.EventHandler(this.frmFiltro_Impuesto_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGFiltro_Resultados)).EndInit();

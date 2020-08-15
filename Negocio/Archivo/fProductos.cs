@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Datos;
 using Entidad;
 using System.Data;
+using System.Security.Cryptography;
 
 namespace Negocio
 {
@@ -436,6 +437,31 @@ namespace Negocio
             Obj.AutoDet_Ubicacion = autodet_ubicacion;
 
             return Datos.Guardar_Ubicacion(Obj);
+        }
+
+        public static string Guardar_Impuesto
+            (
+                //Ubicacion[]
+                int idproducto, int idimpuesto, string impuesto, string valor, string descripcion,
+
+                //Datos Auxiliares
+                int autodet_impuesto
+            )
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            Entidad_Productos Obj = new Entidad_Productos();
+
+            //Ubicacion[]
+            Obj.Idproducto = idproducto;
+            Obj.Idimpueto = idimpuesto;
+            Obj.Impuesto= impuesto;
+            Obj.Impuesto_Descripcion =descripcion;
+            Obj.Impuesto_Valor = valor;
+
+            //Datos Auxiliares
+            Obj.AutoDet_Impuesto = autodet_impuesto;
+
+            return Datos.Guardar_Impuestos(Obj);
         }
 
         public static string Editar_CodigoDeBarra

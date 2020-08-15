@@ -18,6 +18,7 @@ namespace Entidad
         private int _Idgrupo;
         private int _Idtipo;
         private int _Idempaque;
+        private int _Idimpueto;
 
         //Llaves Auxiliares de los Detalles
         private int _Ubicacion_SQL;
@@ -88,6 +89,11 @@ namespace Entidad
         private string _Ubicacion;
         private string _Estante;
         private string _Nivel;
+
+        //Panel Impuesto
+        private string _Impuesto;
+        private string _Impuesto_Descripcion;
+        private string _Impuesto_Valor;
 
         //Panel de Imagenes
         private byte[] _Imagen;
@@ -218,5 +224,9 @@ namespace Entidad
         public int AutoDet_Igualdad { get => _AutoDet_Igualdad; set => _AutoDet_Igualdad = value; }
         public int AutoDet_Impuesto { get => _AutoDet_Impuesto; set => _AutoDet_Impuesto = value; }
         public int Idbodega { get => _Idbodega; set => _Idbodega = value; }
+        public int Idimpueto { get => _Idimpueto; set => _Idimpueto = value; }
+        public string Impuesto { get => _Impuesto; set => _Impuesto = value; }
+        public string Impuesto_Descripcion { get => _Impuesto_Descripcion; set => _Impuesto_Descripcion = value; }
+        public string Impuesto_Valor { get => _Impuesto_Valor; set => _Impuesto_Valor = value; }
     }
 }

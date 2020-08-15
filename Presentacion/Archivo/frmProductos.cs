@@ -91,7 +91,7 @@ namespace Presentacion
 
         //********** Variable para Agregar registros a los multiplex detalles como Ubicacio, Proveedores, Impuestos ETC *********************************************
 
-        private string Pro_Ubicacion = "";
+        private string Imp_Nombre, Imp_Descripcion, Imp_Valor = "";
 
         public frmProductos()
         {
@@ -155,10 +155,6 @@ namespace Presentacion
             this.TBBuscar_Proveedor.ReadOnly = false;
             this.TBBuscar_Proveedor.BackColor = Color.FromArgb(72, 209, 204);
 
-            //Panel Impuesto
-            this.TBBuscar_Impuesto.ReadOnly = false;
-            this.TBBuscar_Impuesto.BackColor = Color.FromArgb(72, 209, 204);
-
             //Panel - Valores
             this.TBCompraPromedio.ReadOnly = false;
             this.TBCompraPromedio.BackColor = Color.FromArgb(3, 155, 229);
@@ -204,10 +200,6 @@ namespace Presentacion
             this.TBBuscar_Igualdad.ReadOnly = false;
             this.TBBuscar_Igualdad.BackColor = Color.FromArgb(3, 155, 229);
 
-            //Panel Impuesto
-            this.TBBuscar_Impuesto.ReadOnly = false;
-            this.TBBuscar_Impuesto.BackColor = Color.FromArgb(3, 155, 229);
-
             //Panel Proveedor
             this.TBBuscar_Proveedor.ReadOnly = false;
             this.TBBuscar_Proveedor.BackColor = Color.FromArgb(3, 155, 229);
@@ -223,6 +215,14 @@ namespace Presentacion
             this.TBEstante.BackColor = Color.FromArgb(3, 155, 229);
             this.TBNivel.ReadOnly = false;
             this.TBNivel.BackColor = Color.FromArgb(3, 155, 229);
+
+            //Panel - Impuestos
+            this.TBImpuesto.Enabled = false;
+            this.TBImpuesto.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBValor_Impuesto.Enabled = false;
+            this.TBValor_Impuesto.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBDescripcion_Impuesto.Enabled = false;
+            this.TBDescripcion_Impuesto.BackColor = Color.FromArgb(72, 209, 204);
 
             //Panel - Lote
             this.TBLotedeingreso.ReadOnly = false;
@@ -268,9 +268,6 @@ namespace Presentacion
             //Panel Proveedor
             this.TBBuscar_Proveedor.Clear();
 
-            //Panel Impuesto
-            this.TBBuscar_Impuesto.Clear();
-
             //Panel - Valores
             this.TBCompraPromedio.Clear();
             this.TBCompraFinal.Clear();
@@ -300,7 +297,10 @@ namespace Presentacion
             this.DGDetalle_Igualdad.DataSource = null;
 
             //Panel Impuesto
-            this.TBBuscar_Impuesto.Clear();
+            this.TBIdimpuesto.Clear();
+            this.TBImpuesto.Clear();
+            this.TBValor_Impuesto.Clear();
+            this.TBDescripcion_Impuesto.Clear();
             this.DGDetalle_Impuesto.DataSource = null;
 
             //Panel Proveedor
@@ -324,6 +324,14 @@ namespace Presentacion
             this.TBLote_Stock.Clear();
             this.DTLote_Vencimiento.Enabled = true;
             this.DGDetalles_Lotes.DataSource = null;
+
+            //Limpieza de Label que cuentan las columnas de los DataGriview
+            this.lblTotal_Codigodebarra.Text = "Datos Registrados: 0";
+            this.lblTotal_Igualdad.Text = "Datos Registrados: 0";
+            this.lblTotal_Impuesto.Text = "Datos Registrados: 0";
+            this.lblTotal_Lotes.Text = "Datos Registrados: 0";
+            this.lblTotal_Proveedor.Text = "Datos Registrados: 0";
+            this.lblTotal_Ubicacion.Text = "Datos Registrados: 0";
 
             this.PB_Imagen.Image = Properties.Resources.Logo_Leal_Enterprise;
 
@@ -387,6 +395,7 @@ namespace Presentacion
                 this.CBTipo.DataSource = fTipoDeProducto.Lista();
                 this.CBTipo.ValueMember = "Codigo";
                 this.CBTipo.DisplayMember = "Tipo";
+                                
             }
             catch (Exception ex)
             {
@@ -399,30 +408,6 @@ namespace Presentacion
             this.TBIdproveedor.Text = idproveedor;
             this.TBBuscar_Proveedor.Text = proveedor;
         }
-
-        public void setImpuesto(string impuesto)
-        {
-            this.TBBuscar_Impuesto.Text = impuesto;
-            this.TBIdimpuesto.Text = impuesto;
-        }
-
-        //private void Completar_Ubicacion()
-        //{
-        //    frmAgregar_UbicacionProductos frmAU = new frmAgregar_UbicacionProductos();
-
-        //    //Variables Para Los Filtros
-        //    string idproducto_det, codigo, bodega, producto_det, referencia, descripcion, presentacion;
-
-        //    idproducto_det = this.TBIdproducto.Text;
-        //    codigo = this.TBCodigo.Text;
-        //    bodega = this.CBBodega.Text;
-        //    producto_det = this.TBNombre.Text;
-        //    referencia = this.TBReferencia.Text;
-        //    descripcion = this.TBDescripcion01.Text;
-        //    presentacion = this.TBPresentacion.Text;
-        //    frmAU.setProducto_Ubicacion(idproducto_det, codigo, bodega, producto_det, referencia, descripcion, presentacion);
-        //    this.Hide();
-        //}
                 
         private void Validaciones_SQL()
         {
@@ -585,7 +570,8 @@ namespace Presentacion
                 this.DtDetalle_Impuesto.Columns.Add("Idproducto", System.Type.GetType("System.Int32"));
                 this.DtDetalle_Impuesto.Columns.Add("Idimpuesto", System.Type.GetType("System.Int32"));
                 this.DtDetalle_Impuesto.Columns.Add("Impuesto", System.Type.GetType("System.String"));
-                this.DtDetalle_Impuesto.Columns.Add("Valor", System.Type.GetType("System.String"));
+                this.DtDetalle_Impuesto.Columns.Add("Valor", System.Type.GetType("System.Int32"));
+                this.DtDetalle_Impuesto.Columns.Add("Descripcion", System.Type.GetType("System.String"));
                 //Captura de los Datos en las Tablas
                 this.DGDetalle_Impuesto.DataSource = this.DtDetalle_Impuesto;
 
@@ -703,66 +689,6 @@ namespace Presentacion
             }
         }
 
-        public void DetalleIgualdad_SQL(int codigo, int idproducto, string producto, string marca)
-        {
-            try
-            {
-                bool Agregar = true;
-                foreach (DataRow FilaTemporal in DtDetalle_Igualdad.Rows)
-                {
-                    if (Convert.ToInt32(FilaTemporal["Idproducto"]) == idproducto)
-                    {
-                        Agregar = false;
-                        this.MensajeError("El Producto ya se encuentra agregado en la lista.");
-                    }
-                }
-
-                if (Agregar)
-                {
-                    DataRow Fila = DtDetalle_Igualdad.NewRow();
-                    Fila["Idproducto"] = TBIdproducto_AutoSQL.Text;
-                    Fila["Codigo"] = codigo;
-                    Fila["Producto"] = producto;
-                    Fila["Marca"] = marca;
-                    this.DtDetalle_Igualdad.Rows.Add(Fila);                    
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        public void DetalleImpuesto_SQL(int idproducto, int idimpuesto, string impuesto, string valor)
-        {
-            try
-            {
-                bool Agregar = true;
-                foreach (DataRow FilaTemporal in DtDetalle_Impuesto.Rows)
-                {
-                    if (Convert.ToInt32(FilaTemporal["Idimpuesto"]) == idimpuesto)
-                    {
-                        Agregar = false;
-                        this.MensajeError("El Impuesto ya se encuentra agregado en la lista.");
-                    }
-                }
-
-                if (Agregar)
-                {
-                    DataRow Fila = DtDetalle_Impuesto.NewRow();
-                    Fila["Idproducto"] = TBIdproducto_AutoSQL.Text;
-                    Fila["Idimpuesto"] = idimpuesto;
-                    Fila["Impuesto"] = impuesto;
-                    Fila["Valor"] = valor;
-                    this.DtDetalle_Impuesto.Rows.Add(Fila);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
         public void DetalleProveedor_SQL(int idproducto, int idproveedor, string proveedor, string documento)
         {
             try
@@ -818,6 +744,15 @@ namespace Presentacion
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
+        }
+
+
+        public void setImpuesto(string idimpuesto, string impuesto, string valor, string descripcion)
+        {
+            this.TBIdimpuesto.Text = idimpuesto;
+            this.TBImpuesto.Text = impuesto;
+            this.TBValor_Impuesto.Text = valor;
+            this.TBDescripcion_Impuesto.Text = descripcion;
         }
 
         //Mensaje de confirmacion
@@ -1039,6 +974,7 @@ namespace Presentacion
                 this.Digitar = true;
                 this.Botones();
                 this.Limpiar_Datos();
+                this.Diseño_TablasGenerales();
 
                 this.TBBuscar.Clear();
 
@@ -1120,6 +1056,7 @@ namespace Presentacion
                     }
                     else
                     {
+
                         DataRow fila = this.DtDetalle_Ubicacion.NewRow();
                         fila["Idproducto"] = Convert.ToInt32(this.TBIdproducto_AutoSQL.Text);
                         fila["Idbodega"] = Convert.ToInt32(this.CBBodega.SelectedValue);
@@ -1139,7 +1076,7 @@ namespace Presentacion
                 {
                     //SE PROCEDE AGREGAR LOS CAMPOS DE TEXTO DEL FORMULARIO PRINCIPAL AL SECUNDARIO
 
-                    frmAgregar_UbicacionProductos frmAU = new frmAgregar_UbicacionProductos();
+                    frmAgregar_ProductosUbicacion frmAU = new frmAgregar_ProductosUbicacion();
 
                     frmAU.TBIdproducto_UB.Text = TBIdproducto.Text;
                     frmAU.TBCodigo_UB.Text = TBCodigo.Text;
@@ -2796,16 +2733,6 @@ namespace Presentacion
             this.TBBuscar_Proveedor.BackColor = Color.FromArgb(3, 155, 229);
         }
 
-        private void TBBuscar_Impuesto_Enter(object sender, EventArgs e)
-        {
-            this.TBBuscar_Impuesto.BackColor = Color.Azure;
-        }
-
-        private void TBBuscar_Impuesto_Leave(object sender, EventArgs e)
-        {
-            this.TBBuscar_Impuesto.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
         private void TBBuscar_Igualdad_Enter(object sender, EventArgs e)
         {
             this.TBBuscar_Igualdad.BackColor = Color.Azure;
@@ -2861,7 +2788,73 @@ namespace Presentacion
 
         private void btnAgregar_Impuesto_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (Digitar)
+                {
+                    if (this.TBImpuesto.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Impuesto que Desea Agregar");
+                        this.TBImpuesto.Select();
+                    }
+                    else if (this.TBValor_Impuesto.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Valor del Impuesto que Desea Agregar");
+                        this.TBValor_Impuesto.Select();
+                    }
+                    else if (this.TBDescripcion_Impuesto.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique la Descripcion del Impuesto que Desea Agregar");
+                        this.TBDescripcion_Impuesto.Select();
+                    }
+                    else
+                    {
+                        bool agregar = true;
+                        foreach (DataRow Fila in DtDetalle_Impuesto.Rows)
+                        {
+                            if (Convert.ToString(Fila["idimpuesto"]) == TBIdimpuesto.Text)
+                            {
+                                this.MensajeError("El Impuesto que desea agregar ya se encuentra en la lista");
+                            }
+                        }
 
+                        if (agregar)
+                        {
+                            DataRow Fila_Imp = this.DtDetalle_Impuesto.NewRow();
+                            Fila_Imp["Idproducto"] = Convert.ToInt32(this.TBIdproducto_AutoSQL.Text);
+                            Fila_Imp["Idimpuesto"] = Convert.ToInt32(this.TBIdimpuesto.Text);
+                            Fila_Imp["Impuesto"] = this.TBImpuesto.Text;
+                            Fila_Imp["Valor"] = Convert.ToInt32(this.TBValor_Impuesto.Text);
+                            Fila_Imp["Descripcion"] = this.TBDescripcion_Impuesto.Text;
+                            this.DtDetalle_Impuesto.Rows.Add(Fila_Imp);
+
+                            //
+                            this.TBIdimpuesto.Clear();
+                            this.TBImpuesto.Clear();
+                            this.TBValor_Impuesto.Clear();
+                            this.TBDescripcion_Impuesto.Clear();
+                        }
+                    }
+                }
+                //else
+                //{
+                //    //SE PROCEDE AGREGAR LOS CAMPOS DE TEXTO DEL FORMULARIO PRINCIPAL AL SECUNDARIO
+
+                //    frmAgregar_ImpuestosProductos frmAIM = new frmAgregar_ImpuestosProductos();
+
+                //    frmAIM.TBIdproducto_IM.Text = TBIdproducto.Text;
+                //    frmAIM.TBCodigo_IM.Text = TBIdimpuesto.Text;
+                //    frmAIM.TBImpuesto_IM.Text = TBImpuesto.Text;
+                //    frmAIM.TBValor_IM.Text = TBValor_Impuesto.Text;
+                //    frmAIM.TBDescripcion_IM.Text = TBDescripcion_Impuesto.Text;
+
+                //    frmAIM.ShowDialog();
+                //}
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnAgregar_Proveedor_Click(object sender, EventArgs e)
@@ -3104,42 +3097,6 @@ namespace Presentacion
                 //        this.TBBuscar_Igualdad.Clear();
                 //    }
                 //}
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void TBBuscar_Impuesto_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            try
-            {
-                if (e.KeyChar == Convert.ToChar(Keys.Enter))
-                {
-                    DataTable Tabla = new DataTable();
-                    Tabla = fImpuesto.BuscarExistencia_SQL(this.TBIdimpuesto.Text.Trim());
-                    if (Tabla.Rows.Count <= 0)
-                    {
-                        this.MensajeError("El Impuesto el cual desea agregar no se encuentra registrado en su Base de Datos");
-                    }
-                    else
-                    {
-                        this.DetalleImpuesto_SQL
-                            (
-                                Convert.ToInt32(this.TBIdproducto_AutoSQL.Text),
-                                Convert.ToInt32(Tabla.Rows[0][0]),
-                                Convert.ToString(Tabla.Rows[0][1]),
-                                Convert.ToString(Tabla.Rows[0][2])
-                            );
-
-                        lblTotal_Impuesto.Text = "Impuestos Agregados: " + Convert.ToString(DGDetalle_Impuesto.Rows.Count);
-
-                        //Se procede a limpiar los campos de texto utilizados para el Filtro
-
-                        this.TBBuscar_Impuesto.Clear();
-                    }
-                }
             }
             catch (Exception ex)
             {
@@ -5029,12 +4986,6 @@ namespace Presentacion
             frmFiltro_Proveedor.ShowDialog();
         }
 
-        private void btnExaminar_Impuesto_Click(object sender, EventArgs e)
-        {
-            frmFiltro_Impuestos frmFiltro_Impuestos = new frmFiltro_Impuestos();
-            frmFiltro_Impuestos.ShowDialog();
-        }
-
         private void TBValorVenta_SinImpuesto_KeyPress(object sender, KeyPressEventArgs e)
         {
             //Para obligar a que sólo se introduzcan números
@@ -5141,11 +5092,48 @@ namespace Presentacion
             }
         }
 
+        private void btnExaminar_Impuesto_Click(object sender, EventArgs e)
+        {
+            frmFiltro_Impuesto frmFiltro_Impuesto = new frmFiltro_Impuesto();
+            frmFiltro_Impuesto.ShowDialog();
+        }
+
         private void TBIdubicacion_TextChanged(object sender, EventArgs e)
         {
             try
             {
                 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void TBIdimpuesto_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                //DataTable Datos = Negocio.fImpuesto.BuscarExistencia_SQL(this.TBIdimpuesto.Text);
+                ////Evaluamos si  existen los Datos
+                //if (Datos.Rows.Count == 0)
+                //{
+                //    MessageBox.Show("Actualmente no se encuentran registros en la Base de Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //}
+                //else
+                //{
+                //    //Captura de Valores en la Base de Datos
+
+                //    //Panel Datos Basicos - Llaves Primarias
+                //    //Imp_Nombre = Datos.Rows[0][0].ToString();
+                //    Imp_Valor = Datos.Rows[0][0].ToString();
+                //    Imp_Descripcion = Datos.Rows[0][1].ToString();
+
+                //    //Panel Datos Basicos
+                //    this.TBValor_Impuesto.Text = Imp_Valor;
+                //    this.TBDescripcion_Impuesto.Text = Imp_Descripcion;
+                //    //this.TBIdimpuesto.Text = Idimpuesto;+++
+                //}
             }
             catch (Exception ex)
             {
@@ -6318,6 +6306,8 @@ namespace Presentacion
 
                     this.DGDetalle_Impuesto.DataSource = fProductos.Buscar_Impuesto(1, Convert.ToInt32(this.TBIdproducto.Text));
                     lblTotal_Impuesto.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Impuesto.Rows.Count);
+                    this.DGDetalle_Impuesto.Columns[0].Visible = false;
+                    this.DGDetalle_Impuesto.Columns[1].Visible = false;
 
                     this.DGDetalle_Proveedor.DataSource = fProductos.Buscar_Proveedor(1, Convert.ToInt32(this.TBIdproducto.Text));
                     lblTotal_Proveedor.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Proveedor.Rows.Count);

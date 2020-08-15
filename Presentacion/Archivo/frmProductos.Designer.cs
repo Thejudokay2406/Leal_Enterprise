@@ -116,8 +116,6 @@
             this.TBCompraMinima_Cliente = new System.Windows.Forms.TextBox();
             this.label46 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.TBVentaMaxima_Mayorista = new System.Windows.Forms.TextBox();
             this.TBVentaMinima_Mayorista = new System.Windows.Forms.TextBox();
             this.label40 = new System.Windows.Forms.Label();
@@ -126,15 +124,14 @@
             this.TBVentaMinina_Cliente = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.TPImagen = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.PB_Imagen = new System.Windows.Forms.PictureBox();
             this.TPLote = new System.Windows.Forms.TabPage();
             this.TBLote_Venta = new System.Windows.Forms.TextBox();
             this.label50 = new System.Windows.Forms.Label();
-            this.btnEditar_Lote = new System.Windows.Forms.Button();
-            this.btnEliminar_Lote = new System.Windows.Forms.Button();
-            this.btnAgregar_Lote = new System.Windows.Forms.Button();
             this.TBLote_Stock = new System.Windows.Forms.TextBox();
             this.label42 = new System.Windows.Forms.Label();
             this.DTLote_Vencimiento = new System.Windows.Forms.DateTimePicker();
@@ -145,6 +142,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.TBLotedeingreso = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.btnEditar_Lote = new System.Windows.Forms.Button();
+            this.btnEliminar_Lote = new System.Windows.Forms.Button();
+            this.btnAgregar_Lote = new System.Windows.Forms.Button();
             this.TPCodigosdeBarra = new System.Windows.Forms.TabPage();
             this.btnEditar_CodigoDeBarra = new System.Windows.Forms.Button();
             this.TBBuscar_CodigodeBarra = new System.Windows.Forms.TextBox();
@@ -163,13 +163,17 @@
             this.btnEditar_Proveedor = new System.Windows.Forms.Button();
             this.btnExaminar_Proveedor = new System.Windows.Forms.Button();
             this.TPImpuesto = new System.Windows.Forms.TabPage();
+            this.btnExaminar_Impuesto = new System.Windows.Forms.Button();
+            this.TBImpuesto = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.TBDescripcion_Impuesto = new System.Windows.Forms.TextBox();
+            this.TBValor_Impuesto = new System.Windows.Forms.TextBox();
             this.TBIdimpuesto = new System.Windows.Forms.TextBox();
-            this.TBBuscar_Impuesto = new System.Windows.Forms.TextBox();
             this.lblTotal_Impuesto = new System.Windows.Forms.Label();
             this.DGDetalle_Impuesto = new System.Windows.Forms.DataGridView();
             this.label15 = new System.Windows.Forms.Label();
             this.btnAgregar_Impuesto = new System.Windows.Forms.Button();
-            this.btnExaminar_Impuesto = new System.Windows.Forms.Button();
             this.btnEliminar_Impuesto = new System.Windows.Forms.Button();
             this.brnEditar_Impuesto = new System.Windows.Forms.Button();
             this.TPIgualdad = new System.Windows.Forms.TabPage();
@@ -1363,8 +1367,6 @@
             this.TPCantidad.Controls.Add(this.TBCompraMinima_Cliente);
             this.TPCantidad.Controls.Add(this.label46);
             this.TPCantidad.Controls.Add(this.label47);
-            this.TPCantidad.Controls.Add(this.panel3);
-            this.TPCantidad.Controls.Add(this.panel1);
             this.TPCantidad.Controls.Add(this.TBVentaMaxima_Mayorista);
             this.TPCantidad.Controls.Add(this.TBVentaMinima_Mayorista);
             this.TPCantidad.Controls.Add(this.label40);
@@ -1373,6 +1375,8 @@
             this.TPCantidad.Controls.Add(this.TBVentaMinina_Cliente);
             this.TPCantidad.Controls.Add(this.label17);
             this.TPCantidad.Controls.Add(this.label16);
+            this.TPCantidad.Controls.Add(this.panel3);
+            this.TPCantidad.Controls.Add(this.panel1);
             this.TPCantidad.Location = new System.Drawing.Point(4, 44);
             this.TPCantidad.Name = "TPCantidad";
             this.TPCantidad.Size = new System.Drawing.Size(384, 381);
@@ -1488,30 +1492,6 @@
             this.label47.TabIndex = 132;
             this.label47.Text = "Minimo por Cliente";
             // 
-            // panel3
-            // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.BackgroundImage = global::Presentacion.Titulos.Producto___Cantidad_de_Compra;
-            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel3.Location = new System.Drawing.Point(9, 142);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(370, 20);
-            this.panel3.TabIndex = 131;
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackgroundImage = global::Presentacion.Titulos.Producto___Cantidad_de_Venta;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Location = new System.Drawing.Point(9, 8);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(370, 20);
-            this.panel1.TabIndex = 130;
-            // 
             // TBVentaMaxima_Mayorista
             // 
             this.TBVentaMaxima_Mayorista.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -1620,6 +1600,30 @@
             this.label16.TabIndex = 122;
             this.label16.Text = "Minimo por Cliente";
             // 
+            // panel3
+            // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.BackgroundImage = global::Presentacion.Titulos.Producto___Cantidad_de_Compra;
+            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel3.Location = new System.Drawing.Point(9, 142);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(370, 20);
+            this.panel3.TabIndex = 131;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackgroundImage = global::Presentacion.Titulos.Producto___Cantidad_de_Venta;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Location = new System.Drawing.Point(9, 8);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(370, 20);
+            this.panel1.TabIndex = 130;
+            // 
             // TPImagen
             // 
             this.TPImagen.Controls.Add(this.groupBox3);
@@ -1663,9 +1667,6 @@
             // 
             this.TPLote.Controls.Add(this.TBLote_Venta);
             this.TPLote.Controls.Add(this.label50);
-            this.TPLote.Controls.Add(this.btnEditar_Lote);
-            this.TPLote.Controls.Add(this.btnEliminar_Lote);
-            this.TPLote.Controls.Add(this.btnAgregar_Lote);
             this.TPLote.Controls.Add(this.TBLote_Stock);
             this.TPLote.Controls.Add(this.label42);
             this.TPLote.Controls.Add(this.DTLote_Vencimiento);
@@ -1676,6 +1677,9 @@
             this.TPLote.Controls.Add(this.label7);
             this.TPLote.Controls.Add(this.TBLotedeingreso);
             this.TPLote.Controls.Add(this.label12);
+            this.TPLote.Controls.Add(this.btnEditar_Lote);
+            this.TPLote.Controls.Add(this.btnEliminar_Lote);
+            this.TPLote.Controls.Add(this.btnAgregar_Lote);
             this.TPLote.Location = new System.Drawing.Point(4, 44);
             this.TPLote.Name = "TPLote";
             this.TPLote.Padding = new System.Windows.Forms.Padding(3);
@@ -1709,61 +1713,6 @@
             this.label50.Size = new System.Drawing.Size(86, 15);
             this.label50.TabIndex = 65;
             this.label50.Text = "Valor de Venta";
-            // 
-            // btnEditar_Lote
-            // 
-            this.btnEditar_Lote.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEditar_Lote.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditar_Lote.FlatAppearance.BorderSize = 0;
-            this.btnEditar_Lote.Image = global::Presentacion.Botones.btnEditar;
-            this.btnEditar_Lote.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar_Lote.Location = new System.Drawing.Point(288, 345);
-            this.btnEditar_Lote.Name = "btnEditar_Lote";
-            this.btnEditar_Lote.Size = new System.Drawing.Size(90, 30);
-            this.btnEditar_Lote.TabIndex = 64;
-            this.btnEditar_Lote.Text = "Modificar";
-            this.btnEditar_Lote.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEditar_Lote.UseVisualStyleBackColor = true;
-            // 
-            // btnEliminar_Lote
-            // 
-            this.btnEliminar_Lote.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEliminar_Lote.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar_Lote.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnEliminar_Lote.FlatAppearance.BorderSize = 0;
-            this.btnEliminar_Lote.Image = global::Presentacion.Botones.btnEliminar;
-            this.btnEliminar_Lote.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar_Lote.Location = new System.Drawing.Point(192, 345);
-            this.btnEliminar_Lote.Name = "btnEliminar_Lote";
-            this.btnEliminar_Lote.Size = new System.Drawing.Size(90, 30);
-            this.btnEliminar_Lote.TabIndex = 63;
-            this.btnEliminar_Lote.Text = "Eliminar";
-            this.btnEliminar_Lote.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminar_Lote.UseVisualStyleBackColor = true;
-            this.btnEliminar_Lote.Click += new System.EventHandler(this.btnEliminar_Lote_Click);
-            // 
-            // btnAgregar_Lote
-            // 
-            this.btnAgregar_Lote.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAgregar_Lote.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregar_Lote.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnAgregar_Lote.FlatAppearance.BorderSize = 0;
-            this.btnAgregar_Lote.Image = global::Presentacion.Botones.btnAgregar;
-            this.btnAgregar_Lote.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar_Lote.Location = new System.Drawing.Point(96, 345);
-            this.btnAgregar_Lote.Name = "btnAgregar_Lote";
-            this.btnAgregar_Lote.Size = new System.Drawing.Size(90, 30);
-            this.btnAgregar_Lote.TabIndex = 62;
-            this.btnAgregar_Lote.Text = "Agregar";
-            this.btnAgregar_Lote.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAgregar_Lote.UseVisualStyleBackColor = true;
-            this.btnAgregar_Lote.Click += new System.EventHandler(this.btnAgregar_Lote_Click);
             // 
             // TBLote_Stock
             // 
@@ -1896,6 +1845,61 @@
             this.label12.Size = new System.Drawing.Size(81, 15);
             this.label12.TabIndex = 45;
             this.label12.Text = "Lote - Nº Lote";
+            // 
+            // btnEditar_Lote
+            // 
+            this.btnEditar_Lote.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditar_Lote.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditar_Lote.FlatAppearance.BorderSize = 0;
+            this.btnEditar_Lote.Image = global::Presentacion.Botones.btnEditar;
+            this.btnEditar_Lote.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditar_Lote.Location = new System.Drawing.Point(288, 345);
+            this.btnEditar_Lote.Name = "btnEditar_Lote";
+            this.btnEditar_Lote.Size = new System.Drawing.Size(90, 30);
+            this.btnEditar_Lote.TabIndex = 64;
+            this.btnEditar_Lote.Text = "Modificar";
+            this.btnEditar_Lote.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEditar_Lote.UseVisualStyleBackColor = true;
+            // 
+            // btnEliminar_Lote
+            // 
+            this.btnEliminar_Lote.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminar_Lote.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminar_Lote.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnEliminar_Lote.FlatAppearance.BorderSize = 0;
+            this.btnEliminar_Lote.Image = global::Presentacion.Botones.btnEliminar;
+            this.btnEliminar_Lote.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminar_Lote.Location = new System.Drawing.Point(192, 345);
+            this.btnEliminar_Lote.Name = "btnEliminar_Lote";
+            this.btnEliminar_Lote.Size = new System.Drawing.Size(90, 30);
+            this.btnEliminar_Lote.TabIndex = 63;
+            this.btnEliminar_Lote.Text = "Eliminar";
+            this.btnEliminar_Lote.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminar_Lote.UseVisualStyleBackColor = true;
+            this.btnEliminar_Lote.Click += new System.EventHandler(this.btnEliminar_Lote_Click);
+            // 
+            // btnAgregar_Lote
+            // 
+            this.btnAgregar_Lote.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAgregar_Lote.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregar_Lote.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnAgregar_Lote.FlatAppearance.BorderSize = 0;
+            this.btnAgregar_Lote.Image = global::Presentacion.Botones.btnAgregar;
+            this.btnAgregar_Lote.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregar_Lote.Location = new System.Drawing.Point(96, 345);
+            this.btnAgregar_Lote.Name = "btnAgregar_Lote";
+            this.btnAgregar_Lote.Size = new System.Drawing.Size(90, 30);
+            this.btnAgregar_Lote.TabIndex = 62;
+            this.btnAgregar_Lote.Text = "Agregar";
+            this.btnAgregar_Lote.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregar_Lote.UseVisualStyleBackColor = true;
+            this.btnAgregar_Lote.Click += new System.EventHandler(this.btnAgregar_Lote_Click);
             // 
             // TPCodigosdeBarra
             // 
@@ -2175,13 +2179,17 @@
             // 
             // TPImpuesto
             // 
+            this.TPImpuesto.Controls.Add(this.btnExaminar_Impuesto);
+            this.TPImpuesto.Controls.Add(this.TBImpuesto);
+            this.TPImpuesto.Controls.Add(this.label11);
+            this.TPImpuesto.Controls.Add(this.label9);
+            this.TPImpuesto.Controls.Add(this.TBDescripcion_Impuesto);
+            this.TPImpuesto.Controls.Add(this.TBValor_Impuesto);
             this.TPImpuesto.Controls.Add(this.TBIdimpuesto);
-            this.TPImpuesto.Controls.Add(this.TBBuscar_Impuesto);
             this.TPImpuesto.Controls.Add(this.lblTotal_Impuesto);
             this.TPImpuesto.Controls.Add(this.DGDetalle_Impuesto);
             this.TPImpuesto.Controls.Add(this.label15);
             this.TPImpuesto.Controls.Add(this.btnAgregar_Impuesto);
-            this.TPImpuesto.Controls.Add(this.btnExaminar_Impuesto);
             this.TPImpuesto.Controls.Add(this.btnEliminar_Impuesto);
             this.TPImpuesto.Controls.Add(this.brnEditar_Impuesto);
             this.TPImpuesto.Location = new System.Drawing.Point(4, 44);
@@ -2192,6 +2200,68 @@
             this.TPImpuesto.Text = "Impuesto";
             this.TPImpuesto.UseVisualStyleBackColor = true;
             // 
+            // btnExaminar_Impuesto
+            // 
+            this.btnExaminar_Impuesto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExaminar_Impuesto.BackgroundImage = global::Presentacion.Botones.btnExaminar;
+            this.btnExaminar_Impuesto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnExaminar_Impuesto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExaminar_Impuesto.FlatAppearance.BorderSize = 0;
+            this.btnExaminar_Impuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExaminar_Impuesto.Location = new System.Drawing.Point(353, 6);
+            this.btnExaminar_Impuesto.Name = "btnExaminar_Impuesto";
+            this.btnExaminar_Impuesto.Size = new System.Drawing.Size(25, 21);
+            this.btnExaminar_Impuesto.TabIndex = 160;
+            this.btnExaminar_Impuesto.UseVisualStyleBackColor = true;
+            this.btnExaminar_Impuesto.Click += new System.EventHandler(this.btnExaminar_Impuesto_Click);
+            // 
+            // TBImpuesto
+            // 
+            this.TBImpuesto.Location = new System.Drawing.Point(92, 6);
+            this.TBImpuesto.Name = "TBImpuesto";
+            this.TBImpuesto.Size = new System.Drawing.Size(255, 21);
+            this.TBImpuesto.TabIndex = 159;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(6, 65);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(72, 15);
+            this.label11.TabIndex = 158;
+            this.label11.Text = "Descripcion";
+            // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 38);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(76, 15);
+            this.label9.TabIndex = 157;
+            this.label9.Text = "Valor Impue.";
+            // 
+            // TBDescripcion_Impuesto
+            // 
+            this.TBDescripcion_Impuesto.Location = new System.Drawing.Point(92, 62);
+            this.TBDescripcion_Impuesto.Name = "TBDescripcion_Impuesto";
+            this.TBDescripcion_Impuesto.Size = new System.Drawing.Size(286, 21);
+            this.TBDescripcion_Impuesto.TabIndex = 156;
+            // 
+            // TBValor_Impuesto
+            // 
+            this.TBValor_Impuesto.Location = new System.Drawing.Point(92, 35);
+            this.TBValor_Impuesto.Name = "TBValor_Impuesto";
+            this.TBValor_Impuesto.Size = new System.Drawing.Size(286, 21);
+            this.TBValor_Impuesto.TabIndex = 155;
+            // 
             // TBIdimpuesto
             // 
             this.TBIdimpuesto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -2199,22 +2269,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TBIdimpuesto.Location = new System.Drawing.Point(10, 350);
             this.TBIdimpuesto.Name = "TBIdimpuesto";
-            this.TBIdimpuesto.Size = new System.Drawing.Size(21, 21);
+            this.TBIdimpuesto.Size = new System.Drawing.Size(80, 21);
             this.TBIdimpuesto.TabIndex = 14;
-            // 
-            // TBBuscar_Impuesto
-            // 
-            this.TBBuscar_Impuesto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBBuscar_Impuesto.Location = new System.Drawing.Point(71, 6);
-            this.TBBuscar_Impuesto.Name = "TBBuscar_Impuesto";
-            this.TBBuscar_Impuesto.Size = new System.Drawing.Size(276, 21);
-            this.TBBuscar_Impuesto.TabIndex = 150;
-            this.TBBuscar_Impuesto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TBBuscar_Impuesto.Enter += new System.EventHandler(this.TBBuscar_Impuesto_Enter);
-            this.TBBuscar_Impuesto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBBuscar_Impuesto_KeyPress);
-            this.TBBuscar_Impuesto.Leave += new System.EventHandler(this.TBBuscar_Impuesto_Leave);
+            this.TBIdimpuesto.TextChanged += new System.EventHandler(this.TBIdimpuesto_TextChanged);
             // 
             // lblTotal_Impuesto
             // 
@@ -2222,7 +2279,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTotal_Impuesto.AutoSize = true;
-            this.lblTotal_Impuesto.Location = new System.Drawing.Point(7, 30);
+            this.lblTotal_Impuesto.Location = new System.Drawing.Point(7, 86);
             this.lblTotal_Impuesto.Name = "lblTotal_Impuesto";
             this.lblTotal_Impuesto.Size = new System.Drawing.Size(31, 15);
             this.lblTotal_Impuesto.TabIndex = 15;
@@ -2239,12 +2296,12 @@
             this.DGDetalle_Impuesto.BackgroundColor = System.Drawing.Color.White;
             this.DGDetalle_Impuesto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGDetalle_Impuesto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.DGDetalle_Impuesto.Location = new System.Drawing.Point(6, 48);
+            this.DGDetalle_Impuesto.Location = new System.Drawing.Point(6, 104);
             this.DGDetalle_Impuesto.Name = "DGDetalle_Impuesto";
             this.DGDetalle_Impuesto.ReadOnly = true;
             this.DGDetalle_Impuesto.RowHeadersVisible = false;
             this.DGDetalle_Impuesto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGDetalle_Impuesto.Size = new System.Drawing.Size(372, 291);
+            this.DGDetalle_Impuesto.Size = new System.Drawing.Size(372, 235);
             this.DGDetalle_Impuesto.TabIndex = 134;
             // 
             // label15
@@ -2253,7 +2310,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(7, 9);
+            this.label15.Location = new System.Drawing.Point(6, 9);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(58, 15);
             this.label15.TabIndex = 131;
@@ -2277,23 +2334,6 @@
             this.btnAgregar_Impuesto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregar_Impuesto.UseVisualStyleBackColor = true;
             this.btnAgregar_Impuesto.Click += new System.EventHandler(this.btnAgregar_Impuesto_Click);
-            // 
-            // btnExaminar_Impuesto
-            // 
-            this.btnExaminar_Impuesto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExaminar_Impuesto.BackgroundImage = global::Presentacion.Botones.btnExaminar;
-            this.btnExaminar_Impuesto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnExaminar_Impuesto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExaminar_Impuesto.FlatAppearance.BorderSize = 0;
-            this.btnExaminar_Impuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExaminar_Impuesto.Location = new System.Drawing.Point(353, 6);
-            this.btnExaminar_Impuesto.Name = "btnExaminar_Impuesto";
-            this.btnExaminar_Impuesto.Size = new System.Drawing.Size(25, 21);
-            this.btnExaminar_Impuesto.TabIndex = 151;
-            this.btnExaminar_Impuesto.UseVisualStyleBackColor = true;
-            this.btnExaminar_Impuesto.Click += new System.EventHandler(this.btnExaminar_Impuesto_Click);
             // 
             // btnEliminar_Impuesto
             // 
@@ -2774,8 +2814,6 @@
         private System.Windows.Forms.Button brnEditar_Impuesto;
         private System.Windows.Forms.DataGridView DGDetalle_Impuesto;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Button btnExaminar_Impuesto;
-        private System.Windows.Forms.TextBox TBBuscar_Impuesto;
         private System.Windows.Forms.TextBox TBComision_Valor;
         private System.Windows.Forms.TextBox TBComision_Porcentaje;
         private System.Windows.Forms.Label label48;
@@ -2832,5 +2870,11 @@
         public System.Windows.Forms.TextBox TBCodigo;
         public System.Windows.Forms.TextBox TBIdproducto;
         private System.Windows.Forms.DataGridView DGDetalles_Ubicacion;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox TBDescripcion_Impuesto;
+        private System.Windows.Forms.TextBox TBValor_Impuesto;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button btnExaminar_Impuesto;
+        private System.Windows.Forms.TextBox TBImpuesto;
     }
 }

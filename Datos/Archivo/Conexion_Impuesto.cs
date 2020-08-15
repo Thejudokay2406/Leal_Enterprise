@@ -143,6 +143,7 @@ namespace Datos
             }
             return Rpta;
         }
+                
         public string Editar_DatosBasicos(Entidad_Impuesto Obj)
         {
             string Rpta = "";
