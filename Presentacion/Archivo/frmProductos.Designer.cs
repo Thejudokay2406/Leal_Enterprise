@@ -142,25 +142,25 @@
             this.label7 = new System.Windows.Forms.Label();
             this.TBLotedeingreso = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.btnEditar_Lote = new System.Windows.Forms.Button();
             this.btnEliminar_Lote = new System.Windows.Forms.Button();
             this.btnAgregar_Lote = new System.Windows.Forms.Button();
             this.TPCodigosdeBarra = new System.Windows.Forms.TabPage();
-            this.btnEditar_CodigoDeBarra = new System.Windows.Forms.Button();
-            this.TBBuscar_CodigodeBarra = new System.Windows.Forms.TextBox();
+            this.TBCodigodeBarra = new System.Windows.Forms.TextBox();
             this.label35 = new System.Windows.Forms.Label();
             this.lblTotal_Codigodebarra = new System.Windows.Forms.Label();
             this.DGDetalle_CodigoDeBarra = new System.Windows.Forms.DataGridView();
             this.btnAgregar_CodigoDeBarra = new System.Windows.Forms.Button();
             this.btnEliminar_CodigosDeBarra = new System.Windows.Forms.Button();
             this.TPProveedor = new System.Windows.Forms.TabPage();
+            this.TBProveedor_Documento = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnAgregar_Proveedor = new System.Windows.Forms.Button();
             this.lblTotal_Proveedor = new System.Windows.Forms.Label();
             this.DGDetalle_Proveedor = new System.Windows.Forms.DataGridView();
-            this.TBBuscar_Proveedor = new System.Windows.Forms.TextBox();
+            this.TBProveedor = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnEliminar_Proveedor = new System.Windows.Forms.Button();
-            this.btnEditar_Proveedor = new System.Windows.Forms.Button();
             this.btnExaminar_Proveedor = new System.Windows.Forms.Button();
             this.TPImpuesto = new System.Windows.Forms.TabPage();
             this.btnExaminar_Impuesto = new System.Windows.Forms.Button();
@@ -175,15 +175,12 @@
             this.label15 = new System.Windows.Forms.Label();
             this.btnAgregar_Impuesto = new System.Windows.Forms.Button();
             this.btnEliminar_Impuesto = new System.Windows.Forms.Button();
-            this.brnEditar_Impuesto = new System.Windows.Forms.Button();
             this.TPIgualdad = new System.Windows.Forms.TabPage();
             this.btnAgregar_Igualdad = new System.Windows.Forms.Button();
             this.btnExaminar_Igualdad = new System.Windows.Forms.Button();
-            this.TBBuscar_Igualdad = new System.Windows.Forms.TextBox();
             this.lblTotal_Igualdad = new System.Windows.Forms.Label();
             this.DGDetalle_Igualdad = new System.Windows.Forms.DataGridView();
             this.label39 = new System.Windows.Forms.Label();
-            this.btnEditar_Igualdad = new System.Windows.Forms.Button();
             this.btnEliminar_Igualdad = new System.Windows.Forms.Button();
             this.TBIdproducto = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -194,6 +191,12 @@
             this.TBBuscar = new System.Windows.Forms.TextBox();
             this.lblTotal = new System.Windows.Forms.Label();
             this.DGResultados = new System.Windows.Forms.DataGridView();
+            this.TBIgualdad_Codigo = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.TBIgualdad_Producto = new System.Windows.Forms.TextBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.TBIgualdad_Marca = new System.Windows.Forms.TextBox();
+            this.TBIdigualdad_Producto = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.TCPrincipal.SuspendLayout();
             this.TPDatosBasicos.SuspendLayout();
@@ -1677,7 +1680,6 @@
             this.TPLote.Controls.Add(this.label7);
             this.TPLote.Controls.Add(this.TBLotedeingreso);
             this.TPLote.Controls.Add(this.label12);
-            this.TPLote.Controls.Add(this.btnEditar_Lote);
             this.TPLote.Controls.Add(this.btnEliminar_Lote);
             this.TPLote.Controls.Add(this.btnAgregar_Lote);
             this.TPLote.Location = new System.Drawing.Point(4, 44);
@@ -1846,23 +1848,6 @@
             this.label12.TabIndex = 45;
             this.label12.Text = "Lote - Nº Lote";
             // 
-            // btnEditar_Lote
-            // 
-            this.btnEditar_Lote.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEditar_Lote.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditar_Lote.FlatAppearance.BorderSize = 0;
-            this.btnEditar_Lote.Image = global::Presentacion.Botones.btnEditar;
-            this.btnEditar_Lote.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar_Lote.Location = new System.Drawing.Point(288, 345);
-            this.btnEditar_Lote.Name = "btnEditar_Lote";
-            this.btnEditar_Lote.Size = new System.Drawing.Size(90, 30);
-            this.btnEditar_Lote.TabIndex = 64;
-            this.btnEditar_Lote.Text = "Modificar";
-            this.btnEditar_Lote.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEditar_Lote.UseVisualStyleBackColor = true;
-            // 
             // btnEliminar_Lote
             // 
             this.btnEliminar_Lote.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -1873,7 +1858,7 @@
             this.btnEliminar_Lote.FlatAppearance.BorderSize = 0;
             this.btnEliminar_Lote.Image = global::Presentacion.Botones.btnEliminar;
             this.btnEliminar_Lote.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar_Lote.Location = new System.Drawing.Point(192, 345);
+            this.btnEliminar_Lote.Location = new System.Drawing.Point(288, 345);
             this.btnEliminar_Lote.Name = "btnEliminar_Lote";
             this.btnEliminar_Lote.Size = new System.Drawing.Size(90, 30);
             this.btnEliminar_Lote.TabIndex = 63;
@@ -1892,7 +1877,7 @@
             this.btnAgregar_Lote.FlatAppearance.BorderSize = 0;
             this.btnAgregar_Lote.Image = global::Presentacion.Botones.btnAgregar;
             this.btnAgregar_Lote.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar_Lote.Location = new System.Drawing.Point(96, 345);
+            this.btnAgregar_Lote.Location = new System.Drawing.Point(192, 345);
             this.btnAgregar_Lote.Name = "btnAgregar_Lote";
             this.btnAgregar_Lote.Size = new System.Drawing.Size(90, 30);
             this.btnAgregar_Lote.TabIndex = 62;
@@ -1903,8 +1888,7 @@
             // 
             // TPCodigosdeBarra
             // 
-            this.TPCodigosdeBarra.Controls.Add(this.btnEditar_CodigoDeBarra);
-            this.TPCodigosdeBarra.Controls.Add(this.TBBuscar_CodigodeBarra);
+            this.TPCodigosdeBarra.Controls.Add(this.TBCodigodeBarra);
             this.TPCodigosdeBarra.Controls.Add(this.label35);
             this.TPCodigosdeBarra.Controls.Add(this.lblTotal_Codigodebarra);
             this.TPCodigosdeBarra.Controls.Add(this.DGDetalle_CodigoDeBarra);
@@ -1918,35 +1902,18 @@
             this.TPCodigosdeBarra.Text = "Cod. de Barra";
             this.TPCodigosdeBarra.UseVisualStyleBackColor = true;
             // 
-            // btnEditar_CodigoDeBarra
+            // TBCodigodeBarra
             // 
-            this.btnEditar_CodigoDeBarra.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TBCodigodeBarra.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEditar_CodigoDeBarra.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditar_CodigoDeBarra.FlatAppearance.BorderSize = 0;
-            this.btnEditar_CodigoDeBarra.Image = global::Presentacion.Botones.btnEditar;
-            this.btnEditar_CodigoDeBarra.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar_CodigoDeBarra.Location = new System.Drawing.Point(288, 345);
-            this.btnEditar_CodigoDeBarra.Name = "btnEditar_CodigoDeBarra";
-            this.btnEditar_CodigoDeBarra.Size = new System.Drawing.Size(90, 30);
-            this.btnEditar_CodigoDeBarra.TabIndex = 137;
-            this.btnEditar_CodigoDeBarra.Text = "Modificar";
-            this.btnEditar_CodigoDeBarra.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEditar_CodigoDeBarra.UseVisualStyleBackColor = true;
-            // 
-            // TBBuscar_CodigodeBarra
-            // 
-            this.TBBuscar_CodigodeBarra.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBBuscar_CodigodeBarra.Location = new System.Drawing.Point(108, 6);
-            this.TBBuscar_CodigodeBarra.Name = "TBBuscar_CodigodeBarra";
-            this.TBBuscar_CodigodeBarra.Size = new System.Drawing.Size(270, 21);
-            this.TBBuscar_CodigodeBarra.TabIndex = 17;
-            this.TBBuscar_CodigodeBarra.Enter += new System.EventHandler(this.TBCodigodeBarra_Enter);
-            this.TBBuscar_CodigodeBarra.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCodigodeBarra_KeyUp);
-            this.TBBuscar_CodigodeBarra.Leave += new System.EventHandler(this.TBCodigodeBarra_Leave);
+            this.TBCodigodeBarra.Location = new System.Drawing.Point(108, 6);
+            this.TBCodigodeBarra.Name = "TBCodigodeBarra";
+            this.TBCodigodeBarra.Size = new System.Drawing.Size(270, 21);
+            this.TBCodigodeBarra.TabIndex = 17;
+            this.TBCodigodeBarra.Enter += new System.EventHandler(this.TBCodigodeBarra_Enter);
+            this.TBCodigodeBarra.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCodigodeBarra_KeyUp);
+            this.TBCodigodeBarra.Leave += new System.EventHandler(this.TBCodigodeBarra_Leave);
             // 
             // label35
             // 
@@ -1978,8 +1945,7 @@
             this.DGDetalle_CodigoDeBarra.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.DGDetalle_CodigoDeBarra.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.DGDetalle_CodigoDeBarra.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.DGDetalle_CodigoDeBarra.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DGDetalle_CodigoDeBarra.BackgroundColor = System.Drawing.Color.White;
             this.DGDetalle_CodigoDeBarra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGDetalle_CodigoDeBarra.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -2002,7 +1968,7 @@
             this.btnAgregar_CodigoDeBarra.FlatAppearance.BorderSize = 0;
             this.btnAgregar_CodigoDeBarra.Image = global::Presentacion.Botones.btnAgregar;
             this.btnAgregar_CodigoDeBarra.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar_CodigoDeBarra.Location = new System.Drawing.Point(96, 345);
+            this.btnAgregar_CodigoDeBarra.Location = new System.Drawing.Point(192, 345);
             this.btnAgregar_CodigoDeBarra.Name = "btnAgregar_CodigoDeBarra";
             this.btnAgregar_CodigoDeBarra.Size = new System.Drawing.Size(90, 30);
             this.btnAgregar_CodigoDeBarra.TabIndex = 15;
@@ -2022,7 +1988,7 @@
             this.btnEliminar_CodigosDeBarra.FlatAppearance.BorderSize = 0;
             this.btnEliminar_CodigosDeBarra.Image = global::Presentacion.Botones.btnEliminar;
             this.btnEliminar_CodigosDeBarra.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar_CodigosDeBarra.Location = new System.Drawing.Point(192, 345);
+            this.btnEliminar_CodigosDeBarra.Location = new System.Drawing.Point(288, 345);
             this.btnEliminar_CodigosDeBarra.Name = "btnEliminar_CodigosDeBarra";
             this.btnEliminar_CodigosDeBarra.Size = new System.Drawing.Size(90, 30);
             this.btnEliminar_CodigosDeBarra.TabIndex = 14;
@@ -2033,13 +1999,15 @@
             // 
             // TPProveedor
             // 
+            this.TPProveedor.Controls.Add(this.TBProveedor_Documento);
+            this.TPProveedor.Controls.Add(this.label28);
+            this.TPProveedor.Controls.Add(this.textBox1);
             this.TPProveedor.Controls.Add(this.btnAgregar_Proveedor);
             this.TPProveedor.Controls.Add(this.lblTotal_Proveedor);
             this.TPProveedor.Controls.Add(this.DGDetalle_Proveedor);
-            this.TPProveedor.Controls.Add(this.TBBuscar_Proveedor);
+            this.TPProveedor.Controls.Add(this.TBProveedor);
             this.TPProveedor.Controls.Add(this.label6);
             this.TPProveedor.Controls.Add(this.btnEliminar_Proveedor);
-            this.TPProveedor.Controls.Add(this.btnEditar_Proveedor);
             this.TPProveedor.Controls.Add(this.btnExaminar_Proveedor);
             this.TPProveedor.Location = new System.Drawing.Point(4, 44);
             this.TPProveedor.Name = "TPProveedor";
@@ -2048,6 +2016,36 @@
             this.TPProveedor.TabIndex = 14;
             this.TPProveedor.Text = "Proveedor";
             this.TPProveedor.UseVisualStyleBackColor = true;
+            // 
+            // TBProveedor_Documento
+            // 
+            this.TBProveedor_Documento.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TBProveedor_Documento.Location = new System.Drawing.Point(84, 33);
+            this.TBProveedor_Documento.Name = "TBProveedor_Documento";
+            this.TBProveedor_Documento.Size = new System.Drawing.Size(294, 21);
+            this.TBProveedor_Documento.TabIndex = 139;
+            this.TBProveedor_Documento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label28
+            // 
+            this.label28.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(7, 36);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(71, 15);
+            this.label28.TabIndex = 138;
+            this.label28.Text = "Documento";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(6, 350);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(32, 21);
+            this.textBox1.TabIndex = 15;
             // 
             // btnAgregar_Proveedor
             // 
@@ -2059,7 +2057,7 @@
             this.btnAgregar_Proveedor.FlatAppearance.BorderSize = 0;
             this.btnAgregar_Proveedor.Image = global::Presentacion.Botones.btnAgregar;
             this.btnAgregar_Proveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar_Proveedor.Location = new System.Drawing.Point(96, 345);
+            this.btnAgregar_Proveedor.Location = new System.Drawing.Point(192, 345);
             this.btnAgregar_Proveedor.Name = "btnAgregar_Proveedor";
             this.btnAgregar_Proveedor.Size = new System.Drawing.Size(90, 30);
             this.btnAgregar_Proveedor.TabIndex = 137;
@@ -2074,7 +2072,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTotal_Proveedor.AutoSize = true;
-            this.lblTotal_Proveedor.Location = new System.Drawing.Point(7, 30);
+            this.lblTotal_Proveedor.Location = new System.Drawing.Point(7, 57);
             this.lblTotal_Proveedor.Name = "lblTotal_Proveedor";
             this.lblTotal_Proveedor.Size = new System.Drawing.Size(31, 15);
             this.lblTotal_Proveedor.TabIndex = 15;
@@ -2091,27 +2089,26 @@
             this.DGDetalle_Proveedor.BackgroundColor = System.Drawing.Color.White;
             this.DGDetalle_Proveedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGDetalle_Proveedor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.DGDetalle_Proveedor.Location = new System.Drawing.Point(6, 48);
+            this.DGDetalle_Proveedor.Location = new System.Drawing.Point(6, 75);
             this.DGDetalle_Proveedor.Name = "DGDetalle_Proveedor";
             this.DGDetalle_Proveedor.ReadOnly = true;
             this.DGDetalle_Proveedor.RowHeadersVisible = false;
             this.DGDetalle_Proveedor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGDetalle_Proveedor.Size = new System.Drawing.Size(372, 291);
+            this.DGDetalle_Proveedor.Size = new System.Drawing.Size(372, 264);
             this.DGDetalle_Proveedor.TabIndex = 134;
             // 
-            // TBBuscar_Proveedor
+            // TBProveedor
             // 
-            this.TBBuscar_Proveedor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TBProveedor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBBuscar_Proveedor.Location = new System.Drawing.Point(76, 6);
-            this.TBBuscar_Proveedor.Name = "TBBuscar_Proveedor";
-            this.TBBuscar_Proveedor.Size = new System.Drawing.Size(271, 21);
-            this.TBBuscar_Proveedor.TabIndex = 132;
-            this.TBBuscar_Proveedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TBBuscar_Proveedor.Enter += new System.EventHandler(this.TBBuscar_Proveedor_Enter);
-            this.TBBuscar_Proveedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBBuscar_Proveedor_KeyPress);
-            this.TBBuscar_Proveedor.Leave += new System.EventHandler(this.TBBuscar_Proveedor_Leave);
+            this.TBProveedor.Location = new System.Drawing.Point(84, 6);
+            this.TBProveedor.Name = "TBProveedor";
+            this.TBProveedor.Size = new System.Drawing.Size(263, 21);
+            this.TBProveedor.TabIndex = 132;
+            this.TBProveedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBProveedor.Enter += new System.EventHandler(this.TBBuscar_Proveedor_Enter);
+            this.TBProveedor.Leave += new System.EventHandler(this.TBBuscar_Proveedor_Leave);
             // 
             // label6
             // 
@@ -2134,7 +2131,7 @@
             this.btnEliminar_Proveedor.FlatAppearance.BorderSize = 0;
             this.btnEliminar_Proveedor.Image = global::Presentacion.Botones.btnEliminar;
             this.btnEliminar_Proveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar_Proveedor.Location = new System.Drawing.Point(192, 345);
+            this.btnEliminar_Proveedor.Location = new System.Drawing.Point(288, 345);
             this.btnEliminar_Proveedor.Name = "btnEliminar_Proveedor";
             this.btnEliminar_Proveedor.Size = new System.Drawing.Size(90, 30);
             this.btnEliminar_Proveedor.TabIndex = 135;
@@ -2142,23 +2139,6 @@
             this.btnEliminar_Proveedor.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminar_Proveedor.UseVisualStyleBackColor = true;
             this.btnEliminar_Proveedor.Click += new System.EventHandler(this.btnEliminar_Proveedor_Click);
-            // 
-            // btnEditar_Proveedor
-            // 
-            this.btnEditar_Proveedor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEditar_Proveedor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditar_Proveedor.FlatAppearance.BorderSize = 0;
-            this.btnEditar_Proveedor.Image = global::Presentacion.Botones.btnEditar;
-            this.btnEditar_Proveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar_Proveedor.Location = new System.Drawing.Point(288, 345);
-            this.btnEditar_Proveedor.Name = "btnEditar_Proveedor";
-            this.btnEditar_Proveedor.Size = new System.Drawing.Size(90, 30);
-            this.btnEditar_Proveedor.TabIndex = 136;
-            this.btnEditar_Proveedor.Text = "Modificar";
-            this.btnEditar_Proveedor.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEditar_Proveedor.UseVisualStyleBackColor = true;
             // 
             // btnExaminar_Proveedor
             // 
@@ -2191,7 +2171,6 @@
             this.TPImpuesto.Controls.Add(this.label15);
             this.TPImpuesto.Controls.Add(this.btnAgregar_Impuesto);
             this.TPImpuesto.Controls.Add(this.btnEliminar_Impuesto);
-            this.TPImpuesto.Controls.Add(this.brnEditar_Impuesto);
             this.TPImpuesto.Location = new System.Drawing.Point(4, 44);
             this.TPImpuesto.Name = "TPImpuesto";
             this.TPImpuesto.Padding = new System.Windows.Forms.Padding(3);
@@ -2326,7 +2305,7 @@
             this.btnAgregar_Impuesto.FlatAppearance.BorderSize = 0;
             this.btnAgregar_Impuesto.Image = global::Presentacion.Botones.btnAgregar;
             this.btnAgregar_Impuesto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar_Impuesto.Location = new System.Drawing.Point(96, 345);
+            this.btnAgregar_Impuesto.Location = new System.Drawing.Point(192, 345);
             this.btnAgregar_Impuesto.Name = "btnAgregar_Impuesto";
             this.btnAgregar_Impuesto.Size = new System.Drawing.Size(90, 30);
             this.btnAgregar_Impuesto.TabIndex = 153;
@@ -2344,7 +2323,7 @@
             this.btnEliminar_Impuesto.FlatAppearance.BorderSize = 0;
             this.btnEliminar_Impuesto.Image = global::Presentacion.Botones.btnEliminar;
             this.btnEliminar_Impuesto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar_Impuesto.Location = new System.Drawing.Point(192, 345);
+            this.btnEliminar_Impuesto.Location = new System.Drawing.Point(288, 345);
             this.btnEliminar_Impuesto.Name = "btnEliminar_Impuesto";
             this.btnEliminar_Impuesto.Size = new System.Drawing.Size(90, 30);
             this.btnEliminar_Impuesto.TabIndex = 135;
@@ -2353,32 +2332,19 @@
             this.btnEliminar_Impuesto.UseVisualStyleBackColor = true;
             this.btnEliminar_Impuesto.Click += new System.EventHandler(this.btnEliminar_Impuesto_Click);
             // 
-            // brnEditar_Impuesto
-            // 
-            this.brnEditar_Impuesto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.brnEditar_Impuesto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.brnEditar_Impuesto.FlatAppearance.BorderSize = 0;
-            this.brnEditar_Impuesto.Image = global::Presentacion.Botones.btnEditar;
-            this.brnEditar_Impuesto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.brnEditar_Impuesto.Location = new System.Drawing.Point(288, 345);
-            this.brnEditar_Impuesto.Name = "brnEditar_Impuesto";
-            this.brnEditar_Impuesto.Size = new System.Drawing.Size(90, 30);
-            this.brnEditar_Impuesto.TabIndex = 136;
-            this.brnEditar_Impuesto.Text = "Modificar";
-            this.brnEditar_Impuesto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.brnEditar_Impuesto.UseVisualStyleBackColor = true;
-            // 
             // TPIgualdad
             // 
+            this.TPIgualdad.Controls.Add(this.TBIdigualdad_Producto);
+            this.TPIgualdad.Controls.Add(this.TBIgualdad_Marca);
+            this.TPIgualdad.Controls.Add(this.TBIgualdad_Producto);
+            this.TPIgualdad.Controls.Add(this.label33);
+            this.TPIgualdad.Controls.Add(this.TBIgualdad_Codigo);
+            this.TPIgualdad.Controls.Add(this.label30);
             this.TPIgualdad.Controls.Add(this.btnAgregar_Igualdad);
             this.TPIgualdad.Controls.Add(this.btnExaminar_Igualdad);
-            this.TPIgualdad.Controls.Add(this.TBBuscar_Igualdad);
             this.TPIgualdad.Controls.Add(this.lblTotal_Igualdad);
             this.TPIgualdad.Controls.Add(this.DGDetalle_Igualdad);
             this.TPIgualdad.Controls.Add(this.label39);
-            this.TPIgualdad.Controls.Add(this.btnEditar_Igualdad);
             this.TPIgualdad.Controls.Add(this.btnEliminar_Igualdad);
             this.TPIgualdad.Location = new System.Drawing.Point(4, 44);
             this.TPIgualdad.Name = "TPIgualdad";
@@ -2397,7 +2363,7 @@
             this.btnAgregar_Igualdad.FlatAppearance.BorderSize = 0;
             this.btnAgregar_Igualdad.Image = global::Presentacion.Botones.btnAgregar;
             this.btnAgregar_Igualdad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar_Igualdad.Location = new System.Drawing.Point(96, 345);
+            this.btnAgregar_Igualdad.Location = new System.Drawing.Point(192, 345);
             this.btnAgregar_Igualdad.Name = "btnAgregar_Igualdad";
             this.btnAgregar_Igualdad.Size = new System.Drawing.Size(90, 30);
             this.btnAgregar_Igualdad.TabIndex = 160;
@@ -2423,27 +2389,13 @@
             this.btnExaminar_Igualdad.UseVisualStyleBackColor = true;
             this.btnExaminar_Igualdad.Click += new System.EventHandler(this.btnExaminar_Igualdad_Click);
             // 
-            // TBBuscar_Igualdad
-            // 
-            this.TBBuscar_Igualdad.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBBuscar_Igualdad.Location = new System.Drawing.Point(65, 6);
-            this.TBBuscar_Igualdad.Name = "TBBuscar_Igualdad";
-            this.TBBuscar_Igualdad.Size = new System.Drawing.Size(282, 21);
-            this.TBBuscar_Igualdad.TabIndex = 158;
-            this.TBBuscar_Igualdad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TBBuscar_Igualdad.Enter += new System.EventHandler(this.TBBuscar_Igualdad_Enter);
-            this.TBBuscar_Igualdad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBBuscar_Igualdad_KeyPress);
-            this.TBBuscar_Igualdad.Leave += new System.EventHandler(this.TBBuscar_Igualdad_Leave);
-            // 
             // lblTotal_Igualdad
             // 
             this.lblTotal_Igualdad.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTotal_Igualdad.AutoSize = true;
-            this.lblTotal_Igualdad.Location = new System.Drawing.Point(3, 30);
+            this.lblTotal_Igualdad.Location = new System.Drawing.Point(3, 84);
             this.lblTotal_Igualdad.Name = "lblTotal_Igualdad";
             this.lblTotal_Igualdad.Size = new System.Drawing.Size(31, 15);
             this.lblTotal_Igualdad.TabIndex = 153;
@@ -2459,12 +2411,12 @@
             this.DGDetalle_Igualdad.BackgroundColor = System.Drawing.Color.White;
             this.DGDetalle_Igualdad.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGDetalle_Igualdad.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.DGDetalle_Igualdad.Location = new System.Drawing.Point(6, 48);
+            this.DGDetalle_Igualdad.Location = new System.Drawing.Point(6, 102);
             this.DGDetalle_Igualdad.Name = "DGDetalle_Igualdad";
             this.DGDetalle_Igualdad.ReadOnly = true;
             this.DGDetalle_Igualdad.RowHeadersVisible = false;
             this.DGDetalle_Igualdad.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGDetalle_Igualdad.Size = new System.Drawing.Size(372, 291);
+            this.DGDetalle_Igualdad.Size = new System.Drawing.Size(372, 237);
             this.DGDetalle_Igualdad.TabIndex = 155;
             // 
             // label39
@@ -2475,27 +2427,9 @@
             this.label39.AutoSize = true;
             this.label39.Location = new System.Drawing.Point(3, 9);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(56, 15);
+            this.label39.Size = new System.Drawing.Size(46, 15);
             this.label39.TabIndex = 154;
-            this.label39.Text = "Producto";
-            // 
-            // btnEditar_Igualdad
-            // 
-            this.btnEditar_Igualdad.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEditar_Igualdad.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditar_Igualdad.FlatAppearance.BorderSize = 0;
-            this.btnEditar_Igualdad.Image = global::Presentacion.Botones.btnEditar;
-            this.btnEditar_Igualdad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar_Igualdad.Location = new System.Drawing.Point(288, 345);
-            this.btnEditar_Igualdad.Name = "btnEditar_Igualdad";
-            this.btnEditar_Igualdad.Size = new System.Drawing.Size(90, 30);
-            this.btnEditar_Igualdad.TabIndex = 156;
-            this.btnEditar_Igualdad.Text = "Modificar";
-            this.btnEditar_Igualdad.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEditar_Igualdad.UseVisualStyleBackColor = true;
-            this.btnEditar_Igualdad.Click += new System.EventHandler(this.btnImprimir_Igualdad_Click);
+            this.label39.Text = "Codigo";
             // 
             // btnEliminar_Igualdad
             // 
@@ -2506,7 +2440,7 @@
             this.btnEliminar_Igualdad.FlatAppearance.BorderSize = 0;
             this.btnEliminar_Igualdad.Image = global::Presentacion.Botones.btnEliminar;
             this.btnEliminar_Igualdad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar_Igualdad.Location = new System.Drawing.Point(192, 345);
+            this.btnEliminar_Igualdad.Location = new System.Drawing.Point(288, 345);
             this.btnEliminar_Igualdad.Name = "btnEliminar_Igualdad";
             this.btnEliminar_Igualdad.Size = new System.Drawing.Size(90, 30);
             this.btnEliminar_Igualdad.TabIndex = 157;
@@ -2655,6 +2589,70 @@
             this.DGResultados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGResultados_CellDoubleClick);
             this.DGResultados.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DGResultados_KeyPress);
             // 
+            // TBIgualdad_Codigo
+            // 
+            this.TBIgualdad_Codigo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TBIgualdad_Codigo.Location = new System.Drawing.Point(65, 6);
+            this.TBIgualdad_Codigo.Name = "TBIgualdad_Codigo";
+            this.TBIgualdad_Codigo.Size = new System.Drawing.Size(282, 21);
+            this.TBIgualdad_Codigo.TabIndex = 162;
+            this.TBIgualdad_Codigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label30
+            // 
+            this.label30.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(3, 36);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(56, 15);
+            this.label30.TabIndex = 161;
+            this.label30.Text = "Producto";
+            // 
+            // TBIgualdad_Producto
+            // 
+            this.TBIgualdad_Producto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TBIgualdad_Producto.Location = new System.Drawing.Point(65, 33);
+            this.TBIgualdad_Producto.Name = "TBIgualdad_Producto";
+            this.TBIgualdad_Producto.Size = new System.Drawing.Size(313, 21);
+            this.TBIgualdad_Producto.TabIndex = 164;
+            this.TBIgualdad_Producto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label33
+            // 
+            this.label33.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(3, 63);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(42, 15);
+            this.label33.TabIndex = 163;
+            this.label33.Text = "Marca";
+            // 
+            // TBIgualdad_Marca
+            // 
+            this.TBIgualdad_Marca.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TBIgualdad_Marca.Location = new System.Drawing.Point(65, 60);
+            this.TBIgualdad_Marca.Name = "TBIgualdad_Marca";
+            this.TBIgualdad_Marca.Size = new System.Drawing.Size(313, 21);
+            this.TBIgualdad_Marca.TabIndex = 166;
+            this.TBIgualdad_Marca.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // TBIdigualdad_Producto
+            // 
+            this.TBIdigualdad_Producto.Location = new System.Drawing.Point(6, 350);
+            this.TBIdigualdad_Producto.Name = "TBIdigualdad_Producto";
+            this.TBIdigualdad_Producto.Size = new System.Drawing.Size(53, 21);
+            this.TBIdigualdad_Producto.TabIndex = 15;
+            // 
             // frmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2788,7 +2786,7 @@
         private System.Windows.Forms.ComboBox CBUnidad;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.TextBox TBBuscar_CodigodeBarra;
+        private System.Windows.Forms.TextBox TBCodigodeBarra;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.DateTimePicker DTLote_Vencimiento;
         private System.Windows.Forms.TextBox TBVentaMayorista;
@@ -2803,15 +2801,13 @@
         private System.Windows.Forms.TabPage TPProveedor;
         private System.Windows.Forms.Label lblTotal_Proveedor;
         private System.Windows.Forms.Button btnEliminar_Proveedor;
-        private System.Windows.Forms.Button btnEditar_Proveedor;
         private System.Windows.Forms.DataGridView DGDetalle_Proveedor;
         private System.Windows.Forms.Button btnExaminar_Proveedor;
-        private System.Windows.Forms.TextBox TBBuscar_Proveedor;
+        private System.Windows.Forms.TextBox TBProveedor;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TabPage TPImpuesto;
         private System.Windows.Forms.Label lblTotal_Impuesto;
         private System.Windows.Forms.Button btnEliminar_Impuesto;
-        private System.Windows.Forms.Button brnEditar_Impuesto;
         private System.Windows.Forms.DataGridView DGDetalle_Impuesto;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox TBComision_Valor;
@@ -2821,17 +2817,13 @@
         private System.Windows.Forms.Button btnEliminar_Lote;
         private System.Windows.Forms.Button btnAgregar_Lote;
         private System.Windows.Forms.Button btnExaminar_Igualdad;
-        private System.Windows.Forms.TextBox TBBuscar_Igualdad;
         private System.Windows.Forms.Label lblTotal_Igualdad;
-        private System.Windows.Forms.Button btnEditar_Igualdad;
         private System.Windows.Forms.Button btnEliminar_Igualdad;
         private System.Windows.Forms.DataGridView DGDetalle_Igualdad;
         private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.Button btnEditar_Lote;
         private System.Windows.Forms.Button btnAgregar_Proveedor;
         private System.Windows.Forms.Button btnAgregar_Impuesto;
         private System.Windows.Forms.Button btnAgregar_Igualdad;
-        private System.Windows.Forms.Button btnEditar_CodigoDeBarra;
         private System.Windows.Forms.TabPage TPCantidad;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel1;
@@ -2876,5 +2868,14 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnExaminar_Impuesto;
         private System.Windows.Forms.TextBox TBImpuesto;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TBProveedor_Documento;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.TextBox TBIgualdad_Codigo;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.TextBox TBIgualdad_Marca;
+        private System.Windows.Forms.TextBox TBIgualdad_Producto;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.TextBox TBIdigualdad_Producto;
     }
 }

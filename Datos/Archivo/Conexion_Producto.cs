@@ -529,6 +529,42 @@ namespace Datos
             return Rpta;
         }
 
+        public string Guardar_Proveedor(Entidad_Productos Obj)
+        {
+            string Rpta = "";
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
+                SqlCommand Comando = new SqlCommand("Productos.Detalles_Adicional", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
+
+                //Datos Auxiliares
+                Comando.Parameters.Add("@Auto_Proveedor", SqlDbType.Int).Value = Obj.AutoDet_Ubicacion;
+
+                //Panel Ubicaciones -- Campos Obligatorios
+                Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = Obj.Idproducto;
+                Comando.Parameters.Add("@Idproveedor", SqlDbType.Int).Value = Obj.Idproveedor;
+                Comando.Parameters.Add("@Proveedor", SqlDbType.VarChar).Value = Obj.Proveedor;
+                Comando.Parameters.Add("@Documento", SqlDbType.VarChar).Value = Obj.Proveedor_Documento;
+
+                SqlCon.Open();
+                Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Realizar el Registro";
+            }
+            catch (Exception ex)
+            {
+                Rpta = ex.Message;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open)
+                {
+                    SqlCon.Close();
+                }
+            }
+            return Rpta;
+        }
+
         public string Guardar_Impuestos(Entidad_Productos Obj)
         {
             string Rpta = "";
@@ -548,6 +584,76 @@ namespace Datos
                 Comando.Parameters.Add("@Impuesto_Edi", SqlDbType.VarChar).Value = Obj.Impuesto;
                 Comando.Parameters.Add("@Valor_Edi", SqlDbType.VarChar).Value = Obj.Impuesto_Valor;
                 Comando.Parameters.Add("@DescripcionImpu_Edi", SqlDbType.VarChar).Value = Obj.Impuesto_Descripcion;
+
+                SqlCon.Open();
+                Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Realizar el Registro";
+            }
+            catch (Exception ex)
+            {
+                Rpta = ex.Message;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open)
+                {
+                    SqlCon.Close();
+                }
+            }
+            return Rpta;
+        }
+
+        public string Guardar_Igualdad(Entidad_Productos Obj)
+        {
+            string Rpta = "";
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
+                SqlCommand Comando = new SqlCommand("Productos.Detalles_Adicional", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
+
+                //Datos Auxiliares
+                Comando.Parameters.Add("@Auto_Igualdad", SqlDbType.Int).Value = Obj.AutoDet_Igualdad;
+
+                //Panel Ubicaciones -- Campos Obligatorios
+                Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = Obj.Idproducto;
+                Comando.Parameters.Add("@CodigoProducto", SqlDbType.VarChar).Value = Obj.Igualdad_Codigo;
+                Comando.Parameters.Add("@Producto", SqlDbType.VarChar).Value = Obj.Igualdad_Producto;
+                Comando.Parameters.Add("@Marca", SqlDbType.VarChar).Value = Obj.Igualdad_Marca;
+
+                SqlCon.Open();
+                Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Realizar el Registro";
+            }
+            catch (Exception ex)
+            {
+                Rpta = ex.Message;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open)
+                {
+                    SqlCon.Close();
+                }
+            }
+            return Rpta;
+        }
+
+        public string Guardar_CodigoDeBarra(Entidad_Productos Obj)
+        {
+            string Rpta = "";
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
+                SqlCommand Comando = new SqlCommand("Productos.Detalles_Adicional", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
+
+                //Datos Auxiliares
+                Comando.Parameters.Add("@Auto_CodigoDeBarra", SqlDbType.Int).Value = Obj.AutoDet_Codigodebarra;
+
+                //Panel Ubicaciones -- Campos Obligatorios
+                Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = Obj.Idproducto;
+                Comando.Parameters.Add("@CodigodeBarra", SqlDbType.VarChar).Value = Obj.CodigoDeBarra;
 
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Realizar el Registro";

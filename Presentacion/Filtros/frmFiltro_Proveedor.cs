@@ -79,8 +79,9 @@ namespace Presentacion
                 if (frmPro.Examinar)
                 {
                     idproveedor = this.DGFiltro_Resultados.CurrentRow.Cells["Codigo"].Value.ToString();
-                    proveedor = this.DGFiltro_Resultados.CurrentRow.Cells["Documento"].Value.ToString();
-                    frmPro.setProveedor(idproveedor, proveedor);
+                    proveedor = this.DGFiltro_Resultados.CurrentRow.Cells["Proveedor"].Value.ToString();
+                    documento = this.DGFiltro_Resultados.CurrentRow.Cells["Documento"].Value.ToString();
+                    frmPro.setProveedor(idproveedor, proveedor, documento);
                     this.Hide();
                 }
 

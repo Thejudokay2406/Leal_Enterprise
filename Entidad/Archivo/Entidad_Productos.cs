@@ -19,6 +19,8 @@ namespace Entidad
         private int _Idtipo;
         private int _Idempaque;
         private int _Idimpueto;
+        private int _Idproveedor;
+        private int _Idcodigodebarra;
 
         //Llaves Auxiliares de los Detalles
         private int _Ubicacion_SQL;
@@ -94,6 +96,19 @@ namespace Entidad
         private string _Impuesto;
         private string _Impuesto_Descripcion;
         private string _Impuesto_Valor;
+
+        //Panel Igualdad
+        private string _Igualdad_Codigo;
+        private string _Igualdad_Producto;
+        private string _Igualdad_Marca;
+
+        //Panel Proveedor
+        private string _Proveedor;
+        private string _Proveedor_Documento;
+
+        //Panel Codigo de Barra
+        private string _CodigoDeBarra;
+        private string _CodigoDeBarra_Codigo;
 
         //Panel de Imagenes
         private byte[] _Imagen;
@@ -228,5 +243,14 @@ namespace Entidad
         public string Impuesto { get => _Impuesto; set => _Impuesto = value; }
         public string Impuesto_Descripcion { get => _Impuesto_Descripcion; set => _Impuesto_Descripcion = value; }
         public string Impuesto_Valor { get => _Impuesto_Valor; set => _Impuesto_Valor = value; }
+        public int Idcodigodebarra { get => _Idcodigodebarra; set => _Idcodigodebarra = value; }
+        public string CodigoDeBarra { get => _CodigoDeBarra; set => _CodigoDeBarra = value; }
+        public string CodigoDeBarra_Codigo { get => _CodigoDeBarra_Codigo; set => _CodigoDeBarra_Codigo = value; }
+        public int Idproveedor { get => _Idproveedor; set => _Idproveedor = value; }
+        public string Proveedor { get => _Proveedor; set => _Proveedor = value; }
+        public string Proveedor_Documento { get => _Proveedor_Documento; set => _Proveedor_Documento = value; }
+        public string Igualdad_Codigo { get => _Igualdad_Codigo; set => _Igualdad_Codigo = value; }
+        public string Igualdad_Producto { get => _Igualdad_Producto; set => _Igualdad_Producto = value; }
+        public string Igualdad_Marca { get => _Igualdad_Marca; set => _Igualdad_Marca = value; }
     }
 }

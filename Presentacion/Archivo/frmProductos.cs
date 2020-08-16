@@ -118,6 +118,7 @@ namespace Presentacion
             this.TBIdimpuesto.Visible = false;
             this.TBIdproveedor.Visible = false;
             this.TBIdproducto_AutoSQL.Visible = false;
+            this.TBIdigualdad_Producto.Visible = false;
 
             //Panel - Cantidades - Otros Datos
             this.CBUnidad.SelectedIndex = 0;
@@ -152,8 +153,8 @@ namespace Presentacion
             this.TBComision_Valor.BackColor = Color.FromArgb(72, 209, 204);
 
             //Panel Proveedor
-            this.TBBuscar_Proveedor.ReadOnly = false;
-            this.TBBuscar_Proveedor.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBProveedor.ReadOnly = false;
+            this.TBProveedor.BackColor = Color.FromArgb(72, 209, 204);
 
             //Panel - Valores
             this.TBCompraPromedio.ReadOnly = false;
@@ -197,16 +198,20 @@ namespace Presentacion
             this.TBCompraMaxima_Mayorista.BackColor = Color.FromArgb(3, 155, 229);
 
             //Panel Igualdad
-            this.TBBuscar_Igualdad.ReadOnly = false;
-            this.TBBuscar_Igualdad.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBIgualdad_Codigo.ReadOnly = false;
+            this.TBIgualdad_Codigo.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBIgualdad_Producto.ReadOnly = false;
+            this.TBIgualdad_Producto.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBIgualdad_Marca.ReadOnly = false;
+            this.TBIgualdad_Marca.BackColor = Color.FromArgb(3, 155, 229);
 
             //Panel Proveedor
-            this.TBBuscar_Proveedor.ReadOnly = false;
-            this.TBBuscar_Proveedor.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBProveedor.ReadOnly = false;
+            this.TBProveedor.BackColor = Color.FromArgb(3, 155, 229);
 
             //Panel Codigo de Barra
-            this.TBBuscar_CodigodeBarra.ReadOnly = false;
-            this.TBBuscar_CodigodeBarra.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBCodigodeBarra.ReadOnly = false;
+            this.TBCodigodeBarra.BackColor = Color.FromArgb(3, 155, 229);
 
             //Panel - Ubicacion
             this.TBUbicacion.ReadOnly = false;
@@ -266,7 +271,7 @@ namespace Presentacion
             this.CBManejaComision.Checked = false;
 
             //Panel Proveedor
-            this.TBBuscar_Proveedor.Clear();
+            this.TBProveedor.Clear();
 
             //Panel - Valores
             this.TBCompraPromedio.Clear();
@@ -293,7 +298,10 @@ namespace Presentacion
             this.TBCompraMaxima_Mayorista.Clear();
 
             //Panel Igualdad
-            this.TBBuscar_Igualdad.Clear();
+            this.TBIgualdad_Codigo.Clear();
+            this.TBIgualdad_Producto.Clear();
+            this.TBIgualdad_Marca.Clear();
+            this.TBIdigualdad_Producto.Clear();
             this.DGDetalle_Igualdad.DataSource = null;
 
             //Panel Impuesto
@@ -304,11 +312,11 @@ namespace Presentacion
             this.DGDetalle_Impuesto.DataSource = null;
 
             //Panel Proveedor
-            this.TBBuscar_Proveedor.Clear();
+            this.TBProveedor.Clear();
             this.DGDetalle_Proveedor.DataSource = null;
 
             //Panel Codigo de Barra
-            this.TBBuscar_CodigodeBarra.Clear();
+            this.TBCodigodeBarra.Clear();
             this.DGDetalle_CodigoDeBarra.DataSource = null;
 
             //Panel - Ubicacion
@@ -349,12 +357,6 @@ namespace Presentacion
 
                 this.btnEliminar.Enabled = false;
                 this.btnCancelar.Enabled = false;
-
-                this.btnEditar_Lote.Enabled = false;
-                this.brnEditar_Impuesto.Enabled = false;
-                this.btnEditar_Igualdad.Enabled = false;
-                this.btnEditar_Proveedor.Enabled = false;
-                this.btnEditar_CodigoDeBarra.Enabled = false;
             }
             else if (!Digitar)
             {
@@ -363,12 +365,6 @@ namespace Presentacion
 
                 this.btnEliminar.Enabled = false;
                 this.btnCancelar.Enabled = true;
-
-                this.btnEditar_Lote.Enabled = true;
-                this.brnEditar_Impuesto.Enabled = true;
-                this.btnEditar_Igualdad.Enabled = true;
-                this.btnEditar_Proveedor.Enabled = true;
-                this.btnEditar_CodigoDeBarra.Enabled = true;
             }
         }
 
@@ -403,10 +399,11 @@ namespace Presentacion
             }
         }
 
-        public void setProveedor(string idproveedor, string proveedor)
+        public void setProveedor(string idproveedor, string proveedor, string documento)
         {
             this.TBIdproveedor.Text = idproveedor;
-            this.TBBuscar_Proveedor.Text = proveedor;
+            this.TBProveedor.Text = proveedor;
+            this.TBProveedor_Documento.Text = documento;
         }
                 
         private void Validaciones_SQL()
@@ -586,7 +583,7 @@ namespace Presentacion
                 
 
                 //Medidas de las Columnas - Codigo de Barra
-                this.DGDetalle_CodigoDeBarra.Columns[0].Width = 370;
+                //this.DGDetalle_CodigoDeBarra.Columns[1].Width = 370;
 
                 this.DGDetalle_Proveedor.Columns[1].Width = 270;
                 this.DGDetalle_Proveedor.Columns[2].Width = 100;
@@ -682,36 +679,6 @@ namespace Presentacion
                 this.DGDetalles_Ubicacion.Columns[0].Visible = false;
                 this.DGDetalles_Ubicacion.Columns[1].Visible = false;
                 this.DGDetalle_CodigoDeBarra.Columns[0].Visible = false;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        public void DetalleProveedor_SQL(int idproducto, int idproveedor, string proveedor, string documento)
-        {
-            try
-            {
-                bool Agregar = true;
-                foreach (DataRow FilaTemporal in DtDetalle_Proveedor.Rows)
-                {
-                    if (Convert.ToInt32(FilaTemporal["Idproveedor"]) == idproveedor)
-                    {
-                        Agregar = false;
-                        this.MensajeError("El Proveedor ya se encuentra agregado en la lista.");
-                    }
-                }
-
-                if (Agregar)
-                {
-                    DataRow Fila = DtDetalle_Proveedor.NewRow();
-                    Fila["Idproducto"] = TBIdproducto_AutoSQL.Text;
-                    Fila["Idproveedor"] = idproveedor;
-                    Fila["Proveedor"] = proveedor;
-                    Fila["Documento"] = documento;
-                    this.DtDetalle_Proveedor.Rows.Add(Fila);
-                }
             }
             catch (Exception ex)
             {
@@ -1074,18 +1041,47 @@ namespace Presentacion
                 }
                 else
                 {
-                    //SE PROCEDE AGREGAR LOS CAMPOS DE TEXTO DEL FORMULARIO PRINCIPAL AL SECUNDARIO
+                    if (this.CBBodega.SelectedIndex == 0)
+                    {
+                        this.MensajeError("Por favor seleccione la Bodega perteneciente a la Ubicación que desea generar");
+                    }
+                    else if (this.TBUbicacion.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique la Ubicación dentro de la Bodega seleccionada");
+                        this.TBUbicacion.Select();
+                    }
+                    else
+                    {
+                        DialogResult result = MessageBox.Show("¿Desea Registrar la Ubicacion del Producto?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
-                    frmAgregar_ProductosUbicacion frmAU = new frmAgregar_ProductosUbicacion();
+                        if (result == DialogResult.Yes)
+                        {
+                            string rptaDatosBasicos = "";
+                            rptaDatosBasicos = fProductos.Guardar_Ubicacion
 
-                    frmAU.TBIdproducto_UB.Text = TBIdproducto.Text;
-                    frmAU.TBCodigo_UB.Text = TBCodigo.Text;
-                    frmAU.TBNombre_UB.Text = TBNombre.Text;
-                    frmAU.TBReferencia_UB.Text = TBReferencia.Text;
-                    frmAU.TBDescripcion_UB.Text = TBDescripcion01.Text;
-                    frmAU.TBPresentacion_UB.Text = TBPresentacion.Text;
+                                    (
+                                         //Datos Basicos
+                                         Convert.ToInt32(this.TBIdproducto.Text), Convert.ToInt32(this.CBBodega.SelectedValue), this.TBUbicacion.Text, this.TBEstante.Text, this.TBNivel.Text,
 
-                    frmAU.ShowDialog();
+                                        //Datos Auxiliares
+                                        1
+                                    );
+
+                            if (rptaDatosBasicos.Equals("OK"))
+                            {
+                                this.MensajeOk("La Ubicación del Producto: " + TBNombre.Text + " con Codigo: " + this.TBCodigo.Text + " a Sido Registrada Exitosamente");
+                            }
+
+                            else
+                            {
+                                this.MensajeError(rptaDatosBasicos);
+                            }
+                        }
+                        else
+                        {
+                            this.TBUbicacion.Select();
+                        }
+                    }
                 }
             }
             catch (Exception ex)
@@ -1150,32 +1146,67 @@ namespace Presentacion
         {
             try
             {
-                if (this.TBBuscar_CodigodeBarra.Text == String.Empty)
+                if (Digitar)
                 {
-                    this.MensajeError("Por favor Especifique el Codigo de Barra que desea agregar");
-                    this.TBBuscar_CodigodeBarra.Select();
-                }
-                
-                else
-                {
-                    bool agregar = true;
-                    foreach (DataRow Fila in DtDetalle_CodigoDeBarra.Rows)
+                    if (this.TBCodigodeBarra.Text == String.Empty)
                     {
-                        if (Convert.ToString(Fila["Codigo de Barra"]) == TBBuscar_CodigodeBarra.Text)
-                        {
-                            this.MensajeError("El Codigo de Barra que desea agregar ya se encuentra en la lista");
-                        }
-                    }
-                    if (agregar)
-                    {
-                        DataRow fila = this.DtDetalle_CodigoDeBarra.NewRow();
-                        fila["Idproducto"] = Convert.ToInt32(this.TBIdproducto_AutoSQL.Text);
-                        fila["Codigo de Barra"] = this.TBBuscar_CodigodeBarra.Text;
-                        this.DtDetalle_CodigoDeBarra.Rows.Add(fila);
+                        this.MensajeError("Por favor Especifique el Codigo de Barra que desea agregar");
+                        this.TBCodigodeBarra.Select();
                     }
 
-                    //
-                    this.TBBuscar_CodigodeBarra.Clear();
+                    else
+                    {
+                        bool agregar = true;
+                        foreach (DataRow Fila in DtDetalle_CodigoDeBarra.Rows)
+                        {
+                            if (Convert.ToString(Fila["Codigo de Barra"]) == TBCodigodeBarra.Text)
+                            {
+                                this.MensajeError("El Codigo de Barra que desea agregar ya se encuentra en la lista");
+                            }
+                        }
+                        if (agregar)
+                        {
+                            DataRow fila = this.DtDetalle_CodigoDeBarra.NewRow();
+                            fila["Idproducto"] = Convert.ToInt32(this.TBIdproducto_AutoSQL.Text);
+                            fila["Codigo de Barra"] = this.TBCodigodeBarra.Text;
+                            this.DtDetalle_CodigoDeBarra.Rows.Add(fila);
+                        }
+
+                        //
+                        this.TBCodigodeBarra.Clear();
+                    }
+                }
+                else
+                {
+                    string rptaDatosBasicos = "";
+
+                    if (this.TBCodigodeBarra.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Codigo de Barra que desea agregar");
+                        this.TBCodigodeBarra.Select();
+                    }
+                    else
+                    {
+                        rptaDatosBasicos = fProductos.Guardar_CodigoDeBarra
+
+                            (
+                                 //Datos Basicos
+                                 Convert.ToInt32(this.TBIdproducto.Text), this.TBCodigodeBarra.Text,
+
+                                //Datos Auxiliares
+                                3
+                            );
+
+                        if (rptaDatosBasicos.Equals("OK"))
+                        {
+                            this.MensajeOk("El Codigo de Barra: " + TBCodigodeBarra.Text + " del Producto: " + this.TBNombre.Text + " a Sido Agregado Exitosamente");
+                        }
+
+                        else
+                        {
+                            this.MensajeError(rptaDatosBasicos);
+                        }
+                    }
                 }
             }
             catch (Exception ex)
@@ -2725,59 +2756,117 @@ namespace Presentacion
 
         private void TBBuscar_Proveedor_Enter(object sender, EventArgs e)
         {
-            this.TBBuscar_Proveedor.BackColor = Color.Azure;
+            this.TBProveedor.BackColor = Color.Azure;
         }
 
         private void TBBuscar_Proveedor_Leave(object sender, EventArgs e)
         {
-            this.TBBuscar_Proveedor.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBBuscar_Igualdad_Enter(object sender, EventArgs e)
-        {
-            this.TBBuscar_Igualdad.BackColor = Color.Azure;
-        }
-
-        private void TBBuscar_Igualdad_Leave(object sender, EventArgs e)
-        {
-            this.TBBuscar_Igualdad.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBProveedor.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void btnAgregar_Igualdad_Click(object sender, EventArgs e)
         {
             try
             {
-                if (this.TBBuscar_Igualdad.Text == String.Empty)
+                if (Digitar)
                 {
-                    this.MensajeError("Por favor Especifique el Producto o Servicio de Igualdad que desea Agregar");
-                    this.TBBuscar_Igualdad.Select();
+                    if (this.TBIgualdad_Producto.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Producto o Servicio de Igualdad que desea Agregar");
+                        this.TBIgualdad_Producto.Select();
+                    }
+                    else
+                    {
+                        bool agregar = true;
+                        foreach (DataRow Fila in DtDetalle_Igualdad.Rows)
+                        {
+                            if (Convert.ToString(Fila["Codigo"]) == TBIdigualdad_Producto.Text)
+                            {
+                                this.MensajeError("El producto o servicio que desea agregar ya se encuentra en la lista");
+                                this.TBIdigualdad_Producto.Clear();
+                            }
+                            else if (Convert.ToString(Fila["Producto"]) == TBIdigualdad_Producto.Text)
+                            {
+                                this.MensajeError("El producto o servicio que desea agregar ya se encuentra en la lista");
+                                this.TBIdigualdad_Producto.Clear();
+                            }
+                        }
+
+                        if (agregar)
+                        {
+                            DataRow fila = this.DtDetalle_Igualdad.NewRow();
+                            fila["Idproducto"] = Convert.ToInt32(this.TBIdproducto.Text);
+                            fila["Codigo"] = this.TBUbicacion.Text;
+                            fila["Producto"] = this.TBEstante.Text;
+                            fila["Marca"] = this.TBNivel.Text;
+                            this.DtDetalle_Igualdad.Rows.Add(fila);
+                        }
+
+                        //
+                        this.TBIgualdad_Producto.Clear();
+                    }
                 }
                 else
                 {
-                    bool agregar = true;
-                    foreach (DataRow Fila in DtDetalle_Igualdad.Rows)
+                    if (this.TBIgualdad_Producto.Text == String.Empty)
                     {
-                        if (Convert.ToString(Fila["Codigo"]) == TBBuscar_Igualdad.Text)
-                        {
-                            this.MensajeError("El producto o servicio que desea agregar ya se encuentra en la lista");
-                        }
-                        else if(Convert.ToString(Fila["Producto"]) == TBBuscar_Igualdad.Text)
-                        {
-                            this.MensajeError("El producto o servicio que desea agregar ya se encuentra en la lista");
-                        }
+                        this.MensajeError("Por favor Especifique el Producto o Servicio de Igualdad que desea Agregar");
+                        this.TBIgualdad_Producto.Select();
                     }
-                    if (agregar)
+                    else
                     {
-                        DataRow fila = this.DtDetalle_Igualdad.NewRow();
-                        fila["Idproducto"] = Convert.ToInt32(this.TBIdproducto.Text);
-                        fila["Codigo"] = this.TBUbicacion.Text;
-                        fila["Producto"] = this.TBEstante.Text;
-                        fila["Marca"] = this.TBNivel.Text;
-                        this.DtDetalle_Igualdad.Rows.Add(fila);
-                    }
+                        foreach (DataRow Fila in DtDetalle_Igualdad.Rows)
+                        {
+                            if (Convert.ToString(Fila["Codigo"]) == TBIgualdad_Producto.Text)
+                            {
+                                this.MensajeError("El producto o servicio que desea agregar ya se encuentra en la lista");
+                                this.TBIgualdad_Producto.Clear();
+                            }
+                            else if (Convert.ToString(Fila["Producto"]) == TBIgualdad_Producto.Text)
+                            {
+                                this.MensajeError("El producto o servicio que desea agregar ya se encuentra en la lista");
+                                this.TBIgualdad_Producto.Clear();
+                            }
+                        }
 
-                    //
-                    this.TBBuscar_Igualdad.Clear();
+                        if (this.TBIgualdad_Producto.Text == String.Empty)
+                        {
+                            this.MensajeError("Por favor Especifique el Producto o Servicio de Igualdad que desea Agregar");
+                            this.TBIgualdad_Producto.Select();
+                        }
+                        else
+                        {
+                            string rptaDatosBasicos = "";
+
+                            DialogResult result = MessageBox.Show("¿Desea Añadir el Producto de Igualdad la Lista del Producto?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                            if (result == DialogResult.Yes)
+                            {
+                                rptaDatosBasicos = fProductos.Guardar_Igualdad
+
+                                (
+                                     //Datos Basicos
+                                     Convert.ToInt32(this.TBIdproducto.Text), this.TBCodigo.Text, this.TBIgualdad_Producto.Text, this.TBIgualdad_Marca.Text,
+                                    //Datos Auxiliares
+                                    5
+                                );
+
+                                if (rptaDatosBasicos.Equals("OK"))
+                                {
+                                    this.MensajeOk("El Producto de Igualdad: " + TBIgualdad_Producto.Text + " a Sido Agregado Exitosamente");
+                                }
+
+                                else
+                                {
+                                    this.MensajeError(rptaDatosBasicos);
+                                }
+                            }
+                            else
+                            {
+                                this.TBImpuesto.Select();
+                            }
+                        }
+                    }
                 }
             }
             catch (Exception ex)
@@ -2802,11 +2891,6 @@ namespace Presentacion
                         this.MensajeError("Por favor Especifique el Valor del Impuesto que Desea Agregar");
                         this.TBValor_Impuesto.Select();
                     }
-                    else if (this.TBDescripcion_Impuesto.Text == String.Empty)
-                    {
-                        this.MensajeError("Por favor Especifique la Descripcion del Impuesto que Desea Agregar");
-                        this.TBDescripcion_Impuesto.Select();
-                    }
                     else
                     {
                         bool agregar = true;
@@ -2815,6 +2899,10 @@ namespace Presentacion
                             if (Convert.ToString(Fila["idimpuesto"]) == TBIdimpuesto.Text)
                             {
                                 this.MensajeError("El Impuesto que desea agregar ya se encuentra en la lista");
+                                this.TBIdimpuesto.Clear();
+                                this.TBImpuesto.Clear();
+                                this.TBValor_Impuesto.Clear();
+                                this.TBDescripcion_Impuesto.Clear();
                             }
                         }
 
@@ -2836,20 +2924,64 @@ namespace Presentacion
                         }
                     }
                 }
-                //else
-                //{
-                //    //SE PROCEDE AGREGAR LOS CAMPOS DE TEXTO DEL FORMULARIO PRINCIPAL AL SECUNDARIO
+                else
+                {
+                    string rptaDatosBasicos = "";
 
-                //    frmAgregar_ImpuestosProductos frmAIM = new frmAgregar_ImpuestosProductos();
+                    if (this.TBImpuesto.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Impuesto que Desea Agregar");
+                        this.TBImpuesto.Select();
+                    }
+                    else if (this.TBValor_Impuesto.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Valor del Impuesto que Desea Agregar");
+                        this.TBValor_Impuesto.Select();
+                    }
+                    else
+                    {
+                        bool agregar = true;
+                        foreach (DataRow Fila in DtDetalle_Impuesto.Rows)
+                        {
+                            if (Convert.ToString(Fila["idimpuesto"]) == TBIdimpuesto.Text)
+                            {
+                                this.MensajeError("El Impuesto que desea agregar ya se encuentra en la lista");
+                                this.TBIdimpuesto.Clear();
+                                this.TBImpuesto.Clear();
+                                this.TBValor_Impuesto.Clear();
+                                this.TBDescripcion_Impuesto.Clear();
+                            }
+                        }
 
-                //    frmAIM.TBIdproducto_IM.Text = TBIdproducto.Text;
-                //    frmAIM.TBCodigo_IM.Text = TBIdimpuesto.Text;
-                //    frmAIM.TBImpuesto_IM.Text = TBImpuesto.Text;
-                //    frmAIM.TBValor_IM.Text = TBValor_Impuesto.Text;
-                //    frmAIM.TBDescripcion_IM.Text = TBDescripcion_Impuesto.Text;
+                        DialogResult result = MessageBox.Show("¿Desea Añadir el Impuesto la Lista del Producto?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
-                //    frmAIM.ShowDialog();
-                //}
+                        if (result == DialogResult.Yes)
+                        {
+                            rptaDatosBasicos = fProductos.Guardar_Impuesto
+
+                            (
+                                 //Datos Basicos
+                                 Convert.ToInt32(this.TBIdproducto.Text), Convert.ToInt32(TBCodigo.Text), this.TBImpuesto.Text, this.TBValor_Impuesto.Text, this.TBDescripcion_Impuesto.Text,
+                                //Datos Auxiliares
+                                2
+                            );
+
+                            if (rptaDatosBasicos.Equals("OK"))
+                            {
+                                this.MensajeOk("El Impueto: " + TBImpuesto.Text + " con Codigo: " + this.TBCodigo.Text + " a Sido Agregado Exitosamente");
+                            }
+
+                            else
+                            {
+                                this.MensajeError(rptaDatosBasicos);
+                            }
+                        }
+                        else
+                        {
+                            this.TBImpuesto.Select();
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -2861,38 +2993,114 @@ namespace Presentacion
         {
             try
             {
-                if (this.TBBuscar_Proveedor.Text == String.Empty)
+                if (Digitar)
                 {
-                    this.MensajeError("Por favor Especifique el Proveedor que desea Agregar");
-                    this.TBBuscar_Proveedor.Select();
+                    if (this.TBProveedor.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Proveedor que desea Agregar");
+                        this.TBProveedor.Select();
+                    }
+                    else if (this.TBProveedor_Documento.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Documento del Proveedor que Desea Agregar");
+                        this.TBProveedor_Documento.Select();
+                    }
+
+                    else
+                    {
+                        bool agregar = true;
+                        foreach (DataRow Fila in DtDetalle_Proveedor.Rows)
+                        {
+                            if (Convert.ToString(Fila["Codigo"]) == TBIgualdad_Producto.Text)
+                            {
+                                this.MensajeError("El producto o servicio que desea agregar ya se encuentra en la lista");
+                            }
+                            else if (Convert.ToString(Fila["Producto"]) == TBIgualdad_Producto.Text)
+                            {
+                                this.MensajeError("El producto o servicio que desea agregar ya se encuentra en la lista");
+                            }
+                        }
+                        if (agregar)
+                        {
+                            DataRow fila = this.DtDetalle_Proveedor.NewRow();
+                            fila["Idproducto"] = Convert.ToInt32(this.TBIdproducto_AutoSQL.Text);
+                            fila["Idproveedor"] = Convert.ToInt32(this.TBIdproveedor.Text);
+                            fila["Proveedor"] = this.TBProveedor.Text;
+                            fila["Documento"] = this.TBProveedor_Documento.Text;
+                            this.DtDetalle_Proveedor.Rows.Add(fila);
+                        }
+
+                        //
+                        this.TBProveedor.Clear();
+                        this.TBProveedor_Documento.Clear();
+                    }
                 }
                 else
                 {
-                    bool agregar = true;
-                    foreach (DataRow Fila in DtDetalle_Proveedor.Rows)
+                    string rptaDatosBasicos = "";
+
+                    // <<<<<<------ Panel Datos Basicos ------>>>>>
+
+                    if (this.TBProveedor.Text == String.Empty)
                     {
-                        if (Convert.ToString(Fila["Codigo"]) == TBBuscar_Igualdad.Text)
-                        {
-                            this.MensajeError("El producto o servicio que desea agregar ya se encuentra en la lista");
-                        }
-                        else if (Convert.ToString(Fila["Producto"]) == TBBuscar_Igualdad.Text)
-                        {
-                            this.MensajeError("El producto o servicio que desea agregar ya se encuentra en la lista");
-                        }
+                        this.MensajeError("Por favor Especifique el Nombre del Proveedor que Desea Agregar");
+                        this.TBProveedor.Select();
                     }
-                    if (agregar)
+                    else if (this.TBProveedor_Documento.Text == String.Empty)
                     {
-                        DataRow fila = this.DtDetalle_Proveedor.NewRow();
-                        fila["Idproducto"] = Convert.ToInt32(this.TBIdproducto_AutoSQL.Text);
-                        fila["Idproveedor"] = Convert.ToInt32(this.TBIdproveedor.Text);
-                        fila["Proveedor"] = this.TBBuscar_Proveedor.Text;
-                        fila["Documento"] = this.TBEstante.Text;
-                        this.DtDetalle_Proveedor.Rows.Add(fila);
+                        this.MensajeError("Por favor Especifique el Documento del Proveedor que Desea Agregar");
+                        this.TBProveedor_Documento.Select();
                     }
 
-                    //
-                    this.TBBuscar_Proveedor.Clear();
+                    else
+                    {
+                        foreach (DataRow Fila in DtDetalle_Proveedor.Rows)
+                        {
+                            if (Convert.ToString(Fila["Idproveedor"]) == TBIdproveedor.Text)
+                            {
+                                this.MensajeError("El Proveedor que desea agregar ya se encuentra en la lista");
+                                this.TBProveedor.Clear();
+                                this.TBProveedor_Documento.Clear();
+                            }
+                            else if (Convert.ToString(Fila["Idproveedor"]) == TBIdproveedor.Text)
+                            {
+                                this.MensajeError("El Proveedor que desea agregar ya se encuentra en la lista");
+                                this.TBProveedor.Clear();
+                                this.TBProveedor_Documento.Clear();
+                            }
+                        }
+
+                        DialogResult result = MessageBox.Show("¿Desea Añadir el Proveedor a la Lista del Producto?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            rptaDatosBasicos = fProductos.Guardar_Proveedor
+
+                                (
+                                     //Datos Basicos
+                                     Convert.ToInt32(this.TBIdproducto.Text), Convert.ToInt32(this.TBIdproveedor.Text), this.TBProveedor.Text, this.TBProveedor_Documento.Text,
+
+                                    //Datos Auxiliares
+                                    4
+                                );
+
+                            if (rptaDatosBasicos.Equals("OK"))
+                            {
+                                this.MensajeOk("El Proveedor: " + this.TBProveedor.Text + " del Producto: " + TBNombre.Text + " con Codigo: " + this.TBCodigo.Text + " A Sido Registrado Exitosamente");
+                            }
+
+                            else
+                            {
+                                this.MensajeError(rptaDatosBasicos);
+                            }
+                        }
+                        else
+                        {
+                            this.TBProveedor.Select();
+                        }
+                    }
                 }
+                
             }
             catch (Exception ex)
             {
@@ -3068,14 +3276,14 @@ namespace Presentacion
             }
         }
 
-        private void TBBuscar_Igualdad_KeyPress(object sender, KeyPressEventArgs e)
+        private void TBIgualdad_Producto_KeyPress(object sender, KeyPressEventArgs e)
         {
             try
             {
                 //if (e.KeyChar == Convert.ToChar(Keys.Enter))
                 //{
                 //    DataTable Tabla = new DataTable();
-                //    Tabla = fProductos.Buscar_Igualdad(this.TBBuscar_Igualdad.Text.Trim());
+                //    Tabla = fProductos.Buscar_Igualdad(this.TBIgualdad_Producto.Text.Trim());
                 //    if (Tabla.Rows.Count <= 0)
                 //    {
                 //        this.MensajeError("El producto el cual desea agregar no se encuentra registrado en su Base de Datos");
@@ -3094,45 +3302,9 @@ namespace Presentacion
 
                 //        //Se procede a limpiar los campos de texto utilizados para el Filtro
 
-                //        this.TBBuscar_Igualdad.Clear();
+                //        this.TBIgualdad_Producto.Clear();
                 //    }
                 //}
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void TBBuscar_Proveedor_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            try
-            {
-                if (e.KeyChar == Convert.ToChar(Keys.Enter))
-                {
-                    DataTable Tabla = new DataTable();
-                    Tabla = fProveedor.BuscarExistencia_SQL(this.TBBuscar_Proveedor.Text.Trim());
-                    if (Tabla.Rows.Count <= 0)
-                    {
-                        this.MensajeError("El producto el cual desea agregar no se encuentra registrado en su Base de Datos");
-                    }
-                    else
-                    {
-                        this.DetalleProveedor_SQL
-                            (
-                                DGDetalle_Proveedor.Rows.Add(TBIdproducto_AutoSQL.Text),
-                                Convert.ToInt32(Tabla.Rows[0][0]),
-                                Convert.ToString(Tabla.Rows[0][1]),
-                                Convert.ToString(Tabla.Rows[0][2])
-                            );
-
-                        lblTotal_Proveedor.Text = "Proveedores Agregados: " + Convert.ToString(DGDetalle_Proveedor.Rows.Count);
-
-                        //Se procede a limpiar los campos de texto utilizados para el Filtro
-
-                        this.TBBuscar_Proveedor.Clear();
-                    }
-                }
             }
             catch (Exception ex)
             {
@@ -5879,10 +6051,10 @@ namespace Presentacion
             {
                 if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
                 {
-                    if (TBBuscar_CodigodeBarra.Text==string.Empty)
+                    if (TBCodigodeBarra.Text==string.Empty)
                     {
                         MensajeError("Por favor digite el Codigo de Barra que desea registrar");
-                        this.TBBuscar_CodigodeBarra.Focus();
+                        this.TBCodigodeBarra.Focus();
                     }
                 }
             }
@@ -5998,12 +6170,12 @@ namespace Presentacion
 
         private void TBCodigodeBarra_Enter(object sender, EventArgs e)
         {
-            this.TBBuscar_CodigodeBarra.BackColor = Color.Azure;
+            this.TBCodigodeBarra.BackColor = Color.Azure;
         }
 
         private void TBCodigodeBarra_Leave(object sender, EventArgs e)
         {
-            this.TBBuscar_CodigodeBarra.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBCodigodeBarra.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void frmProductos_FormClosing(object sender, FormClosingEventArgs e)

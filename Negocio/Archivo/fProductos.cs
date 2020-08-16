@@ -464,6 +464,77 @@ namespace Negocio
             return Datos.Guardar_Impuestos(Obj);
         }
 
+
+        public static string Guardar_Igualdad
+            (
+                //Ubicacion[]
+                int idproducto, string codigo, string producto, string marca,
+
+                //Datos Auxiliares
+                int autodet_igualdad
+            )
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            Entidad_Productos Obj = new Entidad_Productos();
+
+            //Ubicacion[]
+            Obj.Idproducto = idproducto;
+            Obj.Igualdad_Codigo = codigo;
+            Obj.Igualdad_Producto = producto;
+            Obj.Igualdad_Marca = marca;
+
+            //Datos Auxiliares
+            Obj.AutoDet_Igualdad = autodet_igualdad;
+
+            return Datos.Guardar_Igualdad(Obj);
+        }
+
+        public static string Guardar_Proveedor
+            (
+                //Ubicacion[]
+                int idproducto, int idproveedor, string proveedor, string documento,
+
+                //Datos Auxiliares
+                int autodet_proveedor
+            )
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            Entidad_Productos Obj = new Entidad_Productos();
+
+            //Ubicacion[]
+            Obj.Idproducto = idproducto;
+            Obj.Idproveedor = idproveedor;
+            Obj.Proveedor = proveedor;
+            Obj.Proveedor_Documento = documento;
+
+            //Datos Auxiliares
+            Obj.AutoDet_Proveedor = autodet_proveedor;
+
+            return Datos.Guardar_Proveedor(Obj);
+        }
+
+        public static string Guardar_CodigoDeBarra
+            (
+                //Ubicacion[]
+                int idproducto, string codigodebarra,
+
+                //Datos Auxiliares
+                int autodet_codigodebarra
+            )
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            Entidad_Productos Obj = new Entidad_Productos();
+
+            //Ubicacion[]
+            Obj.Idproducto = idproducto;
+            Obj.CodigoDeBarra = codigodebarra;
+
+            //Datos Auxiliares
+            Obj.AutoDet_Codigodebarra = autodet_codigodebarra;
+
+            return Datos.Guardar_CodigoDeBarra(Obj);
+        }
+
         public static string Editar_CodigoDeBarra
             (
                 

@@ -56,7 +56,7 @@
             this.groupBox1.Controls.Add(this.TBUsuario);
             this.groupBox1.Location = new System.Drawing.Point(12, 10);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(344, 300);
+            this.groupBox1.Size = new System.Drawing.Size(541, 218);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Leal Enterprise - Login de Acceso";
@@ -67,7 +67,7 @@
             this.btnCancelar.FlatAppearance.BorderSize = 0;
             this.btnCancelar.Image = global::Presentacion.Botones.btnCancelar;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(188, 207);
+            this.btnCancelar.Location = new System.Drawing.Point(188, 128);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(147, 30);
             this.btnCancelar.TabIndex = 12;
@@ -82,7 +82,7 @@
             this.btnIniciar.FlatAppearance.BorderSize = 0;
             this.btnIniciar.Image = global::Presentacion.Botones.btnGuardar;
             this.btnIniciar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnIniciar.Location = new System.Drawing.Point(6, 207);
+            this.btnIniciar.Location = new System.Drawing.Point(6, 128);
             this.btnIniciar.Name = "btnIniciar";
             this.btnIniciar.Size = new System.Drawing.Size(147, 30);
             this.btnIniciar.TabIndex = 11;
@@ -94,7 +94,7 @@
             // TBCopyrigth
             // 
             this.TBCopyrigth.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TBCopyrigth.Location = new System.Drawing.Point(6, 243);
+            this.TBCopyrigth.Location = new System.Drawing.Point(6, 164);
             this.TBCopyrigth.Multiline = true;
             this.TBCopyrigth.Name = "TBCopyrigth";
             this.TBCopyrigth.Size = new System.Drawing.Size(329, 20);
@@ -105,7 +105,7 @@
             // TBDesarrollo
             // 
             this.TBDesarrollo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TBDesarrollo.Location = new System.Drawing.Point(6, 269);
+            this.TBDesarrollo.Location = new System.Drawing.Point(6, 190);
             this.TBDesarrollo.Multiline = true;
             this.TBDesarrollo.Name = "TBDesarrollo";
             this.TBDesarrollo.Size = new System.Drawing.Size(329, 20);
@@ -119,15 +119,15 @@
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 20);
+            this.pictureBox1.Location = new System.Drawing.Point(341, 20);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(329, 127);
+            this.pictureBox1.Size = new System.Drawing.Size(190, 190);
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
             // TBContraseña
             // 
-            this.TBContraseña.Location = new System.Drawing.Point(85, 180);
+            this.TBContraseña.Location = new System.Drawing.Point(85, 74);
             this.TBContraseña.Name = "TBContraseña";
             this.TBContraseña.PasswordChar = '*';
             this.TBContraseña.Size = new System.Drawing.Size(250, 21);
@@ -140,7 +140,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 180);
+            this.label2.Location = new System.Drawing.Point(9, 74);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 15);
             this.label2.TabIndex = 2;
@@ -149,7 +149,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 153);
+            this.label1.Location = new System.Drawing.Point(9, 47);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 15);
             this.label1.TabIndex = 1;
@@ -157,7 +157,7 @@
             // 
             // TBUsuario
             // 
-            this.TBUsuario.Location = new System.Drawing.Point(85, 153);
+            this.TBUsuario.Location = new System.Drawing.Point(85, 47);
             this.TBUsuario.Name = "TBUsuario";
             this.TBUsuario.Size = new System.Drawing.Size(250, 21);
             this.TBUsuario.TabIndex = 0;
@@ -171,7 +171,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(366, 320);
+            this.ClientSize = new System.Drawing.Size(565, 240);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
