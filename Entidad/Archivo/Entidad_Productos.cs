@@ -102,6 +102,13 @@ namespace Entidad
         private string _Igualdad_Producto;
         private string _Igualdad_Marca;
 
+        //Panel Lotes
+        private string _Lote;
+        private string _Lote_Compra;
+        private string _Lote_Venta;
+        private string _Lote_Cantidad;
+        private DateTime _Lote_Fecha;
+
         //Panel Proveedor
         private string _Proveedor;
         private string _Proveedor_Documento;
@@ -148,13 +155,28 @@ namespace Entidad
         private int _Auto;
         private int _Eliminar;
         private int _Producto_AutoSQL;
-        private string _Filtro;     
+        private string _Filtro;
 
         public int Idproducto { get => _Idproducto; set => _Idproducto = value; }
         public int Idmarca { get => _Idmarca; set => _Idmarca = value; }
         public int Idgrupo { get => _Idgrupo; set => _Idgrupo = value; }
         public int Idtipo { get => _Idtipo; set => _Idtipo = value; }
         public int Idempaque { get => _Idempaque; set => _Idempaque = value; }
+        public int Idimpueto { get => _Idimpueto; set => _Idimpueto = value; }
+        public int Idproveedor { get => _Idproveedor; set => _Idproveedor = value; }
+        public int Idcodigodebarra { get => _Idcodigodebarra; set => _Idcodigodebarra = value; }
+        public int Ubicacion_SQL { get => _Ubicacion_SQL; set => _Ubicacion_SQL = value; }
+        public int Proveedor_SQL { get => _Proveedor_SQL; set => _Proveedor_SQL = value; }
+        public int Lote_SQL { get => _Lote_SQL; set => _Lote_SQL = value; }
+        public int Codigodebarra_SQL { get => _Codigodebarra_SQL; set => _Codigodebarra_SQL = value; }
+        public int Igualdad_SQL { get => _Igualdad_SQL; set => _Igualdad_SQL = value; }
+        public int Impuesto_SQL { get => _Impuesto_SQL; set => _Impuesto_SQL = value; }
+        public int AutoDet_Ubicacion { get => _AutoDet_Ubicacion; set => _AutoDet_Ubicacion = value; }
+        public int AutoDet_Proveedor { get => _AutoDet_Proveedor; set => _AutoDet_Proveedor = value; }
+        public int AutoDet_Lote { get => _AutoDet_Lote; set => _AutoDet_Lote = value; }
+        public int AutoDet_Codigodebarra { get => _AutoDet_Codigodebarra; set => _AutoDet_Codigodebarra = value; }
+        public int AutoDet_Igualdad { get => _AutoDet_Igualdad; set => _AutoDet_Igualdad = value; }
+        public int AutoDet_Impuesto { get => _AutoDet_Impuesto; set => _AutoDet_Impuesto = value; }
         public string Codigo { get => _Codigo; set => _Codigo = value; }
         public string Producto { get => _Producto; set => _Producto = value; }
         public string Referencia { get => _Referencia; set => _Referencia = value; }
@@ -194,11 +216,26 @@ namespace Entidad
         public DataTable Detalle_Proveedor { get => _Detalle_Proveedor; set => _Detalle_Proveedor = value; }
         public DataTable Detalle_Ubicacion { get => _Detalle_Ubicacion; set => _Detalle_Ubicacion = value; }
         public DataTable Detalle_CodigoDeBarra { get => _Detalle_CodigoDeBarra; set => _Detalle_CodigoDeBarra = value; }
+        public int Idbodega { get => _Idbodega; set => _Idbodega = value; }
+        public string Ubicacion { get => _Ubicacion; set => _Ubicacion = value; }
+        public string Estante { get => _Estante; set => _Estante = value; }
+        public string Nivel { get => _Nivel; set => _Nivel = value; }
+        public string Impuesto { get => _Impuesto; set => _Impuesto = value; }
+        public string Impuesto_Descripcion { get => _Impuesto_Descripcion; set => _Impuesto_Descripcion = value; }
+        public string Impuesto_Valor { get => _Impuesto_Valor; set => _Impuesto_Valor = value; }
+        public string Igualdad_Codigo { get => _Igualdad_Codigo; set => _Igualdad_Codigo = value; }
+        public string Igualdad_Producto { get => _Igualdad_Producto; set => _Igualdad_Producto = value; }
+        public string Igualdad_Marca { get => _Igualdad_Marca; set => _Igualdad_Marca = value; }
+        public string Lote { get => _Lote; set => _Lote = value; }
+        public string Lote_Compra { get => _Lote_Compra; set => _Lote_Compra = value; }
+        public string Lote_Venta { get => _Lote_Venta; set => _Lote_Venta = value; }
+        public string Lote_Cantidad { get => _Lote_Cantidad; set => _Lote_Cantidad = value; }
+        public DateTime Lote_Fecha { get => _Lote_Fecha; set => _Lote_Fecha = value; }
+        public string Proveedor { get => _Proveedor; set => _Proveedor = value; }
+        public string Proveedor_Documento { get => _Proveedor_Documento; set => _Proveedor_Documento = value; }
+        public string CodigoDeBarra { get => _CodigoDeBarra; set => _CodigoDeBarra = value; }
+        public string CodigoDeBarra_Codigo { get => _CodigoDeBarra_Codigo; set => _CodigoDeBarra_Codigo = value; }
         public byte[] Imagen { get => _Imagen; set => _Imagen = value; }
-        public int Auto { get => _Auto; set => _Auto = value; }
-        public int Eliminar { get => _Eliminar; set => _Eliminar = value; }
-        public string Filtro { get => _Filtro; set => _Filtro = value; }
-        public int Producto_AutoSQL { get => _Producto_AutoSQL; set => _Producto_AutoSQL = value; }
         public int Ubicacion_AutoSQL { get => _Ubicacion_AutoSQL; set => _Ubicacion_AutoSQL = value; }
         public int Igualdad_AutoSQL { get => _Igualdad_AutoSQL; set => _Igualdad_AutoSQL = value; }
         public int Impuesto_AutoSQL { get => _Impuesto_AutoSQL; set => _Impuesto_AutoSQL = value; }
@@ -211,46 +248,21 @@ namespace Entidad
         public int Tran_Proveedor { get => _Tran_Proveedor; set => _Tran_Proveedor = value; }
         public int Tran_CodBarra { get => _Tran_CodBarra; set => _Tran_CodBarra = value; }
         public int Tran_Lote { get => _Tran_Lote; set => _Tran_Lote = value; }
-        public int Det_Ubicacion { get => _Det_Ubicacion; set => _Det_Ubicacion = value; }
-        public int Det_Igualdad { get => _Det_Igualdad; set => _Det_Igualdad = value; }
-        public int Det_Impuesto { get => _Det_Impuesto; set => _Det_Impuesto = value; }
-        public int Det_Proveedor { get => _Det_Proveedor; set => _Det_Proveedor = value; }
-        public int Det_CodBarra { get => _Det_CodBarra; set => _Det_CodBarra = value; }
-        public int Det_Lote { get => _Det_Lote; set => _Det_Lote = value; }
         public int Auto_Ubicacion { get => _Auto_Ubicacion; set => _Auto_Ubicacion = value; }
         public int Auto_Igualdad { get => _Auto_Igualdad; set => _Auto_Igualdad = value; }
         public int Auto_Impuesto { get => _Auto_Impuesto; set => _Auto_Impuesto = value; }
         public int Auto_Proveedor { get => _Auto_Proveedor; set => _Auto_Proveedor = value; }
         public int Auto_CodBarra { get => _Auto_CodBarra; set => _Auto_CodBarra = value; }
         public int Auto_Lote { get => _Auto_Lote; set => _Auto_Lote = value; }
-        public int Ubicacion_SQL { get => _Ubicacion_SQL; set => _Ubicacion_SQL = value; }
-        public int Proveedor_SQL { get => _Proveedor_SQL; set => _Proveedor_SQL = value; }
-        public int Lote_SQL { get => _Lote_SQL; set => _Lote_SQL = value; }
-        public int Codigodebarra_SQL { get => _Codigodebarra_SQL; set => _Codigodebarra_SQL = value; }
-        public int Igualdad_SQL { get => _Igualdad_SQL; set => _Igualdad_SQL = value; }
-        public int Impuesto_SQL { get => _Impuesto_SQL; set => _Impuesto_SQL = value; }
-        public string Ubicacion { get => _Ubicacion; set => _Ubicacion = value; }
-        public string Estante { get => _Estante; set => _Estante = value; }
-        public string Nivel { get => _Nivel; set => _Nivel = value; }
-        public int AutoDet_Ubicacion { get => _AutoDet_Ubicacion; set => _AutoDet_Ubicacion = value; }
-        public int AutoDet_Proveedor { get => _AutoDet_Proveedor; set => _AutoDet_Proveedor = value; }
-        public int AutoDet_Lote { get => _AutoDet_Lote; set => _AutoDet_Lote = value; }
-        public int AutoDet_Codigodebarra { get => _AutoDet_Codigodebarra; set => _AutoDet_Codigodebarra = value; }
-        public int AutoDet_Igualdad { get => _AutoDet_Igualdad; set => _AutoDet_Igualdad = value; }
-        public int AutoDet_Impuesto { get => _AutoDet_Impuesto; set => _AutoDet_Impuesto = value; }
-        public int Idbodega { get => _Idbodega; set => _Idbodega = value; }
-        public int Idimpueto { get => _Idimpueto; set => _Idimpueto = value; }
-        public string Impuesto { get => _Impuesto; set => _Impuesto = value; }
-        public string Impuesto_Descripcion { get => _Impuesto_Descripcion; set => _Impuesto_Descripcion = value; }
-        public string Impuesto_Valor { get => _Impuesto_Valor; set => _Impuesto_Valor = value; }
-        public int Idcodigodebarra { get => _Idcodigodebarra; set => _Idcodigodebarra = value; }
-        public string CodigoDeBarra { get => _CodigoDeBarra; set => _CodigoDeBarra = value; }
-        public string CodigoDeBarra_Codigo { get => _CodigoDeBarra_Codigo; set => _CodigoDeBarra_Codigo = value; }
-        public int Idproveedor { get => _Idproveedor; set => _Idproveedor = value; }
-        public string Proveedor { get => _Proveedor; set => _Proveedor = value; }
-        public string Proveedor_Documento { get => _Proveedor_Documento; set => _Proveedor_Documento = value; }
-        public string Igualdad_Codigo { get => _Igualdad_Codigo; set => _Igualdad_Codigo = value; }
-        public string Igualdad_Producto { get => _Igualdad_Producto; set => _Igualdad_Producto = value; }
-        public string Igualdad_Marca { get => _Igualdad_Marca; set => _Igualdad_Marca = value; }
+        public int Det_Ubicacion { get => _Det_Ubicacion; set => _Det_Ubicacion = value; }
+        public int Det_Igualdad { get => _Det_Igualdad; set => _Det_Igualdad = value; }
+        public int Det_Impuesto { get => _Det_Impuesto; set => _Det_Impuesto = value; }
+        public int Det_Proveedor { get => _Det_Proveedor; set => _Det_Proveedor = value; }
+        public int Det_CodBarra { get => _Det_CodBarra; set => _Det_CodBarra = value; }
+        public int Det_Lote { get => _Det_Lote; set => _Det_Lote = value; }
+        public int Auto { get => _Auto; set => _Auto = value; }
+        public int Eliminar { get => _Eliminar; set => _Eliminar = value; }
+        public int Producto_AutoSQL { get => _Producto_AutoSQL; set => _Producto_AutoSQL = value; }
+        public string Filtro { get => _Filtro; set => _Filtro = value; }
     }
 }

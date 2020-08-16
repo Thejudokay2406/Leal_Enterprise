@@ -132,7 +132,7 @@
             this.TPLote = new System.Windows.Forms.TabPage();
             this.TBLote_Venta = new System.Windows.Forms.TextBox();
             this.label50 = new System.Windows.Forms.Label();
-            this.TBLote_Stock = new System.Windows.Forms.TextBox();
+            this.TBLote_Cantidad = new System.Windows.Forms.TextBox();
             this.label42 = new System.Windows.Forms.Label();
             this.DTLote_Vencimiento = new System.Windows.Forms.DateTimePicker();
             this.label34 = new System.Windows.Forms.Label();
@@ -1670,7 +1670,7 @@
             // 
             this.TPLote.Controls.Add(this.TBLote_Venta);
             this.TPLote.Controls.Add(this.label50);
-            this.TPLote.Controls.Add(this.TBLote_Stock);
+            this.TPLote.Controls.Add(this.TBLote_Cantidad);
             this.TPLote.Controls.Add(this.label42);
             this.TPLote.Controls.Add(this.DTLote_Vencimiento);
             this.TPLote.Controls.Add(this.label34);
@@ -1716,19 +1716,19 @@
             this.label50.TabIndex = 65;
             this.label50.Text = "Valor de Venta";
             // 
-            // TBLote_Stock
+            // TBLote_Cantidad
             // 
-            this.TBLote_Stock.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TBLote_Cantidad.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBLote_Stock.Location = new System.Drawing.Point(111, 87);
-            this.TBLote_Stock.Name = "TBLote_Stock";
-            this.TBLote_Stock.Size = new System.Drawing.Size(267, 21);
-            this.TBLote_Stock.TabIndex = 61;
-            this.TBLote_Stock.Enter += new System.EventHandler(this.TBLote_Stock_Enter);
-            this.TBLote_Stock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBLote_Stock_KeyPress);
-            this.TBLote_Stock.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBLote_Stock_KeyUp);
-            this.TBLote_Stock.Leave += new System.EventHandler(this.TBLote_Stock_Leave);
+            this.TBLote_Cantidad.Location = new System.Drawing.Point(111, 87);
+            this.TBLote_Cantidad.Name = "TBLote_Cantidad";
+            this.TBLote_Cantidad.Size = new System.Drawing.Size(267, 21);
+            this.TBLote_Cantidad.TabIndex = 61;
+            this.TBLote_Cantidad.Enter += new System.EventHandler(this.TBLote_Stock_Enter);
+            this.TBLote_Cantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBLote_Stock_KeyPress);
+            this.TBLote_Cantidad.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBLote_Stock_KeyUp);
+            this.TBLote_Cantidad.Leave += new System.EventHandler(this.TBLote_Stock_Leave);
             // 
             // label42
             // 
@@ -2209,7 +2209,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 65);
+            this.label11.Location = new System.Drawing.Point(6, 63);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(72, 15);
             this.label11.TabIndex = 158;
@@ -2221,7 +2221,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 38);
+            this.label9.Location = new System.Drawing.Point(6, 36);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(76, 15);
             this.label9.TabIndex = 157;
@@ -2229,14 +2229,14 @@
             // 
             // TBDescripcion_Impuesto
             // 
-            this.TBDescripcion_Impuesto.Location = new System.Drawing.Point(92, 62);
+            this.TBDescripcion_Impuesto.Location = new System.Drawing.Point(92, 60);
             this.TBDescripcion_Impuesto.Name = "TBDescripcion_Impuesto";
             this.TBDescripcion_Impuesto.Size = new System.Drawing.Size(286, 21);
             this.TBDescripcion_Impuesto.TabIndex = 156;
             // 
             // TBValor_Impuesto
             // 
-            this.TBValor_Impuesto.Location = new System.Drawing.Point(92, 35);
+            this.TBValor_Impuesto.Location = new System.Drawing.Point(92, 33);
             this.TBValor_Impuesto.Name = "TBValor_Impuesto";
             this.TBValor_Impuesto.Size = new System.Drawing.Size(286, 21);
             this.TBValor_Impuesto.TabIndex = 155;
@@ -2793,7 +2793,7 @@
         private System.Windows.Forms.TextBox TBCompraPromedio;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.TextBox TBLote_Stock;
+        private System.Windows.Forms.TextBox TBLote_Cantidad;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.CheckBox CBManejaComision;
         private System.Windows.Forms.Label label49;

@@ -513,6 +513,32 @@ namespace Negocio
             return Datos.Guardar_Proveedor(Obj);
         }
 
+        public static string Guardar_Lote
+            (
+                //Ubicacion[]
+                int idproducto, string lote, string compra, string venta, string cantidad, DateTime fecha,
+
+                //Datos Auxiliares
+                int autodet_lote
+            )
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            Entidad_Productos Obj = new Entidad_Productos();
+
+            //Ubicacion[]
+            Obj.Idproducto = idproducto;
+            Obj.Lote = lote;
+            Obj.Lote_Compra = compra;
+            Obj.Lote_Venta = venta;
+            Obj.Lote_Cantidad = cantidad;
+            Obj.Lote_Fecha = fecha;
+
+            //Datos Auxiliares
+            Obj.AutoDet_Lote = autodet_lote;
+
+            return Datos.Guardar_Lote(Obj);
+        }
+
         public static string Guardar_CodigoDeBarra
             (
                 //Ubicacion[]

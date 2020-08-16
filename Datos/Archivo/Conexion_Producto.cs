@@ -565,6 +565,44 @@ namespace Datos
             return Rpta;
         }
 
+        public string Guardar_Lote(Entidad_Productos Obj)
+        {
+            string Rpta = "";
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
+                SqlCommand Comando = new SqlCommand("Productos.Detalles_Adicional", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
+
+                //Datos Auxiliares
+                Comando.Parameters.Add("@Auto_Lote", SqlDbType.Int).Value = Obj.AutoDet_Lote;
+
+                //Panel Ubicaciones -- Campos Obligatorios
+                Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = Obj.Idproducto;
+                Comando.Parameters.Add("@Lote", SqlDbType.VarChar).Value = Obj.Lote;
+                Comando.Parameters.Add("@Lote_Compra", SqlDbType.VarChar).Value = Obj.Lote_Compra;
+                Comando.Parameters.Add("@Lote_Venta", SqlDbType.VarChar).Value = Obj.Lote_Venta;
+                Comando.Parameters.Add("@Lote_Cantidad", SqlDbType.VarChar).Value = Obj.Lote_Cantidad;
+                Comando.Parameters.Add("@Lote_Fecha", SqlDbType.DateTime).Value = Obj.Lote_Fecha;
+
+                SqlCon.Open();
+                Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Realizar el Registro";
+            }
+            catch (Exception ex)
+            {
+                Rpta = ex.Message;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open)
+                {
+                    SqlCon.Close();
+                }
+            }
+            return Rpta;
+        }
+
         public string Guardar_Impuestos(Entidad_Productos Obj)
         {
             string Rpta = "";

@@ -236,8 +236,8 @@ namespace Presentacion
             this.TBValor_Lote.BackColor = Color.FromArgb(3, 155, 229);
             this.TBLote_Venta.ReadOnly = false;
             this.TBLote_Venta.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBLote_Stock.ReadOnly = false;
-            this.TBLote_Stock.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBLote_Cantidad.ReadOnly = false;
+            this.TBLote_Cantidad.BackColor = Color.FromArgb(3, 155, 229);
             this.DTLote_Vencimiento.Enabled = true;
             this.DTLote_Vencimiento.BackColor = Color.FromArgb(3, 155, 229);
 
@@ -329,7 +329,7 @@ namespace Presentacion
             //Panel - Lote
             this.TBLotedeingreso.Clear();
             this.TBValor_Lote.Clear();
-            this.TBLote_Stock.Clear();
+            this.TBLote_Cantidad.Clear();
             this.DTLote_Vencimiento.Enabled = true;
             this.DGDetalles_Lotes.DataSource = null;
 
@@ -1076,6 +1076,12 @@ namespace Presentacion
                             {
                                 this.MensajeError(rptaDatosBasicos);
                             }
+
+                            //
+                            this.CBBodega.SelectedIndex = 0;
+                            this.TBUbicacion.Clear();
+                            this.TBEstante.Clear();
+                            this.TBNivel.Clear();
                         }
                         else
                         {
@@ -1187,7 +1193,19 @@ namespace Presentacion
                     }
                     else
                     {
-                        rptaDatosBasicos = fProductos.Guardar_CodigoDeBarra
+                        foreach (DataRow Fila in DtDetalle_CodigoDeBarra.Rows)
+                        {
+                            if (Convert.ToString(Fila["Codigo de Barra"]) == TBCodigodeBarra.Text)
+                            {
+                                this.MensajeError("El Codigo de Barra que desea agregar ya se encuentra en la lista");
+                            }
+                        }
+
+                        DialogResult result = MessageBox.Show("¿Desea Añadir el Codigo de Barra a la Lista?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            rptaDatosBasicos = fProductos.Guardar_CodigoDeBarra
 
                             (
                                  //Datos Basicos
@@ -1197,14 +1215,19 @@ namespace Presentacion
                                 3
                             );
 
-                        if (rptaDatosBasicos.Equals("OK"))
-                        {
-                            this.MensajeOk("El Codigo de Barra: " + TBCodigodeBarra.Text + " del Producto: " + this.TBNombre.Text + " a Sido Agregado Exitosamente");
-                        }
+                            if (rptaDatosBasicos.Equals("OK"))
+                            {
+                                this.MensajeOk("El Codigo de Barra: " + TBCodigodeBarra.Text + " del Producto: " + this.TBNombre.Text + " a Sido Agregado Exitosamente");
+                            }
 
+                            else
+                            {
+                                this.MensajeError(rptaDatosBasicos);
+                            }
+                        }
                         else
                         {
-                            this.MensajeError(rptaDatosBasicos);
+                            this.TBCodigodeBarra.Select();
                         }
                     }
                 }
@@ -2717,7 +2740,7 @@ namespace Presentacion
 
         private void TBLote_Stock_Enter(object sender, EventArgs e)
         {
-            this.TBLote_Stock.BackColor = Color.Azure;
+            this.TBLote_Cantidad.BackColor = Color.Azure;
         }
 
         private void TBLote_Venta_Leave(object sender, EventArgs e)
@@ -2751,7 +2774,7 @@ namespace Presentacion
 
         private void TBLote_Stock_Leave(object sender, EventArgs e)
         {
-            this.TBLote_Stock.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBLote_Cantidad.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBBuscar_Proveedor_Enter(object sender, EventArgs e)
@@ -2860,10 +2883,16 @@ namespace Presentacion
                                 {
                                     this.MensajeError(rptaDatosBasicos);
                                 }
+
+                                //
+                                this.TBIdigualdad_Producto.Clear();
+                                this.TBIgualdad_Producto.Clear();
+                                this.TBIgualdad_Codigo.Clear();
+                                this.TBIgualdad_Marca.Clear();
                             }
                             else
                             {
-                                this.TBImpuesto.Select();
+                                this.TBIgualdad_Producto.Select();
                             }
                         }
                     }
@@ -2940,7 +2969,6 @@ namespace Presentacion
                     }
                     else
                     {
-                        bool agregar = true;
                         foreach (DataRow Fila in DtDetalle_Impuesto.Rows)
                         {
                             if (Convert.ToString(Fila["idimpuesto"]) == TBIdimpuesto.Text)
@@ -2961,7 +2989,7 @@ namespace Presentacion
 
                             (
                                  //Datos Basicos
-                                 Convert.ToInt32(this.TBIdproducto.Text), Convert.ToInt32(TBCodigo.Text), this.TBImpuesto.Text, this.TBValor_Impuesto.Text, this.TBDescripcion_Impuesto.Text,
+                                 Convert.ToInt32(this.TBIdproducto.Text), Convert.ToInt32(TBIdimpuesto.Text), this.TBImpuesto.Text, this.TBValor_Impuesto.Text, this.TBDescripcion_Impuesto.Text,
                                 //Datos Auxiliares
                                 2
                             );
@@ -2975,6 +3003,12 @@ namespace Presentacion
                             {
                                 this.MensajeError(rptaDatosBasicos);
                             }
+
+                            //
+                            this.TBIdimpuesto.Clear();
+                            this.TBImpuesto.Clear();
+                            this.TBValor_Impuesto.Clear();
+                            this.TBDescripcion_Impuesto.Clear();
                         }
                         else
                         {
@@ -3093,6 +3127,11 @@ namespace Presentacion
                             {
                                 this.MensajeError(rptaDatosBasicos);
                             }
+
+                            //
+                            this.TBIdproveedor.Clear();
+                            this.TBProveedor.Clear();
+                            this.TBProveedor_Documento.Clear();
                         }
                         else
                         {
@@ -3112,54 +3151,129 @@ namespace Presentacion
         {
             try
             {
-                if (this.TBLotedeingreso.Text == String.Empty)
+                if (Digitar)
                 {
-                    this.MensajeError("Por favor Especifique el numero de Lote que desea agregar");
-                    this.TBLotedeingreso.Select();
-                }
-                else if (this.TBValor_Lote.Text == String.Empty)
-                {
-                    this.MensajeError("Por favor Especifique el valor de compra del Lote que desea agregar");
-                    this.TBValor_Lote.Select();
-                }
-                else if (this.TBLote_Venta.Text == String.Empty)
-                {
-                    this.MensajeError("Por favor Especifique el valor de venta del Lote que desea agregar");
-                    this.TBLote_Venta.Select();
-                }
-                else if (this.TBLote_Stock.Text == String.Empty)
-                {
-                    this.MensajeError("Por favor Especifique la Cantidad de Productos que ingresaran con el Lote que desea agregar");
-                    this.TBLote_Stock.Select();
+                    if (this.TBLotedeingreso.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el numero de Lote que desea agregar");
+                        this.TBLotedeingreso.Select();
+                    }
+                    else if (this.TBValor_Lote.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el valor de compra del Lote que desea agregar");
+                        this.TBValor_Lote.Select();
+                    }
+                    else if (this.TBLote_Venta.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el valor de venta del Lote que desea agregar");
+                        this.TBLote_Venta.Select();
+                    }
+                    else if (this.TBLote_Cantidad.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique la Cantidad de Productos que ingresaran con el Lote que desea agregar");
+                        this.TBLote_Cantidad.Select();
+                    }
+                    else
+                    {
+                        bool agregar = true;
+                        foreach (DataRow Fila in DtDetalle_Lote.Rows)
+                        {
+                            if (Convert.ToString(Fila["Lote"]) == TBLotedeingreso.Text)
+                            {
+                                this.MensajeError("El Nº de Lote que desea agregar ya se encuentra en la lista");
+                            }
+                        }
+                        if (agregar)
+                        {
+                            DataRow fila = this.DtDetalle_Lote.NewRow();
+                            fila["Idproducto"] = Convert.ToInt32(this.TBIdproducto_AutoSQL.Text);
+                            fila["Lote"] = this.TBLotedeingreso.Text;
+                            fila["Valor de Compra"] = this.TBValor_Lote.Text;
+                            fila["Valor de Venta"] = this.TBLote_Venta.Text;
+                            fila["Stock"] = this.TBLote_Cantidad.Text;
+                            fila["Vencimiento"] = this.DTLote_Vencimiento.Value.ToString("dd/MM/yyyy");
+                            this.DtDetalle_Lote.Rows.Add(fila);
+                        }
+
+                        //
+                        this.TBLotedeingreso.Clear();
+                        this.TBValor_Lote.Clear();
+                        this.TBLote_Venta.Clear();
+                        this.TBLote_Cantidad.Clear();
+                    }
                 }
                 else
                 {
-                    bool agregar = true;
-                    foreach (DataRow Fila in DtDetalle_Lote.Rows)
+                    if (this.TBLotedeingreso.Text == String.Empty)
                     {
-                        if (Convert.ToString(Fila["Lote"]) == TBLotedeingreso.Text)
+                        this.MensajeError("Por favor Especifique el numero de Lote que desea agregar");
+                        this.TBLotedeingreso.Select();
+                    }
+                    else if (this.TBValor_Lote.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el valor de compra del Lote que desea agregar");
+                        this.TBValor_Lote.Select();
+                    }
+                    else if (this.TBLote_Venta.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el valor de venta del Lote que desea agregar");
+                        this.TBLote_Venta.Select();
+                    }
+                    else if (this.TBLote_Cantidad.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique la Cantidad de Productos que ingresaran con el Lote que desea agregar");
+                        this.TBLote_Cantidad.Select();
+                    }
+                    else
+                    {
+                        foreach (DataRow Fila in DtDetalle_Lote.Rows)
                         {
-                            this.MensajeError("El Nº de Lote que desea agregar ya se encuentra en la lista");
+                            if (Convert.ToString(Fila["Lote"]) == TBLotedeingreso.Text)
+                            {
+                                this.MensajeError("El Nº de Lote que desea agregar ya se encuentra en la lista");
+                                this.TBLotedeingreso.Select();
+                            }
+                        }
+
+                        string rptaDatosBasicos = "";
+
+                        DialogResult result = MessageBox.Show("¿Desea Añadir el Lote a la Lista del Producto?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            rptaDatosBasicos = fProductos.Guardar_Lote
+
+                                (
+                                     //Datos Basicos
+                                     Convert.ToInt32(this.TBIdproducto.Text), this.TBLotedeingreso.Text, this.TBValor_Lote.Text, this.TBLote_Venta.Text, this.TBLote_Cantidad.Text, this.DTLote_Vencimiento.Value,
+
+                                    //Datos Auxiliares
+                                    6
+                                );
+
+                            if (rptaDatosBasicos.Equals("OK"))
+                            {
+                                this.MensajeOk("El Lote: " + this.TBLotedeingreso.Text + " del Producto: " + TBNombre.Text + " con Codigo: " + this.TBCodigo.Text + " A Sido Registrado Exitosamente");
+                            }
+
+                            else
+                            {
+                                this.MensajeError(rptaDatosBasicos);
+                            }
+
+                            //
+                            this.TBLotedeingreso.Clear();
+                            this.TBValor_Lote.Clear();
+                            this.TBLote_Venta.Clear();
+                            this.TBLote_Cantidad.Clear();
+                        }
+                        else
+                        {
+                            this.TBLotedeingreso.Select();
                         }
                     }
-                    if (agregar)
-                    {
-                        DataRow fila = this.DtDetalle_Lote.NewRow();
-                        fila["Idproducto"] = Convert.ToInt32(this.TBIdproducto_AutoSQL.Text);
-                        fila["Lote"] = this.TBLotedeingreso.Text;
-                        fila["Valor de Compra"] = this.TBValor_Lote.Text;
-                        fila["Valor de Venta"] = this.TBLote_Venta.Text;
-                        fila["Stock"] = this.TBLote_Stock.Text;
-                        fila["Vencimiento"] = this.DTLote_Vencimiento.Value.ToString("dd/MM/yyyy");
-                        this.DtDetalle_Lote.Rows.Add(fila);
-                    }
-
-                    //
-                    this.TBLotedeingreso.Clear();
-                    this.TBValor_Lote.Clear();
-                    this.TBLote_Venta.Clear();
-                    this.TBLote_Stock.Clear();
                 }
+                
             }
             catch (Exception ex)
             {
@@ -4204,7 +4318,7 @@ namespace Presentacion
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
-                    this.TBLote_Stock.Select();
+                    this.TBLote_Cantidad.Select();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
                 {
@@ -4304,7 +4418,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBLote_Stock.Select();
+                            this.TBLote_Cantidad.Select();
                         }
                     }
                     else
@@ -4321,7 +4435,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBLote_Stock.Select();
+                            this.TBLote_Cantidad.Select();
                         }
                     }
                 }
