@@ -19,6 +19,42 @@ namespace Negocio
             return Datos.Lista();
         }
 
+        public static DataTable Lista_CodigoDeBarra(int auto, int idproducto)
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            return Datos.Lista_CodigoDeBarra(auto, idproducto);
+        }
+
+        public static DataTable Lista_Igualdad(int auto, int idproducto)
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            return Datos.Lista_Igualdad(auto, idproducto);
+        }
+
+        public static DataTable Lista_Impuesto(int auto, int idproducto)
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            return Datos.Lista_Impuesto(auto, idproducto);
+        }
+
+        public static DataTable Lista_Lote(int auto, int idproducto)
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            return Datos.Lista_Lote(auto, idproducto);
+        }
+
+        public static DataTable Lista_Proveedor(int auto, int idproducto)
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            return Datos.Lista_Proveedor(auto, idproducto);
+        }
+
+        public static DataTable Lista_Ubicacion(int auto, int idproducto)
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            return Datos.Lista_Ubicacion(auto, idproducto);
+        }
+
         public static DataTable Buscar(string Filtro, int auto)
         {
             Conexion_Producto Datos = new Conexion_Producto();

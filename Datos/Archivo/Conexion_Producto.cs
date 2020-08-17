@@ -40,6 +40,198 @@ namespace Datos
             }
         }
 
+        public DataTable Lista_Ubicacion(int Auto, int idproducto)
+        {
+            SqlDataReader Resultado;
+            DataTable Tabla = new DataTable();
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
+                SqlCommand Comando = new SqlCommand("Productos.Detalles_Adicional", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
+
+                Comando.Parameters.Add("@Filtro_Ubicacion", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = idproducto;
+
+                SqlCon.Open();
+                Resultado = Comando.ExecuteReader();
+                Tabla.Load(Resultado);
+                return Tabla;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open)
+                {
+                    SqlCon.Close();
+                }
+            }
+        }
+
+        public DataTable Lista_Proveedor(int Auto, int idproducto)
+        {
+            SqlDataReader Resultado;
+            DataTable Tabla = new DataTable();
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
+                SqlCommand Comando = new SqlCommand("Productos.Detalles_Adicional", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
+
+                Comando.Parameters.Add("@Filtro_Proveedor", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = idproducto;
+
+                SqlCon.Open();
+                Resultado = Comando.ExecuteReader();
+                Tabla.Load(Resultado);
+                return Tabla;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open)
+                {
+                    SqlCon.Close();
+                }
+            }
+        }
+
+        public DataTable Lista_CodigoDeBarra(int Auto, int idproducto)
+        {
+            SqlDataReader Resultado;
+            DataTable Tabla = new DataTable();
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
+                SqlCommand Comando = new SqlCommand("Productos.Detalles_Adicional", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
+
+                Comando.Parameters.Add("@Filtro_CodBarra", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = idproducto;
+
+                SqlCon.Open();
+                Resultado = Comando.ExecuteReader();
+                Tabla.Load(Resultado);
+                return Tabla;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open)
+                {
+                    SqlCon.Close();
+                }
+            }
+        }
+
+        public DataTable Lista_Igualdad(int Auto, int idproducto)
+        {
+            SqlDataReader Resultado;
+            DataTable Tabla = new DataTable();
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
+                SqlCommand Comando = new SqlCommand("Productos.Detalles_Adicional", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
+
+                Comando.Parameters.Add("@Filtro_Igualdad", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = idproducto;
+
+                SqlCon.Open();
+                Resultado = Comando.ExecuteReader();
+                Tabla.Load(Resultado);
+                return Tabla;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open)
+                {
+                    SqlCon.Close();
+                }
+            }
+        }
+
+        public DataTable Lista_Impuesto(int Auto, int idproducto)
+        {
+            SqlDataReader Resultado;
+            DataTable Tabla = new DataTable();
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
+                SqlCommand Comando = new SqlCommand("Productos.Detalles_Adicional", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
+
+                Comando.Parameters.Add("@Filtro_Impuesto", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = idproducto;
+
+                SqlCon.Open();
+                Resultado = Comando.ExecuteReader();
+                Tabla.Load(Resultado);
+                return Tabla;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open)
+                {
+                    SqlCon.Close();
+                }
+            }
+        }
+
+        public DataTable Lista_Lote(int Auto, int idproducto)
+        {
+            SqlDataReader Resultado;
+            DataTable Tabla = new DataTable();
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
+                SqlCommand Comando = new SqlCommand("Productos.Detalles_Adicional", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
+
+                Comando.Parameters.Add("@Filtro_Lote", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = idproducto;
+
+                SqlCon.Open();
+                Resultado = Comando.ExecuteReader();
+                Tabla.Load(Resultado);
+                return Tabla;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open)
+                {
+                    SqlCon.Close();
+                }
+            }
+        }
+
         public DataTable Buscar(string Valor, int Auto)
         {
             SqlDataReader Resultado;

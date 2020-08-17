@@ -89,10 +89,6 @@ namespace Presentacion
         //Panel - Imagen
         private string Imagen = "";
 
-        //********** Variable para Agregar registros a los multiplex detalles como Ubicacio, Proveedores, Impuestos ETC *********************************************
-
-        private string Imp_Nombre, Imp_Descripcion, Imp_Valor = "";
-
         public frmProductos()
         {
             InitializeComponent();
@@ -397,6 +393,42 @@ namespace Presentacion
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
+        }
+
+        private void Actualizar_DetCodigoDeBarra()
+        {
+            this.DGDetalle_CodigoDeBarra.DataSource = fProductos.Lista_CodigoDeBarra(1, Convert.ToInt32(TBIdproducto.Text));
+            this.lblTotal_Codigodebarra.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_CodigoDeBarra.Rows.Count);
+        }
+
+        private void Actualizar_DetIgualdad()
+        {
+            this.DGDetalle_Igualdad.DataSource = fProductos.Lista_Igualdad(2, Convert.ToInt32(TBIdproducto.Text));
+            this.lblTotal_Igualdad.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Igualdad.Rows.Count);
+        }
+
+        private void Actualizar_DetImpuesto()
+        {
+            this.DGDetalle_Impuesto.DataSource = fProductos.Lista_Impuesto(3, Convert.ToInt32(TBIdproducto.Text));
+            this.lblTotal_Impuesto.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Impuesto.Rows.Count);
+        }
+
+        private void Actualizar_DetLote()
+        {
+            this.DGDetalles_Lotes.DataSource = fProductos.Lista_Lote(4, Convert.ToInt32(TBIdproducto.Text)); ;
+            this.lblTotal_Lotes.Text = "Datos Registrados: " + Convert.ToString(DGDetalles_Lotes.Rows.Count);
+        }
+
+        private void Actualizar_DetProveedor()
+        {
+            this.DGDetalle_Proveedor.DataSource = fProductos.Lista_Proveedor(5, Convert.ToInt32(TBIdproducto.Text));
+            this.lblTotal_Proveedor.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Proveedor.Rows.Count);
+        }
+
+        private void Actualizar_DetUbicacion()
+        {
+            this.DGDetalles_Ubicacion.DataSource = fProductos.Lista_Ubicacion(6, Convert.ToInt32(TBIdproducto.Text)); ;
+            this.lblTotal_Ubicacion.Text = "Datos Registrados: " + Convert.ToString(DGDetalles_Ubicacion.Rows.Count);
         }
 
         public void setProveedor(string idproveedor, string proveedor, string documento)
@@ -1082,6 +1114,8 @@ namespace Presentacion
                             this.TBUbicacion.Clear();
                             this.TBEstante.Clear();
                             this.TBNivel.Clear();
+
+                            this.Actualizar_DetUbicacion();
                         }
                         else
                         {
@@ -1229,6 +1263,9 @@ namespace Presentacion
                         {
                             this.TBCodigodeBarra.Select();
                         }
+
+                        //
+                        this.Actualizar_DetCodigoDeBarra();
                     }
                 }
             }
@@ -2894,6 +2931,9 @@ namespace Presentacion
                             {
                                 this.TBIgualdad_Producto.Select();
                             }
+
+                            //
+                            this.Actualizar_DetIgualdad();
                         }
                     }
                 }
@@ -3014,6 +3054,8 @@ namespace Presentacion
                         {
                             this.TBImpuesto.Select();
                         }
+                        //
+                        this.Actualizar_DetImpuesto();
                     }
                 }
             }
@@ -3137,6 +3179,9 @@ namespace Presentacion
                         {
                             this.TBProveedor.Select();
                         }
+
+                        //
+                        this.Actualizar_DetProveedor();
                     }
                 }
                 
@@ -3271,6 +3316,9 @@ namespace Presentacion
                         {
                             this.TBLotedeingreso.Select();
                         }
+
+                        //
+                        this.Actualizar_DetLote();
                     }
                 }
                 
@@ -6365,6 +6413,8 @@ namespace Presentacion
             if (CBBodega.SelectedIndex != 0)
             {
                 this.TBUbicacion.Select();
+
+                this.TBIdbodega_Aux.Text = this.CBBodega.SelectedValue.ToString();
             }
         }
 

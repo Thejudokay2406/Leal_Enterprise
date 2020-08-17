@@ -176,6 +176,12 @@
             this.btnAgregar_Impuesto = new System.Windows.Forms.Button();
             this.btnEliminar_Impuesto = new System.Windows.Forms.Button();
             this.TPIgualdad = new System.Windows.Forms.TabPage();
+            this.TBIdigualdad_Producto = new System.Windows.Forms.TextBox();
+            this.TBIgualdad_Marca = new System.Windows.Forms.TextBox();
+            this.TBIgualdad_Producto = new System.Windows.Forms.TextBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.TBIgualdad_Codigo = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
             this.btnAgregar_Igualdad = new System.Windows.Forms.Button();
             this.btnExaminar_Igualdad = new System.Windows.Forms.Button();
             this.lblTotal_Igualdad = new System.Windows.Forms.Label();
@@ -191,12 +197,7 @@
             this.TBBuscar = new System.Windows.Forms.TextBox();
             this.lblTotal = new System.Windows.Forms.Label();
             this.DGResultados = new System.Windows.Forms.DataGridView();
-            this.TBIgualdad_Codigo = new System.Windows.Forms.TextBox();
-            this.label30 = new System.Windows.Forms.Label();
-            this.TBIgualdad_Producto = new System.Windows.Forms.TextBox();
-            this.label33 = new System.Windows.Forms.Label();
-            this.TBIgualdad_Marca = new System.Windows.Forms.TextBox();
-            this.TBIdigualdad_Producto = new System.Windows.Forms.TextBox();
+            this.TBIdbodega_Aux = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.TCPrincipal.SuspendLayout();
             this.TPDatosBasicos.SuspendLayout();
@@ -1169,6 +1170,7 @@
             // 
             this.TPUbicacion.BackColor = System.Drawing.Color.White;
             this.TPUbicacion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TPUbicacion.Controls.Add(this.TBIdbodega_Aux);
             this.TPUbicacion.Controls.Add(this.lblTotal_Ubicacion);
             this.TPUbicacion.Controls.Add(this.DGDetalles_Ubicacion);
             this.TPUbicacion.Controls.Add(this.CBBodega);
@@ -2353,6 +2355,70 @@
             this.TPIgualdad.Text = "Igualdad";
             this.TPIgualdad.UseVisualStyleBackColor = true;
             // 
+            // TBIdigualdad_Producto
+            // 
+            this.TBIdigualdad_Producto.Location = new System.Drawing.Point(6, 350);
+            this.TBIdigualdad_Producto.Name = "TBIdigualdad_Producto";
+            this.TBIdigualdad_Producto.Size = new System.Drawing.Size(53, 21);
+            this.TBIdigualdad_Producto.TabIndex = 15;
+            // 
+            // TBIgualdad_Marca
+            // 
+            this.TBIgualdad_Marca.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TBIgualdad_Marca.Location = new System.Drawing.Point(65, 60);
+            this.TBIgualdad_Marca.Name = "TBIgualdad_Marca";
+            this.TBIgualdad_Marca.Size = new System.Drawing.Size(313, 21);
+            this.TBIgualdad_Marca.TabIndex = 166;
+            this.TBIgualdad_Marca.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // TBIgualdad_Producto
+            // 
+            this.TBIgualdad_Producto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TBIgualdad_Producto.Location = new System.Drawing.Point(65, 33);
+            this.TBIgualdad_Producto.Name = "TBIgualdad_Producto";
+            this.TBIgualdad_Producto.Size = new System.Drawing.Size(313, 21);
+            this.TBIgualdad_Producto.TabIndex = 164;
+            this.TBIgualdad_Producto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label33
+            // 
+            this.label33.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(3, 63);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(42, 15);
+            this.label33.TabIndex = 163;
+            this.label33.Text = "Marca";
+            // 
+            // TBIgualdad_Codigo
+            // 
+            this.TBIgualdad_Codigo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TBIgualdad_Codigo.Location = new System.Drawing.Point(65, 6);
+            this.TBIgualdad_Codigo.Name = "TBIgualdad_Codigo";
+            this.TBIgualdad_Codigo.Size = new System.Drawing.Size(282, 21);
+            this.TBIgualdad_Codigo.TabIndex = 162;
+            this.TBIgualdad_Codigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label30
+            // 
+            this.label30.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(3, 36);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(56, 15);
+            this.label30.TabIndex = 161;
+            this.label30.Text = "Producto";
+            // 
             // btnAgregar_Igualdad
             // 
             this.btnAgregar_Igualdad.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -2589,69 +2655,15 @@
             this.DGResultados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGResultados_CellDoubleClick);
             this.DGResultados.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DGResultados_KeyPress);
             // 
-            // TBIgualdad_Codigo
+            // TBIdbodega_Aux
             // 
-            this.TBIgualdad_Codigo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TBIdbodega_Aux.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBIgualdad_Codigo.Location = new System.Drawing.Point(65, 6);
-            this.TBIgualdad_Codigo.Name = "TBIgualdad_Codigo";
-            this.TBIgualdad_Codigo.Size = new System.Drawing.Size(282, 21);
-            this.TBIgualdad_Codigo.TabIndex = 162;
-            this.TBIgualdad_Codigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label30
-            // 
-            this.label30.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(3, 36);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(56, 15);
-            this.label30.TabIndex = 161;
-            this.label30.Text = "Producto";
-            // 
-            // TBIgualdad_Producto
-            // 
-            this.TBIgualdad_Producto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBIgualdad_Producto.Location = new System.Drawing.Point(65, 33);
-            this.TBIgualdad_Producto.Name = "TBIgualdad_Producto";
-            this.TBIgualdad_Producto.Size = new System.Drawing.Size(313, 21);
-            this.TBIgualdad_Producto.TabIndex = 164;
-            this.TBIgualdad_Producto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label33
-            // 
-            this.label33.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(3, 63);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(42, 15);
-            this.label33.TabIndex = 163;
-            this.label33.Text = "Marca";
-            // 
-            // TBIgualdad_Marca
-            // 
-            this.TBIgualdad_Marca.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBIgualdad_Marca.Location = new System.Drawing.Point(65, 60);
-            this.TBIgualdad_Marca.Name = "TBIgualdad_Marca";
-            this.TBIgualdad_Marca.Size = new System.Drawing.Size(313, 21);
-            this.TBIgualdad_Marca.TabIndex = 166;
-            this.TBIgualdad_Marca.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // TBIdigualdad_Producto
-            // 
-            this.TBIdigualdad_Producto.Location = new System.Drawing.Point(6, 350);
-            this.TBIdigualdad_Producto.Name = "TBIdigualdad_Producto";
-            this.TBIdigualdad_Producto.Size = new System.Drawing.Size(53, 21);
-            this.TBIdigualdad_Producto.TabIndex = 15;
+            this.TBIdbodega_Aux.Location = new System.Drawing.Point(125, 343);
+            this.TBIdbodega_Aux.Name = "TBIdbodega_Aux";
+            this.TBIdbodega_Aux.Size = new System.Drawing.Size(21, 21);
+            this.TBIdbodega_Aux.TabIndex = 15;
             // 
             // frmProductos
             // 
@@ -2877,5 +2889,6 @@
         private System.Windows.Forms.TextBox TBIgualdad_Producto;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.TextBox TBIdigualdad_Producto;
+        public System.Windows.Forms.TextBox TBIdbodega_Aux;
     }
 }
