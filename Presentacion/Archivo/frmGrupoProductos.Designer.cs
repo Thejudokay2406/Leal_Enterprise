@@ -1,6 +1,6 @@
 ﻿namespace Presentacion
 {
-    partial class frmGrupo
+    partial class frmGrupoProductos
     {
         /// <summary>
         /// Required designer variable.
@@ -305,7 +305,7 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // frmGrupo
+            // frmGrupoProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -317,10 +317,10 @@
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaximizeBox = false;
-            this.Name = "frmGrupo";
+            this.Name = "frmGrupoProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Archivo - Grupos";
-            this.Load += new System.EventHandler(this.frmGrupo_Load);
+            this.Load += new System.EventHandler(this.frmGrupoProductos_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGResultados)).EndInit();

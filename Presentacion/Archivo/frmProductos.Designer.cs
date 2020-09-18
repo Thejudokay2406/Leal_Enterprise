@@ -197,7 +197,6 @@
             this.TBBuscar = new System.Windows.Forms.TextBox();
             this.lblTotal = new System.Windows.Forms.Label();
             this.DGResultados = new System.Windows.Forms.DataGridView();
-            this.TBIdbodega_Aux = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.TCPrincipal.SuspendLayout();
             this.TPDatosBasicos.SuspendLayout();
@@ -1170,7 +1169,6 @@
             // 
             this.TPUbicacion.BackColor = System.Drawing.Color.White;
             this.TPUbicacion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TPUbicacion.Controls.Add(this.TBIdbodega_Aux);
             this.TPUbicacion.Controls.Add(this.lblTotal_Ubicacion);
             this.TPUbicacion.Controls.Add(this.DGDetalles_Ubicacion);
             this.TPUbicacion.Controls.Add(this.CBBodega);
@@ -1220,6 +1218,9 @@
             this.DGDetalles_Ubicacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGDetalles_Ubicacion.Size = new System.Drawing.Size(370, 208);
             this.DGDetalles_Ubicacion.TabIndex = 36;
+            this.DGDetalles_Ubicacion.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGDetalles_Ubicacion_CellContentClick);
+            this.DGDetalles_Ubicacion.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGDetalles_Ubicacion_CellDoubleClick);
+            this.DGDetalles_Ubicacion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.DGDetalles_Ubicacion_KeyUp);
             // 
             // CBBodega
             // 
@@ -2252,7 +2253,6 @@
             this.TBIdimpuesto.Name = "TBIdimpuesto";
             this.TBIdimpuesto.Size = new System.Drawing.Size(80, 21);
             this.TBIdimpuesto.TabIndex = 14;
-            this.TBIdimpuesto.TextChanged += new System.EventHandler(this.TBIdimpuesto_TextChanged);
             // 
             // lblTotal_Impuesto
             // 
@@ -2655,16 +2655,6 @@
             this.DGResultados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGResultados_CellDoubleClick);
             this.DGResultados.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DGResultados_KeyPress);
             // 
-            // TBIdbodega_Aux
-            // 
-            this.TBIdbodega_Aux.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBIdbodega_Aux.Location = new System.Drawing.Point(125, 343);
-            this.TBIdbodega_Aux.Name = "TBIdbodega_Aux";
-            this.TBIdbodega_Aux.Size = new System.Drawing.Size(21, 21);
-            this.TBIdbodega_Aux.TabIndex = 15;
-            // 
             // frmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2889,6 +2879,5 @@
         private System.Windows.Forms.TextBox TBIgualdad_Producto;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.TextBox TBIdigualdad_Producto;
-        public System.Windows.Forms.TextBox TBIdbodega_Aux;
     }
 }

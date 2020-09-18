@@ -63,6 +63,7 @@
             this.TBInicioHorario_Pagos = new System.Windows.Forms.MaskedTextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.CHCredito = new System.Windows.Forms.CheckBox();
             this.CHOtros = new System.Windows.Forms.CheckBox();
             this.CHTransferencia = new System.Windows.Forms.CheckBox();
             this.CHSodexo = new System.Windows.Forms.CheckBox();
@@ -128,7 +129,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
-            this.CHCredito = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.TCPrincipal.SuspendLayout();
             this.TPDatosBasicos.SuspendLayout();
@@ -282,9 +282,9 @@
             this.label20.AutoSize = true;
             this.label20.Location = new System.Drawing.Point(6, 279);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(80, 15);
+            this.label20.Size = new System.Drawing.Size(49, 15);
             this.label20.TabIndex = 58;
-            this.label20.Text = "Dimensiones";
+            this.label20.Text = "Medida";
             // 
             // CBZona
             // 
@@ -319,9 +319,9 @@
             this.label24.AutoSize = true;
             this.label24.Location = new System.Drawing.Point(6, 36);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(77, 15);
+            this.label24.Size = new System.Drawing.Size(35, 15);
             this.label24.TabIndex = 56;
-            this.label24.Text = "Zona de Ubi.";
+            this.label24.Text = "Zona";
             // 
             // TBDocumento
             // 
@@ -370,7 +370,7 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(72, 15);
             this.label10.TabIndex = 15;
-            this.label10.Text = "Descripcion";
+            this.label10.Text = "Descripción";
             // 
             // TBDescripcion
             // 
@@ -639,6 +639,16 @@
             this.groupBox4.TabIndex = 44;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Metodos de Pago Autorizados - Leal Enterprise";
+            // 
+            // CHCredito
+            // 
+            this.CHCredito.AutoSize = true;
+            this.CHCredito.Location = new System.Drawing.Point(98, 20);
+            this.CHCredito.Name = "CHCredito";
+            this.CHCredito.Size = new System.Drawing.Size(65, 19);
+            this.CHCredito.TabIndex = 52;
+            this.CHCredito.Text = "Credito";
+            this.CHCredito.UseVisualStyleBackColor = true;
             // 
             // CHOtros
             // 
@@ -1449,16 +1459,6 @@
             this.btnImprimir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnImprimir.UseVisualStyleBackColor = true;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
-            // 
-            // CHCredito
-            // 
-            this.CHCredito.AutoSize = true;
-            this.CHCredito.Location = new System.Drawing.Point(98, 20);
-            this.CHCredito.Name = "CHCredito";
-            this.CHCredito.Size = new System.Drawing.Size(65, 19);
-            this.CHCredito.TabIndex = 52;
-            this.CHCredito.Text = "Credito";
-            this.CHCredito.UseVisualStyleBackColor = true;
             // 
             // frmBodega
             // 

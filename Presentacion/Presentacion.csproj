@@ -174,6 +174,12 @@
     <Compile Include="Filtros\frmFiltro_Impuesto.Designer.cs">
       <DependentUpon>frmFiltro_Impuesto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Archivo\frmGrupoCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Archivo\frmGrupoCliente.Designer.cs">
+      <DependentUpon>frmGrupoCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sistema\frmUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -252,11 +258,11 @@
     <Compile Include="Archivo\frmTipoDeProducto.Designer.cs">
       <DependentUpon>frmTipoDeProducto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Archivo\frmGrupo.cs">
+    <Compile Include="Archivo\frmGrupoProductos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Archivo\frmGrupo.Designer.cs">
-      <DependentUpon>frmGrupo.cs</DependentUpon>
+    <Compile Include="Archivo\frmGrupoProductos.Designer.cs">
+      <DependentUpon>frmGrupoProductos.cs</DependentUpon>
     </Compile>
     <Compile Include="General\frmLogin.cs">
       <SubType>Form</SubType>
@@ -333,6 +339,9 @@
     </Compile>
     <EmbeddedResource Include="Archivo\frmBodega.resx">
       <DependentUpon>frmBodega.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Archivo\frmGrupoCliente.resx">
+      <DependentUpon>frmGrupoCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Archivo\frmImpuesto.resx">
       <DependentUpon>frmImpuesto.cs</DependentUpon>
@@ -413,8 +422,8 @@
     <EmbeddedResource Include="Archivo\frmTipoDeProducto.resx">
       <DependentUpon>frmTipoDeProducto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Archivo\frmGrupo.resx">
-      <DependentUpon>frmGrupo.cs</DependentUpon>
+    <EmbeddedResource Include="Archivo\frmGrupoProductos.resx">
+      <DependentUpon>frmGrupoProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="General\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

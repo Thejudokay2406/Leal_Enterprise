@@ -995,7 +995,7 @@ namespace Presentacion
                 {
                     DialogResult Opcion;
                     string Respuesta = "";
-                    int Eliminacion;
+                    int Idproducto;
 
                     Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
@@ -1003,8 +1003,8 @@ namespace Presentacion
                     {
                         if (DGResultados.SelectedRows.Count > 0)
                         {
-                            Eliminacion = Convert.ToInt32(DGResultados.CurrentRow.Cells["ID"].Value.ToString());
-                            Respuesta = Negocio.fProductos.Eliminar(Eliminacion, 1);
+                            Idproducto = Convert.ToInt32(DGResultados.CurrentRow.Cells["ID"].Value.ToString());
+                            Respuesta = Negocio.fProductos.Eliminar(Idproducto, 1);
                         }
 
                         if (Respuesta.Equals("OK"))
@@ -1140,7 +1140,7 @@ namespace Presentacion
                     {
                         DialogResult Opcion;
                         string Respuesta = "";
-                        int Eliminacion;
+                        int Idproducto, Idubicacion;
 
                         Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
@@ -1148,19 +1148,23 @@ namespace Presentacion
                         {
                             if (DGDetalles_Ubicacion.SelectedRows.Count > 0)
                             {
-                                Eliminacion = Convert.ToInt32(DGDetalles_Ubicacion.CurrentRow.Cells["Idproducto"].Value.ToString());
-                                Respuesta = Negocio.fProductos.Eliminar_Ubicacion(Eliminacion, 2);
+                                Idproducto = Convert.ToInt32(DGDetalles_Ubicacion.CurrentRow.Cells["Idproducto"].Value.ToString());
+                                Idubicacion = Convert.ToInt32(DGDetalles_Ubicacion.CurrentRow.Cells["Idubicacion"].Value.ToString());
+                                Respuesta = Negocio.fProductos.Eliminar_Ubicacion(Idproducto, Idubicacion, 6);
                             }
 
                             if (Respuesta.Equals("OK"))
                             {
-                                this.MensajeOk("Registro Eliminado Correctamente");
+                                this.MensajeOk("Ubicación Eliminada Correctamente");
                             }
                             else
                             {
                                 this.MensajeError(Respuesta);
                             }
                         }
+
+                        //
+                        this.Actualizar_DetUbicacion();
                     }
                     else
                     {
@@ -1285,7 +1289,7 @@ namespace Presentacion
                     {
                         DialogResult Opcion;
                         string Respuesta = "";
-                        int Eliminacion;
+                        int Idproducto, Idcodbarra;
 
                         Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
@@ -1293,19 +1297,23 @@ namespace Presentacion
                         {
                             if (DGDetalle_Proveedor.SelectedRows.Count > 0)
                             {
-                                Eliminacion = Convert.ToInt32(DGDetalle_Proveedor.CurrentRow.Cells["Idproducto"].Value.ToString());
-                                Respuesta = Negocio.fProductos.Eliminar_CodigoDeBara(Eliminacion, 6);
+                                Idproducto = Convert.ToInt32(DGDetalle_Proveedor.CurrentRow.Cells["Idproducto"].Value.ToString());
+                                Idcodbarra = Convert.ToInt32(DGDetalle_Proveedor.CurrentRow.Cells["IdCodBarra"].Value.ToString());
+                                Respuesta = Negocio.fProductos.Eliminar_CodigoDeBara(Idproducto, Idcodbarra, 1);
                             }
 
                             if (Respuesta.Equals("OK"))
                             {
-                                this.MensajeOk("Registro Eliminado Correctamente");
+                                this.MensajeOk("Codigo de Barra Eliminado Correctamente");
                             }
                             else
                             {
                                 this.MensajeError(Respuesta);
                             }
                         }
+
+                        //
+                        this.Actualizar_DetCodigoDeBarra();
                     }
                     else
                     {
@@ -3339,7 +3347,7 @@ namespace Presentacion
                     {
                         DialogResult Opcion;
                         string Respuesta = "";
-                        int Eliminacion;
+                        int Idproducto, Idlote;
 
                         Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
@@ -3347,19 +3355,23 @@ namespace Presentacion
                         {
                             if (DGDetalles_Lotes.SelectedRows.Count > 0)
                             {
-                                Eliminacion = Convert.ToInt32(DGDetalles_Lotes.CurrentRow.Cells["Idproducto"].Value.ToString());
-                                Respuesta = Negocio.fProductos.Eliminar_Lote(Eliminacion, 7);
+                                Idproducto = Convert.ToInt32(DGDetalles_Lotes.CurrentRow.Cells["Idproducto"].Value.ToString());
+                                Idlote = Convert.ToInt32(DGDetalles_Lotes.CurrentRow.Cells["Idlote"].Value.ToString());
+                                Respuesta = Negocio.fProductos.Eliminar_Lote(Idproducto, Idlote,4);
                             }
 
                             if (Respuesta.Equals("OK"))
                             {
-                                this.MensajeOk("Registro Eliminado Correctamente");
+                                this.MensajeOk("Lote Eliminado Correctamente");
                             }
                             else
                             {
                                 this.MensajeError(Respuesta);
                             }
                         }
+
+                        //
+                        this.Actualizar_DetLote();
                     }
                     else
                     {
@@ -3381,11 +3393,6 @@ namespace Presentacion
             }
         }
 
-        private void btnImprimir_Igualdad_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void btnEliminar_Igualdad_Click(object sender, EventArgs e)
         {
             try
@@ -3396,7 +3403,7 @@ namespace Presentacion
                     {
                         DialogResult Opcion;
                         string Respuesta = "";
-                        int Eliminacion;
+                        int Idproducto, Idigualdad;
 
                         Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
@@ -3404,19 +3411,23 @@ namespace Presentacion
                         {
                             if (DGDetalle_Igualdad.SelectedRows.Count > 0)
                             {
-                                Eliminacion = Convert.ToInt32(DGDetalle_Igualdad.CurrentRow.Cells["Idproducto"].Value.ToString());
-                                Respuesta = Negocio.fProductos.Eliminar_Igualdad(Eliminacion, 3);
+                                Idproducto = Convert.ToInt32(DGDetalle_Igualdad.CurrentRow.Cells["Idproducto"].Value.ToString());
+                                Idigualdad = Convert.ToInt32(DGDetalle_Igualdad.CurrentRow.Cells["Idigualdad"].Value.ToString());
+                                Respuesta = Negocio.fProductos.Eliminar_Igualdad(Idproducto, Idigualdad, 2);
                             }
 
                             if (Respuesta.Equals("OK"))
                             {
-                                this.MensajeOk("Registro Eliminado Correctamente");
+                                this.MensajeOk("Producto de Igualdad Eliminado Correctamente");
                             }
                             else
                             {
                                 this.MensajeError(Respuesta);
                             }
                         }
+
+                        //
+                        this.Actualizar_DetIgualdad();
                     }
                     else
                     {
@@ -3438,42 +3449,6 @@ namespace Presentacion
             }
         }
 
-        private void TBIgualdad_Producto_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            try
-            {
-                //if (e.KeyChar == Convert.ToChar(Keys.Enter))
-                //{
-                //    DataTable Tabla = new DataTable();
-                //    Tabla = fProductos.Buscar_Igualdad(this.TBIgualdad_Producto.Text.Trim());
-                //    if (Tabla.Rows.Count <= 0)
-                //    {
-                //        this.MensajeError("El producto el cual desea agregar no se encuentra registrado en su Base de Datos");
-                //    }
-                //    else
-                //    {
-                //        this.DetalleIgualdad_SQL
-                //            (
-                //                Convert.ToInt32(Tabla.Rows[0][0]),
-                //                Convert.ToString(Tabla.Rows[0][1]),
-                //                Convert.ToString(Tabla.Rows[0][2]),
-                //                Convert.ToString(Tabla.Rows[0][3])
-                //            );
-
-                //        lblTotalIgualdad.Text = "Productos Agregados: " + Convert.ToString(DGDetalle_Igualdad.Rows.Count);
-
-                //        //Se procede a limpiar los campos de texto utilizados para el Filtro
-
-                //        this.TBIgualdad_Producto.Clear();
-                //    }
-                //}
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
         private void btnEliminar_Impuesto_Click(object sender, EventArgs e)
         {
             try
@@ -3484,7 +3459,7 @@ namespace Presentacion
                     {
                         DialogResult Opcion;
                         string Respuesta = "";
-                        int Eliminacion;
+                        int Idproducto, Idimpuesto;
 
                         Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
@@ -3492,19 +3467,23 @@ namespace Presentacion
                         {
                             if (DGDetalle_Impuesto.SelectedRows.Count > 0)
                             {
-                                Eliminacion = Convert.ToInt32(DGDetalle_Impuesto.CurrentRow.Cells["Idproducto"].Value.ToString());
-                                Respuesta = Negocio.fProductos.Eliminar_Impuesto(Eliminacion, 4);
+                                Idproducto = Convert.ToInt32(DGDetalle_Impuesto.CurrentRow.Cells["Idproducto"].Value.ToString());
+                                Idimpuesto = Convert.ToInt32(DGDetalle_Impuesto.CurrentRow.Cells["IdDet_impuesto"].Value.ToString());
+                                Respuesta = Negocio.fProductos.Eliminar_Impuesto(Idproducto, Idimpuesto, 3);
                             }
 
                             if (Respuesta.Equals("OK"))
                             {
-                                this.MensajeOk("Registro Eliminado Correctamente");
+                                this.MensajeOk("Impuesto Eliminado Correctamente");
                             }
                             else
                             {
                                 this.MensajeError(Respuesta);
                             }
                         }
+
+                        //
+                        this.Actualizar_DetImpuesto();
                     }
                     else
                     {
@@ -3536,7 +3515,7 @@ namespace Presentacion
                     {
                         DialogResult Opcion;
                         string Respuesta = "";
-                        int Eliminacion;
+                        int Idproducto, Idproveedor;
 
                         Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
@@ -3544,19 +3523,23 @@ namespace Presentacion
                         {
                             if (DGDetalle_Proveedor.SelectedRows.Count > 0)
                             {
-                                Eliminacion = Convert.ToInt32(DGDetalle_Proveedor.CurrentRow.Cells["Idproducto"].Value.ToString());
-                                Respuesta = Negocio.fProductos.Eliminar_Proveedor(Eliminacion, 5);
+                                Idproducto = Convert.ToInt32(DGDetalle_Proveedor.CurrentRow.Cells["Idproducto"].Value.ToString());
+                                Idproveedor = Convert.ToInt32(DGDetalle_Proveedor.CurrentRow.Cells["IdDet_Proveedor"].Value.ToString());
+                                Respuesta = Negocio.fProductos.Eliminar_Proveedor(Idproducto, Idproveedor, 5);
                             }
 
                             if (Respuesta.Equals("OK"))
                             {
-                                this.MensajeOk("Registro Eliminado Correctamente");
+                                this.MensajeOk("Proveedor Eliminado Correctamente");
                             }
                             else
                             {
                                 this.MensajeError(Respuesta);
                             }
                         }
+
+                        //
+                        this.Actualizar_DetProveedor();
                     }
                     else
                     {
@@ -5359,84 +5342,20 @@ namespace Presentacion
                 e.Handled = true;
             }
         }
-
-        private void btnEditar_Ubicacion_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                //this.DtDetalle_Ubicacion.Rows.Clear();
-                this.DtDetalle_Ubicacion.Clear();
-
-                this.CBBodega.SelectedIndex = 0;
-                this.TBUbicacion.Clear();
-                this.TBEstante.Clear();
-                this.TBNivel.Clear();
-
-                //if (!Digitar)
-                //{
-                //    if (Editar == "1")
-                //    {
-                //        this.DtDetalle_Ubicacion.Rows.Clear();
-                //        this.DtDetalle_Ubicacion.AcceptChanges();
-
-                //        ////'Primero se limpia el dataTable
-                //        //DtDetalle_Ubicacion.Clear();
-                //        ////'Luego se quita la relación del dataTable con el bindingSource y se limpia
-                //        //bindingSource1.DataSource = Nothing;
-                //        //bindingSource1.DataSource = "";
-                //        //bindingSource1.Clear();
-                //        //DataGridView1.DataSource = bindingSource1; //'Se vuelve a relacionar el bindingSource vacio con el grid
-                //        //DataGridView1.Columns.Clear(); //'Al final se limpian las columnas que pudieran haber
-
-                //        //SE VALIDA SI EL DATATABLE ESTA LLENO DE L 
-                //        //if (DtDetalle_Ubicacion != null)
-                //        //{
-                //        //    this.MensajeError("Agregue la Ubicacion o Ubicaciones que desea Establecer del Producto: " + Convert.ToString(TBNombre.Text) + " Con Codigo: " + Convert.ToString(TBCodigo.Text));
-                //        //}
-                //        //else
-                //        //{
-                //        //    rptaEditarUbicacion = fProductos.Editar_Ubicacion(Convert.ToInt32(TBIdproducto.Text), this.DtDetalle_Ubicacion, 2);
-                //        //}
-                //    }
-
-                //    else
-                //    {
-                //        MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Modificar Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                //    }
-
-                //    //if (rptaEditarUbicacion.Equals("OK"))
-                //    //{
-                //    //    if (!Digitar)
-                //    //    {
-                //    //        this.MensajeOk("Ubicacion Actualizada");
-                //    //    }
-                //    //}
-
-                //    //
-                //    this.CBBodega.SelectedIndex = 0;
-                //    this.TBUbicacion.Clear();
-                //    this.TBEstante.Clear();
-                //    this.TBNivel.Clear();
-                //}
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
+                
         private void btnExaminar_Impuesto_Click(object sender, EventArgs e)
         {
             frmFiltro_Impuesto frmFiltro_Impuesto = new frmFiltro_Impuesto();
             frmFiltro_Impuesto.ShowDialog();
         }
 
-        private void TBIdubicacion_TextChanged(object sender, EventArgs e)
+        private void DGDetalles_Ubicacion_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
-                
+                this.TBUbicacion.Text = Convert.ToString(this.DGDetalles_Ubicacion.CurrentRow.Cells["Ubicacion"].Value);
+                this.TBEstante.Text = Convert.ToString(this.DGDetalles_Ubicacion.CurrentRow.Cells["Estante"].Value);
+                this.TBNivel.Text = Convert.ToString(this.DGDetalles_Ubicacion.CurrentRow.Cells["Nivel"].Value);
             }
             catch (Exception ex)
             {
@@ -5444,30 +5363,27 @@ namespace Presentacion
             }
         }
 
-        private void TBIdimpuesto_TextChanged(object sender, EventArgs e)
+        private void DGDetalles_Ubicacion_KeyUp(object sender, KeyEventArgs e)
         {
             try
             {
-                //DataTable Datos = Negocio.fImpuesto.BuscarExistencia_SQL(this.TBIdimpuesto.Text);
-                ////Evaluamos si  existen los Datos
-                //if (Datos.Rows.Count == 0)
-                //{
-                //    MessageBox.Show("Actualmente no se encuentran registros en la Base de Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //}
-                //else
-                //{
-                //    //Captura de Valores en la Base de Datos
+                this.TBUbicacion.Text = Convert.ToString(this.DGDetalles_Ubicacion.CurrentRow.Cells["Ubicacion"].Value);
+                this.TBEstante.Text = Convert.ToString(this.DGDetalles_Ubicacion.CurrentRow.Cells["Estante"].Value);
+                this.TBNivel.Text = Convert.ToString(this.DGDetalles_Ubicacion.CurrentRow.Cells["Nivel"].Value);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
 
-                //    //Panel Datos Basicos - Llaves Primarias
-                //    //Imp_Nombre = Datos.Rows[0][0].ToString();
-                //    Imp_Valor = Datos.Rows[0][0].ToString();
-                //    Imp_Descripcion = Datos.Rows[0][1].ToString();
-
-                //    //Panel Datos Basicos
-                //    this.TBValor_Impuesto.Text = Imp_Valor;
-                //    this.TBDescripcion_Impuesto.Text = Imp_Descripcion;
-                //    //this.TBIdimpuesto.Text = Idimpuesto;+++
-                //}
+        private void DGDetalles_Ubicacion_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                this.TBUbicacion.Text = Convert.ToString(this.DGDetalles_Ubicacion.CurrentRow.Cells["Ubicacion"].Value);
+                this.TBEstante.Text = Convert.ToString(this.DGDetalles_Ubicacion.CurrentRow.Cells["Estante"].Value);
+                this.TBNivel.Text = Convert.ToString(this.DGDetalles_Ubicacion.CurrentRow.Cells["Nivel"].Value);
             }
             catch (Exception ex)
             {
@@ -6413,8 +6329,6 @@ namespace Presentacion
             if (CBBodega.SelectedIndex != 0)
             {
                 this.TBUbicacion.Select();
-
-                this.TBIdbodega_Aux.Text = this.CBBodega.SelectedValue.ToString();
             }
         }
 
@@ -6635,24 +6549,30 @@ namespace Presentacion
                     //Se realizan las consultas para llenar los DataGriview donde se mostrarian los MultiPlex Registros.
 
                     this.DGDetalles_Ubicacion.DataSource = fProductos.Buscar_Ubicacion(1, Convert.ToInt32(this.TBIdproducto.Text));
-                    lblTotal_Ubicacion.Text = "Datos Registrados: " + Convert.ToString(DGDetalles_Ubicacion.Rows.Count);
+                    this.lblTotal_Ubicacion.Text = "Datos Registrados: " + Convert.ToString(DGDetalles_Ubicacion.Rows.Count);
+                    this.DGDetalles_Ubicacion.Columns["Idubicacion"].Visible = false;
 
                     this.DGDetalle_Igualdad.DataSource = fProductos.Buscar_Igualdad(1, Convert.ToInt32(this.TBIdproducto.Text));
-                    lblTotal_Igualdad.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Igualdad.Rows.Count);
+                    this.lblTotal_Igualdad.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Igualdad.Rows.Count);
+                    this.DGDetalle_Igualdad.Columns["Idigualdad"].Visible = false;
 
                     this.DGDetalle_Impuesto.DataSource = fProductos.Buscar_Impuesto(1, Convert.ToInt32(this.TBIdproducto.Text));
-                    lblTotal_Impuesto.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Impuesto.Rows.Count);
+                    this.lblTotal_Impuesto.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Impuesto.Rows.Count);
                     this.DGDetalle_Impuesto.Columns[0].Visible = false;
                     this.DGDetalle_Impuesto.Columns[1].Visible = false;
+                    this.DGDetalle_Impuesto.Columns["IdDet_impuesto"].Visible = false;
 
                     this.DGDetalle_Proveedor.DataSource = fProductos.Buscar_Proveedor(1, Convert.ToInt32(this.TBIdproducto.Text));
-                    lblTotal_Proveedor.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Proveedor.Rows.Count);
+                    this.lblTotal_Proveedor.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Proveedor.Rows.Count);
+                    this.DGDetalle_Proveedor.Columns["IdDet_Proveedor"].Visible = false;
 
                     this.DGDetalle_CodigoDeBarra.DataSource = fProductos.Buscar_CodigoDeBarra(1, Convert.ToInt32(this.TBIdproducto.Text));
-                    lblTotal_Codigodebarra.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_CodigoDeBarra.Rows.Count);
+                    this.lblTotal_Codigodebarra.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_CodigoDeBarra.Rows.Count);
+                    this.DGDetalle_CodigoDeBarra.Columns["IdCodBarra"].Visible = false;
 
                     this.DGDetalles_Lotes.DataSource = fProductos.Buscar_Lote(1, Convert.ToInt32(this.TBIdproducto.Text));
-                    lblTotal_Lotes.Text = "Datos Registrados: " + Convert.ToString(DGDetalles_Lotes.Rows.Count);
+                    this.lblTotal_Lotes.Text = "Datos Registrados: " + Convert.ToString(DGDetalles_Lotes.Rows.Count);
+                    this.DGDetalles_Lotes.Columns["Idlote"].Visible = false;
                 }
             }
             catch (Exception ex)

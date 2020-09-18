@@ -12,7 +12,7 @@ using Negocio;
 
 namespace Presentacion
 {
-    public partial class frmTipoDeCliente : Form
+    public partial class frmTipoDeClie : Form
     {
         // Variable con la cual se define si el procecimiento 
         // A realizar es Editar, Guardar, Buscar,Eliminar
@@ -43,7 +43,7 @@ namespace Presentacion
         public string Movil = "";
         public string Correo = "";
         public string Responsable = "";
-        public frmTipoDeCliente()
+        public frmTipoDeClie()
         {
             InitializeComponent();
         }

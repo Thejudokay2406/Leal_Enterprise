@@ -1072,19 +1072,19 @@ namespace Datos
             return Rpta;
         }
 
-        public string Eliminar(int IDEliminar_SQL, int Auto)
+        public string Eliminar(int Idproducto, int Auto)
         {
             string Rpta = "";
             SqlConnection SqlCon = new SqlConnection();
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Eliminar.Producto", SqlCon);
+                SqlCommand Comando = new SqlCommand("Productos.Detalles_Adicional", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Panel Datos Basicos
                 Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Auto;
-                Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = IDEliminar_SQL;
+                Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = Idproducto;
 
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Eliminar el Registro";
@@ -1103,19 +1103,20 @@ namespace Datos
             return Rpta;
         }
 
-        public string Eliminar_Ubicacion(int IDEliminar_SQL, int Auto)
+        public string Eliminar_Ubicacion(int Idproducto, int Iddetalle, int Auto)
         {
             string Rpta = "";
             SqlConnection SqlCon = new SqlConnection();
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Eliminar.Producto", SqlCon);
+                SqlCommand Comando = new SqlCommand("Productos.Detalles_Adicional", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Panel Datos Basicos
-                Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Auto;
-                Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = IDEliminar_SQL;
+                Comando.Parameters.Add("@Eliminar", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Idubicacion", SqlDbType.Int).Value = Iddetalle;
+                Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = Idproducto;
 
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Eliminar el Registro";
@@ -1134,19 +1135,20 @@ namespace Datos
             return Rpta;
         }
 
-        public string Eliminar_Impuesto(int IDEliminar_SQL, int Auto)
+        public string Eliminar_Impuesto(int Idproducto, int Iddetalle, int Auto)
         {
             string Rpta = "";
             SqlConnection SqlCon = new SqlConnection();
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Eliminar.Producto", SqlCon);
+                SqlCommand Comando = new SqlCommand("Productos.Detalles_Adicional", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Panel Datos Basicos
-                Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Auto;
-                Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = IDEliminar_SQL;
+                Comando.Parameters.Add("@Eliminar", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = Idproducto;
+                Comando.Parameters.Add("@Idimpuesto", SqlDbType.Int).Value = Iddetalle;
 
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Eliminar el Registro";
@@ -1165,19 +1167,20 @@ namespace Datos
             return Rpta;
         }
 
-        public string Eliminar_Proveedor(int IDEliminar_SQL, int Auto)
+        public string Eliminar_Proveedor(int Idproducto, int Iddetalle, int Auto)
         {
             string Rpta = "";
             SqlConnection SqlCon = new SqlConnection();
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Eliminar.Producto", SqlCon);
+                SqlCommand Comando = new SqlCommand("Productos.Detalles_Adicional", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Panel Datos Basicos
-                Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Auto;
-                Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = IDEliminar_SQL;
+                Comando.Parameters.Add("@Eliminar", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = Idproducto;
+                Comando.Parameters.Add("@IdProveedor", SqlDbType.Int).Value = Iddetalle;
 
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Eliminar el Registro";
@@ -1196,19 +1199,20 @@ namespace Datos
             return Rpta;
         }
 
-        public string Eliminar_CodigoDeBara(int IDEliminar_SQL, int Auto)
+        public string Eliminar_CodigoDeBara(int Idproducto, int Iddetalle, int Auto)
         {
             string Rpta = "";
             SqlConnection SqlCon = new SqlConnection();
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Eliminar.Producto", SqlCon);
+                SqlCommand Comando = new SqlCommand("Productos.Detalles_Adicional", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Panel Datos Basicos
-                Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Auto;
-                Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = IDEliminar_SQL;
+                Comando.Parameters.Add("@Eliminar", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = Idproducto;
+                Comando.Parameters.Add("@IdCodBarra", SqlDbType.Int).Value = Iddetalle;
 
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Eliminar el Registro";
@@ -1227,19 +1231,20 @@ namespace Datos
             return Rpta;
         }
 
-        public string Eliminar_Lote(int IdLote_SQL, int Auto)
+        public string Eliminar_Lote(int Idproducto, int Iddetalle, int Auto)
         {
             string Rpta = "";
             SqlConnection SqlCon = new SqlConnection();
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Eliminar.Producto", SqlCon);
+                SqlCommand Comando = new SqlCommand("Productos.Detalles_Adicional", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Panel Datos Basicos
-                Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Auto;
-                Comando.Parameters.Add("@Lote_SQL", SqlDbType.Int).Value = IdLote_SQL;
+                Comando.Parameters.Add("@Eliminar", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = Idproducto;
+                Comando.Parameters.Add("@IdLote", SqlDbType.Int).Value = Iddetalle;
 
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Eliminar el Registro";
@@ -1258,19 +1263,20 @@ namespace Datos
             return Rpta;
         }
 
-        public string Eliminar_Igualdad(int IDEliminar_SQL, int Auto)
+        public string Eliminar_Igualdad(int Idproducto, int Iddetalle, int Auto)
         {
             string Rpta = "";
             SqlConnection SqlCon = new SqlConnection();
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Eliminar.Producto", SqlCon);
+                SqlCommand Comando = new SqlCommand("Productos.Detalles_Adicional", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Panel Datos Basicos
-                Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Auto;
-                Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = IDEliminar_SQL;
+                Comando.Parameters.Add("@Eliminar", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = Idproducto;
+                Comando.Parameters.Add("@IdIgualdad", SqlDbType.Int).Value = Iddetalle;
 
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Eliminar el Registro";

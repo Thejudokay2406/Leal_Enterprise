@@ -446,40 +446,47 @@ namespace Presentacion
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (Eliminar == "1")
+            try
             {
-
-                DialogResult Opcion;
-                string Respuesta = "";
-                int Eliminacion;
-
-                Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-                if (Opcion == DialogResult.OK)
+                if (Eliminar == "1")
                 {
-                    if (DGResultados.SelectedRows.Count > 0)
-                    {
-                        Eliminacion = Convert.ToInt32(DGResultados.CurrentRow.Cells["Codigo"].Value.ToString());
-                        Respuesta = Negocio.fCliente.Eliminar(Eliminacion, 0);
-                    }
 
-                    if (Respuesta.Equals("OK"))
-                    {
-                        this.MensajeOk("Registro Eliminado Correctamente");
-                    }
-                    else
-                    {
-                        this.MensajeError(Respuesta);
-                    }
+                    DialogResult Opcion;
+                    string Respuesta = "";
+                    int Eliminacion;
 
-                    //Botones Comunes
-                    this.TBBuscar.Clear();
-                    this.Limpiar_Datos();
+                    Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                    if (Opcion == DialogResult.OK)
+                    {
+                        if (DGResultados.SelectedRows.Count > 0)
+                        {
+                            Eliminacion = Convert.ToInt32(DGResultados.CurrentRow.Cells["Codigo"].Value.ToString());
+                            Respuesta = Negocio.fCliente.Eliminar(Eliminacion, 0);
+                        }
+
+                        if (Respuesta.Equals("OK"))
+                        {
+                            this.MensajeOk("Registro Eliminado Correctamente");
+                        }
+                        else
+                        {
+                            this.MensajeError(Respuesta);
+                        }
+
+                        //Botones Comunes
+                        this.TBBuscar.Clear();
+                        this.Limpiar_Datos();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
 

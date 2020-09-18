@@ -12,7 +12,7 @@ using Negocio;
 
 namespace Presentacion
 {
-    public partial class frmGrupo : Form
+    public partial class frmGrupoProductos : Form
     {
         // Variable con la cual se define si el procecimiento 
         // A realizar es Editar, Guardar, Buscar,Eliminar
@@ -44,12 +44,12 @@ namespace Presentacion
         public string Movil = "";
         public string Correo = "";
         public string Responsable = "";
-        public frmGrupo()
+        public frmGrupoProductos()
         {
             InitializeComponent();
         }
 
-        private void frmGrupo_Load(object sender, EventArgs e)
+        private void frmGrupoProductos_Load(object sender, EventArgs e)
         {
             //Inicio de Clase y Botones
             this.Botones();

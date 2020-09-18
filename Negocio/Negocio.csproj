@@ -46,6 +46,7 @@
     <Compile Include="Archivo\fProveedor.cs" />
     <Compile Include="Compras\fCotizacion_Compra.cs" />
     <Compile Include="Archivo\fTipoDePago.cs" />
+    <Compile Include="fGrupoDeCliente.cs" />
     <Compile Include="Gestion Humana\fGestion_Departameto.cs" />
     <Compile Include="Gestion Humana\fTipoDeContrato.cs" />
     <Compile Include="Inventario\fIngreso_Bodega.cs" />

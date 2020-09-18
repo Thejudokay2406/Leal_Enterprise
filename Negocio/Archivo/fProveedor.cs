@@ -45,7 +45,7 @@ namespace Negocio
                 string direccion02, string telefono_de, string movil_de, string receptor, string observacion,
 
                 //Datos Financieros
-                string retencion, string valorretencion, string bancoPrincipal, string bancoauxiliar, string cuenta01,
+                string bancoPrincipal, string bancoauxiliar, string cuenta01,
                 string cuenta02, string creditoMin, string creditoMax, string prorroga, int estado
                                 
             )
@@ -78,8 +78,6 @@ namespace Negocio
             Obj.Observacion = observacion;
 
             //Datos Financieros
-            Obj.Retencion = retencion;
-            Obj.ValorRetencion = valorretencion;
             Obj.BancoPrincipal = bancoPrincipal;
             Obj.BancoAuxiliar = bancoauxiliar;
             Obj.Cuenta01 = cuenta01;
@@ -108,7 +106,7 @@ namespace Negocio
                 string direccion02, string telefono_de, string movil_de, string receptor, string observacion,
 
                 //Datos Financieros
-                string retencion, string valorretencion, string bancoPrincipal, string bancoauxiliar, string cuenta01,
+                string bancoPrincipal, string bancoauxiliar, string cuenta01,
                 string cuenta02, string creditoMin, string creditoMax, string prorroga, int estado
             )
         {
@@ -141,8 +139,6 @@ namespace Negocio
             Obj.Observacion = observacion;
 
             //Datos Financieros
-            Obj.Retencion = retencion;
-            Obj.ValorRetencion = valorretencion;
             Obj.BancoPrincipal = bancoPrincipal;
             Obj.BancoAuxiliar = bancoauxiliar;
             Obj.Cuenta01 = cuenta01;
@@ -163,6 +159,5 @@ namespace Negocio
             Conexion_Cliente Datos = new Conexion_Cliente();
             return Datos.Eliminar(IDEliminar_SQL, auto);
         }
-
     }
 }

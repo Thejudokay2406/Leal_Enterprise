@@ -619,46 +619,46 @@ namespace Negocio
             return Datos.Editar_CodigoDeBarra(Obj);
         }
 
-        public static string Eliminar(int IDEliminar_SQL, int auto)
+        public static string Eliminar(int Idproducto, int Auto)
         {
             Conexion_Producto Datos = new Conexion_Producto();
-            return Datos.Eliminar(IDEliminar_SQL, auto);
+            return Datos.Eliminar(Idproducto, Auto);
         }
 
-        public static string Eliminar_CodigoDeBara(int IDEliminar_SQL, int auto)
+        public static string Eliminar_CodigoDeBara(int Idproducto, int Iddetalle, int Auto)
         {
             Conexion_Producto Datos = new Conexion_Producto();
-            return Datos.Eliminar_CodigoDeBara(IDEliminar_SQL, auto);
+            return Datos.Eliminar_CodigoDeBara(Idproducto, Iddetalle, Auto);
         }
 
-        public static string Eliminar_Igualdad(int IDEliminar_SQL, int auto)
+        public static string Eliminar_Igualdad(int Idproducto, int Iddetalle, int Auto)
         {
             Conexion_Producto Datos = new Conexion_Producto();
-            return Datos.Eliminar_Igualdad(IDEliminar_SQL, auto);
+            return Datos.Eliminar_Igualdad(Idproducto, Iddetalle, Auto);
         }
 
-        public static string Eliminar_Lote(int IDEliminar_SQL, int auto)
+        public static string Eliminar_Lote(int Idproducto, int Iddetalle, int Auto)
         {
             Conexion_Producto Datos = new Conexion_Producto();
-            return Datos.Eliminar_Lote(IDEliminar_SQL, auto);
+            return Datos.Eliminar_Lote(Idproducto, Iddetalle, Auto);
         }
 
-        public static string Eliminar_Proveedor(int IDEliminar_SQL, int auto)
+        public static string Eliminar_Proveedor(int Idproducto, int Iddetalle, int Auto)
         {
             Conexion_Producto Datos = new Conexion_Producto();
-            return Datos.Eliminar_Proveedor(IDEliminar_SQL, auto);
+            return Datos.Eliminar_Proveedor(Idproducto, Iddetalle, Auto);
         }
 
-        public static string Eliminar_Ubicacion(int IDEliminar_SQL, int auto)
+        public static string Eliminar_Ubicacion(int Idproducto, int Iddetalle, int Auto)
         {
             Conexion_Producto Datos = new Conexion_Producto();
-            return Datos.Eliminar_Ubicacion(IDEliminar_SQL, auto);
+            return Datos.Eliminar_Ubicacion(Idproducto, Iddetalle, Auto);
         }
 
-        public static string Eliminar_Impuesto(int IDEliminar_SQL, int auto)
+        public static string Eliminar_Impuesto(int Idproducto, int Iddetalle, int Auto)
         {
             Conexion_Producto Datos = new Conexion_Producto();
-            return Datos.Eliminar_Impuesto(IDEliminar_SQL, auto);
+            return Datos.Eliminar_Impuesto(Idproducto, Iddetalle, Auto);
         }
 
     }
