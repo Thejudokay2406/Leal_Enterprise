@@ -86,6 +86,7 @@ namespace Datos
                 Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Obj.Auto;
 
                 //Panel Datos Basicos
+                Comando.Parameters.Add("@Codigo", SqlDbType.VarChar).Value = Obj.Codigo;
                 Comando.Parameters.Add("@Marca", SqlDbType.VarChar).Value = Obj.Marca;
                 Comando.Parameters.Add("@Descripcion", SqlDbType.VarChar).Value = Obj.Descripcion;
                 Comando.Parameters.Add("@Referencia", SqlDbType.VarChar).Value = Obj.Referencia;

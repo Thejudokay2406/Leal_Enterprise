@@ -155,6 +155,24 @@
             this.TBNumeroDeCuenta = new System.Windows.Forms.TextBox();
             this.TBBancoPrincipal = new System.Windows.Forms.TextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label60 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.DGDetalle_Contacto = new System.Windows.Forms.DataGridView();
+            this.label59 = new System.Windows.Forms.Label();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.label58 = new System.Windows.Forms.Label();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.label57 = new System.Windows.Forms.Label();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.label56 = new System.Windows.Forms.Label();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.label55 = new System.Windows.Forms.Label();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.label54 = new System.Windows.Forms.Label();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.label53 = new System.Windows.Forms.Label();
             this.TBIdcliente = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -165,24 +183,6 @@
             this.lblTotal = new System.Windows.Forms.Label();
             this.DGResultados = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label53 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.label54 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.label55 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.label56 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.label57 = new System.Windows.Forms.Label();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.label58 = new System.Windows.Forms.Label();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.label59 = new System.Windows.Forms.Label();
-            this.label60 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.DGDetalle_Contacto = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.TCPrincipal.SuspendLayout();
             this.TPDatosBasicos.SuspendLayout();
@@ -194,9 +194,9 @@
             this.TPDatosFinancieros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGDetalle_Financiera)).BeginInit();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGDetalle_Contacto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGResultados)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGDetalle_Contacto)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -325,6 +325,8 @@
             // checkBox7
             // 
             this.checkBox7.AutoSize = true;
+            this.checkBox7.Checked = true;
+            this.checkBox7.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.checkBox7.Location = new System.Drawing.Point(149, 246);
             this.checkBox7.Name = "checkBox7";
@@ -361,6 +363,8 @@
             // checkBox6
             // 
             this.checkBox6.AutoSize = true;
+            this.checkBox6.Checked = true;
+            this.checkBox6.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.checkBox6.Location = new System.Drawing.Point(149, 269);
             this.checkBox6.Name = "checkBox6";
@@ -381,6 +385,8 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
+            this.checkBox2.Checked = true;
+            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.checkBox2.Location = new System.Drawing.Point(356, 247);
             this.checkBox2.Name = "checkBox2";
@@ -401,6 +407,8 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.checkBox1.Location = new System.Drawing.Point(356, 270);
             this.checkBox1.Name = "checkBox1";
@@ -1512,11 +1520,11 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.comboBox1);
             this.tabPage1.Controls.Add(this.label60);
             this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.button5);
             this.tabPage1.Controls.Add(this.DGDetalle_Contacto);
-            this.tabPage1.Controls.Add(this.textBox15);
             this.tabPage1.Controls.Add(this.label59);
             this.tabPage1.Controls.Add(this.textBox14);
             this.tabPage1.Controls.Add(this.label58);
@@ -1537,6 +1545,182 @@
             this.tabPage1.TabIndex = 6;
             this.tabPage1.Text = "Datos de Contacto";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(408, 87);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(238, 21);
+            this.comboBox1.TabIndex = 169;
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(6, 326);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(42, 15);
+            this.label60.TabIndex = 168;
+            this.label60.Text = "Datos:";
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.Image = global::Presentacion.Botones.btnEliminar;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(555, 318);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(90, 30);
+            this.button2.TabIndex = 167;
+            this.button2.Text = "Eliminar";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.Image = global::Presentacion.Botones.btnAgregar;
+            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.Location = new System.Drawing.Point(459, 318);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(90, 30);
+            this.button5.TabIndex = 166;
+            this.button5.Text = "Agregar";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // DGDetalle_Contacto
+            // 
+            this.DGDetalle_Contacto.AllowUserToDeleteRows = false;
+            this.DGDetalle_Contacto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DGDetalle_Contacto.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.DGDetalle_Contacto.BackgroundColor = System.Drawing.Color.White;
+            this.DGDetalle_Contacto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGDetalle_Contacto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DGDetalle_Contacto.Location = new System.Drawing.Point(6, 114);
+            this.DGDetalle_Contacto.Name = "DGDetalle_Contacto";
+            this.DGDetalle_Contacto.ReadOnly = true;
+            this.DGDetalle_Contacto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGDetalle_Contacto.Size = new System.Drawing.Size(639, 198);
+            this.DGDetalle_Contacto.TabIndex = 165;
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Location = new System.Drawing.Point(333, 90);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(69, 15);
+            this.label59.TabIndex = 12;
+            this.label59.Text = "Parentesco";
+            // 
+            // textBox14
+            // 
+            this.textBox14.Location = new System.Drawing.Point(67, 87);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.Size = new System.Drawing.Size(260, 21);
+            this.textBox14.TabIndex = 11;
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(6, 90);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(44, 15);
+            this.label58.TabIndex = 10;
+            this.label58.Text = "Correo";
+            // 
+            // textBox13
+            // 
+            this.textBox13.Location = new System.Drawing.Point(386, 60);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(260, 21);
+            this.textBox13.TabIndex = 9;
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(333, 63);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(36, 15);
+            this.label57.TabIndex = 8;
+            this.label57.Text = "Movil";
+            // 
+            // textBox12
+            // 
+            this.textBox12.Location = new System.Drawing.Point(67, 60);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(260, 21);
+            this.textBox12.TabIndex = 7;
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(6, 63);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(55, 15);
+            this.label56.TabIndex = 6;
+            this.label56.Text = "Telefono";
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(67, 33);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(579, 21);
+            this.textBox11.TabIndex = 5;
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(6, 36);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(59, 15);
+            this.label55.TabIndex = 4;
+            this.label55.Text = "Dirección";
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(386, 6);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(260, 21);
+            this.textBox10.TabIndex = 3;
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(333, 9);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(46, 15);
+            this.label54.TabIndex = 2;
+            this.label54.Text = "Ciudad";
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(67, 6);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(260, 21);
+            this.textBox9.TabIndex = 1;
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(6, 9);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(55, 15);
+            this.label53.TabIndex = 0;
+            this.label53.Text = "Contacto";
             // 
             // TBIdcliente
             // 
@@ -1674,178 +1858,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Leal Enterprise - Consulta de Clientes Registrados";
             // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(6, 9);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(55, 15);
-            this.label53.TabIndex = 0;
-            this.label53.Text = "Contacto";
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(67, 6);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(260, 21);
-            this.textBox9.TabIndex = 1;
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(386, 6);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(260, 21);
-            this.textBox10.TabIndex = 3;
-            // 
-            // label54
-            // 
-            this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(333, 9);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(46, 15);
-            this.label54.TabIndex = 2;
-            this.label54.Text = "Ciudad";
-            // 
-            // textBox11
-            // 
-            this.textBox11.Location = new System.Drawing.Point(67, 33);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(579, 21);
-            this.textBox11.TabIndex = 5;
-            // 
-            // label55
-            // 
-            this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(6, 36);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(59, 15);
-            this.label55.TabIndex = 4;
-            this.label55.Text = "Dirección";
-            // 
-            // textBox12
-            // 
-            this.textBox12.Location = new System.Drawing.Point(67, 60);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(260, 21);
-            this.textBox12.TabIndex = 7;
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(6, 63);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(55, 15);
-            this.label56.TabIndex = 6;
-            this.label56.Text = "Telefono";
-            // 
-            // textBox13
-            // 
-            this.textBox13.Location = new System.Drawing.Point(386, 60);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(260, 21);
-            this.textBox13.TabIndex = 9;
-            // 
-            // label57
-            // 
-            this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(333, 63);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(36, 15);
-            this.label57.TabIndex = 8;
-            this.label57.Text = "Movil";
-            // 
-            // textBox14
-            // 
-            this.textBox14.Location = new System.Drawing.Point(67, 87);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(260, 21);
-            this.textBox14.TabIndex = 11;
-            // 
-            // label58
-            // 
-            this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(6, 90);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(44, 15);
-            this.label58.TabIndex = 10;
-            this.label58.Text = "Correo";
-            // 
-            // textBox15
-            // 
-            this.textBox15.Location = new System.Drawing.Point(408, 87);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(238, 21);
-            this.textBox15.TabIndex = 13;
-            // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(333, 90);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(69, 15);
-            this.label59.TabIndex = 12;
-            this.label59.Text = "Parentesco";
-            // 
-            // label60
-            // 
-            this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(6, 326);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(42, 15);
-            this.label60.TabIndex = 168;
-            this.label60.Text = "Datos:";
-            // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.Image = global::Presentacion.Botones.btnEliminar;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(555, 318);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(90, 30);
-            this.button2.TabIndex = 167;
-            this.button2.Text = "Eliminar";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.Image = global::Presentacion.Botones.btnAgregar;
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(459, 318);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(90, 30);
-            this.button5.TabIndex = 166;
-            this.button5.Text = "Agregar";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // DGDetalle_Contacto
-            // 
-            this.DGDetalle_Contacto.AllowUserToDeleteRows = false;
-            this.DGDetalle_Contacto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.DGDetalle_Contacto.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.DGDetalle_Contacto.BackgroundColor = System.Drawing.Color.White;
-            this.DGDetalle_Contacto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGDetalle_Contacto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.DGDetalle_Contacto.Location = new System.Drawing.Point(6, 114);
-            this.DGDetalle_Contacto.Name = "DGDetalle_Contacto";
-            this.DGDetalle_Contacto.ReadOnly = true;
-            this.DGDetalle_Contacto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGDetalle_Contacto.Size = new System.Drawing.Size(639, 198);
-            this.DGDetalle_Contacto.TabIndex = 165;
-            // 
             // frmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1882,10 +1894,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGDetalle_Financiera)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGDetalle_Contacto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGResultados)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGDetalle_Contacto)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2040,11 +2052,11 @@
         private System.Windows.Forms.Label label55;
         private System.Windows.Forms.TextBox textBox14;
         private System.Windows.Forms.Label label58;
-        private System.Windows.Forms.TextBox textBox15;
         private System.Windows.Forms.Label label59;
         private System.Windows.Forms.Label label60;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.DataGridView DGDetalle_Contacto;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

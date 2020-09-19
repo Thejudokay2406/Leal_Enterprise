@@ -175,7 +175,7 @@ namespace Presentacion
 
                                  //Panel Datos Basicos
                                  this.TBCodigo.Text, this.TBSucurzal.Text, this.TBNit.Text, this.TBDescripcion.Text, this.TBGerente.Text,
-                                 this.TBPais.Text, this.TBCiudad.Text, this.TBDireccion.Text, 1
+                                 this.TBPais.Text, this.TBCiudad.Text, this.TBDireccion.Text
                             );
                     }
                     else
@@ -187,7 +187,7 @@ namespace Presentacion
 
                                  //Panel Datos Basicos
                                  Convert.ToInt32(this.TBIdsucurzal.Text), this.TBCodigo.Text, this.TBSucurzal.Text, this.TBNit.Text, this.TBDescripcion.Text, this.TBGerente.Text,
-                                 this.TBPais.Text, this.TBCiudad.Text, this.TBDireccion.Text, 1
+                                 this.TBPais.Text, this.TBCiudad.Text, this.TBDireccion.Text
                             );
                     }
 

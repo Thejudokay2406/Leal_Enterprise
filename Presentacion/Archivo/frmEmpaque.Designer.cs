@@ -324,6 +324,7 @@
             this.Name = "frmEmpaque";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Archivo - Empaque";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmEmpaque_FormClosing);
             this.Load += new System.EventHandler(this.frmEmpaque_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();

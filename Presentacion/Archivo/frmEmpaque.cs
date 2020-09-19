@@ -654,6 +654,11 @@ namespace Presentacion
             }
         }
 
+        private void frmEmpaque_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _Instancia = null;
+        }
+
         private void TBObservacion_Enter(object sender, EventArgs e)
         {
             this.TBObservacion.BackColor = Color.Azure;

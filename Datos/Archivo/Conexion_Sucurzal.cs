@@ -79,7 +79,7 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Sistema.LI_Sucurzal", SqlCon);
+                SqlCommand Comando = new SqlCommand("Archivo.LI_Sucurzal", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Datos Auxiliares
@@ -94,8 +94,6 @@ namespace Datos
                 Comando.Parameters.Add("@Pais", SqlDbType.VarChar).Value = Obj.Pais;
                 Comando.Parameters.Add("@Ciudad", SqlDbType.VarChar).Value = Obj.Ciudad;
                 Comando.Parameters.Add("@Direccion", SqlDbType.VarChar).Value = Obj.Direccion;
-                Comando.Parameters.Add("@Estado", SqlDbType.Int).Value = Obj.Estado;
-
 
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Realizar el Registro";
@@ -120,7 +118,7 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Sistema.LI_Sucurzal", SqlCon);
+                SqlCommand Comando = new SqlCommand("Archivo.LI_Sucurzal", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Datos Auxiliares
@@ -136,7 +134,6 @@ namespace Datos
                 Comando.Parameters.Add("@Pais", SqlDbType.VarChar).Value = Obj.Pais;
                 Comando.Parameters.Add("@Ciudad", SqlDbType.VarChar).Value = Obj.Ciudad;
                 Comando.Parameters.Add("@Direccion", SqlDbType.VarChar).Value = Obj.Direccion;
-                Comando.Parameters.Add("@Estado", SqlDbType.Int).Value = Obj.Estado;
 
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Actualizar el Registro";

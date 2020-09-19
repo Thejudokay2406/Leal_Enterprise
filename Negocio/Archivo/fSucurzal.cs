@@ -31,8 +31,7 @@ namespace Negocio
 
                 //Datos Basicos
                 string codigo, string sucurzal, string nit, string descripcion, 
-                string gerente, string pais, string ciudad, string direccion, 
-                int estado
+                string gerente, string pais, string ciudad, string direccion
             )
         {
             Conexion_Sucurzal Datos = new Conexion_Sucurzal();
@@ -46,7 +45,6 @@ namespace Negocio
             Obj.Pais = pais;
             Obj.Ciudad = ciudad;
             Obj.Direccion = direccion;
-            Obj.Estado = estado;
 
             Obj.Auto = auto;
             return Datos.Guardar_DatosBasicos(Obj);
@@ -59,8 +57,7 @@ namespace Negocio
 
                 //Datos Basicos
                 string codigo, string sucurzal, string nit, string descripcion,
-                string gerente, string pais, string ciudad, string direccion,
-                int estado
+                string gerente, string pais, string ciudad, string direccion
             )
         {
             Conexion_Sucurzal Datos = new Conexion_Sucurzal();
@@ -75,7 +72,6 @@ namespace Negocio
             Obj.Pais = pais;
             Obj.Ciudad = ciudad;
             Obj.Direccion = direccion;
-            Obj.Estado = estado;
 
             Obj.Auto = auto;
             return Datos.Editar_DatosBasicos(Obj);

@@ -443,5 +443,10 @@ namespace Presentacion
             frmGrupoCliente.Consultar = Convert.ToString(this.SQL_Consultar);
             frmGrupoCliente.Imprimir = Convert.ToString(this.SQL_Imprimir);
         }
+
+        private void zonasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

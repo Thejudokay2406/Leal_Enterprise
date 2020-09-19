@@ -386,6 +386,7 @@
             this.zonasToolStripMenuItem.Name = "zonasToolStripMenuItem";
             this.zonasToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.zonasToolStripMenuItem.Text = "Zonas";
+            this.zonasToolStripMenuItem.Click += new System.EventHandler(this.zonasToolStripMenuItem_Click);
             // 
             // comprasToolStripMenuItem
             // 

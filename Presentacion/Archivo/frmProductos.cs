@@ -726,7 +726,7 @@ namespace Presentacion
                 //Evaluamos si  existen los Datos
                 if (Datos.Rows.Count == 0)
                 {
-                    MessageBox.Show("Actualmente no se encuentran registros en la Base de Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Actualmente no se Encuentran Productos Registrados en la Base de Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.TBIdproducto_AutoSQL.Text = "1";
                 }
                 else
