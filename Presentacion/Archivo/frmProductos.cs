@@ -852,52 +852,48 @@ namespace Presentacion
 
                     else
                     {
-                        //rptaDatosBasicos = fProductos.Editar_DatosBasicos
+                        rptaDatosBasicos = fProductos.Editar_DatosBasicos
 
-                        //    (
-                        //         ////Llave Primaria
-                        //         //Convert.ToInt32(this.TBIdproducto.Text),
+                            (
+                                //Llave Primaria
+                                Convert.ToInt32(this.TBIdproducto.Text),
 
-                        //         ////Datos Auxiliares
-                        //         //Convert.ToInt32(this.CBMarca.SelectedValue), Convert.ToInt32(this.CBEmpaque.SelectedValue), Convert.ToInt32(this.CBGrupo.SelectedValue), Convert.ToInt32(this.CBTipo.SelectedValue),
+                                //Datos Auxiliares
+                                Convert.ToInt32(this.CBMarca.SelectedValue), Convert.ToInt32(this.CBEmpaque.SelectedValue), Convert.ToInt32(this.CBGrupo.SelectedValue), Convert.ToInt32(this.CBTipo.SelectedValue),
 
-                        //         ////Panel Datos Basicos
-                        //         //this.TBCodigo.Text, this.TBNombre.Text, this.TBReferencia.Text, this.TBDescripcion01.Text, this.TBPresentacion.Text,
-                        //         //this.CBUnidad.Text, this.TBComision_Valor.Text, Convert.ToInt32(this.TBComision_Porcentaje.Text),
+                                //Panel Datos Basicos
+                                this.TBCodigo.Text, this.TBNombre.Text, this.TBReferencia.Text, this.TBDescripcion01.Text, this.TBPresentacion.Text,
+                                this.CBUnidad.Text, this.TBComision_Valor.Text, Convert.ToInt32(this.TBComision_Porcentaje.Text),
 
-                        //         //Convert.ToInt32(Checkbox_Vencimiento), Convert.ToInt32(Checkbox_Impuesto), Convert.ToInt32(Checkbox_Importado),
-                        //         //Convert.ToInt32(Checkbox_Exportado), Convert.ToInt32(Checkbox_Ofertable), Convert.ToInt32(Checkbox_Comision),
+                                Convert.ToInt32(Checkbox_Vencimiento), Convert.ToInt32(Checkbox_Impuesto), Convert.ToInt32(Checkbox_Importado),
+                                Convert.ToInt32(Checkbox_Exportado), Convert.ToInt32(Checkbox_Ofertable), Convert.ToInt32(Checkbox_Comision),
 
-                        //         ////Panel de Valores
-                        //         //this.TBCompraPromedio.Text, this.TBCompraFinal.Text, this.TBValorVenta_Excento.Text, this.TBValorVenta_NoExcento.Text, this.TBVentaMayorista.Text,
-                        //         //this.TBCosto_Fabricacion.Text, this.TBCostos_Materiales.Text, this.TBCostos_Exportacion.Text, this.TBCostos_Imprtacion.Text,
-                        //         //this.TBCostos_Seguridad.Text, this.TBCostos_Adicional.Text,
+                                //Panel de Valores
+                                this.TBCompraPromedio.Text, this.TBCompraFinal.Text, this.TBValorVenta_Excento.Text, this.TBValorVenta_NoExcento.Text, this.TBVentaMayorista.Text,
+                                this.TBCosto_Fabricacion.Text, this.TBCostos_Materiales.Text, this.TBCostos_Exportacion.Text, this.TBCostos_Imprtacion.Text,
+                                this.TBCostos_Seguridad.Text, this.TBCostos_Adicional.Text,
 
-                        //         ////Panel Cantidades
-                        //         //this.TBVentaMinina_Cliente.Text, this.TBVentaMaxima_Cliente.Text, this.TBVentaMinima_Mayorista.Text, this.TBVentaMaxima_Mayorista.Text, this.TBCompraMinima_Cliente.Text, this.TBCompraMaxima_Cliente.Text, this.TBCompraMinima_Mayorista.Text, this.TBCompraMaxima_Mayorista.Text,
+                                //Panel Cantidades
+                                this.TBVentaMinina_Cliente.Text, this.TBVentaMaxima_Cliente.Text, this.TBVentaMinima_Mayorista.Text, this.TBVentaMaxima_Mayorista.Text, this.TBCompraMinima_Cliente.Text, this.TBCompraMaxima_Cliente.Text, this.TBCompraMinima_Mayorista.Text, this.TBCompraMaxima_Mayorista.Text,
 
-                        //         ////Tabla de Detalles - Lote, Impuesto, Igualdad, Proveedor, Ubicacion, Codigo de Barra
-                        //         //this.DtDetalle_Lote, this.DtDetalle_Impuesto, this.DtDetalle_Igualdad, this.DtDetalle_Proveedor, this.DtDetalle_Ubicacion, this.DtDetalle_CodigoDeBarra,
+                                //Panel de Imagen
+                                Imagen_Producto,
 
-                        //         ////Panel de Imagen
-                        //         //Imagen_Producto,
-
-
-                        //         ////Si es igual a 2 se Editaran los datos en la base de datos
-                        //         //2
-                        //    );
+                                //Si es igual a 2 se editaran los datos en la base de datos
+                                2
+                            );
                     }
 
                     if (rptaDatosBasicos.Equals("OK"))
                     {
                         if (this.Digitar)
                         {
-                            this.MensajeOk("Registro Exitoso");
+                            this.MensajeOk("El Producto: " + this.TBNombre.Text + " a Sido Registrado Exitosamente");
                         }
 
                         else
                         {
-                            this.MensajeOk("Registro Actualizado");
+                            this.MensajeOk("El Registro del Producto: " + this.TBNombre.Text + " a Sido Actualizado Exitosamente");
                         }
                     }
 

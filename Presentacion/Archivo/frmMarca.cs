@@ -135,7 +135,7 @@ namespace Presentacion
                     {
                         if (this.Digitar)
                         {
-                            this.MensajeOk("Marca: " + this.TBNombre.Text + " a Sido Registrada Exitosamente");
+                            this.MensajeOk("La Marca: " + this.TBNombre.Text + " a Sido Registrada Exitosamente");
                         }
 
                         else

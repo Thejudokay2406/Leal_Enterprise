@@ -258,28 +258,10 @@ namespace Negocio
                 string venta_minimacliente, string venta_maximacliente, string venta_minimamayorista, string venta_maximamayorista,
                 string compra_minimacliente, string compra_maximacliente, string compra_minimamayorista, string compra_maximamayorista,
 
-                //Panel Lote
-                DataTable detalle_lote,
-
-                //Panel Impuestos
-                DataTable detalle_impuesto,
-
-                //Panel Igualdad
-                DataTable detalle_igualdad,
-
-                //Panel Proveedor
-                DataTable detalle_proveedor,
-
-                //Ubicacion[]
-                DataTable detalle_ubicacion,
-
-                //Panel Codigo de Barra
-                DataTable detalle_codigodebarra,
-
                 //Panel Imagen
                 Byte[] imagen,
 
-                //Datos Auxiliares
+                //Variables
                 int auto
             )
         {
@@ -292,6 +274,7 @@ namespace Negocio
             Obj.Idempaque = idempaque;
             Obj.Idgrupo = idgrupo;
             Obj.Idtipo = idtipo;
+            //Obj.Producto_AutoSQL = producto_autosql;
 
             //Datos Basicos
             Obj.Codigo = codigo;
@@ -332,25 +315,7 @@ namespace Negocio
             Obj.Compra_MaximaCliente = compra_maximacliente;
             Obj.Compra_MinimaMayorista = compra_minimamayorista;
             Obj.Compra_MaximaMayorista = compra_maximamayorista;
-
-            //Panel Lote
-            Obj.Detalle_Lote = detalle_lote;
-
-            //Panel Impuestos
-            Obj.Detalle_Impuesto = detalle_impuesto;
-
-            //Panel Igualdad
-            Obj.Detalle_Igualdad = detalle_igualdad;
-
-            //Panel Proveedor
-            Obj.Detalle_Proveedor = detalle_proveedor;
-
-            //Ubicacion[]
-            Obj.Detalle_Ubicacion = detalle_ubicacion;
-
-            //Panel Codigo de Barra
-            Obj.Detalle_CodigoDeBarra = detalle_codigodebarra;
-
+                        
             //Panel Imagen
             Obj.Imagen = imagen;
 
