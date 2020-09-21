@@ -204,6 +204,8 @@ namespace Presentacion
             //Panel Proveedor
             this.TBProveedor.ReadOnly = false;
             this.TBProveedor.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBProveedor_Documento.ReadOnly = false;
+            this.TBProveedor_Documento.BackColor = Color.FromArgb(3, 155, 229);
 
             //Panel Codigo de Barra
             this.TBCodigodeBarra.ReadOnly = false;
@@ -244,7 +246,6 @@ namespace Presentacion
         private void Limpiar_Datos()
         {
             //Panel - Datos Basicos
-                        
             this.TBCodigo.Clear();
             this.TBNombre.Clear();
             this.TBDescripcion01.Clear();
@@ -268,6 +269,8 @@ namespace Presentacion
 
             //Panel Proveedor
             this.TBProveedor.Clear();
+            this.TBProveedor_Documento.Clear();
+            this.DGDetalle_Proveedor.DataSource = null;
 
             //Panel - Valores
             this.TBCompraPromedio.Clear();
@@ -306,10 +309,6 @@ namespace Presentacion
             this.TBValor_Impuesto.Clear();
             this.TBDescripcion_Impuesto.Clear();
             this.DGDetalle_Impuesto.DataSource = null;
-
-            //Panel Proveedor
-            this.TBProveedor.Clear();
-            this.DGDetalle_Proveedor.DataSource = null;
 
             //Panel Codigo de Barra
             this.TBCodigodeBarra.Clear();
@@ -353,6 +352,12 @@ namespace Presentacion
 
                 this.btnEliminar.Enabled = false;
                 this.btnCancelar.Enabled = false;
+
+                this.btnModificar_CodigoDeBarra.Enabled = false;
+                this.btnModificar_Igualdad.Enabled = false;
+                this.btnModificar_Lote.Enabled = false;
+                this.btnModificar_Proveedor.Enabled = false;
+                this.btnModificar_Ubicacion.Enabled = false;
             }
             else if (!Digitar)
             {
@@ -361,6 +366,12 @@ namespace Presentacion
 
                 this.btnEliminar.Enabled = false;
                 this.btnCancelar.Enabled = true;
+
+                this.btnModificar_CodigoDeBarra.Enabled = true;
+                this.btnModificar_Igualdad.Enabled = true;
+                this.btnModificar_Lote.Enabled = true;
+                this.btnModificar_Proveedor.Enabled = true;
+                this.btnModificar_Ubicacion.Enabled = true;
             }
         }
 
@@ -397,37 +408,37 @@ namespace Presentacion
 
         private void Actualizar_DetCodigoDeBarra()
         {
-            this.DGDetalle_CodigoDeBarra.DataSource = fProductos.Lista_CodigoDeBarra(1, Convert.ToInt32(TBIdproducto.Text));
+            this.DGDetalle_CodigoDeBarra.DataSource = fProducto_Inventario.Lista_CodigoDeBarra(1, Convert.ToInt32(TBIdproducto.Text));
             this.lblTotal_Codigodebarra.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_CodigoDeBarra.Rows.Count);
         }
 
         private void Actualizar_DetIgualdad()
         {
-            this.DGDetalle_Igualdad.DataSource = fProductos.Lista_Igualdad(2, Convert.ToInt32(TBIdproducto.Text));
+            this.DGDetalle_Igualdad.DataSource = fProducto_Inventario.Lista_Igualdad(2, Convert.ToInt32(TBIdproducto.Text));
             this.lblTotal_Igualdad.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Igualdad.Rows.Count);
         }
 
         private void Actualizar_DetImpuesto()
         {
-            this.DGDetalle_Impuesto.DataSource = fProductos.Lista_Impuesto(3, Convert.ToInt32(TBIdproducto.Text));
+            this.DGDetalle_Impuesto.DataSource = fProducto_Inventario.Lista_Impuesto(3, Convert.ToInt32(TBIdproducto.Text));
             this.lblTotal_Impuesto.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Impuesto.Rows.Count);
         }
 
         private void Actualizar_DetLote()
         {
-            this.DGDetalles_Lotes.DataSource = fProductos.Lista_Lote(4, Convert.ToInt32(TBIdproducto.Text)); ;
+            this.DGDetalles_Lotes.DataSource = fProducto_Inventario.Lista_Lote(4, Convert.ToInt32(TBIdproducto.Text)); ;
             this.lblTotal_Lotes.Text = "Datos Registrados: " + Convert.ToString(DGDetalles_Lotes.Rows.Count);
         }
 
         private void Actualizar_DetProveedor()
         {
-            this.DGDetalle_Proveedor.DataSource = fProductos.Lista_Proveedor(5, Convert.ToInt32(TBIdproducto.Text));
+            this.DGDetalle_Proveedor.DataSource = fProducto_Inventario.Lista_Proveedor(5, Convert.ToInt32(TBIdproducto.Text));
             this.lblTotal_Proveedor.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Proveedor.Rows.Count);
         }
 
         private void Actualizar_DetUbicacion()
         {
-            this.DGDetalles_Ubicacion.DataSource = fProductos.Lista_Ubicacion(6, Convert.ToInt32(TBIdproducto.Text)); ;
+            this.DGDetalles_Ubicacion.DataSource = fProducto_Inventario.Lista_Ubicacion(6, Convert.ToInt32(TBIdproducto.Text)); ;
             this.lblTotal_Ubicacion.Text = "Datos Registrados: " + Convert.ToString(DGDetalles_Ubicacion.Rows.Count);
         }
 
@@ -704,13 +715,16 @@ namespace Presentacion
                 //************************************* Ocultacion de Columnas *************************************
                 this.DGDetalles_Lotes.Columns[0].Visible = false;
                 this.DGDetalle_Igualdad.Columns[0].Visible = false;
+                this.DGDetalle_CodigoDeBarra.Columns[0].Visible = false;
+
                 this.DGDetalle_Impuesto.Columns[0].Visible = false;
                 this.DGDetalle_Impuesto.Columns[1].Visible = false;
+
                 this.DGDetalle_Proveedor.Columns[0].Visible = false;
                 this.DGDetalle_Proveedor.Columns[1].Visible = false;
+
                 this.DGDetalles_Ubicacion.Columns[0].Visible = false;
                 this.DGDetalles_Ubicacion.Columns[1].Visible = false;
-                this.DGDetalle_CodigoDeBarra.Columns[0].Visible = false;
             }
             catch (Exception ex)
             {
@@ -722,7 +736,7 @@ namespace Presentacion
         {
             try
             {
-                DataTable Datos = Negocio.fProductos.AutoComplementar_SQL(0);
+                DataTable Datos = Negocio.fProducto_Inventario.AutoComplementar_SQL(0);
                 //Evaluamos si  existen los Datos
                 if (Datos.Rows.Count == 0)
                 {
@@ -809,7 +823,7 @@ namespace Presentacion
                     if (this.Digitar)
                     {
 
-                        rptaDatosBasicos = fProductos.Guardar_DatosBasicos
+                        rptaDatosBasicos = fProducto_Inventario.Guardar_DatosBasicos
 
                             (
                                  //Datos Auxiliares
@@ -852,7 +866,7 @@ namespace Presentacion
 
                     else
                     {
-                        rptaDatosBasicos = fProductos.Editar_DatosBasicos
+                        rptaDatosBasicos = fProducto_Inventario.Editar_DatosBasicos
 
                             (
                                 //Llave Primaria
@@ -888,12 +902,12 @@ namespace Presentacion
                     {
                         if (this.Digitar)
                         {
-                            this.MensajeOk("El Producto: " + this.TBNombre.Text + " a Sido Registrado Exitosamente");
+                            this.MensajeOk("El Producto: “" + this.TBNombre.Text + "” a Sido Registrado Exitosamente");
                         }
 
                         else
                         {
-                            this.MensajeOk("El Registro del Producto: " + this.TBNombre.Text + " a Sido Actualizado Exitosamente");
+                            this.MensajeOk("El Registro del Producto: “" + this.TBNombre.Text + "” a Sido Actualizado Exitosamente");
                         }
                     }
 
@@ -967,6 +981,8 @@ namespace Presentacion
             try
             {
                 this.Digitar = true;
+                this.TBIdproducto.Text = "0";
+
                 this.Botones();
                 this.Limpiar_Datos();
                 this.Diseño_TablasGenerales();
@@ -1000,7 +1016,7 @@ namespace Presentacion
                         if (DGResultados.SelectedRows.Count > 0)
                         {
                             Idproducto = Convert.ToInt32(DGResultados.CurrentRow.Cells["ID"].Value.ToString());
-                            Respuesta = Negocio.fProductos.Eliminar(Idproducto, 1);
+                            Respuesta = Negocio.fProducto_Inventario.Eliminar(Idproducto, 1);
                         }
 
                         if (Respuesta.Equals("OK"))
@@ -1085,7 +1101,7 @@ namespace Presentacion
                         if (result == DialogResult.Yes)
                         {
                             string rptaDatosBasicos = "";
-                            rptaDatosBasicos = fProductos.Guardar_Ubicacion
+                            rptaDatosBasicos = fProducto_Inventario.Guardar_Ubicacion
 
                                     (
                                          //Datos Basicos
@@ -1146,7 +1162,7 @@ namespace Presentacion
                             {
                                 Idproducto = Convert.ToInt32(DGDetalles_Ubicacion.CurrentRow.Cells["Idproducto"].Value.ToString());
                                 Idubicacion = Convert.ToInt32(DGDetalles_Ubicacion.CurrentRow.Cells["Idubicacion"].Value.ToString());
-                                Respuesta = Negocio.fProductos.Eliminar_Ubicacion(Idproducto, Idubicacion, 6);
+                                Respuesta = Negocio.fProducto_Inventario.Eliminar_Ubicacion(Idproducto, Idubicacion, 6);
                             }
 
                             if (Respuesta.Equals("OK"))
@@ -1239,7 +1255,7 @@ namespace Presentacion
 
                         if (result == DialogResult.Yes)
                         {
-                            rptaDatosBasicos = fProductos.Guardar_CodigoDeBarra
+                            rptaDatosBasicos = fProducto_Inventario.Guardar_CodigoDeBarra
 
                             (
                                  //Datos Basicos
@@ -1295,7 +1311,7 @@ namespace Presentacion
                             {
                                 Idproducto = Convert.ToInt32(DGDetalle_Proveedor.CurrentRow.Cells["Idproducto"].Value.ToString());
                                 Idcodbarra = Convert.ToInt32(DGDetalle_Proveedor.CurrentRow.Cells["IdCodBarra"].Value.ToString());
-                                Respuesta = Negocio.fProductos.Eliminar_CodigoDeBara(Idproducto, Idcodbarra, 1);
+                                Respuesta = Negocio.fProducto_Inventario.Eliminar_CodigoDeBara(Idproducto, Idcodbarra, 1);
                             }
 
                             if (Respuesta.Equals("OK"))
@@ -2906,7 +2922,7 @@ namespace Presentacion
 
                             if (result == DialogResult.Yes)
                             {
-                                rptaDatosBasicos = fProductos.Guardar_Igualdad
+                                rptaDatosBasicos = fProducto_Inventario.Guardar_Igualdad
 
                                 (
                                      //Datos Basicos
@@ -3029,7 +3045,7 @@ namespace Presentacion
 
                         if (result == DialogResult.Yes)
                         {
-                            rptaDatosBasicos = fProductos.Guardar_Impuesto
+                            rptaDatosBasicos = fProducto_Inventario.Guardar_Impuesto
 
                             (
                                  //Datos Basicos
@@ -3154,7 +3170,7 @@ namespace Presentacion
 
                         if (result == DialogResult.Yes)
                         {
-                            rptaDatosBasicos = fProductos.Guardar_Proveedor
+                            rptaDatosBasicos = fProducto_Inventario.Guardar_Proveedor
 
                                 (
                                      //Datos Basicos
@@ -3290,7 +3306,7 @@ namespace Presentacion
 
                         if (result == DialogResult.Yes)
                         {
-                            rptaDatosBasicos = fProductos.Guardar_Lote
+                            rptaDatosBasicos = fProducto_Inventario.Guardar_Lote
 
                                 (
                                      //Datos Basicos
@@ -3353,7 +3369,7 @@ namespace Presentacion
                             {
                                 Idproducto = Convert.ToInt32(DGDetalles_Lotes.CurrentRow.Cells["Idproducto"].Value.ToString());
                                 Idlote = Convert.ToInt32(DGDetalles_Lotes.CurrentRow.Cells["Idlote"].Value.ToString());
-                                Respuesta = Negocio.fProductos.Eliminar_Lote(Idproducto, Idlote,4);
+                                Respuesta = Negocio.fProducto_Inventario.Eliminar_Lote(Idproducto, Idlote,4);
                             }
 
                             if (Respuesta.Equals("OK"))
@@ -3409,7 +3425,7 @@ namespace Presentacion
                             {
                                 Idproducto = Convert.ToInt32(DGDetalle_Igualdad.CurrentRow.Cells["Idproducto"].Value.ToString());
                                 Idigualdad = Convert.ToInt32(DGDetalle_Igualdad.CurrentRow.Cells["Idigualdad"].Value.ToString());
-                                Respuesta = Negocio.fProductos.Eliminar_Igualdad(Idproducto, Idigualdad, 2);
+                                Respuesta = Negocio.fProducto_Inventario.Eliminar_Igualdad(Idproducto, Idigualdad, 2);
                             }
 
                             if (Respuesta.Equals("OK"))
@@ -3465,7 +3481,7 @@ namespace Presentacion
                             {
                                 Idproducto = Convert.ToInt32(DGDetalle_Impuesto.CurrentRow.Cells["Idproducto"].Value.ToString());
                                 Idimpuesto = Convert.ToInt32(DGDetalle_Impuesto.CurrentRow.Cells["IdDet_impuesto"].Value.ToString());
-                                Respuesta = Negocio.fProductos.Eliminar_Impuesto(Idproducto, Idimpuesto, 3);
+                                Respuesta = Negocio.fProducto_Inventario.Eliminar_Impuesto(Idproducto, Idimpuesto, 3);
                             }
 
                             if (Respuesta.Equals("OK"))
@@ -3521,7 +3537,7 @@ namespace Presentacion
                             {
                                 Idproducto = Convert.ToInt32(DGDetalle_Proveedor.CurrentRow.Cells["Idproducto"].Value.ToString());
                                 Idproveedor = Convert.ToInt32(DGDetalle_Proveedor.CurrentRow.Cells["IdDet_Proveedor"].Value.ToString());
-                                Respuesta = Negocio.fProductos.Eliminar_Proveedor(Idproducto, Idproveedor, 5);
+                                Respuesta = Negocio.fProducto_Inventario.Eliminar_Proveedor(Idproducto, Idproveedor, 5);
                             }
 
                             if (Respuesta.Equals("OK"))
@@ -5363,9 +5379,10 @@ namespace Presentacion
         {
             try
             {
-                this.TBUbicacion.Text = Convert.ToString(this.DGDetalles_Ubicacion.CurrentRow.Cells["Ubicacion"].Value);
-                this.TBEstante.Text = Convert.ToString(this.DGDetalles_Ubicacion.CurrentRow.Cells["Estante"].Value);
-                this.TBNivel.Text = Convert.ToString(this.DGDetalles_Ubicacion.CurrentRow.Cells["Nivel"].Value);
+                //this.CBBodega.Text = Convert.ToString(this.DGDetalles_Ubicacion.CurrentRow.Cells["Idbodega"].Value);
+                //this.TBUbicacion.Text = Convert.ToString(this.DGDetalles_Ubicacion.CurrentRow.Cells["Ubicacion"].Value);
+                //this.TBEstante.Text = Convert.ToString(this.DGDetalles_Ubicacion.CurrentRow.Cells["Estante"].Value);
+                //this.TBNivel.Text = Convert.ToString(this.DGDetalles_Ubicacion.CurrentRow.Cells["Nivel"].Value);
             }
             catch (Exception ex)
             {
@@ -5377,9 +5394,101 @@ namespace Presentacion
         {
             try
             {
-                this.TBUbicacion.Text = Convert.ToString(this.DGDetalles_Ubicacion.CurrentRow.Cells["Ubicacion"].Value);
-                this.TBEstante.Text = Convert.ToString(this.DGDetalles_Ubicacion.CurrentRow.Cells["Estante"].Value);
-                this.TBNivel.Text = Convert.ToString(this.DGDetalles_Ubicacion.CurrentRow.Cells["Nivel"].Value);
+                //this.CBBodega.SelectedValue = Convert.ToString(this.DGDetalles_Ubicacion.CurrentRow.Cells["Idbodega"].Value);
+                //this.TBUbicacion.Text = Convert.ToString(this.DGDetalles_Ubicacion.CurrentRow.Cells["Ubicacion"].Value);
+                //this.TBEstante.Text = Convert.ToString(this.DGDetalles_Ubicacion.CurrentRow.Cells["Estante"].Value);
+                //this.TBNivel.Text = Convert.ToString(this.DGDetalles_Ubicacion.CurrentRow.Cells["Nivel"].Value);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void DGDetalles_Ubicacion_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                // Teniendo en cuenta que DataGridView1 es tu DataGridView.
+                DataGridViewRow fila = DGDetalles_Ubicacion.Rows[e.RowIndex];
+
+                //Pasamos los datos de la celda seleccionada a los texboxt correspondientes
+                this.CBBodega.SelectedValue = Convert.ToString(fila.Cells["Idbodega"].Value);
+                this.TBUbicacion.Text= Convert.ToString(fila.Cells["Ubicacion"].Value);
+                this.TBEstante.Text = Convert.ToString(fila.Cells["Estante"].Value);
+                this.TBNivel.Text = Convert.ToString(fila.Cells["Nivel"].Value);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void btnModificar_Ubicacion_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void btnModificar_Igualdad_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void btnModificar_Impuesto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void btnModificar_Proveedor_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void btnModificar_CodigoDeBarra_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void btnModificar_Lote_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
             }
             catch (Exception ex)
             {
@@ -6336,10 +6445,10 @@ namespace Presentacion
                 {
                     if (TBBuscar.Text != "")
                     {
-                        this.DGResultados.DataSource = fProductos.Buscar(this.TBBuscar.Text, 1);
+                        this.DGResultados.DataSource = fProducto_Inventario.Buscar(this.TBBuscar.Text, 1);
                         //this.DGResultados.Columns[0].Visible = false;
 
-                        lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGResultados.Rows.Count);
+                        this.lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGResultados.Rows.Count);
 
                         this.btnEliminar.Enabled = true;
                         this.btnImprimir.Enabled = true;
@@ -6370,11 +6479,11 @@ namespace Presentacion
         {
             try
             {
-                DataTable Datos = Negocio.fProductos.Buscar(this.TBIdproducto.Text, 2);
+                DataTable Datos = Negocio.fProducto_Inventario.Buscar(this.TBIdproducto.Text, 2);
                 //Evaluamos si  existen los Datos
                 if (Datos.Rows.Count == 0)
                 {
-                    MessageBox.Show("Actualmente no se encuentran registros en la Base de Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //MessageBox.Show("Actualmente no se encuentran registros en la Base de Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -6544,29 +6653,29 @@ namespace Presentacion
                     //************************************************************************************************************************
                     //Se realizan las consultas para llenar los DataGriview donde se mostrarian los MultiPlex Registros.
 
-                    this.DGDetalles_Ubicacion.DataSource = fProductos.Buscar_Ubicacion(1, Convert.ToInt32(this.TBIdproducto.Text));
+                    this.DGDetalles_Ubicacion.DataSource = fProducto_Inventario.Buscar_Ubicacion(1, Convert.ToInt32(this.TBIdproducto.Text));
                     this.lblTotal_Ubicacion.Text = "Datos Registrados: " + Convert.ToString(DGDetalles_Ubicacion.Rows.Count);
                     this.DGDetalles_Ubicacion.Columns["Idubicacion"].Visible = false;
 
-                    this.DGDetalle_Igualdad.DataSource = fProductos.Buscar_Igualdad(1, Convert.ToInt32(this.TBIdproducto.Text));
+                    this.DGDetalle_Igualdad.DataSource = fProducto_Inventario.Buscar_Igualdad(1, Convert.ToInt32(this.TBIdproducto.Text));
                     this.lblTotal_Igualdad.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Igualdad.Rows.Count);
                     this.DGDetalle_Igualdad.Columns["Idigualdad"].Visible = false;
 
-                    this.DGDetalle_Impuesto.DataSource = fProductos.Buscar_Impuesto(1, Convert.ToInt32(this.TBIdproducto.Text));
+                    this.DGDetalle_Impuesto.DataSource = fProducto_Inventario.Buscar_Impuesto(1, Convert.ToInt32(this.TBIdproducto.Text));
                     this.lblTotal_Impuesto.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Impuesto.Rows.Count);
                     this.DGDetalle_Impuesto.Columns[0].Visible = false;
                     this.DGDetalle_Impuesto.Columns[1].Visible = false;
                     this.DGDetalle_Impuesto.Columns["IdDet_impuesto"].Visible = false;
 
-                    this.DGDetalle_Proveedor.DataSource = fProductos.Buscar_Proveedor(1, Convert.ToInt32(this.TBIdproducto.Text));
+                    this.DGDetalle_Proveedor.DataSource = fProducto_Inventario.Buscar_Proveedor(1, Convert.ToInt32(this.TBIdproducto.Text));
                     this.lblTotal_Proveedor.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Proveedor.Rows.Count);
                     this.DGDetalle_Proveedor.Columns["IdDet_Proveedor"].Visible = false;
 
-                    this.DGDetalle_CodigoDeBarra.DataSource = fProductos.Buscar_CodigoDeBarra(1, Convert.ToInt32(this.TBIdproducto.Text));
+                    this.DGDetalle_CodigoDeBarra.DataSource = fProducto_Inventario.Buscar_CodigoDeBarra(1, Convert.ToInt32(this.TBIdproducto.Text));
                     this.lblTotal_Codigodebarra.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_CodigoDeBarra.Rows.Count);
                     this.DGDetalle_CodigoDeBarra.Columns["IdCodBarra"].Visible = false;
 
-                    this.DGDetalles_Lotes.DataSource = fProductos.Buscar_Lote(1, Convert.ToInt32(this.TBIdproducto.Text));
+                    this.DGDetalles_Lotes.DataSource = fProducto_Inventario.Buscar_Lote(1, Convert.ToInt32(this.TBIdproducto.Text));
                     this.lblTotal_Lotes.Text = "Datos Registrados: " + Convert.ToString(DGDetalles_Lotes.Rows.Count);
                     this.DGDetalles_Lotes.Columns["Idlote"].Visible = false;
                 }

@@ -47,6 +47,7 @@
     <Compile Include="Compras\fCotizacion_Compra.cs" />
     <Compile Include="Archivo\fTipoDePago.cs" />
     <Compile Include="Archivo\fGrupoDeCliente.cs" />
+    <Compile Include="Archivo\fProducto_Inventario.cs" />
     <Compile Include="Gestion Humana\fGestion_Departameto.cs" />
     <Compile Include="Gestion Humana\fTipoDeContrato.cs" />
     <Compile Include="Inventario\fIngreso_Bodega.cs" />
@@ -55,7 +56,6 @@
     <Compile Include="Archivo\fTipoDeProducto.cs" />
     <Compile Include="Archivo\fMarca.cs" />
     <Compile Include="Sistema\fTipoDeCliente.cs" />
-    <Compile Include="Archivo\fProductos.cs" />
     <Compile Include="Gestion Humana\fGestion_Empleados.cs" />
     <Compile Include="Archivo\fImpuesto.cs" />
     <Compile Include="Archivo\fServicio.cs" />

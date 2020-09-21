@@ -700,7 +700,7 @@ namespace Presentacion
                 if (e.KeyChar == Convert.ToChar(Keys.Enter))
                 {
                     DataTable Tabla = new DataTable();
-                    Tabla = fProductos.Buscar(this.TBCodigo_Producto.Text.Trim(), 4);
+                    Tabla = fProducto_Inventario.Buscar(this.TBCodigo_Producto.Text.Trim(), 4);
                     if (Tabla.Rows.Count <= 0)
                     {
                         this.MensajeError("El producto el cual desea agregar no se encuentra registrado en su Base de Datos");
@@ -738,7 +738,7 @@ namespace Presentacion
                 if (e.KeyChar == Convert.ToChar(Keys.Enter))
                 {
                     DataTable Tabla = new DataTable();
-                    Tabla = fProductos.Buscar(this.TBCodigo_Producto.Text.Trim(), 4);
+                    Tabla = fProducto_Inventario.Buscar(this.TBCodigo_Producto.Text.Trim(), 4);
                     if (Tabla.Rows.Count <= 0)
                     {
                         this.MensajeError("El producto el cual desea agregar no se encuentra registrado en su Base de Datos");
@@ -791,7 +791,7 @@ namespace Presentacion
                 if (e.KeyChar == Convert.ToChar(Keys.Enter))
                 {
                     DataTable Tabla = new DataTable();
-                    Tabla = fProductos.Buscar(this.TBCodigo_Producto.Text.Trim(), 4);
+                    Tabla = fProducto_Inventario.Buscar(this.TBCodigo_Producto.Text.Trim(), 4);
                     if (Tabla.Rows.Count <= 0)
                     {
                         this.MensajeError("El producto el cual desea agregar no se encuentra registrado en su Base de Datos");

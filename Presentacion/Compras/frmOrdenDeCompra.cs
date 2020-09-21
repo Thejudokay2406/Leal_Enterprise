@@ -584,7 +584,7 @@ namespace Presentacion
                 if (e.KeyChar == Convert.ToChar(Keys.Enter))
                 {
                     DataTable Tabla = new DataTable();
-                    Tabla = fProductos.Buscar(this.TBCodigo_Producto.Text.Trim(), 4);
+                    Tabla = fProducto_Inventario.Buscar(this.TBCodigo_Producto.Text.Trim(), 4);
                     if (Tabla.Rows.Count <= 0)
                     {
                         this.MensajeError("El producto el cual desea agregar no se encuentra registrado en su Base de Datos");
@@ -981,7 +981,7 @@ namespace Presentacion
         {
             try
             {
-                DataTable Datos = Negocio.fProductos.Buscar(this.TBIdproducto.Text, 2);
+                DataTable Datos = Negocio.fProducto_Inventario.Buscar(this.TBIdproducto.Text, 2);
                 //Evaluamos si  existen los Datos
                 if (Datos.Rows.Count == 0)
                 {

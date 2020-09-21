@@ -808,7 +808,7 @@ namespace Presentacion
         {
             try
             {
-                DataTable Datos = Negocio.fProductos.Buscar(this.TBIdempleado.Text, 2);
+                DataTable Datos = Negocio.fProducto_Inventario.Buscar(this.TBIdempleado.Text, 2);
                 //Evaluamos si  existen los Datos
                 if (Datos.Rows.Count == 0)
                 {
@@ -992,7 +992,7 @@ namespace Presentacion
 
                     ////Se realizan las consultas para llenar los DataGriview donde se mostrarian las ubicaciones, codigos de barra.
 
-                    ////this.DGResultados.DataSource = fProductos.Buscar(this.TBBuscar.Text, 1);
+                    ////this.DGResultados.DataSource = fProducto_Inventario.Buscar(this.TBBuscar.Text, 1);
                     ////this.DGResultados.Columns[0].Visible = false;
 
                     ////lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGResultados.Rows.Count);

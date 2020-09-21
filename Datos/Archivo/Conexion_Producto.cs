@@ -668,7 +668,7 @@ namespace Datos
                 Comando.Parameters.Add("@Imagen", SqlDbType.Image).Value = Obj.Imagen;
 
                 SqlCon.Open();
-                Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Actualizar el Registro";
+                Rpta = Comando.ExecuteNonQuery() != 1 ? "OK" : "Error al Actualizar el Registro";
             }
             catch (Exception ex)
             {

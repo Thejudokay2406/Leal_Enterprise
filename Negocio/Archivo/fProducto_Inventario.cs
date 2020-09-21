@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 using Datos;
 using Entidad;
 using System.Data;
-using System.Security.Cryptography;
 
 namespace Negocio
 {
-    public class fProductos
+    public class fProducto_Inventario
     {
         public static DataTable Lista()
         {
@@ -70,13 +69,13 @@ namespace Negocio
         public static DataTable Buscar_Impuesto(int Auto_Impuesto, int Filtro)
         {
             Conexion_Producto Datos = new Conexion_Producto();
-            return Datos.Buscar_Impuesto(Auto_Impuesto,Filtro);
+            return Datos.Buscar_Impuesto(Auto_Impuesto, Filtro);
         }
 
         public static DataTable Buscar_Proveedor(int Auto_Proveedor, int Filtro)
         {
             Conexion_Producto Datos = new Conexion_Producto();
-            return Datos.Buscar_Proveedor(Auto_Proveedor,Filtro);
+            return Datos.Buscar_Proveedor(Auto_Proveedor, Filtro);
         }
 
         public static DataTable Buscar_Lote(int Auto_Lote, int Filtro)
@@ -315,7 +314,7 @@ namespace Negocio
             Obj.Compra_MaximaCliente = compra_maximacliente;
             Obj.Compra_MinimaMayorista = compra_minimamayorista;
             Obj.Compra_MaximaMayorista = compra_maximamayorista;
-                        
+
             //Panel Imagen
             Obj.Imagen = imagen;
 
@@ -455,8 +454,8 @@ namespace Negocio
             //Ubicacion[]
             Obj.Idproducto = idproducto;
             Obj.Idimpueto = idimpuesto;
-            Obj.Impuesto= impuesto;
-            Obj.Impuesto_Descripcion =descripcion;
+            Obj.Impuesto = impuesto;
+            Obj.Impuesto_Descripcion = descripcion;
             Obj.Impuesto_Valor = valor;
 
             //Datos Auxiliares
@@ -564,7 +563,7 @@ namespace Negocio
 
         public static string Editar_CodigoDeBarra
             (
-                
+
                 //Panel Codigo de Barra
                 DataTable detalle_codigodebarra,
 
@@ -625,6 +624,5 @@ namespace Negocio
             Conexion_Producto Datos = new Conexion_Producto();
             return Datos.Eliminar_Impuesto(Idproducto, Iddetalle, Auto);
         }
-
     }
 }

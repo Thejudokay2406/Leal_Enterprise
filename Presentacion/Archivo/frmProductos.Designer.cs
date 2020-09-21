@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProductos));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.TBIdproducto_AutoSQL = new System.Windows.Forms.TextBox();
-            this.TBIdproveedor = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.TCPrincipal = new System.Windows.Forms.TabControl();
             this.TPDatosBasicos = new System.Windows.Forms.TabPage();
@@ -95,6 +94,7 @@
             this.label26 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.TPUbicacion = new System.Windows.Forms.TabPage();
+            this.btnModificar_Ubicacion = new System.Windows.Forms.Button();
             this.lblTotal_Ubicacion = new System.Windows.Forms.Label();
             this.DGDetalles_Ubicacion = new System.Windows.Forms.DataGridView();
             this.CBBodega = new System.Windows.Forms.ComboBox();
@@ -130,6 +130,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.PB_Imagen = new System.Windows.Forms.PictureBox();
             this.TPLote = new System.Windows.Forms.TabPage();
+            this.btnModificar_Lote = new System.Windows.Forms.Button();
             this.TBLote_Venta = new System.Windows.Forms.TextBox();
             this.label50 = new System.Windows.Forms.Label();
             this.TBLote_Cantidad = new System.Windows.Forms.TextBox();
@@ -145,6 +146,7 @@
             this.btnEliminar_Lote = new System.Windows.Forms.Button();
             this.btnAgregar_Lote = new System.Windows.Forms.Button();
             this.TPCodigosdeBarra = new System.Windows.Forms.TabPage();
+            this.btnModificar_CodigoDeBarra = new System.Windows.Forms.Button();
             this.TBCodigodeBarra = new System.Windows.Forms.TextBox();
             this.label35 = new System.Windows.Forms.Label();
             this.lblTotal_Codigodebarra = new System.Windows.Forms.Label();
@@ -152,9 +154,10 @@
             this.btnAgregar_CodigoDeBarra = new System.Windows.Forms.Button();
             this.btnEliminar_CodigosDeBarra = new System.Windows.Forms.Button();
             this.TPProveedor = new System.Windows.Forms.TabPage();
+            this.btnModificar_Proveedor = new System.Windows.Forms.Button();
+            this.TBIdproveedor = new System.Windows.Forms.TextBox();
             this.TBProveedor_Documento = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnAgregar_Proveedor = new System.Windows.Forms.Button();
             this.lblTotal_Proveedor = new System.Windows.Forms.Label();
             this.DGDetalle_Proveedor = new System.Windows.Forms.DataGridView();
@@ -163,6 +166,7 @@
             this.btnEliminar_Proveedor = new System.Windows.Forms.Button();
             this.btnExaminar_Proveedor = new System.Windows.Forms.Button();
             this.TPImpuesto = new System.Windows.Forms.TabPage();
+            this.btnModificar_Impuesto = new System.Windows.Forms.Button();
             this.btnExaminar_Impuesto = new System.Windows.Forms.Button();
             this.TBImpuesto = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -176,6 +180,7 @@
             this.btnAgregar_Impuesto = new System.Windows.Forms.Button();
             this.btnEliminar_Impuesto = new System.Windows.Forms.Button();
             this.TPIgualdad = new System.Windows.Forms.TabPage();
+            this.btnModificar_Igualdad = new System.Windows.Forms.Button();
             this.TBIdigualdad_Producto = new System.Windows.Forms.TextBox();
             this.TBIgualdad_Marca = new System.Windows.Forms.TextBox();
             this.TBIgualdad_Producto = new System.Windows.Forms.TextBox();
@@ -227,7 +232,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.TBIdproducto_AutoSQL);
-            this.groupBox1.Controls.Add(this.TBIdproveedor);
             this.groupBox1.Controls.Add(this.btnCancelar);
             this.groupBox1.Controls.Add(this.TCPrincipal);
             this.groupBox1.Controls.Add(this.TBIdproducto);
@@ -245,17 +249,6 @@
             this.TBIdproducto_AutoSQL.Name = "TBIdproducto_AutoSQL";
             this.TBIdproducto_AutoSQL.Size = new System.Drawing.Size(18, 21);
             this.TBIdproducto_AutoSQL.TabIndex = 14;
-            // 
-            // TBIdproveedor
-            // 
-            this.TBIdproveedor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBIdproveedor.Location = new System.Drawing.Point(236, 460);
-            this.TBIdproveedor.Name = "TBIdproveedor";
-            this.TBIdproveedor.Size = new System.Drawing.Size(21, 21);
-            this.TBIdproveedor.TabIndex = 13;
-            this.TBIdproveedor.TextChanged += new System.EventHandler(this.TBIdproveedor_TextChanged);
             // 
             // btnCancelar
             // 
@@ -1169,6 +1162,7 @@
             // 
             this.TPUbicacion.BackColor = System.Drawing.Color.White;
             this.TPUbicacion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TPUbicacion.Controls.Add(this.btnModificar_Ubicacion);
             this.TPUbicacion.Controls.Add(this.lblTotal_Ubicacion);
             this.TPUbicacion.Controls.Add(this.DGDetalles_Ubicacion);
             this.TPUbicacion.Controls.Add(this.CBBodega);
@@ -1187,6 +1181,25 @@
             this.TPUbicacion.Size = new System.Drawing.Size(384, 381);
             this.TPUbicacion.TabIndex = 4;
             this.TPUbicacion.Text = "Ubicación";
+            // 
+            // btnModificar_Ubicacion
+            // 
+            this.btnModificar_Ubicacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnModificar_Ubicacion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificar_Ubicacion.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnModificar_Ubicacion.FlatAppearance.BorderSize = 0;
+            this.btnModificar_Ubicacion.Image = global::Presentacion.Botones.btnEditar;
+            this.btnModificar_Ubicacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModificar_Ubicacion.Location = new System.Drawing.Point(190, 343);
+            this.btnModificar_Ubicacion.Name = "btnModificar_Ubicacion";
+            this.btnModificar_Ubicacion.Size = new System.Drawing.Size(90, 30);
+            this.btnModificar_Ubicacion.TabIndex = 59;
+            this.btnModificar_Ubicacion.Text = "Modificar";
+            this.btnModificar_Ubicacion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnModificar_Ubicacion.UseVisualStyleBackColor = true;
+            this.btnModificar_Ubicacion.Click += new System.EventHandler(this.btnModificar_Ubicacion_Click);
             // 
             // lblTotal_Ubicacion
             // 
@@ -1218,6 +1231,7 @@
             this.DGDetalles_Ubicacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGDetalles_Ubicacion.Size = new System.Drawing.Size(370, 208);
             this.DGDetalles_Ubicacion.TabIndex = 36;
+            this.DGDetalles_Ubicacion.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGDetalles_Ubicacion_CellClick);
             this.DGDetalles_Ubicacion.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGDetalles_Ubicacion_CellContentClick);
             this.DGDetalles_Ubicacion.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGDetalles_Ubicacion_CellDoubleClick);
             this.DGDetalles_Ubicacion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.DGDetalles_Ubicacion_KeyUp);
@@ -1354,7 +1368,7 @@
             this.btnAgregar_Ubicacion.FlatAppearance.BorderSize = 0;
             this.btnAgregar_Ubicacion.Image = global::Presentacion.Botones.btnAgregar;
             this.btnAgregar_Ubicacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar_Ubicacion.Location = new System.Drawing.Point(190, 343);
+            this.btnAgregar_Ubicacion.Location = new System.Drawing.Point(94, 343);
             this.btnAgregar_Ubicacion.Name = "btnAgregar_Ubicacion";
             this.btnAgregar_Ubicacion.Size = new System.Drawing.Size(90, 30);
             this.btnAgregar_Ubicacion.TabIndex = 57;
@@ -1671,6 +1685,7 @@
             // 
             // TPLote
             // 
+            this.TPLote.Controls.Add(this.btnModificar_Lote);
             this.TPLote.Controls.Add(this.TBLote_Venta);
             this.TPLote.Controls.Add(this.label50);
             this.TPLote.Controls.Add(this.TBLote_Cantidad);
@@ -1692,6 +1707,25 @@
             this.TPLote.TabIndex = 11;
             this.TPLote.Text = "Lote";
             this.TPLote.UseVisualStyleBackColor = true;
+            // 
+            // btnModificar_Lote
+            // 
+            this.btnModificar_Lote.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnModificar_Lote.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificar_Lote.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnModificar_Lote.FlatAppearance.BorderSize = 0;
+            this.btnModificar_Lote.Image = global::Presentacion.Botones.btnEditar;
+            this.btnModificar_Lote.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModificar_Lote.Location = new System.Drawing.Point(192, 345);
+            this.btnModificar_Lote.Name = "btnModificar_Lote";
+            this.btnModificar_Lote.Size = new System.Drawing.Size(90, 30);
+            this.btnModificar_Lote.TabIndex = 67;
+            this.btnModificar_Lote.Text = "Modificar";
+            this.btnModificar_Lote.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnModificar_Lote.UseVisualStyleBackColor = true;
+            this.btnModificar_Lote.Click += new System.EventHandler(this.btnModificar_Lote_Click);
             // 
             // TBLote_Venta
             // 
@@ -1880,7 +1914,7 @@
             this.btnAgregar_Lote.FlatAppearance.BorderSize = 0;
             this.btnAgregar_Lote.Image = global::Presentacion.Botones.btnAgregar;
             this.btnAgregar_Lote.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar_Lote.Location = new System.Drawing.Point(192, 345);
+            this.btnAgregar_Lote.Location = new System.Drawing.Point(96, 345);
             this.btnAgregar_Lote.Name = "btnAgregar_Lote";
             this.btnAgregar_Lote.Size = new System.Drawing.Size(90, 30);
             this.btnAgregar_Lote.TabIndex = 62;
@@ -1891,6 +1925,7 @@
             // 
             // TPCodigosdeBarra
             // 
+            this.TPCodigosdeBarra.Controls.Add(this.btnModificar_CodigoDeBarra);
             this.TPCodigosdeBarra.Controls.Add(this.TBCodigodeBarra);
             this.TPCodigosdeBarra.Controls.Add(this.label35);
             this.TPCodigosdeBarra.Controls.Add(this.lblTotal_Codigodebarra);
@@ -1904,6 +1939,25 @@
             this.TPCodigosdeBarra.TabIndex = 12;
             this.TPCodigosdeBarra.Text = "Cod. de Barra";
             this.TPCodigosdeBarra.UseVisualStyleBackColor = true;
+            // 
+            // btnModificar_CodigoDeBarra
+            // 
+            this.btnModificar_CodigoDeBarra.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnModificar_CodigoDeBarra.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificar_CodigoDeBarra.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnModificar_CodigoDeBarra.FlatAppearance.BorderSize = 0;
+            this.btnModificar_CodigoDeBarra.Image = global::Presentacion.Botones.btnEditar;
+            this.btnModificar_CodigoDeBarra.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModificar_CodigoDeBarra.Location = new System.Drawing.Point(192, 345);
+            this.btnModificar_CodigoDeBarra.Name = "btnModificar_CodigoDeBarra";
+            this.btnModificar_CodigoDeBarra.Size = new System.Drawing.Size(90, 30);
+            this.btnModificar_CodigoDeBarra.TabIndex = 60;
+            this.btnModificar_CodigoDeBarra.Text = "Modificar";
+            this.btnModificar_CodigoDeBarra.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnModificar_CodigoDeBarra.UseVisualStyleBackColor = true;
+            this.btnModificar_CodigoDeBarra.Click += new System.EventHandler(this.btnModificar_CodigoDeBarra_Click);
             // 
             // TBCodigodeBarra
             // 
@@ -1971,7 +2025,7 @@
             this.btnAgregar_CodigoDeBarra.FlatAppearance.BorderSize = 0;
             this.btnAgregar_CodigoDeBarra.Image = global::Presentacion.Botones.btnAgregar;
             this.btnAgregar_CodigoDeBarra.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar_CodigoDeBarra.Location = new System.Drawing.Point(192, 345);
+            this.btnAgregar_CodigoDeBarra.Location = new System.Drawing.Point(96, 345);
             this.btnAgregar_CodigoDeBarra.Name = "btnAgregar_CodigoDeBarra";
             this.btnAgregar_CodigoDeBarra.Size = new System.Drawing.Size(90, 30);
             this.btnAgregar_CodigoDeBarra.TabIndex = 15;
@@ -2002,9 +2056,10 @@
             // 
             // TPProveedor
             // 
+            this.TPProveedor.Controls.Add(this.btnModificar_Proveedor);
+            this.TPProveedor.Controls.Add(this.TBIdproveedor);
             this.TPProveedor.Controls.Add(this.TBProveedor_Documento);
             this.TPProveedor.Controls.Add(this.label28);
-            this.TPProveedor.Controls.Add(this.textBox1);
             this.TPProveedor.Controls.Add(this.btnAgregar_Proveedor);
             this.TPProveedor.Controls.Add(this.lblTotal_Proveedor);
             this.TPProveedor.Controls.Add(this.DGDetalle_Proveedor);
@@ -2019,6 +2074,36 @@
             this.TPProveedor.TabIndex = 14;
             this.TPProveedor.Text = "Proveedor";
             this.TPProveedor.UseVisualStyleBackColor = true;
+            // 
+            // btnModificar_Proveedor
+            // 
+            this.btnModificar_Proveedor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnModificar_Proveedor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificar_Proveedor.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnModificar_Proveedor.FlatAppearance.BorderSize = 0;
+            this.btnModificar_Proveedor.Image = global::Presentacion.Botones.btnEditar;
+            this.btnModificar_Proveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModificar_Proveedor.Location = new System.Drawing.Point(192, 345);
+            this.btnModificar_Proveedor.Name = "btnModificar_Proveedor";
+            this.btnModificar_Proveedor.Size = new System.Drawing.Size(90, 30);
+            this.btnModificar_Proveedor.TabIndex = 140;
+            this.btnModificar_Proveedor.Text = "Modificar";
+            this.btnModificar_Proveedor.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnModificar_Proveedor.UseVisualStyleBackColor = true;
+            this.btnModificar_Proveedor.Click += new System.EventHandler(this.btnModificar_Proveedor_Click);
+            // 
+            // TBIdproveedor
+            // 
+            this.TBIdproveedor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TBIdproveedor.Location = new System.Drawing.Point(49, 350);
+            this.TBIdproveedor.Name = "TBIdproveedor";
+            this.TBIdproveedor.Size = new System.Drawing.Size(21, 21);
+            this.TBIdproveedor.TabIndex = 13;
+            this.TBIdproveedor.TextChanged += new System.EventHandler(this.TBIdproveedor_TextChanged);
             // 
             // TBProveedor_Documento
             // 
@@ -2043,13 +2128,6 @@
             this.label28.TabIndex = 138;
             this.label28.Text = "Documento";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(6, 350);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(32, 21);
-            this.textBox1.TabIndex = 15;
-            // 
             // btnAgregar_Proveedor
             // 
             this.btnAgregar_Proveedor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -2060,7 +2138,7 @@
             this.btnAgregar_Proveedor.FlatAppearance.BorderSize = 0;
             this.btnAgregar_Proveedor.Image = global::Presentacion.Botones.btnAgregar;
             this.btnAgregar_Proveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar_Proveedor.Location = new System.Drawing.Point(192, 345);
+            this.btnAgregar_Proveedor.Location = new System.Drawing.Point(96, 345);
             this.btnAgregar_Proveedor.Name = "btnAgregar_Proveedor";
             this.btnAgregar_Proveedor.Size = new System.Drawing.Size(90, 30);
             this.btnAgregar_Proveedor.TabIndex = 137;
@@ -2162,6 +2240,7 @@
             // 
             // TPImpuesto
             // 
+            this.TPImpuesto.Controls.Add(this.btnModificar_Impuesto);
             this.TPImpuesto.Controls.Add(this.btnExaminar_Impuesto);
             this.TPImpuesto.Controls.Add(this.TBImpuesto);
             this.TPImpuesto.Controls.Add(this.label11);
@@ -2181,6 +2260,25 @@
             this.TPImpuesto.TabIndex = 15;
             this.TPImpuesto.Text = "Impuesto";
             this.TPImpuesto.UseVisualStyleBackColor = true;
+            // 
+            // btnModificar_Impuesto
+            // 
+            this.btnModificar_Impuesto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnModificar_Impuesto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificar_Impuesto.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnModificar_Impuesto.FlatAppearance.BorderSize = 0;
+            this.btnModificar_Impuesto.Image = global::Presentacion.Botones.btnEditar;
+            this.btnModificar_Impuesto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModificar_Impuesto.Location = new System.Drawing.Point(192, 345);
+            this.btnModificar_Impuesto.Name = "btnModificar_Impuesto";
+            this.btnModificar_Impuesto.Size = new System.Drawing.Size(90, 30);
+            this.btnModificar_Impuesto.TabIndex = 161;
+            this.btnModificar_Impuesto.Text = "Modificar";
+            this.btnModificar_Impuesto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnModificar_Impuesto.UseVisualStyleBackColor = true;
+            this.btnModificar_Impuesto.Click += new System.EventHandler(this.btnModificar_Impuesto_Click);
             // 
             // btnExaminar_Impuesto
             // 
@@ -2251,7 +2349,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TBIdimpuesto.Location = new System.Drawing.Point(10, 350);
             this.TBIdimpuesto.Name = "TBIdimpuesto";
-            this.TBIdimpuesto.Size = new System.Drawing.Size(80, 21);
+            this.TBIdimpuesto.Size = new System.Drawing.Size(28, 21);
             this.TBIdimpuesto.TabIndex = 14;
             // 
             // lblTotal_Impuesto
@@ -2307,7 +2405,7 @@
             this.btnAgregar_Impuesto.FlatAppearance.BorderSize = 0;
             this.btnAgregar_Impuesto.Image = global::Presentacion.Botones.btnAgregar;
             this.btnAgregar_Impuesto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar_Impuesto.Location = new System.Drawing.Point(192, 345);
+            this.btnAgregar_Impuesto.Location = new System.Drawing.Point(96, 345);
             this.btnAgregar_Impuesto.Name = "btnAgregar_Impuesto";
             this.btnAgregar_Impuesto.Size = new System.Drawing.Size(90, 30);
             this.btnAgregar_Impuesto.TabIndex = 153;
@@ -2336,6 +2434,7 @@
             // 
             // TPIgualdad
             // 
+            this.TPIgualdad.Controls.Add(this.btnModificar_Igualdad);
             this.TPIgualdad.Controls.Add(this.TBIdigualdad_Producto);
             this.TPIgualdad.Controls.Add(this.TBIgualdad_Marca);
             this.TPIgualdad.Controls.Add(this.TBIgualdad_Producto);
@@ -2354,6 +2453,25 @@
             this.TPIgualdad.TabIndex = 16;
             this.TPIgualdad.Text = "Igualdad";
             this.TPIgualdad.UseVisualStyleBackColor = true;
+            // 
+            // btnModificar_Igualdad
+            // 
+            this.btnModificar_Igualdad.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnModificar_Igualdad.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificar_Igualdad.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnModificar_Igualdad.FlatAppearance.BorderSize = 0;
+            this.btnModificar_Igualdad.Image = global::Presentacion.Botones.btnEditar;
+            this.btnModificar_Igualdad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModificar_Igualdad.Location = new System.Drawing.Point(192, 345);
+            this.btnModificar_Igualdad.Name = "btnModificar_Igualdad";
+            this.btnModificar_Igualdad.Size = new System.Drawing.Size(90, 30);
+            this.btnModificar_Igualdad.TabIndex = 167;
+            this.btnModificar_Igualdad.Text = "Modificar";
+            this.btnModificar_Igualdad.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnModificar_Igualdad.UseVisualStyleBackColor = true;
+            this.btnModificar_Igualdad.Click += new System.EventHandler(this.btnModificar_Igualdad_Click);
             // 
             // TBIdigualdad_Producto
             // 
@@ -2429,7 +2547,7 @@
             this.btnAgregar_Igualdad.FlatAppearance.BorderSize = 0;
             this.btnAgregar_Igualdad.Image = global::Presentacion.Botones.btnAgregar;
             this.btnAgregar_Igualdad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar_Igualdad.Location = new System.Drawing.Point(192, 345);
+            this.btnAgregar_Igualdad.Location = new System.Drawing.Point(96, 345);
             this.btnAgregar_Igualdad.Name = "btnAgregar_Igualdad";
             this.btnAgregar_Igualdad.Size = new System.Drawing.Size(90, 30);
             this.btnAgregar_Igualdad.TabIndex = 160;
@@ -2859,7 +2977,6 @@
         private System.Windows.Forms.Label label55;
         private System.Windows.Forms.TextBox TBLote_Venta;
         private System.Windows.Forms.Label label50;
-        private System.Windows.Forms.TextBox TBIdproducto_AutoSQL;
         public System.Windows.Forms.TextBox TBUbicacion;
         public System.Windows.Forms.TextBox TBCodigo;
         public System.Windows.Forms.TextBox TBIdproducto;
@@ -2870,7 +2987,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnExaminar_Impuesto;
         private System.Windows.Forms.TextBox TBImpuesto;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox TBProveedor_Documento;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox TBIgualdad_Codigo;
@@ -2879,5 +2995,12 @@
         private System.Windows.Forms.TextBox TBIgualdad_Producto;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.TextBox TBIdigualdad_Producto;
+        private System.Windows.Forms.Button btnModificar_Ubicacion;
+        private System.Windows.Forms.Button btnModificar_Igualdad;
+        private System.Windows.Forms.Button btnModificar_Impuesto;
+        private System.Windows.Forms.Button btnModificar_Proveedor;
+        private System.Windows.Forms.Button btnModificar_Lote;
+        private System.Windows.Forms.Button btnModificar_CodigoDeBarra;
+        private System.Windows.Forms.TextBox TBIdproducto_AutoSQL;
     }
 }

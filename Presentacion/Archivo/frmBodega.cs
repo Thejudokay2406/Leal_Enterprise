@@ -567,11 +567,11 @@ namespace Presentacion
                     {
                         if (this.Digitar)
                         {
-                            this.MensajeOk("Bodega: " + this.TBBodega.Text + " Registrada Exitosamente");
+                            this.MensajeOk("La Bodega: “" + this.TBBodega.Text + "” a Sido Registrado Exitosamente");
                         }
                         else
                         {
-                            this.MensajeOk("Registro de Bodega: " + this.TBBodega.Text + " Actualizado Exitosamente");
+                            this.MensajeOk("El Registro de La Bodega: “" + this.TBBodega.Text + "” a Sido Actualizado Exitosamente");
                         }
                     }
 

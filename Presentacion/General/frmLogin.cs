@@ -30,12 +30,14 @@ namespace Presentacion
             this.TBContraseña.BackColor = Color.FromArgb(3, 155, 229);
 
             //Informe de Sesion
-            this.textBox1.Enabled = false;
-            this.textBox1.BackColor = Color.FromArgb(253, 254, 254);
+            this.TBInicioDeSesion.Enabled = false;
+            this.TBInicioDeSesion.BackColor = Color.FromArgb(253, 254, 254);
+            this.TBLealIngenieria.Enabled = false;
+            this.TBLealIngenieria.BackColor = Color.FromArgb(253, 254, 254);
             this.TBCopyrigth.Enabled = false;
             this.TBCopyrigth.BackColor = Color.FromArgb(253, 254, 254);
-            this.TBDesarrollo.Enabled = false;
-            this.TBDesarrollo.BackColor = Color.FromArgb(253, 254, 254);
+            this.TBModulo.Enabled = false;
+            this.TBModulo.BackColor = Color.FromArgb(253, 254, 254);
 
             //Datos de Seguridad
             this.Seguridad_SQL();
