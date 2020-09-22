@@ -356,7 +356,6 @@ namespace Presentacion
                 this.btnCancelar.Enabled = false;
 
                 this.btnModificar_CodigoDeBarra.Enabled = false;
-                this.btnModificar_Igualdad.Enabled = false;
                 this.btnModificar_Lote.Enabled = false;
                 this.btnModificar_Ubicacion.Enabled = false;
             }
@@ -369,7 +368,6 @@ namespace Presentacion
                 this.btnCancelar.Enabled = true;
 
                 this.btnModificar_CodigoDeBarra.Enabled = true;
-                this.btnModificar_Igualdad.Enabled = true;
                 this.btnModificar_Lote.Enabled = true;
                 this.btnModificar_Ubicacion.Enabled = true;
             }

@@ -343,6 +343,7 @@ namespace Presentacion
             {
                 //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
                 this.TBNombre.BackColor = Color.Azure;
+                this.TBNombre.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 
@@ -359,6 +360,7 @@ namespace Presentacion
             {
                 //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
                 this.TBDescripcion.BackColor = Color.Azure;
+                this.TBDescripcion.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 
@@ -381,11 +383,9 @@ namespace Presentacion
                 this.TBNombre.Text = Campo;
                 this.TBNombre.ForeColor = Color.FromArgb(255, 255, 255);
             }
-
             else
             {
-                this.TBNombre.ForeColor = Color.FromArgb(0, 0, 0);
-                this.TBNombre.BackColor = Color.FromArgb(3, 155, 229);
+                TBNombre.BackColor = Color.FromArgb(3, 155, 229);
             }
         }
 
@@ -401,7 +401,6 @@ namespace Presentacion
 
             else
             {
-                this.TBDescripcion.ForeColor = Color.FromArgb(0, 0, 0);
                 this.TBDescripcion.BackColor = Color.FromArgb(3, 155, 229);
             }
         }
@@ -943,10 +942,8 @@ namespace Presentacion
                 this.TBCodigo.Text = Campo;
                 this.TBCodigo.ForeColor = Color.FromArgb(255, 255, 255);
             }
-
             else
             {
-                this.TBCodigo.ForeColor = Color.FromArgb(0, 0, 0);
                 this.TBCodigo.BackColor = Color.FromArgb(3, 155, 229);
             }
         }
