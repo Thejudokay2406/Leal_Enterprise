@@ -902,7 +902,7 @@ namespace Datos
             return Rpta;
         }
 
-        public string Editar_Proveedor(Entidad_Productos Obj)
+        public string Editar_Ubicacion(Entidad_Productos Obj)
         {
             string Rpta = "";
             SqlConnection SqlCon = new SqlConnection();
@@ -913,82 +913,16 @@ namespace Datos
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Datos Auxiliares
-                Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Obj.Auto;
-                Comando.Parameters.Add("@Proveedor_SQL", SqlDbType.Int).Value = Obj.Proveedor_SQL;
+                Comando.Parameters.Add("@Auto_Ubicacion", SqlDbType.Int).Value = Obj.Auto_Ubicacion;
+                Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = Obj.Idproducto;
 
                 //Panel Ubicaciones -- Campos Obligatorios
-                Comando.Parameters.Add("@Det_Proveedor", SqlDbType.Structured).Value = Obj.Detalle_Proveedor;
+                Comando.Parameters.Add("@Ubicacion_Edi", SqlDbType.VarChar).Value = Obj.Ubicacion;
+                Comando.Parameters.Add("@Estante_Edi", SqlDbType.VarChar).Value = Obj.Estante;
+                Comando.Parameters.Add("@Nivel_Edi", SqlDbType.VarChar).Value = Obj.Nivel;
 
                 SqlCon.Open();
-                Rpta = Comando.ExecuteNonQuery() != 1 ? "OK" : "Error al Actualizar el Registro";
-            }
-            catch (Exception ex)
-            {
-                Rpta = ex.Message;
-            }
-            finally
-            {
-                if (SqlCon.State == ConnectionState.Open)
-                {
-                    SqlCon.Close();
-                }
-            }
-            return Rpta;
-        }
-
-        public string Editar_Igualdad(Entidad_Productos Obj)
-        {
-            string Rpta = "";
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Productos.LI_DatosBasicos", SqlCon);
-                Comando.CommandType = CommandType.StoredProcedure;
-
-                //Datos Auxiliares
-                Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Obj.Auto;
-                Comando.Parameters.Add("@Igualdad_SQL", SqlDbType.Int).Value = Obj.Igualdad_SQL;
-
-                //Panel Ubicaciones -- Campos Obligatorios
-                Comando.Parameters.Add("@Det_Igualdad", SqlDbType.Structured).Value = Obj.Detalle_Igualdad;
-
-                SqlCon.Open();
-                Rpta = Comando.ExecuteNonQuery() != 1 ? "OK" : "Error al Actualizar el Registro";
-            }
-            catch (Exception ex)
-            {
-                Rpta = ex.Message;
-            }
-            finally
-            {
-                if (SqlCon.State == ConnectionState.Open)
-                {
-                    SqlCon.Close();
-                }
-            }
-            return Rpta;
-        }
-
-        public string Editar_Impuesto(Entidad_Productos Obj)
-        {
-            string Rpta = "";
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Productos.LI_DatosBasicos", SqlCon);
-                Comando.CommandType = CommandType.StoredProcedure;
-
-                //Datos Auxiliares
-                Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Obj.Auto;
-                Comando.Parameters.Add("@Impuesto_SQL", SqlDbType.Int).Value = Obj.Impuesto_SQL;
-
-                //Panel Ubicaciones -- Campos Obligatorios
-                Comando.Parameters.Add("@Det_Impuesto", SqlDbType.Structured).Value = Obj.Detalle_Impuesto;
-
-                SqlCon.Open();
-                Rpta = Comando.ExecuteNonQuery() != 1 ? "OK" : "Error al Actualizar el Registro";
+                Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Actualizar el Registro";
             }
             catch (Exception ex)
             {
@@ -1022,7 +956,7 @@ namespace Datos
                 Comando.Parameters.Add("@Det_Lote", SqlDbType.Structured).Value = Obj.Detalle_Lote;
 
                 SqlCon.Open();
-                Rpta = Comando.ExecuteNonQuery() != 1 ? "OK" : "Error al Actualizar el Registro";
+                Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Actualizar el Registro";
             }
             catch (Exception ex)
             {
@@ -1053,10 +987,10 @@ namespace Datos
                 Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = Obj.Idproducto;
 
                 //Panel Ubicaciones -- Campos Obligatorios
-                Comando.Parameters.Add("@Det_CodigoDeBarra", SqlDbType.Structured).Value = Obj.Detalle_CodigoDeBarra;
+                Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = Obj.Idproducto;
 
                 SqlCon.Open();
-                Rpta = Comando.ExecuteNonQuery() != 1 ? "OK" : "Error al Actualizar el Registro";
+                Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Actualizar el Registro";
             }
             catch (Exception ex)
             {

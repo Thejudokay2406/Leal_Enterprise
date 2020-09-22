@@ -188,6 +188,8 @@ namespace Presentacion
 
             this.TBCompraMinima_Cliente.ReadOnly = false;
             this.TBCompraMinima_Cliente.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBCompraMaxima_Cliente.ReadOnly = false;
+            this.TBCompraMaxima_Cliente.BackColor = Color.FromArgb(3, 155, 229);
             this.TBCompraMinima_Mayorista.ReadOnly = false;
             this.TBCompraMinima_Mayorista.BackColor = Color.FromArgb(3, 155, 229);
             this.TBCompraMaxima_Mayorista.ReadOnly = false;
@@ -356,7 +358,6 @@ namespace Presentacion
                 this.btnModificar_CodigoDeBarra.Enabled = false;
                 this.btnModificar_Igualdad.Enabled = false;
                 this.btnModificar_Lote.Enabled = false;
-                this.btnModificar_Proveedor.Enabled = false;
                 this.btnModificar_Ubicacion.Enabled = false;
             }
             else if (!Digitar)
@@ -370,7 +371,6 @@ namespace Presentacion
                 this.btnModificar_CodigoDeBarra.Enabled = true;
                 this.btnModificar_Igualdad.Enabled = true;
                 this.btnModificar_Lote.Enabled = true;
-                this.btnModificar_Proveedor.Enabled = true;
                 this.btnModificar_Ubicacion.Enabled = true;
             }
         }
@@ -5360,51 +5360,7 @@ namespace Presentacion
             frmFiltro_Impuesto frmFiltro_Impuesto = new frmFiltro_Impuesto();
             frmFiltro_Impuesto.ShowDialog();
         }
-
-        private void DGDetalles_Ubicacion_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                this.TBUbicacion.Text = Convert.ToString(this.DGDetalles_Ubicacion.CurrentRow.Cells["Ubicacion"].Value);
-                this.TBEstante.Text = Convert.ToString(this.DGDetalles_Ubicacion.CurrentRow.Cells["Estante"].Value);
-                this.TBNivel.Text = Convert.ToString(this.DGDetalles_Ubicacion.CurrentRow.Cells["Nivel"].Value);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        private void DGDetalles_Ubicacion_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                //this.CBBodega.Text = Convert.ToString(this.DGDetalles_Ubicacion.CurrentRow.Cells["Idbodega"].Value);
-                //this.TBUbicacion.Text = Convert.ToString(this.DGDetalles_Ubicacion.CurrentRow.Cells["Ubicacion"].Value);
-                //this.TBEstante.Text = Convert.ToString(this.DGDetalles_Ubicacion.CurrentRow.Cells["Estante"].Value);
-                //this.TBNivel.Text = Convert.ToString(this.DGDetalles_Ubicacion.CurrentRow.Cells["Nivel"].Value);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        private void DGDetalles_Ubicacion_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                //this.CBBodega.SelectedValue = Convert.ToString(this.DGDetalles_Ubicacion.CurrentRow.Cells["Idbodega"].Value);
-                //this.TBUbicacion.Text = Convert.ToString(this.DGDetalles_Ubicacion.CurrentRow.Cells["Ubicacion"].Value);
-                //this.TBEstante.Text = Convert.ToString(this.DGDetalles_Ubicacion.CurrentRow.Cells["Estante"].Value);
-                //this.TBNivel.Text = Convert.ToString(this.DGDetalles_Ubicacion.CurrentRow.Cells["Nivel"].Value);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
+        
         private void DGDetalles_Ubicacion_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -5428,43 +5384,33 @@ namespace Presentacion
         {
             try
             {
+                string rptaDatosBasicos = "";
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
+                rptaDatosBasicos = fProducto_Inventario.Editar_Ubicacion
 
-        private void btnModificar_Igualdad_Click(object sender, EventArgs e)
-        {
-            try
-            {
+                            (
+                                 //Datos Auxiliares
+                                 Convert.ToInt32(this.TBIdproducto.Text),
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
+                                 //Panel Datos Basicos
+                                 this.TBUbicacion.Text, this.TBEstante.Text, this.TBNivel.Text,
 
-        private void btnModificar_Impuesto_Click(object sender, EventArgs e)
-        {
-            try
-            {
+                                //Si es igual a 1 se registraran los datos en la base de datos
+                                1
+                            );
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
+                if (rptaDatosBasicos.Equals("OK"))
+                {
+                    if (this.Digitar)
+                    {
+                        this.MensajeOk("El Registro del Producto: “" + this.TBNombre.Text + "” a Sido Actualizado Exitosamente");
+                    }
+                }
 
-        private void btnModificar_Proveedor_Click(object sender, EventArgs e)
-        {
-            try
-            {
-
+                else
+                {
+                    this.MensajeError(rptaDatosBasicos);
+                }
             }
             catch (Exception ex)
             {
@@ -5489,6 +5435,25 @@ namespace Presentacion
             try
             {
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void DGDetalles_Ubicacion_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                // Teniendo en cuenta que DataGridView1 es tu DataGridView.
+                DataGridViewRow fila = DGDetalles_Ubicacion.Rows[e.RowIndex];
+
+                //Pasamos los datos de la celda seleccionada a los texboxt correspondientes
+                this.CBBodega.SelectedValue = Convert.ToString(fila.Cells["Idbodega"].Value);
+                this.TBUbicacion.Text = Convert.ToString(fila.Cells["Ubicacion"].Value);
+                this.TBEstante.Text = Convert.ToString(fila.Cells["Estante"].Value);
+                this.TBNivel.Text = Convert.ToString(fila.Cells["Nivel"].Value);
             }
             catch (Exception ex)
             {

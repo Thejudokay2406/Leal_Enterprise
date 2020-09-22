@@ -154,7 +154,6 @@
             this.btnAgregar_CodigoDeBarra = new System.Windows.Forms.Button();
             this.btnEliminar_CodigosDeBarra = new System.Windows.Forms.Button();
             this.TPProveedor = new System.Windows.Forms.TabPage();
-            this.btnModificar_Proveedor = new System.Windows.Forms.Button();
             this.TBIdproveedor = new System.Windows.Forms.TextBox();
             this.TBProveedor_Documento = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
@@ -166,7 +165,6 @@
             this.btnEliminar_Proveedor = new System.Windows.Forms.Button();
             this.btnExaminar_Proveedor = new System.Windows.Forms.Button();
             this.TPImpuesto = new System.Windows.Forms.TabPage();
-            this.btnModificar_Impuesto = new System.Windows.Forms.Button();
             this.btnExaminar_Impuesto = new System.Windows.Forms.Button();
             this.TBImpuesto = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -180,7 +178,6 @@
             this.btnAgregar_Impuesto = new System.Windows.Forms.Button();
             this.btnEliminar_Impuesto = new System.Windows.Forms.Button();
             this.TPIgualdad = new System.Windows.Forms.TabPage();
-            this.btnModificar_Igualdad = new System.Windows.Forms.Button();
             this.TBIdigualdad_Producto = new System.Windows.Forms.TextBox();
             this.TBIgualdad_Marca = new System.Windows.Forms.TextBox();
             this.TBIgualdad_Producto = new System.Windows.Forms.TextBox();
@@ -1232,9 +1229,7 @@
             this.DGDetalles_Ubicacion.Size = new System.Drawing.Size(370, 208);
             this.DGDetalles_Ubicacion.TabIndex = 36;
             this.DGDetalles_Ubicacion.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGDetalles_Ubicacion_CellClick);
-            this.DGDetalles_Ubicacion.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGDetalles_Ubicacion_CellContentClick);
-            this.DGDetalles_Ubicacion.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGDetalles_Ubicacion_CellDoubleClick);
-            this.DGDetalles_Ubicacion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.DGDetalles_Ubicacion_KeyUp);
+            this.DGDetalles_Ubicacion.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGDetalles_Ubicacion_RowEnter);
             // 
             // CBBodega
             // 
@@ -2056,7 +2051,6 @@
             // 
             // TPProveedor
             // 
-            this.TPProveedor.Controls.Add(this.btnModificar_Proveedor);
             this.TPProveedor.Controls.Add(this.TBIdproveedor);
             this.TPProveedor.Controls.Add(this.TBProveedor_Documento);
             this.TPProveedor.Controls.Add(this.label28);
@@ -2074,25 +2068,6 @@
             this.TPProveedor.TabIndex = 14;
             this.TPProveedor.Text = "Proveedor";
             this.TPProveedor.UseVisualStyleBackColor = true;
-            // 
-            // btnModificar_Proveedor
-            // 
-            this.btnModificar_Proveedor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnModificar_Proveedor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnModificar_Proveedor.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnModificar_Proveedor.FlatAppearance.BorderSize = 0;
-            this.btnModificar_Proveedor.Image = global::Presentacion.Botones.btnEditar;
-            this.btnModificar_Proveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar_Proveedor.Location = new System.Drawing.Point(192, 345);
-            this.btnModificar_Proveedor.Name = "btnModificar_Proveedor";
-            this.btnModificar_Proveedor.Size = new System.Drawing.Size(90, 30);
-            this.btnModificar_Proveedor.TabIndex = 140;
-            this.btnModificar_Proveedor.Text = "Modificar";
-            this.btnModificar_Proveedor.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnModificar_Proveedor.UseVisualStyleBackColor = true;
-            this.btnModificar_Proveedor.Click += new System.EventHandler(this.btnModificar_Proveedor_Click);
             // 
             // TBIdproveedor
             // 
@@ -2138,7 +2113,7 @@
             this.btnAgregar_Proveedor.FlatAppearance.BorderSize = 0;
             this.btnAgregar_Proveedor.Image = global::Presentacion.Botones.btnAgregar;
             this.btnAgregar_Proveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar_Proveedor.Location = new System.Drawing.Point(96, 345);
+            this.btnAgregar_Proveedor.Location = new System.Drawing.Point(192, 345);
             this.btnAgregar_Proveedor.Name = "btnAgregar_Proveedor";
             this.btnAgregar_Proveedor.Size = new System.Drawing.Size(90, 30);
             this.btnAgregar_Proveedor.TabIndex = 137;
@@ -2240,7 +2215,6 @@
             // 
             // TPImpuesto
             // 
-            this.TPImpuesto.Controls.Add(this.btnModificar_Impuesto);
             this.TPImpuesto.Controls.Add(this.btnExaminar_Impuesto);
             this.TPImpuesto.Controls.Add(this.TBImpuesto);
             this.TPImpuesto.Controls.Add(this.label11);
@@ -2260,25 +2234,6 @@
             this.TPImpuesto.TabIndex = 15;
             this.TPImpuesto.Text = "Impuesto";
             this.TPImpuesto.UseVisualStyleBackColor = true;
-            // 
-            // btnModificar_Impuesto
-            // 
-            this.btnModificar_Impuesto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnModificar_Impuesto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnModificar_Impuesto.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnModificar_Impuesto.FlatAppearance.BorderSize = 0;
-            this.btnModificar_Impuesto.Image = global::Presentacion.Botones.btnEditar;
-            this.btnModificar_Impuesto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar_Impuesto.Location = new System.Drawing.Point(192, 345);
-            this.btnModificar_Impuesto.Name = "btnModificar_Impuesto";
-            this.btnModificar_Impuesto.Size = new System.Drawing.Size(90, 30);
-            this.btnModificar_Impuesto.TabIndex = 161;
-            this.btnModificar_Impuesto.Text = "Modificar";
-            this.btnModificar_Impuesto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnModificar_Impuesto.UseVisualStyleBackColor = true;
-            this.btnModificar_Impuesto.Click += new System.EventHandler(this.btnModificar_Impuesto_Click);
             // 
             // btnExaminar_Impuesto
             // 
@@ -2405,7 +2360,7 @@
             this.btnAgregar_Impuesto.FlatAppearance.BorderSize = 0;
             this.btnAgregar_Impuesto.Image = global::Presentacion.Botones.btnAgregar;
             this.btnAgregar_Impuesto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar_Impuesto.Location = new System.Drawing.Point(96, 345);
+            this.btnAgregar_Impuesto.Location = new System.Drawing.Point(192, 345);
             this.btnAgregar_Impuesto.Name = "btnAgregar_Impuesto";
             this.btnAgregar_Impuesto.Size = new System.Drawing.Size(90, 30);
             this.btnAgregar_Impuesto.TabIndex = 153;
@@ -2434,7 +2389,6 @@
             // 
             // TPIgualdad
             // 
-            this.TPIgualdad.Controls.Add(this.btnModificar_Igualdad);
             this.TPIgualdad.Controls.Add(this.TBIdigualdad_Producto);
             this.TPIgualdad.Controls.Add(this.TBIgualdad_Marca);
             this.TPIgualdad.Controls.Add(this.TBIgualdad_Producto);
@@ -2453,25 +2407,6 @@
             this.TPIgualdad.TabIndex = 16;
             this.TPIgualdad.Text = "Igualdad";
             this.TPIgualdad.UseVisualStyleBackColor = true;
-            // 
-            // btnModificar_Igualdad
-            // 
-            this.btnModificar_Igualdad.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnModificar_Igualdad.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnModificar_Igualdad.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnModificar_Igualdad.FlatAppearance.BorderSize = 0;
-            this.btnModificar_Igualdad.Image = global::Presentacion.Botones.btnEditar;
-            this.btnModificar_Igualdad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar_Igualdad.Location = new System.Drawing.Point(192, 345);
-            this.btnModificar_Igualdad.Name = "btnModificar_Igualdad";
-            this.btnModificar_Igualdad.Size = new System.Drawing.Size(90, 30);
-            this.btnModificar_Igualdad.TabIndex = 167;
-            this.btnModificar_Igualdad.Text = "Modificar";
-            this.btnModificar_Igualdad.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnModificar_Igualdad.UseVisualStyleBackColor = true;
-            this.btnModificar_Igualdad.Click += new System.EventHandler(this.btnModificar_Igualdad_Click);
             // 
             // TBIdigualdad_Producto
             // 
@@ -2547,7 +2482,7 @@
             this.btnAgregar_Igualdad.FlatAppearance.BorderSize = 0;
             this.btnAgregar_Igualdad.Image = global::Presentacion.Botones.btnAgregar;
             this.btnAgregar_Igualdad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar_Igualdad.Location = new System.Drawing.Point(96, 345);
+            this.btnAgregar_Igualdad.Location = new System.Drawing.Point(192, 345);
             this.btnAgregar_Igualdad.Name = "btnAgregar_Igualdad";
             this.btnAgregar_Igualdad.Size = new System.Drawing.Size(90, 30);
             this.btnAgregar_Igualdad.TabIndex = 160;
@@ -2996,9 +2931,6 @@
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.TextBox TBIdigualdad_Producto;
         private System.Windows.Forms.Button btnModificar_Ubicacion;
-        private System.Windows.Forms.Button btnModificar_Igualdad;
-        private System.Windows.Forms.Button btnModificar_Impuesto;
-        private System.Windows.Forms.Button btnModificar_Proveedor;
         private System.Windows.Forms.Button btnModificar_Lote;
         private System.Windows.Forms.Button btnModificar_CodigoDeBarra;
         private System.Windows.Forms.TextBox TBIdproducto_AutoSQL;

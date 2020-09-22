@@ -348,72 +348,6 @@ namespace Negocio
             return Datos.Editar_Lote(Obj);
         }
 
-        public static string Editar_Impuesto
-            (
-
-                //Panel Impuestos
-                DataTable detalle_impuesto,
-
-                //Datos Auxiliares
-                int auto
-            )
-        {
-            Conexion_Producto Datos = new Conexion_Producto();
-            Entidad_Productos Obj = new Entidad_Productos();
-
-            //Panel Impuestos
-            Obj.Detalle_Impuesto = detalle_impuesto;
-
-            //Datos Auxiliares
-            Obj.Auto = auto;
-
-            return Datos.Editar_Impuesto(Obj);
-        }
-
-        public static string Editar_Igualdad
-            (
-
-                //Panel Igualdad
-                DataTable detalle_igualdad,
-
-                //Datos Auxiliares
-                int auto
-            )
-        {
-            Conexion_Producto Datos = new Conexion_Producto();
-            Entidad_Productos Obj = new Entidad_Productos();
-
-            //Panel Igualdad
-            Obj.Detalle_Igualdad = detalle_igualdad;
-
-            //Datos Auxiliares
-            Obj.Auto = auto;
-
-            return Datos.Editar_Igualdad(Obj);
-        }
-
-        public static string Editar_Proveedor
-            (
-
-                //Panel Proveedor
-                DataTable detalle_proveedor,
-
-                //Datos Auxiliares
-                int auto
-            )
-        {
-            Conexion_Producto Datos = new Conexion_Producto();
-            Entidad_Productos Obj = new Entidad_Productos();
-
-            //Panel Proveedor
-            Obj.Detalle_Proveedor = detalle_proveedor;
-
-            //Datos Auxiliares
-            Obj.Auto = auto;
-
-            return Datos.Editar_Proveedor(Obj);
-        }
-
         public static string Guardar_Ubicacion
             (
                 //Ubicacion[]
@@ -581,6 +515,33 @@ namespace Negocio
             Obj.Auto = auto;
 
             return Datos.Editar_CodigoDeBarra(Obj);
+        }
+
+        public static string Editar_Ubicacion
+            (
+                //
+                int idproducto,
+
+                //Panel Codigo de Barra
+                string ubicacion, string estante, string nivel,
+
+                //Datos Auxiliares
+                int auto
+            )
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            Entidad_Productos Obj = new Entidad_Productos();
+
+            //Panel Ubicacion
+            Obj.Idproducto = idproducto;
+            Obj.Ubicacion = ubicacion;
+            Obj.Estante = estante;
+            Obj.Nivel= nivel;
+
+            //Datos Auxiliares
+            Obj.AutoDet_Ubicacion = auto;
+
+            return Datos.Editar_Ubicacion(Obj);
         }
 
         public static string Eliminar(int Idproducto, int Auto)
