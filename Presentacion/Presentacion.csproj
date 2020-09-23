@@ -578,6 +578,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icono_Leal_Enterprise.ico" />
+    <None Include="Resources\Empleados - Datos de Domicilio Empresa.jpg" />
+    <None Include="Resources\Empleados - Datos de Domicilio.jpg" />
     <None Include="Resources\Producto - Cantidad de Compra.jpg" />
     <None Include="Resources\btnPrecios.png" />
     <None Include="Resources\Valor Final - Orden de Compra.jpg" />

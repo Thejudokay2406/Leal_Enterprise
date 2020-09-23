@@ -41,6 +41,257 @@ namespace Presentacion
 
         private void frmDepartamento_Load(object sender, EventArgs e)
         {
+            //Inicio de Clase y Botones
+            this.Botones();
+            this.Habilitar();
+
+            //Focus a Texboxt y Combobox
+            this.TBDepartamento.Select();
+
+            //Ocultacion de Texboxt
+            this.TBIdempleado.Visible = false;
+        }
+
+        private void Habilitar()
+        {
+            //Panel - Datos Basicos
+            this.TBDepartamento.ReadOnly = false;
+            this.TBDepartamento.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDepartamento.ForeColor = Color.FromArgb(255, 255, 255);
+            this.TBDepartamento.Text = Campo;
+            this.TBDirector.ReadOnly = false;
+            this.TBDirector.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDirector.ForeColor = Color.FromArgb(255, 255, 255);
+            this.TBDirector.Text = Campo;
+            this.TBAreaPrincipal.ReadOnly = false;
+            this.TBAreaPrincipal.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBAreaAuxiliar.ReadOnly = false;
+            this.TBAreaAuxiliar.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDescripcion.ReadOnly = false;
+            this.TBDescripcion.BackColor = Color.FromArgb(3, 155, 229);
+            
+            //Texboxt de Consulta
+            this.TBBuscar.BackColor = Color.FromArgb(3, 155, 229);
+        }
+
+        private void Limpiar_Datos()
+        {
+            //Panel - Datos Basicos
+            this.TBDepartamento.Clear();
+            this.TBDepartamento.Text = Campo;
+            this.TBDirector.Clear();
+            this.TBDirector.Text = Campo;
+            this.TBAreaPrincipal.Clear();
+            this.TBAreaAuxiliar.Clear();
+            this.TBDescripcion.Clear();
+            
+            //Se realiza el FOCUS al panel y campo de texto iniciales
+            this.TBDepartamento.Select();
+        }
+
+        private void Botones()
+        {
+            if (Digitar)
+            {
+                this.btnGuardar.Enabled = true;
+                this.btnGuardar.Text = "Guardar";
+                this.btnCancelar.Enabled = false;
+            }
+            else if (!Digitar)
+            {
+                this.btnGuardar.Enabled = true;
+                this.btnGuardar.Text = "Editar";
+                this.btnCancelar.Enabled = true;
+            }
+        }
+
+        private void Guardar_SQL()
+        {
+            try
+            {
+                string rptaDatosBasicos = "";
+
+                // <<<<<<------ Panel Datos Basicos ------>>>>>
+
+                if (this.TBDepartamento.Text == Campo)
+                {
+                    MensajeError("Ingrese el nombre del Empleado a registrar");
+                }
+                else if (this.TBDirector.Text == Campo)
+                {
+                    MensajeError("Ingrese el Numero de Documento del Empleado a registrar");
+                }
+
+                else
+                {
+                    if (this.Digitar)
+                    {
+                        rptaDatosBasicos = fGestion_Empleados.Guardar_DatosBasicos
+
+                            (
+                                 //Datos Auxiliares
+                                 1,
+
+                                 //Llaves Auxiliares
+                                 Convert.ToInt32(CBDepartamento.SelectedValue), Convert.ToInt32(this.CBTipodecontrato.SelectedValue),
+
+                                 //Panel Datos Basicos
+                                 this.TBCodigo.Text, this.TBDepartamento.Text, this.TBDirector.Text,
+                                 this.TBAreaPrincipal.Text, this.TBAreaAuxiliar.Text, this.TBDescripcion.Text, this.TBMovil.Text, this.TBCorreo.Text, this.TBDireccion01.Text, this.TBComision.Text, this.TBDescuento_Compra.Text, this.TBProfesion.Text, this.TBCargo.Text
+                            );
+                    }
+
+                    else
+                    {
+                        rptaDatosBasicos = fGestion_Empleados.Editar_DatosBasicos
+
+                            (
+                                 //Datos Auxiliares y llave primaria
+                                 2, Convert.ToInt32(TBIdempleado.Text),
+
+                                 //Llaves Auxiliares
+                                 Convert.ToInt32(CBDepartamento.SelectedValue), Convert.ToInt32(this.CBTipodecontrato.SelectedValue),
+
+                                 //Panel Datos Basicos
+                                 this.TBCodigo.Text, this.TBDepartamento.Text, this.TBDirector.Text,
+                                 this.TBAreaPrincipal.Text, this.TBAreaAuxiliar.Text, this.TBDescripcion.Text, this.TBMovil.Text, this.TBCorreo.Text, this.TBDireccion01.Text, this.TBComision.Text, this.TBDescuento_Compra.Text, this.TBProfesion.Text, this.TBCargo.Text
+                            );
+                    }
+
+                    if (rptaDatosBasicos.Equals("OK"))
+                    {
+                        if (this.Digitar)
+                        {
+                            this.MensajeOk("Empleado: " + this.TBDepartamento.Text + " Registrado Correctamente");
+                        }
+
+                        else
+                        {
+                            this.MensajeOk("El Registro del Empleado: " + this.TBDepartamento.Text + " a Sido Actualizado");
+                        }
+                    }
+
+                    else
+                    {
+                        this.MensajeError(rptaDatosBasicos);
+                    }
+
+                    //Llamada de Clase
+                    this.Digitar = true;
+                    this.Botones();
+                    this.Limpiar_Datos();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        //Mensaje de confirmacion
+        private void MensajeOk(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+        }
+
+        //Mensaje de Error
+        private void MensajeError(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Leal Enterprise - Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Digitar)
+                {
+                    if (Guardar == "1")
+                    {
+                        //Metodo Guardar y editar
+                        this.Guardar_SQL();
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Guardar Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                        //Llamada de Clase
+                        this.Digitar = true;
+                        this.Botones();
+                        this.Limpiar_Datos();
+                    }
+                }
+
+                else
+                {
+                    if (Editar == "1")
+                    {
+                        //Metodo Guardar y editar
+                        this.Guardar_SQL();
+                    }
+                    else
+                    {
+                        MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Editar Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                        //Llamada de Clase
+                        this.Digitar = false;
+                        this.Limpiar_Datos();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Digitar = true;
+                this.Limpiar_Datos();
+                this.TBBuscar.Clear();
+
+                //Se Limpian las Filas y Columnas de la tabla
+                DGResultados.DataSource = null;
+                this.DGResultados.Enabled = false;
+                this.lblTotal.Text = "Datos Registrados: 0";
+
+                //Se restablece la imagen predeterminada del boton
+                //this.btnGuardar.Image = Properties.Resources.BV_Guardar;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TBBuscar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DGResultados_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnExaminar_Proveedor_Click(object sender, EventArgs e)
+        {
 
         }
     }

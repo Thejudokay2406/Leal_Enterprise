@@ -29,35 +29,25 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.TBCargo = new System.Windows.Forms.TextBox();
-            this.TBProfesion = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.CBDepartamento = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.TBIdempleado = new System.Windows.Forms.TextBox();
-            this.TBDireccion01 = new System.Windows.Forms.TextBox();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.label18 = new System.Windows.Forms.Label();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.TBPais = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.CBTipodecontrato = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.TBCodigo = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.TBDescuento_Compra = new System.Windows.Forms.TextBox();
-            this.TBMovil = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
+            this.CBDepartamento = new System.Windows.Forms.ComboBox();
             this.TBDocumento = new System.Windows.Forms.TextBox();
-            this.TBComision = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.TBFijo = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.TBCiudad = new System.Windows.Forms.TextBox();
+            this.TBCargo = new System.Windows.Forms.TextBox();
             this.TBEmpleado = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.TBCorreo = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.TBProfesion = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.TBBuscar = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
@@ -65,313 +55,264 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.CBTipodecontrato = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.TBCodigo = new System.Windows.Forms.TextBox();
+            this.PB_FotoEmpleado = new System.Windows.Forms.PictureBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.TBPais = new System.Windows.Forms.TextBox();
+            this.TBMovil = new System.Windows.Forms.TextBox();
+            this.TBDireccion01 = new System.Windows.Forms.TextBox();
+            this.TBFijo = new System.Windows.Forms.TextBox();
+            this.TBCiudad = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGResultados)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_FotoEmpleado)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.TBCodigo);
-            this.groupBox1.Controls.Add(this.CBTipodecontrato);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.CBDepartamento);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.TBCargo);
-            this.groupBox1.Controls.Add(this.label16);
-            this.groupBox1.Controls.Add(this.TBEmpleado);
-            this.groupBox1.Controls.Add(this.TBIdempleado);
-            this.groupBox1.Controls.Add(this.TBProfesion);
-            this.groupBox1.Controls.Add(this.TBDocumento);
-            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.btnCancelar);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.TBPais);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.TBIdempleado);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.btnGuardar);
-            this.groupBox1.Controls.Add(this.label18);
-            this.groupBox1.Controls.Add(this.TBCiudad);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.TBFijo);
-            this.groupBox1.Controls.Add(this.TBDireccion01);
-            this.groupBox1.Controls.Add(this.label19);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.TBComision);
-            this.groupBox1.Controls.Add(this.TBMovil);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label20);
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Controls.Add(this.panel2);
+            this.groupBox1.Controls.Add(this.TBProfesion);
+            this.groupBox1.Controls.Add(this.textBox6);
             this.groupBox1.Controls.Add(this.TBCorreo);
-            this.groupBox1.Controls.Add(this.TBDescuento_Compra);
+            this.groupBox1.Controls.Add(this.label22);
+            this.groupBox1.Controls.Add(this.label16);
+            this.groupBox1.Controls.Add(this.label24);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.textBox7);
+            this.groupBox1.Controls.Add(this.TBEmpleado);
+            this.groupBox1.Controls.Add(this.label23);
+            this.groupBox1.Controls.Add(this.TBCargo);
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.TBDocumento);
+            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.CBDepartamento);
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.label21);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.TBCodigo);
+            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.panel1);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.label18);
+            this.groupBox1.Controls.Add(this.CBTipodecontrato);
+            this.groupBox1.Controls.Add(this.TBPais);
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.TBMovil);
+            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.TBDireccion01);
+            this.groupBox1.Controls.Add(this.PB_FotoEmpleado);
+            this.groupBox1.Controls.Add(this.TBFijo);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.TBCiudad);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(390, 466);
+            this.groupBox1.Size = new System.Drawing.Size(668, 490);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Leal Enterprise - Registro de Empleados";
             // 
-            // label6
+            // comboBox1
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(9, 347);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(92, 15);
-            this.label6.TabIndex = 31;
-            this.label6.Text = "Cargo a Ejercer";
-            // 
-            // TBCargo
-            // 
-            this.TBCargo.Location = new System.Drawing.Point(124, 344);
-            this.TBCargo.Name = "TBCargo";
-            this.TBCargo.Size = new System.Drawing.Size(258, 21);
-            this.TBCargo.TabIndex = 30;
-            this.TBCargo.Enter += new System.EventHandler(this.TBCargo_Enter);
-            this.TBCargo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCargo_KeyUp);
-            this.TBCargo.Leave += new System.EventHandler(this.TBCargo_Leave);
-            // 
-            // TBProfesion
-            // 
-            this.TBProfesion.Location = new System.Drawing.Point(124, 317);
-            this.TBProfesion.Name = "TBProfesion";
-            this.TBProfesion.Size = new System.Drawing.Size(258, 21);
-            this.TBProfesion.TabIndex = 29;
-            this.TBProfesion.Enter += new System.EventHandler(this.TBProfesion_Enter);
-            this.TBProfesion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBProfesion_KeyUp);
-            this.TBProfesion.Leave += new System.EventHandler(this.TBProfesion_Leave);
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(8, 320);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(59, 15);
-            this.label17.TabIndex = 28;
-            this.label17.Text = "Profesion";
-            // 
-            // CBDepartamento
-            // 
-            this.CBDepartamento.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CBDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CBDepartamento.FormattingEnabled = true;
-            this.CBDepartamento.Location = new System.Drawing.Point(124, 371);
-            this.CBDepartamento.Name = "CBDepartamento";
-            this.CBDepartamento.Size = new System.Drawing.Size(258, 23);
-            this.CBDepartamento.Sorted = true;
-            this.CBDepartamento.TabIndex = 27;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(8, 239);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(59, 15);
-            this.label11.TabIndex = 25;
-            this.label11.Text = "Direccion";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(8, 375);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(86, 15);
-            this.label16.TabIndex = 26;
-            this.label16.Text = "Departamento";
+            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(80, 74);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(250, 21);
+            this.comboBox1.Sorted = true;
+            this.comboBox1.TabIndex = 37;
             // 
             // TBIdempleado
             // 
-            this.TBIdempleado.Location = new System.Drawing.Point(178, 434);
+            this.TBIdempleado.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TBIdempleado.Location = new System.Drawing.Point(105, 457);
             this.TBIdempleado.Name = "TBIdempleado";
             this.TBIdempleado.Size = new System.Drawing.Size(24, 21);
             this.TBIdempleado.TabIndex = 19;
             this.TBIdempleado.TextChanged += new System.EventHandler(this.TBIdempleado_TextChanged);
             // 
-            // TBDireccion01
+            // label12
             // 
-            this.TBDireccion01.Location = new System.Drawing.Point(82, 236);
-            this.TBDireccion01.Name = "TBDireccion01";
-            this.TBDireccion01.Size = new System.Drawing.Size(300, 21);
-            this.TBDireccion01.TabIndex = 24;
-            this.TBDireccion01.Enter += new System.EventHandler(this.TBDireccion01_Enter);
-            this.TBDireccion01.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBDireccion01_KeyUp);
-            this.TBDireccion01.Leave += new System.EventHandler(this.TBDireccion01_Leave);
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 75);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(55, 15);
+            this.label12.TabIndex = 36;
+            this.label12.Text = "Sucurzal";
             // 
-            // btnCancelar
+            // CBTipodecontrato
             // 
-            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancelar.FlatAppearance.BorderSize = 0;
-            this.btnCancelar.Image = global::Presentacion.Botones.btnCancelar;
-            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(292, 429);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(90, 30);
-            this.btnCancelar.TabIndex = 18;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.CBTipodecontrato.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.CBTipodecontrato.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CBTipodecontrato.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBTipodecontrato.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBTipodecontrato.FormattingEnabled = true;
+            this.CBTipodecontrato.Location = new System.Drawing.Point(80, 101);
+            this.CBTipodecontrato.Name = "CBTipodecontrato";
+            this.CBTipodecontrato.Size = new System.Drawing.Size(250, 21);
+            this.CBTipodecontrato.Sorted = true;
+            this.CBTipodecontrato.TabIndex = 33;
             // 
-            // label18
+            // label9
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(8, 104);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(31, 15);
-            this.label18.TabIndex = 21;
-            this.label18.Text = "Pais";
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 23);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(46, 15);
+            this.label9.TabIndex = 34;
+            this.label9.Text = "Codigo";
             // 
-            // btnGuardar
+            // label8
             // 
-            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnGuardar.FlatAppearance.BorderSize = 0;
-            this.btnGuardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnGuardar.Image = global::Presentacion.Botones.btnGuardar;
-            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(11, 429);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(90, 30);
-            this.btnGuardar.TabIndex = 15;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 48);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(53, 15);
+            this.label8.TabIndex = 32;
+            this.label8.Text = "Contrato";
             // 
-            // TBPais
+            // TBCodigo
             // 
-            this.TBPais.Location = new System.Drawing.Point(82, 101);
-            this.TBPais.Name = "TBPais";
-            this.TBPais.Size = new System.Drawing.Size(300, 21);
-            this.TBPais.TabIndex = 20;
-            this.TBPais.Enter += new System.EventHandler(this.TBPais_Enter);
-            this.TBPais.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBPais_KeyUp);
-            this.TBPais.Leave += new System.EventHandler(this.TBPais_Leave);
+            this.TBCodigo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TBCodigo.Location = new System.Drawing.Point(80, 20);
+            this.TBCodigo.Name = "TBCodigo";
+            this.TBCodigo.Size = new System.Drawing.Size(250, 21);
+            this.TBCodigo.TabIndex = 35;
+            this.TBCodigo.Enter += new System.EventHandler(this.TBCodigo_Enter);
+            this.TBCodigo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCodigo_KeyUp);
+            this.TBCodigo.Leave += new System.EventHandler(this.TBCodigo_Leave);
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(7, 212);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(40, 15);
+            this.label6.TabIndex = 31;
+            this.label6.Text = "Cargo";
             // 
             // label10
             // 
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(8, 77);
+            this.label10.Location = new System.Drawing.Point(6, 158);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(71, 15);
             this.label10.TabIndex = 19;
             this.label10.Text = "Documento";
             // 
-            // TBDescuento_Compra
+            // CBDepartamento
             // 
-            this.TBDescuento_Compra.Location = new System.Drawing.Point(124, 290);
-            this.TBDescuento_Compra.Name = "TBDescuento_Compra";
-            this.TBDescuento_Compra.Size = new System.Drawing.Size(258, 21);
-            this.TBDescuento_Compra.TabIndex = 19;
-            this.TBDescuento_Compra.Enter += new System.EventHandler(this.TBDescuento_Enter);
-            this.TBDescuento_Compra.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBDescuento_KeyUp);
-            this.TBDescuento_Compra.Leave += new System.EventHandler(this.TBDescuento_Leave);
-            // 
-            // TBMovil
-            // 
-            this.TBMovil.Location = new System.Drawing.Point(82, 182);
-            this.TBMovil.Name = "TBMovil";
-            this.TBMovil.Size = new System.Drawing.Size(300, 21);
-            this.TBMovil.TabIndex = 8;
-            this.TBMovil.Enter += new System.EventHandler(this.TBMovil_Enter);
-            this.TBMovil.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBMovil_KeyUp);
-            this.TBMovil.Leave += new System.EventHandler(this.TBMovil_Leave);
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(8, 293);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(109, 15);
-            this.label20.TabIndex = 18;
-            this.label20.Text = "Descu. de Compra";
+            this.CBDepartamento.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.CBDepartamento.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CBDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBDepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBDepartamento.FormattingEnabled = true;
+            this.CBDepartamento.Location = new System.Drawing.Point(80, 47);
+            this.CBDepartamento.Name = "CBDepartamento";
+            this.CBDepartamento.Size = new System.Drawing.Size(250, 21);
+            this.CBDepartamento.Sorted = true;
+            this.CBDepartamento.TabIndex = 27;
             // 
             // TBDocumento
             // 
-            this.TBDocumento.Location = new System.Drawing.Point(82, 74);
+            this.TBDocumento.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TBDocumento.Location = new System.Drawing.Point(80, 155);
             this.TBDocumento.Name = "TBDocumento";
-            this.TBDocumento.Size = new System.Drawing.Size(300, 21);
+            this.TBDocumento.Size = new System.Drawing.Size(250, 21);
             this.TBDocumento.TabIndex = 18;
             this.TBDocumento.Enter += new System.EventHandler(this.TBDocumento_Enter);
             this.TBDocumento.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBDocumento_KeyUp);
             this.TBDocumento.Leave += new System.EventHandler(this.TBDocumento_Leave);
             // 
-            // TBComision
+            // TBCargo
             // 
-            this.TBComision.Location = new System.Drawing.Point(124, 263);
-            this.TBComision.Name = "TBComision";
-            this.TBComision.Size = new System.Drawing.Size(258, 21);
-            this.TBComision.TabIndex = 17;
-            this.TBComision.Enter += new System.EventHandler(this.TBComision_Enter);
-            this.TBComision.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBComision_KeyUp);
-            this.TBComision.Leave += new System.EventHandler(this.TBComision_Leave);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 185);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(36, 15);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Movil";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(8, 266);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(110, 15);
-            this.label19.TabIndex = 16;
-            this.label19.Text = "Comision de Venta";
-            // 
-            // TBFijo
-            // 
-            this.TBFijo.Location = new System.Drawing.Point(82, 155);
-            this.TBFijo.Name = "TBFijo";
-            this.TBFijo.Size = new System.Drawing.Size(300, 21);
-            this.TBFijo.TabIndex = 7;
-            this.TBFijo.Enter += new System.EventHandler(this.TBFijo_Enter);
-            this.TBFijo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBFijo_KeyUp);
-            this.TBFijo.Leave += new System.EventHandler(this.TBFijo_Leave);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 158);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(27, 15);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Fijo";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 50);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nombre";
-            // 
-            // TBCiudad
-            // 
-            this.TBCiudad.Location = new System.Drawing.Point(82, 128);
-            this.TBCiudad.Name = "TBCiudad";
-            this.TBCiudad.Size = new System.Drawing.Size(300, 21);
-            this.TBCiudad.TabIndex = 5;
-            this.TBCiudad.Enter += new System.EventHandler(this.TBCiudad_Enter);
-            this.TBCiudad.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCiudad_KeyUp);
-            this.TBCiudad.Leave += new System.EventHandler(this.TBCiudad_Leave);
+            this.TBCargo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TBCargo.Location = new System.Drawing.Point(80, 209);
+            this.TBCargo.Name = "TBCargo";
+            this.TBCargo.Size = new System.Drawing.Size(250, 21);
+            this.TBCargo.TabIndex = 30;
+            this.TBCargo.Enter += new System.EventHandler(this.TBCargo_Enter);
+            this.TBCargo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCargo_KeyUp);
+            this.TBCargo.Leave += new System.EventHandler(this.TBCargo_Leave);
             // 
             // TBEmpleado
             // 
-            this.TBEmpleado.Location = new System.Drawing.Point(82, 47);
+            this.TBEmpleado.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TBEmpleado.Location = new System.Drawing.Point(80, 128);
             this.TBEmpleado.Name = "TBEmpleado";
-            this.TBEmpleado.Size = new System.Drawing.Size(300, 21);
+            this.TBEmpleado.Size = new System.Drawing.Size(250, 21);
             this.TBEmpleado.TabIndex = 1;
             this.TBEmpleado.Enter += new System.EventHandler(this.TBEmpleado_Enter);
             this.TBEmpleado.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBEmpleado_KeyUp);
@@ -379,34 +320,83 @@
             // 
             // label7
             // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(8, 212);
+            this.label7.Location = new System.Drawing.Point(6, 239);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(39, 15);
             this.label7.TabIndex = 12;
             this.label7.Text = "Email";
             // 
+            // label16
+            // 
+            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(6, 102);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(47, 15);
+            this.label16.TabIndex = 26;
+            this.label16.Text = "Depart.";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 131);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(52, 15);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Nombre";
+            // 
             // TBCorreo
             // 
-            this.TBCorreo.Location = new System.Drawing.Point(82, 209);
+            this.TBCorreo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TBCorreo.Location = new System.Drawing.Point(80, 236);
             this.TBCorreo.Name = "TBCorreo";
-            this.TBCorreo.Size = new System.Drawing.Size(300, 21);
+            this.TBCorreo.Size = new System.Drawing.Size(581, 21);
             this.TBCorreo.TabIndex = 13;
             this.TBCorreo.Enter += new System.EventHandler(this.TBCorreo_Enter);
             this.TBCorreo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCorreo_KeyUp);
             this.TBCorreo.Leave += new System.EventHandler(this.TBCorreo_Leave);
             // 
-            // label3
+            // TBProfesion
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 131);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 15);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Ciudad";
+            this.TBProfesion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TBProfesion.Location = new System.Drawing.Point(80, 182);
+            this.TBProfesion.Name = "TBProfesion";
+            this.TBProfesion.Size = new System.Drawing.Size(250, 21);
+            this.TBProfesion.TabIndex = 29;
+            this.TBProfesion.Enter += new System.EventHandler(this.TBProfesion_Enter);
+            this.TBProfesion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBProfesion_KeyUp);
+            this.TBProfesion.Leave += new System.EventHandler(this.TBProfesion_Leave);
+            // 
+            // label17
+            // 
+            this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(6, 185);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(59, 15);
+            this.label17.TabIndex = 28;
+            this.label17.Text = "Profesion";
             // 
             // TBBuscar
             // 
+            this.TBBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBBuscar.Location = new System.Drawing.Point(141, 20);
             this.TBBuscar.Name = "TBBuscar";
             this.TBBuscar.Size = new System.Drawing.Size(365, 21);
@@ -418,6 +408,9 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 23);
             this.label2.Name = "label2";
@@ -427,8 +420,11 @@
             // 
             // lblTotal
             // 
+            this.lblTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(6, 437);
+            this.lblTotal.Location = new System.Drawing.Point(6, 460);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(31, 15);
             this.lblTotal.TabIndex = 1;
@@ -438,6 +434,9 @@
             // 
             this.DGResultados.AllowUserToAddRows = false;
             this.DGResultados.AllowUserToDeleteRows = false;
+            this.DGResultados.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DGResultados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DGResultados.BackgroundColor = System.Drawing.Color.White;
             this.DGResultados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -446,33 +445,39 @@
             this.DGResultados.Name = "DGResultados";
             this.DGResultados.ReadOnly = true;
             this.DGResultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGResultados.Size = new System.Drawing.Size(500, 376);
+            this.DGResultados.Size = new System.Drawing.Size(500, 399);
             this.DGResultados.TabIndex = 0;
             this.DGResultados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGResultados_CellDoubleClick);
             this.DGResultados.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DGResultados_KeyPress);
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.TBBuscar);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.lblTotal);
             this.groupBox2.Controls.Add(this.DGResultados);
             this.groupBox2.Controls.Add(this.btnImprimir);
             this.groupBox2.Controls.Add(this.btnEliminar);
-            this.groupBox2.Location = new System.Drawing.Point(408, 12);
+            this.groupBox2.Location = new System.Drawing.Point(686, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(514, 466);
+            this.groupBox2.Size = new System.Drawing.Size(514, 490);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            this.groupBox2.Text = "Leal Enterprise - Consulta de Empleados Registrados";
             // 
             // btnImprimir
             // 
+            this.btnImprimir.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnImprimir.FlatAppearance.BorderSize = 0;
             this.btnImprimir.Image = global::Presentacion.Botones.btnImprimir;
             this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImprimir.Location = new System.Drawing.Point(416, 429);
+            this.btnImprimir.Location = new System.Drawing.Point(416, 452);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(90, 30);
             this.btnImprimir.TabIndex = 21;
@@ -483,11 +488,14 @@
             // 
             // btnEliminar
             // 
+            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEliminar.FlatAppearance.BorderSize = 0;
             this.btnEliminar.Image = global::Presentacion.Botones.btnEliminar;
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(320, 429);
+            this.btnEliminar.Location = new System.Drawing.Point(320, 452);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(90, 30);
             this.btnEliminar.TabIndex = 20;
@@ -496,51 +504,353 @@
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // CBTipodecontrato
+            // PB_FotoEmpleado
             // 
-            this.CBTipodecontrato.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CBTipodecontrato.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CBTipodecontrato.FormattingEnabled = true;
-            this.CBTipodecontrato.Location = new System.Drawing.Point(124, 400);
-            this.CBTipodecontrato.Name = "CBTipodecontrato";
-            this.CBTipodecontrato.Size = new System.Drawing.Size(258, 23);
-            this.CBTipodecontrato.Sorted = true;
-            this.CBTipodecontrato.TabIndex = 33;
+            this.PB_FotoEmpleado.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PB_FotoEmpleado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PB_FotoEmpleado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PB_FotoEmpleado.Location = new System.Drawing.Point(336, 20);
+            this.PB_FotoEmpleado.Name = "PB_FotoEmpleado";
+            this.PB_FotoEmpleado.Size = new System.Drawing.Size(325, 218);
+            this.PB_FotoEmpleado.TabIndex = 38;
+            this.PB_FotoEmpleado.TabStop = false;
+            this.PB_FotoEmpleado.Click += new System.EventHandler(this.PB_FotoEmpleado_Click);
             // 
-            // label8
+            // btnCancelar
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(8, 403);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(97, 15);
-            this.label8.TabIndex = 32;
-            this.label8.Text = "Tipo de Contrato";
+            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelar.FlatAppearance.BorderSize = 0;
+            this.btnCancelar.Image = global::Presentacion.Botones.btnCancelar;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelar.Location = new System.Drawing.Point(571, 452);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(90, 30);
+            this.btnCancelar.TabIndex = 18;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // label9
+            // btnGuardar
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(8, 23);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(46, 15);
-            this.label9.TabIndex = 34;
-            this.label9.Text = "Codigo";
+            this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnGuardar.FlatAppearance.BorderSize = 0;
+            this.btnGuardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnGuardar.Image = global::Presentacion.Botones.btnGuardar;
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGuardar.Location = new System.Drawing.Point(9, 452);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(90, 30);
+            this.btnGuardar.TabIndex = 15;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // TBCodigo
+            // panel1
             // 
-            this.TBCodigo.Location = new System.Drawing.Point(82, 20);
-            this.TBCodigo.Name = "TBCodigo";
-            this.TBCodigo.Size = new System.Drawing.Size(300, 21);
-            this.TBCodigo.TabIndex = 35;
-            this.TBCodigo.Enter += new System.EventHandler(this.TBCodigo_Enter);
-            this.TBCodigo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCodigo_KeyUp);
-            this.TBCodigo.Leave += new System.EventHandler(this.TBCodigo_Leave);
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackgroundImage = global::Presentacion.Titulos.Empleados___Datos_de_Domicilio;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Location = new System.Drawing.Point(6, 263);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(324, 21);
+            this.panel1.TabIndex = 51;
+            // 
+            // label18
+            // 
+            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(9, 293);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(31, 15);
+            this.label18.TabIndex = 48;
+            this.label18.Text = "Pais";
+            // 
+            // TBPais
+            // 
+            this.TBPais.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TBPais.Location = new System.Drawing.Point(80, 290);
+            this.TBPais.Name = "TBPais";
+            this.TBPais.Size = new System.Drawing.Size(250, 21);
+            this.TBPais.TabIndex = 47;
+            // 
+            // TBMovil
+            // 
+            this.TBMovil.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TBMovil.Location = new System.Drawing.Point(80, 371);
+            this.TBMovil.Name = "TBMovil";
+            this.TBMovil.Size = new System.Drawing.Size(250, 21);
+            this.TBMovil.TabIndex = 45;
+            // 
+            // TBDireccion01
+            // 
+            this.TBDireccion01.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TBDireccion01.Location = new System.Drawing.Point(80, 398);
+            this.TBDireccion01.Name = "TBDireccion01";
+            this.TBDireccion01.Size = new System.Drawing.Size(250, 21);
+            this.TBDireccion01.TabIndex = 49;
+            // 
+            // TBFijo
+            // 
+            this.TBFijo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TBFijo.Location = new System.Drawing.Point(80, 344);
+            this.TBFijo.Name = "TBFijo";
+            this.TBFijo.Size = new System.Drawing.Size(250, 21);
+            this.TBFijo.TabIndex = 44;
+            // 
+            // TBCiudad
+            // 
+            this.TBCiudad.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TBCiudad.Location = new System.Drawing.Point(80, 317);
+            this.TBCiudad.Name = "TBCiudad";
+            this.TBCiudad.Size = new System.Drawing.Size(250, 21);
+            this.TBCiudad.TabIndex = 42;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(9, 320);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(46, 15);
+            this.label3.TabIndex = 41;
+            this.label3.Text = "Ciudad";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox5.Location = new System.Drawing.Point(401, 290);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(260, 21);
+            this.textBox5.TabIndex = 60;
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.BackgroundImage = global::Presentacion.Titulos.Empleados___Datos_de_Domicilio_Empresa;
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Location = new System.Drawing.Point(337, 263);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(324, 21);
+            this.panel2.TabIndex = 64;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox6.Location = new System.Drawing.Point(401, 317);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(260, 21);
+            this.textBox6.TabIndex = 62;
+            // 
+            // label22
+            // 
+            this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(336, 293);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(31, 15);
+            this.label22.TabIndex = 61;
+            this.label22.Text = "Pais";
+            // 
+            // label24
+            // 
+            this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(336, 428);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(59, 15);
+            this.label24.TabIndex = 58;
+            this.label24.Text = "Dirección";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox7.Location = new System.Drawing.Point(401, 425);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(260, 21);
+            this.textBox7.TabIndex = 59;
+            // 
+            // label23
+            // 
+            this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(336, 320);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(46, 15);
+            this.label23.TabIndex = 63;
+            this.label23.Text = "Ciudad";
+            // 
+            // label14
+            // 
+            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(336, 374);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(61, 15);
+            this.label14.TabIndex = 55;
+            this.label14.Text = "Extensión";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox2.Location = new System.Drawing.Point(401, 371);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(260, 21);
+            this.textBox2.TabIndex = 54;
+            // 
+            // label15
+            // 
+            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(336, 401);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(36, 15);
+            this.label15.TabIndex = 57;
+            this.label15.Text = "Movil";
+            // 
+            // label21
+            // 
+            this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(336, 347);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(27, 15);
+            this.label21.TabIndex = 52;
+            this.label21.Text = "Fijo";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox3.Location = new System.Drawing.Point(401, 398);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(260, 21);
+            this.textBox3.TabIndex = 56;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox4.Location = new System.Drawing.Point(401, 344);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(260, 21);
+            this.textBox4.TabIndex = 53;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 428);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 15);
+            this.label4.TabIndex = 68;
+            this.label4.Text = "Dirección";
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 374);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(61, 15);
+            this.label5.TabIndex = 66;
+            this.label5.Text = "Extensión";
+            // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(6, 401);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(36, 15);
+            this.label11.TabIndex = 67;
+            this.label11.Text = "Movil";
+            // 
+            // label13
+            // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 347);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(27, 15);
+            this.label13.TabIndex = 65;
+            this.label13.Text = "Fijo";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Location = new System.Drawing.Point(80, 425);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(250, 21);
+            this.textBox1.TabIndex = 70;
             // 
             // frmEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(932, 487);
+            this.ClientSize = new System.Drawing.Size(1209, 511);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -554,6 +864,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGResultados)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_FotoEmpleado)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -565,26 +876,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TBEmpleado;
         private System.Windows.Forms.TextBox TBCorreo;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox TBCiudad;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox TBFijo;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox TBMovil;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.TextBox TBDocumento;
         private System.Windows.Forms.DataGridView DGResultados;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox TBPais;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox TBDireccion01;
-        private System.Windows.Forms.TextBox TBComision;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox TBDescuento_Compra;
-        private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.TextBox TBBuscar;
         private System.Windows.Forms.Label label2;
@@ -601,5 +898,34 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox TBCodigo;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.PictureBox PB_FotoEmpleado;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox TBPais;
+        private System.Windows.Forms.TextBox TBMovil;
+        private System.Windows.Forms.TextBox TBDireccion01;
+        private System.Windows.Forms.TextBox TBFijo;
+        private System.Windows.Forms.TextBox TBCiudad;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

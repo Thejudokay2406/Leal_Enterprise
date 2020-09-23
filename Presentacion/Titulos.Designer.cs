@@ -63,6 +63,26 @@ namespace Presentacion {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Empleados___Datos_de_Domicilio {
+            get {
+                object obj = ResourceManager.GetObject("Empleados - Datos de Domicilio", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Empleados___Datos_de_Domicilio_Empresa {
+            get {
+                object obj = ResourceManager.GetObject("Empleados - Datos de Domicilio Empresa", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Empleados___Datos_Financieros {
             get {
                 object obj = ResourceManager.GetObject("Empleados - Datos Financieros", resourceCulture);

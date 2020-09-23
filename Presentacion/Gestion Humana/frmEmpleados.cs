@@ -224,12 +224,12 @@ namespace Presentacion
                     {
                         if (this.Digitar)
                         {
-                            this.MensajeOk("Registro Exitoso");
+                            this.MensajeOk("Empleado: " + this.TBEmpleado.Text + " Registrado Correctamente");
                         }
 
                         else
                         {
-                            this.MensajeOk("Registro Actualizado");
+                            this.MensajeOk("El Registro del Empleado: "+this.TBEmpleado.Text+" a Sido Actualizado");
                         }
                     }
 
@@ -262,6 +262,7 @@ namespace Presentacion
         {
             MessageBox.Show(mensaje, "Leal Enterprise - Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             try
@@ -797,6 +798,19 @@ namespace Presentacion
         private void TBCodigo_Enter(object sender, EventArgs e)
         {
             this.TBCodigo.BackColor = Color.Azure;
+        }
+
+        private void PB_FotoEmpleado_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+
+            DialogResult result = dialog.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                this.PB_FotoEmpleado.SizeMode = PictureBoxSizeMode.StretchImage;
+                this.PB_FotoEmpleado.Image = Image.FromFile(dialog.FileName);
+            }
         }
 
         private void TBCodigo_Leave(object sender, EventArgs e)

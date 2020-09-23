@@ -118,22 +118,28 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Empleados - Datos Financieros" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Empleados - Datos Financieros1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Orden_de_Compra___Totalizacion" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Orden de Compra - Totalizacion.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Totalizacion - Cotizacion de Compra" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Totalizacion - Cotizacion de Compra.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Producto___Valores__Iniciales" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Producto - Valores  Iniciales.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Producto___Cantidad_de_Venta" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Producto - Cantidad de Venta.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Orden_de_Compra___Totalizacion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Orden de Compra - Totalizacion.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Producto - Cantidad de Compra" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Producto - Cantidad de Compra.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Empleados - Datos Financieros" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Empleados - Datos Financieros1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Empleados - Datos de Domicilio" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Empleados - Datos de Domicilio.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Totalizacion - Cotizacion de Compra" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Totalizacion - Cotizacion de Compra.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Empleados - Datos de Domicilio Empresa" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Empleados - Datos de Domicilio Empresa.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

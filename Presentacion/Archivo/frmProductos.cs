@@ -5394,7 +5394,7 @@ namespace Presentacion
                                  this.TBUbicacion.Text, this.TBEstante.Text, this.TBNivel.Text,
 
                                 //Si es igual a 1 se registraran los datos en la base de datos
-                                1
+                                2
                             );
 
                 if (rptaDatosBasicos.Equals("OK"))
@@ -5403,6 +5403,14 @@ namespace Presentacion
                     {
                         this.MensajeOk("El Registro del Producto: “" + this.TBNombre.Text + "” a Sido Actualizado Exitosamente");
                     }
+
+                    //SE LIMPIAN LOS CAMPOS DE TEXTO
+                    this.CBBodega.SelectedIndex = 0;
+                    this.TBUbicacion.Clear();
+                    this.TBEstante.Clear();
+                    this.TBNivel.Clear();
+
+                    this.Actualizar_DetUbicacion();
                 }
 
                 else
