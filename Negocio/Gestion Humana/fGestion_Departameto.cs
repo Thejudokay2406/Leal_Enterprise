@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Datos;
+using Entidad;
 using System.Data;
-using System.Data.SqlClient;
 
 namespace Negocio
 {
@@ -16,6 +16,71 @@ namespace Negocio
         {
             Conexion_Departamento Datos = new Conexion_Departamento();
             return Datos.Lista();
+        }
+
+        public static DataTable Buscar(string Filtro, int auto)
+        {
+            Conexion_Departamento Datos = new Conexion_Departamento();
+            return Datos.Buscar(Filtro, auto);
+        }
+
+        public static string Guardar_DatosBasicos
+            (
+                //Datos Auxiliares y Llaves Primaria
+                int auto, int idempleado,
+
+                //Datos Basicos
+                string Departamento, string AreaPrincipal, string AreaAuxiliar, DateTime Apertura, string Descripcion
+            )
+        {
+            Conexion_Departamento Datos = new Conexion_Departamento();
+            Entidad_Departamento Obj = new Entidad_Departamento();
+
+            //Datos Auxiliares
+            Obj.Auto = auto;
+            Obj.Idempleado = idempleado;
+
+            //Datos Basicos
+            Obj.Departamento = Departamento;
+            Obj.AreaPrincipal = AreaPrincipal;
+            Obj.AreaAuxiliar = AreaAuxiliar;
+            Obj.Apertura = Apertura;
+            Obj.Descripcion = Descripcion;
+                    
+            return Datos.Guardar_DatosBasicos(Obj);
+        }
+
+        public static string Editar_DatosBasicos
+            (
+                //Datos Auxiliares y Llaves Primaria
+                int auto, int iddepartamento, int idempleado,
+
+                //Datos Basicos
+                string Departamento, string AreaPrincipal, string AreaAuxiliar, DateTime Apertura, string Descripcion
+            )
+        {
+            Conexion_Departamento Datos = new Conexion_Departamento();
+            Entidad_Departamento Obj = new Entidad_Departamento();
+
+            //Datos Auxiliares
+            Obj.Auto = auto;
+            Obj.Iddepartamento = iddepartamento;
+            Obj.Idempleado = idempleado;
+
+            //Datos Basicos
+            Obj.Departamento = Departamento;
+            Obj.AreaPrincipal = AreaPrincipal;
+            Obj.AreaAuxiliar = AreaAuxiliar;
+            Obj.Apertura = Apertura;
+            Obj.Descripcion = Descripcion;
+
+            return Datos.Editar_DatosBasicos(Obj);
+        }
+
+        public static string Eliminar(int IDEliminar_SQL, int auto)
+        {
+            Conexion_Departamento Datos = new Conexion_Departamento();
+            return Datos.Eliminar(IDEliminar_SQL, auto);
         }
     }
 }

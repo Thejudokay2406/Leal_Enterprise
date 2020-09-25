@@ -22,7 +22,7 @@ namespace Presentacion
 
         //Variables de Validaciones
         public int Idempleado; //Variable para Captura el Empleado Logueado
-        private string Campo = "Campo Obligatorio - Leal Enterprise";
+        private string Campo = "Campo Obligatorio";
         private string Numerico = "Campo Numerico - Leal Enterprise";
         private string Vacio = "";
 

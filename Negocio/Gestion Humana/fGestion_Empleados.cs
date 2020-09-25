@@ -27,70 +27,85 @@ namespace Negocio
         public static string Guardar_DatosBasicos
             (
                 //Datos Auxiliares y Llaves Primaria
-                int auto, int iddepartamento, int idtipodecontrato,
+                int auto, int Iddepartamento, int Idcontrato, int Idsucurzal,
 
                 //Datos Basicos
-                string codigo, string empleado, string documento, string pais, string ciudad, string fijo, string movil,
-                string email, string direccion, string comision, string descuento, string profesion, string cargo
-
+                string Codigo, string Empleado, string Documento, string Profesion, string Cargo, string Email, string PaisDom, string CiudadDom, string FijoDom, string ExtensionDom, string MovilDom, string DireccionDom, string PaisEmp, string CiudadEmp, string FijoEmp, string ExtensionEmp, string MovilEmp, string DireccionEmp
             )
         {
             Conexion_Empleados Datos = new Conexion_Empleados();
             Entidad_Empleados Obj = new Entidad_Empleados();
 
-            Obj.Idtipodecontrato = idtipodecontrato;
-            Obj.Iddepartamento = iddepartamento;
-            Obj.Codigo = codigo;
-            Obj.Empleado = empleado;
-            Obj.Documento = documento;
-            Obj.Pais = pais;
-            Obj.Ciudad = ciudad;
-            Obj.Fijo = fijo;
-            Obj.Movil = movil;
-            Obj.Email = email;
-            Obj.Direccion = direccion;
-            Obj.Comision = comision;
-            Obj.Descuento = descuento;
-            Obj.Profesion = profesion;
-            Obj.Cargo = cargo;
+            //Llaves Primarias Auxiliares
+            Obj.Iddepartamento = Iddepartamento;
+            Obj.Idcontrato = Idcontrato;
+            Obj.Idsucurzal = Idsucurzal;
+
+            //Datos Basicos
+            Obj.Codigo = Codigo;
+            Obj.Empleado = Empleado;
+            Obj.Documento = Documento;
+            Obj.Profesion = Profesion;
+            Obj.Cargo = Cargo;
+            Obj.Email = Email;
+            Obj.PaisDom = PaisDom;
+            Obj.CiudadDom = CiudadDom;
+            Obj.FijoDom = FijoDom;
+            Obj.ExtensionDom = ExtensionDom;
+            Obj.MovilDom = MovilDom;
+            Obj.DireccionDom = DireccionDom;
+
+            Obj.PaisEmp = PaisEmp;
+            Obj.CiudadEmp = CiudadEmp;
+            Obj.FijoEmp = FijoEmp;
+            Obj.ExtensionEmp = ExtensionEmp;
+            Obj.MovilEmp = MovilEmp;
+            Obj.DireccionEmp = DireccionEmp;
 
             Obj.Auto = auto;
             return Datos.Guardar_DatosBasicos(Obj);
         }
 
         public static string Editar_DatosBasicos
-            (
-                //Datos Auxiliares y Llaves Primaria
-                int auto, int idempleado, int iddepartamento, int idtipodecontrato,
+        (
+            //Datos Auxiliares y Llaves Primaria
+            int auto, int idempleado, int Iddepartamento, int Idcontrato, int Idsucurzal,
 
-                //Datos Basicos
-                string codigo, string empleado, string documento, string pais, string ciudad, string fijo, string movil,
-                string email, string direccion, string comision, string descuento, string profesion, string cargo
-
-            )
+            //Datos Basicos
+            string Codigo, string Empleado, string Documento, string Profesion, string Cargo, string Email, string PaisDom, string CiudadDom, string FijoDom, string ExtensionDom, string MovilDom, string DireccionDom, string PaisEmp, string CiudadEmp, string FijoEmp, string ExtensionEmp, string MovilEmp, string DireccionEmp
+        )
         {
             Conexion_Empleados Datos = new Conexion_Empleados();
             Entidad_Empleados Obj = new Entidad_Empleados();
 
             Obj.Idempleado = idempleado;
 
-            Obj.Idtipodecontrato = idtipodecontrato;
-            Obj.Iddepartamento = iddepartamento;
-            Obj.Codigo = codigo;
-            Obj.Empleado = empleado;
-            Obj.Documento = documento;
-            Obj.Pais = pais;
-            Obj.Ciudad = ciudad;
-            Obj.Fijo = fijo;
-            Obj.Movil = movil;
-            Obj.Email = email;
-            Obj.Direccion = direccion;
-            Obj.Comision = comision;
-            Obj.Descuento = descuento;
-            Obj.Profesion = profesion;
-            Obj.Cargo = cargo;
+            Obj.Iddepartamento = Iddepartamento;
+            Obj.Idcontrato = Idcontrato;
+            Obj.Idsucurzal = Idsucurzal;
+
+            //Datos Basicos
+            Obj.Codigo = Codigo;
+            Obj.Empleado = Empleado;
+            Obj.Documento = Documento;
+            Obj.Profesion = Profesion;
+            Obj.Cargo = Cargo;
+            Obj.Email = Email;
+            Obj.PaisDom = PaisDom;
+            Obj.CiudadDom = CiudadDom;
+            Obj.FijoDom = FijoDom;
+            Obj.ExtensionDom = ExtensionDom;
+            Obj.MovilDom = MovilDom;
+            Obj.DireccionDom = DireccionDom;
+            Obj.PaisEmp = PaisEmp;
+            Obj.CiudadEmp = CiudadEmp;
+            Obj.FijoEmp = FijoEmp;
+            Obj.ExtensionEmp = ExtensionEmp;
+            Obj.MovilEmp = MovilEmp;
+            Obj.DireccionEmp = DireccionEmp;
 
             Obj.Auto = auto;
+
             return Datos.Editar_DatosBasicos(Obj);
         }
 

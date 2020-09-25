@@ -50,9 +50,37 @@ namespace Presentacion
             //
             this.TSEmpleado.Text = Empleado;
             this.TSUsuario.Text = UsuarioLogueado;
+            //this.TBEmpleadoLogueado.Text = Empleado;
 
             this.Seguridad_SQL();
+
+            //
+            //textBox1.Enabled = false;
+            //textBox1.ForeColor = Color.FromArgb(0, 0, 0);
+            //textBox1.BackColor = Color.FromArgb(255, 255, 255);
+
+            //textBox2.Enabled = false;
+            //textBox2.ForeColor = Color.FromArgb(0, 0, 0);
+            //textBox2.BackColor = Color.FromArgb(255, 255, 255);
+
+            //textBox3.Enabled = false;
+            //textBox3.ForeColor=Color.FromArgb(0, 0, 0);
+            //textBox3.BackColor=Color.FromArgb(255, 255, 255);
         }
+
+
+        //private void AbrirFormulario(object formulario)
+        //{
+        //    if (this.Panel_Contenedor.Controls.Count > 0) this.Panel_Contenedor.Controls.RemoveAt(0);
+        //    {
+        //        Form fh = formulario as Form;
+        //        fh.TopLevel = false;
+        //        fh.Dock = DockStyle.Bottom;
+        //        this.Panel_Contenedor.Controls.Add(fh);
+        //        this.Panel_Contenedor.Tag = fh;
+        //        fh.Show();
+        //    }
+        //}
 
         private void Seguridad_SQL()
         {
@@ -84,6 +112,7 @@ namespace Presentacion
        
         private void datosBasicosToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //AbrirFormulario(new frmEmpleados());
             frmEmpleados frmEmpleados = new frmEmpleados();
             frmEmpleados.MdiParent = this;
             frmEmpleados.Show();
@@ -206,7 +235,7 @@ namespace Presentacion
         {
             frmBodega frmBodega = new frmBodega();
             frmBodega.MdiParent = this;
-            frmBodega.Show();
+            frmBodega.Show();;
 
             frmBodega.Guardar = Convert.ToString(this.SQL_Guardar);
             frmBodega.Editar = Convert.ToString(this.SQL_Editar);
@@ -445,6 +474,11 @@ namespace Presentacion
         }
 
         private void zonasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

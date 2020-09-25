@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using Negocio;
+
 namespace Presentacion
 {
     public partial class frmDepartamento : Form
@@ -16,7 +18,7 @@ namespace Presentacion
         // A realizar es Editar, Guardar, Buscar,Eliminar
         private bool Digitar = true;
         public bool Filtro = true;
-        private string Campo = "Campo Obligatorio - Leal Enterprise";
+        private string Campo = "Campo Obligatorio";
 
 
         //Variable para Captura el Empleado Logueado
@@ -31,9 +33,7 @@ namespace Presentacion
 
         //Parametros para AutoCompletar los Texboxt
 
-        //Panel Datos Basicos
-        public string Idbodega = "";
-        public string Idsucurzal = "";
+        
         public frmDepartamento()
         {
             InitializeComponent();
@@ -49,7 +49,7 @@ namespace Presentacion
             this.TBDepartamento.Select();
 
             //Ocultacion de Texboxt
-            this.TBIdempleado.Visible = false;
+            this.TBIddepartamento.Visible = false;
         }
 
         private void Habilitar()
@@ -126,35 +126,27 @@ namespace Presentacion
                 {
                     if (this.Digitar)
                     {
-                        rptaDatosBasicos = fGestion_Empleados.Guardar_DatosBasicos
+                        rptaDatosBasicos = fGestion_Departameto.Guardar_DatosBasicos
 
                             (
-                                 //Datos Auxiliares
-                                 1,
-
-                                 //Llaves Auxiliares
-                                 Convert.ToInt32(CBDepartamento.SelectedValue), Convert.ToInt32(this.CBTipodecontrato.SelectedValue),
+                                 //Datos Auxiliares y Llaves Primarias
+                                 1, Convert.ToInt32(TBIdempleado.Text),
 
                                  //Panel Datos Basicos
-                                 this.TBCodigo.Text, this.TBDepartamento.Text, this.TBDirector.Text,
-                                 this.TBAreaPrincipal.Text, this.TBAreaAuxiliar.Text, this.TBDescripcion.Text, this.TBMovil.Text, this.TBCorreo.Text, this.TBDireccion01.Text, this.TBComision.Text, this.TBDescuento_Compra.Text, this.TBProfesion.Text, this.TBCargo.Text
+                                 this.TBDepartamento.Text, this.TBAreaPrincipal.Text, this.TBAreaAuxiliar.Text, this.dateTimePicker1.Value, this.TBDescripcion.Text
                             );
                     }
 
                     else
                     {
-                        rptaDatosBasicos = fGestion_Empleados.Editar_DatosBasicos
+                        rptaDatosBasicos = fGestion_Departameto.Editar_DatosBasicos
 
                             (
-                                 //Datos Auxiliares y llave primaria
-                                 2, Convert.ToInt32(TBIdempleado.Text),
-
-                                 //Llaves Auxiliares
-                                 Convert.ToInt32(CBDepartamento.SelectedValue), Convert.ToInt32(this.CBTipodecontrato.SelectedValue),
+                                 //Datos Auxiliares y Llaves Primarias
+                                 2, Convert.ToInt32(TBIddepartamento.Text), Convert.ToInt32(TBIdempleado.Text),
 
                                  //Panel Datos Basicos
-                                 this.TBCodigo.Text, this.TBDepartamento.Text, this.TBDirector.Text,
-                                 this.TBAreaPrincipal.Text, this.TBAreaAuxiliar.Text, this.TBDescripcion.Text, this.TBMovil.Text, this.TBCorreo.Text, this.TBDireccion01.Text, this.TBComision.Text, this.TBDescuento_Compra.Text, this.TBProfesion.Text, this.TBCargo.Text
+                                 this.TBDepartamento.Text, this.TBAreaPrincipal.Text, this.TBAreaAuxiliar.Text, this.dateTimePicker1.Value, this.TBDescripcion.Text
                             );
                     }
 
@@ -162,12 +154,12 @@ namespace Presentacion
                     {
                         if (this.Digitar)
                         {
-                            this.MensajeOk("Empleado: " + this.TBDepartamento.Text + " Registrado Correctamente");
+                            this.MensajeOk("Departamento: " + this.TBDepartamento.Text + " Registrado Correctamente");
                         }
 
                         else
                         {
-                            this.MensajeOk("El Registro del Empleado: " + this.TBDepartamento.Text + " a Sido Actualizado");
+                            this.MensajeOk("El Registro del Departamento: " + this.TBDepartamento.Text + " a Sido Actualizado");
                         }
                     }
 

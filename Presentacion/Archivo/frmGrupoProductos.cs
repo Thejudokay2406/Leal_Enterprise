@@ -18,7 +18,7 @@ namespace Presentacion
         // A realizar es Editar, Guardar, Buscar,Eliminar
         private bool Digitar = true;
         public bool Filtro = true;
-        private string Campo = "Campo Obligatorio - Leal Enterprise";
+        private string Campo = "Campo Obligatorio";
         private string Numerico = "Campo Numerico - Leal Enterprise";
 
 

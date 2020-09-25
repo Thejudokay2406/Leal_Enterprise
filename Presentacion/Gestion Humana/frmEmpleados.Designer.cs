@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.CBSucurzal = new System.Windows.Forms.ComboBox();
             this.TBIdempleado = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.CBTipodecontrato = new System.Windows.Forms.ComboBox();
@@ -137,7 +137,7 @@
             this.groupBox1.Controls.Add(this.TBPais);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.TBMovil);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.CBSucurzal);
             this.groupBox1.Controls.Add(this.TBDireccion01);
             this.groupBox1.Controls.Add(this.PB_FotoEmpleado);
             this.groupBox1.Controls.Add(this.TBFijo);
@@ -150,20 +150,20 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Leal Enterprise - Registro de Empleados";
             // 
-            // comboBox1
+            // CBSucurzal
             // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.CBSucurzal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(80, 74);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(250, 21);
-            this.comboBox1.Sorted = true;
-            this.comboBox1.TabIndex = 37;
+            this.CBSucurzal.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CBSucurzal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBSucurzal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBSucurzal.FormattingEnabled = true;
+            this.CBSucurzal.Location = new System.Drawing.Point(80, 74);
+            this.CBSucurzal.Name = "CBSucurzal";
+            this.CBSucurzal.Size = new System.Drawing.Size(250, 21);
+            this.CBSucurzal.Sorted = true;
+            this.CBSucurzal.TabIndex = 37;
             // 
             // TBIdempleado
             // 
@@ -513,7 +513,7 @@
             this.PB_FotoEmpleado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PB_FotoEmpleado.Location = new System.Drawing.Point(336, 20);
             this.PB_FotoEmpleado.Name = "PB_FotoEmpleado";
-            this.PB_FotoEmpleado.Size = new System.Drawing.Size(325, 218);
+            this.PB_FotoEmpleado.Size = new System.Drawing.Size(325, 210);
             this.PB_FotoEmpleado.TabIndex = 38;
             this.PB_FotoEmpleado.TabStop = false;
             this.PB_FotoEmpleado.Click += new System.EventHandler(this.PB_FotoEmpleado_Click);
@@ -849,6 +849,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1209, 511);
             this.Controls.Add(this.groupBox2);
@@ -898,7 +899,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox TBCodigo;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox CBSucurzal;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.PictureBox PB_FotoEmpleado;
         private System.Windows.Forms.Label label4;
