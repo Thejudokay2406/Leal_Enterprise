@@ -265,21 +265,21 @@
             // datosBasicosToolStripMenuItem2
             // 
             this.datosBasicosToolStripMenuItem2.Name = "datosBasicosToolStripMenuItem2";
-            this.datosBasicosToolStripMenuItem2.Size = new System.Drawing.Size(146, 22);
+            this.datosBasicosToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.datosBasicosToolStripMenuItem2.Text = "Datos Basicos";
             this.datosBasicosToolStripMenuItem2.Click += new System.EventHandler(this.datosBasicosToolStripMenuItem2_Click);
             // 
             // gruposToolStripMenuItem1
             // 
             this.gruposToolStripMenuItem1.Name = "gruposToolStripMenuItem1";
-            this.gruposToolStripMenuItem1.Size = new System.Drawing.Size(146, 22);
+            this.gruposToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.gruposToolStripMenuItem1.Text = "Grupos";
             this.gruposToolStripMenuItem1.Click += new System.EventHandler(this.gruposToolStripMenuItem1_Click);
             // 
             // tiposToolStripMenuItem1
             // 
             this.tiposToolStripMenuItem1.Name = "tiposToolStripMenuItem1";
-            this.tiposToolStripMenuItem1.Size = new System.Drawing.Size(146, 22);
+            this.tiposToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.tiposToolStripMenuItem1.Text = "Tipos";
             // 
             // conveniosToolStripMenuItem
@@ -756,20 +756,21 @@
             // activacionesToolStripMenuItem
             // 
             this.activacionesToolStripMenuItem.Name = "activacionesToolStripMenuItem";
-            this.activacionesToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.activacionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.activacionesToolStripMenuItem.Text = "Activaciones";
             // 
             // renovacionesToolStripMenuItem
             // 
             this.renovacionesToolStripMenuItem.Name = "renovacionesToolStripMenuItem";
-            this.renovacionesToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.renovacionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.renovacionesToolStripMenuItem.Text = "Renovaciones";
             // 
             // tiposDeContratosToolStripMenuItem
             // 
             this.tiposDeContratosToolStripMenuItem.Name = "tiposDeContratosToolStripMenuItem";
-            this.tiposDeContratosToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.tiposDeContratosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.tiposDeContratosToolStripMenuItem.Text = "Tipos de Contratos";
+            this.tiposDeContratosToolStripMenuItem.Click += new System.EventHandler(this.tiposDeContratosToolStripMenuItem_Click);
             // 
             // cuentasBancariasToolStripMenuItem
             // 

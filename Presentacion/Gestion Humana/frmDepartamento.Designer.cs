@@ -103,7 +103,7 @@
             this.btnExaminar.Size = new System.Drawing.Size(25, 21);
             this.btnExaminar.TabIndex = 134;
             this.btnExaminar.UseVisualStyleBackColor = true;
-            this.btnExaminar.Click += new System.EventHandler(this.btnExaminar_Proveedor_Click);
+            this.btnExaminar.Click += new System.EventHandler(this.btnExaminar_Click);
             // 
             // btnCancelar
             // 

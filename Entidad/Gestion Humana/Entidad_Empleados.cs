@@ -23,6 +23,9 @@ namespace Entidad
         private string _Profesion;
         private string _Cargo;
         private string _Email;
+        private byte[] _Foto;
+
+        //
         private string _PaisDom;
         private string _CiudadDom;
         private string _FijoDom;
@@ -67,5 +70,6 @@ namespace Entidad
         public int Auto { get => _Auto; set => _Auto = value; }
         public int Eliminar { get => _Eliminar; set => _Eliminar = value; }
         public string Filtro { get => _Filtro; set => _Filtro = value; }
+        public byte[] Foto { get => _Foto; set => _Foto = value; }
     }
 }

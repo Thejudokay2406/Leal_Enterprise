@@ -49,7 +49,7 @@
     <Compile Include="Archivo\fGrupoDeCliente.cs" />
     <Compile Include="Archivo\fProducto_Inventario.cs" />
     <Compile Include="Gestion Humana\fGestion_Departameto.cs" />
-    <Compile Include="Gestion Humana\fTipoDeContrato.cs" />
+    <Compile Include="Gestion Humana\fGestion_TipoDeContrato.cs" />
     <Compile Include="Inventario\fIngreso_Bodega.cs" />
     <Compile Include="Archivo\fEmpaque.cs" />
     <Compile Include="Archivo\fGrupo.cs" />

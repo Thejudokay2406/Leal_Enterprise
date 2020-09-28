@@ -95,12 +95,17 @@ namespace Datos
                 Comando.Parameters.Add("@Cargo", SqlDbType.VarChar).Value = Obj.Cargo;
                 Comando.Parameters.Add("@Profesion", SqlDbType.VarChar).Value = Obj.Profesion;
                 Comando.Parameters.Add("@Email", SqlDbType.VarChar).Value = Obj.Email;
+                Comando.Parameters.Add("@Imagen", SqlDbType.Image).Value = Obj.Foto;
+
+                //Datos Contacto Domicialiario
                 Comando.Parameters.Add("@PaisDomi", SqlDbType.VarChar).Value = Obj.PaisDom;
                 Comando.Parameters.Add("@CiudadDomi", SqlDbType.VarChar).Value = Obj.CiudadDom;
                 Comando.Parameters.Add("@FijoDomi", SqlDbType.VarChar).Value = Obj.FijoDom;
                 Comando.Parameters.Add("@ExtensionDomi", SqlDbType.VarChar).Value = Obj.ExtensionDom;
                 Comando.Parameters.Add("@MovilDomi", SqlDbType.VarChar).Value = Obj.MovilDom;
                 Comando.Parameters.Add("@DireccionDomi", SqlDbType.VarChar).Value = Obj.DireccionDom;
+
+                //Datos Contacto Empresarial
                 Comando.Parameters.Add("@PaisEmp", SqlDbType.VarChar).Value = Obj.PaisEmp;
                 Comando.Parameters.Add("@CiudadEmp", SqlDbType.VarChar).Value = Obj.CiudadEmp;
                 Comando.Parameters.Add("@FijoEmp", SqlDbType.VarChar).Value = Obj.FijoEmp;
@@ -148,12 +153,17 @@ namespace Datos
                 Comando.Parameters.Add("@Cargo", SqlDbType.VarChar).Value = Obj.Cargo;
                 Comando.Parameters.Add("@Profesion", SqlDbType.VarChar).Value = Obj.Profesion;
                 Comando.Parameters.Add("@Email", SqlDbType.VarChar).Value = Obj.Email;
+                Comando.Parameters.Add("@Imagen", SqlDbType.Image).Value = Obj.Foto;
+
+                //Datos Contacto Domicialiario
                 Comando.Parameters.Add("@PaisDomi", SqlDbType.VarChar).Value = Obj.PaisDom;
                 Comando.Parameters.Add("@CiudadDomi", SqlDbType.VarChar).Value = Obj.CiudadDom;
                 Comando.Parameters.Add("@FijoDomi", SqlDbType.VarChar).Value = Obj.FijoDom;
                 Comando.Parameters.Add("@ExtensionDomi", SqlDbType.VarChar).Value = Obj.ExtensionDom;
                 Comando.Parameters.Add("@MovilDomi", SqlDbType.VarChar).Value = Obj.MovilDom;
                 Comando.Parameters.Add("@DireccionDomi", SqlDbType.VarChar).Value = Obj.DireccionDom;
+
+                //Datos Contacto Empresarial
                 Comando.Parameters.Add("@PaisEmp", SqlDbType.VarChar).Value = Obj.PaisEmp;
                 Comando.Parameters.Add("@CiudadEmp", SqlDbType.VarChar).Value = Obj.CiudadEmp;
                 Comando.Parameters.Add("@FijoEmp", SqlDbType.VarChar).Value = Obj.FijoEmp;

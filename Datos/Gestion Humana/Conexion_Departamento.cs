@@ -40,7 +40,6 @@ namespace Datos
             }
         }
 
-
         public DataTable Buscar(string Valor, int Auto)
         {
             SqlDataReader Resultado;

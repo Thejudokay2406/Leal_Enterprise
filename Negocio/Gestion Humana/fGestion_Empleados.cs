@@ -30,7 +30,13 @@ namespace Negocio
                 int auto, int Iddepartamento, int Idcontrato, int Idsucurzal,
 
                 //Datos Basicos
-                string Codigo, string Empleado, string Documento, string Profesion, string Cargo, string Email, string PaisDom, string CiudadDom, string FijoDom, string ExtensionDom, string MovilDom, string DireccionDom, string PaisEmp, string CiudadEmp, string FijoEmp, string ExtensionEmp, string MovilEmp, string DireccionEmp
+                string Codigo, string Empleado, string Documento, string Profesion, string Cargo, string Email,
+
+                //Datos Contacto Domicialiario
+                string PaisDom, string CiudadDom, string FijoDom, string ExtensionDom, string MovilDom, string DireccionDom, 
+                
+                //Datos Contacto Empresarial
+                string PaisEmp, string CiudadEmp, string FijoEmp, string ExtensionEmp, string MovilEmp, string DireccionEmp, Byte[] imagen
             )
         {
             Conexion_Empleados Datos = new Conexion_Empleados();
@@ -48,6 +54,7 @@ namespace Negocio
             Obj.Profesion = Profesion;
             Obj.Cargo = Cargo;
             Obj.Email = Email;
+
             Obj.PaisDom = PaisDom;
             Obj.CiudadDom = CiudadDom;
             Obj.FijoDom = FijoDom;
@@ -61,6 +68,7 @@ namespace Negocio
             Obj.ExtensionEmp = ExtensionEmp;
             Obj.MovilEmp = MovilEmp;
             Obj.DireccionEmp = DireccionEmp;
+            Obj.Foto = imagen;
 
             Obj.Auto = auto;
             return Datos.Guardar_DatosBasicos(Obj);
@@ -72,7 +80,7 @@ namespace Negocio
             int auto, int idempleado, int Iddepartamento, int Idcontrato, int Idsucurzal,
 
             //Datos Basicos
-            string Codigo, string Empleado, string Documento, string Profesion, string Cargo, string Email, string PaisDom, string CiudadDom, string FijoDom, string ExtensionDom, string MovilDom, string DireccionDom, string PaisEmp, string CiudadEmp, string FijoEmp, string ExtensionEmp, string MovilEmp, string DireccionEmp
+            string Codigo, string Empleado, string Documento, string Profesion, string Cargo, string Email, string PaisDom, string CiudadDom, string FijoDom, string ExtensionDom, string MovilDom, string DireccionDom, string PaisEmp, string CiudadEmp, string FijoEmp, string ExtensionEmp, string MovilEmp, string DireccionEmp, Byte[] imagen
         )
         {
             Conexion_Empleados Datos = new Conexion_Empleados();
@@ -91,18 +99,21 @@ namespace Negocio
             Obj.Profesion = Profesion;
             Obj.Cargo = Cargo;
             Obj.Email = Email;
+
             Obj.PaisDom = PaisDom;
             Obj.CiudadDom = CiudadDom;
             Obj.FijoDom = FijoDom;
             Obj.ExtensionDom = ExtensionDom;
             Obj.MovilDom = MovilDom;
             Obj.DireccionDom = DireccionDom;
+
             Obj.PaisEmp = PaisEmp;
             Obj.CiudadEmp = CiudadEmp;
             Obj.FijoEmp = FijoEmp;
             Obj.ExtensionEmp = ExtensionEmp;
             Obj.MovilEmp = MovilEmp;
             Obj.DireccionEmp = DireccionEmp;
+            Obj.Foto = imagen;
 
             Obj.Auto = auto;
 

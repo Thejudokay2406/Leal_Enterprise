@@ -482,5 +482,18 @@ namespace Presentacion
         {
 
         }
+
+        private void tiposDeContratosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmTipoDeContrato frmTipoDeContrato = new frmTipoDeContrato();
+            frmTipoDeContrato.MdiParent = this;
+            frmTipoDeContrato.Show();
+
+            frmTipoDeContrato.Guardar = Convert.ToString(this.SQL_Guardar);
+            frmTipoDeContrato.Editar = Convert.ToString(this.SQL_Editar);
+            frmTipoDeContrato.Eliminar = Convert.ToString(this.SQL_Eliminar);
+            frmTipoDeContrato.Consultar = Convert.ToString(this.SQL_Consultar);
+            frmTipoDeContrato.Imprimir = Convert.ToString(this.SQL_Imprimir);
+        }
     }
 }
