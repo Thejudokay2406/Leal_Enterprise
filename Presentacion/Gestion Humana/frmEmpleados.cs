@@ -715,7 +715,6 @@ namespace Presentacion
                 this.TBEmpleado.Text = Campo;
                 this.TBEmpleado.ForeColor = Color.FromArgb(255, 255, 255);
             }
-
             else
             {
                 TBEmpleado.BackColor = Color.FromArgb(3, 155, 229);
@@ -731,7 +730,6 @@ namespace Presentacion
                 this.TBDocumento.Text = Campo;
                 this.TBDocumento.ForeColor = Color.FromArgb(255, 255, 255);
             }
-
             else
             {
                 TBDocumento.BackColor = Color.FromArgb(3, 155, 229);

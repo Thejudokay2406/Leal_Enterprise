@@ -40,7 +40,7 @@ namespace Datos
             }
         }
 
-        public DataTable Buscar(string Valor, int Auto)
+        public DataTable Buscar(string Filtro, int Auto)
         {
             SqlDataReader Resultado;
             DataTable Tabla = new DataTable();
@@ -52,7 +52,7 @@ namespace Datos
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Auto;
-                Comando.Parameters.Add("@Filtro", SqlDbType.VarChar).Value = Valor;
+                Comando.Parameters.Add("@Filtro", SqlDbType.VarChar).Value = Filtro;
 
                 SqlCon.Open();
                 Resultado = Comando.ExecuteReader();
@@ -79,7 +79,7 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Produccion.LI_Departamento", SqlCon);
+                SqlCommand Comando = new SqlCommand("Gestion.LI_Departamento", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Datos Auxiliares y Llave Principal
@@ -123,7 +123,7 @@ namespace Datos
                 Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Obj.Auto;
                 Comando.Parameters.Add("@Idempleado", SqlDbType.Int).Value = Obj.Idempleado;
                 Comando.Parameters.Add("@Iddepartamento", SqlDbType.Int).Value = Obj.Iddepartamento;
-                
+
                 //Panel Datos Basicos
                 Comando.Parameters.Add("@Nombre", SqlDbType.VarChar).Value = Obj.Departamento;
                 Comando.Parameters.Add("@AreaPrin", SqlDbType.VarChar).Value = Obj.AreaPrincipal;
