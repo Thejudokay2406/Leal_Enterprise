@@ -14,35 +14,47 @@ namespace Presentacion
 {
     public partial class frmEmpleados : Form
     {
+        private static frmEmpleados _Instancia;
+
+        public static frmEmpleados GetInstancia()
+        {
+            if (_Instancia == null)
+            {
+                _Instancia = new frmEmpleados();
+            }
+            return _Instancia;
+        }
+
         // Variable con la cual se define si el procecimiento 
         // A realizar es Editar, Guardar, Buscar,Eliminar
         private bool Digitar = true;
         public bool Filtro = true;
         private string Campo = "Campo Obligatorio";
 
-
         //Variable para Captura el Empleado Logueado
         public int Idempleado;
 
-        //********** Variables para la Validacion de los checkbox en el Pane Datos Basicos
+        //********** Variables para AutoComplementar Combobox y Chexboxt segun la Consulta en SQL ******************************************************************************
 
-        private string Checkbox_Vencimiento, Checkbox_Ofertable, Checkbox_Impuesto, Checkbox_Importado = "";
-        private string Checkbox_Comision, Checkbox_Exportado = "";
+        private string Departamento_SQL, Contrato_SQL, Sucurzal_SQL = "";
 
-        //********** Variables para AutoComplementar Combobox y Chexboxt segun la Consulta en SQL **********
-
-        //Panel Datos Basicos
-        private string Departamento_SQL, Contrato_SQL = "";
-
-        //********** Variable para Metodo SQL Guardar, Eliminar, Editar, Consultar *************************
+        //********** Variable para Metodo SQL Guardar, Eliminar, Editar, Consultar *********************************************************************************************
 
         public string Guardar, Editar, Consultar, Eliminar, Imprimir = "";
 
-        //********** Parametros para AutoCompletar los Texboxt **********************************
+        //********** Parametros para AutoCompletar los Texboxt *****************************************************************************************************************
 
-        //Panel Datos Basicos
-        private string Codigo, Nombre, Documento, Pais, Ciudad, Fijo, Movil = "";
-        private string Email, Direccion, Comision, Descuento, Profesion, Cargo = "";
+        //Llaves Primarias
+        private string Idcontrato, Idsucurzal, Iddepartamento,
+
+        //Datos Basicos
+        Codigo, Empleado, Documento, Profesion, Cargo, Email, Foto,
+        
+        //Datos de Comunicacion Domiciliario
+        Pais_Dom, Ciudad_Dom, Fijo_Dom, Extension_Dom, Movil_Dom, Direccion_Dom,
+
+        //Datos de Comunicacion Empresarial
+        Pais_Emp, Ciudad_Emp, Fijo_Emp, Extension_Emp, Movil_Emp, Direccion_Emp = "";
 
         public frmEmpleados()
         {
@@ -122,9 +134,11 @@ namespace Presentacion
         private void Limpiar_Datos()
         {
             //Panel - Datos Basicos
+            this.TBIdempleado.Clear();
             this.TBCodigo.Clear();
             this.TBEmpleado.Clear();
             this.TBEmpleado.Text = Campo;
+            this.TBEmpleado.ForeColor = Color.FromArgb(255, 255, 255);
             this.TBDocumento.Clear();
             this.TBDocumento.Text = Campo;
             this.TBDocumento.ForeColor = Color.FromArgb(255, 255, 255);
@@ -341,17 +355,13 @@ namespace Presentacion
             try
             {
                 this.Digitar = true;
+                this.Botones();
                 this.Limpiar_Datos();
                 this.TBBuscar.Clear();
 
                 //Se Limpian las Filas y Columnas de la tabla
-                DGResultados.DataSource = null;
-                this.DGResultados.Enabled = false;
+                this.DGResultados.DataSource = null;
                 this.lblTotal.Text = "Datos Registrados: 0";
-
-                //Se restablece la imagen predeterminada del boton
-                //this.btnGuardar.Image = Properties.Resources.BV_Guardar;
-
             }
             catch (Exception ex)
             {
@@ -361,7 +371,50 @@ namespace Presentacion
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (Eliminar == "1")
+                {
+                    DialogResult Opcion;
+                    string Respuesta = "";
+                    int Eliminacion;
 
+                    Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                    if (Opcion == DialogResult.OK)
+                    {
+                        if (DGResultados.SelectedRows.Count > 0)
+                        {
+                            Eliminacion = Convert.ToInt32(DGResultados.CurrentRow.Cells[0].Value.ToString());
+                            Respuesta = Negocio.fGestion_Empleados.Eliminar(Eliminacion, 0);
+                        }
+
+                        if (Respuesta.Equals("OK"))
+                        {
+                            this.MensajeOk("Registro Eliminado Correctamente");
+                        }
+                        else
+                        {
+                            this.MensajeError(Respuesta);
+                        }
+
+                        //Botones Comunes
+                        this.Limpiar_Datos();
+                        this.TBBuscar.Clear();
+
+                        //Se regresa el focus al campo principal
+                        this.TBEmpleado.Select();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
 
         private void btnImprimir_Click(object sender, EventArgs e)
@@ -378,7 +431,7 @@ namespace Presentacion
                     if (TBBuscar.Text != "")
                     {
                         this.DGResultados.DataSource = fGestion_Empleados.Buscar(this.TBBuscar.Text, 1);
-                        //this.DGResultadoss.Columns[1].Visible = false;
+                        this.DGResultados.Columns[0].Visible = false;
 
                         lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGResultados.Rows.Count);
 
@@ -420,12 +473,10 @@ namespace Presentacion
                 {
                     //
                     this.TBEmpleado.Select();
-
-                    this.TBIdempleado.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells["Codigo"].Value);
+                    this.TBIdempleado.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells["ID"].Value);
 
                     //
-                    this.Limpiar_Datos();
-
+                    this.Botones();
                 }
                 else
                 {
@@ -1627,6 +1678,11 @@ namespace Presentacion
             this.TBMovil_Dom.BackColor = Color.FromArgb(3, 155, 229);
         }
 
+        private void frmEmpleados_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _Instancia = null;
+        }
+
         private void TBDireccion_Dom_Leave(object sender, EventArgs e)
         {
             //Color de texboxt cuando este posee el FOCUS Activado
@@ -1776,195 +1832,84 @@ namespace Presentacion
         {
             try
             {
-                DataTable Datos = Negocio.fProducto_Inventario.Buscar(this.TBIdempleado.Text, 2);
+                DataTable Datos = Negocio.fGestion_Empleados.Buscar(this.TBIdempleado.Text, 2);
+
                 //Evaluamos si  existen los Datos
                 if (Datos.Rows.Count == 0)
                 {
-                    MessageBox.Show("Actualmente no se encuentran registros en la Base de Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Actualmente no se encuentran registros en la Base de Datos", "Leal Enterprise - Consulta de Registro Invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
                     //Captura de Valores en la Base de Datos
 
-                    ////Panel Datos Basicos - Llaves Primarias
-                    //Idmarca = Datos.Rows[0][0].ToString();
-                    //Idgrupo = Datos.Rows[0][1].ToString();
-                    //Idtipo = Datos.Rows[0][2].ToString();
-                    //Idempaque = Datos.Rows[0][3].ToString();
-                    //Idbodega = Datos.Rows[0][4].ToString();
-                    //Idproveedor = Datos.Rows[0][5].ToString();
-                    //Idimpuesto = Datos.Rows[0][6].ToString();
+                    //Llaves Primarias
+                    Idcontrato = Datos.Rows[0][0].ToString();
+                    Idsucurzal = Datos.Rows[0][1].ToString();
+                    Iddepartamento = Datos.Rows[0][2].ToString();
 
-                    ////Panel Datos Basicos
-                    //Codigo = Datos.Rows[0][7].ToString();
-                    //Nombre = Datos.Rows[0][8].ToString();
-                    //Referencia = Datos.Rows[0][9].ToString();
-                    //Descripcion = Datos.Rows[0][10].ToString();
-                    //Presentacion = Datos.Rows[0][11].ToString();
-                    //Proveedor = Datos.Rows[0][12].ToString();
-                    //Impuesto = Datos.Rows[0][13].ToString();
-                    ////Impuesto_Valor = Datos.Rows[0][14].ToString();
-                    //UnidadDeVenta = Datos.Rows[0][15].ToString();
-                    ////ValorUnidad = Datos.Rows[0][16].ToString();
-                    //ManejaVencimiento = Datos.Rows[0][17].ToString();
-                    //ManjenaImpuesto = Datos.Rows[0][18].ToString();
-                    //Importado = Datos.Rows[0][19].ToString();
-                    //Exportado = Datos.Rows[0][20].ToString();
-                    //Ofertable = Datos.Rows[0][21].ToString();
-                    ////VentaImpuesto = Datos.Rows[0][22].ToString();
-                    //ComisionEmpleado = Datos.Rows[0][23].ToString();
+                    //Panel Datos Basicos
+                    Codigo = Datos.Rows[0][3].ToString();
+                    Empleado = Datos.Rows[0][4].ToString();
+                    Documento = Datos.Rows[0][5].ToString();
+                    Profesion = Datos.Rows[0][6].ToString();                
+                    Cargo = Datos.Rows[0][7].ToString();
+                    Email = Datos.Rows[0][8].ToString();
 
-                    ////Panel - Valores
-                    //Valor_Promedio = Datos.Rows[0][24].ToString();
-                    //Valor_Final = Datos.Rows[0][25].ToString();
-                    //Valor_Excento = Datos.Rows[0][26].ToString();
-                    //Valor_NoExcento = Datos.Rows[0][27].ToString();
-                    //Valor_Mayorista = Datos.Rows[0][28].ToString();
-                    //Comision = Datos.Rows[0][29].ToString();
-                    //Valor_Comision = Datos.Rows[0][30].ToString();
-                    //Minimo_Cliente = Datos.Rows[0][31].ToString();
-                    //Maximo_Cliente = Datos.Rows[0][32].ToString();
-                    //Minimo_Mayorista = Datos.Rows[0][33].ToString();
-                    //Maximo_Mayorista = Datos.Rows[0][34].ToString();
+                    //Datos de Envio Domiciliario
+                    Pais_Dom = Datos.Rows[0][9].ToString();
+                    Ciudad_Dom = Datos.Rows[0][10].ToString();
+                    Fijo_Dom = Datos.Rows[0][11].ToString();
+                    Extension_Dom = Datos.Rows[0][12].ToString();
+                    Movil_Dom = Datos.Rows[0][13].ToString();
+                    Direccion_Dom = Datos.Rows[0][14].ToString();
 
-                    ////
-                    //Ubicacion = Datos.Rows[0][35].ToString();
-                    //Estante = Datos.Rows[0][36].ToString();
-                    //Nivel = Datos.Rows[0][37].ToString();
-                    //Imagen = Datos.Rows[0][38].ToString();
-
-                    ////
-                    //Lote = Datos.Rows[0][39].ToString();
-                    //Valor_Lote = Datos.Rows[0][40].ToString();
-                    //Fecha_Vencimiento = Datos.Rows[0][41].ToString();
-
-                    ////
-                    //CodigoDeBarra = Datos.Rows[0][42].ToString();
+                    //Datos de Envio Empresarial
+                    Pais_Dom = Datos.Rows[0][15].ToString();
+                    Ciudad_Dom = Datos.Rows[0][16].ToString();
+                    Fijo_Dom = Datos.Rows[0][17].ToString();
+                    Extension_Dom = Datos.Rows[0][18].ToString();
+                    Movil_Dom = Datos.Rows[0][19].ToString();
+                    Direccion_Dom = Datos.Rows[0][20].ToString();
+                    Foto = Datos.Rows[0][21].ToString();
 
 
-                    ////Se procede a completar los campos de texto segun las consulta
-                    ////Realizada anteriormente en la base de datos
+                    //Se procede a completar los campos de texto segun las consulta
+                    //Realizada anteriormente en la base de datos
 
-                    //this.Marca_SQL = Idmarca;
-                    //this.CBMarca.SelectedValue = Marca_SQL;
+                    this.Departamento_SQL = Iddepartamento;
+                    this.CBDepartamento.SelectedValue = Departamento_SQL;
 
-                    //this.Grupo_SQL = Idgrupo;
-                    //this.CBGrupo.SelectedValue = Grupo_SQL;
+                    this.Sucurzal_SQL = Idsucurzal;
+                    this.CBSucurzal.SelectedValue = Sucurzal_SQL;
 
-                    //this.Tipo_SQL = Idtipo;
-                    //this.CBTipo.SelectedValue = Tipo_SQL;
+                    this.Contrato_SQL = Idcontrato;
+                    this.CBTipodecontrato.SelectedValue = Contrato_SQL;
 
-                    //this.Empaque_SQL = Idempaque;
-                    //this.CBEmpaque.SelectedValue = Empaque_SQL;
+                    //Panel Datos Basicos
+                    this.TBCodigo.Text = Codigo;
+                    this.TBEmpleado.Text = Empleado;
+                    this.TBDocumento.Text = Documento;
+                    this.TBProfesion.Text = Profesion;
+                    this.TBCargo.Text = Cargo;
+                    this.TBCorreo.Text = Email;
 
-                    //this.Bodega_SQL = Idbodega;
-                    //this.CBBodega.SelectedValue = Bodega_SQL;
+                    //Datos de Envio Domiciliario
+                    this.TBPais_Dom.Text = Pais_Dom;
+                    this.TBCiudad_Dom.Text = Ciudad_Dom;
+                    this.TBFijo_Dom.Text = Fijo_Dom;
+                    this.TBExtension_Dom.Text = Extension_Dom;
+                    this.TBMovil_Dom.Text = Movil_Dom;
+                    this.TBDireccion_Dom.Text = Direccion_Dom;
 
-                    ////Panel Datos Basicos
-                    //this.TBCodigo.Text = Codigo;
-                    //this.TBIdproveedor.Text = Idproveedor;
-                    //this.TBIdimpuesto.Text = Idimpuesto;
-
-                    ////Panel Datos Basicos
-                    //this.TBCodigo.Text = Codigo;
-                    //this.TBNombre.Text = Nombre;
-                    //this.TBReferencia.Text = Referencia;
-                    //this.TBDescripcion01.Text = Descripcion;
-                    //this.TBPresentacion.Text = Presentacion;
-                    //this.CBUnidad.Text = UnidadDeVenta;
-
-                    ////Panel - Valores
-                    //this.TBCompraPromedio.Text = Valor_Promedio;
-                    //this.TBCompraFinal.Text = Valor_Final;
-                    //this.TBValorVenta_Excento.Text = Valor_Excento;
-                    //this.TBValorVenta_NoExcento.Text = Valor_NoExcento;
-                    //this.TBVentaMayorista.Text = Valor_Mayorista;
-                    //this.TBComision_Porcentaje.Text = Comision;
-                    //this.TBComision_Valor.Text = Valor_Comision;
-                    //this.TBVentaMinina_Cliente.Text = Minimo_Cliente;
-                    //this.TBVentaMaxima_Cliente.Text = Maximo_Cliente;
-                    //this.TBVentaMinima_Mayorista.Text = Minimo_Mayorista;
-                    //this.TBVentaMaxima_Mayorista.Text = Maximo_Mayorista;
-
-                    ////
-                    //this.TBUbicacion.Text = Ubicacion;
-                    //this.TBEstante.Text = Estante;
-                    //this.TBNivel.Text = Nivel;
-                    ////this.PB_Imagen.Image = Imagen;
-
-                    ////
-                    //this.TBLotedeingreso.Text = Lote;
-                    //this.TBValor_Lote.Text = Valor_Lote;
-                    //this.DTLote_Vencimiento.Text = Fecha_Vencimiento;
-
-                    ////
-                    //this.TBBuscar_CodigodeBarra.Text = CodigoDeBarra;
-                    //this.TBBuscar_Proveedor.Text = Proveedor;
-                    //this.TBBuscar_Impuesto.Text = Impuesto;
-
-                    ////Se proceden a Validar los Chexboxt si estan activos o no
-
-                    //if (ManejaVencimiento == "0")
-                    //{
-                    //    this.CBVencimiento.Checked = false;
-                    //}
-                    //else
-                    //{
-                    //    this.CBVencimiento.Checked = true;
-                    //}
-
-                    //if (Importado == "0")
-                    //{
-                    //    this.CBImportado.Checked = false;
-                    //}
-                    //else
-                    //{
-                    //    this.CBImportado.Checked = true;
-                    //}
-
-                    //if (Exportado == "0")
-                    //{
-                    //    this.CBExportado.Checked = false;
-                    //}
-                    //else
-                    //{
-                    //    this.CBExportado.Checked = true;
-                    //}
-
-                    //if (ManjenaImpuesto == "0")
-                    //{
-                    //    this.CBImpuesto.Checked = false;
-                    //}
-                    //else
-                    //{
-                    //    this.CBImpuesto.Checked = true;
-                    //}
-
-                    //if (Ofertable == "0")
-                    //{
-                    //    this.CBOfertable.Checked = false;
-                    //}
-                    //else
-                    //{
-                    //    this.CBOfertable.Checked = true;
-                    //}
-
-                    //if (ComisionEmpleado == "0")
-                    //{
-                    //    this.CBManejaComision.Checked = false;
-                    //}
-                    //else
-                    //{
-                    //    this.CBManejaComision.Checked = true;
-                    //}
-
-                    ////Se realizan las consultas para llenar los DataGriview donde se mostrarian las ubicaciones, codigos de barra.
-
-                    ////this.DGResultados.DataSource = fProducto_Inventario.Buscar(this.TBBuscar.Text, 1);
-                    ////this.DGResultados.Columns[0].Visible = false;
-
-                    ////lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGResultados.Rows.Count);
-
+                    //Datos de Envio Empresarial
+                    this.TBPais_Emp.Text = Pais_Emp;
+                    this.TBCiudad_Emp.Text = Ciudad_Emp;
+                    this.TBFijo_Emp.Text = Fijo_Emp;
+                    this.TBExtension_Emp.Text = Extension_Emp;
+                    this.TBMovil_Emp.Text = Movil_Emp;
+                    this.TBDireccion_Emp.Text = Direccion_Emp;
+                    
                 }
             }
             catch (Exception ex)

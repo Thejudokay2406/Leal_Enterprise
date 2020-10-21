@@ -14,6 +14,17 @@ namespace Presentacion
 {
     public partial class frmDepartamento : Form
     {
+        private static frmDepartamento _Instancia;
+
+        public static frmDepartamento GetInstancia()
+        {
+            if (_Instancia == null)
+            {
+                _Instancia = new frmDepartamento();
+            }
+            return _Instancia;
+        }
+
         // Variable con la cual se define si el procecimiento 
         // A realizar es Editar, Guardar, Buscar,Eliminar
         private bool Digitar = true;
@@ -49,6 +60,7 @@ namespace Presentacion
             this.TBDepartamento.Select();
 
             //Ocultacion de Texboxt
+            this.TBIdempleado.Visible = false;
             this.TBIddepartamento.Visible = false;
         }
 
@@ -59,9 +71,8 @@ namespace Presentacion
             this.TBDepartamento.BackColor = Color.FromArgb(3, 155, 229);
             this.TBDepartamento.ForeColor = Color.FromArgb(255, 255, 255);
             this.TBDepartamento.Text = Campo;
-            this.TBDirector.ReadOnly = false;
+            this.TBDirector.Enabled = false;
             this.TBDirector.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBDirector.ForeColor = Color.FromArgb(255, 255, 255);
             this.TBDirector.Text = Campo;
             this.TBAreaPrincipal.ReadOnly = false;
             this.TBAreaPrincipal.BackColor = Color.FromArgb(3, 155, 229);
@@ -103,6 +114,12 @@ namespace Presentacion
                 this.btnGuardar.Text = "Editar";
                 this.btnCancelar.Enabled = true;
             }
+        }
+
+        public void setEmpleado(string idempleado, string empleado)
+        {
+            this.TBIdempleado.Text = idempleado;
+            this.TBDirector.Text = empleado;
         }
 
         private void Guardar_SQL()
@@ -154,7 +171,7 @@ namespace Presentacion
                     {
                         if (this.Digitar)
                         {
-                            this.MensajeOk("Departamento: " + this.TBDepartamento.Text + " Registrado Correctamente");
+                            this.MensajeOk("El Departamento: " + this.TBDepartamento.Text + " a Sido Registrado");
                         }
 
                         else
@@ -284,7 +301,8 @@ namespace Presentacion
 
         private void btnExaminar_Click(object sender, EventArgs e)
         {
-
+            frmFiltro_Empleado frmFiltro_Empleado = new frmFiltro_Empleado();
+            frmFiltro_Empleado.ShowDialog();
         }
     }
 }

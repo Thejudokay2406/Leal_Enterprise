@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TBIdempleado = new System.Windows.Forms.TextBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
             this.TBIddepartamento = new System.Windows.Forms.TextBox();
             this.btnExaminar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -50,9 +53,6 @@
             this.DGResultados = new System.Windows.Forms.DataGridView();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.TBIdempleado = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGResultados)).BeginInit();
@@ -83,6 +83,29 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Leal Enterprise - Registro de Departamentos";
+            // 
+            // TBIdempleado
+            // 
+            this.TBIdempleado.Location = new System.Drawing.Point(207, 187);
+            this.TBIdempleado.Name = "TBIdempleado";
+            this.TBIdempleado.Size = new System.Drawing.Size(28, 21);
+            this.TBIdempleado.TabIndex = 138;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(98, 155);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(300, 21);
+            this.dateTimePicker1.TabIndex = 137;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 155);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(53, 15);
+            this.label7.TabIndex = 136;
+            this.label7.Text = "Apertura";
             // 
             // TBIddepartamento
             // 
@@ -305,29 +328,6 @@
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 155);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 15);
-            this.label7.TabIndex = 136;
-            this.label7.Text = "Apertura";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(98, 155);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(300, 21);
-            this.dateTimePicker1.TabIndex = 137;
-            // 
-            // TBIdempleado
-            // 
-            this.TBIdempleado.Location = new System.Drawing.Point(207, 187);
-            this.TBIdempleado.Name = "TBIdempleado";
-            this.TBIdempleado.Size = new System.Drawing.Size(28, 21);
-            this.TBIdempleado.TabIndex = 138;
-            // 
             // frmDepartamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -337,7 +337,9 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaximizeBox = false;
             this.Name = "frmDepartamento";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestion Humana - Departamentos";
             this.Load += new System.EventHandler(this.frmDepartamento_Load);
             this.groupBox1.ResumeLayout(false);

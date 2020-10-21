@@ -895,6 +895,7 @@
             this.Name = "frmEmpleados";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestion Empleados - Empleados";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmEmpleados_FormClosing);
             this.Load += new System.EventHandler(this.frmEmpleados_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

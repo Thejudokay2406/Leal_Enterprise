@@ -208,6 +208,12 @@
     <Compile Include="Archivo\frmGrupoCliente.Designer.cs">
       <DependentUpon>frmGrupoCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Filtros\frmFiltro_Empleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Filtros\frmFiltro_Empleado.Designer.cs">
+      <DependentUpon>frmFiltro_Empleado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gestion Humana\frmTipoDeContrato.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -401,6 +407,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Filtros\frmFiltro_Bodega.resx">
       <DependentUpon>frmFiltro_Bodega.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Filtros\frmFiltro_Empleado.resx">
+      <DependentUpon>frmFiltro_Empleado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Financiera\frmCuentaPorPagar.resx">
       <DependentUpon>frmCuentaPorPagar.cs</DependentUpon>

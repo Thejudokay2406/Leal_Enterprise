@@ -112,8 +112,7 @@ namespace Presentacion
        
         private void datosBasicosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //AbrirFormulario(new frmEmpleados());
-            frmEmpleados frmEmpleados = new frmEmpleados();
+            frmEmpleados frmEmpleados = frmEmpleados.GetInstancia();
             frmEmpleados.MdiParent = this;
             frmEmpleados.Show();
 
@@ -126,7 +125,7 @@ namespace Presentacion
 
         private void departamentoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmDepartamento frmDepartamento = new frmDepartamento();
+            frmDepartamento frmDepartamento = frmDepartamento.GetInstancia();
             frmDepartamento.MdiParent = this;
             frmDepartamento.Show();
 
