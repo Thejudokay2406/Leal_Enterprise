@@ -67,6 +67,9 @@ namespace Presentacion
 
             //Ocultacion de Texboxt
             this.TBIdcliente.Visible = false;
+
+            //
+            
         }
 
         private void Habilitar()
@@ -373,7 +376,7 @@ namespace Presentacion
         //Mensaje de confirmacion
         private void MensajeOk(string mensaje)
         {
-            MessageBox.Show(mensaje, "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            MessageBox.Show(mensaje, "Leal Enterprise - Solicitud Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
 
         //Mensaje de Error
@@ -435,8 +438,7 @@ namespace Presentacion
                 this.DGResultados.DataSource = null;
                 this.DGResultados.Enabled = false;
                 this.lblTotal.Text = "Datos Registrados: 0";
-                this.TBBuscar.Clear();
-
+                this.TBBuscar.Text="";
             }
             catch (Exception ex)
             {
@@ -475,7 +477,7 @@ namespace Presentacion
                         }
 
                         //Botones Comunes
-                        this.TBBuscar.Clear();
+                        this.TBBuscar.Text = "";
                         this.Limpiar_Datos();
                     }
                 }
@@ -493,42 +495,6 @@ namespace Presentacion
         private void btnImprimir_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void TBBuscar_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (Consultar == "1")
-                {
-                    if (TBBuscar.Text != "")
-                    {
-                        this.DGResultados.DataSource = fCliente.Buscar(this.TBBuscar.Text, 1);
-                        //this.DGResultadoss.Columns[1].Visible = false;
-
-                        lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGResultados.Rows.Count);
-
-                        this.btnEliminar.Enabled = true;
-                        this.btnImprimir.Enabled = true;
-                        this.DGResultados.Enabled = true;
-                    }
-                    else
-                    {
-                        //Se Limpian las Filas y Columnas de la tabla
-                        this.DGResultados.DataSource = null;
-                        this.DGResultados.Enabled = false;
-                        this.lblTotal.Text = "Datos Registrados: 0";
-                    }
-                }
-                else
-                {
-                    MessageBox.Show(" El Usuario Iniciado no Contiene Permisos Para Realizar Consultas", "Leal Enterprise - 'Acceso Denegado' ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
         }
 
         private void TBIdcliente_TextChanged(object sender, EventArgs e)
@@ -719,7 +685,7 @@ namespace Presentacion
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -746,7 +712,7 @@ namespace Presentacion
                     }
                     else
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -786,7 +752,7 @@ namespace Presentacion
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -813,7 +779,7 @@ namespace Presentacion
                     }
                     else
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -853,7 +819,7 @@ namespace Presentacion
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -880,7 +846,7 @@ namespace Presentacion
                     }
                     else
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -920,7 +886,7 @@ namespace Presentacion
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -947,7 +913,7 @@ namespace Presentacion
                     }
                     else
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -987,7 +953,7 @@ namespace Presentacion
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1015,7 +981,7 @@ namespace Presentacion
                     }
                     else
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1054,7 +1020,7 @@ namespace Presentacion
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1081,7 +1047,7 @@ namespace Presentacion
                     }
                     else
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1121,7 +1087,7 @@ namespace Presentacion
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1148,7 +1114,7 @@ namespace Presentacion
                     }
                     else
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1188,7 +1154,7 @@ namespace Presentacion
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1215,7 +1181,7 @@ namespace Presentacion
                     }
                     else
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1255,7 +1221,7 @@ namespace Presentacion
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1282,7 +1248,7 @@ namespace Presentacion
                     }
                     else
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1324,7 +1290,7 @@ namespace Presentacion
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1351,7 +1317,7 @@ namespace Presentacion
                     }
                     else
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1391,7 +1357,7 @@ namespace Presentacion
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1418,7 +1384,7 @@ namespace Presentacion
                     }
                     else
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1458,7 +1424,7 @@ namespace Presentacion
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1485,7 +1451,7 @@ namespace Presentacion
                     }
                     else
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1525,7 +1491,7 @@ namespace Presentacion
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1552,7 +1518,7 @@ namespace Presentacion
                     }
                     else
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1592,7 +1558,7 @@ namespace Presentacion
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1619,7 +1585,7 @@ namespace Presentacion
                     }
                     else
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1659,7 +1625,7 @@ namespace Presentacion
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1686,7 +1652,7 @@ namespace Presentacion
                     }
                     else
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1726,7 +1692,7 @@ namespace Presentacion
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1754,7 +1720,7 @@ namespace Presentacion
                     }
                     else
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1796,7 +1762,7 @@ namespace Presentacion
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1823,7 +1789,7 @@ namespace Presentacion
                     }
                     else
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1863,7 +1829,7 @@ namespace Presentacion
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1890,7 +1856,7 @@ namespace Presentacion
                     }
                     else
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1930,7 +1896,7 @@ namespace Presentacion
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1957,7 +1923,7 @@ namespace Presentacion
                     }
                     else
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1997,7 +1963,7 @@ namespace Presentacion
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -2024,7 +1990,7 @@ namespace Presentacion
                     }
                     else
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -2064,7 +2030,7 @@ namespace Presentacion
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -2091,7 +2057,7 @@ namespace Presentacion
                     }
                     else
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -2278,7 +2244,7 @@ namespace Presentacion
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -2305,7 +2271,7 @@ namespace Presentacion
                     }
                     else
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -2345,7 +2311,7 @@ namespace Presentacion
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -2372,7 +2338,7 @@ namespace Presentacion
                     }
                     else
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -2412,7 +2378,7 @@ namespace Presentacion
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -2439,7 +2405,7 @@ namespace Presentacion
                     }
                     else
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -2468,6 +2434,16 @@ namespace Presentacion
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TBBuscar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TBBuscar_TextChanged(object sender, EventArgs e)
         {
 
         }

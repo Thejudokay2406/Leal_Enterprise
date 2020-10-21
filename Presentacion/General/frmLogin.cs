@@ -16,9 +16,12 @@ namespace Presentacion
 {
     public partial class frmLogin : Form
     {
+        //Variables para detectar Informacion del PC - Nombre, Numero de HDD y Mac
         private string Equipo_SQL = "";
         private string HDD_SQL = "";
         private string MacSeguridad_SQL = "";
+
+
         public frmLogin()
         {
             InitializeComponent();

@@ -237,7 +237,7 @@ namespace Presentacion
         //Mensaje de confirmacion
         private void MensajeOk(string mensaje)
         {
-            MessageBox.Show(mensaje, "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            MessageBox.Show(mensaje, "Leal Enterprise - Solicitud Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
 
         //Mensaje de Error

@@ -32,6 +32,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.TCPrincipal = new System.Windows.Forms.TabControl();
             this.TPDatosBasicos = new System.Windows.Forms.TabPage();
+            this.label61 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label52 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
@@ -178,11 +179,12 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.TBBuscar = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.DGResultados = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.TBBuscar = new System.Windows.Forms.TextBox();
+            this.TBObservacion = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.TCPrincipal.SuspendLayout();
             this.TPDatosBasicos.SuspendLayout();
@@ -228,6 +230,8 @@
             // 
             // TPDatosBasicos
             // 
+            this.TPDatosBasicos.Controls.Add(this.TBObservacion);
+            this.TPDatosBasicos.Controls.Add(this.label61);
             this.TPDatosBasicos.Controls.Add(this.textBox8);
             this.TPDatosBasicos.Controls.Add(this.label52);
             this.TPDatosBasicos.Controls.Add(this.textBox7);
@@ -273,6 +277,15 @@
             this.TPDatosBasicos.TabIndex = 0;
             this.TPDatosBasicos.Text = "Datos Basicos";
             this.TPDatosBasicos.UseVisualStyleBackColor = true;
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Location = new System.Drawing.Point(6, 252);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(75, 15);
+            this.label61.TabIndex = 162;
+            this.label61.Text = "Observación";
             // 
             // textBox8
             // 
@@ -328,7 +341,7 @@
             this.checkBox7.Checked = true;
             this.checkBox7.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.checkBox7.Location = new System.Drawing.Point(149, 246);
+            this.checkBox7.Location = new System.Drawing.Point(149, 313);
             this.checkBox7.Name = "checkBox7";
             this.checkBox7.Size = new System.Drawing.Size(58, 17);
             this.checkBox7.TabIndex = 155;
@@ -338,7 +351,7 @@
             // label46
             // 
             this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(6, 246);
+            this.label46.Location = new System.Drawing.Point(6, 313);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(133, 15);
             this.label46.TabIndex = 154;
@@ -366,7 +379,7 @@
             this.checkBox6.Checked = true;
             this.checkBox6.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.checkBox6.Location = new System.Drawing.Point(149, 269);
+            this.checkBox6.Location = new System.Drawing.Point(149, 336);
             this.checkBox6.Name = "checkBox6";
             this.checkBox6.Size = new System.Drawing.Size(58, 17);
             this.checkBox6.TabIndex = 151;
@@ -376,7 +389,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(6, 269);
+            this.label19.Location = new System.Drawing.Point(6, 336);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(120, 15);
             this.label19.TabIndex = 150;
@@ -388,7 +401,7 @@
             this.checkBox2.Checked = true;
             this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.checkBox2.Location = new System.Drawing.Point(356, 247);
+            this.checkBox2.Location = new System.Drawing.Point(356, 314);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(58, 17);
             this.checkBox2.TabIndex = 149;
@@ -398,7 +411,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(213, 246);
+            this.label14.Location = new System.Drawing.Point(213, 313);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(123, 15);
             this.label14.TabIndex = 148;
@@ -410,7 +423,7 @@
             this.checkBox1.Checked = true;
             this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.checkBox1.Location = new System.Drawing.Point(356, 270);
+            this.checkBox1.Location = new System.Drawing.Point(356, 337);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(58, 17);
             this.checkBox1.TabIndex = 147;
@@ -420,7 +433,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(213, 270);
+            this.label13.Location = new System.Drawing.Point(213, 337);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(137, 15);
             this.label13.TabIndex = 146;
@@ -1795,16 +1808,6 @@
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // TBBuscar
-            // 
-            this.TBBuscar.Location = new System.Drawing.Point(123, 20);
-            this.TBBuscar.Name = "TBBuscar";
-            this.TBBuscar.Size = new System.Drawing.Size(384, 21);
-            this.TBBuscar.TabIndex = 3;
-            this.TBBuscar.TextChanged += new System.EventHandler(this.TBBuscar_TextChanged);
-            this.TBBuscar.Enter += new System.EventHandler(this.TBBuscar_Enter);
-            this.TBBuscar.Leave += new System.EventHandler(this.TBBuscar_Leave);
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -1857,6 +1860,24 @@
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Leal Enterprise - Consulta de Clientes Registrados";
+            // 
+            // TBBuscar
+            // 
+            this.TBBuscar.Location = new System.Drawing.Point(123, 20);
+            this.TBBuscar.Name = "TBBuscar";
+            this.TBBuscar.Size = new System.Drawing.Size(384, 21);
+            this.TBBuscar.TabIndex = 3;
+            this.TBBuscar.TextChanged += new System.EventHandler(this.TBBuscar_TextChanged);
+            this.TBBuscar.Enter += new System.EventHandler(this.TBBuscar_Enter);
+            this.TBBuscar.Leave += new System.EventHandler(this.TBBuscar_Leave);
+            // 
+            // TBObservacion
+            // 
+            this.TBObservacion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TBObservacion.Location = new System.Drawing.Point(87, 249);
+            this.TBObservacion.Name = "TBObservacion";
+            this.TBObservacion.Size = new System.Drawing.Size(558, 21);
+            this.TBObservacion.TabIndex = 163;
             // 
             // frmCliente
             // 
@@ -1928,7 +1949,6 @@
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.DataGridView DGResultados;
-        private System.Windows.Forms.TextBox TBBuscar;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox TBMovil_Despacho;
@@ -2058,5 +2078,8 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.DataGridView DGDetalle_Contacto;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.TextBox TBObservacion;
+        private System.Windows.Forms.TextBox TBBuscar;
     }
 }

@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>Presentacion</RootNamespace>
     <AssemblyName>Leal Enterprise</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
@@ -28,6 +28,7 @@
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -64,10 +65,31 @@
     <ApplicationIcon>Icono_Leal_Enterprise.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AltoControls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AltoControls.1.0.1\lib\AltoControls.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.AgDataGrid.v8.2, Version=8.2.5.0, Culture=neutral, PublicKeyToken=79868b8147b5eae4, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.AgControls.8.2.5.1\lib\net35\DevExpress.AgDataGrid.v8.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.AgMenu.v8.2, Version=8.2.5.0, Culture=neutral, PublicKeyToken=79868b8147b5eae4, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.AgControls.8.2.5.1\lib\net35\DevExpress.AgMenu.v8.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpo.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialSkin.0.2.1\lib\MaterialSkin.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Web.Silverlight, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.AgControls.8.2.5.1\lib\net35\System.Web.Silverlight.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -101,6 +123,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Botones.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes_SQL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes_SQL.Designer.cs">
+      <DependentUpon>Clientes_SQL.cs</DependentUpon>
     </Compile>
     <Compile Include="Filtros\frmFiltro_Bodega.cs">
       <SubType>Form</SubType>
@@ -365,6 +393,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Botones.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Clientes_SQL.resx">
+      <DependentUpon>Clientes_SQL.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Compras\frmFacturaDeCompra.resx">
       <DependentUpon>frmFacturaDeCompra.cs</DependentUpon>
     </EmbeddedResource>
@@ -395,6 +426,7 @@
     <EmbeddedResource Include="Gestion Humana\frmTipoDeContrato.resx">
       <DependentUpon>frmTipoDeContrato.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Sistema\frmUsuario.resx">
       <DependentUpon>frmUsuario.cs</DependentUpon>
     </EmbeddedResource>
@@ -482,6 +514,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Titulos.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
