@@ -128,6 +128,7 @@
             this.TBIddepartamento.Name = "TBIddepartamento";
             this.TBIddepartamento.Size = new System.Drawing.Size(28, 21);
             this.TBIddepartamento.TabIndex = 135;
+            this.TBIddepartamento.TextChanged += new System.EventHandler(this.TBIddepartamento_TextChanged);
             // 
             // btnExaminar
             // 
@@ -432,6 +433,7 @@
             this.Name = "frmDepartamento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestion Humana - Departamentos";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmDepartamento_FormClosing);
             this.Load += new System.EventHandler(this.frmDepartamento_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

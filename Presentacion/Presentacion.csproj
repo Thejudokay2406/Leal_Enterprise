@@ -76,12 +76,15 @@
     </Reference>
     <Reference Include="DevExpress.Data.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v14.1">
+      <HintPath>..\..\..\..\..\Descargas\Temas DevExpress\DevExpress.Utils.v14.1.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.Utils.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Xpo.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MaterialSkin.0.2.1\lib\MaterialSkin.dll</HintPath>
+      <HintPath>..\packages\MaterialSkin.Updated.0.2.2\lib\MaterialSkin.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -99,6 +102,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WinFormSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WinFromSkin.1.0.2\lib\WinFormSkin.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Archivo\frmBodega.cs">
@@ -184,11 +190,11 @@
     <Compile Include="Filtros\frmFiltro_ActualizarPrecios.Designer.cs">
       <DependentUpon>frmFiltro_ActualizarPrecios.cs</DependentUpon>
     </Compile>
-    <Compile Include="Archivo\frmTipoDePago.cs">
+    <Compile Include="Archivo\frmTipo_Pago.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Archivo\frmTipoDePago.Designer.cs">
-      <DependentUpon>frmTipoDePago.cs</DependentUpon>
+    <Compile Include="Archivo\frmTipo_Pago.Designer.cs">
+      <DependentUpon>frmTipo_Pago.cs</DependentUpon>
     </Compile>
     <Compile Include="Archivo\frmMateriales.cs">
       <SubType>Form</SubType>
@@ -292,11 +298,11 @@
     <Compile Include="Archivo\frmEmpaque.Designer.cs">
       <DependentUpon>frmEmpaque.cs</DependentUpon>
     </Compile>
-    <Compile Include="Archivo\frmTipoDeProducto.cs">
+    <Compile Include="Archivo\frmTipo_Producto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Archivo\frmTipoDeProducto.Designer.cs">
-      <DependentUpon>frmTipoDeProducto.cs</DependentUpon>
+    <Compile Include="Archivo\frmTipo_Producto.Designer.cs">
+      <DependentUpon>frmTipo_Producto.cs</DependentUpon>
     </Compile>
     <Compile Include="Archivo\frmGrupoProductos.cs">
       <SubType>Form</SubType>
@@ -322,11 +328,11 @@
     <Compile Include="Archivo\frmMarca.Designer.cs">
       <DependentUpon>frmMarca.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sistema\frmTipoDeCliente.cs">
+    <Compile Include="Archivo\frmTipo_Cliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sistema\frmTipoDeCliente.Designer.cs">
-      <DependentUpon>frmTipoDeCliente.cs</DependentUpon>
+    <Compile Include="Archivo\frmTipo_Cliente.Designer.cs">
+      <DependentUpon>frmTipo_Cliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Archivo\frmProductos.cs">
       <SubType>Form</SubType>
@@ -392,8 +398,8 @@
     <EmbeddedResource Include="Archivo\frmMateriales.resx">
       <DependentUpon>frmMateriales.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Archivo\frmTipoDePago.resx">
-      <DependentUpon>frmTipoDePago.cs</DependentUpon>
+    <EmbeddedResource Include="Archivo\frmTipo_Pago.resx">
+      <DependentUpon>frmTipo_Pago.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Botones.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -469,8 +475,8 @@
     <EmbeddedResource Include="Archivo\frmEmpaque.resx">
       <DependentUpon>frmEmpaque.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Archivo\frmTipoDeProducto.resx">
-      <DependentUpon>frmTipoDeProducto.cs</DependentUpon>
+    <EmbeddedResource Include="Archivo\frmTipo_Producto.resx">
+      <DependentUpon>frmTipo_Producto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Archivo\frmGrupoProductos.resx">
       <DependentUpon>frmGrupoProductos.cs</DependentUpon>
@@ -484,8 +490,8 @@
     <EmbeddedResource Include="Archivo\frmMarca.resx">
       <DependentUpon>frmMarca.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sistema\frmTipoDeCliente.resx">
-      <DependentUpon>frmTipoDeCliente.cs</DependentUpon>
+    <EmbeddedResource Include="Archivo\frmTipo_Cliente.resx">
+      <DependentUpon>frmTipo_Cliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Archivo\frmProductos.resx">
       <DependentUpon>frmProductos.cs</DependentUpon>

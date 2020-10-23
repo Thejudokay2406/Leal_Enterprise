@@ -59,7 +59,7 @@
     <Compile Include="Archivo\Conexion_Empaque.cs" />
     <Compile Include="Archivo\Conexion_Grupo.cs" />
     <Compile Include="Archivo\Conexion_Producto.cs" />
-    <Compile Include="Sistema\Conexion_TipoDeCliente.cs" />
+    <Compile Include="Archivo\Conexion_TipoDeCliente.cs" />
     <Compile Include="Gestion Humana\Conexion_Empleados.cs" />
     <Compile Include="Archivo\Conexion_Impuesto.cs" />
     <Compile Include="Archivo\Conexion_Servicio.cs" />

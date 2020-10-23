@@ -55,7 +55,7 @@
     <Compile Include="Archivo\Entidad_GrupoDeCliente.cs" />
     <Compile Include="Gestion Humana\Entidad_Departamento.cs" />
     <Compile Include="Gestion Humana\Entidad_TipoDeContrato.cs" />
-    <Compile Include="Sistema\Entidad_TipoDeCliente.cs" />
+    <Compile Include="Archivo\Entidad_TipoDeCliente.cs" />
     <Compile Include="Archivo\Entidad_Productos.cs" />
     <Compile Include="Gestion Humana\Entidad_Empleados.cs" />
     <Compile Include="Sistema\Entidad_Equipos.cs" />

@@ -30,19 +30,16 @@ namespace Negocio
                 int auto,
 
                 //Datos Basicos
-                string codigo, string tipo, string descripcion, string observacion,
-                int estado
+                string tipo, string descripcion, string observacion
             )
         {
             Conexion_TipoDeCliente Datos = new Conexion_TipoDeCliente();
             Entidad_TipoDeCliente Obj = new Entidad_TipoDeCliente();
 
             //
-            Obj.Codigo = codigo;
             Obj.Tipo = tipo;
             Obj.Descripcion = descripcion;
             Obj.Observacion = observacion;
-            Obj.Estado = estado;
 
             Obj.Auto = auto;
             return Datos.Guardar_DatosBasicos(Obj);
@@ -54,8 +51,7 @@ namespace Negocio
                 int auto, int idtipodecliente,
 
                 //Datos Basicos
-                string codigo, string tipo, string descripcion, string observacion,
-                int estado
+                string tipo, string descripcion, string observacion
             )
         {
             Conexion_TipoDeCliente Datos = new Conexion_TipoDeCliente();
@@ -63,11 +59,9 @@ namespace Negocio
 
             //
             Obj.Idtipodecliente = idtipodecliente;
-            Obj.Codigo = codigo;
             Obj.Tipo = tipo;
             Obj.Descripcion = descripcion;
             Obj.Observacion = observacion;
-            Obj.Estado = estado;
 
             Obj.Auto = auto;
             return Datos.Editar_DatosBasicos(Obj);

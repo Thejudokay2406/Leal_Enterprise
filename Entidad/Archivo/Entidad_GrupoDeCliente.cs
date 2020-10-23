@@ -15,6 +15,7 @@ namespace Entidad
         //Datos Basicos
         private string _Grupo;
         private string _Descripcion;
+        private string _Observacion;
         private int _Estado;
 
         public int Idgrupo { get => _Idgrupo; set => _Idgrupo = value; }
@@ -22,5 +23,6 @@ namespace Entidad
         public string Descripcion { get => _Descripcion; set => _Descripcion = value; }
         public int Estado { get => _Estado; set => _Estado = value; }
         public int Auto { get => _Auto; set => _Auto = value; }
+        public string Observacion { get => _Observacion; set => _Observacion = value; }
     }
 }

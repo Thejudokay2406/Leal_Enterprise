@@ -32,6 +32,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.TCPrincipal = new System.Windows.Forms.TabControl();
             this.TPDatosBasicos = new System.Windows.Forms.TabPage();
+            this.TBObservacion = new System.Windows.Forms.TextBox();
             this.label61 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label52 = new System.Windows.Forms.Label();
@@ -184,7 +185,8 @@
             this.DGResultados = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.TBBuscar = new System.Windows.Forms.TextBox();
-            this.TBObservacion = new System.Windows.Forms.TextBox();
+            this.label62 = new System.Windows.Forms.Label();
+            this.textBox15 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.TCPrincipal.SuspendLayout();
             this.TPDatosBasicos.SuspendLayout();
@@ -278,6 +280,14 @@
             this.TPDatosBasicos.Text = "Datos Basicos";
             this.TPDatosBasicos.UseVisualStyleBackColor = true;
             // 
+            // TBObservacion
+            // 
+            this.TBObservacion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TBObservacion.Location = new System.Drawing.Point(87, 249);
+            this.TBObservacion.Name = "TBObservacion";
+            this.TBObservacion.Size = new System.Drawing.Size(558, 21);
+            this.TBObservacion.TabIndex = 163;
+            // 
             // label61
             // 
             this.label61.AutoSize = true;
@@ -341,7 +351,7 @@
             this.checkBox7.Checked = true;
             this.checkBox7.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.checkBox7.Location = new System.Drawing.Point(149, 313);
+            this.checkBox7.Location = new System.Drawing.Point(149, 276);
             this.checkBox7.Name = "checkBox7";
             this.checkBox7.Size = new System.Drawing.Size(58, 17);
             this.checkBox7.TabIndex = 155;
@@ -351,7 +361,7 @@
             // label46
             // 
             this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(6, 313);
+            this.label46.Location = new System.Drawing.Point(6, 276);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(133, 15);
             this.label46.TabIndex = 154;
@@ -379,7 +389,7 @@
             this.checkBox6.Checked = true;
             this.checkBox6.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.checkBox6.Location = new System.Drawing.Point(149, 336);
+            this.checkBox6.Location = new System.Drawing.Point(149, 299);
             this.checkBox6.Name = "checkBox6";
             this.checkBox6.Size = new System.Drawing.Size(58, 17);
             this.checkBox6.TabIndex = 151;
@@ -389,7 +399,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(6, 336);
+            this.label19.Location = new System.Drawing.Point(6, 299);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(120, 15);
             this.label19.TabIndex = 150;
@@ -401,7 +411,7 @@
             this.checkBox2.Checked = true;
             this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.checkBox2.Location = new System.Drawing.Point(356, 314);
+            this.checkBox2.Location = new System.Drawing.Point(356, 274);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(58, 17);
             this.checkBox2.TabIndex = 149;
@@ -411,7 +421,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(213, 313);
+            this.label14.Location = new System.Drawing.Point(213, 273);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(123, 15);
             this.label14.TabIndex = 148;
@@ -423,7 +433,7 @@
             this.checkBox1.Checked = true;
             this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.checkBox1.Location = new System.Drawing.Point(356, 337);
+            this.checkBox1.Location = new System.Drawing.Point(356, 297);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(58, 17);
             this.checkBox1.TabIndex = 147;
@@ -433,7 +443,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(213, 337);
+            this.label13.Location = new System.Drawing.Point(213, 297);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(137, 15);
             this.label13.TabIndex = 146;
@@ -747,6 +757,7 @@
             this.btnExaminar_Asesor.Size = new System.Drawing.Size(25, 21);
             this.btnExaminar_Asesor.TabIndex = 158;
             this.btnExaminar_Asesor.UseVisualStyleBackColor = true;
+            this.btnExaminar_Asesor.Click += new System.EventHandler(this.btnExaminar_Asesor_Click);
             // 
             // label20
             // 
@@ -880,6 +891,8 @@
             // 
             // TPCredito
             // 
+            this.TPCredito.Controls.Add(this.label62);
+            this.TPCredito.Controls.Add(this.textBox15);
             this.TPCredito.Controls.Add(this.textBox4);
             this.TPCredito.Controls.Add(this.textBox2);
             this.TPCredito.Controls.Add(this.label51);
@@ -996,7 +1009,7 @@
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(312, 63);
+            this.label33.Location = new System.Drawing.Point(309, 63);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(87, 15);
             this.label33.TabIndex = 45;
@@ -1029,7 +1042,7 @@
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(312, 117);
+            this.label31.Location = new System.Drawing.Point(309, 117);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(97, 15);
             this.label31.TabIndex = 40;
@@ -1871,13 +1884,21 @@
             this.TBBuscar.Enter += new System.EventHandler(this.TBBuscar_Enter);
             this.TBBuscar.Leave += new System.EventHandler(this.TBBuscar_Leave);
             // 
-            // TBObservacion
+            // label62
             // 
-            this.TBObservacion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TBObservacion.Location = new System.Drawing.Point(87, 249);
-            this.TBObservacion.Name = "TBObservacion";
-            this.TBObservacion.Size = new System.Drawing.Size(558, 21);
-            this.TBObservacion.TabIndex = 163;
+            this.label62.AutoSize = true;
+            this.label62.Location = new System.Drawing.Point(309, 36);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(88, 15);
+            this.label62.TabIndex = 60;
+            this.label62.Text = "Debito Minimo";
+            // 
+            // textBox15
+            // 
+            this.textBox15.Location = new System.Drawing.Point(415, 33);
+            this.textBox15.Name = "textBox15";
+            this.textBox15.Size = new System.Drawing.Size(200, 21);
+            this.textBox15.TabIndex = 59;
             // 
             // frmCliente
             // 
@@ -2009,11 +2030,8 @@
         private System.Windows.Forms.ComboBox CBTipodecuenta;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.CheckBox checkBox6;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox TBFac_Asesor;
         private System.Windows.Forms.Button btnExaminar_Asesor;
@@ -2046,7 +2064,6 @@
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.TextBox TBDebitoMinimo;
-        private System.Windows.Forms.CheckBox checkBox7;
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.TextBox TBCodigo_Banco;
         private System.Windows.Forms.TextBox textBox1;
@@ -2081,5 +2098,11 @@
         private System.Windows.Forms.Label label61;
         private System.Windows.Forms.TextBox TBObservacion;
         private System.Windows.Forms.TextBox TBBuscar;
+        private System.Windows.Forms.CheckBox checkBox7;
+        private System.Windows.Forms.CheckBox checkBox6;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label label62;
+        private System.Windows.Forms.TextBox textBox15;
     }
 }

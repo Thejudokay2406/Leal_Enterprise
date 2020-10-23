@@ -28,6 +28,10 @@ namespace Presentacion
             InitializeComponent();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void frmFiltro_Producto_Load(object sender, EventArgs e)
         {

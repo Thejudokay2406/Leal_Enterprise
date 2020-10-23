@@ -31,19 +31,11 @@ namespace Presentacion
         public bool Filtro = true;
         private string Campo = "Campo Obligatorio";
 
+        //Variable para Metodo SQL Guardar, Eliminar, Editar, Consultar *****************************************************************************************
+        public string Guardar, Editar, Consultar, Eliminar, Imprimir = "";
 
-        //Variable para Captura el Empleado Logueado
-        public int Idempleado;
-
-        //Variable para Metodo SQL Guardar, Eliminar, Editar, Consultar
-        public string Guardar = "";
-        public string Editar = "";
-        public string Consultar = "";
-        public string Eliminar = "";
-        public string Imprimir = "";
-
-        //Parametros para AutoCompletar los Texboxt
-
+        //Variables para AutoComplementar los Texboxt *******************************************************************************************************************************************************
+        public string Idempleado, Empleado, Departamento, Descripcion, AreaPrincipal, AreaAuxiliar, Apertura = "";
         
         public frmDepartamento()
         {
@@ -337,7 +329,7 @@ namespace Presentacion
                     if (TBBuscar.Text != "")
                     {
                         this.DGResultados.DataSource = fGestion_Departameto.Buscar(this.TBBuscar.Text, 1);
-                        //this.DGResultados.Columns[0].Visible = false;
+                        this.DGResultados.Columns[0].Visible = false;
 
                         lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGResultados.Rows.Count);
 
@@ -371,7 +363,28 @@ namespace Presentacion
 
         private void DGResultados_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            try
+            {
+                this.Digitar = false;
 
+                if (Editar == "1")
+                {
+                    //
+                    this.TBDepartamento.Select();
+                    this.TBIddepartamento.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells["Codigo"].Value);
+
+                    //
+                    this.Botones();
+                }
+                else
+                {
+                    MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Actualizar Datos en el Sistema", "Leal Enterprise - 'Acceso Denegado' ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
 
         private void btnExaminar_Click(object sender, EventArgs e)
@@ -746,6 +759,54 @@ namespace Presentacion
                             this.TBAreaAuxiliar.Select();
                         }
                     }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void frmDepartamento_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _Instancia = null;
+        }
+
+        private void TBIddepartamento_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                DataTable Datos = Negocio.fGestion_Departameto.Buscar(this.TBIddepartamento.Text, 4);
+
+                //Evaluamos si  existen los Datos
+                if (Datos.Rows.Count == 0)
+                {
+                    MessageBox.Show("Actualmente no se encuentran registros en la Base de Datos", "Leal Enterprise - Consulta de Registro Invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    //Captura de Valores en la Base de Datos
+
+                    //Llaves Primarias
+                    Idempleado = Datos.Rows[0][0].ToString();
+                    Empleado = Datos.Rows[0][1].ToString();
+                    Departamento = Datos.Rows[0][2].ToString();
+
+                    //Panel Datos Basicos
+                    AreaPrincipal = Datos.Rows[0][3].ToString();
+                    AreaAuxiliar = Datos.Rows[0][4].ToString();
+                    Descripcion = Datos.Rows[0][5].ToString();
+                    
+                    //Se procede a completar los campos de texto segun las consulta
+                    //Realizada anteriormente en la base de datos
+
+                    //Panel Datos Basicos
+                    this.TBIdempleado.Text = Idempleado;
+                    this.TBDepartamento.Text = Departamento;
+                    this.TBAreaPrincipal.Text = AreaPrincipal;
+                    this.TBAreaAuxiliar.Text = AreaAuxiliar;
+                    this.TBDescripcion.Text = Descripcion;
+                    //this.dateTimePicker1.Value = Apertura.ToString();
                 }
             }
             catch (Exception ex)

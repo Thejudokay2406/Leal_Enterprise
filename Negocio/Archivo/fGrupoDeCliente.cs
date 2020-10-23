@@ -29,7 +29,7 @@ namespace Negocio
                 //Datos Auxiliares y Llaves Primaria
                 int auto,
 
-                string grupo, string descripcion
+                string grupo, string descripcion, string observacion
             )
         {
             Conexion_GrupoDeCliente Datos = new Conexion_GrupoDeCliente();
@@ -38,6 +38,7 @@ namespace Negocio
             //Datos Basicos
             Obj.Grupo = grupo;
             Obj.Descripcion = descripcion;
+            Obj.Observacion = observacion;
             
             //Datos Auxiliares
             Obj.Auto = auto;
@@ -50,7 +51,7 @@ namespace Negocio
                 //Datos Auxiliares y Llaves Primaria
                 int auto, int idgrupo,
 
-                string grupo, string descripcion
+                string grupo, string descripcion, string observacion
             )
         {
             Conexion_GrupoDeCliente Datos = new Conexion_GrupoDeCliente();
@@ -60,6 +61,7 @@ namespace Negocio
             Obj.Idgrupo = idgrupo;
             Obj.Grupo = grupo;
             Obj.Descripcion = descripcion;
+            Obj.Observacion = observacion;
 
             //Datos Auxiliares
             Obj.Auto = auto;

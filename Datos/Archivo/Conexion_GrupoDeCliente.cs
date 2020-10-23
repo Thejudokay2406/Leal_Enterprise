@@ -79,7 +79,7 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Archivo.LI_GrupoCliente", SqlCon);
+                SqlCommand Comando = new SqlCommand("Archivo.LI_GrupoDeCliente", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Datos Auxiliares
@@ -88,6 +88,7 @@ namespace Datos
                 //Panel Datos Basicos
                 Comando.Parameters.Add("@Grupo", SqlDbType.VarChar).Value = Obj.Grupo;
                 Comando.Parameters.Add("@Descripcion", SqlDbType.VarChar).Value = Obj.Descripcion;
+                Comando.Parameters.Add("@Observacion", SqlDbType.VarChar).Value = Obj.Observacion;
 
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Realizar el Registro";
@@ -105,6 +106,7 @@ namespace Datos
             }
             return Rpta;
         }
+
         public string Editar_DatosBasicos(Entidad_GrupoDeCliente Obj)
         {
             string Rpta = "";
@@ -112,7 +114,7 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Archivo.LI_GrupoCliente", SqlCon);
+                SqlCommand Comando = new SqlCommand("Archivo.LI_GrupoDeCliente", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Datos Auxiliares y Llave Primaria
@@ -122,6 +124,7 @@ namespace Datos
                 //Panel Datos Basicos
                 Comando.Parameters.Add("@Grupo", SqlDbType.VarChar).Value = Obj.Grupo;
                 Comando.Parameters.Add("@Descripcion", SqlDbType.VarChar).Value = Obj.Descripcion;
+                Comando.Parameters.Add("@Observacion", SqlDbType.VarChar).Value = Obj.Observacion;
 
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Actualizar el Registro";

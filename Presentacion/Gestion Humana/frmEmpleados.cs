@@ -1863,12 +1863,12 @@ namespace Presentacion
                     Direccion_Dom = Datos.Rows[0][14].ToString();
 
                     //Datos de Envio Empresarial
-                    Pais_Dom = Datos.Rows[0][15].ToString();
-                    Ciudad_Dom = Datos.Rows[0][16].ToString();
-                    Fijo_Dom = Datos.Rows[0][17].ToString();
-                    Extension_Dom = Datos.Rows[0][18].ToString();
-                    Movil_Dom = Datos.Rows[0][19].ToString();
-                    Direccion_Dom = Datos.Rows[0][20].ToString();
+                    Pais_Emp = Datos.Rows[0][15].ToString();
+                    Ciudad_Emp = Datos.Rows[0][16].ToString();
+                    Fijo_Emp = Datos.Rows[0][17].ToString();
+                    Extension_Emp = Datos.Rows[0][18].ToString();
+                    Movil_Emp = Datos.Rows[0][19].ToString();
+                    Direccion_Emp = Datos.Rows[0][20].ToString();
                     Foto = Datos.Rows[0][21].ToString();
 
 

@@ -37,17 +37,17 @@ namespace Presentacion
         }
 
 
-        private void TBBuscar_TextChanged(object sender, EventArgs e)
+        private void TBBuscar_Factura_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                if (TBBuscar.Text != "")
+                if (TBBuscar_Factura.Text != "")
                 {
-                    this.DGFiltro_Resultados.DataSource = fGestion_Empleados.Buscar(this.TBBuscar.Text, 1);
+                    this.DGFiltro_Resultados.DataSource = fGestion_Empleados.Buscar(this.TBBuscar_Factura.Text, 1);
                     this.DGFiltro_Resultados.Columns[0].Visible = false;
 
-                    lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGFiltro_Resultados.Rows.Count);
-                    this.DGFiltro_Resultados.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    lblTotal_Facturacion.Text = "Datos Registrados: " + Convert.ToString(DGFiltro_Resultados.Rows.Count);
+                    //this.DGFiltro_Resultados.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 }
                 else
                 {
@@ -55,7 +55,7 @@ namespace Presentacion
                     //Se Limpian las Filas y Columnas de la tabla
                     this.DGFiltro_Resultados.DataSource = null;
                     this.DGFiltro_Resultados.Enabled = false;
-                    this.lblTotal.Text = "Datos Registrados: 0";
+                    this.lblTotal_Facturacion.Text = "Datos Registrados: 0";
 
                 }
             }
@@ -86,6 +86,21 @@ namespace Presentacion
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
+        }
+
+        private void btnAgregarEmpl_Factura_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAgregarEmpl_General_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TBBuscar_General_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

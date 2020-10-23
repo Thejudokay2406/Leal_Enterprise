@@ -12,7 +12,6 @@ namespace Entidad
         private int _Idtipodecliente;
 
         //Datos Basicos
-        private string _Codigo;
         private string _Tipo;
         private string _Descripcion;
         private string _Observacion;
@@ -24,7 +23,6 @@ namespace Entidad
         private string _Filtro;
 
         public int Idtipodecliente { get => _Idtipodecliente; set => _Idtipodecliente = value; }
-        public string Codigo { get => _Codigo; set => _Codigo = value; }
         public string Tipo { get => _Tipo; set => _Tipo = value; }
         public string Descripcion { get => _Descripcion; set => _Descripcion = value; }
         public string Observacion { get => _Observacion; set => _Observacion = value; }

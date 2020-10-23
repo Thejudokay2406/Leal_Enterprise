@@ -12,7 +12,7 @@ using Negocio;
 
 namespace Presentacion
 {
-    public partial class frmTipoDePago : Form
+    public partial class frmTipo_Pago : Form
     {
         // Variable con la cual se define si el procecimiento 
         // A realizar es Editar, Guardar, Buscar,Eliminar
@@ -24,17 +24,14 @@ namespace Presentacion
         public int Idempleado;
 
         //Variable para Metodo SQL Guardar, Eliminar, Editar, Consultar
-        public string Guardar = "";
-        public string Editar = "";
-        public string Consultar = "";
-        public string Eliminar = "";
-        public string Imprimir = "";
-        public frmTipoDePago()
+        public string Guardar, Editar, Consultar, Eliminar, Imprimir = "";
+
+        public frmTipo_Pago()
         {
             InitializeComponent();
         }
 
-        private void frmTipoDePago_Load(object sender, EventArgs e)
+        private void frmTipo_Pago_Load(object sender, EventArgs e)
         {
             //Inicio de Clase y Botones
             this.Botones();

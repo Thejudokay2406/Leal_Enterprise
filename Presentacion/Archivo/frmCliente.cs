@@ -60,16 +60,13 @@ namespace Presentacion
             //Inicio de Clase y Botones
             this.Botones();
             this.Habilitar();
-            this.Combobox_Tipo();
+            this.Auto_Combobox();
 
             //Focus a Texboxt y Combobox
             this.TBNombre.Select();
 
             //Ocultacion de Texboxt
             this.TBIdcliente.Visible = false;
-
-            //
-            
         }
 
         private void Habilitar()
@@ -253,13 +250,17 @@ namespace Presentacion
             }
         }
 
-        private void Combobox_Tipo()
+        private void Auto_Combobox()
         {
             try
             {
                 this.CBTipo.DataSource = fTipoDeCliente.Lista();
                 this.CBTipo.ValueMember = "Codigo";
                 this.CBTipo.DisplayMember = "Tipo";
+
+                this.CBGrupo.DataSource = fGrupoDeCliente.Lista();
+                this.CBGrupo.ValueMember = "Codigo";
+                this.CBGrupo.DisplayMember = "Tipo";
             }
             catch (Exception ex)
             {
@@ -2446,6 +2447,12 @@ namespace Presentacion
         private void TBBuscar_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnExaminar_Asesor_Click(object sender, EventArgs e)
+        {
+            frmFiltro_Empleado frmFiltro_Empleado = new frmFiltro_Empleado();
+            frmFiltro_Empleado.ShowDialog();
         }
 
         //******************** FOCUS LEVAE DATOS BASICOS ********************
