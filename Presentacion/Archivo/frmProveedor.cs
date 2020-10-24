@@ -77,10 +77,16 @@ namespace Presentacion
 
             this.TBNombre.ReadOnly = false;
             this.TBNombre.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBNombre.ForeColor = Color.FromArgb(255, 255, 255);
+            this.TBNombre.Text = Campo;
             this.TBDocumento.ReadOnly = false;
             this.TBDocumento.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDocumento.ForeColor = Color.FromArgb(255, 255, 255);
+            this.TBDocumento.Text = Campo;
             this.TBRepresentante.ReadOnly = false;
             this.TBRepresentante.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBRepresentante.ForeColor = Color.FromArgb(255, 255, 255);
+            this.TBRepresentante.Text = Campo;
             this.TBPais.ReadOnly = false;
             this.TBPais.BackColor = Color.FromArgb(3, 155, 229);
             this.TBCiudad.ReadOnly = false;
@@ -137,8 +143,11 @@ namespace Presentacion
             this.TBIdproveedor.Clear();
             this.CBTipo.SelectedIndex = 0;
             this.TBNombre.Clear();
+            this.TBNombre.Text = Campo;
             this.TBDocumento.Clear();
+            this.TBDocumento.Text = Campo;
             this.TBRepresentante.Clear();
+            this.TBRepresentante.Text = Campo;
             this.TBCiudad.Clear();
             this.TBTelefono.Clear();
             this.TBMovil.Clear();
@@ -632,7 +641,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     this.Digitar = false;
 
@@ -670,7 +679,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -747,7 +756,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -824,7 +833,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -901,7 +910,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -978,7 +987,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -1055,7 +1064,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -1132,7 +1141,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -1209,7 +1218,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -1286,7 +1295,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -1365,7 +1374,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -1442,7 +1451,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -1519,7 +1528,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -1596,7 +1605,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -1673,7 +1682,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -1750,7 +1759,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -1827,7 +1836,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -1904,7 +1913,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -1981,7 +1990,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -2059,7 +2068,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -2136,7 +2145,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -2213,7 +2222,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -2290,7 +2299,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -2367,7 +2376,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -2444,7 +2453,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -2521,7 +2530,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 

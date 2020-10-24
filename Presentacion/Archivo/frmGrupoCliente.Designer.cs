@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.TBObservacion = new System.Windows.Forms.TextBox();
             this.TBIdgrupo = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -43,8 +45,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.lblTotal = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.TBObservacion = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGResultados)).BeginInit();
@@ -71,12 +71,38 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Leal Enterprise - Registro de Grupos de Clientes";
             // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 130);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(75, 15);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Observación";
+            // 
+            // TBObservacion
+            // 
+            this.TBObservacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TBObservacion.Location = new System.Drawing.Point(87, 127);
+            this.TBObservacion.Name = "TBObservacion";
+            this.TBObservacion.Size = new System.Drawing.Size(258, 21);
+            this.TBObservacion.TabIndex = 10;
+            this.TBObservacion.Enter += new System.EventHandler(this.TBObservacion_Enter);
+            this.TBObservacion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBObservacion_KeyUp);
+            this.TBObservacion.Leave += new System.EventHandler(this.TBObservacion_Leave);
+            // 
             // TBIdgrupo
             // 
             this.TBIdgrupo.Location = new System.Drawing.Point(123, 191);
             this.TBIdgrupo.Name = "TBIdgrupo";
             this.TBIdgrupo.Size = new System.Drawing.Size(100, 21);
             this.TBIdgrupo.TabIndex = 5;
+            this.TBIdgrupo.TextChanged += new System.EventHandler(this.TBIdgrupo_TextChanged);
             // 
             // btnCancelar
             // 
@@ -274,31 +300,6 @@
             this.lblTotal.TabIndex = 1;
             this.lblTotal.Text = "------";
             // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 130);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 15);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Observación";
-            // 
-            // TBObservacion
-            // 
-            this.TBObservacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBObservacion.Location = new System.Drawing.Point(87, 127);
-            this.TBObservacion.Name = "TBObservacion";
-            this.TBObservacion.Size = new System.Drawing.Size(258, 21);
-            this.TBObservacion.TabIndex = 10;
-            this.TBObservacion.Enter += new System.EventHandler(this.TBObservacion_Enter);
-            this.TBObservacion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBObservacion_KeyUp);
-            this.TBObservacion.Leave += new System.EventHandler(this.TBObservacion_Leave);
-            // 
             // frmGrupoCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -308,6 +309,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaximizeBox = false;
             this.Name = "frmGrupoCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Archivo - Grupo de Cliente";

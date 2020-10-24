@@ -21,11 +21,11 @@ namespace Presentacion
         public bool Filtro = true;
         private string Campo = "Campo Obligatorio";
 
-        //Variable para Captura el Empleado Logueado
-        public int Idempleado;
-
         // ******************************************* Variable para Metodo SQL Guardar, Eliminar, Editar, Consultar ************************************
         public string Guardar, Editar, Consultar, Eliminar, Imprimir = "";
+
+        // ******************************************* Variable AutoComplementar Los Campos de Texto ************************************
+        private string Grupo, Descripcion, Observacion = "";
 
         public frmGrupoCliente()
         {
@@ -337,16 +337,16 @@ namespace Presentacion
         {
             try
             {
+                this.Digitar = false;
+
                 if (Editar == "1")
                 {
                     //
-                    this.Digitar = false;
-                    this.Botones();
-
-                    //Se procede a completar los campos de textos segun
-                    //la consulta realizada en la base de datos
+                    this.TBGrupo.Select();
                     this.TBIdgrupo.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells["Codigo"].Value);
 
+                    //
+                    this.Botones();
                 }
                 else
                 {
@@ -373,6 +373,7 @@ namespace Presentacion
             {
                 //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
                 this.TBGrupo.BackColor = Color.Azure;
+                this.TBGrupo.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 
@@ -389,6 +390,7 @@ namespace Presentacion
             {
                 //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
                 this.TBDescripcion.BackColor = Color.Azure;
+                this.TBDescripcion.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 
@@ -406,10 +408,10 @@ namespace Presentacion
                 this.TBGrupo.Text = Campo;
                 this.TBGrupo.ForeColor = Color.FromArgb(255, 255, 255);
             }
-
             else
             {
                 this.TBGrupo.BackColor = Color.FromArgb(3, 155, 229);
+                this.TBGrupo.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 
@@ -422,10 +424,10 @@ namespace Presentacion
                 this.TBDescripcion.Text = Campo;
                 this.TBDescripcion.ForeColor = Color.FromArgb(255, 255, 255);
             }
-
             else
             {
                 this.TBDescripcion.BackColor = Color.FromArgb(3, 155, 229);
+                this.TBDescripcion.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 
@@ -433,6 +435,41 @@ namespace Presentacion
         {
             //Color de texboxt cuando este posee el FOCUS Activado
             this.TBObservacion.BackColor = Color.FromArgb(3, 155, 229);
+        }
+
+        private void TBIdgrupo_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                DataTable Datos = Negocio.fGrupoDeCliente.Buscar(this.TBIdgrupo.Text, 2);
+
+                //Evaluamos si  existen los Datos
+                if (Datos.Rows.Count == 0)
+                {
+                    MessageBox.Show("Actualmente no se encuentran registros en la Base de Datos", "Leal Enterprise - Consulta de Registro Invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    //Captura de Valores en la Base de Datos
+
+                    //Panel Datos Basicos
+                    Grupo = Datos.Rows[0][0].ToString();
+                    Descripcion = Datos.Rows[0][1].ToString();
+                    Observacion = Datos.Rows[0][2].ToString();
+
+                    //Se procede a completar los campos de texto segun las consulta
+                    //Realizada anteriormente en la base de datos
+
+                    //Panel Datos Basicos
+                    this.TBGrupo.Text = Grupo;
+                    this.TBDescripcion.Text = Descripcion;
+                    this.TBObservacion.Text = Observacion;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
 
         private void TBGrupo_KeyUp(object sender, KeyEventArgs e)

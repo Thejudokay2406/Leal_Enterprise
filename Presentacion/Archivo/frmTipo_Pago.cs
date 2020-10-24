@@ -222,6 +222,11 @@ namespace Presentacion
             }
         }
 
+        private void TBIdtipo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             try

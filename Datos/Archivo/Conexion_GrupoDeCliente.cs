@@ -79,7 +79,7 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Archivo.LI_GrupoDeCliente", SqlCon);
+                SqlCommand Comando = new SqlCommand("Cliente.LI_Grupo", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Datos Auxiliares
@@ -114,7 +114,7 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Archivo.LI_GrupoDeCliente", SqlCon);
+                SqlCommand Comando = new SqlCommand("Cliente.LI_Grupo", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Datos Auxiliares y Llave Primaria
@@ -154,7 +154,7 @@ namespace Datos
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Panel Datos Basicos
-                Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Eliminar", SqlDbType.Int).Value = Auto;
                 Comando.Parameters.Add("@Idgrupo", SqlDbType.Int).Value = IDEliminar_Sql;
 
                 SqlCon.Open();

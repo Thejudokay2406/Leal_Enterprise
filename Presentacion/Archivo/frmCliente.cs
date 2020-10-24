@@ -63,7 +63,7 @@ namespace Presentacion
             this.Auto_Combobox();
 
             //Focus a Texboxt y Combobox
-            this.TBNombre.Select();
+            this.TBDat_Nombre.Select();
 
             //Ocultacion de Texboxt
             this.TBIdcliente.Visible = false;
@@ -77,80 +77,104 @@ namespace Presentacion
             this.CBGrupo.Enabled = true;
             this.CBGrupo.BackColor = Color.FromArgb(3, 155, 229);
 
-            this.TBCodigo.ReadOnly = false;
-            this.TBCodigo.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBCodigo.ForeColor = Color.FromArgb(255, 255, 255);
-            this.TBCodigo.Text = Campo;
-            this.TBNombre.ReadOnly = false;
-            this.TBNombre.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBNombre.ForeColor = Color.FromArgb(255, 255, 255);
-            this.TBNombre.Text = Campo;
-            this.TBDocumento.ReadOnly = false;
-            this.TBDocumento.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBDocumento.ForeColor = Color.FromArgb(255, 255, 255);
-            this.TBDocumento.Text = Campo;
-            this.TBTelefono.ReadOnly = false;
-            this.TBTelefono.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBMovil.ReadOnly = false;
-            this.TBMovil.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBCorreo.ReadOnly = false;
-            this.TBCorreo.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBPais.ReadOnly = false;
-            this.TBPais.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBCiudad.ReadOnly = false;
-            this.TBCiudad.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBDepartamento.ReadOnly = false;
-            this.TBDepartamento.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDat_Codigo.ReadOnly = false;
+            this.TBDat_Codigo.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDat_Codigo.ForeColor = Color.FromArgb(255, 255, 255);
+            this.TBDat_Codigo.Text = Campo;
+            this.TBDat_Nombre.ReadOnly = false;
+            this.TBDat_Nombre.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDat_Nombre.ForeColor = Color.FromArgb(255, 255, 255);
+            this.TBDat_Nombre.Text = Campo;
+            this.TBDat_Documento.ReadOnly = false;
+            this.TBDat_Documento.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDat_Documento.ForeColor = Color.FromArgb(255, 255, 255);
+            this.TBDat_Documento.Text = Campo;
+            this.TBDat_Telefono.ReadOnly = false;
+            this.TBDat_Telefono.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDat_Movil.ReadOnly = false;
+            this.TBDat_Movil.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDat_TelefonoAux.ReadOnly = false;
+            this.TBDat_TelefonoAux.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDat_MovilAux.ReadOnly = false;
+            this.TBDat_MovilAux.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDat_Correo.ReadOnly = false;
+            this.TBDat_Correo.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDat_Pais.ReadOnly = false;
+            this.TBDat_Pais.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDat_Ciudad.ReadOnly = false;
+            this.TBDat_Ciudad.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDat_Departamento.ReadOnly = false;
+            this.TBDat_Departamento.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDat_PaginaWeb.ReadOnly = false;
+            this.TBDat_PaginaWeb.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDat_Direccion.ReadOnly = false;
+            this.TBDat_Direccion.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDat_Observacion.ReadOnly = false;
+            this.TBDat_Observacion.BackColor = Color.FromArgb(3, 155, 229);
+            //this.TBDat_Ahorro.ReadOnly = false;
+            //this.TBDat_Ahorro.BackColor = Color.FromArgb(3, 155, 229);
+            //this.TBDat_CreditoDisp.ReadOnly = false;
+            //this.TBDat_CreditoDisp.BackColor = Color.FromArgb(3, 155, 229);
+            //this.TBDat_CreditoFact.ReadOnly = false;
+            //this.TBDat_CreditoFact.BackColor = Color.FromArgb(3, 155, 229);
 
             //Datos de Envio
-            this.TBSucurzal_Despacho.ReadOnly = false;
-            this.TBSucurzal_Despacho.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBPais_Despacho.ReadOnly = false;
-            this.TBPais_Despacho.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBCiudad_Despacho.ReadOnly = false;
-            this.TBCiudad_Despacho.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBReceptor.ReadOnly = false;
-            this.TBReceptor.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBBarrio.ReadOnly = false;
-            this.TBBarrio.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBApartamento.ReadOnly = false;
-            this.TBApartamento.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBDireccion_Despacho.ReadOnly = false;
-            this.TBDireccion_Despacho.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBMovil_Despacho.ReadOnly = false;
-            this.TBMovil_Despacho.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBObservacion_Despacho.ReadOnly = false;
-            this.TBObservacion_Despacho.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDes_Sucurzal.ReadOnly = false;
+            this.TBDes_Sucurzal.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDes_Pais.ReadOnly = false;
+            this.TBDes_Pais.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDes_Ciudad.ReadOnly = false;
+            this.TBDes_Ciudad.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDes_Departamento.ReadOnly = false;
+            this.TBDes_Departamento.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDes_Receptor.ReadOnly = false;
+            this.TBDes_Receptor.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDes_Barrio.ReadOnly = false;
+            this.TBDes_Barrio.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDes_Apartamento.ReadOnly = false;
+            this.TBDes_Apartamento.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDes_Direccion.ReadOnly = false;
+            this.TBDes_Direccion.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDes_Movil.ReadOnly = false;
+            this.TBDes_Movil.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDes_Observacion.ReadOnly = false;
+            this.TBDes_Observacion.BackColor = Color.FromArgb(3, 155, 229);
 
             //Datos Financieros
-            this.TBCodigo_Banco.ReadOnly = false;
-            this.TBCodigo_Banco.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBBancoPrincipal.ReadOnly = false;
-            this.TBBancoPrincipal.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBNumeroDeCuenta.ReadOnly = false;
-            this.TBNumeroDeCuenta.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBFin_CodigoBanco.Enabled = false;
+            this.TBFin_CodigoBanco.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBFin_Banco.Enabled = false;
+            this.TBFin_Banco.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBFin_NumCuenta.ReadOnly = false;
+            this.TBFin_NumCuenta.BackColor = Color.FromArgb(3, 155, 229);
 
             //Datos de Creditos
-            this.TBCreditoMinimo.ReadOnly = false;
-            this.TBCreditoMinimo.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBCreditoMaximo.ReadOnly = false;
-            this.TBCreditoMaximo.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBDebitoMinimo.ReadOnly = false;
-            this.TBDebitoMinimo.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBMinCuotaCredito.ReadOnly = false;
-            this.TBMinCuotaCredito.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBMaxCuotaCredito.ReadOnly = false;
-            this.TBMaxCuotaCredito.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBDiasdecredito.ReadOnly = false;
-            this.TBDiasdecredito.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBDiasDeProrroga.ReadOnly = false;
-            this.TBDiasDeProrroga.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBInteresesmora.ReadOnly = false;
-            this.TBInteresesmora.BackColor = Color.FromArgb(3, 155, 229);
-            
+            this.TBCre_CreditoMinimo.ReadOnly = false;
+            this.TBCre_CreditoMinimo.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBCre_CreditoMaximo.ReadOnly = false;
+            this.TBCre_CreditoMaximo.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBCre_DebitoMinimo.ReadOnly = false;
+            this.TBCre_DebitoMinimo.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBCre_CuotaMinima.ReadOnly = false;
+            this.TBCre_CuotaMinima.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBCre_CuotaMaxima.ReadOnly = false;
+            this.TBCre_CuotaMaxima.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBCre_Diasdecredito.ReadOnly = false;
+            this.TBCre_Diasdecredito.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBCre_DiasDeProrroga.ReadOnly = false;
+            this.TBCre_DiasDeProrroga.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBCre_InteresMora.ReadOnly = false;
+            this.TBCre_InteresMora.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBCre_DebitoMaximo.ReadOnly = false;
+            this.TBCre_DebitoMaximo.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBCre_Intereses.ReadOnly = false;
+            this.TBCre_Intereses.BackColor = Color.FromArgb(3, 155, 229);
+
             //Datos de Facturacion
             this.TBFac_Cliente.ReadOnly = false;
             this.TBFac_Cliente.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBFac_Asesor.Enabled = false;
+            this.TBFac_Asesor.BackColor = Color.FromArgb(72, 209, 204);
             this.TBFac_DocumentoCliente.ReadOnly = false;
             this.TBFac_DocumentoCliente.BackColor = Color.FromArgb(3, 155, 229);
             this.TBFac_DocumentoAsesor.ReadOnly = false;
@@ -165,7 +189,23 @@ namespace Presentacion
             this.TBFac_Ciudad.BackColor = Color.FromArgb(3, 155, 229);
             this.TBFac_Departamento.ReadOnly = false;
             this.TBFac_Departamento.BackColor = Color.FromArgb(3, 155, 229);
-            
+
+            //Datos de Contacto
+            this.TBCon_Contacto.ReadOnly = false;
+            this.TBCon_Contacto.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBCon_Ciudad.ReadOnly = false;
+            this.TBCon_Ciudad.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBCon_Direccion.ReadOnly = false;
+            this.TBCon_Direccion.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBCon_Telefono.ReadOnly = false;
+            this.TBCon_Telefono.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBCon_Movil.ReadOnly = false;
+            this.TBCon_Movil.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBCon_Correo.ReadOnly = false;
+            this.TBCon_Correo.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBCon_Parentesco.ReadOnly = false;
+            this.TBCon_Parentesco.BackColor = Color.FromArgb(3, 155, 229);
+
             //Texboxt de Consulta
             this.TBBuscar.BackColor = Color.FromArgb(3, 155, 229);
         }
@@ -175,48 +215,66 @@ namespace Presentacion
             //Panel - Datos Basicos
             this.CBTipo.SelectedIndex = 0;
             this.CBGrupo.SelectedIndex = 0;
-            this.TBCodigo.Clear();
-            this.TBCodigo.Text = Campo;
-            this.TBNombre.Clear();
-            this.TBNombre.Text = Campo;
-            this.TBDocumento.Clear();
-            this.TBDocumento.Text = Campo;
+            this.TBDat_Codigo.Clear();
+            this.TBDat_Codigo.Text = Campo;
+            this.TBDat_Nombre.Clear();
+            this.TBDat_Nombre.Text = Campo;
+            this.TBDat_Documento.Clear();
+            this.TBDat_Documento.Text = Campo;
 
-            this.TBTelefono.Clear();
-            this.TBMovil.Clear();
-            this.TBCorreo.Clear();
-            this.TBPais.Clear();
-            this.TBCiudad.Clear();
-            this.TBDepartamento.Clear();
+            this.TBDat_Telefono.Clear();
+            this.TBDat_Movil.Clear();
+            this.TBDat_TelefonoAux.Clear();
+            this.TBDat_MovilAux.Clear();
+            this.TBDat_Correo.Clear();
+            this.TBDat_Pais.Clear();
+            this.TBDat_Ciudad.Clear();
+            this.TBDat_Departamento.Clear();
+            this.TBDat_PaginaWeb.Clear();
+            this.TBDat_Direccion.Clear();
+            this.TBDat_Observacion.Clear();
+            //this.TBDat_Ahorro.Clear();
+            //this.TBDat_CreditoDisp.Clear();
+            //this.TBDat_CreditoFact.Clear();
+
+            this.CH_Contado.Checked = true;
+            this.CH_Credito.Checked = true;
+            this.CH_Efectivo.Checked = true;
+            this.CH_Efectivo.Checked = true;
 
             //Datos de Envio
-            this.TBSucurzal_Despacho.Clear();
-            this.TBPais_Despacho.Clear();
-            this.TBCiudad_Despacho.Clear();
-            this.TBReceptor.Clear();
-            this.TBBarrio.Clear();
-            this.TBApartamento.Clear();
-            this.TBDireccion_Despacho.Clear();
-            this.TBMovil_Despacho.Clear();
-            this.TBObservacion_Despacho.Clear();
+            this.TBDes_Sucurzal.Clear();
+            this.TBDes_Pais.Clear();
+            this.TBDes_Ciudad.Clear();
+            this.TBDes_Departamento.Clear();
+            this.TBDes_Receptor.Clear();
+            this.TBDes_Barrio.Clear();
+            this.TBDes_Apartamento.Clear();
+            this.TBDes_Direccion.Clear();
+            this.TBDes_Movil.Clear();
+            this.TBDes_Observacion.Clear();
 
             //Datos Financieros
-            this.TBCodigo_Banco.Clear();
-            this.TBBancoPrincipal.Clear();
-            this.TBNumeroDeCuenta.Clear();
+            this.TBFin_CodigoBanco.Clear();
+            this.TBFin_Banco.Enabled = false;
+            this.TBFin_NumCuenta.Clear();
+            this.CBFin_Cuenta.SelectedIndex = 0;
 
             //Datos de Creditos
-            this.TBCreditoMinimo.Clear();
-            this.TBCreditoMaximo.Clear();
-            this.TBDebitoMinimo.Clear();
-            this.TBMinCuotaCredito.Clear();
-            this.TBMaxCuotaCredito.Clear();
-            this.TBDiasdecredito.Clear();
-            this.TBDiasDeProrroga.Clear();
-            this.TBInteresesmora.Clear();
+            this.TBCre_CreditoMinimo.Clear();
+            this.TBCre_CreditoMaximo.Clear();
+            this.TBCre_DebitoMinimo.Clear();
+            this.TBCre_CuotaMinima.Clear();
+            this.TBCre_CuotaMaxima.Clear();
+            this.TBCre_Diasdecredito.Clear();
+            this.TBCre_DiasDeProrroga.Clear();
+            this.TBCre_InteresMora.Clear();
+            this.TBCre_DebitoMaximo.Clear();
+            this.TBCre_Intereses.Clear();
 
             //Datos de Facturacion
             this.TBFac_Cliente.Clear();
+            this.TBFac_Asesor.Clear();
             this.TBFac_DocumentoCliente.Clear();
             this.TBFac_DocumentoAsesor.Clear();
             this.TBFac_Movil.Clear();
@@ -224,10 +282,20 @@ namespace Presentacion
             this.TBFac_Pais.Clear();
             this.TBFac_Ciudad.Clear();
             this.TBFac_Departamento.Clear();
+            this.CH_Facturacion.Checked = false;
+
+            //Datos de Contacto
+            this.TBCon_Contacto.Clear();
+            this.TBCon_Ciudad.Clear();
+            this.TBCon_Direccion.Clear();
+            this.TBCon_Telefono.Clear();
+            this.TBCon_Movil.Clear();
+            this.TBCon_Correo.Clear();
+            this.TBCon_Parentesco.Clear();
 
             //Se realiza el FOCUS al panel y campo de texto iniciales
             this.TCPrincipal.SelectedIndex = 0;
-            this.TBCodigo.Select();
+            this.TBDat_Codigo.Select();
         }
 
         private void Botones()
@@ -260,7 +328,7 @@ namespace Presentacion
 
                 this.CBGrupo.DataSource = fGrupoDeCliente.Lista();
                 this.CBGrupo.ValueMember = "Codigo";
-                this.CBGrupo.DisplayMember = "Tipo";
+                this.CBGrupo.DisplayMember = "Grupo";
             }
             catch (Exception ex)
             {
@@ -276,15 +344,15 @@ namespace Presentacion
 
                 // <<<<<<------ Panel Datos Basicos ------>>>>>
 
-                if (this.TBNombre.Text == Campo)
+                if (this.TBDat_Nombre.Text == Campo)
                 {
                     MensajeError("Ingrese el nombre del Cliente a registrar");
                 }
-                else if (this.TBDocumento.Text == Campo)
+                else if (this.TBDat_Documento.Text == Campo)
                 {
                     MensajeError("Ingrese el numero del Documento del Cliente");
                 }
-                else if (this.TBCodigo.Text == Campo)
+                else if (this.TBDat_Codigo.Text == Campo)
                 {
                     MensajeError("Ingrese el Codigo del Cliente");
                 }
@@ -545,32 +613,32 @@ namespace Presentacion
 
 
                     //Panel Datos Basicos
-                    this.TBCodigo.Text = Codigo;
+                    this.TBDat_Codigo.Text = Codigo;
                     this.CBTipo.SelectedValue = Idtipo;
-                    this.TBNombre.Text = Nombre;
-                    this.TBDocumento.Text = Documento;
-                    this.TBTelefono.Text = Telefono;
-                    this.TBMovil.Text = Movil;
-                    this.TBCorreo.Text = Correo;
-                    this.TBPais.Text = Pais;
-                    this.TBCiudad.Text = Ciudad;
-                    this.TBDepartamento.Text = Departamento;
+                    this.TBDat_Nombre.Text = Nombre;
+                    this.TBDat_Documento.Text = Documento;
+                    this.TBDat_Telefono.Text = Telefono;
+                    this.TBDat_Movil.Text = Movil;
+                    this.TBDat_Correo.Text = Correo;
+                    this.TBDat_Pais.Text = Pais;
+                    this.TBDat_Ciudad.Text = Ciudad;
+                    this.TBDat_Departamento.Text = Departamento;
 
                     //Panel Datos de Envio
-                    this.TBPais_Despacho.Text = PaisDeEnvio;
-                    this.TBCiudad_Despacho.Text = CiudadDeEnvio;
-                    this.TBReceptor.Text = Receptor;
-                    this.TBDireccion_Despacho.Text = DireccionPrincipal;
-                    this.TBMovil_Despacho.Text = TelefonoDeEnvio;
-                    this.TBMovil_Despacho.Text = MovilDeEnvio;
-                    this.TBObservacion_Despacho.Text = Observacion;
+                    this.TBDes_Pais.Text = PaisDeEnvio;
+                    this.TBDes_Ciudad.Text = CiudadDeEnvio;
+                    this.TBDes_Receptor.Text = Receptor;
+                    this.TBDes_Direccion.Text = DireccionPrincipal;
+                    this.TBDes_Movil.Text = TelefonoDeEnvio;
+                    this.TBDes_Movil.Text = MovilDeEnvio;
+                    this.TBDes_Observacion.Text = Observacion;
 
                     //Panel Datos Financieros
-                    this.TBDiasdecredito.Text = Diasdecredito;
-                    this.TBDiasDeProrroga.Text = Diasdeprorroga;
-                    this.TBInteresesmora.Text = Interesespormora;
-                    this.TBCreditoMinimo.Text = Creditominimo;
-                    this.TBCreditoMaximo.Text = Creditomaximo;
+                    this.TBCre_Diasdecredito.Text = Diasdecredito;
+                    this.TBCre_DiasDeProrroga.Text = Diasdeprorroga;
+                    this.TBCre_InteresMora.Text = Interesespormora;
+                    this.TBCre_CreditoMinimo.Text = Creditominimo;
+                    this.TBCre_CreditoMaximo.Text = Creditomaximo;
                 }
             }
             catch (Exception ex)
@@ -646,7 +714,7 @@ namespace Presentacion
         {
             if (CBTipo.SelectedIndex != 0)
             {
-                this.TBNombre.Select();
+                this.TBDat_Nombre.Select();
             }
         }
         
@@ -656,11 +724,11 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
-                    this.TBNombre.Select();
+                    this.TBDat_Nombre.Select();
                 }
             }
             catch (Exception ex)
@@ -673,11 +741,11 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
-                    this.TBNombre.Select();
+                    this.TBDat_Nombre.Select();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
                 {
@@ -708,7 +776,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCodigo.Select();
+                            this.TBDat_Codigo.Select();
                         }
                     }
                     else
@@ -725,7 +793,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCodigo.Select();
+                            this.TBDat_Codigo.Select();
                         }
                     }
                 }
@@ -740,11 +808,11 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
-                    this.TBDocumento.Select();
+                    this.TBDat_Documento.Select();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
                 {
@@ -775,7 +843,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBNombre.Select();
+                            this.TBDat_Nombre.Select();
                         }
                     }
                     else
@@ -792,7 +860,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBNombre.Select();
+                            this.TBDat_Nombre.Select();
                         }
                     }
                 }
@@ -807,11 +875,11 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
-                    this.TBTelefono.Select();
+                    this.TBDat_Telefono.Select();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
                 {
@@ -842,7 +910,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBDocumento.Select();
+                            this.TBDat_Documento.Select();
                         }
                     }
                     else
@@ -859,7 +927,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBDocumento.Select();
+                            this.TBDat_Documento.Select();
                         }
                     }
                 }
@@ -874,11 +942,11 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
-                    this.TBMovil.Select();
+                    this.TBDat_Movil.Select();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
                 {
@@ -909,7 +977,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBTelefono.Select();
+                            this.TBDat_Telefono.Select();
                         }
                     }
                     else
@@ -926,7 +994,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBTelefono.Select();
+                            this.TBDat_Telefono.Select();
                         }
                     }
                 }
@@ -941,11 +1009,11 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
-                    this.TBCorreo.Select();
+                    this.TBDat_Correo.Select();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
                 {
@@ -977,7 +1045,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBMovil.Select();
+                            this.TBDat_Movil.Select();
                         }
                     }
                     else
@@ -993,7 +1061,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBMovil.Select();
+                            this.TBDat_Movil.Select();
                         }
                     }
                 }
@@ -1008,11 +1076,11 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
-                    this.TBPais.Select();
+                    this.TBDat_Pais.Select();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
                 {
@@ -1043,7 +1111,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCorreo.Select();
+                            this.TBDat_Correo.Select();
                         }
                     }
                     else
@@ -1060,7 +1128,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCorreo.Select();
+                            this.TBDat_Correo.Select();
                         }
                     }
                 }
@@ -1075,11 +1143,11 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
-                    this.TBCiudad.Select();
+                    this.TBDat_Ciudad.Select();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
                 {
@@ -1110,7 +1178,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBPais.Select();
+                            this.TBDat_Pais.Select();
                         }
                     }
                     else
@@ -1127,7 +1195,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBPais.Select();
+                            this.TBDat_Pais.Select();
                         }
                     }
                 }
@@ -1142,11 +1210,11 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
-                    this.TBDepartamento.Select();
+                    this.TBDat_Departamento.Select();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
                 {
@@ -1177,7 +1245,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCiudad.Select();
+                            this.TBDat_Ciudad.Select();
                         }
                     }
                     else
@@ -1194,7 +1262,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCiudad.Select();
+                            this.TBDat_Ciudad.Select();
                         }
                     }
                 }
@@ -1209,11 +1277,11 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
-                    this.TBNombre.Select();
+                    this.TBDat_Nombre.Select();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
                 {
@@ -1244,7 +1312,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBDepartamento.Select();
+                            this.TBDat_Departamento.Select();
                         }
                     }
                     else
@@ -1261,7 +1329,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBDepartamento.Select();
+                            this.TBDat_Departamento.Select();
                         }
                     }
                 }
@@ -1278,11 +1346,11 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
-                    this.TBCiudad_Despacho.Select();
+                    this.TBDes_Ciudad.Select();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
                 {
@@ -1313,7 +1381,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBPais_Despacho.Select();
+                            this.TBDes_Pais.Select();
                         }
                     }
                     else
@@ -1330,7 +1398,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBPais_Despacho.Select();
+                            this.TBDes_Pais.Select();
                         }
                     }
                 }
@@ -1345,11 +1413,11 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
-                    this.TBReceptor.Select();
+                    this.TBDes_Receptor.Select();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
                 {
@@ -1380,7 +1448,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCiudad_Despacho.Select();
+                            this.TBDes_Ciudad.Select();
                         }
                     }
                     else
@@ -1397,7 +1465,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCiudad_Despacho.Select();
+                            this.TBDes_Ciudad.Select();
                         }
                     }
                 }
@@ -1412,11 +1480,11 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
-                    this.TBBarrio.Select();
+                    this.TBDes_Barrio.Select();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
                 {
@@ -1447,7 +1515,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBReceptor.Select();
+                            this.TBDes_Receptor.Select();
                         }
                     }
                     else
@@ -1464,7 +1532,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBReceptor.Select();
+                            this.TBDes_Receptor.Select();
                         }
                     }
                 }
@@ -1479,10 +1547,10 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
-                    this.TBApartamento.Select();
+                    this.TBDes_Apartamento.Select();
                 }
 
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
@@ -1514,7 +1582,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBDireccion_Despacho.Select();
+                            this.TBDes_Direccion.Select();
                         }
                     }
                     else
@@ -1531,7 +1599,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBDireccion_Despacho.Select();
+                            this.TBDes_Direccion.Select();
                         }
                     }
                 }
@@ -1546,11 +1614,11 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
-                    this.TBMovil_Despacho.Select();
+                    this.TBDes_Movil.Select();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
                 {
@@ -1581,7 +1649,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBMovil_Despacho.Select();
+                            this.TBDes_Movil.Select();
                         }
                     }
                     else
@@ -1598,7 +1666,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBMovil_Despacho.Select();
+                            this.TBDes_Movil.Select();
                         }
                     }
                 }
@@ -1613,7 +1681,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -1648,7 +1716,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBMovil_Despacho.Select();
+                            this.TBDes_Movil.Select();
                         }
                     }
                     else
@@ -1665,7 +1733,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBMovil_Despacho.Select();
+                            this.TBDes_Movil.Select();
                         }
                     }
                 }
@@ -1680,11 +1748,11 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
-                    this.TBPais_Despacho.Select();
+                    this.TBDes_Pais.Select();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
                 {
@@ -1716,7 +1784,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBObservacion_Despacho.Select();
+                            this.TBDes_Observacion.Select();
                         }
                     }
                     else
@@ -1733,7 +1801,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBObservacion_Despacho.Select();
+                            this.TBDes_Observacion.Select();
                         }
                     }
                 }
@@ -1750,11 +1818,11 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
-                    this.TBDiasDeProrroga.Select();
+                    this.TBCre_DiasDeProrroga.Select();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
                 {
@@ -1785,7 +1853,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBDiasdecredito.Select();
+                            this.TBCre_Diasdecredito.Select();
                         }
                     }
                     else
@@ -1802,7 +1870,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBDiasdecredito.Select();
+                            this.TBCre_Diasdecredito.Select();
                         }
                     }
                 }
@@ -1817,11 +1885,11 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
-                    this.TBInteresesmora.Select();
+                    this.TBCre_InteresMora.Select();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
                 {
@@ -1852,7 +1920,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBDiasDeProrroga.Select();
+                            this.TBCre_DiasDeProrroga.Select();
                         }
                     }
                     else
@@ -1869,7 +1937,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBDiasDeProrroga.Select();
+                            this.TBCre_DiasDeProrroga.Select();
                         }
                     }
                 }
@@ -1884,11 +1952,11 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
-                    this.TBCreditoMinimo.Select();
+                    this.TBCre_CreditoMinimo.Select();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
                 {
@@ -1919,7 +1987,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBInteresesmora.Select();
+                            this.TBCre_InteresMora.Select();
                         }
                     }
                     else
@@ -1936,7 +2004,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBInteresesmora.Select();
+                            this.TBCre_InteresMora.Select();
                         }
                     }
                 }
@@ -1951,11 +2019,11 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
-                    this.TBCreditoMaximo.Select();
+                    this.TBCre_CreditoMaximo.Select();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
                 {
@@ -1986,7 +2054,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCreditoMinimo.Select();
+                            this.TBCre_CreditoMinimo.Select();
                         }
                     }
                     else
@@ -2003,7 +2071,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCreditoMinimo.Select();
+                            this.TBCre_CreditoMinimo.Select();
                         }
                     }
                 }
@@ -2018,7 +2086,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -2053,7 +2121,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCreditoMaximo.Select();
+                            this.TBCre_CreditoMaximo.Select();
                         }
                     }
                     else
@@ -2070,7 +2138,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCreditoMaximo.Select();
+                            this.TBCre_CreditoMaximo.Select();
                         }
                     }
                 }
@@ -2086,157 +2154,157 @@ namespace Presentacion
         private void TBCodigo_Enter(object sender, EventArgs e)
         {
             //Se evalua si el campo de texto esta vacio y se espeicifca que es obligatorio en la base de datos
-            if (TBCodigo.Text == Campo)
+            if (TBDat_Codigo.Text == Campo)
             {
-                this.TBCodigo.BackColor = Color.Azure;
-                this.TBCodigo.ForeColor = Color.FromArgb(0, 0, 0);
-                this.TBCodigo.Clear();
+                this.TBDat_Codigo.BackColor = Color.Azure;
+                this.TBDat_Codigo.ForeColor = Color.FromArgb(0, 0, 0);
+                this.TBDat_Codigo.Clear();
             }
             else
             {
                 //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
-                this.TBCodigo.BackColor = Color.Azure;
-                this.TBCodigo.ForeColor = Color.FromArgb(0, 0, 0);
+                this.TBDat_Codigo.BackColor = Color.Azure;
+                this.TBDat_Codigo.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 
         private void TBNombre_Enter(object sender, EventArgs e)
         {
             //Se evalua si el campo de texto esta vacio y se espeicifca que es obligatorio en la base de datos
-            if (TBNombre.Text == Campo)
+            if (TBDat_Nombre.Text == Campo)
             {
-                this.TBNombre.BackColor = Color.Azure;
-                this.TBNombre.ForeColor = Color.FromArgb(0, 0, 0);
-                this.TBNombre.Clear();
+                this.TBDat_Nombre.BackColor = Color.Azure;
+                this.TBDat_Nombre.ForeColor = Color.FromArgb(0, 0, 0);
+                this.TBDat_Nombre.Clear();
             }
             else
             {
                 //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
-                this.TBNombre.BackColor = Color.Azure;
-                this.TBNombre.ForeColor = Color.FromArgb(0, 0, 0);
+                this.TBDat_Nombre.BackColor = Color.Azure;
+                this.TBDat_Nombre.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 
         private void TBDocumento_Enter(object sender, EventArgs e)
         {
             //Se evalua si el campo de texto esta vacio y se espeicifca que es obligatorio en la base de datos
-            if (TBDocumento.Text == Campo)
+            if (TBDat_Documento.Text == Campo)
             {
-                this.TBDocumento.BackColor = Color.Azure;
-                this.TBDocumento.ForeColor = Color.FromArgb(0, 0, 0);
-                this.TBDocumento.Clear();
+                this.TBDat_Documento.BackColor = Color.Azure;
+                this.TBDat_Documento.ForeColor = Color.FromArgb(0, 0, 0);
+                this.TBDat_Documento.Clear();
             }
             else
             {
                 //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
-                this.TBDocumento.BackColor = Color.Azure;
-                this.TBDocumento.ForeColor = Color.FromArgb(0, 0, 0);
+                this.TBDat_Documento.BackColor = Color.Azure;
+                this.TBDat_Documento.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 
         private void TBTelefono_Enter(object sender, EventArgs e)
         {
-            this.TBTelefono.BackColor = Color.Azure;
+            this.TBDat_Telefono.BackColor = Color.Azure;
         }
 
         private void TBMovil_Enter(object sender, EventArgs e)
         {
-            this.TBMovil.BackColor = Color.Azure;
+            this.TBDat_Movil.BackColor = Color.Azure;
         }
 
         private void TBCorreo_Enter(object sender, EventArgs e)
         {
-            this.TBCorreo.BackColor = Color.Azure;
+            this.TBDat_Correo.BackColor = Color.Azure;
         }
 
         private void TBPais_Enter(object sender, EventArgs e)
         {
-            this.TBPais.BackColor = Color.Azure;
+            this.TBDat_Pais.BackColor = Color.Azure;
         }
 
         private void TBCiudad_Enter(object sender, EventArgs e)
         {
-            this.TBCiudad.BackColor = Color.Azure;
+            this.TBDat_Ciudad.BackColor = Color.Azure;
         }
 
         private void TBDepartamento_Enter(object sender, EventArgs e)
         {
-            this.TBDepartamento.BackColor = Color.Azure;
+            this.TBDat_Departamento.BackColor = Color.Azure;
         }
 
         //******************** FOCUS ENTER DATOS DE ENVIO ********************
 
         private void TBPais_01_Enter(object sender, EventArgs e)
         {
-            this.TBPais_Despacho.BackColor = Color.Azure;
+            this.TBDes_Pais.BackColor = Color.Azure;
         }
 
         private void TBCiudad_01_Enter(object sender, EventArgs e)
         {
-            this.TBCiudad_Despacho.BackColor = Color.Azure;
+            this.TBDes_Ciudad.BackColor = Color.Azure;
         }
 
         private void TBReceptor_Enter(object sender, EventArgs e)
         {
-            this.TBReceptor.BackColor = Color.Azure;
+            this.TBDes_Receptor.BackColor = Color.Azure;
         }
 
         private void TBDireccionPrincipal_Enter(object sender, EventArgs e)
         {
-            this.TBDireccion_Despacho.BackColor = Color.Azure;
+            this.TBDes_Direccion.BackColor = Color.Azure;
         }
 
         private void TBTelefono_01_Enter(object sender, EventArgs e)
         {
-            this.TBMovil_Despacho.BackColor = Color.Azure;
+            this.TBDes_Movil.BackColor = Color.Azure;
         }
 
         private void TBMovil_01_Enter(object sender, EventArgs e)
         {
-            this.TBMovil_Despacho.BackColor = Color.Azure;
+            this.TBDes_Movil.BackColor = Color.Azure;
         }
 
         private void TBObservacion_01_Enter(object sender, EventArgs e)
         {
-            this.TBObservacion_Despacho.BackColor = Color.Azure;
+            this.TBDes_Observacion.BackColor = Color.Azure;
         }
 
         //******************** FOCUS ENTER DATOS BASICOS ********************
 
         private void TBDiasdecredito_Enter(object sender, EventArgs e)
         {
-            this.TBDiasdecredito.BackColor = Color.Azure;
+            this.TBCre_Diasdecredito.BackColor = Color.Azure;
         }
 
         private void TBDiasDeProrroga_Enter(object sender, EventArgs e)
         {
-            this.TBDiasDeProrroga.BackColor = Color.Azure;
+            this.TBCre_DiasDeProrroga.BackColor = Color.Azure;
         }
 
         private void TBInteresesmora_Enter(object sender, EventArgs e)
         {
-            this.TBInteresesmora.BackColor = Color.Azure;
+            this.TBCre_InteresMora.BackColor = Color.Azure;
         }
 
         private void TBCreditoMinimo_Enter(object sender, EventArgs e)
         {
-            this.TBCreditoMinimo.BackColor = Color.Azure;
+            this.TBCre_CreditoMinimo.BackColor = Color.Azure;
         }
 
         private void TBCreditoMaximo_Enter(object sender, EventArgs e)
         {
-            this.TBCreditoMaximo.BackColor = Color.Azure;
+            this.TBCre_CreditoMaximo.BackColor = Color.Azure;
         }
 
         private void TBBarrio_KeyUp(object sender, KeyEventArgs e)
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
-                    this.TBDireccion_Despacho.Select();
+                    this.TBDes_Direccion.Select();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
                 {
@@ -2267,7 +2335,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCreditoMaximo.Select();
+                            this.TBCre_CreditoMaximo.Select();
                         }
                     }
                     else
@@ -2284,7 +2352,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCreditoMaximo.Select();
+                            this.TBCre_CreditoMaximo.Select();
                         }
                     }
                 }
@@ -2299,11 +2367,11 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
-                    this.TBMovil_Despacho.Select();
+                    this.TBDes_Movil.Select();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
                 {
@@ -2334,7 +2402,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCreditoMaximo.Select();
+                            this.TBCre_CreditoMaximo.Select();
                         }
                     }
                     else
@@ -2351,7 +2419,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCreditoMaximo.Select();
+                            this.TBCre_CreditoMaximo.Select();
                         }
                     }
                 }
@@ -2366,11 +2434,11 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
-                    this.TBObservacion_Despacho.Select();
+                    this.TBDes_Observacion.Select();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
                 {
@@ -2401,7 +2469,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCreditoMaximo.Select();
+                            this.TBCre_CreditoMaximo.Select();
                         }
                     }
                     else
@@ -2418,7 +2486,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCreditoMaximo.Select();
+                            this.TBCre_CreditoMaximo.Select();
                         }
                     }
                 }
@@ -2459,144 +2527,144 @@ namespace Presentacion
 
         private void TBCodigo_Leave(object sender, EventArgs e)
         {
-            if (TBCodigo.Text == string.Empty)
+            if (TBDat_Codigo.Text == string.Empty)
             {
                 //Color de texboxt cuando este posee el FOCUS Activado
-                this.TBCodigo.BackColor = Color.FromArgb(3, 155, 229);
-                this.TBCodigo.Text = Campo;
-                this.TBCodigo.ForeColor = Color.FromArgb(255, 255, 255);
+                this.TBDat_Codigo.BackColor = Color.FromArgb(3, 155, 229);
+                this.TBDat_Codigo.Text = Campo;
+                this.TBDat_Codigo.ForeColor = Color.FromArgb(255, 255, 255);
             }
 
             else
             {
-                TBCodigo.BackColor = Color.FromArgb(3, 155, 229);
+                TBDat_Codigo.BackColor = Color.FromArgb(3, 155, 229);
             }
         }
 
         private void TBNombre_Leave(object sender, EventArgs e)
         {
-            if (TBNombre.Text == string.Empty)
+            if (TBDat_Nombre.Text == string.Empty)
             {
                 //Color de texboxt cuando este posee el FOCUS Activado
-                this.TBNombre.BackColor = Color.FromArgb(3, 155, 229);
-                this.TBNombre.Text = Campo;
-                this.TBNombre.ForeColor = Color.FromArgb(255, 255, 255);
+                this.TBDat_Nombre.BackColor = Color.FromArgb(3, 155, 229);
+                this.TBDat_Nombre.Text = Campo;
+                this.TBDat_Nombre.ForeColor = Color.FromArgb(255, 255, 255);
             }
 
             else
             {
-                TBNombre.BackColor = Color.FromArgb(3, 155, 229);
+                TBDat_Nombre.BackColor = Color.FromArgb(3, 155, 229);
             }
         }
 
         private void TBDocumento_Leave(object sender, EventArgs e)
         {
-            if (TBDocumento.Text == string.Empty)
+            if (TBDat_Documento.Text == string.Empty)
             {
                 //Color de texboxt cuando este posee el FOCUS Activado
-                this.TBDocumento.BackColor = Color.FromArgb(3, 155, 229);
-                this.TBDocumento.Text = Campo;
-                this.TBDocumento.ForeColor = Color.FromArgb(255, 255, 255);
+                this.TBDat_Documento.BackColor = Color.FromArgb(3, 155, 229);
+                this.TBDat_Documento.Text = Campo;
+                this.TBDat_Documento.ForeColor = Color.FromArgb(255, 255, 255);
             }
 
             else
             {
-                TBDocumento.BackColor = Color.FromArgb(3, 155, 229);
+                TBDat_Documento.BackColor = Color.FromArgb(3, 155, 229);
             }
         }
 
         private void TBTelefono_Leave(object sender, EventArgs e)
         {
-            this.TBTelefono.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDat_Telefono.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBMovil_Leave(object sender, EventArgs e)
         {
-            this.TBMovil.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDat_Movil.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBCorreo_Leave(object sender, EventArgs e)
         {
-            this.TBCorreo.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDat_Correo.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBPais_Leave(object sender, EventArgs e)
         {
-            this.TBPais.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDat_Pais.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBCiudad_Leave(object sender, EventArgs e)
         {
-            this.TBCiudad.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDat_Ciudad.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBDepartamento_Leave(object sender, EventArgs e)
         {
-            this.TBDepartamento.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDat_Departamento.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         //******************** FOCUS LEVAE DATOS DE ENVIO ********************
 
         private void TBPais_01_Leave(object sender, EventArgs e)
         {
-            this.TBPais_Despacho.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDes_Pais.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBCiudad_01_Leave(object sender, EventArgs e)
         {
-            this.TBCiudad_Despacho.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDes_Ciudad.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBReceptor_Leave(object sender, EventArgs e)
         {
-            this.TBReceptor.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDes_Receptor.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBDireccionPrincipal_Leave(object sender, EventArgs e)
         {
-            this.TBDireccion_Despacho.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDes_Direccion.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBTelefono_01_Leave(object sender, EventArgs e)
         {
-            this.TBMovil_Despacho.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDes_Movil.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBMovil_01_Leave(object sender, EventArgs e)
         {
-            this.TBMovil_Despacho.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDes_Movil.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBObservacion_01_Leave(object sender, EventArgs e)
         {
-            this.TBObservacion_Despacho.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDes_Observacion.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         //******************** FOCUS LEVAE DATOS FINANCIEROS ********************
 
         private void TBDiasdecredito_Leave(object sender, EventArgs e)
         {
-            this.TBDiasdecredito.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBCre_Diasdecredito.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBDiasDeProrroga_Leave(object sender, EventArgs e)
         {
-            this.TBDiasDeProrroga.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBCre_DiasDeProrroga.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBInteresesmora_Leave(object sender, EventArgs e)
         {
-            this.TBInteresesmora.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBCre_InteresMora.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBCreditoMinimo_Leave(object sender, EventArgs e)
         {
-            this.TBCreditoMinimo.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBCre_CreditoMinimo.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBCreditoMaximo_Leave(object sender, EventArgs e)
         {
-            this.TBCreditoMaximo.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBCre_CreditoMaximo.BackColor = Color.FromArgb(3, 155, 229);
         }
         
         private void TBBuscar_Enter(object sender, EventArgs e)

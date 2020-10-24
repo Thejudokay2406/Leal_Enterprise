@@ -20,11 +20,11 @@ namespace Presentacion
         public bool Filtro = true;
         private string Campo = "Campo Obligatorio";
 
-        //Variable para Captura el Empleado Logueado
-        public int Idempleado;
-
         //Variable para Metodo SQL Guardar, Eliminar, Editar, Consultar
         public string Guardar, Editar, Consultar, Eliminar, Imprimir = "";
+
+        //Variable para Autocomplementar los campos de texto
+        private string Tipo, Descripcion, Observacion = "";
 
         public frmTipo_Cliente()
         {
@@ -36,7 +36,6 @@ namespace Presentacion
             //Inicio de Clase y Botones
             this.Botones();
             this.Habilitar();
-            this.Limpiar_Datos();
 
             //Focus a Texboxt y Combobox
             this.TBTipo.Select();
@@ -53,9 +52,11 @@ namespace Presentacion
             this.TBTipo.BackColor = Color.FromArgb(3, 155, 229);
             this.TBTipo.ForeColor = Color.FromArgb(255, 255, 255);
             this.TBTipo.Text = Campo;
-
             this.TBDescripcion.ReadOnly = false;
             this.TBDescripcion.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDescripcion.ForeColor = Color.FromArgb(255, 255, 255);
+            this.TBDescripcion.Text = Campo;
+
             this.TBObservacion.ReadOnly = false;
             this.TBObservacion.BackColor = Color.FromArgb(3, 155, 229);
 
@@ -281,8 +282,8 @@ namespace Presentacion
                 {
                     if (TBBuscar.Text != "")
                     {
-                        this.DGResultados.DataSource = fTipoDePago.Buscar(this.TBBuscar.Text, 1);
-                        //this.DGResultadoss.Columns[1].Visible = false;
+                        this.DGResultados.DataSource = fTipoDeCliente.Buscar(this.TBBuscar.Text, 1);
+                        //this.DGResultados.Columns[1].Visible = false;
 
                         lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGResultados.Rows.Count);
 
@@ -312,7 +313,28 @@ namespace Presentacion
 
         private void DGResultados_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            try
+            {
+                this.Digitar = false;
 
+                if (Editar == "1")
+                {
+                    //
+                    this.TBTipo.Select();
+                    this.TBIdtipo.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells["Codigo"].Value);
+
+                    //
+                    this.Botones();
+                }
+                else
+                {
+                    MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Actualizar Datos en el Sistema", "Leal Enterprise - 'Acceso Denegado' ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
 
         private void TBTipo_Enter(object sender, EventArgs e)
@@ -328,7 +350,6 @@ namespace Presentacion
             {
                 //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
                 this.TBTipo.BackColor = Color.Azure;
-                this.TBTipo.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 
@@ -345,7 +366,6 @@ namespace Presentacion
             {
                 //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
                 this.TBDescripcion.BackColor = Color.Azure;
-                this.TBDescripcion.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 
@@ -388,17 +408,41 @@ namespace Presentacion
 
         private void TBObservacion_Leave(object sender, EventArgs e)
         {
-            if (TBObservacion.Text == string.Empty)
-            {
-                //Color de texboxt cuando este posee el FOCUS Activado
-                this.TBObservacion.BackColor = Color.FromArgb(3, 155, 229);
-                this.TBObservacion.Text = Campo;
-                this.TBObservacion.ForeColor = Color.FromArgb(255, 255, 255);
-            }
+            this.TBObservacion.BackColor = Color.FromArgb(3, 155, 229);
+        }
 
-            else
+        private void TBIdtipo_TextChanged(object sender, EventArgs e)
+        {
+            try
             {
-                TBObservacion.BackColor = Color.FromArgb(3, 155, 229);
+                DataTable Datos = Negocio.fTipoDeCliente.Buscar(this.TBIdtipo.Text, 2);
+
+                //Evaluamos si  existen los Datos
+                if (Datos.Rows.Count == 0)
+                {
+                    MessageBox.Show("Actualmente no se encuentran registros en la Base de Datos", "Leal Enterprise - Consulta de Registro Invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    //Captura de Valores en la Base de Datos
+
+                    //Panel Datos Basicos
+                    Tipo = Datos.Rows[0][0].ToString();
+                    Descripcion = Datos.Rows[0][1].ToString();
+                    Observacion = Datos.Rows[0][2].ToString();
+
+                    //Se procede a completar los campos de texto segun las consulta
+                    //Realizada anteriormente en la base de datos
+
+                    //Panel Datos Basicos
+                    this.TBTipo.Text = Tipo;
+                    this.TBDescripcion.Text = Descripcion;
+                    this.TBObservacion.Text = Observacion;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
 
@@ -406,7 +450,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -473,7 +517,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -540,7 +584,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 

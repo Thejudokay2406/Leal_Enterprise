@@ -105,6 +105,7 @@
             this.TBIdtipo.Name = "TBIdtipo";
             this.TBIdtipo.Size = new System.Drawing.Size(39, 21);
             this.TBIdtipo.TabIndex = 10;
+            this.TBIdtipo.TextChanged += new System.EventHandler(this.TBIdtipo_TextChanged);
             // 
             // TBObservacion
             // 

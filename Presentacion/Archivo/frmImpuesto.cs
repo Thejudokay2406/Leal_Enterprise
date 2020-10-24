@@ -617,7 +617,7 @@ namespace Presentacion
         
         private void TBImpuesto_KeyUp(object sender, KeyEventArgs e)
         {
-            if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+            if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
             {
                 //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -678,7 +678,7 @@ namespace Presentacion
 
         private void TBValor_KeyUp(object sender, KeyEventArgs e)
         {
-            if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+            if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
             {
                 //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -739,7 +739,7 @@ namespace Presentacion
 
         private void TBCompra_KeyUp(object sender, KeyEventArgs e)
         {
-            if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+            if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
             {
                 //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -800,7 +800,7 @@ namespace Presentacion
 
         private void TBVenta_KeyUp(object sender, KeyEventArgs e)
         {
-            if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+            if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
             {
                 //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -861,7 +861,7 @@ namespace Presentacion
 
         private void TBServicio_KeyUp(object sender, KeyEventArgs e)
         {
-            if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+            if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
             {
                 //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -922,7 +922,7 @@ namespace Presentacion
 
         private void TBDescripcion_KeyUp(object sender, KeyEventArgs e)
         {
-            if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+            if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
             {
                 //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 

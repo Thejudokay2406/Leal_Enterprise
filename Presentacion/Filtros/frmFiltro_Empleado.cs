@@ -24,6 +24,13 @@ namespace Presentacion
 
         }
 
+        //private void Mostrar()
+        //{
+        //    this.dataListado.DataSource = NCliente.Mostrar();
+        //    this.OcultarColumnas();
+        //    lblTotal.Text = "Total Registros: " + Convert.ToString(dataListado.Rows.Count);
+        //}
+
         //Mensaje de confirmacion
         private void MensajeOk(string mensaje)
         {
@@ -36,27 +43,24 @@ namespace Presentacion
             MessageBox.Show(mensaje, "Leal Enterprise - Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
-
-        private void TBBuscar_Factura_TextChanged(object sender, EventArgs e)
+        private void TBBuscar_General_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                if (TBBuscar_Factura.Text != "")
+                if (TBBuscar_General.Text != "")
                 {
-                    this.DGFiltro_Resultados.DataSource = fGestion_Empleados.Buscar(this.TBBuscar_Factura.Text, 1);
-                    this.DGFiltro_Resultados.Columns[0].Visible = false;
+                    this.DGFiltro_General.DataSource = fGestion_Empleados.Buscar(this.TBBuscar_General.Text, 3);
+                    this.DGFiltro_General.Columns[0].Visible = false;
 
                     lblTotal_Facturacion.Text = "Datos Registrados: " + Convert.ToString(DGFiltro_Resultados.Rows.Count);
                     //this.DGFiltro_Resultados.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 }
                 else
                 {
-
                     //Se Limpian las Filas y Columnas de la tabla
-                    this.DGFiltro_Resultados.DataSource = null;
-                    this.DGFiltro_Resultados.Enabled = false;
-                    this.lblTotal_Facturacion.Text = "Datos Registrados: 0";
-
+                    this.DGFiltro_General.DataSource = null;
+                    this.DGFiltro_General.Enabled = false;
+                    this.DGFiltro_General.Text = "Datos Registrados: 0";
                 }
             }
             catch (Exception ex)
@@ -98,9 +102,30 @@ namespace Presentacion
 
         }
 
-        private void TBBuscar_General_TextChanged(object sender, EventArgs e)
+        private void TBBuscar_Facturacion_TextChanged(object sender, EventArgs e)
         {
+            try
+            {
+                if (TBBuscar_Facturacion.Text != "")
+                {
+                    this.DGFiltro_Resultados.DataSource = fGestion_Empleados.Buscar(this.TBBuscar_Facturacion.Text, 3);
+                    this.DGFiltro_Resultados.Columns[0].Visible = false;
 
+                    lblTotal_Facturacion.Text = "Datos Registrados: " + Convert.ToString(DGFiltro_Resultados.Rows.Count);
+                    //this.DGFiltro_Resultados.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                }
+                else
+                {
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGFiltro_Resultados.DataSource = null;
+                    this.DGFiltro_Resultados.Enabled = false;
+                    this.lblTotal_Facturacion.Text = "Datos Registrados: 0";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
     }
 }

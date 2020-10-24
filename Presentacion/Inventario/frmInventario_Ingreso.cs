@@ -695,7 +695,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     DataTable Tabla = new DataTable();
                     Tabla = fProveedor.Buscar(this.TBCodigo_Bodega.Text.Trim(), 1);
@@ -720,7 +720,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     DataTable Tabla = new DataTable();
                     Tabla = fBodega.Buscar(this.TBCodigo_Bodega.Text.Trim(), 1);

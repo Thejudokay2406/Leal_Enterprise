@@ -1581,7 +1581,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -1649,7 +1649,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -1717,7 +1717,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -1785,7 +1785,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -1853,7 +1853,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -1930,7 +1930,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
                     this.TBCompraFinal.Select();
@@ -1998,7 +1998,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     if (CBImpuesto.Checked)
                     {
@@ -2071,7 +2071,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -2139,7 +2139,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -2207,7 +2207,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -2275,7 +2275,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -2343,7 +2343,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -2413,7 +2413,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -2481,7 +2481,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -2549,7 +2549,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -2619,7 +2619,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -2687,7 +2687,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -3893,7 +3893,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     this.TBCostos_Materiales.Select();
                 }
@@ -3959,7 +3959,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     this.TBCostos_Imprtacion.Select();
                 }
@@ -4025,7 +4025,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     this.TBCostos_Seguridad.Select();
                 }
@@ -4091,7 +4091,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     this.TBCostos_Adicional.Select();
                 }
@@ -4157,7 +4157,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     this.TBCostos_Exportacion.Select();
                 }
@@ -4223,7 +4223,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     this.TBCompraPromedio.Select();
                 }
@@ -4355,7 +4355,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -4423,7 +4423,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -4489,7 +4489,7 @@ namespace Presentacion
 
         private void TBComision_Valor_KeyUp(object sender, KeyEventArgs e)
         {
-            if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+            if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
             {
                 //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -4499,7 +4499,7 @@ namespace Presentacion
 
         private void TBComision_Porcentaje_KeyUp(object sender, KeyEventArgs e)
         {
-            if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+            if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
             {
                 //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -4698,7 +4698,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     this.TBVentaMaxima_Cliente.Select();
                 }
@@ -4764,7 +4764,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     this.TBVentaMinima_Mayorista.Select();
                 }
@@ -4830,7 +4830,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     this.TBVentaMaxima_Mayorista.Select();
                 }
@@ -4896,7 +4896,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     this.TBCompraMinima_Cliente.Select();
                 }
@@ -4962,7 +4962,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     this.TBCompraMaxima_Cliente.Select();
                 }
@@ -5028,7 +5028,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     this.TBCompraMinima_Mayorista.Select();
                 }
@@ -5094,7 +5094,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     this.TBCompraMaxima_Mayorista.Select();
                 }
@@ -5160,7 +5160,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     this.TBVentaMinina_Cliente.Select();
                 }
@@ -5806,7 +5806,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     this.TBCosto_Fabricacion.Select();
                 }
@@ -5872,7 +5872,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     if (CBManejaComision.Checked)
                     {
@@ -5946,7 +5946,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -6014,7 +6014,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -6082,7 +6082,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
 
@@ -6203,7 +6203,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     if (TBCodigodeBarra.Text==string.Empty)
                     {
