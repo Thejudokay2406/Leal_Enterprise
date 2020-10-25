@@ -74,6 +74,7 @@ namespace Presentacion
             try
             {
                 frmDepartamento frmDep = frmDepartamento.GetInstancia();
+                frmCliente frmCli = frmCliente.GetInstancia();
 
                 //Variables Para Los Filtros
                 string idempleado, empleado, documento;
@@ -83,6 +84,15 @@ namespace Presentacion
                     idempleado = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
                     empleado = this.DGFiltro_Resultados.CurrentRow.Cells[2].Value.ToString();
                     frmDep.setEmpleado(idempleado, empleado);
+                    this.Hide();
+                }
+
+                if (frmCli.Filtro)
+                {
+                    idempleado = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
+                    empleado = this.DGFiltro_Resultados.CurrentRow.Cells[2].Value.ToString();
+                    documento = this.DGFiltro_Resultados.CurrentRow.Cells[3].Value.ToString();
+                    frmCli.setEmpleado(idempleado, documento, empleado);
                     this.Hide();
                 }
             }
