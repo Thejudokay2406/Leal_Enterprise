@@ -1241,6 +1241,262 @@ namespace Presentacion
 
         }
 
+        //********************** PANEL DATOS BASICOS - SALTO DE LINEA *********************************************
+
+        private void TBDat_Codigo_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBDat_Nombre_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBDat_Documento_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBDat_Telefono_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBDat_Movil_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBDat_TelefonoAux_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBDat_MovilAux_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBDat_Correo_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBDat_Pais_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBDat_Ciudad_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBDat_Departamento_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBDat_PaginaWeb_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBDat_Direccion_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBDat_Observacion_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        //********************** PANEL DATOS DE FACTURACION - SALTO DE LINEA *********************************************
+        private void TBFac_DocumentoCliente_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBFac_Cliente_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBFac_Movil_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBFac_Pais_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBFac_Ciudad_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBFac_Departamento_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBFac_Correo_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        //********************** PANEL DATOS DE CREDITO - SALTO DE LINEA *********************************************
+
+        private void TBCre_CreditoMinimo_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBCre_CreditoMaximo_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBCre_CuotaMinima_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBCre_CuotaMaxima_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBCre_Diasdecredito_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBCre_DiasDeProrroga_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBCre_DebitoMinimo_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBCre_DebitoMaximo_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBCre_Intereses_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBCre_InteresMora_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        //********************** PANEL DATOS DE DESPACHO - SALTO DE LINEA *********************************************
+
+        private void TBDes_Sucurzal_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBDes_Pais_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBDes_Ciudad_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBDes_Departamento_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBDes_Receptor_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBDes_Barrio_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBDes_Apartamento_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBDes_Movil_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBDes_Direccion_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBDes_Observacion_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        //********************** PANEL DATOS FINANCIERA - SALTO DE LINEA *********************************************
+
+        private void TBFin_NumCuenta_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        //********************** PANEL DATOS DE CONTACTO - SALTO DE LINEA *********************************************
+
+        private void TBCon_Contacto_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBCon_Ciudad_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBCon_Direccion_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBCon_Telefono_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBCon_Movil_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBCon_Correo_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TBCon_Parentesco_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
 
         private void frmCliente_FormClosing(object sender, FormClosingEventArgs e)
         {
