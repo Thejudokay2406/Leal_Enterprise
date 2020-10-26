@@ -641,7 +641,7 @@ namespace Presentacion
             {
                 if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
-                    //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
+                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
                     this.TBSucurzal.Select();
                 }
@@ -714,7 +714,7 @@ namespace Presentacion
             {
                 if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
-                    //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
+                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
                     this.TBNit.Select();
                 }
@@ -787,7 +787,7 @@ namespace Presentacion
             {
                 if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
-                    //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
+                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
                     this.TBDescripcion.Select();
                 }
@@ -860,7 +860,7 @@ namespace Presentacion
             {
                 if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
-                    //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
+                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
                     this.TBGerente.Select();
                 }
@@ -933,7 +933,7 @@ namespace Presentacion
             {
                 if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
-                    //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
+                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
                     this.TBPais.Select();
                 }
@@ -1006,7 +1006,7 @@ namespace Presentacion
             {
                 if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
-                    //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
+                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
                     this.TBCiudad.Select();
                 }
@@ -1079,7 +1079,7 @@ namespace Presentacion
             {
                 if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
-                    //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
+                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
                     this.TBDireccion.Select();
                 }
@@ -1152,7 +1152,7 @@ namespace Presentacion
             {
                 if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
-                    //Al precionar la tecla Enter se realiza Focus al Texboxt Siguiente
+                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
                     this.TBSucurzal.Select();
                 }
