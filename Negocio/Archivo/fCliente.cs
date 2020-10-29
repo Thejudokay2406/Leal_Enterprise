@@ -27,120 +27,164 @@ namespace Negocio
         public static string Guardar_DatosBasicos
             (
                 //Datos Auxiliares y Llaves Primaria
-                int estado, int idtipo,
+                int auto, int idtipo, int idgrupo,
 
                 //Datos Basicos
-                string codigo, string nombre, string documento, string telefono, string movil,
-                string correo, string pais, string ciudad, string departamento,
+                string codigo, string cliente, string documento, string telefonoprin, string movilprin, string telefonoaux, string movilaux,
+                string correo, string pais, string ciudad, string departamento, string paginaweb, string direccion, string observacion,
 
-                //
-                string pais_de, string ciudad_de, string receptor,
-                string direccionprincipal_de, string direccion01_de, string direccion02_de,
-                string telefono_de, string movil_de, string observacion_de,
+                //Panel Facturacion
+                DataTable detalle_facturacion,
 
-                //
-                string credito, string limitedecredito, string diasdecredito, string diasdeprorroga,
-                string interesesmora, string creditominimo, string creditomaximo,
-                int auto
+                //Panel Credito
+                DataTable detalle_credito,
+
+                //Panel Despacho
+                DataTable detalle_despacho,
+
+                //Panel Financiera
+                DataTable detalle_financiera,
+
+                //Panel Datos de Contacto
+                DataTable detalle_contacto,
+
+                //Datos Auxiliares
+                int facturacion_autosql, int credito_autosql, int despacho_autosql, int financiera_autosql, int contacto_autosql,
+
+                //SI VALIDA SI SE REALIZA O NO LA VALIDACION
+                int tran_faturacion, int tran_credito, int tran_despacho, int tran_financiera, int tran_contacto,
+
+                //VARIABLES PARA LA VALIDACION DE LOS CHEBOXT DEL PANEL DATOS BASICOS
+                int dat_efectivo, int dat_debito, int dat_credito, int dat_contado
             )
         {
             Conexion_Cliente Datos = new Conexion_Cliente();
             Entidad_Cliente Obj = new Entidad_Cliente();
 
-            Obj.Codigo = codigo;
+            //Datos Auxiliares y Llaves Primaria
             Obj.Idtipo = idtipo;
-            Obj.Cliente = nombre;
-            Obj.Documento = documento;
-            Obj.Movil = movil;
-            Obj.Telefono = telefono;
-            Obj.Correo = correo;
-            Obj.Pais = pais;
-            Obj.Ciudad = ciudad;
-            Obj.Departamento = departamento;
+            Obj.Idgrupo = idgrupo;
 
-            //
-            Obj.Pais_Envios = pais_de;
-            Obj.Ciudad_Envios = ciudad_de;
-            Obj.Receptor_Envios = receptor;
-            Obj.DireccionPrincipal_Envios = direccionprincipal_de;
-            Obj.Direccion01_Envios = direccion01_de;
-            Obj.Direccion02_Envios = direccion02_de;
-            Obj.Telefono_Envios = telefono_de;
-            Obj.Movil_Envios = movil_de;
-            Obj.Observacion_Envios = observacion_de;
+            //Datos Basicos
+            Obj.Dat_Codigo = codigo;
+            Obj.Dat_Cliente = cliente;
+            Obj.Dat_Documento = documento;
+            Obj.Dat_Telefono = telefonoprin;
+            Obj.Dat_Movil = movilprin;
+            Obj.Dat_TelefonoAux = telefonoaux;
+            Obj.Dat_MovilAux = movilaux;
+            Obj.Dat_Correo = correo;
+            Obj.Dat_Pais = pais;
+            Obj.Dat_Ciudad = ciudad;
+            Obj.Dat_Departamento = departamento;
+            Obj.Dat_PaginaWeb = paginaweb;
+            Obj.Dat_Direccion = direccion;
+            Obj.Dat_Observacion = observacion;
 
-            //
-            Obj.Credito = credito;
-            Obj.LimiteDeCredito = limitedecredito;
-            Obj.DiasDeCredito = diasdecredito;
-            Obj.DiasDeProrroga = diasdeprorroga;
-            Obj.InteresesPorMora = interesesmora;
-            Obj.CreditoMinimo = creditominimo;
-            Obj.CreditoMaximo = creditomaximo;
-            
-            Obj.Estado = estado;
+            //Panel Facturacion
+            Obj.Det_Facturacion = detalle_facturacion;
+
+            //Panel Credito
+            Obj.Det_Credito = detalle_credito;
+
+            //Panel Despacho
+            Obj.Det_Despacho = detalle_despacho;
+
+            //Panel Financiera
+            Obj.Det_Financiera = detalle_financiera;
+
+            //Panel Datos de Contacto
+            Obj.Det_Contacto = detalle_contacto;
+
+            //Datos Auxiliares
+            Obj.Facturacion_AutoSQL = facturacion_autosql;
+            Obj.Credito_AutoSQL = credito_autosql;
+            Obj.Despacho_AutoSQL = despacho_autosql;
+            Obj.Financiera_AutoSQL = financiera_autosql;
+            Obj.Contacto_AutoSQL = contacto_autosql;
+
+            //SI VALIDA SI SE REALIZA O NO LA VALIDACION
+            Obj.Tran_Facturacion = tran_faturacion;
+            Obj.Tran_Credito = tran_credito;
+            Obj.Tran_Despacho = tran_despacho;
+            Obj.Tran_Financiera = tran_financiera;
+            Obj.Tran_Contacto = tran_contacto;
+
+            //VARIABLES PARA LA VALIDACION DE LOS CHEBOXT DEL PANEL DATOS BASICOS
+            Obj.Dat_Efectivo = dat_efectivo;
+            Obj.Dat_Debito = dat_debito;
+            Obj.Dat_Credito = dat_credito;
+            Obj.Dat_Contado = dat_contado;
+
+            //Variables
             Obj.Auto = auto;
+
             return Datos.Guardar_DatosBasicos(Obj);
         }
 
         public static string Editar_DatosBasicos
             (
                 //Datos Auxiliares y Llaves Primaria
-                int estado, int idcliente, int idtipo,
+                int auto, int idcliente, int idtipo, int idgrupo,
 
                 //Datos Basicos
-                string codigo, string nombre, string documento, string telefono, string movil,
-                string correo, string pais, string ciudad, string departamento,
+                string codigo, string cliente, string documento, string telefonoprin, string movilprin, string telefonoaux, string movilaux,
+                string correo, string pais, string ciudad, string departamento, string paginaweb, string direccion, string observacion
+            )
+        {
+            Conexion_Cliente Datos = new Conexion_Cliente();
+            Entidad_Cliente Obj = new Entidad_Cliente();
 
-                //
-                string pais_de, string ciudad_de, string receptor,
-                string direccionprincipal_de, string direccion01_de, string direccion02_de,
-                string telefono_de, string movil_de, string observacion_de,
+            //Datos Auxiliares y Llaves Primaria
+            Obj.Idcliente = idcliente;
+            Obj.Idcliente = idcliente;
+            Obj.Idtipo = idtipo;
+            Obj.Idgrupo = idgrupo;
 
+            //Datos Basicos
+            Obj.Dat_Codigo = codigo;
+            Obj.Dat_Cliente = cliente;
+            Obj.Dat_Documento = documento;
+            Obj.Dat_Telefono = telefonoprin;
+            Obj.Dat_Movil = movilprin;
+            Obj.Dat_TelefonoAux = telefonoaux;
+            Obj.Dat_MovilAux = movilaux;
+            Obj.Dat_Correo = correo;
+            Obj.Dat_Pais = pais;
+            Obj.Dat_Ciudad = ciudad;
+            Obj.Dat_Departamento = departamento;
+            Obj.Dat_PaginaWeb = paginaweb;
+            Obj.Dat_Direccion = direccion;
+            Obj.Dat_Observacion = observacion;
+
+            return Datos.Editar_DatosBasicos(Obj);
+        }
+
+        public static string Editar_Ubicacion
+            (
                 //
-                string credito, string limitedecredito, string diasdecredito, string diasdeprorroga,
-                string interesesmora, string creditominimo, string creditomaximo,
+                int idproducto,
+
+                //Panel Codigo de Barra
+                string ubicacion, string estante, string nivel,
+
+                //Datos Auxiliares
                 int auto
             )
         {
             Conexion_Cliente Datos = new Conexion_Cliente();
             Entidad_Cliente Obj = new Entidad_Cliente();
 
-            Obj.Idcliente = idcliente;
-            Obj.Codigo = codigo;
-            Obj.Idtipo = idtipo;
-            Obj.Cliente = nombre;
-            Obj.Documento = documento;
-            Obj.Movil = movil;
-            Obj.Telefono = telefono;
-            Obj.Correo = correo;
-            Obj.Pais = pais;
-            Obj.Ciudad = ciudad;
-            Obj.Departamento = departamento;
+            ////Panel Ubicacion
+            //Obj.Idproducto = idproducto;
+            //Obj.Ubicacion = ubicacion;
+            //Obj.Estante = estante;
+            //Obj.Nivel = nivel;
 
-            //
-            Obj.Pais_Envios = pais_de;
-            Obj.Ciudad_Envios = ciudad_de;
-            Obj.Receptor_Envios = receptor;
-            Obj.DireccionPrincipal_Envios = direccionprincipal_de;
-            Obj.Direccion01_Envios = direccion01_de;
-            Obj.Direccion02_Envios = direccion02_de;
-            Obj.Telefono_Envios = telefono_de;
-            Obj.Movil_Envios = movil_de;
-            Obj.Observacion_Envios = observacion_de;
+            ////Datos Auxiliares
+            //Obj.AutoDet_Ubicacion = auto;
 
-            //
-            Obj.Credito = credito;
-            Obj.LimiteDeCredito = limitedecredito;
-            Obj.DiasDeCredito = diasdecredito;
-            Obj.DiasDeProrroga = diasdeprorroga;
-            Obj.InteresesPorMora = interesesmora;
-            Obj.CreditoMinimo = creditominimo;
-            Obj.CreditoMaximo = creditomaximo;
-
-            Obj.Estado = estado;
-            Obj.Auto = auto;
-            return Datos.Editar_DatosBasicos(Obj);
+            return Datos.Editar_Ubicacion(Obj);
         }
 
         public static string Eliminar(int IDEliminar_SQL, int auto)
