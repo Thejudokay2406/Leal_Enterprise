@@ -54,7 +54,7 @@ namespace Presentacion
         // ******************************************* Parametros para AutoCompletar los Texboxt *********************************************************
 
         //Panel Datos Basicos
-        private string Codigo, Idtipo, Nombre, Documento, Telefono, Movil, Correo, Pais, Ciudad, Departamento = "";
+        private string Idcliente, Codigo, Idtipo, Idgrupo, Nombre, Documento, Telefono, Movil, Correo, Pais, Ciudad, Departamento = "";
 
         //Panel Datos de Envio
         private string PaisDeEnvio, CiudadDeEnvio, Receptor, DireccionPrincipal, TelefonoDeEnvio, MovilDeEnvio, Observacion = "";
@@ -74,6 +74,7 @@ namespace Presentacion
             this.Habilitar();
             this.Auto_Combobox();
             this.Diseño_TablasGenerales();
+            this.AutoIncrementable_SQL();
 
             //Focus a Texboxt y Combobox
             this.TBDat_Nombre.Select();
@@ -461,6 +462,7 @@ namespace Presentacion
             {
                 //Panel de Facturacion
                 this.DtDetalle_Facturacion = new DataTable();
+                this.DtDetalle_Facturacion.Columns.Add("Idcliente", System.Type.GetType("System.Int32"));
                 this.DtDetalle_Facturacion.Columns.Add("Idempleado", System.Type.GetType("System.Int32"));
                 this.DtDetalle_Facturacion.Columns.Add("Codigo", System.Type.GetType("System.String"));
                 this.DtDetalle_Facturacion.Columns.Add("Empleado", System.Type.GetType("System.String"));
@@ -476,28 +478,28 @@ namespace Presentacion
 
                 //Panel de Credito
                 this.DtDetalle_Credito = new DataTable();
-                this.DtDetalle_Credito.Columns.Add("Idcredito", System.Type.GetType("System.Int32"));
+                this.DtDetalle_Credito.Columns.Add("Idcliente", System.Type.GetType("System.Int32"));
                 this.DtDetalle_Credito.Columns.Add("Valor", System.Type.GetType("System.String"));
-                this.DtDetalle_Credito.Columns.Add("Cuota", System.Type.GetType("System.String"));
-                this.DtDetalle_Credito.Columns.Add("T. Mensual", System.Type.GetType("System.String"));
-                this.DtDetalle_Credito.Columns.Add("T. Anual", System.Type.GetType("System.String"));
-                this.DtDetalle_Credito.Columns.Add("Solicitud", System.Type.GetType("System.String"));
+                this.DtDetalle_Credito.Columns.Add("Cuota", System.Type.GetType("System.Int32"));
+                this.DtDetalle_Credito.Columns.Add("T. Mensual", System.Type.GetType("System.Int32"));
+                this.DtDetalle_Credito.Columns.Add("T. Anual", System.Type.GetType("System.Int32"));
+                this.DtDetalle_Credito.Columns.Add("Solicitud", System.Type.GetType("System.DateTime"));
                 this.DtDetalle_Credito.Columns.Add("Emisión", System.Type.GetType("System.DateTime"));
-                this.DtDetalle_Credito.Columns.Add("Días", System.Type.GetType("System.DateTime"));
-                this.DtDetalle_Credito.Columns.Add("Mora", System.Type.GetType("System.String"));
+                this.DtDetalle_Credito.Columns.Add("Días", System.Type.GetType("System.Int32"));
+                this.DtDetalle_Credito.Columns.Add("Mora", System.Type.GetType("System.Int32"));
                 //Captura de los Datos en las Tablas
                 this.DGDetalle_Credito.DataSource = this.DtDetalle_Credito;
 
                 //Panel de Envio - Despacho
                 this.DtDetalle_Despacho = new DataTable();
-                //this.DtDetalle_Despacho.Columns.Add("Idproducto", System.Type.GetType("System.Int32"));
+                this.DtDetalle_Despacho.Columns.Add("Idcliente", System.Type.GetType("System.Int32"));
                 this.DtDetalle_Despacho.Columns.Add("Sucurzal", System.Type.GetType("System.String"));
                 this.DtDetalle_Despacho.Columns.Add("País", System.Type.GetType("System.String"));
                 this.DtDetalle_Despacho.Columns.Add("Ciudad", System.Type.GetType("System.String"));
                 this.DtDetalle_Despacho.Columns.Add("Departamento", System.Type.GetType("System.String"));
-                this.DtDetalle_Despacho.Columns.Add("Rceptor", System.Type.GetType("System.String"));
+                this.DtDetalle_Despacho.Columns.Add("Receptor", System.Type.GetType("System.String"));
                 this.DtDetalle_Despacho.Columns.Add("Barrio", System.Type.GetType("System.String"));
-                this.DtDetalle_Despacho.Columns.Add("Departamento", System.Type.GetType("System.String"));
+                this.DtDetalle_Despacho.Columns.Add("Apartamento", System.Type.GetType("System.String"));
                 this.DtDetalle_Despacho.Columns.Add("Móvil", System.Type.GetType("System.String"));
                 this.DtDetalle_Despacho.Columns.Add("Dirección", System.Type.GetType("System.String"));
                 this.DtDetalle_Despacho.Columns.Add("Observación", System.Type.GetType("System.String"));
@@ -506,9 +508,8 @@ namespace Presentacion
 
                 //Panel Financiera
                 this.DtDetalle_Financiera = new DataTable();
+                this.DtDetalle_Financiera.Columns.Add("Idcliente", System.Type.GetType("System.Int32"));
                 this.DtDetalle_Financiera.Columns.Add("Idbanco", System.Type.GetType("System.Int32"));
-                this.DtDetalle_Financiera.Columns.Add("Codigo", System.Type.GetType("System.String"));
-                this.DtDetalle_Financiera.Columns.Add("Banco", System.Type.GetType("System.String"));
                 this.DtDetalle_Financiera.Columns.Add("Cuenta", System.Type.GetType("System.String"));
                 this.DtDetalle_Financiera.Columns.Add("Nº. de Cuenta", System.Type.GetType("System.String"));
                 //Captura de los Datos en las Tablas
@@ -516,6 +517,7 @@ namespace Presentacion
 
                 //Panel Datos de Contacto
                 this.DtDetalle_Contacto = new DataTable();
+                this.DtDetalle_Contacto.Columns.Add("Idcliente", System.Type.GetType("System.Int32"));
                 this.DtDetalle_Contacto.Columns.Add("Contacto", System.Type.GetType("System.String"));
                 this.DtDetalle_Contacto.Columns.Add("Ciudad", System.Type.GetType("System.String"));
                 this.DtDetalle_Contacto.Columns.Add("Dirección", System.Type.GetType("System.String"));
@@ -525,6 +527,33 @@ namespace Presentacion
                 this.DtDetalle_Contacto.Columns.Add("Parentesco", System.Type.GetType("System.String"));
                 //Captura de los Datos en las Tablas
                 this.DGDetalle_Contacto.DataSource = this.DtDetalle_Contacto;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void AutoIncrementable_SQL()
+        {
+            try
+            {
+                DataTable Datos = Negocio.fCliente.AutoComplementar_SQL(0);
+                //Evaluamos si  existen los Datos
+                if (Datos.Rows.Count == 0)
+                {
+                    MessageBox.Show("Actualmente no se Encuentran Productos Registrados en la Base de Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.TBIdcliente_AutoSQL.Text = "1";
+                }
+                else
+                {
+                    //Captura de Valores en la Base de Datos
+
+                    Idcliente = Datos.Rows[0][0].ToString();
+
+                    //Se procede a completar los campos de texto segun las consulta realizada anteriormente en la base de datos
+                    this.TBIdcliente_AutoSQL.Text = Idcliente;
+                }
             }
             catch (Exception ex)
             {
@@ -559,6 +588,8 @@ namespace Presentacion
 
                 else
                 {
+                    this.Validaciones_SQL();
+
                     if (this.Digitar)
                     {
                         rptaDatosBasicos = fCliente.Guardar_DatosBasicos

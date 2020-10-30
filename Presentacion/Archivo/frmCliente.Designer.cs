@@ -193,6 +193,7 @@
             this.DGResultados = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.TBBuscar = new System.Windows.Forms.TextBox();
+            this.TBIdcliente_AutoSQL = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.TCPrincipal.SuspendLayout();
             this.TPDatosBasicos.SuspendLayout();
@@ -212,6 +213,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.TBIdcliente_AutoSQL);
             this.groupBox1.Controls.Add(this.TBIdbanco);
             this.groupBox1.Controls.Add(this.TBIdempleado);
             this.groupBox1.Controls.Add(this.TCPrincipal);
@@ -873,6 +875,7 @@
             // 
             // DGDetalle_Facturacion
             // 
+            this.DGDetalle_Facturacion.AllowUserToAddRows = false;
             this.DGDetalle_Facturacion.AllowUserToDeleteRows = false;
             this.DGDetalle_Facturacion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DGDetalle_Facturacion.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
@@ -1372,6 +1375,7 @@
             // 
             // DGDetalle_Despacho
             // 
+            this.DGDetalle_Despacho.AllowUserToAddRows = false;
             this.DGDetalle_Despacho.AllowUserToDeleteRows = false;
             this.DGDetalle_Despacho.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DGDetalle_Despacho.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
@@ -1646,6 +1650,7 @@
             // 
             // DGDetalle_Financiera
             // 
+            this.DGDetalle_Financiera.AllowUserToAddRows = false;
             this.DGDetalle_Financiera.AllowUserToDeleteRows = false;
             this.DGDetalle_Financiera.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DGDetalle_Financiera.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
@@ -1814,6 +1819,7 @@
             // 
             // DGDetalle_Contacto
             // 
+            this.DGDetalle_Contacto.AllowUserToAddRows = false;
             this.DGDetalle_Contacto.AllowUserToDeleteRows = false;
             this.DGDetalle_Contacto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DGDetalle_Contacto.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
@@ -2082,6 +2088,13 @@
             this.TBBuscar.Size = new System.Drawing.Size(384, 21);
             this.TBBuscar.TabIndex = 3;
             // 
+            // TBIdcliente_AutoSQL
+            // 
+            this.TBIdcliente_AutoSQL.Location = new System.Drawing.Point(370, 428);
+            this.TBIdcliente_AutoSQL.Name = "TBIdcliente_AutoSQL";
+            this.TBIdcliente_AutoSQL.Size = new System.Drawing.Size(100, 21);
+            this.TBIdcliente_AutoSQL.TabIndex = 6;
+            // 
             // frmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2293,5 +2306,6 @@
         private System.Windows.Forms.Button btnEliminar_Credito;
         private System.Windows.Forms.Button btnAgregar_Credito;
         private System.Windows.Forms.DataGridView DGDetalle_Credito;
+        private System.Windows.Forms.TextBox TBIdcliente_AutoSQL;
     }
 }

@@ -24,6 +24,12 @@ namespace Negocio
             return Datos.Buscar(Filtro, auto);
         }
 
+        public static DataTable AutoComplementar_SQL(int auto)
+        {
+            Conexion_Cliente Datos = new Conexion_Cliente();
+            return Datos.AutoComplementar_SQL(auto);
+        }
+
         public static string Guardar_DatosBasicos
             (
                 //Datos Auxiliares y Llaves Primaria
@@ -55,7 +61,7 @@ namespace Negocio
                 int tran_faturacion, int tran_credito, int tran_despacho, int tran_financiera, int tran_contacto,
 
                 //VARIABLES PARA LA VALIDACION DE LOS CHEBOXT DEL PANEL DATOS BASICOS
-                int dat_efectivo, int dat_debito, int dat_credito, int dat_contado
+                int efectivo, int debito, int credito, int contado
             )
         {
             Conexion_Cliente Datos = new Conexion_Cliente();
@@ -111,10 +117,10 @@ namespace Negocio
             Obj.Tran_Contacto = tran_contacto;
 
             //VARIABLES PARA LA VALIDACION DE LOS CHEBOXT DEL PANEL DATOS BASICOS
-            Obj.Dat_Efectivo = dat_efectivo;
-            Obj.Dat_Debito = dat_debito;
-            Obj.Dat_Credito = dat_credito;
-            Obj.Dat_Contado = dat_contado;
+            Obj.Dat_Efectivo = efectivo;
+            Obj.Dat_Debito = debito;
+            Obj.Dat_Credito = credito;
+            Obj.Dat_Contado = contado;
 
             //Variables
             Obj.Auto = auto;

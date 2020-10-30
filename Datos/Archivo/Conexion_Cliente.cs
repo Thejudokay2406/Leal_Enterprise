@@ -72,6 +72,37 @@ namespace Datos
             }
         }
 
+        public DataTable AutoComplementar_SQL(int Auto)
+        {
+            SqlDataReader Resultado;
+            DataTable Tabla = new DataTable();
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
+                SqlCommand Comando = new SqlCommand("Consulta.Cliente", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
+
+                Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Auto;
+
+                SqlCon.Open();
+                Resultado = Comando.ExecuteReader();
+                Tabla.Load(Resultado);
+                return Tabla;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open)
+                {
+                    SqlCon.Close();
+                }
+            }
+        }
+
         public string Guardar_DatosBasicos(Entidad_Cliente Obj)
         {
             string Rpta = "";
@@ -84,9 +115,22 @@ namespace Datos
 
                 //Datos Auxiliares y Llaves Primarias
                 Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Obj.Auto;
+                Comando.Parameters.Add("@Contacto_AutoSQL", SqlDbType.Int).Value = Obj.Contacto_AutoSQL;
+                Comando.Parameters.Add("@Credito_AutoSQL", SqlDbType.Int).Value = Obj.Credito_AutoSQL;
+                Comando.Parameters.Add("@Envio_AutoSQL", SqlDbType.Int).Value = Obj.Despacho_AutoSQL;
+                Comando.Parameters.Add("@Facturacion_AutoSQL", SqlDbType.Int).Value = Obj.Facturacion_AutoSQL;
+                Comando.Parameters.Add("@Financiera_AutoSQL", SqlDbType.Int).Value = Obj.Financiera_AutoSQL;
+
                 Comando.Parameters.Add("@Idgrupo", SqlDbType.Int).Value = Obj.Idgrupo;
                 Comando.Parameters.Add("@Idtipo", SqlDbType.Int).Value = Obj.Idtipo;
-                
+
+                //Variables Para Ejecutar Si o No Las Transacciones
+                Comando.Parameters.Add("@Tran_Contacto", SqlDbType.Int).Value = Obj.Tran_Contacto;
+                Comando.Parameters.Add("@Tran_Credito", SqlDbType.Int).Value = Obj.Tran_Credito;
+                Comando.Parameters.Add("@Tran_Envio", SqlDbType.Int).Value = Obj.Tran_Despacho;
+                Comando.Parameters.Add("@Tran_Facturacion", SqlDbType.Int).Value = Obj.Tran_Facturacion;
+                Comando.Parameters.Add("@Tran_Financiera", SqlDbType.Int).Value = Obj.Tran_Financiera;
+
                 Comando.Parameters.Add("@Codigo", SqlDbType.VarChar).Value = Obj.Dat_Codigo;
                 Comando.Parameters.Add("@Nombre", SqlDbType.VarChar).Value = Obj.Dat_Cliente;
                 Comando.Parameters.Add("@Documento", SqlDbType.VarChar).Value = Obj.Dat_Documento;
@@ -106,18 +150,11 @@ namespace Datos
                 Comando.Parameters.Add("@Debito", SqlDbType.Int).Value = Obj.Dat_Debito;
                 Comando.Parameters.Add("@Contado", SqlDbType.Int).Value = Obj.Dat_Contado;
 
-                //Variables Para Ejecutar Si o No Las Transacciones
-                Comando.Parameters.Add("@Tran_Contacto", SqlDbType.Int).Value = Obj.Tran_Contacto;
-                Comando.Parameters.Add("@Tran_Credito", SqlDbType.Int).Value = Obj.Tran_Credito;
-                Comando.Parameters.Add("@Tran_Despacho", SqlDbType.Int).Value = Obj.Tran_Despacho;
-                Comando.Parameters.Add("@Tran_Facturacion", SqlDbType.Int).Value = Obj.Tran_Facturacion;
-                Comando.Parameters.Add("@Tran_Financiera", SqlDbType.Int).Value = Obj.Tran_Financiera;
-
                 //Panel Facturacion -- Campos Obligatorios
                 Comando.Parameters.Add("@Det_Facturacion", SqlDbType.Structured).Value = Obj.Det_Facturacion;
 
                 //Panel Envio Despacho -- Campos NO Obligatorios
-                Comando.Parameters.Add("@Det_Despacho", SqlDbType.Structured).Value = Obj.Det_Despacho;
+                Comando.Parameters.Add("@Det_Envio", SqlDbType.Structured).Value = Obj.Det_Despacho;
 
                 //Panel Credito -- Campos NO Obligatorios
                 Comando.Parameters.Add("@Det_Credito", SqlDbType.Structured).Value = Obj.Det_Credito;
