@@ -18,6 +18,36 @@ namespace Negocio
             return Datos.Lista();
         }
 
+        public static DataTable Lista_Contacto(int auto, int idcliente)
+        {
+            Conexion_Cliente Datos = new Conexion_Cliente();
+            return Datos.Lista_Contacto(auto, idcliente);
+        }
+
+        public static DataTable Lista_Credito(int auto, int idcliente)
+        {
+            Conexion_Cliente Datos = new Conexion_Cliente();
+            return Datos.Lista_Credito(auto, idcliente);
+        }
+
+        public static DataTable Lista_Despacho(int auto, int idcliente)
+        {
+            Conexion_Cliente Datos = new Conexion_Cliente();
+            return Datos.Lista_Despacho(auto, idcliente);
+        }
+
+        public static DataTable Lista_Facturacion(int auto, int idcliente)
+        {
+            Conexion_Cliente Datos = new Conexion_Cliente();
+            return Datos.Lista_Facturacion(auto, idcliente);
+        }
+
+        public static DataTable Lista_Financiera(int auto, int idcliente)
+        {
+            Conexion_Cliente Datos = new Conexion_Cliente();
+            return Datos.Lista_Financiera(auto, idcliente);
+        }
+
         public static DataTable Buscar(string Filtro, int auto)
         {
             Conexion_Cliente Datos = new Conexion_Cliente();
@@ -169,7 +199,7 @@ namespace Negocio
         public static string Editar_Ubicacion
             (
                 //
-                int idproducto,
+                int idcliente,
 
                 //Panel Codigo de Barra
                 string ubicacion, string estante, string nivel,
@@ -182,7 +212,7 @@ namespace Negocio
             Entidad_Cliente Obj = new Entidad_Cliente();
 
             ////Panel Ubicacion
-            //Obj.Idproducto = idproducto;
+            //Obj.idcliente = idcliente;
             //Obj.Ubicacion = ubicacion;
             //Obj.Estante = estante;
             //Obj.Nivel = nivel;
@@ -198,5 +228,37 @@ namespace Negocio
             Conexion_Cliente Datos = new Conexion_Cliente();
             return Datos.Eliminar(IDEliminar_SQL, auto);
         }
+
+        public static string Eliminar_Contacto(int Idcliente, int Iddetalle, int Auto)
+        {
+            Conexion_Cliente Datos = new Conexion_Cliente();
+            return Datos.Eliminar_Contacto(Idcliente, Iddetalle, Auto);
+        }
+
+        public static string Eliminar_Credito(int Idcliente, int Iddetalle, int Auto)
+        {
+            Conexion_Cliente Datos = new Conexion_Cliente();
+            return Datos.Eliminar_Credito(Idcliente, Iddetalle, Auto);
+        }
+
+        public static string Eliminar_Despacho(int Idcliente, int Iddetalle, int Auto)
+        {
+            Conexion_Cliente Datos = new Conexion_Cliente();
+            return Datos.Eliminar_Despacho(Idcliente, Iddetalle, Auto);
+        }
+
+        public static string Eliminar_Facturacion(int Idcliente, int Iddetalle, int Auto)
+        {
+            Conexion_Cliente Datos = new Conexion_Cliente();
+            return Datos.Eliminar_Facturacion(Idcliente, Iddetalle, Auto);
+        }
+
+        public static string Eliminar_Financiera(int Idcliente, int Iddetalle, int Auto)
+        {
+            Conexion_Cliente Datos = new Conexion_Cliente();
+            return Datos.Eliminar_Financiera(Idcliente, Iddetalle, Auto);
+        }
+
+
     }
 }

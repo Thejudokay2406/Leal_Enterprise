@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCliente));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TBIdcliente_AutoSQL = new System.Windows.Forms.TextBox();
             this.TBIdbanco = new System.Windows.Forms.TextBox();
             this.TBIdempleado = new System.Windows.Forms.TextBox();
             this.TCPrincipal = new System.Windows.Forms.TabControl();
@@ -193,7 +194,11 @@
             this.DGResultados = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.TBBuscar = new System.Windows.Forms.TextBox();
-            this.TBIdcliente_AutoSQL = new System.Windows.Forms.TextBox();
+            this.btnModificar_Facturacion = new System.Windows.Forms.Button();
+            this.btnModificar_Credito = new System.Windows.Forms.Button();
+            this.btnModificar_Despacho = new System.Windows.Forms.Button();
+            this.btnModificar_Financiera = new System.Windows.Forms.Button();
+            this.btnModificar_Contacto = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.TCPrincipal.SuspendLayout();
             this.TPDatosBasicos.SuspendLayout();
@@ -226,6 +231,13 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Leal Enterprise - Registro de Clientes";
+            // 
+            // TBIdcliente_AutoSQL
+            // 
+            this.TBIdcliente_AutoSQL.Location = new System.Drawing.Point(370, 428);
+            this.TBIdcliente_AutoSQL.Name = "TBIdcliente_AutoSQL";
+            this.TBIdcliente_AutoSQL.Size = new System.Drawing.Size(100, 21);
+            this.TBIdcliente_AutoSQL.TabIndex = 6;
             // 
             // TBIdbanco
             // 
@@ -802,6 +814,7 @@
             // 
             // TPFacturacion
             // 
+            this.TPFacturacion.Controls.Add(this.btnModificar_Facturacion);
             this.TPFacturacion.Controls.Add(this.lblTotal_Facturacion);
             this.TPFacturacion.Controls.Add(this.btnEliminar_Facturacion);
             this.TPFacturacion.Controls.Add(this.btnAgregar_Facturacion);
@@ -864,7 +877,7 @@
             this.btnAgregar_Facturacion.FlatAppearance.BorderSize = 0;
             this.btnAgregar_Facturacion.Image = global::Presentacion.Botones.btnAgregar;
             this.btnAgregar_Facturacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar_Facturacion.Location = new System.Drawing.Point(459, 333);
+            this.btnAgregar_Facturacion.Location = new System.Drawing.Point(363, 333);
             this.btnAgregar_Facturacion.Name = "btnAgregar_Facturacion";
             this.btnAgregar_Facturacion.Size = new System.Drawing.Size(90, 30);
             this.btnAgregar_Facturacion.TabIndex = 162;
@@ -1069,6 +1082,7 @@
             // 
             // TPCredito
             // 
+            this.TPCredito.Controls.Add(this.btnModificar_Credito);
             this.TPCredito.Controls.Add(this.lblTotal_Credito);
             this.TPCredito.Controls.Add(this.btnEliminar_Credito);
             this.TPCredito.Controls.Add(this.btnAgregar_Credito);
@@ -1129,7 +1143,7 @@
             this.btnAgregar_Credito.FlatAppearance.BorderSize = 0;
             this.btnAgregar_Credito.Image = global::Presentacion.Botones.btnAgregar;
             this.btnAgregar_Credito.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar_Credito.Location = new System.Drawing.Point(460, 333);
+            this.btnAgregar_Credito.Location = new System.Drawing.Point(364, 333);
             this.btnAgregar_Credito.Name = "btnAgregar_Credito";
             this.btnAgregar_Credito.Size = new System.Drawing.Size(90, 30);
             this.btnAgregar_Credito.TabIndex = 168;
@@ -1294,12 +1308,12 @@
             this.TBCre_CreditoMinimo.Name = "TBCre_CreditoMinimo";
             this.TBCre_CreditoMinimo.Size = new System.Drawing.Size(171, 21);
             this.TBCre_CreditoMinimo.TabIndex = 33;
-            this.TBCre_CreditoMinimo.Text = "012345678912345678";
             this.TBCre_CreditoMinimo.Enter += new System.EventHandler(this.TBCre_CreditoMinimo_Enter);
             this.TBCre_CreditoMinimo.Leave += new System.EventHandler(this.TBCre_CreditoMinimo_Leave);
             // 
             // TPDatosDeEnvio
             // 
+            this.TPDatosDeEnvio.Controls.Add(this.btnModificar_Despacho);
             this.TPDatosDeEnvio.Controls.Add(this.lblTotal_Despacho);
             this.TPDatosDeEnvio.Controls.Add(this.btnEliminar_Despacho);
             this.TPDatosDeEnvio.Controls.Add(this.btnAgregar_Despacho);
@@ -1364,7 +1378,7 @@
             this.btnAgregar_Despacho.FlatAppearance.BorderSize = 0;
             this.btnAgregar_Despacho.Image = global::Presentacion.Botones.btnAgregar;
             this.btnAgregar_Despacho.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar_Despacho.Location = new System.Drawing.Point(460, 333);
+            this.btnAgregar_Despacho.Location = new System.Drawing.Point(364, 333);
             this.btnAgregar_Despacho.Name = "btnAgregar_Despacho";
             this.btnAgregar_Despacho.Size = new System.Drawing.Size(90, 30);
             this.btnAgregar_Despacho.TabIndex = 148;
@@ -1581,6 +1595,7 @@
             // 
             // TPDatosFinancieros
             // 
+            this.TPDatosFinancieros.Controls.Add(this.btnModificar_Financiera);
             this.TPDatosFinancieros.Controls.Add(this.TBFin_CodigoBanco);
             this.TPDatosFinancieros.Controls.Add(this.lblTotal_Financiera);
             this.TPDatosFinancieros.Controls.Add(this.btnEliminar_Financiera);
@@ -1639,7 +1654,7 @@
             this.btnAgregar_Financiera.FlatAppearance.BorderSize = 0;
             this.btnAgregar_Financiera.Image = global::Presentacion.Botones.btnAgregar;
             this.btnAgregar_Financiera.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar_Financiera.Location = new System.Drawing.Point(460, 333);
+            this.btnAgregar_Financiera.Location = new System.Drawing.Point(364, 333);
             this.btnAgregar_Financiera.Name = "btnAgregar_Financiera";
             this.btnAgregar_Financiera.Size = new System.Drawing.Size(90, 30);
             this.btnAgregar_Financiera.TabIndex = 167;
@@ -1740,6 +1755,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnModificar_Contacto);
             this.tabPage1.Controls.Add(this.TBCon_Parentesco);
             this.tabPage1.Controls.Add(this.lblTotal_Contacto);
             this.tabPage1.Controls.Add(this.btnEliminar_Contacto);
@@ -1808,7 +1824,7 @@
             this.btnAgregar_Contacto.FlatAppearance.BorderSize = 0;
             this.btnAgregar_Contacto.Image = global::Presentacion.Botones.btnAgregar;
             this.btnAgregar_Contacto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar_Contacto.Location = new System.Drawing.Point(460, 333);
+            this.btnAgregar_Contacto.Location = new System.Drawing.Point(364, 333);
             this.btnAgregar_Contacto.Name = "btnAgregar_Contacto";
             this.btnAgregar_Contacto.Size = new System.Drawing.Size(90, 30);
             this.btnAgregar_Contacto.TabIndex = 166;
@@ -2088,12 +2104,85 @@
             this.TBBuscar.Size = new System.Drawing.Size(384, 21);
             this.TBBuscar.TabIndex = 3;
             // 
-            // TBIdcliente_AutoSQL
+            // btnModificar_Facturacion
             // 
-            this.TBIdcliente_AutoSQL.Location = new System.Drawing.Point(370, 428);
-            this.TBIdcliente_AutoSQL.Name = "TBIdcliente_AutoSQL";
-            this.TBIdcliente_AutoSQL.Size = new System.Drawing.Size(100, 21);
-            this.TBIdcliente_AutoSQL.TabIndex = 6;
+            this.btnModificar_Facturacion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificar_Facturacion.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnModificar_Facturacion.FlatAppearance.BorderSize = 0;
+            this.btnModificar_Facturacion.Image = global::Presentacion.Botones.btnEditar;
+            this.btnModificar_Facturacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModificar_Facturacion.Location = new System.Drawing.Point(459, 333);
+            this.btnModificar_Facturacion.Name = "btnModificar_Facturacion";
+            this.btnModificar_Facturacion.Size = new System.Drawing.Size(90, 30);
+            this.btnModificar_Facturacion.TabIndex = 165;
+            this.btnModificar_Facturacion.Text = "Modificar";
+            this.btnModificar_Facturacion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnModificar_Facturacion.UseVisualStyleBackColor = true;
+            this.btnModificar_Facturacion.Click += new System.EventHandler(this.btnModificar_Facturacion_Click);
+            // 
+            // btnModificar_Credito
+            // 
+            this.btnModificar_Credito.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificar_Credito.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnModificar_Credito.FlatAppearance.BorderSize = 0;
+            this.btnModificar_Credito.Image = global::Presentacion.Botones.btnEditar;
+            this.btnModificar_Credito.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModificar_Credito.Location = new System.Drawing.Point(460, 333);
+            this.btnModificar_Credito.Name = "btnModificar_Credito";
+            this.btnModificar_Credito.Size = new System.Drawing.Size(90, 30);
+            this.btnModificar_Credito.TabIndex = 171;
+            this.btnModificar_Credito.Text = "Modificar";
+            this.btnModificar_Credito.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnModificar_Credito.UseVisualStyleBackColor = true;
+            this.btnModificar_Credito.Click += new System.EventHandler(this.btnModificar_Credito_Click);
+            // 
+            // btnModificar_Despacho
+            // 
+            this.btnModificar_Despacho.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificar_Despacho.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnModificar_Despacho.FlatAppearance.BorderSize = 0;
+            this.btnModificar_Despacho.Image = global::Presentacion.Botones.btnEditar;
+            this.btnModificar_Despacho.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModificar_Despacho.Location = new System.Drawing.Point(460, 333);
+            this.btnModificar_Despacho.Name = "btnModificar_Despacho";
+            this.btnModificar_Despacho.Size = new System.Drawing.Size(90, 30);
+            this.btnModificar_Despacho.TabIndex = 172;
+            this.btnModificar_Despacho.Text = "Modificar";
+            this.btnModificar_Despacho.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnModificar_Despacho.UseVisualStyleBackColor = true;
+            this.btnModificar_Despacho.Click += new System.EventHandler(this.btnModificar_Despacho_Click);
+            // 
+            // btnModificar_Financiera
+            // 
+            this.btnModificar_Financiera.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificar_Financiera.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnModificar_Financiera.FlatAppearance.BorderSize = 0;
+            this.btnModificar_Financiera.Image = global::Presentacion.Botones.btnEditar;
+            this.btnModificar_Financiera.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModificar_Financiera.Location = new System.Drawing.Point(460, 333);
+            this.btnModificar_Financiera.Name = "btnModificar_Financiera";
+            this.btnModificar_Financiera.Size = new System.Drawing.Size(90, 30);
+            this.btnModificar_Financiera.TabIndex = 172;
+            this.btnModificar_Financiera.Text = "Modificar";
+            this.btnModificar_Financiera.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnModificar_Financiera.UseVisualStyleBackColor = true;
+            this.btnModificar_Financiera.Click += new System.EventHandler(this.btnModificar_Financiera_Click);
+            // 
+            // btnModificar_Contacto
+            // 
+            this.btnModificar_Contacto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificar_Contacto.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnModificar_Contacto.FlatAppearance.BorderSize = 0;
+            this.btnModificar_Contacto.Image = global::Presentacion.Botones.btnEditar;
+            this.btnModificar_Contacto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModificar_Contacto.Location = new System.Drawing.Point(460, 333);
+            this.btnModificar_Contacto.Name = "btnModificar_Contacto";
+            this.btnModificar_Contacto.Size = new System.Drawing.Size(90, 30);
+            this.btnModificar_Contacto.TabIndex = 172;
+            this.btnModificar_Contacto.Text = "Modificar";
+            this.btnModificar_Contacto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnModificar_Contacto.UseVisualStyleBackColor = true;
+            this.btnModificar_Contacto.Click += new System.EventHandler(this.btnModificar_Contacto_Click);
             // 
             // frmCliente
             // 
@@ -2307,5 +2396,10 @@
         private System.Windows.Forms.Button btnAgregar_Credito;
         private System.Windows.Forms.DataGridView DGDetalle_Credito;
         private System.Windows.Forms.TextBox TBIdcliente_AutoSQL;
+        private System.Windows.Forms.Button btnModificar_Facturacion;
+        private System.Windows.Forms.Button btnModificar_Credito;
+        private System.Windows.Forms.Button btnModificar_Despacho;
+        private System.Windows.Forms.Button btnModificar_Financiera;
+        private System.Windows.Forms.Button btnModificar_Contacto;
     }
 }

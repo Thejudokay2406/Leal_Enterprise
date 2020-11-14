@@ -10,17 +10,17 @@ using System.Data;
 
 namespace Negocio
 {
-    public class fGrupoDeCliente
+    public class fGrupoDeProductoDeCliente
     {
         public static DataTable Lista()
         {
-            Conexion_GrupoDeCliente Datos = new Conexion_GrupoDeCliente();
+            Conexion_GrupoDeProductoDeCliente Datos = new Conexion_GrupoDeProductoDeCliente();
             return Datos.Lista();
         }
 
         public static DataTable Buscar(string Filtro, int auto)
         {
-            Conexion_GrupoDeCliente Datos = new Conexion_GrupoDeCliente();
+            Conexion_GrupoDeProductoDeCliente Datos = new Conexion_GrupoDeProductoDeCliente();
             return Datos.Buscar(Filtro, auto);
         }
 
@@ -32,8 +32,8 @@ namespace Negocio
                 string grupo, string descripcion, string observacion
             )
         {
-            Conexion_GrupoDeCliente Datos = new Conexion_GrupoDeCliente();
-            Entidad_GrupoDeCliente Obj = new Entidad_GrupoDeCliente();
+            Conexion_GrupoDeProductoDeCliente Datos = new Conexion_GrupoDeProductoDeCliente();
+            Entidad_GrupoDeProductoDeCliente Obj = new Entidad_GrupoDeProductoDeCliente();
 
             //Datos Basicos
             Obj.Grupo = grupo;
@@ -54,8 +54,8 @@ namespace Negocio
                 string grupo, string descripcion, string observacion
             )
         {
-            Conexion_GrupoDeCliente Datos = new Conexion_GrupoDeCliente();
-            Entidad_GrupoDeCliente Obj = new Entidad_GrupoDeCliente();
+            Conexion_GrupoDeProductoDeCliente Datos = new Conexion_GrupoDeProductoDeCliente();
+            Entidad_GrupoDeProductoDeCliente Obj = new Entidad_GrupoDeProductoDeCliente();
 
             //Datos Basicos
             Obj.Idgrupo = idgrupo;
@@ -71,7 +71,7 @@ namespace Negocio
 
         public static string Eliminar(int IDEliminar_SQL, int auto)
         {
-            Conexion_GrupoDeCliente Datos = new Conexion_GrupoDeCliente();
+            Conexion_GrupoDeProductoDeCliente Datos = new Conexion_GrupoDeProductoDeCliente();
             return Datos.Eliminar(IDEliminar_SQL, auto);
         }
     }

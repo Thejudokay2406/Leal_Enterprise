@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 
 namespace Datos
 {
-    public class Conexion_GrupoDeCliente
+    public class Conexion_GrupoDeProductoDeCliente
     {
         public DataTable Lista()
         {
@@ -72,7 +72,7 @@ namespace Datos
             }
         }
 
-        public string Guardar_DatosBasicos(Entidad_GrupoDeCliente Obj)
+        public string Guardar_DatosBasicos(Entidad_GrupoDeProductoDeCliente Obj)
         {
             string Rpta = "";
             SqlConnection SqlCon = new SqlConnection();
@@ -107,7 +107,7 @@ namespace Datos
             return Rpta;
         }
 
-        public string Editar_DatosBasicos(Entidad_GrupoDeCliente Obj)
+        public string Editar_DatosBasicos(Entidad_GrupoDeProductoDeCliente Obj)
         {
             string Rpta = "";
             SqlConnection SqlCon = new SqlConnection();

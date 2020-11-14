@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidad
 {
-    public class Entidad_GrupoDeCliente
+    public class Entidad_GrupoDeProductoDeCliente
     {
         //Llave primaria y Auxiliares
         private int _Idgrupo;

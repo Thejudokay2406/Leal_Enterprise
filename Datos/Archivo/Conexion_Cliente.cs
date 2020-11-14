@@ -40,6 +40,167 @@ namespace Datos
             }
         }
 
+        public DataTable Lista_Facturacion(int Auto, int idcliente)
+        {
+            SqlDataReader Resultado;
+            DataTable Tabla = new DataTable();
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
+                SqlCommand Comando = new SqlCommand("Cliente.Detalles_Adicional", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
+
+                Comando.Parameters.Add("@Filtro_Facturacion", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@idcliente", SqlDbType.Int).Value = idcliente;
+
+                SqlCon.Open();
+                Resultado = Comando.ExecuteReader();
+                Tabla.Load(Resultado);
+                return Tabla;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open)
+                {
+                    SqlCon.Close();
+                }
+            }
+        }
+
+        public DataTable Lista_Credito(int Auto, int idcliente)
+        {
+            SqlDataReader Resultado;
+            DataTable Tabla = new DataTable();
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
+                SqlCommand Comando = new SqlCommand("Cliente.Detalles_Adicional", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
+
+                Comando.Parameters.Add("@Filtro_Credito", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@idcliente", SqlDbType.Int).Value = idcliente;
+
+                SqlCon.Open();
+                Resultado = Comando.ExecuteReader();
+                Tabla.Load(Resultado);
+                return Tabla;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open)
+                {
+                    SqlCon.Close();
+                }
+            }
+        }
+
+        public DataTable Lista_Despacho(int Auto, int idcliente)
+        {
+            SqlDataReader Resultado;
+            DataTable Tabla = new DataTable();
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
+                SqlCommand Comando = new SqlCommand("Cliente.Detalles_Adicional", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
+
+                Comando.Parameters.Add("@Filtro_Despacho", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@idcliente", SqlDbType.Int).Value = idcliente;
+
+                SqlCon.Open();
+                Resultado = Comando.ExecuteReader();
+                Tabla.Load(Resultado);
+                return Tabla;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open)
+                {
+                    SqlCon.Close();
+                }
+            }
+        }
+
+        public DataTable Lista_Financiera(int Auto, int idcliente)
+        {
+            SqlDataReader Resultado;
+            DataTable Tabla = new DataTable();
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
+                SqlCommand Comando = new SqlCommand("Cliente.Detalles_Adicional", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
+
+                Comando.Parameters.Add("@Filtro_Financiera", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@idcliente", SqlDbType.Int).Value = idcliente;
+
+                SqlCon.Open();
+                Resultado = Comando.ExecuteReader();
+                Tabla.Load(Resultado);
+                return Tabla;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open)
+                {
+                    SqlCon.Close();
+                }
+            }
+        }
+
+        public DataTable Lista_Contacto(int Auto, int idcliente)
+        {
+            SqlDataReader Resultado;
+            DataTable Tabla = new DataTable();
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
+                SqlCommand Comando = new SqlCommand("Cliente.Detalles_Adicional", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
+
+                Comando.Parameters.Add("@Filtro_Contacto", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@idcliente", SqlDbType.Int).Value = idcliente;
+
+                SqlCon.Open();
+                Resultado = Comando.ExecuteReader();
+                Tabla.Load(Resultado);
+                return Tabla;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open)
+                {
+                    SqlCon.Close();
+                }
+            }
+        }
+
+
         public DataTable Buscar(string Valor, int Auto)
         {
             SqlDataReader Resultado;
@@ -246,7 +407,7 @@ namespace Datos
 
                 ////Datos Auxiliares
                 //Comando.Parameters.Add("@Auto_Ubicacion", SqlDbType.Int).Value = Obj.Auto_Ubicacion;
-                //Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = Obj.Idproducto;
+                //Comando.Parameters.Add("@Idcliente", SqlDbType.Int).Value = Obj.Idcliente;
 
                 ////Panel Ubicaciones -- Campos Obligatorios
                 //Comando.Parameters.Add("@Ubicacion_Edi", SqlDbType.VarChar).Value = Obj.Ubicacion;
@@ -283,6 +444,167 @@ namespace Datos
                 //Panel Datos Basicos
                 Comando.Parameters.Add("@Eliminar", SqlDbType.Int).Value = Auto;
                 Comando.Parameters.Add("@Idcliente", SqlDbType.Int).Value = IDEliminar_Sql;
+
+                SqlCon.Open();
+                Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Eliminar el Registro";
+            }
+            catch (Exception ex)
+            {
+                Rpta = ex.Message;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open)
+                {
+                    SqlCon.Close();
+                }
+            }
+            return Rpta;
+        }
+
+
+        public string Eliminar_Facturacion(int Idcliente, int Iddetalle, int Auto)
+        {
+            string Rpta = "";
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
+                SqlCommand Comando = new SqlCommand("Cliente.Detalles_Adicional", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
+
+                //Panel Datos Basicos
+                Comando.Parameters.Add("@Eliminar", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Idfacturacion", SqlDbType.Int).Value = Iddetalle;
+                Comando.Parameters.Add("@Idcliente", SqlDbType.Int).Value = Idcliente;
+
+                SqlCon.Open();
+                Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Eliminar el Registro";
+            }
+            catch (Exception ex)
+            {
+                Rpta = ex.Message;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open)
+                {
+                    SqlCon.Close();
+                }
+            }
+            return Rpta;
+        }
+
+        public string Eliminar_Despacho(int Idcliente, int Iddetalle, int Auto)
+        {
+            string Rpta = "";
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
+                SqlCommand Comando = new SqlCommand("Cliente.Detalles_Adicional", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
+
+                //Panel Datos Basicos
+                Comando.Parameters.Add("@Eliminar", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Idcliente", SqlDbType.Int).Value = Idcliente;
+                Comando.Parameters.Add("@Iddespacho", SqlDbType.Int).Value = Iddetalle;
+
+                SqlCon.Open();
+                Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Eliminar el Registro";
+            }
+            catch (Exception ex)
+            {
+                Rpta = ex.Message;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open)
+                {
+                    SqlCon.Close();
+                }
+            }
+            return Rpta;
+        }
+
+        public string Eliminar_Credito(int Idcliente, int Iddetalle, int Auto)
+        {
+            string Rpta = "";
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
+                SqlCommand Comando = new SqlCommand("Cliente.Detalles_Adicional", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
+
+                //Panel Datos Basicos
+                Comando.Parameters.Add("@Eliminar", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Idcliente", SqlDbType.Int).Value = Idcliente;
+                Comando.Parameters.Add("@Idcredito", SqlDbType.Int).Value = Iddetalle;
+
+                SqlCon.Open();
+                Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Eliminar el Registro";
+            }
+            catch (Exception ex)
+            {
+                Rpta = ex.Message;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open)
+                {
+                    SqlCon.Close();
+                }
+            }
+            return Rpta;
+        }
+
+        public string Eliminar_Financiera(int Idcliente, int Iddetalle, int Auto)
+        {
+            string Rpta = "";
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
+                SqlCommand Comando = new SqlCommand("Cliente.Detalles_Adicional", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
+
+                //Panel Datos Basicos
+                Comando.Parameters.Add("@Eliminar", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Idcliente", SqlDbType.Int).Value = Idcliente;
+                Comando.Parameters.Add("@Idfinanciera", SqlDbType.Int).Value = Iddetalle;
+
+                SqlCon.Open();
+                Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Eliminar el Registro";
+            }
+            catch (Exception ex)
+            {
+                Rpta = ex.Message;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open)
+                {
+                    SqlCon.Close();
+                }
+            }
+            return Rpta;
+        }
+
+        public string Eliminar_Contacto(int Idcliente, int Iddetalle, int Auto)
+        {
+            string Rpta = "";
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
+                SqlCommand Comando = new SqlCommand("Cliente.Detalles_Adicional", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
+
+                //Panel Datos Basicos
+                Comando.Parameters.Add("@Eliminar", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Idcliente", SqlDbType.Int).Value = Idcliente;
+                Comando.Parameters.Add("@Idcontacto", SqlDbType.Int).Value = Iddetalle;
 
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Eliminar el Registro";

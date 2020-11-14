@@ -142,12 +142,12 @@ namespace Presentacion
 
                     if (this.Digitar)
                     {
-                        rptaDatosBasicos = fGrupo.Guardar_DatosBasicos(1, this.TBGrupo.Text, this.TBDescripcion.Text, this.TBObservacion.Text);
+                        rptaDatosBasicos = fGrupoDeProducto.Guardar_DatosBasicos(1, this.TBGrupo.Text, this.TBDescripcion.Text, this.TBObservacion.Text);
                     }
 
                     else
                     {
-                        rptaDatosBasicos = fGrupo.Editar_DatosBasicos(2, Convert.ToInt32(this.TBIdgrupo.Text), this.TBGrupo.Text, this.TBDescripcion.Text, this.TBObservacion.Text);
+                        rptaDatosBasicos = fGrupoDeProducto.Editar_DatosBasicos(2, Convert.ToInt32(this.TBIdgrupo.Text), this.TBGrupo.Text, this.TBDescripcion.Text, this.TBObservacion.Text);
                     }
 
                     if (rptaDatosBasicos.Equals("OK"))
@@ -280,7 +280,7 @@ namespace Presentacion
                         if (DGResultados.SelectedRows.Count > 0)
                         {
                             Eliminacion = Convert.ToInt32(DGResultados.CurrentRow.Cells["Codigo"].Value.ToString());
-                            Respuesta = Negocio.fGrupo.Eliminar(Eliminacion, 0);
+                            Respuesta = Negocio.fGrupoDeProducto.Eliminar(Eliminacion, 0);
                         }
 
                         if (Respuesta.Equals("OK"))
@@ -299,7 +299,7 @@ namespace Presentacion
                 }
                 else
                 {
-                    MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise - Solicitud Rechazada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
             catch (Exception ex)
@@ -321,7 +321,7 @@ namespace Presentacion
                 {
                     if (TBBuscar.Text != "")
                     {
-                        this.DGResultados.DataSource = fGrupo.Buscar(this.TBBuscar.Text, 1);
+                        this.DGResultados.DataSource = fGrupoDeProducto.Buscar(this.TBBuscar.Text, 1);
                         //this.DGResultados.Columns[0].Visible = false;
 
                         lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGResultados.Rows.Count);

@@ -113,7 +113,7 @@ namespace Presentacion
                 {
                     if (this.Digitar)
                     {
-                        rptaDatosBasicos = fGrupoDeCliente.Guardar_DatosBasicos
+                        rptaDatosBasicos = fGrupoDeProductoDeCliente.Guardar_DatosBasicos
 
                             (
                                  //Datos Auxiliares
@@ -126,7 +126,7 @@ namespace Presentacion
 
                     else
                     {
-                        rptaDatosBasicos = fGrupoDeCliente.Editar_DatosBasicos
+                        rptaDatosBasicos = fGrupoDeProductoDeCliente.Editar_DatosBasicos
 
                             (
                                  //Datos Auxiliares
@@ -264,7 +264,7 @@ namespace Presentacion
                         if (DGResultados.SelectedRows.Count > 0)
                         {
                             Eliminacion = Convert.ToInt32(DGResultados.CurrentRow.Cells["Codigo"].Value.ToString());
-                            Respuesta = Negocio.fGrupoDeCliente.Eliminar(Eliminacion, 0);
+                            Respuesta = Negocio.fGrupoDeProductoDeCliente.Eliminar(Eliminacion, 0);
                         }
 
                         if (Respuesta.Equals("OK"))
@@ -283,7 +283,7 @@ namespace Presentacion
                 }
                 else
                 {
-                    MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise - Solicitud Rechazada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
             catch (Exception ex)
@@ -305,7 +305,7 @@ namespace Presentacion
                 {
                     if (TBBuscar.Text != "")
                     {
-                        this.DGResultados.DataSource = fGrupoDeCliente.Buscar(this.TBBuscar.Text, 1);
+                        this.DGResultados.DataSource = fGrupoDeProductoDeCliente.Buscar(this.TBBuscar.Text, 1);
                         //this.DGResultadoss.Columns[1].Visible = false;
 
                         this.lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGResultados.Rows.Count);
@@ -441,7 +441,7 @@ namespace Presentacion
         {
             try
             {
-                DataTable Datos = Negocio.fGrupoDeCliente.Buscar(this.TBIdgrupo.Text, 2);
+                DataTable Datos = Negocio.fGrupoDeProductoDeCliente.Buscar(this.TBIdgrupo.Text, 2);
 
                 //Evaluamos si  existen los Datos
                 if (Datos.Rows.Count == 0)

@@ -49,7 +49,7 @@
     <Compile Include="Archivo\Entidad_Ingreso.cs" />
     <Compile Include="Archivo\Entidad_Empaque.cs" />
     <Compile Include="Archivo\Entidad_TipoDeProducto.cs" />
-    <Compile Include="Archivo\Entidad_Grupo.cs" />
+    <Compile Include="Archivo\Entidad_GrupoDeProducto.cs" />
     <Compile Include="Compra\Entidad_CotizacionDeCompra.cs" />
     <Compile Include="Archivo\Entidad_TipoDePago.cs" />
     <Compile Include="Archivo\Entidad_GrupoDeCliente.cs" />

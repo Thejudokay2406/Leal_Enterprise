@@ -33,6 +33,13 @@ namespace Presentacion
         public bool Filtro = true;
         private string Campo = "Campo Obligatorio";
 
+        //Variables para Eliminar y ejecutar los procedimientos Internos en los paneles
+        private bool Eliminar_Facturacion = false;
+        private bool Eliminar_Credito = false;
+        private bool Eliminar_Despacho = false;
+        private bool Eliminar_Financiera = false;
+        private bool Eliminar_Contacto = false;
+
         //Variable para Agregar los Detalles a la Base de Datos
         private DataTable DtDetalle_Facturacion;
         private DataTable DtDetalle_Credito;
@@ -83,6 +90,7 @@ namespace Presentacion
             this.TBIdcliente.Visible = false;
             this.TBIdbanco.Visible = false;
             this.TBIdempleado.Visible = false;
+            this.TBIdcliente_AutoSQL.Visible = false;
         }
 
         private void Habilitar()
@@ -349,7 +357,7 @@ namespace Presentacion
                 this.CBTipo.ValueMember = "Codigo";
                 this.CBTipo.DisplayMember = "Tipo";
 
-                this.CBGrupo.DataSource = fGrupoDeCliente.Lista();
+                this.CBGrupo.DataSource = fGrupoDeProductoDeCliente.Lista();
                 this.CBGrupo.ValueMember = "Codigo";
                 this.CBGrupo.DisplayMember = "Grupo";
             }
@@ -366,6 +374,32 @@ namespace Presentacion
             this.TBFac_Asesor.Text = asesor;
         }
 
+        private void Actualizar_DetFacturacion()
+        {
+            this.DGDetalle_Facturacion.DataSource = fCliente.Lista_Facturacion(1, Convert.ToInt32(TBIdcliente.Text));
+            this.lblTotal_Facturacion.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Facturacion.Rows.Count);
+        }
+
+        private void Actualizar_DetCredito()
+        {
+            this.DGDetalle_Credito.DataSource = fCliente.Lista_Credito(1, Convert.ToInt32(TBIdcliente.Text));
+            this.lblTotal_Credito.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Credito.Rows.Count);
+        }
+        private void Actualizar_DetDespacho()
+        {
+            this.DGDetalle_Despacho.DataSource = fCliente.Lista_Despacho(1, Convert.ToInt32(TBIdcliente.Text));
+            this.lblTotal_Despacho.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Despacho.Rows.Count);
+        }
+        private void Actualizar_DetFinanciera()
+        {
+            this.DGDetalle_Financiera.DataSource = fCliente.Lista_Financiera(1, Convert.ToInt32(TBIdcliente.Text));
+            this.lblTotal_Financiera.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Financiera.Rows.Count);
+        }
+        private void Actualizar_DetContacto()
+        {
+            this.DGDetalle_Contacto.DataSource = fCliente.Lista_Contacto(1, Convert.ToInt32(TBIdcliente.Text));
+            this.lblTotal_Contacto.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Contacto.Rows.Count);
+        }
         private void Validaciones_SQL()
         {
             //Se valida el valor de los checbox que se encuentran en el panel de datos basicos
@@ -527,6 +561,19 @@ namespace Presentacion
                 this.DtDetalle_Contacto.Columns.Add("Parentesco", System.Type.GetType("System.String"));
                 //Captura de los Datos en las Tablas
                 this.DGDetalle_Contacto.DataSource = this.DtDetalle_Contacto;
+
+                //************************************* Ocultacion de Columnas *************************************
+                this.DGDetalle_Facturacion.Columns[0].Visible = false;
+                this.DGDetalle_Facturacion.Columns[1].Visible = false;
+
+                this.DGDetalle_Credito.Columns[1].Visible = false;
+
+                this.DGDetalle_Despacho.Columns[0].Visible = false;
+
+                this.DGDetalle_Financiera.Columns[0].Visible = false;
+                this.DGDetalle_Financiera.Columns[1].Visible = false;
+
+                this.DGDetalle_Contacto.Columns[0].Visible = false;
             }
             catch (Exception ex)
             {
@@ -542,7 +589,7 @@ namespace Presentacion
                 //Evaluamos si  existen los Datos
                 if (Datos.Rows.Count == 0)
                 {
-                    MessageBox.Show("Actualmente no se Encuentran Productos Registrados en la Base de Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Actualmente no se Encuentran Clientes Registrados en la Base de Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.TBIdcliente_AutoSQL.Text = "1";
                 }
                 else
@@ -756,7 +803,7 @@ namespace Presentacion
                     string Respuesta = "";
                     int Eliminacion;
 
-                    Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
                     if (Opcion == DialogResult.OK)
                     {
@@ -782,7 +829,7 @@ namespace Presentacion
                 }
                 else
                 {
-                    MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise - Solicitud Rechazada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
             catch (Exception ex)
@@ -801,6 +848,32 @@ namespace Presentacion
             frmFiltro_Empleado frmFiltro_Empleado = new frmFiltro_Empleado();
             frmFiltro_Empleado.ShowDialog();
         }
+
+        private void btnModificar_Facturacion_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnModificar_Credito_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnModificar_Despacho_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnModificar_Financiera_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnModificar_Contacto_Click(object sender, EventArgs e)
+        {
+
+        }
+
 
         private void btnAgregar_Facturacion_Click(object sender, EventArgs e)
         {
@@ -935,27 +1008,282 @@ namespace Presentacion
 
         private void btnEliminar_Facturacion_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (Eliminar_Facturacion)
+                {
+                    if (Eliminar == "1")
+                    {
+                        DialogResult Opcion;
+                        string Respuesta = "";
+                        int Idcliente, Idfacturacion;
 
+                        Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                        if (Opcion == DialogResult.OK)
+                        {
+                            if (DGDetalle_Facturacion.SelectedRows.Count > 0)
+                            {
+                                Idcliente = Convert.ToInt32(DGDetalle_Facturacion.CurrentRow.Cells["Idcliente"].Value.ToString());
+                                Idfacturacion = Convert.ToInt32(DGDetalle_Facturacion.CurrentRow.Cells["Idfactura"].Value.ToString());
+                                Respuesta = Negocio.fCliente.Eliminar_Facturacion(Idcliente, Idfacturacion, 6);
+                            }
+
+                            if (Respuesta.Equals("OK"))
+                            {
+                                this.MensajeOk("Ubicación Eliminada Correctamente");
+                            }
+                            else
+                            {
+                                this.MensajeError(Respuesta);
+                            }
+                        }
+
+                        //
+                        this.Actualizar_DetFacturacion();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise - Solicitud Rechazada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+                else
+                {
+                    int Fila = this.DGDetalle_Facturacion.CurrentCell.RowIndex;
+                    DataRow row = this.DtDetalle_Facturacion.Rows[Fila];
+
+                    //Se remueve la fila
+                    this.DtDetalle_Facturacion.Rows.Remove(row);
+                }
+            }
+            catch (Exception ex)
+            {
+                MensajeError("Por favor seleccione el Registro de Facturación que desea Remover");
+            }
         }
 
         private void btnEliminar_Credito_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (Eliminar_Credito)
+                {
+                    if (Eliminar == "1")
+                    {
+                        DialogResult Opcion;
+                        string Respuesta = "";
+                        int Idcliente, Idcredito;
 
+                        Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                        if (Opcion == DialogResult.OK)
+                        {
+                            if (DGDetalle_Credito.SelectedRows.Count > 0)
+                            {
+                                Idcliente = Convert.ToInt32(DGDetalle_Credito.CurrentRow.Cells["Idcliente"].Value.ToString());
+                                Idcredito = Convert.ToInt32(DGDetalle_Credito.CurrentRow.Cells["Idcredito"].Value.ToString());
+                                Respuesta = Negocio.fCliente.Eliminar_Credito(Idcliente, Idcredito, 6);
+                            }
+
+                            if (Respuesta.Equals("OK"))
+                            {
+                                this.MensajeOk("Ubicación Eliminada Correctamente");
+                            }
+                            else
+                            {
+                                this.MensajeError(Respuesta);
+                            }
+                        }
+
+                        //
+                        this.Actualizar_DetCredito();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise - Solicitud Rechazada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+                else
+                {
+                    int Fila = this.DGDetalle_Credito.CurrentCell.RowIndex;
+                    DataRow row = this.DtDetalle_Credito.Rows[Fila];
+
+                    //Se remueve la fila
+                    this.DtDetalle_Credito.Rows.Remove(row);
+                }
+            }
+            catch (Exception ex)
+            {
+                MensajeError("Por favor seleccione la Solicitud de Credito que desea Remover");
+            }
         }
 
         private void btnEliminar_Despacho_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (Eliminar_Despacho)
+                {
+                    if (Eliminar == "1")
+                    {
+                        DialogResult Opcion;
+                        string Respuesta = "";
+                        int Idcliente, Iddespacho;
 
+                        Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                        if (Opcion == DialogResult.OK)
+                        {
+                            if (DGDetalle_Despacho.SelectedRows.Count > 0)
+                            {
+                                Idcliente = Convert.ToInt32(DGDetalle_Despacho.CurrentRow.Cells["Idcliente"].Value.ToString());
+                                Iddespacho = Convert.ToInt32(DGDetalle_Despacho.CurrentRow.Cells["Iddespacho"].Value.ToString());
+                                Respuesta = Negocio.fCliente.Eliminar_Despacho(Idcliente, Iddespacho, 6);
+                            }
+
+                            if (Respuesta.Equals("OK"))
+                            {
+                                this.MensajeOk("Ubicación Eliminada Correctamente");
+                            }
+                            else
+                            {
+                                this.MensajeError(Respuesta);
+                            }
+                        }
+
+                        //
+                        this.Actualizar_DetDespacho();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise - Solicitud Rechazada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+                else
+                {
+                    int Fila = this.DGDetalle_Despacho.CurrentCell.RowIndex;
+                    DataRow row = this.DtDetalle_Despacho.Rows[Fila];
+
+                    //Se remueve la fila
+                    this.DtDetalle_Despacho.Rows.Remove(row);
+                }
+            }
+            catch (Exception ex)
+            {
+                MensajeError("Por favor seleccione el Registro de Despacho que desea Remover");
+            }
         }
 
         private void btnEliminar_Financiera_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (Eliminar_Financiera)
+                {
+                    if (Eliminar == "1")
+                    {
+                        DialogResult Opcion;
+                        string Respuesta = "";
+                        int Idcliente, Idfinanciera;
 
+                        Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                        if (Opcion == DialogResult.OK)
+                        {
+                            if (DGDetalle_Financiera.SelectedRows.Count > 0)
+                            {
+                                Idcliente = Convert.ToInt32(DGDetalle_Financiera.CurrentRow.Cells["Idcliente"].Value.ToString());
+                                Idfinanciera = Convert.ToInt32(DGDetalle_Financiera.CurrentRow.Cells["Idfinanciera"].Value.ToString());
+                                Respuesta = Negocio.fCliente.Eliminar_Financiera(Idcliente, Idfinanciera, 6);
+                            }
+
+                            if (Respuesta.Equals("OK"))
+                            {
+                                this.MensajeOk("Ubicación Eliminada Correctamente");
+                            }
+                            else
+                            {
+                                this.MensajeError(Respuesta);
+                            }
+                        }
+
+                        //
+                        this.Actualizar_DetFinanciera();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise - Solicitud Rechazada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+                else
+                {
+                    int Fila = this.DGDetalle_Financiera.CurrentCell.RowIndex;
+                    DataRow row = this.DtDetalle_Financiera.Rows[Fila];
+
+                    //Se remueve la fila
+                    this.DtDetalle_Financiera.Rows.Remove(row);
+                }
+            }
+            catch (Exception ex)
+            {
+                MensajeError("Por favor seleccione el Registro de Financiera que desea Remover");
+            }
         }
 
         private void btnEliminar_Contacto_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (Eliminar_Contacto)
+                {
+                    if (Eliminar == "1")
+                    {
+                        DialogResult Opcion;
+                        string Respuesta = "";
+                        int Idcliente, Idcontacto;
 
+                        Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                        if (Opcion == DialogResult.OK)
+                        {
+                            if (DGDetalle_Contacto.SelectedRows.Count > 0)
+                            {
+                                Idcliente = Convert.ToInt32(DGDetalle_Contacto.CurrentRow.Cells["Idcliente"].Value.ToString());
+                                Idcontacto = Convert.ToInt32(DGDetalle_Contacto.CurrentRow.Cells["Idcontacto"].Value.ToString());
+                                Respuesta = Negocio.fCliente.Eliminar_Contacto(Idcliente, Idcontacto, 6);
+                            }
+
+                            if (Respuesta.Equals("OK"))
+                            {
+                                this.MensajeOk("Ubicación Eliminada Correctamente");
+                            }
+                            else
+                            {
+                                this.MensajeError(Respuesta);
+                            }
+                        }
+
+                        //
+                        this.Actualizar_DetContacto();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise - Solicitud Rechazada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+                else
+                {
+                    int Fila = this.DGDetalle_Contacto.CurrentCell.RowIndex;
+                    DataRow row = this.DtDetalle_Contacto.Rows[Fila];
+
+                    //Se remueve la fila
+                    this.DtDetalle_Contacto.Rows.Remove(row);
+                }
+            }
+            catch (Exception ex)
+            {
+                MensajeError("Por favor seleccione la Ubicacion que desea Remover del registo");
+            }
         }
 
         private void TBIdcliente_TextChanged(object sender, EventArgs e)

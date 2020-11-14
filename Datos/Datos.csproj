@@ -57,7 +57,7 @@
     <Compile Include="Gestion Humana\Conexion_TipoDeContrato.cs" />
     <Compile Include="Inventario\Conexion_Bodega_Ingresos.cs" />
     <Compile Include="Archivo\Conexion_Empaque.cs" />
-    <Compile Include="Archivo\Conexion_Grupo.cs" />
+    <Compile Include="Archivo\Conexion_GrupoDeProducto.cs" />
     <Compile Include="Archivo\Conexion_Producto.cs" />
     <Compile Include="Archivo\Conexion_TipoDeCliente.cs" />
     <Compile Include="Gestion Humana\Conexion_Empleados.cs" />
