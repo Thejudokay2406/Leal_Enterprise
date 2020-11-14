@@ -15,6 +15,7 @@ namespace Entidad
         private int _Idtipo;
         private int _Idgrupo;
         private int _Idempleado;
+        private int _Idbanco;
 
         //Datos Basicos
         private string _Dat_Codigo;
@@ -211,5 +212,6 @@ namespace Entidad
         public int Tran_Credito { get => _Tran_Credito; set => _Tran_Credito = value; }
         public int Tran_Financiera { get => _Tran_Financiera; set => _Tran_Financiera = value; }
         public int Tran_Contacto { get => _Tran_Contacto; set => _Tran_Contacto = value; }
+        public int Idbanco { get => _Idbanco; set => _Idbanco = value; }
     }
 }

@@ -343,6 +343,209 @@ namespace Datos
             return Rpta;
         }
 
+        public string Guardar_Facturacion(Entidad_Cliente Obj)
+        {
+            string Rpta = "";
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
+                SqlCommand Comando = new SqlCommand("Cliente.Detalles_Adicional", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
+
+                //Datos Auxiliares
+                Comando.Parameters.Add("@Auto_Facturacion", SqlDbType.Int).Value = Obj.AutoDet_Facturacion;
+
+                //Panel Ubicaciones -- Campos Obligatorios
+                Comando.Parameters.Add("@Idcliente", SqlDbType.Int).Value = Obj.Idcliente;
+                Comando.Parameters.Add("@Idempleado", SqlDbType.Int).Value = Obj.Idempleado;
+                Comando.Parameters.Add("@Empleado", SqlDbType.VarChar).Value = Obj.Fac_Asesor;
+                Comando.Parameters.Add("@CodEmpleado", SqlDbType.VarChar).Value = Obj.Fac_AsesorCodigo;
+                Comando.Parameters.Add("@Cliente", SqlDbType.VarChar).Value = Obj.Fac_Cliente;
+                Comando.Parameters.Add("@DocCliente", SqlDbType.VarChar).Value = Obj.Fac_ClienteDoc;
+                Comando.Parameters.Add("@Movil", SqlDbType.VarChar).Value = Obj.Fac_Movil;
+                Comando.Parameters.Add("@Pais", SqlDbType.VarChar).Value = Obj.Fac_Pais;
+                Comando.Parameters.Add("@Ciudad", SqlDbType.VarChar).Value = Obj.Fac_Ciudad;
+                Comando.Parameters.Add("@Departamento", SqlDbType.VarChar).Value = Obj.Fac_Departamento;
+                Comando.Parameters.Add("@Correo", SqlDbType.VarChar).Value = Obj.Fac_Correo;
+
+                SqlCon.Open();
+                Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Realizar el Registro";
+            }
+            catch (Exception ex)
+            {
+                Rpta = ex.Message;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open)
+                {
+                    SqlCon.Close();
+                }
+            }
+            return Rpta;
+        }
+
+        public string Guardar_Credito(Entidad_Cliente Obj)
+        {
+            string Rpta = "";
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
+                SqlCommand Comando = new SqlCommand("Cliente.Detalles_Adicional", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
+
+                //Datos Auxiliares
+                Comando.Parameters.Add("@Auto_Credito", SqlDbType.Int).Value = Obj.AutoDet_Credito;
+
+                //Panel Ubicaciones -- Campos Obligatorios
+                Comando.Parameters.Add("@Idcliente", SqlDbType.Int).Value = Obj.Idcliente;
+                Comando.Parameters.Add("@Valor", SqlDbType.Money).Value = Obj.Cre_Valor;
+                Comando.Parameters.Add("@CuoMeses", SqlDbType.Int).Value = Obj.Cre_Cuotas;
+                Comando.Parameters.Add("@TasaMensual", SqlDbType.Int).Value = Obj.Cre_TasaMensual;
+                Comando.Parameters.Add("@TasaAnual", SqlDbType.Int).Value = Obj.Cre_TasaAnual;
+                Comando.Parameters.Add("@Solicitud", SqlDbType.DateTime).Value = Obj.Cre_Solicitud;
+                Comando.Parameters.Add("@Emision", SqlDbType.DateTime).Value = Obj.Cre_Emision;
+                Comando.Parameters.Add("@Prorroga", SqlDbType.Int).Value = Obj.Cre_Prorroga;
+                Comando.Parameters.Add("@Mora", SqlDbType.Int).Value = Obj.Cre_TasaMora;
+
+                SqlCon.Open();
+                Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Realizar el Registro";
+            }
+            catch (Exception ex)
+            {
+                Rpta = ex.Message;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open)
+                {
+                    SqlCon.Close();
+                }
+            }
+            return Rpta;
+        }
+
+        public string Guardar_Despacho(Entidad_Cliente Obj)
+        {
+            string Rpta = "";
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
+                SqlCommand Comando = new SqlCommand("Cliente.Detalles_Adicional", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
+
+                //Datos Auxiliares
+                Comando.Parameters.Add("@Auto_Despacho", SqlDbType.Int).Value = Obj.AutoDet_Despacho;
+
+                //Panel Ubicaciones -- Campos Obligatorios
+                Comando.Parameters.Add("@Idcliente", SqlDbType.Int).Value = Obj.Idcliente;
+                Comando.Parameters.Add("@Sucurzal", SqlDbType.VarChar).Value = Obj.Des_Sucurzal;
+                Comando.Parameters.Add("@Pais", SqlDbType.VarChar).Value = Obj.Des_Pais;
+                Comando.Parameters.Add("@Ciudad", SqlDbType.VarChar).Value = Obj.Des_Ciudad;
+                Comando.Parameters.Add("@Departamento", SqlDbType.VarChar).Value = Obj.Des_Departamento;
+                Comando.Parameters.Add("@Receptor", SqlDbType.VarChar).Value = Obj.Des_Receptor;
+                Comando.Parameters.Add("@Barrio", SqlDbType.VarChar).Value = Obj.Des_Barrio;
+                Comando.Parameters.Add("@Apartamento", SqlDbType.VarChar).Value = Obj.Des_Apartamento;
+                Comando.Parameters.Add("@Movil", SqlDbType.VarChar).Value = Obj.Des_Movil;
+                Comando.Parameters.Add("@Direccion", SqlDbType.VarChar).Value = Obj.Des_Direccion;
+                Comando.Parameters.Add("@Observacion", SqlDbType.VarChar).Value = Obj.Des_Observacion;
+
+                SqlCon.Open();
+                Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Realizar el Registro";
+            }
+            catch (Exception ex)
+            {
+                Rpta = ex.Message;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open)
+                {
+                    SqlCon.Close();
+                }
+            }
+            return Rpta;
+        }
+
+        public string Guardar_Financiera(Entidad_Cliente Obj)
+        {
+            string Rpta = "";
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
+                SqlCommand Comando = new SqlCommand("Cliente.Detalles_Adicional", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
+
+                //Datos Auxiliares
+                Comando.Parameters.Add("@Auto_Financiera", SqlDbType.Int).Value = Obj.AutoDet_Financiera;
+
+                //Panel Ubicaciones -- Campos Obligatorios
+                Comando.Parameters.Add("@Idcliente", SqlDbType.Int).Value = Obj.Idcliente;
+                //Comando.Parameters.Add("@Idbanco", SqlDbType.Int).Value = Obj.idban;
+                Comando.Parameters.Add("@Cuenta", SqlDbType.VarChar).Value = Obj.Fin_Cuenta;
+                Comando.Parameters.Add("@NumeroCuenta", SqlDbType.VarChar).Value = Obj.Fin_CuentaNumero;
+
+                SqlCon.Open();
+                Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Realizar el Registro";
+            }
+            catch (Exception ex)
+            {
+                Rpta = ex.Message;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open)
+                {
+                    SqlCon.Close();
+                }
+            }
+            return Rpta;
+        }
+
+        public string Guardar_Contacto(Entidad_Cliente Obj)
+        {
+            string Rpta = "";
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
+                SqlCommand Comando = new SqlCommand("Cliente.Detalles_Adicional", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
+
+                //Datos Auxiliares
+                Comando.Parameters.Add("@Auto_Contacto", SqlDbType.Int).Value = Obj.AutoDet_Contacto;
+
+                //Panel Ubicaciones -- Campos Obligatorios
+                Comando.Parameters.Add("@Idcliente", SqlDbType.Int).Value = Obj.Idcliente;
+                Comando.Parameters.Add("@Contacto", SqlDbType.VarChar).Value = Obj.Cont_Contacto;
+                Comando.Parameters.Add("@Ciudad", SqlDbType.VarChar).Value = Obj.Cont_Ciudad;
+                Comando.Parameters.Add("@Direccion", SqlDbType.VarChar).Value = Obj.Cont_Direccion;
+                Comando.Parameters.Add("@Telefono", SqlDbType.VarChar).Value = Obj.Cont_Telefono;
+                Comando.Parameters.Add("@Movil", SqlDbType.VarChar).Value = Obj.Cont_Movil;
+                Comando.Parameters.Add("@Correo", SqlDbType.VarChar).Value = Obj.Cont_Correo;
+                Comando.Parameters.Add("@Parentesco", SqlDbType.VarChar).Value = Obj.Cont_Parentesco;
+                
+                SqlCon.Open();
+                Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Realizar el Registro";
+            }
+            catch (Exception ex)
+            {
+                Rpta = ex.Message;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open)
+                {
+                    SqlCon.Close();
+                }
+            }
+            return Rpta;
+        }
+
         public string Editar_DatosBasicos(Entidad_Cliente Obj)
         {
             string Rpta = "";
@@ -395,27 +598,194 @@ namespace Datos
             return Rpta;
         }
 
-        public string Editar_Ubicacion(Entidad_Cliente Obj)
+        public string Editar_Facturacion(Entidad_Cliente Obj)
         {
             string Rpta = "";
             SqlConnection SqlCon = new SqlConnection();
             try
             {
-                //SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                //SqlCommand Comando = new SqlCommand("Almacen.LI_Cliente", SqlCon);
-                //Comando.CommandType = CommandType.StoredProcedure;
+                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
+                SqlCommand Comando = new SqlCommand("Cliente.Detalles_Adicional", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
 
-                ////Datos Auxiliares
-                //Comando.Parameters.Add("@Auto_Ubicacion", SqlDbType.Int).Value = Obj.Auto_Ubicacion;
-                //Comando.Parameters.Add("@Idcliente", SqlDbType.Int).Value = Obj.Idcliente;
+                //Datos Auxiliares
+                Comando.Parameters.Add("@Idcliente", SqlDbType.Int).Value = Obj.Idcliente;
+                Comando.Parameters.Add("@Auto_Facturacion", SqlDbType.Int).Value = Obj.AutoDet_Facturacion;
 
-                ////Panel Ubicaciones -- Campos Obligatorios
-                //Comando.Parameters.Add("@Ubicacion_Edi", SqlDbType.VarChar).Value = Obj.Ubicacion;
-                //Comando.Parameters.Add("@Estante_Edi", SqlDbType.VarChar).Value = Obj.Estante;
-                //Comando.Parameters.Add("@Nivel_Edi", SqlDbType.VarChar).Value = Obj.Nivel;
+                //Panel Ubicaciones -- Campos Obligatorios
+                Comando.Parameters.Add("@Idempleado", SqlDbType.Int).Value = Obj.Idempleado;
+                Comando.Parameters.Add("@Empleado", SqlDbType.VarChar).Value = Obj.Fac_Asesor;
+                Comando.Parameters.Add("@CodEmpleado", SqlDbType.VarChar).Value = Obj.Fac_AsesorCodigo;
+                Comando.Parameters.Add("@Cliente", SqlDbType.VarChar).Value = Obj.Fac_Cliente;
+                Comando.Parameters.Add("@DocCliente", SqlDbType.VarChar).Value = Obj.Fac_ClienteDoc;
+                Comando.Parameters.Add("@Movil", SqlDbType.VarChar).Value = Obj.Fac_Movil;
+                Comando.Parameters.Add("@Pais", SqlDbType.VarChar).Value = Obj.Fac_Pais;
+                Comando.Parameters.Add("@Ciudad", SqlDbType.VarChar).Value = Obj.Fac_Ciudad;
+                Comando.Parameters.Add("@Departamento", SqlDbType.VarChar).Value = Obj.Fac_Departamento;
+                Comando.Parameters.Add("@Correo", SqlDbType.VarChar).Value = Obj.Fac_Correo;
 
-                //SqlCon.Open();
-                //Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Actualizar el Registro";
+                SqlCon.Open();
+                Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Realizar el Registro";
+            }
+            catch (Exception ex)
+            {
+                Rpta = ex.Message;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open)
+                {
+                    SqlCon.Close();
+                }
+            }
+            return Rpta;
+        }
+
+        public string Editar_Credito(Entidad_Cliente Obj)
+        {
+            string Rpta = "";
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
+                SqlCommand Comando = new SqlCommand("Cliente.Detalles_Adicional", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
+
+                //Datos Auxiliares
+                Comando.Parameters.Add("@Idcliente", SqlDbType.Int).Value = Obj.Idcliente;
+                Comando.Parameters.Add("@Auto_Credito", SqlDbType.Int).Value = Obj.AutoDet_Credito;
+
+                //Panel Ubicaciones -- Campos Obligatorios
+                Comando.Parameters.Add("@Valor", SqlDbType.Money).Value = Obj.Cre_Valor;
+                Comando.Parameters.Add("@CuoMeses", SqlDbType.Int).Value = Obj.Cre_Cuotas;
+                Comando.Parameters.Add("@TasaMensual", SqlDbType.Int).Value = Obj.Cre_TasaMensual;
+                Comando.Parameters.Add("@TasaAnual", SqlDbType.Int).Value = Obj.Cre_TasaAnual;
+                Comando.Parameters.Add("@Solicitud", SqlDbType.DateTime).Value = Obj.Cre_Solicitud;
+                Comando.Parameters.Add("@Emision", SqlDbType.DateTime).Value = Obj.Cre_Emision;
+                Comando.Parameters.Add("@Prorroga", SqlDbType.Int).Value = Obj.Cre_Prorroga;
+                Comando.Parameters.Add("@Mora", SqlDbType.Int).Value = Obj.Cre_TasaMora;
+
+                SqlCon.Open();
+                Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Realizar el Registro";
+            }
+            catch (Exception ex)
+            {
+                Rpta = ex.Message;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open)
+                {
+                    SqlCon.Close();
+                }
+            }
+            return Rpta;
+        }
+
+        public string Editar_Despacho(Entidad_Cliente Obj)
+        {
+            string Rpta = "";
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
+                SqlCommand Comando = new SqlCommand("Cliente.Detalles_Adicional", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
+
+                //Datos Auxiliares
+                Comando.Parameters.Add("@Idcliente", SqlDbType.Int).Value = Obj.Idcliente;
+                Comando.Parameters.Add("@Auto_Despacho", SqlDbType.Int).Value = Obj.AutoDet_Despacho;
+
+                //Panel Ubicaciones -- Campos Obligatorios
+                Comando.Parameters.Add("@Sucurzal", SqlDbType.VarChar).Value = Obj.Des_Sucurzal;
+                Comando.Parameters.Add("@Pais", SqlDbType.VarChar).Value = Obj.Des_Pais;
+                Comando.Parameters.Add("@Ciudad", SqlDbType.VarChar).Value = Obj.Des_Ciudad;
+                Comando.Parameters.Add("@Departamento", SqlDbType.VarChar).Value = Obj.Des_Departamento;
+                Comando.Parameters.Add("@Receptor", SqlDbType.VarChar).Value = Obj.Des_Receptor;
+                Comando.Parameters.Add("@Barrio", SqlDbType.VarChar).Value = Obj.Des_Barrio;
+                Comando.Parameters.Add("@Apartamento", SqlDbType.VarChar).Value = Obj.Des_Apartamento;
+                Comando.Parameters.Add("@Movil", SqlDbType.VarChar).Value = Obj.Des_Movil;
+                Comando.Parameters.Add("@Direccion", SqlDbType.VarChar).Value = Obj.Des_Direccion;
+                Comando.Parameters.Add("@Observacion", SqlDbType.VarChar).Value = Obj.Des_Observacion;
+
+                SqlCon.Open();
+                Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Realizar el Registro";
+            }
+            catch (Exception ex)
+            {
+                Rpta = ex.Message;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open)
+                {
+                    SqlCon.Close();
+                }
+            }
+            return Rpta;
+        }
+
+        public string Editar_Financiera(Entidad_Cliente Obj)
+        {
+            string Rpta = "";
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
+                SqlCommand Comando = new SqlCommand("Cliente.Detalles_Adicional", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
+
+                //Datos Auxiliares
+                Comando.Parameters.Add("@Idcliente", SqlDbType.Int).Value = Obj.Idcliente;
+                Comando.Parameters.Add("@Auto_Financiera", SqlDbType.Int).Value = Obj.AutoDet_Financiera;
+
+                //Panel Ubicaciones -- Campos Obligatorios
+                //Comando.Parameters.Add("@Idbanco", SqlDbType.Int).Value = Obj.idban;
+                Comando.Parameters.Add("@Cuenta", SqlDbType.VarChar).Value = Obj.Fin_Cuenta;
+                Comando.Parameters.Add("@NumeroCuenta", SqlDbType.VarChar).Value = Obj.Fin_CuentaNumero;
+
+                SqlCon.Open();
+                Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Realizar el Registro";
+            }
+            catch (Exception ex)
+            {
+                Rpta = ex.Message;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open)
+                {
+                    SqlCon.Close();
+                }
+            }
+            return Rpta;
+        }
+
+        public string Editar_Contacto(Entidad_Cliente Obj)
+        {
+            string Rpta = "";
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
+                SqlCommand Comando = new SqlCommand("Cliente.Detalles_Adicional", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
+
+                //Datos Auxiliares
+                Comando.Parameters.Add("@Idcliente", SqlDbType.Int).Value = Obj.Idcliente;
+                Comando.Parameters.Add("@Auto_Contacto", SqlDbType.Int).Value = Obj.AutoDet_Contacto;
+
+                //Panel Ubicaciones -- Campos Obligatorios
+                Comando.Parameters.Add("@Contacto", SqlDbType.VarChar).Value = Obj.Cont_Contacto;
+                Comando.Parameters.Add("@Ciudad", SqlDbType.VarChar).Value = Obj.Cont_Ciudad;
+                Comando.Parameters.Add("@Direccion", SqlDbType.VarChar).Value = Obj.Cont_Direccion;
+                Comando.Parameters.Add("@Telefono", SqlDbType.VarChar).Value = Obj.Cont_Telefono;
+                Comando.Parameters.Add("@Movil", SqlDbType.VarChar).Value = Obj.Cont_Movil;
+                Comando.Parameters.Add("@Correo", SqlDbType.VarChar).Value = Obj.Cont_Correo;
+                Comando.Parameters.Add("@Parentesco", SqlDbType.VarChar).Value = Obj.Cont_Parentesco;
+
+                SqlCon.Open();
+                Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Realizar el Registro";
             }
             catch (Exception ex)
             {

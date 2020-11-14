@@ -5401,7 +5401,7 @@ namespace Presentacion
                 {
                     if (this.Digitar)
                     {
-                        this.MensajeOk("El Registro del Producto: “" + this.TBNombre.Text + "” a Sido Actualizado Exitosamente");
+                        this.MensajeOk("La Ubicacion del Producto: “" + this.TBNombre.Text + "” a Sido Actualizada Exitosamente");
                     }
 
                     //SE LIMPIAN LOS CAMPOS DE TEXTO

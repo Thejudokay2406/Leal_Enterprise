@@ -851,7 +851,48 @@ namespace Presentacion
 
         private void btnModificar_Facturacion_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string rptaDatosBasicos = "";
 
+                rptaDatosBasicos = fCliente.Editar_Ubicacion
+
+                            (
+                                 //Datos Auxiliares
+                                 Convert.ToInt32(this.TBIdproducto.Text),
+
+                                 //Panel Datos Basicos
+                                 this.TBUbicacion.Text, this.TBEstante.Text, this.TBNivel.Text,
+
+                                //Si es igual a 1 se registraran los datos en la base de datos
+                                2
+                            );
+
+                if (rptaDatosBasicos.Equals("OK"))
+                {
+                    if (this.Digitar)
+                    {
+                        this.MensajeOk("El Registro de Facturación del Cliente: “" + this.TBDat_Nombre.Text + "” a Sido Actualizado Exitosamente");
+                    }
+
+                    //SE LIMPIAN LOS CAMPOS DE TEXTO
+                    this.CBBodega.SelectedIndex = 0;
+                    this.TBUbicacion.Clear();
+                    this.TBEstante.Clear();
+                    this.TBNivel.Clear();
+
+                    this.Actualizar_DetUbicacion();
+                }
+
+                else
+                {
+                    this.MensajeError(rptaDatosBasicos);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
 
         private void btnModificar_Credito_Click(object sender, EventArgs e)
@@ -1052,8 +1093,9 @@ namespace Presentacion
                     int Fila = this.DGDetalle_Facturacion.CurrentCell.RowIndex;
                     DataRow row = this.DtDetalle_Facturacion.Rows[Fila];
 
-                    //Se remueve la fila
+                    //Se remueve la fila y se Selecciona el Texboxt Inicial
                     this.DtDetalle_Facturacion.Rows.Remove(row);
+                    this.TBFac_DocumentoCliente.Select();
                 }
             }
             catch (Exception ex)
@@ -1108,8 +1150,9 @@ namespace Presentacion
                     int Fila = this.DGDetalle_Credito.CurrentCell.RowIndex;
                     DataRow row = this.DtDetalle_Credito.Rows[Fila];
 
-                    //Se remueve la fila
+                    //Se remueve la fila y se Selecciona el Texboxt Inicial
                     this.DtDetalle_Credito.Rows.Remove(row);
+                    this.TBCre_CreditoMinimo.Select();
                 }
             }
             catch (Exception ex)
@@ -1164,8 +1207,9 @@ namespace Presentacion
                     int Fila = this.DGDetalle_Despacho.CurrentCell.RowIndex;
                     DataRow row = this.DtDetalle_Despacho.Rows[Fila];
 
-                    //Se remueve la fila
+                    //Se remueve la fila y se Selecciona el Texboxt Inicial
                     this.DtDetalle_Despacho.Rows.Remove(row);
+                    this.TBDes_Sucurzal.Select();
                 }
             }
             catch (Exception ex)
@@ -1220,8 +1264,9 @@ namespace Presentacion
                     int Fila = this.DGDetalle_Financiera.CurrentCell.RowIndex;
                     DataRow row = this.DtDetalle_Financiera.Rows[Fila];
 
-                    //Se remueve la fila
+                    //Se remueve la fila y se Selecciona el Texboxt Inicial
                     this.DtDetalle_Financiera.Rows.Remove(row);
+                    this.TBFin_NumCuenta.Select();
                 }
             }
             catch (Exception ex)
@@ -1276,8 +1321,9 @@ namespace Presentacion
                     int Fila = this.DGDetalle_Contacto.CurrentCell.RowIndex;
                     DataRow row = this.DtDetalle_Contacto.Rows[Fila];
 
-                    //Se remueve la fila
+                    //Se remueve la fila y se Selecciona el Texboxt Inicial
                     this.DtDetalle_Contacto.Rows.Remove(row);
+                    this.TBCon_Contacto.Select();
                 }
             }
             catch (Exception ex)

@@ -822,7 +822,7 @@ namespace Presentacion
                     //this.TCPrincipal.SelectedIndex = 2;
                     this.TBNombre.Select();
                 }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Tab))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
                     //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema

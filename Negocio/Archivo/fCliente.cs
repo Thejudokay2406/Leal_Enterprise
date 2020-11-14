@@ -158,6 +158,144 @@ namespace Negocio
             return Datos.Guardar_DatosBasicos(Obj);
         }
 
+        public static string Guardar_Facturacion
+            (
+                //Ubicacion[]
+                int idcliente, int idempleado, string Empleado, string Cod_Empleado, string Cliente, string Doc_Cliente, string Movil, string Pais, string Ciudad, string Departamento, string Correo,
+
+                //Datos Auxiliares
+                int autodet_facturacion
+            )
+        {
+            Conexion_Cliente Datos = new Conexion_Cliente();
+            Entidad_Cliente Obj = new Entidad_Cliente();
+
+            //Facturacion
+            Obj.Idcliente = idcliente;
+            Obj.Idempleado = idempleado;
+            Obj.Fac_Asesor = Empleado;
+            Obj.Fac_AsesorCodigo = Cod_Empleado;
+            Obj.Fac_Cliente = Cliente;
+            Obj.Fac_ClienteDoc = Doc_Cliente;
+            Obj.Fac_Movil = Movil;
+            Obj.Fac_Pais = Pais;
+            Obj.Fac_Ciudad = Ciudad;
+            Obj.Fac_Departamento = Departamento;
+            Obj.Fac_Correo = Correo;
+
+            //Datos Auxiliares
+            Obj.AutoDet_Facturacion = autodet_facturacion;
+
+            return Datos.Guardar_Facturacion(Obj);
+        }
+        public static string Guardar_Credito
+            (
+                //Ubicacion[]
+                int Idcliente, string Valor, string CuoMeses, string TasaMensu, string TasaAnual, DateTime Solicitud, DateTime Emision, string Prorroga, string Mora,
+
+                //Datos Auxiliares
+                int autodet_credito
+            )
+        {
+            Conexion_Cliente Datos = new Conexion_Cliente();
+            Entidad_Cliente Obj = new Entidad_Cliente();
+
+            //Ubicacion[]
+            Obj.Idcliente = Idcliente;
+            Obj.Cre_Valor = Valor;
+            Obj.Cre_Cuotas = CuoMeses;
+            Obj.Cre_TasaMensual = TasaMensu;
+            Obj.Cre_TasaAnual = TasaAnual;
+            Obj.Cre_Solicitud = Solicitud;
+            Obj.Cre_Emision = Emision;
+            Obj.Cre_Prorroga = Prorroga;
+            Obj.Cre_TasaMora = Mora;
+
+            //Datos Auxiliares
+            Obj.AutoDet_Credito = autodet_credito;
+
+            return Datos.Guardar_Credito(Obj);
+        }
+        public static string Guardar_Despacho
+            (
+                //Despacho[]
+                int Idcliente, string Sucurzal, string Pais, string Ciudad, string Departamento, string Receptor, string Barrio, string Apartamento, string Movil, string Direccion, string Observacion,
+
+                //Datos Auxiliares
+                int autodet_despacho
+            )
+        {
+            Conexion_Cliente Datos = new Conexion_Cliente();
+            Entidad_Cliente Obj = new Entidad_Cliente();
+
+            //Despacho[]
+            Obj.Idcliente = Idcliente;
+            Obj.Des_Sucurzal = Sucurzal;
+            Obj.Des_Pais = Pais;
+            Obj.Des_Ciudad = Ciudad;
+            Obj.Des_Departamento = Departamento;
+            Obj.Des_Receptor = Receptor;
+            Obj.Des_Barrio = Barrio;
+            Obj.Des_Apartamento = Apartamento;
+            Obj.Des_Movil = Movil;
+            Obj.Des_Direccion = Direccion;
+            Obj.Des_Observacion = Observacion;
+
+            //Datos Auxiliares
+            Obj.AutoDet_Despacho = autodet_despacho;
+
+            return Datos.Guardar_Despacho(Obj);
+        }
+        public static string Guardar_Financiera
+            (
+                //Ubicacion[]
+                int idcliente, int Idbanco, string Cuenta, string Numerodecuenta,
+
+                //Datos Auxiliares
+                int autodet_financiera
+            )
+        {
+            Conexion_Cliente Datos = new Conexion_Cliente();
+            Entidad_Cliente Obj = new Entidad_Cliente();
+
+            //Financiera[]
+            Obj.Idcliente = idcliente;
+            Obj.Idbanco = Idbanco;
+            Obj.Fin_Cuenta = Cuenta;
+            Obj.Fin_CuentaNumero = Numerodecuenta;
+
+            //Datos Auxiliares
+            Obj.AutoDet_Financiera = autodet_financiera;
+
+            return Datos.Guardar_Financiera(Obj);
+        }
+        public static string Guardar_Contacto
+            (
+                //Ubicacion[]
+                int Idcliente, string Contacto, string Ciudad, string Direccion, string Telefono, string Movil, string Correo, string Parentesco,
+
+                //Datos Auxiliares
+                int autodet_contacto
+            )
+        {
+            Conexion_Cliente Datos = new Conexion_Cliente();
+            Entidad_Cliente Obj = new Entidad_Cliente();
+
+            //Contacto[]
+            Obj.Idcliente = Idcliente;
+            Obj.Cont_Contacto = Contacto;
+            Obj.Cont_Ciudad = Ciudad;
+            Obj.Cont_Direccion = Direccion;
+            Obj.Cont_Telefono = Telefono;
+            Obj.Cont_Movil = Movil;
+            Obj.Cont_Correo = Correo;
+            Obj.Cont_Parentesco = Parentesco;
+
+            //Datos Auxiliares
+            Obj.AutoDet_Contacto = autodet_contacto;
+
+            return Datos.Guardar_Contacto(Obj);
+        }
         public static string Editar_DatosBasicos
             (
                 //Datos Auxiliares y Llaves Primaria
@@ -196,7 +334,7 @@ namespace Negocio
             return Datos.Editar_DatosBasicos(Obj);
         }
 
-        public static string Editar_Ubicacion
+        public static string Editar_Facturacion
             (
                 //
                 int idcliente,
@@ -220,7 +358,7 @@ namespace Negocio
             ////Datos Auxiliares
             //Obj.AutoDet_Ubicacion = auto;
 
-            return Datos.Editar_Ubicacion(Obj);
+            return Datos.Editar_Facturacion(Obj);
         }
 
         public static string Eliminar(int IDEliminar_SQL, int auto)
