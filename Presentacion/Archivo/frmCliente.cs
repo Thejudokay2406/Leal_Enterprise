@@ -90,6 +90,13 @@ namespace Presentacion
             this.TBIdcliente.Visible = false;
             this.TBIdbanco.Visible = false;
             this.TBIdempleado.Visible = false;
+
+            this.TBIdfacturacion.Visible = false;
+            this.TBIdcredito.Visible = false;
+            this.TBIdfinanciera.Visible = false;
+            this.TBIdcredito.Visible = false;
+            this.TBIdcontacto.Visible = false;
+
             this.TBIdcliente_AutoSQL.Visible = false;
         }
 
@@ -135,12 +142,6 @@ namespace Presentacion
             this.TBDat_Direccion.BackColor = Color.FromArgb(3, 155, 229);
             this.TBDat_Observacion.ReadOnly = false;
             this.TBDat_Observacion.BackColor = Color.FromArgb(3, 155, 229);
-            //this.TBDat_Ahorro.ReadOnly = false;
-            //this.TBDat_Ahorro.BackColor = Color.FromArgb(3, 155, 229);
-            //this.TBDat_CreditoDisp.ReadOnly = false;
-            //this.TBDat_CreditoDisp.BackColor = Color.FromArgb(3, 155, 229);
-            //this.TBDat_CreditoFact.ReadOnly = false;
-            //this.TBDat_CreditoFact.BackColor = Color.FromArgb(3, 155, 229);
 
             //Datos de Envio
             this.TBDes_Sucurzal.ReadOnly = false;
@@ -175,24 +176,14 @@ namespace Presentacion
             //Datos de Creditos
             this.TBCre_CreditoMinimo.ReadOnly = false;
             this.TBCre_CreditoMinimo.BackColor = Color.FromArgb(3, 155, 229);
-            //this.TBCre_CreditoMaximo.ReadOnly = false;
-            //this.TBCre_CreditoMaximo.BackColor = Color.FromArgb(3, 155, 229);
-            //this.TBCre_DebitoMinimo.ReadOnly = false;
-            //this.TBCre_DebitoMinimo.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBCre_CuotaMinima.ReadOnly = false;
-            this.TBCre_CuotaMinima.BackColor = Color.FromArgb(3, 155, 229);
-            //this.TBCre_CuotaMaxima.ReadOnly = false;
-            //this.TBCre_CuotaMaxima.BackColor = Color.FromArgb(3, 155, 229);
-            //this.TBCre_Diasdecredito.ReadOnly = false;
-            //this.TBCre_Diasdecredito.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBCre_CuotaMeses.ReadOnly = false;
+            this.TBCre_CuotaMeses.BackColor = Color.FromArgb(3, 155, 229);
             this.TBCre_DiasDeProrroga.ReadOnly = false;
             this.TBCre_DiasDeProrroga.BackColor = Color.FromArgb(3, 155, 229);
             this.TBCre_InteresMora.ReadOnly = false;
             this.TBCre_InteresMora.BackColor = Color.FromArgb(3, 155, 229);
-            //this.TBCre_DebitoMaximo.ReadOnly = false;
-            //this.TBCre_DebitoMaximo.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBCre_Intereses.ReadOnly = false;
-            this.TBCre_Intereses.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBCre_TasaMensual.ReadOnly = false;
+            this.TBCre_TasaMensual.BackColor = Color.FromArgb(3, 155, 229);
 
             //Datos de Facturacion
             this.TBFac_Cliente.ReadOnly = false;
@@ -257,9 +248,6 @@ namespace Presentacion
             this.TBDat_PaginaWeb.Clear();
             this.TBDat_Direccion.Clear();
             this.TBDat_Observacion.Clear();
-            //this.TBDat_Ahorro.Clear();
-            //this.TBDat_CreditoDisp.Clear();
-            //this.TBDat_CreditoFact.Clear();
 
             this.CH_Contado.Checked = true;
             this.CH_Credito.Checked = true;
@@ -280,21 +268,16 @@ namespace Presentacion
 
             //Datos Financieros
             this.TBFin_CodigoBanco.Clear();
-            this.TBFin_Banco.Enabled = false;
+            this.TBFin_Banco.Clear();
             this.TBFin_NumCuenta.Clear();
             this.CBFin_Cuenta.SelectedIndex = 0;
 
             //Datos de Creditos
             this.TBCre_CreditoMinimo.Clear();
-            //this.TBCre_CreditoMaximo.Clear();
-            //this.TBCre_DebitoMinimo.Clear();
-            this.TBCre_CuotaMinima.Clear();
-            //this.TBCre_CuotaMaxima.Clear();
-            //this.TBCre_Diasdecredito.Clear();
+            this.TBCre_CuotaMeses.Clear();
             this.TBCre_DiasDeProrroga.Clear();
             this.TBCre_InteresMora.Clear();
-            //this.TBCre_DebitoMaximo.Clear();
-            this.TBCre_Intereses.Clear();
+            this.TBCre_TasaMensual.Clear();
 
             //Datos de Facturacion
             this.TBFac_Cliente.Clear();
@@ -784,7 +767,7 @@ namespace Presentacion
                 this.DGResultados.DataSource = null;
                 this.DGResultados.Enabled = false;
                 this.lblTotal.Text = "Datos Registrados: 0";
-                this.TBBuscar.Text="";
+                this.TBBuscar.Text = "";
             }
             catch (Exception ex)
             {
@@ -855,16 +838,16 @@ namespace Presentacion
             {
                 string rptaDatosBasicos = "";
 
-                rptaDatosBasicos = fCliente.Editar_Ubicacion
+                rptaDatosBasicos = fCliente.Editar_Facturacion
 
                             (
                                  //Datos Auxiliares
-                                 Convert.ToInt32(this.TBIdproducto.Text),
+                                 Convert.ToInt32(this.TBIdfacturacion.Text), Convert.ToInt32(this.TBIdcliente.Text), Convert.ToInt32(this.TBIdempleado.Text),
 
                                  //Panel Datos Basicos
-                                 this.TBUbicacion.Text, this.TBEstante.Text, this.TBNivel.Text,
+                                 this.TBFac_Asesor.Text, this.TBFac_CodigoAsesor.Text, this.TBFac_Cliente.Text, this.TBFac_DocumentoCliente.Text, this.TBFac_Movil.Text, this.TBFac_Pais.Text, this.TBFac_Ciudad.Text, this.TBFac_Departamento.Text, this.TBFac_Correo.Text,
 
-                                //Si es igual a 1 se registraran los datos en la base de datos
+                                //SI ES IGUAL A 2 SE EDITARAN LOS REGISTROS EN LA BASE DE DATOS
                                 2
                             );
 
@@ -876,12 +859,19 @@ namespace Presentacion
                     }
 
                     //SE LIMPIAN LOS CAMPOS DE TEXTO
-                    this.CBBodega.SelectedIndex = 0;
-                    this.TBUbicacion.Clear();
-                    this.TBEstante.Clear();
-                    this.TBNivel.Clear();
+                    this.TBIdfacturacion.Clear();
+                    this.TBFac_Cliente.Clear();
+                    this.TBFac_Asesor.Clear();
+                    this.TBFac_DocumentoCliente.Clear();
+                    this.TBFac_CodigoAsesor.Clear();
+                    this.TBFac_Movil.Clear();
+                    this.TBFac_Correo.Clear();
+                    this.TBFac_Pais.Clear();
+                    this.TBFac_Ciudad.Clear();
+                    this.TBFac_Departamento.Clear();
+                    this.CH_Facturacion.Checked = false;
 
-                    this.Actualizar_DetUbicacion();
+                    this.Actualizar_DetFacturacion();
                 }
 
                 else
@@ -897,22 +887,200 @@ namespace Presentacion
 
         private void btnModificar_Credito_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string rptaDatosBasicos = "";
 
+                rptaDatosBasicos = fCliente.Editar_Credito
+
+                            (
+                                 //Datos Auxiliares
+                                 Convert.ToInt32(this.TBIdcredito.Text), Convert.ToInt32(this.TBIdcliente.Text),
+
+                                 //Panel Datos Basicos
+                                 this.TBCre_CreditoMinimo.Text, this.TBCre_CuotaMeses.Text, this.TBCre_TasaMensual.Text, this.TBCre_TasaAnual.Text, this.DTCre_Solicitud.Value, this.DTCre_Emision.Value, this.TBCre_DiasDeProrroga.Text, this.TBCre_InteresMora.Text,
+
+                                //SI ES IGUAL A 2 SE EDITARAN LOS REGISTROS EN LA BASE DE DATOS
+                                2
+                            );
+
+                if (rptaDatosBasicos.Equals("OK"))
+                {
+                    if (this.Digitar)
+                    {
+                        this.MensajeOk("El Registro de Credito del Cliente: “" + this.TBDat_Nombre.Text + "” a Sido Actualizado Exitosamente");
+                    }
+
+                    //SE LIMPIAN LOS CAMPOS DE TEXTO
+                    this.TBIdcredito.Clear();
+                    this.TBCre_CreditoMinimo.Clear();
+                    this.TBCre_CuotaMeses.Clear();
+                    this.TBCre_DiasDeProrroga.Clear();
+                    this.TBCre_InteresMora.Clear();
+                    this.TBCre_TasaMensual.Clear();
+
+                    this.Actualizar_DetCredito();
+                }
+
+                else
+                {
+                    this.MensajeError(rptaDatosBasicos);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
 
         private void btnModificar_Despacho_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string rptaDatosBasicos = "";
 
+                rptaDatosBasicos = fCliente.Editar_Despacho
+
+                            (
+                                 //Datos Auxiliares
+                                 Convert.ToInt32(this.TBIddespacho.Text), Convert.ToInt32(this.TBIdcliente.Text),
+
+                                 //Panel Datos Basicos
+                                 this.TBDes_Sucurzal.Text, this.TBDes_Pais.Text, this.TBDes_Ciudad.Text, this.TBDes_Departamento.Text, this.TBDes_Receptor.Text, this.TBDes_Barrio.Text, this.TBDes_Apartamento.Text, this.TBDes_Movil.Text, this.TBDes_Direccion.Text, this.TBDes_Observacion.Text,
+
+                                //SI ES IGUAL A 2 SE EDITARAN LOS REGISTROS EN LA BASE DE DATOS
+                                2
+                            );
+
+                if (rptaDatosBasicos.Equals("OK"))
+                {
+                    if (this.Digitar)
+                    {
+                        this.MensajeOk("El Registro de Despachos del Cliente: “" + this.TBDat_Nombre.Text + "” a Sido Actualizado Exitosamente");
+                    }
+
+                    //SE LIMPIAN LOS CAMPOS DE TEXTO
+                    this.TBIddespacho.Clear();
+                    this.TBDes_Sucurzal.Clear();
+                    this.TBDes_Pais.Clear();
+                    this.TBDes_Ciudad.Clear();
+                    this.TBDes_Departamento.Clear();
+                    this.TBDes_Receptor.Clear();
+                    this.TBDes_Barrio.Clear();
+                    this.TBDes_Apartamento.Clear();
+                    this.TBDes_Direccion.Clear();
+                    this.TBDes_Movil.Clear();
+                    this.TBDes_Observacion.Clear();
+
+                    this.Actualizar_DetDespacho();
+                }
+
+                else
+                {
+                    this.MensajeError(rptaDatosBasicos);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
 
         private void btnModificar_Financiera_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string rptaDatosBasicos = "";
 
+                rptaDatosBasicos = fCliente.Editar_Financiera
+
+                            (
+                                 //Datos Auxiliares
+                                 Convert.ToInt32(this.TBIdfinanciera.Text), Convert.ToInt32(this.TBIdcliente.Text), Convert.ToInt32(this.TBIdbanco.Text),
+
+                                 //Panel Datos Basicos
+                                 this.CBFin_Cuenta.Text, this.TBFin_NumCuenta.Text,
+
+                                //SI ES IGUAL A 2 SE EDITARAN LOS REGISTROS EN LA BASE DE DATOS
+                                2
+                            );
+
+                if (rptaDatosBasicos.Equals("OK"))
+                {
+                    if (this.Digitar)
+                    {
+                        this.MensajeOk("El Registro Financiero del Cliente: “" + this.TBDat_Nombre.Text + "” a Sido Actualizado Exitosamente");
+                    }
+
+                    //SE LIMPIAN LOS CAMPOS DE TEXTO
+                    this.TBIdfinanciera.Clear();
+                    this.TBFin_CodigoBanco.Clear();
+                    this.TBFin_Banco.Clear();
+                    this.TBFin_NumCuenta.Clear();
+                    this.CBFin_Cuenta.SelectedIndex = 0;
+
+                    this.Actualizar_DetFinanciera();
+                }
+
+                else
+                {
+                    this.MensajeError(rptaDatosBasicos);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
 
         private void btnModificar_Contacto_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string rptaDatosBasicos = "";
 
+                rptaDatosBasicos = fCliente.Editar_Contacto
+
+                            (
+                                 //Datos Auxiliares
+                                 Convert.ToInt32(this.TBIdcontacto.Text), Convert.ToInt32(this.TBIdcliente.Text),
+
+                                 //Panel Datos Basicos
+                                 this.TBCon_Contacto.Text, this.TBCon_Ciudad.Text, this.TBCon_Direccion.Text, this.TBCon_Telefono.Text, this.TBCon_Movil.Text, this.TBCon_Correo.Text, this.TBCon_Parentesco.Text,
+
+                                //SI ES IGUAL A 2 SE EDITARAN LOS REGISTROS EN LA BASE DE DATOS
+                                2
+                            );
+
+                if (rptaDatosBasicos.Equals("OK"))
+                {
+                    if (this.Digitar)
+                    {
+                        this.MensajeOk("El Registro de Contacto del Cliente: “" + this.TBDat_Nombre.Text + "” a Sido Actualizado Exitosamente");
+                    }
+
+                    //SE LIMPIAN LOS CAMPOS DE TEXTO
+                    this.TBIdcontacto.Clear();
+                    this.TBCon_Contacto.Clear();
+                    this.TBCon_Ciudad.Clear();
+                    this.TBCon_Direccion.Clear();
+                    this.TBCon_Telefono.Clear();
+                    this.TBCon_Movil.Clear();
+                    this.TBCon_Correo.Clear();
+                    this.TBCon_Parentesco.Clear();
+
+                    this.Actualizar_DetContacto();
+                }
+
+                else
+                {
+                    this.MensajeError(rptaDatosBasicos);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
 
 
@@ -952,6 +1120,7 @@ namespace Presentacion
                         this.DtDetalle_Facturacion.Rows.Add(fila);
 
                         //
+                        //this.tbcodi.Clear();
                         this.TBFac_Cliente.Clear();
                         this.TBFac_Asesor.Clear();
                         this.TBFac_DocumentoCliente.Clear();
@@ -986,37 +1155,37 @@ namespace Presentacion
                         if (result == DialogResult.Yes)
                         {
                             string rptaDatosBasicos = "";
-                            //rptaDatosBasicos = fCliente.f
+                            rptaDatosBasicos = fCliente.Guardar_Facturacion
 
-                            //        (
-                            //             //Datos Basicos
-                            //             Convert.ToInt32(this.TBIdproducto.Text), Convert.ToInt32(this.CBBodega.SelectedValue), this.TBUbicacion.Text, this.TBEstante.Text, this.TBNivel.Text,
+                                    (
+                                         //Datos Basicos
+                                         Convert.ToInt32(this.TBIdcliente.Text), Convert.ToInt32(this.TBIdempleado.Text), this.TBFac_Asesor.Text, this.TBFac_CodigoAsesor.Text, this.TBFac_Cliente.Text, this.TBFac_DocumentoCliente.Text, this.TBFac_Movil.Text, this.TBFac_Pais.Text, this.TBFac_Ciudad.Text, this.TBFac_Departamento.Text, this.TBFac_Correo.Text,
 
-                            //            //Datos Auxiliares
-                            //            1
-                            //        );
+                                        //Datos Auxiliares
+                                        1
+                                    );
 
-                            //if (rptaDatosBasicos.Equals("OK"))
-                            //{
-                            //    this.MensajeOk("La Ubicación del Producto: " + TBNombre.Text + " con Codigo: " + this.TBCodigo.Text + " a Sido Registrada Exitosamente");
-                            //}
+                            if (rptaDatosBasicos.Equals("OK"))
+                            {
+                                this.MensajeOk("Los Datos de Facturacion del Cliente: " + TBDat_Nombre.Text + " han Sido Registrados Exitosamente");
+                            }
 
-                            //else
-                            //{
-                            //    this.MensajeError(rptaDatosBasicos);
-                            //}
+                            else
+                            {
+                                this.MensajeError(rptaDatosBasicos);
+                            }
 
-                            ////
-                            //this.CBBodega.SelectedIndex = 0;
-                            //this.TBUbicacion.Clear();
-                            //this.TBEstante.Clear();
-                            //this.TBNivel.Clear();
+                            //
+                            this.CBBodega.SelectedIndex = 0;
+                            this.TBUbicacion.Clear();
+                            this.TBEstante.Clear();
+                            this.TBNivel.Clear();
 
-                            //this.Actualizar_DetUbicacion();
+                            this.Actualizar_DetFacturacion();
                         }
                         else
                         {
-                            //this.TBUbicacion.Select();
+                            this.TBFac_Cliente.Select();
                         }
                     }
                 }
@@ -1072,7 +1241,7 @@ namespace Presentacion
 
                             if (Respuesta.Equals("OK"))
                             {
-                                this.MensajeOk("Ubicación Eliminada Correctamente");
+                                this.MensajeOk("El Registro de Datos de Facturacion del Cliente: “" + this.TBDat_Nombre.Text + "” a Sido Eliminado");
                             }
                             else
                             {
@@ -1129,7 +1298,7 @@ namespace Presentacion
 
                             if (Respuesta.Equals("OK"))
                             {
-                                this.MensajeOk("Ubicación Eliminada Correctamente");
+                                this.MensajeOk("El Registro de Credito del Cliente: “" + this.TBDat_Nombre.Text + "” a Sido Eliminado");
                             }
                             else
                             {
@@ -1186,7 +1355,7 @@ namespace Presentacion
 
                             if (Respuesta.Equals("OK"))
                             {
-                                this.MensajeOk("Ubicación Eliminada Correctamente");
+                                this.MensajeOk("El Registro de Despacho del Cliente: “" + this.TBDat_Nombre.Text + "” a Sido Eliminado");
                             }
                             else
                             {
@@ -1243,7 +1412,7 @@ namespace Presentacion
 
                             if (Respuesta.Equals("OK"))
                             {
-                                this.MensajeOk("Ubicación Eliminada Correctamente");
+                                this.MensajeOk("El Registro de Datos de Financiera del Cliente: “" + this.TBDat_Nombre.Text + "” a Sido Eliminado");
                             }
                             else
                             {
@@ -1300,7 +1469,7 @@ namespace Presentacion
 
                             if (Respuesta.Equals("OK"))
                             {
-                                this.MensajeOk("Ubicación Eliminada Correctamente");
+                                this.MensajeOk("El Registro de Datos de Contacto del Cliente: “" + this.TBDat_Nombre.Text + "” a Sido Eliminado");
                             }
                             else
                             {
@@ -1701,7 +1870,7 @@ namespace Presentacion
         private void TBCre_CuotaMinima_Enter(object sender, EventArgs e)
         {
             //Se evalua si el campo de texto esta vacio y se espeicifca que es obligatorio en la base de datos
-            this.TBCre_CuotaMinima.BackColor = Color.Azure;
+            this.TBCre_CuotaMeses.BackColor = Color.Azure;
         }
 
         private void TBCre_DiasDeProrroga_Enter(object sender, EventArgs e)
@@ -1709,11 +1878,11 @@ namespace Presentacion
             //Se evalua si el campo de texto esta vacio y se espeicifca que es obligatorio en la base de datos
             this.TBCre_DiasDeProrroga.BackColor = Color.Azure;
         }
-         
+
         private void TBCre_Intereses_Enter(object sender, EventArgs e)
         {
             //Se evalua si el campo de texto esta vacio y se espeicifca que es obligatorio en la base de datos
-            this.TBCre_Intereses.BackColor = Color.Azure;
+            this.TBCre_TasaMensual.BackColor = Color.Azure;
         }
 
         private void TBCre_InteresMora_Enter(object sender, EventArgs e)
@@ -1783,7 +1952,7 @@ namespace Presentacion
             //Se evalua si el campo de texto esta vacio y se espeicifca que es obligatorio en la base de datos
             this.TBDes_Observacion.BackColor = Color.Azure;
         }
-                
+
         //********************** PANEL DATOS FINANCIEROS - ENTER *********************************************
 
         private void TBFin_NumCuenta_Enter(object sender, EventArgs e)
@@ -1829,7 +1998,7 @@ namespace Presentacion
             //Se evalua si el campo de texto esta vacio y se espeicifca que es obligatorio en la base de datos
             this.TBCon_Correo.BackColor = Color.Azure;
         }
-                
+
         private void TBCon_Parentesco_Enter(object sender, EventArgs e)
         {
             //Se evalua si el campo de texto esta vacio y se espeicifca que es obligatorio en la base de datos
@@ -1915,7 +2084,7 @@ namespace Presentacion
         {
             this.TBDat_Pais.BackColor = Color.FromArgb(3, 155, 229);
         }
-                
+
         private void TBDat_Ciudad_Leave(object sender, EventArgs e)
         {
             this.TBDat_Ciudad.BackColor = Color.FromArgb(3, 155, 229);
@@ -1987,7 +2156,7 @@ namespace Presentacion
 
         private void TBCre_CuotaMinima_Leave(object sender, EventArgs e)
         {
-            this.TBCre_CuotaMinima.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBCre_CuotaMeses.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBCre_DiasDeProrroga_Leave(object sender, EventArgs e)
@@ -1997,7 +2166,7 @@ namespace Presentacion
 
         private void TBCre_Intereses_Leave(object sender, EventArgs e)
         {
-            this.TBCre_Intereses.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBCre_TasaMensual.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBCre_InteresMora_Leave(object sender, EventArgs e)
@@ -3573,7 +3742,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCre_Intereses.Select();
+                            this.TBCre_TasaMensual.Select();
                         }
                     }
                     else
@@ -3590,7 +3759,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCre_Intereses.Select();
+                            this.TBCre_TasaMensual.Select();
                         }
                     }
                 }

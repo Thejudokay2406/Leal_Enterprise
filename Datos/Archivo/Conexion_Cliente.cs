@@ -610,6 +610,7 @@ namespace Datos
 
                 //Datos Auxiliares
                 Comando.Parameters.Add("@Idcliente", SqlDbType.Int).Value = Obj.Idcliente;
+                Comando.Parameters.Add("@Idfacturacion", SqlDbType.Int).Value = Obj.Idfacturacion;
                 Comando.Parameters.Add("@Auto_Facturacion", SqlDbType.Int).Value = Obj.AutoDet_Facturacion;
 
                 //Panel Ubicaciones -- Campos Obligatorios
@@ -653,6 +654,7 @@ namespace Datos
 
                 //Datos Auxiliares
                 Comando.Parameters.Add("@Idcliente", SqlDbType.Int).Value = Obj.Idcliente;
+                Comando.Parameters.Add("@Idcredito", SqlDbType.Int).Value = Obj.Idcredito;
                 Comando.Parameters.Add("@Auto_Credito", SqlDbType.Int).Value = Obj.AutoDet_Credito;
 
                 //Panel Ubicaciones -- Campos Obligatorios
@@ -694,6 +696,7 @@ namespace Datos
 
                 //Datos Auxiliares
                 Comando.Parameters.Add("@Idcliente", SqlDbType.Int).Value = Obj.Idcliente;
+                Comando.Parameters.Add("@Iddespacho", SqlDbType.Int).Value = Obj.Iddespacho;
                 Comando.Parameters.Add("@Auto_Despacho", SqlDbType.Int).Value = Obj.AutoDet_Despacho;
 
                 //Panel Ubicaciones -- Campos Obligatorios
@@ -737,6 +740,7 @@ namespace Datos
 
                 //Datos Auxiliares
                 Comando.Parameters.Add("@Idcliente", SqlDbType.Int).Value = Obj.Idcliente;
+                Comando.Parameters.Add("@Idfinanciera", SqlDbType.Int).Value = Obj.Idfinanciera;
                 Comando.Parameters.Add("@Auto_Financiera", SqlDbType.Int).Value = Obj.AutoDet_Financiera;
 
                 //Panel Ubicaciones -- Campos Obligatorios
@@ -773,6 +777,7 @@ namespace Datos
 
                 //Datos Auxiliares
                 Comando.Parameters.Add("@Idcliente", SqlDbType.Int).Value = Obj.Idcliente;
+                Comando.Parameters.Add("@Idcontacto", SqlDbType.Int).Value = Obj.Idcontacto;
                 Comando.Parameters.Add("@Auto_Contacto", SqlDbType.Int).Value = Obj.AutoDet_Contacto;
 
                 //Panel Ubicaciones -- Campos Obligatorios

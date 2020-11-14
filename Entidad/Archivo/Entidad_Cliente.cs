@@ -17,6 +17,12 @@ namespace Entidad
         private int _Idempleado;
         private int _Idbanco;
 
+        private int _Idfacturacion;
+        private int _Idcredito;
+        private int _Iddespacho;
+        private int _Idfinanciera;
+        private int _Idcontacto;
+
         //Datos Basicos
         private string _Dat_Codigo;
         private string _Dat_Cliente;
@@ -213,5 +219,10 @@ namespace Entidad
         public int Tran_Financiera { get => _Tran_Financiera; set => _Tran_Financiera = value; }
         public int Tran_Contacto { get => _Tran_Contacto; set => _Tran_Contacto = value; }
         public int Idbanco { get => _Idbanco; set => _Idbanco = value; }
+        public int Idfacturacion { get => _Idfacturacion; set => _Idfacturacion = value; }
+        public int Idcredito { get => _Idcredito; set => _Idcredito = value; }
+        public int Iddespacho { get => _Iddespacho; set => _Iddespacho = value; }
+        public int Idfinanciera { get => _Idfinanciera; set => _Idfinanciera = value; }
+        public int Idcontacto { get => _Idcontacto; set => _Idcontacto = value; }
     }
 }
