@@ -97,7 +97,7 @@ namespace Presentacion
             this.TBIdcredito.Visible = false;
             this.TBIdcontacto.Visible = false;
 
-            this.TBIdcliente_AutoSQL.Visible = false;
+            //this.TBIdcliente_AutoSQL.Visible = false;
         }
 
         private void Habilitar()
@@ -174,14 +174,16 @@ namespace Presentacion
             this.TBFin_NumCuenta.BackColor = Color.FromArgb(3, 155, 229);
 
             //Datos de Creditos
-            this.TBCre_CreditoMinimo.ReadOnly = false;
-            this.TBCre_CreditoMinimo.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBCre_Valor.ReadOnly = false;
+            this.TBCre_Valor.BackColor = Color.FromArgb(3, 155, 229);
             this.TBCre_CuotaMeses.ReadOnly = false;
             this.TBCre_CuotaMeses.BackColor = Color.FromArgb(3, 155, 229);
             this.TBCre_DiasDeProrroga.ReadOnly = false;
             this.TBCre_DiasDeProrroga.BackColor = Color.FromArgb(3, 155, 229);
             this.TBCre_InteresMora.ReadOnly = false;
             this.TBCre_InteresMora.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBCre_TasaAnual.ReadOnly = false;
+            this.TBCre_TasaAnual.BackColor = Color.FromArgb(3, 155, 229);
             this.TBCre_TasaMensual.ReadOnly = false;
             this.TBCre_TasaMensual.BackColor = Color.FromArgb(3, 155, 229);
 
@@ -273,10 +275,11 @@ namespace Presentacion
             this.CBFin_Cuenta.SelectedIndex = 0;
 
             //Datos de Creditos
-            this.TBCre_CreditoMinimo.Clear();
+            this.TBCre_Valor.Clear();
             this.TBCre_CuotaMeses.Clear();
             this.TBCre_DiasDeProrroga.Clear();
             this.TBCre_InteresMora.Clear();
+            this.TBCre_TasaAnual.Clear();
             this.TBCre_TasaMensual.Clear();
 
             //Datos de Facturacion
@@ -321,6 +324,11 @@ namespace Presentacion
 
                 this.btnEliminar.Enabled = false;
                 this.btnCancelar.Enabled = false;
+                this.btnModificar_Contacto.Enabled = false;
+                this.btnModificar_Credito.Enabled = false;
+                this.btnModificar_Despacho.Enabled = false;
+                this.btnModificar_Facturacion.Enabled = false;
+                this.btnModificar_Financiera.Enabled = false;
             }
             else if (!Digitar)
             {
@@ -329,6 +337,11 @@ namespace Presentacion
 
                 this.btnEliminar.Enabled = true;
                 this.btnCancelar.Enabled = true;
+                this.btnModificar_Contacto.Enabled = true;
+                this.btnModificar_Credito.Enabled = true;
+                this.btnModificar_Despacho.Enabled = true;
+                this.btnModificar_Facturacion.Enabled = true;
+                this.btnModificar_Financiera.Enabled = true;
             }
         }
 
@@ -546,17 +559,17 @@ namespace Presentacion
                 this.DGDetalle_Contacto.DataSource = this.DtDetalle_Contacto;
 
                 //************************************* Ocultacion de Columnas *************************************
-                this.DGDetalle_Facturacion.Columns[0].Visible = false;
-                this.DGDetalle_Facturacion.Columns[1].Visible = false;
+                //this.DGDetalle_Facturacion.Columns[0].Visible = false;
+                //this.DGDetalle_Facturacion.Columns[1].Visible = false;
 
-                this.DGDetalle_Credito.Columns[1].Visible = false;
+                //this.DGDetalle_Credito.Columns[1].Visible = false;
 
-                this.DGDetalle_Despacho.Columns[0].Visible = false;
+                //this.DGDetalle_Despacho.Columns[0].Visible = false;
 
-                this.DGDetalle_Financiera.Columns[0].Visible = false;
-                this.DGDetalle_Financiera.Columns[1].Visible = false;
+                //this.DGDetalle_Financiera.Columns[0].Visible = false;
+                //this.DGDetalle_Financiera.Columns[1].Visible = false;
 
-                this.DGDetalle_Contacto.Columns[0].Visible = false;
+                //this.DGDetalle_Contacto.Columns[0].Visible = false;
             }
             catch (Exception ex)
             {
@@ -898,7 +911,7 @@ namespace Presentacion
                                  Convert.ToInt32(this.TBIdcredito.Text), Convert.ToInt32(this.TBIdcliente.Text),
 
                                  //Panel Datos Basicos
-                                 this.TBCre_CreditoMinimo.Text, this.TBCre_CuotaMeses.Text, this.TBCre_TasaMensual.Text, this.TBCre_TasaAnual.Text, this.DTCre_Solicitud.Value, this.DTCre_Emision.Value, this.TBCre_DiasDeProrroga.Text, this.TBCre_InteresMora.Text,
+                                 this.TBCre_Valor.Text, this.TBCre_CuotaMeses.Text, this.TBCre_TasaMensual.Text, this.TBCre_TasaAnual.Text, this.DTCre_Solicitud.Value, this.DTCre_Emision.Value, this.TBCre_DiasDeProrroga.Text, this.TBCre_InteresMora.Text,
 
                                 //SI ES IGUAL A 2 SE EDITARAN LOS REGISTROS EN LA BASE DE DATOS
                                 2
@@ -913,7 +926,7 @@ namespace Presentacion
 
                     //SE LIMPIAN LOS CAMPOS DE TEXTO
                     this.TBIdcredito.Clear();
-                    this.TBCre_CreditoMinimo.Clear();
+                    this.TBCre_Valor.Clear();
                     this.TBCre_CuotaMeses.Clear();
                     this.TBCre_DiasDeProrroga.Clear();
                     this.TBCre_InteresMora.Clear();
@@ -1107,6 +1120,7 @@ namespace Presentacion
                     else
                     {
                         DataRow fila = this.DtDetalle_Facturacion.NewRow();
+                        fila["Idcliente"] = Convert.ToInt32(this.TBIdcliente_AutoSQL.Text);
                         fila["Idempleado"] = Convert.ToInt32(this.TBIdempleado.Text);
                         fila["Codigo"] = this.TBFac_CodigoAsesor.Text;
                         fila["Empleado"] = this.TBFac_Asesor.Text;
@@ -1120,7 +1134,7 @@ namespace Presentacion
                         this.DtDetalle_Facturacion.Rows.Add(fila);
 
                         //
-                        //this.tbcodi.Clear();
+                        this.TBIdfacturacion.Clear();
                         this.TBFac_Cliente.Clear();
                         this.TBFac_Asesor.Clear();
                         this.TBFac_DocumentoCliente.Clear();
@@ -1130,6 +1144,7 @@ namespace Presentacion
                         this.TBFac_Pais.Clear();
                         this.TBFac_Ciudad.Clear();
                         this.TBFac_Departamento.Clear();
+                        this.CH_Facturacion.Checked = false;
                     }
                 }
                 else
@@ -1176,10 +1191,17 @@ namespace Presentacion
                             }
 
                             //
-                            this.CBBodega.SelectedIndex = 0;
-                            this.TBUbicacion.Clear();
-                            this.TBEstante.Clear();
-                            this.TBNivel.Clear();
+                            this.TBIdfacturacion.Clear();
+                            this.TBFac_Cliente.Clear();
+                            this.TBFac_Asesor.Clear();
+                            this.TBFac_DocumentoCliente.Clear();
+                            this.TBFac_CodigoAsesor.Clear();
+                            this.TBFac_Movil.Clear();
+                            this.TBFac_Correo.Clear();
+                            this.TBFac_Pais.Clear();
+                            this.TBFac_Ciudad.Clear();
+                            this.TBFac_Departamento.Clear();
+                            this.CH_Facturacion.Checked = false;
 
                             this.Actualizar_DetFacturacion();
                         }
@@ -1198,22 +1220,633 @@ namespace Presentacion
 
         private void btnAgregar_Credito_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (Digitar)
+                {
+                    if (this.TBCre_Valor.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Valor del Credito a Solicitar");
+                        this.TBCre_Valor.Select();
+                    }
+                    else if (this.TBCre_CuotaMeses.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Numero de Cuotas en Meses");
+                        this.TBCre_CuotaMeses.Select();
+                    }
+                    else if (this.TBCre_TasaMensual.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Porcentaje de Tasa Mensual a Manejar en el Credito a Solicitar");
+                        this.TBCre_TasaMensual.Select();
+                    }
+                    else if (this.TBCre_TasaAnual.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Porcentaje de Tasa Anual a Manejar en el Credito a Solicitar");
+                        this.TBCre_TasaAnual.Select();
+                    }
+                    
+                    else
+                    {
+                        
+                        DataRow fila = this.DtDetalle_Credito.NewRow();
+                        fila["Idcliente"] = Convert.ToInt32(this.TBIdcliente_AutoSQL.Text);
+                        fila["Valor"] = this.TBCre_Valor.Text;
+                        fila["Cuota"] = Convert.ToInt32(this.TBCre_CuotaMeses.Text);
+                        fila["T. Mensual"] = Convert.ToInt32(this.TBCre_TasaMensual.Text);
+                        fila["T. Anual"] = Convert.ToInt32(this.TBCre_TasaMensual.Text);
+                        fila["Solicitud"] = this.DTCre_Solicitud.Value.ToString("dd/MM/yyyy");
+                        fila["Emisión"] = this.DTCre_Emision.Value.ToString("dd/MM/yyyy");
+                        fila["Días"] = Convert.ToInt32(this.TBCre_DiasDeProrroga.Text);
+                        fila["Mora"] = Convert.ToInt32(this.TBCre_InteresMora.Text);
+                        this.DtDetalle_Credito.Rows.Add(fila);
 
+                        //
+                        this.TBIdcredito.Clear();
+                        this.TBCre_Valor.Clear();
+                        this.TBCre_CuotaMeses.Clear();
+                        this.TBCre_DiasDeProrroga.Clear();
+                        this.TBCre_InteresMora.Clear();
+                        this.TBCre_TasaMensual.Clear();
+                    }
+                }
+                else
+                {
+                    if (this.TBCre_Valor.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Valor del Credito a Solicitar");
+                        this.TBCre_Valor.Select();
+                    }
+                    else if (this.TBCre_CuotaMeses.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Numero de Cuotas en Meses");
+                        this.TBCre_CuotaMeses.Select();
+                    }
+                    else if (this.TBCre_TasaMensual.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Porcentaje de Tasa Mensual a Manejar en el Credito a Solicitar");
+                        this.TBCre_TasaMensual.Select();
+                    }
+                    else if (this.TBCre_TasaAnual.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Porcentaje de Tasa Anual a Manejar en el Credito a Solicitar");
+                        this.TBCre_TasaAnual.Select();
+                    }
+                    else
+                    {
+                        DialogResult result = MessageBox.Show("¿Desea Registrar los Datos de Credito del Cliente?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            string rptaDatosBasicos = "";
+                            rptaDatosBasicos = fCliente.Guardar_Credito
+
+                                    (
+                                         //Datos Basicos
+                                         Convert.ToInt32(this.TBIdcliente.Text),  this.TBCre_Valor.Text, this.TBCre_CuotaMeses.Text, this.TBCre_TasaMensual.Text, this.TBCre_TasaAnual.Text, this.DTCre_Solicitud.Value, this.DTCre_Emision.Value,this.TBCre_DiasDeProrroga.Text, this.TBCre_InteresMora.Text,
+
+                                        //Datos Auxiliares
+                                        1
+                                    );
+
+                            if (rptaDatosBasicos.Equals("OK"))
+                            {
+                                this.MensajeOk("Los Datos de Credito del Cliente: " + TBDat_Nombre.Text + " han Sido Registrados Exitosamente");
+                            }
+
+                            else
+                            {
+                                this.MensajeError(rptaDatosBasicos);
+                            }
+
+                            //
+                            this.TBIdcredito.Clear();
+                            this.TBCre_Valor.Clear();
+                            this.TBCre_CuotaMeses.Clear();
+                            this.TBCre_DiasDeProrroga.Clear();
+                            this.TBCre_InteresMora.Clear();
+                            this.TBCre_TasaMensual.Clear();
+
+                            this.Actualizar_DetCredito();
+                        }
+                        else
+                        {
+                            this.TBCre_Valor.Select();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnAgregar_Despacho_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (Digitar)
+                {
+                    if (this.TBDes_Sucurzal.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Nombre de la Sucurzal a Enviar");
+                        this.TBDes_Sucurzal.Select();
+                    }
+                    else if (this.TBDes_Pais.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el País a Enviar");
+                        this.TBDes_Pais.Select();
+                    }
+                    else if (this.TBDes_Ciudad.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique la Ciudad a Enviar");
+                        this.TBDes_Ciudad.Select();
+                    }
+                    else if (this.TBDes_Receptor.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Nombre de la Persona que Recibe el Envio");
+                        this.TBDes_Receptor.Select();
+                    }
+                    else if (this.TBDes_Barrio.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Nombre del Barrio o Zona Urbana del Envio");
+                        this.TBDes_Barrio.Select();
+                    }
+                    else if (this.TBDes_Ciudad.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique la Ciudad de Destino del Envio");
+                        this.TBDes_Ciudad.Select();
+                    }
+                    else if (this.TBDes_Movil.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique un Número de Contacto");
+                        this.TBDes_Movil.Select();
+                    }
+                    else
+                    {
+                        
+                        DataRow fila = this.DtDetalle_Despacho.NewRow();
+                        fila["Idcliente"] = Convert.ToInt32(this.TBIdcliente_AutoSQL.Text);
+                        fila["Sucurzal"] = this.TBDes_Sucurzal.Text;
+                        fila["País"] = this.TBDes_Pais.Text;
+                        fila["Ciudad"] = this.TBDes_Ciudad.Text;
+                        fila["Departamento"] = this.TBDes_Departamento.Text;
+                        fila["Receptor"] = this.TBDes_Receptor.Text;
+                        fila["Barrio"] = this.TBDes_Barrio.Text;
+                        fila["Apartamento"] = this.TBDes_Apartamento.Text;
+                        fila["Móvil"] = this.TBDes_Movil.Text;
+                        fila["Dirección"] = this.TBDes_Direccion.Text;
+                        fila["Observación"] = this.TBDes_Observacion.Text;
+                        this.DtDetalle_Despacho.Rows.Add(fila);
 
+                        //
+                        this.TBIddespacho.Clear();
+                        this.TBDes_Sucurzal.Clear();
+                        this.TBDes_Pais.Clear();
+                        this.TBDes_Ciudad.Clear();
+                        this.TBDes_Departamento.Clear();
+                        this.TBDes_Receptor.Clear();
+                        this.TBDes_Barrio.Clear();
+                        this.TBDes_Apartamento.Clear();
+                        this.TBDes_Direccion.Clear();
+                        this.TBDes_Movil.Clear();
+                        this.TBDes_Observacion.Clear();
+                    }
+                }
+                else
+                {
+                    if (this.TBDes_Sucurzal.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Nombre de la Sucurzal a Enviar");
+                        this.TBDes_Sucurzal.Select();
+                    }
+                    else if (this.TBDes_Pais.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el País a Enviar");
+                        this.TBDes_Pais.Select();
+                    }
+                    else if (this.TBDes_Ciudad.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique la Ciudad a Enviar");
+                        this.TBDes_Ciudad.Select();
+                    }
+                    else if (this.TBDes_Receptor.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Nombre de la Persona que Recibe el Envio");
+                        this.TBDes_Receptor.Select();
+                    }
+                    else if (this.TBDes_Barrio.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Nombre del Barrio o Zona Urbana del Envio");
+                        this.TBDes_Barrio.Select();
+                    }
+                    else if (this.TBDes_Ciudad.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique la Ciudad de Destino del Envio");
+                        this.TBDes_Ciudad.Select();
+                    }
+                    else if (this.TBDes_Movil.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique un Número de Contacto");
+                        this.TBDes_Movil.Select();
+                    }
+                    else
+                    {
+                        DialogResult result = MessageBox.Show("¿Desea Registrar los Datos de Despacho del Cliente?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            string rptaDatosBasicos = "";
+                            rptaDatosBasicos = fCliente.Guardar_Despacho
+
+                                    (
+                                         //Datos Basicos
+                                         Convert.ToInt32(this.TBIdcliente.Text), this.TBDes_Sucurzal.Text, this.TBDes_Pais.Text, this.TBDes_Ciudad.Text, this.TBDes_Departamento.Text, this.TBDes_Receptor.Text, this.TBDes_Barrio.Text, this.TBDes_Apartamento.Text, this.TBDes_Movil.Text, this.TBDes_Direccion.Text, this.TBDes_Observacion.Text,
+
+                                        //Datos Auxiliares
+                                        1
+                                    );
+
+                            if (rptaDatosBasicos.Equals("OK"))
+                            {
+                                this.MensajeOk("Los Datos de Despacho del Cliente: " + TBDat_Nombre.Text + " han Sido Registrados Exitosamente");
+                            }
+
+                            else
+                            {
+                                this.MensajeError(rptaDatosBasicos);
+                            }
+
+                            //
+                            this.TBIddespacho.Clear();
+                            this.TBDes_Sucurzal.Clear();
+                            this.TBDes_Pais.Clear();
+                            this.TBDes_Ciudad.Clear();
+                            this.TBDes_Departamento.Clear();
+                            this.TBDes_Receptor.Clear();
+                            this.TBDes_Barrio.Clear();
+                            this.TBDes_Apartamento.Clear();
+                            this.TBDes_Direccion.Clear();
+                            this.TBDes_Movil.Clear();
+                            this.TBDes_Observacion.Clear();
+
+                            this.Actualizar_DetDespacho();
+                        }
+                        else
+                        {
+                            this.TBDes_Sucurzal.Select();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnAgregar_Financiera_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (Digitar)
+                {
+                    if (this.TBFin_CodigoBanco.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Banco o Entidad Financiera");
+                        this.TBFin_CodigoBanco.Select();
+                    }
+                    else if (this.TBFin_Banco.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Banco o Entidad Financiera");
+                        this.TBFin_Banco.Select();
+                    }
+                    else if (this.TBFin_NumCuenta.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Número de Cuenta Bancaria");
+                        this.TBFin_NumCuenta.Select();
+                    }
+                    
+                    else
+                    {
 
+                        DataRow fila = this.DtDetalle_Financiera.NewRow();
+                        fila["Idcliente"] = Convert.ToInt32(this.TBIdcliente.Text);
+                        fila["Idbanco"] = this.TBFin_CodigoBanco.Text;
+                        fila["Cuenta"] = this.CBFin_Cuenta.Text;
+                        fila["Nº. de Cuenta"] = this.TBFin_NumCuenta.Text;
+                        this.DtDetalle_Financiera.Rows.Add(fila);
+
+                        //
+                        this.TBIdfinanciera.Clear();
+                        this.TBFin_CodigoBanco.Clear();
+                        this.TBFin_Banco.Clear();
+                        this.TBFin_NumCuenta.Clear();
+                        this.CBFin_Cuenta.SelectedIndex = 0;
+                    }
+                }
+                else
+                {
+                    if (this.TBFin_CodigoBanco.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Banco o Entidad Financiera");
+                        this.TBFin_CodigoBanco.Select();
+                    }
+                    else if (this.TBFin_Banco.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Banco o Entidad Financiera");
+                        this.TBFin_Banco.Select();
+                    }
+                    else if (this.TBFin_NumCuenta.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Número de Cuenta Bancaria");
+                        this.TBFin_NumCuenta.Select();
+                    }
+                    else
+                    {
+                        DialogResult result = MessageBox.Show("¿Desea Registrar los Datos Financieros del Cliente?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            string rptaDatosBasicos = "";
+                            rptaDatosBasicos = fCliente.Guardar_Financiera
+
+                                    (
+                                         //Datos Basicos
+                                         Convert.ToInt32(this.TBIdcliente.Text), Convert.ToInt32(this.TBIdbanco.Text), this.CBFin_Cuenta.Text, this.TBFin_NumCuenta.Text,
+
+                                        //Datos Auxiliares
+                                        1
+                                    );
+
+                            if (rptaDatosBasicos.Equals("OK"))
+                            {
+                                this.MensajeOk("Los Datos Financieros del Cliente: " + TBDat_Nombre.Text + " han Sido Registrados Exitosamente");
+                            }
+
+                            else
+                            {
+                                this.MensajeError(rptaDatosBasicos);
+                            }
+
+                            //
+                            this.TBIdfinanciera.Clear();
+                            this.TBFin_CodigoBanco.Clear();
+                            this.TBFin_Banco.Clear();
+                            this.TBFin_NumCuenta.Clear();
+                            this.CBFin_Cuenta.SelectedIndex = 0;
+
+                            this.Actualizar_DetFinanciera();
+                        }
+                        else
+                        {
+                            this.TBFin_NumCuenta.Select();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnAgregar_Contacto_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (Digitar)
+                {
+                    if (this.TBCon_Contacto.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Nombre de la Persona de Contacto");
+                        this.TBCon_Contacto.Select();
+                    }
+                    else if (this.TBCon_Ciudad.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique una Ciudad de Contacto");
+                        this.TBCon_Ciudad.Select();
+                    }
+                    else if (this.TBCon_Direccion.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique una Dirección de Contacto");
+                        this.TBCon_Direccion.Select();
+                    }
+                    else if (this.TBCon_Telefono.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique un Número Telefónico de Contacto");
+                        this.TBCon_Telefono.Select();
+                    }
 
+                    else
+                    {
+                        
+                        DataRow fila = this.DtDetalle_Contacto.NewRow();
+                        fila["Idcliente"] = Convert.ToInt32(this.TBIdcliente_AutoSQL.Text);
+                        fila["Contacto"] = this.TBCon_Contacto.Text;
+                        fila["Ciudad"] = this.TBCon_Ciudad.Text;
+                        fila["Dirección"] = this.TBCon_Direccion.Text;
+                        fila["Telefono"] = this.TBCon_Telefono.Text;
+                        fila["Móvil"] = this.TBCon_Movil.Text;
+                        fila["Correo"] = this.TBCon_Correo.Text;
+                        fila["Parentesco"] = this.TBCon_Parentesco.Text;
+                        this.DtDetalle_Contacto.Rows.Add(fila);
+
+                        //
+                        this.TBIdcontacto.Clear();
+                        this.TBCon_Contacto.Clear();
+                        this.TBCon_Ciudad.Clear();
+                        this.TBCon_Direccion.Clear();
+                        this.TBCon_Telefono.Clear();
+                        this.TBCon_Movil.Clear();
+                        this.TBCon_Correo.Clear();
+                        this.TBCon_Parentesco.Clear();
+                    }
+                }
+                else
+                {
+                    if (this.TBCon_Contacto.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Nombre de la Persona de Contacto");
+                        this.TBCon_Contacto.Select();
+                    }
+                    else if (this.TBCon_Ciudad.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique una Ciudad de Contacto");
+                        this.TBCon_Ciudad.Select();
+                    }
+                    else if (this.TBCon_Direccion.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique una Dirección de Contacto");
+                        this.TBCon_Direccion.Select();
+                    }
+                    else if (this.TBCon_Telefono.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique un Número Telefónico de Contacto");
+                        this.TBCon_Telefono.Select();
+                    }
+                    
+                    else
+                    {
+                        DialogResult result = MessageBox.Show("¿Desea Registrar los Datos de Despacho del Cliente?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            string rptaDatosBasicos = "";
+                            rptaDatosBasicos = fCliente.Guardar_Contacto
+
+                                    (
+                                         //Datos Basicos
+                                         Convert.ToInt32(this.TBIdcliente.Text), this.TBCon_Contacto.Text, this.TBCon_Ciudad.Text, this.TBCon_Direccion.Text, this.TBCon_Telefono.Text, this.TBCon_Movil.Text, this.TBCon_Correo.Text, this.TBCon_Parentesco.Text,
+
+                                        //Datos Auxiliares
+                                        1
+                                    );
+
+                            if (rptaDatosBasicos.Equals("OK"))
+                            {
+                                this.MensajeOk("Los Datos de Contacto del Cliente: " + TBDat_Nombre.Text + " han Sido Registrados Exitosamente");
+                            }
+
+                            else
+                            {
+                                this.MensajeError(rptaDatosBasicos);
+                            }
+
+                            //
+                            this.TBIdcontacto.Clear();
+                            this.TBCon_Contacto.Clear();
+                            this.TBCon_Ciudad.Clear();
+                            this.TBCon_Direccion.Clear();
+                            this.TBCon_Telefono.Clear();
+                            this.TBCon_Movil.Clear();
+                            this.TBCon_Correo.Clear();
+                            this.TBCon_Parentesco.Clear();
+
+                            this.Actualizar_DetContacto();
+                        }
+                        else
+                        {
+                            this.TBCon_Contacto.Select();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnLimpiar_Facturacion_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.TBFac_Cliente.Clear();
+                this.TBFac_Asesor.Clear();
+                this.TBFac_DocumentoCliente.Clear();
+                this.TBFac_CodigoAsesor.Clear();
+                this.TBFac_Movil.Clear();
+                this.TBFac_Correo.Clear();
+                this.TBFac_Pais.Clear();
+                this.TBFac_Ciudad.Clear();
+                this.TBFac_Departamento.Clear();
+                this.CH_Facturacion.Checked = false;
+
+                this.TBFac_Cliente.Enabled = true;
+                this.TBFac_Cliente.BackColor = Color.FromArgb(3, 155, 229);
+                this.TBFac_DocumentoCliente.Enabled = true;
+                this.TBFac_DocumentoCliente.BackColor = Color.FromArgb(3, 155, 229);
+                this.TBFac_Movil.Enabled = true;
+                this.TBFac_Movil.BackColor = Color.FromArgb(3, 155, 229);
+                this.TBFac_Pais.Enabled = true;
+                this.TBFac_Pais.BackColor = Color.FromArgb(3, 155, 229);
+                this.TBFac_Ciudad.Enabled = true;
+                this.TBFac_Ciudad.BackColor = Color.FromArgb(3, 155, 229);
+                this.TBFac_Departamento.Enabled = true;
+                this.TBFac_Departamento.BackColor = Color.FromArgb(3, 155, 229);
+                this.TBFac_Correo.Enabled = true;
+                this.TBFac_Correo.BackColor = Color.FromArgb(3, 155, 229);
+
+                //SE DEVUELVE EL FOCUS AL TEXBOXT PRINCIPAL
+                this.TBFac_DocumentoCliente.Focus();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnLimpiar_Credito_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.TBCre_Valor.Clear();
+                this.TBCre_CuotaMeses.Clear();
+                this.TBCre_DiasDeProrroga.Clear();
+                this.TBCre_InteresMora.Clear();
+                this.TBCre_TasaAnual.Clear();
+                this.TBCre_TasaMensual.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnLimpiar_Despacho_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.TBDes_Sucurzal.Clear();
+                this.TBDes_Pais.Clear();
+                this.TBDes_Ciudad.Clear();
+                this.TBDes_Departamento.Clear();
+                this.TBDes_Receptor.Clear();
+                this.TBDes_Barrio.Clear();
+                this.TBDes_Apartamento.Clear();
+                this.TBDes_Direccion.Clear();
+                this.TBDes_Movil.Clear();
+                this.TBDes_Observacion.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnLimpiar_Financiera_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.TBFin_CodigoBanco.Clear();
+                this.TBFin_Banco.Clear();
+                this.TBFin_NumCuenta.Clear();
+                this.CBFin_Cuenta.SelectedIndex = 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnLimpiar_Contacto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.TBCon_Contacto.Clear();
+                this.TBCon_Ciudad.Clear();
+                this.TBCon_Direccion.Clear();
+                this.TBCon_Telefono.Clear();
+                this.TBCon_Movil.Clear();
+                this.TBCon_Correo.Clear();
+                this.TBCon_Parentesco.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnEliminar_Facturacion_Click(object sender, EventArgs e)
@@ -1321,7 +1954,7 @@ namespace Presentacion
 
                     //Se remueve la fila y se Selecciona el Texboxt Inicial
                     this.DtDetalle_Credito.Rows.Remove(row);
-                    this.TBCre_CreditoMinimo.Select();
+                    this.TBCre_Valor.Select();
                 }
             }
             catch (Exception ex)
@@ -1572,7 +2205,7 @@ namespace Presentacion
                     //this.TBCre_Diasdecredito.Text = Diasdecredito;
                     this.TBCre_DiasDeProrroga.Text = Diasdeprorroga;
                     this.TBCre_InteresMora.Text = Interesespormora;
-                    this.TBCre_CreditoMinimo.Text = Creditominimo;
+                    this.TBCre_Valor.Text = Creditominimo;
                     //this.TBCre_CreditoMaximo.Text = Creditomaximo;
                 }
             }
@@ -1864,13 +2497,19 @@ namespace Presentacion
         private void TBCre_CreditoMinimo_Enter(object sender, EventArgs e)
         {
             //Se evalua si el campo de texto esta vacio y se espeicifca que es obligatorio en la base de datos
-            this.TBCre_CreditoMinimo.BackColor = Color.Azure;
+            this.TBCre_Valor.BackColor = Color.Azure;
         }
 
         private void TBCre_CuotaMinima_Enter(object sender, EventArgs e)
         {
             //Se evalua si el campo de texto esta vacio y se espeicifca que es obligatorio en la base de datos
             this.TBCre_CuotaMeses.BackColor = Color.Azure;
+        }
+
+        private void TBCre_TasaAnual_Enter(object sender, EventArgs e)
+        {
+            //Se evalua si el campo de texto esta vacio y se espeicifca que es obligatorio en la base de datos
+            this.TBCre_TasaAnual.BackColor = Color.Azure;
         }
 
         private void TBCre_DiasDeProrroga_Enter(object sender, EventArgs e)
@@ -2151,7 +2790,7 @@ namespace Presentacion
 
         private void TBCre_CreditoMinimo_Leave(object sender, EventArgs e)
         {
-            this.TBCre_CreditoMinimo.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBCre_Valor.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBCre_CuotaMinima_Leave(object sender, EventArgs e)
@@ -2174,6 +2813,10 @@ namespace Presentacion
             this.TBCre_InteresMora.BackColor = Color.FromArgb(3, 155, 229);
         }
 
+        private void TBCre_TasaAnual_Leave(object sender, EventArgs e)
+        {
+            this.TBCre_TasaAnual.BackColor = Color.FromArgb(3, 155, 229);
+        }
         //********************** PANEL DATOS DE ENVIO - LEAVE *********************************************
 
         private void TBDes_Sucurzal_Leave(object sender, EventArgs e)
@@ -2952,6 +3595,553 @@ namespace Presentacion
             }
         }
 
+        private void TBFac_DocumentoCliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+                {
+                    MessageBox.Show("Solo se Permite Digitar Numeros", "Advertencia - Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    e.Handled = true;
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void TBFac_Movil_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+                {
+                    MessageBox.Show("Solo se Permite Digitar Numeros", "Advertencia - Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    e.Handled = true;
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void TBDat_Movil_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+                {
+                    MessageBox.Show("Solo se Permite Digitar Numeros", "Advertencia - Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    e.Handled = true;
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void TBDat_MovilAux_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+                {
+                    MessageBox.Show("Solo se Permite Digitar Numeros", "Advertencia - Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    e.Handled = true;
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void TBDat_Telefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+                {
+                    MessageBox.Show("Solo se Permite Digitar Numeros", "Advertencia - Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    e.Handled = true;
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void TBDat_TelefonoAux_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+                {
+                    MessageBox.Show("Solo se Permite Digitar Numeros", "Advertencia - Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    e.Handled = true;
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void TBCre_TasaMensual_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+                {
+                    MessageBox.Show("Solo se Permite Digitar Numeros", "Advertencia - Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    e.Handled = true;
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void TBCre_CuotaMeses_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+                {
+                    MessageBox.Show("Solo se Permite Digitar Numeros", "Advertencia - Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    e.Handled = true;
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void TBCre_TasaAnual_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+                {
+                    MessageBox.Show("Solo se Permite Digitar Numeros", "Advertencia - Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    e.Handled = true;
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void TBCre_DiasDeProrroga_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+                {
+                    MessageBox.Show("Solo se Permite Digitar Numeros", "Advertencia - Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    e.Handled = true;
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void TBCre_InteresMora_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+                {
+                    MessageBox.Show("Solo se Permite Digitar Numeros", "Advertencia - Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    e.Handled = true;
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void TBDes_Movil_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+                {
+                    MessageBox.Show("Solo se Permite Digitar Numeros", "Advertencia - Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    e.Handled = true;
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void TBFin_NumCuenta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+                {
+                    MessageBox.Show("Solo se Permite Digitar Numeros", "Advertencia - Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    e.Handled = true;
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void TBCon_Telefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+                {
+                    MessageBox.Show("Solo se Permite Digitar Numeros", "Advertencia - Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    e.Handled = true;
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void TBCon_Movil_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+                {
+                    MessageBox.Show("Solo se Permite Digitar Numeros", "Advertencia - Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    e.Handled = true;
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void DGDetalle_Facturacion_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                this.TBFac_CodigoAsesor.Text = DGDetalle_Facturacion.CurrentRow.Cells[2].Value.ToString();
+                this.TBFac_Asesor.Text = DGDetalle_Facturacion.CurrentRow.Cells[3].Value.ToString();
+                this.TBFac_Cliente.Text = DGDetalle_Facturacion.CurrentRow.Cells[4].Value.ToString();
+                this.TBFac_DocumentoCliente.Text = DGDetalle_Facturacion.CurrentRow.Cells[5].Value.ToString();
+                this.TBFac_Movil.Text = DGDetalle_Facturacion.CurrentRow.Cells[6].Value.ToString();
+                this.TBFac_Pais.Text = DGDetalle_Facturacion.CurrentRow.Cells[7].Value.ToString();
+                this.TBFac_Ciudad.Text = DGDetalle_Facturacion.CurrentRow.Cells[8].Value.ToString();
+                this.TBFac_Departamento.Text = DGDetalle_Facturacion.CurrentRow.Cells[9].Value.ToString();
+                this.TBFac_Correo.Text = DGDetalle_Facturacion.CurrentRow.Cells[10].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void TBCre_Valor_KeyUp(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
+                {
+                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
+
+                    this.TBCre_CuotaMeses.Select();
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                {
+                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Y se realizara las validaciones en el sistema
+
+                    if (Digitar)
+                    {
+                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            if (Guardar == "1")
+                            {
+                                //Llamada de Clase
+                                this.Guardar_SQL();
+                            }
+                            else
+                            {
+                                MessageBox.Show("El usuario iniciado no contiene permisos para Guardar datos en el sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
+                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
+
+                                this.Limpiar_Datos();
+                            }
+                        }
+                        else
+                        {
+                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
+                            //Donde se realizo la operacion o combinacion de teclas
+                            this.TBCre_Valor.Select();
+                        }
+                    }
+                    else
+                    {
+                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            //Llamada de Clase
+                            this.Digitar = false;
+                            this.Guardar_SQL();
+                        }
+                        else
+                        {
+                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
+                            //Donde se realizo la operacion o combinacion de teclas
+                            this.TBCre_Valor.Select();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void TBCre_CuotaMeses_KeyUp(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
+                {
+                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
+
+                    this.TBCre_TasaMensual.Select();
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                {
+                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Y se realizara las validaciones en el sistema
+
+                    if (Digitar)
+                    {
+                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            if (Guardar == "1")
+                            {
+                                //Llamada de Clase
+                                this.Guardar_SQL();
+                            }
+                            else
+                            {
+                                MessageBox.Show("El usuario iniciado no contiene permisos para Guardar datos en el sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
+                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
+
+                                this.Limpiar_Datos();
+                            }
+                        }
+                        else
+                        {
+                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
+                            //Donde se realizo la operacion o combinacion de teclas
+                            this.TBCre_CuotaMeses.Select();
+                        }
+                    }
+                    else
+                    {
+                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            //Llamada de Clase
+                            this.Digitar = false;
+                            this.Guardar_SQL();
+                        }
+                        else
+                        {
+                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
+                            //Donde se realizo la operacion o combinacion de teclas
+                            this.TBCre_CuotaMeses.Select();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void TBCre_TasaAnual_KeyUp(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
+                {
+                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
+
+                    this.TBCre_DiasDeProrroga.Select();
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                {
+                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Y se realizara las validaciones en el sistema
+
+                    if (Digitar)
+                    {
+                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            if (Guardar == "1")
+                            {
+                                //Llamada de Clase
+                                this.Guardar_SQL();
+                            }
+                            else
+                            {
+                                MessageBox.Show("El usuario iniciado no contiene permisos para Guardar datos en el sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
+                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
+
+                                this.Limpiar_Datos();
+                            }
+                        }
+                        else
+                        {
+                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
+                            //Donde se realizo la operacion o combinacion de teclas
+                            this.TBCre_TasaAnual.Select();
+                        }
+                    }
+                    else
+                    {
+                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            //Llamada de Clase
+                            this.Digitar = false;
+                            this.Guardar_SQL();
+                        }
+                        else
+                        {
+                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
+                            //Donde se realizo la operacion o combinacion de teclas
+                            this.TBCre_TasaAnual.Select();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void TBCre_DiasDeProrroga_KeyUp(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
+                {
+                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
+
+                    this.TBCre_InteresMora.Select();
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                {
+                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Y se realizara las validaciones en el sistema
+
+                    if (Digitar)
+                    {
+                        DialogResult result = MessageBox.Show("¿Desea registrar los campos digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            if (Guardar == "1")
+                            {
+                                //Llamada de Clase
+                                this.Guardar_SQL();
+                            }
+                            else
+                            {
+                                MessageBox.Show("El usuario iniciado no contiene permisos para Guardar datos en el sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
+                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
+
+                                this.Limpiar_Datos();
+                            }
+                        }
+                        else
+                        {
+                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
+                            //Donde se realizo la operacion o combinacion de teclas
+                            this.TBCre_DiasDeProrroga.Select();
+                        }
+                    }
+                    else
+                    {
+                        DialogResult result = MessageBox.Show("¿Desea Actualizar los campos consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            //Llamada de Clase
+                            this.Digitar = false;
+                            this.Guardar_SQL();
+                        }
+                        else
+                        {
+                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
+                            //Donde se realizo la operacion o combinacion de teclas
+                            this.TBCre_DiasDeProrroga.Select();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
         private void TBDat_Departamento_KeyUp(object sender, KeyEventArgs e)
         {
             try
@@ -3702,7 +4892,7 @@ namespace Presentacion
 
         //********************** PANEL DATOS DE CREDITO - SALTO DE LINEA *********************************************
 
-        private void TBCre_Intereses_KeyUp(object sender, KeyEventArgs e)
+        private void TBCre_TasaMensual_KeyUp(object sender, KeyEventArgs e)
         {
             try
             {
@@ -3710,7 +4900,7 @@ namespace Presentacion
                 {
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
-                    this.TBCre_InteresMora.Select();
+                    this.TBCre_TasaAnual.Select();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
                 {
@@ -3778,7 +4968,7 @@ namespace Presentacion
                 {
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
-                    this.TBCre_CreditoMinimo.Select();
+                    this.TBCre_Valor.Select();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
                 {

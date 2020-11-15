@@ -30,6 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCliente));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TBIdcontacto = new System.Windows.Forms.TextBox();
+            this.TBIdfinanciera = new System.Windows.Forms.TextBox();
+            this.TBIddespacho = new System.Windows.Forms.TextBox();
+            this.TBIdcredito = new System.Windows.Forms.TextBox();
+            this.TBIdfacturacion = new System.Windows.Forms.TextBox();
             this.TBIdcliente_AutoSQL = new System.Windows.Forms.TextBox();
             this.TBIdbanco = new System.Windows.Forms.TextBox();
             this.TBIdempleado = new System.Windows.Forms.TextBox();
@@ -84,6 +89,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.TPFacturacion = new System.Windows.Forms.TabPage();
+            this.btnLimpiar_Facturacion = new System.Windows.Forms.Button();
             this.btnModificar_Facturacion = new System.Windows.Forms.Button();
             this.lblTotal_Facturacion = new System.Windows.Forms.Label();
             this.btnEliminar_Facturacion = new System.Windows.Forms.Button();
@@ -108,10 +114,9 @@
             this.label37 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
             this.TPCredito = new System.Windows.Forms.TabPage();
+            this.btnLimpiar_Credito = new System.Windows.Forms.Button();
             this.btnModificar_Credito = new System.Windows.Forms.Button();
             this.lblTotal_Credito = new System.Windows.Forms.Label();
-            this.btnEliminar_Credito = new System.Windows.Forms.Button();
-            this.btnAgregar_Credito = new System.Windows.Forms.Button();
             this.DGDetalle_Credito = new System.Windows.Forms.DataGridView();
             this.DTCre_Emision = new System.Windows.Forms.DateTimePicker();
             this.label33 = new System.Windows.Forms.Label();
@@ -128,12 +133,13 @@
             this.TBCre_DiasDeProrroga = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
-            this.TBCre_CreditoMinimo = new System.Windows.Forms.TextBox();
+            this.TBCre_Valor = new System.Windows.Forms.TextBox();
+            this.btnEliminar_Credito = new System.Windows.Forms.Button();
+            this.btnAgregar_Credito = new System.Windows.Forms.Button();
             this.TPDatosDeEnvio = new System.Windows.Forms.TabPage();
+            this.btnLimpiar_Despacho = new System.Windows.Forms.Button();
             this.btnModificar_Despacho = new System.Windows.Forms.Button();
             this.lblTotal_Despacho = new System.Windows.Forms.Label();
-            this.btnEliminar_Despacho = new System.Windows.Forms.Button();
-            this.btnAgregar_Despacho = new System.Windows.Forms.Button();
             this.DGDetalle_Despacho = new System.Windows.Forms.DataGridView();
             this.TBDes_Departamento = new System.Windows.Forms.TextBox();
             this.label50 = new System.Windows.Forms.Label();
@@ -155,26 +161,28 @@
             this.label15 = new System.Windows.Forms.Label();
             this.TBDes_Direccion = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.btnEliminar_Despacho = new System.Windows.Forms.Button();
+            this.btnAgregar_Despacho = new System.Windows.Forms.Button();
             this.TPDatosFinancieros = new System.Windows.Forms.TabPage();
+            this.btnLimpiar_Financiera = new System.Windows.Forms.Button();
             this.btnModificar_Financiera = new System.Windows.Forms.Button();
             this.TBFin_CodigoBanco = new System.Windows.Forms.TextBox();
             this.lblTotal_Financiera = new System.Windows.Forms.Label();
-            this.btnEliminar_Financiera = new System.Windows.Forms.Button();
-            this.btnAgregar_Financiera = new System.Windows.Forms.Button();
             this.DGDetalle_Financiera = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
             this.CBFin_Cuenta = new System.Windows.Forms.ComboBox();
             this.label32 = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
             this.TBFin_NumCuenta = new System.Windows.Forms.TextBox();
             this.TBFin_Banco = new System.Windows.Forms.TextBox();
+            this.btnEliminar_Financiera = new System.Windows.Forms.Button();
+            this.btnAgregar_Financiera = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnLimpiar_Contacto = new System.Windows.Forms.Button();
             this.btnModificar_Contacto = new System.Windows.Forms.Button();
             this.TBCon_Parentesco = new System.Windows.Forms.TextBox();
             this.lblTotal_Contacto = new System.Windows.Forms.Label();
-            this.btnEliminar_Contacto = new System.Windows.Forms.Button();
-            this.btnAgregar_Contacto = new System.Windows.Forms.Button();
             this.DGDetalle_Contacto = new System.Windows.Forms.DataGridView();
             this.label59 = new System.Windows.Forms.Label();
             this.TBCon_Correo = new System.Windows.Forms.TextBox();
@@ -189,21 +197,18 @@
             this.label54 = new System.Windows.Forms.Label();
             this.TBCon_Contacto = new System.Windows.Forms.TextBox();
             this.label53 = new System.Windows.Forms.Label();
+            this.btnEliminar_Contacto = new System.Windows.Forms.Button();
+            this.btnAgregar_Contacto = new System.Windows.Forms.Button();
             this.TBIdcliente = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnImprimir = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.DGResultados = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.TBBuscar = new System.Windows.Forms.TextBox();
-            this.TBIdfacturacion = new System.Windows.Forms.TextBox();
-            this.TBIdcredito = new System.Windows.Forms.TextBox();
-            this.TBIddespacho = new System.Windows.Forms.TextBox();
-            this.TBIdfinanciera = new System.Windows.Forms.TextBox();
-            this.TBIdcontacto = new System.Windows.Forms.TextBox();
+            this.btnImprimir = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.TCPrincipal.SuspendLayout();
             this.TPDatosBasicos.SuspendLayout();
@@ -241,6 +246,41 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Leal Enterprise - Registro de Clientes";
+            // 
+            // TBIdcontacto
+            // 
+            this.TBIdcontacto.Location = new System.Drawing.Point(365, 430);
+            this.TBIdcontacto.Name = "TBIdcontacto";
+            this.TBIdcontacto.Size = new System.Drawing.Size(29, 21);
+            this.TBIdcontacto.TabIndex = 11;
+            // 
+            // TBIdfinanciera
+            // 
+            this.TBIdfinanciera.Location = new System.Drawing.Point(330, 430);
+            this.TBIdfinanciera.Name = "TBIdfinanciera";
+            this.TBIdfinanciera.Size = new System.Drawing.Size(29, 21);
+            this.TBIdfinanciera.TabIndex = 10;
+            // 
+            // TBIddespacho
+            // 
+            this.TBIddespacho.Location = new System.Drawing.Point(295, 430);
+            this.TBIddespacho.Name = "TBIddespacho";
+            this.TBIddespacho.Size = new System.Drawing.Size(29, 21);
+            this.TBIddespacho.TabIndex = 9;
+            // 
+            // TBIdcredito
+            // 
+            this.TBIdcredito.Location = new System.Drawing.Point(260, 430);
+            this.TBIdcredito.Name = "TBIdcredito";
+            this.TBIdcredito.Size = new System.Drawing.Size(29, 21);
+            this.TBIdcredito.TabIndex = 8;
+            // 
+            // TBIdfacturacion
+            // 
+            this.TBIdfacturacion.Location = new System.Drawing.Point(225, 430);
+            this.TBIdfacturacion.Name = "TBIdfacturacion";
+            this.TBIdfacturacion.Size = new System.Drawing.Size(29, 21);
+            this.TBIdfacturacion.TabIndex = 7;
             // 
             // TBIdcliente_AutoSQL
             // 
@@ -461,6 +501,7 @@
             this.TBDat_MovilAux.Size = new System.Drawing.Size(260, 21);
             this.TBDat_MovilAux.TabIndex = 159;
             this.TBDat_MovilAux.Enter += new System.EventHandler(this.TBDat_MovilAux_Enter);
+            this.TBDat_MovilAux.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBDat_MovilAux_KeyPress);
             this.TBDat_MovilAux.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBDat_MovilAux_KeyUp);
             this.TBDat_MovilAux.Leave += new System.EventHandler(this.TBDat_MovilAux_Leave);
             // 
@@ -480,6 +521,7 @@
             this.TBDat_TelefonoAux.Size = new System.Drawing.Size(260, 21);
             this.TBDat_TelefonoAux.TabIndex = 157;
             this.TBDat_TelefonoAux.Enter += new System.EventHandler(this.TBDat_TelefonoAux_Enter);
+            this.TBDat_TelefonoAux.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBDat_TelefonoAux_KeyPress);
             this.TBDat_TelefonoAux.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBDat_TelefonoAux_KeyUp);
             this.TBDat_TelefonoAux.Leave += new System.EventHandler(this.TBDat_TelefonoAux_Leave);
             // 
@@ -693,6 +735,7 @@
             this.TBDat_Movil.Size = new System.Drawing.Size(260, 21);
             this.TBDat_Movil.TabIndex = 137;
             this.TBDat_Movil.Enter += new System.EventHandler(this.TBDat_Movil_Enter);
+            this.TBDat_Movil.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBDat_Movil_KeyPress);
             this.TBDat_Movil.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBDat_Movil_KeyUp);
             this.TBDat_Movil.Leave += new System.EventHandler(this.TBDat_Movil_Leave);
             // 
@@ -703,6 +746,7 @@
             this.TBDat_Telefono.Size = new System.Drawing.Size(260, 21);
             this.TBDat_Telefono.TabIndex = 136;
             this.TBDat_Telefono.Enter += new System.EventHandler(this.TBDat_Telefono_Enter);
+            this.TBDat_Telefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBDat_Telefono_KeyPress);
             this.TBDat_Telefono.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBDat_Telefono_KeyUp);
             this.TBDat_Telefono.Leave += new System.EventHandler(this.TBDat_Telefono_Leave);
             // 
@@ -824,6 +868,7 @@
             // 
             // TPFacturacion
             // 
+            this.TPFacturacion.Controls.Add(this.btnLimpiar_Facturacion);
             this.TPFacturacion.Controls.Add(this.btnModificar_Facturacion);
             this.TPFacturacion.Controls.Add(this.lblTotal_Facturacion);
             this.TPFacturacion.Controls.Add(this.btnEliminar_Facturacion);
@@ -855,6 +900,22 @@
             this.TPFacturacion.Text = "Datos de Facturación";
             this.TPFacturacion.UseVisualStyleBackColor = true;
             // 
+            // btnLimpiar_Facturacion
+            // 
+            this.btnLimpiar_Facturacion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLimpiar_Facturacion.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnLimpiar_Facturacion.FlatAppearance.BorderSize = 0;
+            this.btnLimpiar_Facturacion.Image = global::Presentacion.Botones.btnLimpiar;
+            this.btnLimpiar_Facturacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLimpiar_Facturacion.Location = new System.Drawing.Point(460, 333);
+            this.btnLimpiar_Facturacion.Name = "btnLimpiar_Facturacion";
+            this.btnLimpiar_Facturacion.Size = new System.Drawing.Size(90, 30);
+            this.btnLimpiar_Facturacion.TabIndex = 166;
+            this.btnLimpiar_Facturacion.Text = "Limpiar";
+            this.btnLimpiar_Facturacion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLimpiar_Facturacion.UseVisualStyleBackColor = true;
+            this.btnLimpiar_Facturacion.Click += new System.EventHandler(this.btnLimpiar_Facturacion_Click);
+            // 
             // btnModificar_Facturacion
             // 
             this.btnModificar_Facturacion.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -862,7 +923,7 @@
             this.btnModificar_Facturacion.FlatAppearance.BorderSize = 0;
             this.btnModificar_Facturacion.Image = global::Presentacion.Botones.btnEditar;
             this.btnModificar_Facturacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar_Facturacion.Location = new System.Drawing.Point(459, 333);
+            this.btnModificar_Facturacion.Location = new System.Drawing.Point(364, 333);
             this.btnModificar_Facturacion.Name = "btnModificar_Facturacion";
             this.btnModificar_Facturacion.Size = new System.Drawing.Size(90, 30);
             this.btnModificar_Facturacion.TabIndex = 165;
@@ -887,7 +948,7 @@
             this.btnEliminar_Facturacion.FlatAppearance.BorderSize = 0;
             this.btnEliminar_Facturacion.Image = global::Presentacion.Botones.btnEliminar;
             this.btnEliminar_Facturacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar_Facturacion.Location = new System.Drawing.Point(555, 333);
+            this.btnEliminar_Facturacion.Location = new System.Drawing.Point(556, 333);
             this.btnEliminar_Facturacion.Name = "btnEliminar_Facturacion";
             this.btnEliminar_Facturacion.Size = new System.Drawing.Size(90, 30);
             this.btnEliminar_Facturacion.TabIndex = 163;
@@ -903,7 +964,7 @@
             this.btnAgregar_Facturacion.FlatAppearance.BorderSize = 0;
             this.btnAgregar_Facturacion.Image = global::Presentacion.Botones.btnAgregar;
             this.btnAgregar_Facturacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar_Facturacion.Location = new System.Drawing.Point(363, 333);
+            this.btnAgregar_Facturacion.Location = new System.Drawing.Point(268, 333);
             this.btnAgregar_Facturacion.Name = "btnAgregar_Facturacion";
             this.btnAgregar_Facturacion.Size = new System.Drawing.Size(90, 30);
             this.btnAgregar_Facturacion.TabIndex = 162;
@@ -925,8 +986,9 @@
             this.DGDetalle_Facturacion.Name = "DGDetalle_Facturacion";
             this.DGDetalle_Facturacion.ReadOnly = true;
             this.DGDetalle_Facturacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGDetalle_Facturacion.Size = new System.Drawing.Size(639, 185);
+            this.DGDetalle_Facturacion.Size = new System.Drawing.Size(640, 185);
             this.DGDetalle_Facturacion.TabIndex = 160;
+            this.DGDetalle_Facturacion.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGDetalle_Facturacion_CellContentClick);
             // 
             // TBFac_Asesor
             // 
@@ -1047,6 +1109,7 @@
             this.TBFac_Movil.Size = new System.Drawing.Size(260, 21);
             this.TBFac_Movil.TabIndex = 29;
             this.TBFac_Movil.Enter += new System.EventHandler(this.TBFac_Movil_Enter);
+            this.TBFac_Movil.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBFac_Movil_KeyPress);
             this.TBFac_Movil.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBFac_Movil_KeyUp);
             this.TBFac_Movil.Leave += new System.EventHandler(this.TBFac_Movil_Leave);
             // 
@@ -1056,7 +1119,9 @@
             this.TBFac_DocumentoCliente.Name = "TBFac_DocumentoCliente";
             this.TBFac_DocumentoCliente.Size = new System.Drawing.Size(170, 21);
             this.TBFac_DocumentoCliente.TabIndex = 27;
+            this.TBFac_DocumentoCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TBFac_DocumentoCliente.Enter += new System.EventHandler(this.TBFac_DocumentoCliente_Enter);
+            this.TBFac_DocumentoCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBFac_DocumentoCliente_KeyPress);
             this.TBFac_DocumentoCliente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBFac_DocumentoCliente_KeyUp);
             this.TBFac_DocumentoCliente.Leave += new System.EventHandler(this.TBFac_DocumentoCliente_Leave);
             // 
@@ -1066,6 +1131,7 @@
             this.TBFac_Cliente.Name = "TBFac_Cliente";
             this.TBFac_Cliente.Size = new System.Drawing.Size(401, 21);
             this.TBFac_Cliente.TabIndex = 26;
+            this.TBFac_Cliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TBFac_Cliente.Enter += new System.EventHandler(this.TBFac_Cliente_Enter);
             this.TBFac_Cliente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBFac_Cliente_KeyUp);
             this.TBFac_Cliente.Leave += new System.EventHandler(this.TBFac_Cliente_Leave);
@@ -1108,10 +1174,9 @@
             // 
             // TPCredito
             // 
+            this.TPCredito.Controls.Add(this.btnLimpiar_Credito);
             this.TPCredito.Controls.Add(this.btnModificar_Credito);
             this.TPCredito.Controls.Add(this.lblTotal_Credito);
-            this.TPCredito.Controls.Add(this.btnEliminar_Credito);
-            this.TPCredito.Controls.Add(this.btnAgregar_Credito);
             this.TPCredito.Controls.Add(this.DGDetalle_Credito);
             this.TPCredito.Controls.Add(this.DTCre_Emision);
             this.TPCredito.Controls.Add(this.label33);
@@ -1128,7 +1193,9 @@
             this.TPCredito.Controls.Add(this.TBCre_DiasDeProrroga);
             this.TPCredito.Controls.Add(this.label30);
             this.TPCredito.Controls.Add(this.label28);
-            this.TPCredito.Controls.Add(this.TBCre_CreditoMinimo);
+            this.TPCredito.Controls.Add(this.TBCre_Valor);
+            this.TPCredito.Controls.Add(this.btnEliminar_Credito);
+            this.TPCredito.Controls.Add(this.btnAgregar_Credito);
             this.TPCredito.Location = new System.Drawing.Point(4, 24);
             this.TPCredito.Name = "TPCredito";
             this.TPCredito.Padding = new System.Windows.Forms.Padding(3);
@@ -1137,6 +1204,22 @@
             this.TPCredito.Text = "Datos de Credito";
             this.TPCredito.UseVisualStyleBackColor = true;
             // 
+            // btnLimpiar_Credito
+            // 
+            this.btnLimpiar_Credito.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLimpiar_Credito.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnLimpiar_Credito.FlatAppearance.BorderSize = 0;
+            this.btnLimpiar_Credito.Image = global::Presentacion.Botones.btnLimpiar;
+            this.btnLimpiar_Credito.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLimpiar_Credito.Location = new System.Drawing.Point(460, 333);
+            this.btnLimpiar_Credito.Name = "btnLimpiar_Credito";
+            this.btnLimpiar_Credito.Size = new System.Drawing.Size(90, 30);
+            this.btnLimpiar_Credito.TabIndex = 172;
+            this.btnLimpiar_Credito.Text = "Limpiar";
+            this.btnLimpiar_Credito.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLimpiar_Credito.UseVisualStyleBackColor = true;
+            this.btnLimpiar_Credito.Click += new System.EventHandler(this.btnLimpiar_Credito_Click);
+            // 
             // btnModificar_Credito
             // 
             this.btnModificar_Credito.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -1144,7 +1227,7 @@
             this.btnModificar_Credito.FlatAppearance.BorderSize = 0;
             this.btnModificar_Credito.Image = global::Presentacion.Botones.btnEditar;
             this.btnModificar_Credito.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar_Credito.Location = new System.Drawing.Point(460, 333);
+            this.btnModificar_Credito.Location = new System.Drawing.Point(364, 333);
             this.btnModificar_Credito.Name = "btnModificar_Credito";
             this.btnModificar_Credito.Size = new System.Drawing.Size(90, 30);
             this.btnModificar_Credito.TabIndex = 171;
@@ -1161,38 +1244,6 @@
             this.lblTotal_Credito.Size = new System.Drawing.Size(121, 15);
             this.lblTotal_Credito.TabIndex = 170;
             this.lblTotal_Credito.Text = "Datos Registrados: 0";
-            // 
-            // btnEliminar_Credito
-            // 
-            this.btnEliminar_Credito.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar_Credito.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnEliminar_Credito.FlatAppearance.BorderSize = 0;
-            this.btnEliminar_Credito.Image = global::Presentacion.Botones.btnEliminar;
-            this.btnEliminar_Credito.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar_Credito.Location = new System.Drawing.Point(556, 333);
-            this.btnEliminar_Credito.Name = "btnEliminar_Credito";
-            this.btnEliminar_Credito.Size = new System.Drawing.Size(90, 30);
-            this.btnEliminar_Credito.TabIndex = 169;
-            this.btnEliminar_Credito.Text = "Eliminar";
-            this.btnEliminar_Credito.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminar_Credito.UseVisualStyleBackColor = true;
-            this.btnEliminar_Credito.Click += new System.EventHandler(this.btnEliminar_Credito_Click);
-            // 
-            // btnAgregar_Credito
-            // 
-            this.btnAgregar_Credito.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregar_Credito.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnAgregar_Credito.FlatAppearance.BorderSize = 0;
-            this.btnAgregar_Credito.Image = global::Presentacion.Botones.btnAgregar;
-            this.btnAgregar_Credito.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar_Credito.Location = new System.Drawing.Point(364, 333);
-            this.btnAgregar_Credito.Name = "btnAgregar_Credito";
-            this.btnAgregar_Credito.Size = new System.Drawing.Size(90, 30);
-            this.btnAgregar_Credito.TabIndex = 168;
-            this.btnAgregar_Credito.Text = "Agregar";
-            this.btnAgregar_Credito.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAgregar_Credito.UseVisualStyleBackColor = true;
-            this.btnAgregar_Credito.Click += new System.EventHandler(this.btnAgregar_Credito_Click);
             // 
             // DGDetalle_Credito
             // 
@@ -1257,6 +1308,10 @@
             this.TBCre_TasaAnual.Size = new System.Drawing.Size(171, 21);
             this.TBCre_TasaAnual.TabIndex = 161;
             this.TBCre_TasaAnual.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBCre_TasaAnual.Enter += new System.EventHandler(this.TBCre_TasaAnual_Enter);
+            this.TBCre_TasaAnual.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBCre_TasaAnual_KeyPress);
+            this.TBCre_TasaAnual.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCre_TasaAnual_KeyUp);
+            this.TBCre_TasaAnual.Leave += new System.EventHandler(this.TBCre_TasaAnual_Leave);
             // 
             // label51
             // 
@@ -1275,7 +1330,8 @@
             this.TBCre_TasaMensual.TabIndex = 58;
             this.TBCre_TasaMensual.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TBCre_TasaMensual.Enter += new System.EventHandler(this.TBCre_Intereses_Enter);
-            this.TBCre_TasaMensual.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCre_Intereses_KeyUp);
+            this.TBCre_TasaMensual.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBCre_TasaMensual_KeyPress);
+            this.TBCre_TasaMensual.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCre_TasaMensual_KeyUp);
             this.TBCre_TasaMensual.Leave += new System.EventHandler(this.TBCre_Intereses_Leave);
             // 
             // TBCre_CuotaMeses
@@ -1284,7 +1340,10 @@
             this.TBCre_CuotaMeses.Name = "TBCre_CuotaMeses";
             this.TBCre_CuotaMeses.Size = new System.Drawing.Size(117, 21);
             this.TBCre_CuotaMeses.TabIndex = 44;
+            this.TBCre_CuotaMeses.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TBCre_CuotaMeses.Enter += new System.EventHandler(this.TBCre_CuotaMinima_Enter);
+            this.TBCre_CuotaMeses.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBCre_CuotaMeses_KeyPress);
+            this.TBCre_CuotaMeses.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCre_CuotaMeses_KeyUp);
             this.TBCre_CuotaMeses.Leave += new System.EventHandler(this.TBCre_CuotaMinima_Leave);
             // 
             // label22
@@ -1304,6 +1363,7 @@
             this.TBCre_InteresMora.TabIndex = 41;
             this.TBCre_InteresMora.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TBCre_InteresMora.Enter += new System.EventHandler(this.TBCre_InteresMora_Enter);
+            this.TBCre_InteresMora.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBCre_InteresMora_KeyPress);
             this.TBCre_InteresMora.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCre_InteresMora_KeyUp);
             this.TBCre_InteresMora.Leave += new System.EventHandler(this.TBCre_InteresMora_Leave);
             // 
@@ -1324,6 +1384,8 @@
             this.TBCre_DiasDeProrroga.TabIndex = 39;
             this.TBCre_DiasDeProrroga.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TBCre_DiasDeProrroga.Enter += new System.EventHandler(this.TBCre_DiasDeProrroga_Enter);
+            this.TBCre_DiasDeProrroga.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBCre_DiasDeProrroga_KeyPress);
+            this.TBCre_DiasDeProrroga.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCre_DiasDeProrroga_KeyUp);
             this.TBCre_DiasDeProrroga.Leave += new System.EventHandler(this.TBCre_DiasDeProrroga_Leave);
             // 
             // label30
@@ -1344,21 +1406,54 @@
             this.label28.TabIndex = 35;
             this.label28.Text = "Cuota de Financiamiento (Meses)";
             // 
-            // TBCre_CreditoMinimo
+            // TBCre_Valor
             // 
-            this.TBCre_CreditoMinimo.Location = new System.Drawing.Point(154, 6);
-            this.TBCre_CreditoMinimo.Name = "TBCre_CreditoMinimo";
-            this.TBCre_CreditoMinimo.Size = new System.Drawing.Size(171, 21);
-            this.TBCre_CreditoMinimo.TabIndex = 33;
-            this.TBCre_CreditoMinimo.Enter += new System.EventHandler(this.TBCre_CreditoMinimo_Enter);
-            this.TBCre_CreditoMinimo.Leave += new System.EventHandler(this.TBCre_CreditoMinimo_Leave);
+            this.TBCre_Valor.Location = new System.Drawing.Point(154, 6);
+            this.TBCre_Valor.Name = "TBCre_Valor";
+            this.TBCre_Valor.Size = new System.Drawing.Size(171, 21);
+            this.TBCre_Valor.TabIndex = 33;
+            this.TBCre_Valor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBCre_Valor.Enter += new System.EventHandler(this.TBCre_CreditoMinimo_Enter);
+            this.TBCre_Valor.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCre_Valor_KeyUp);
+            this.TBCre_Valor.Leave += new System.EventHandler(this.TBCre_CreditoMinimo_Leave);
+            // 
+            // btnEliminar_Credito
+            // 
+            this.btnEliminar_Credito.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminar_Credito.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnEliminar_Credito.FlatAppearance.BorderSize = 0;
+            this.btnEliminar_Credito.Image = global::Presentacion.Botones.btnEliminar;
+            this.btnEliminar_Credito.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminar_Credito.Location = new System.Drawing.Point(556, 333);
+            this.btnEliminar_Credito.Name = "btnEliminar_Credito";
+            this.btnEliminar_Credito.Size = new System.Drawing.Size(90, 30);
+            this.btnEliminar_Credito.TabIndex = 169;
+            this.btnEliminar_Credito.Text = "Eliminar";
+            this.btnEliminar_Credito.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminar_Credito.UseVisualStyleBackColor = true;
+            this.btnEliminar_Credito.Click += new System.EventHandler(this.btnEliminar_Credito_Click);
+            // 
+            // btnAgregar_Credito
+            // 
+            this.btnAgregar_Credito.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregar_Credito.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnAgregar_Credito.FlatAppearance.BorderSize = 0;
+            this.btnAgregar_Credito.Image = global::Presentacion.Botones.btnAgregar;
+            this.btnAgregar_Credito.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregar_Credito.Location = new System.Drawing.Point(268, 333);
+            this.btnAgregar_Credito.Name = "btnAgregar_Credito";
+            this.btnAgregar_Credito.Size = new System.Drawing.Size(90, 30);
+            this.btnAgregar_Credito.TabIndex = 168;
+            this.btnAgregar_Credito.Text = "Agregar";
+            this.btnAgregar_Credito.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregar_Credito.UseVisualStyleBackColor = true;
+            this.btnAgregar_Credito.Click += new System.EventHandler(this.btnAgregar_Credito_Click);
             // 
             // TPDatosDeEnvio
             // 
+            this.TPDatosDeEnvio.Controls.Add(this.btnLimpiar_Despacho);
             this.TPDatosDeEnvio.Controls.Add(this.btnModificar_Despacho);
             this.TPDatosDeEnvio.Controls.Add(this.lblTotal_Despacho);
-            this.TPDatosDeEnvio.Controls.Add(this.btnEliminar_Despacho);
-            this.TPDatosDeEnvio.Controls.Add(this.btnAgregar_Despacho);
             this.TPDatosDeEnvio.Controls.Add(this.DGDetalle_Despacho);
             this.TPDatosDeEnvio.Controls.Add(this.TBDes_Departamento);
             this.TPDatosDeEnvio.Controls.Add(this.label50);
@@ -1380,6 +1475,8 @@
             this.TPDatosDeEnvio.Controls.Add(this.label15);
             this.TPDatosDeEnvio.Controls.Add(this.TBDes_Direccion);
             this.TPDatosDeEnvio.Controls.Add(this.label11);
+            this.TPDatosDeEnvio.Controls.Add(this.btnEliminar_Despacho);
+            this.TPDatosDeEnvio.Controls.Add(this.btnAgregar_Despacho);
             this.TPDatosDeEnvio.Location = new System.Drawing.Point(4, 24);
             this.TPDatosDeEnvio.Name = "TPDatosDeEnvio";
             this.TPDatosDeEnvio.Padding = new System.Windows.Forms.Padding(3);
@@ -1388,6 +1485,22 @@
             this.TPDatosDeEnvio.Text = "Despacho - Envio";
             this.TPDatosDeEnvio.UseVisualStyleBackColor = true;
             // 
+            // btnLimpiar_Despacho
+            // 
+            this.btnLimpiar_Despacho.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLimpiar_Despacho.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnLimpiar_Despacho.FlatAppearance.BorderSize = 0;
+            this.btnLimpiar_Despacho.Image = global::Presentacion.Botones.btnLimpiar;
+            this.btnLimpiar_Despacho.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLimpiar_Despacho.Location = new System.Drawing.Point(460, 333);
+            this.btnLimpiar_Despacho.Name = "btnLimpiar_Despacho";
+            this.btnLimpiar_Despacho.Size = new System.Drawing.Size(90, 30);
+            this.btnLimpiar_Despacho.TabIndex = 173;
+            this.btnLimpiar_Despacho.Text = "Limpiar";
+            this.btnLimpiar_Despacho.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLimpiar_Despacho.UseVisualStyleBackColor = true;
+            this.btnLimpiar_Despacho.Click += new System.EventHandler(this.btnLimpiar_Despacho_Click);
+            // 
             // btnModificar_Despacho
             // 
             this.btnModificar_Despacho.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -1395,7 +1508,7 @@
             this.btnModificar_Despacho.FlatAppearance.BorderSize = 0;
             this.btnModificar_Despacho.Image = global::Presentacion.Botones.btnEditar;
             this.btnModificar_Despacho.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar_Despacho.Location = new System.Drawing.Point(460, 333);
+            this.btnModificar_Despacho.Location = new System.Drawing.Point(364, 333);
             this.btnModificar_Despacho.Name = "btnModificar_Despacho";
             this.btnModificar_Despacho.Size = new System.Drawing.Size(90, 30);
             this.btnModificar_Despacho.TabIndex = 172;
@@ -1412,38 +1525,6 @@
             this.lblTotal_Despacho.Size = new System.Drawing.Size(121, 15);
             this.lblTotal_Despacho.TabIndex = 150;
             this.lblTotal_Despacho.Text = "Datos Registrados: 0";
-            // 
-            // btnEliminar_Despacho
-            // 
-            this.btnEliminar_Despacho.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar_Despacho.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnEliminar_Despacho.FlatAppearance.BorderSize = 0;
-            this.btnEliminar_Despacho.Image = global::Presentacion.Botones.btnEliminar;
-            this.btnEliminar_Despacho.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar_Despacho.Location = new System.Drawing.Point(556, 333);
-            this.btnEliminar_Despacho.Name = "btnEliminar_Despacho";
-            this.btnEliminar_Despacho.Size = new System.Drawing.Size(90, 30);
-            this.btnEliminar_Despacho.TabIndex = 149;
-            this.btnEliminar_Despacho.Text = "Eliminar";
-            this.btnEliminar_Despacho.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminar_Despacho.UseVisualStyleBackColor = true;
-            this.btnEliminar_Despacho.Click += new System.EventHandler(this.btnEliminar_Despacho_Click);
-            // 
-            // btnAgregar_Despacho
-            // 
-            this.btnAgregar_Despacho.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregar_Despacho.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnAgregar_Despacho.FlatAppearance.BorderSize = 0;
-            this.btnAgregar_Despacho.Image = global::Presentacion.Botones.btnAgregar;
-            this.btnAgregar_Despacho.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar_Despacho.Location = new System.Drawing.Point(364, 333);
-            this.btnAgregar_Despacho.Name = "btnAgregar_Despacho";
-            this.btnAgregar_Despacho.Size = new System.Drawing.Size(90, 30);
-            this.btnAgregar_Despacho.TabIndex = 148;
-            this.btnAgregar_Despacho.Text = "Agregar";
-            this.btnAgregar_Despacho.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAgregar_Despacho.UseVisualStyleBackColor = true;
-            this.btnAgregar_Despacho.Click += new System.EventHandler(this.btnAgregar_Despacho_Click);
             // 
             // DGDetalle_Despacho
             // 
@@ -1582,6 +1663,7 @@
             this.TBDes_Movil.Size = new System.Drawing.Size(260, 21);
             this.TBDes_Movil.TabIndex = 11;
             this.TBDes_Movil.Enter += new System.EventHandler(this.TBDes_Movil_Enter);
+            this.TBDes_Movil.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBDes_Movil_KeyPress);
             this.TBDes_Movil.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBDes_Movil_KeyUp);
             this.TBDes_Movil.Leave += new System.EventHandler(this.TBDes_Movil_Leave);
             // 
@@ -1651,27 +1733,76 @@
             this.label11.TabIndex = 0;
             this.label11.Text = "Dirección";
             // 
+            // btnEliminar_Despacho
+            // 
+            this.btnEliminar_Despacho.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminar_Despacho.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnEliminar_Despacho.FlatAppearance.BorderSize = 0;
+            this.btnEliminar_Despacho.Image = global::Presentacion.Botones.btnEliminar;
+            this.btnEliminar_Despacho.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminar_Despacho.Location = new System.Drawing.Point(556, 333);
+            this.btnEliminar_Despacho.Name = "btnEliminar_Despacho";
+            this.btnEliminar_Despacho.Size = new System.Drawing.Size(90, 30);
+            this.btnEliminar_Despacho.TabIndex = 149;
+            this.btnEliminar_Despacho.Text = "Eliminar";
+            this.btnEliminar_Despacho.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminar_Despacho.UseVisualStyleBackColor = true;
+            this.btnEliminar_Despacho.Click += new System.EventHandler(this.btnEliminar_Despacho_Click);
+            // 
+            // btnAgregar_Despacho
+            // 
+            this.btnAgregar_Despacho.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregar_Despacho.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnAgregar_Despacho.FlatAppearance.BorderSize = 0;
+            this.btnAgregar_Despacho.Image = global::Presentacion.Botones.btnAgregar;
+            this.btnAgregar_Despacho.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregar_Despacho.Location = new System.Drawing.Point(268, 333);
+            this.btnAgregar_Despacho.Name = "btnAgregar_Despacho";
+            this.btnAgregar_Despacho.Size = new System.Drawing.Size(90, 30);
+            this.btnAgregar_Despacho.TabIndex = 148;
+            this.btnAgregar_Despacho.Text = "Agregar";
+            this.btnAgregar_Despacho.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregar_Despacho.UseVisualStyleBackColor = true;
+            this.btnAgregar_Despacho.Click += new System.EventHandler(this.btnAgregar_Despacho_Click);
+            // 
             // TPDatosFinancieros
             // 
+            this.TPDatosFinancieros.Controls.Add(this.btnLimpiar_Financiera);
             this.TPDatosFinancieros.Controls.Add(this.btnModificar_Financiera);
             this.TPDatosFinancieros.Controls.Add(this.TBFin_CodigoBanco);
             this.TPDatosFinancieros.Controls.Add(this.lblTotal_Financiera);
-            this.TPDatosFinancieros.Controls.Add(this.btnEliminar_Financiera);
-            this.TPDatosFinancieros.Controls.Add(this.btnAgregar_Financiera);
             this.TPDatosFinancieros.Controls.Add(this.DGDetalle_Financiera);
-            this.TPDatosFinancieros.Controls.Add(this.button1);
             this.TPDatosFinancieros.Controls.Add(this.CBFin_Cuenta);
             this.TPDatosFinancieros.Controls.Add(this.label32);
             this.TPDatosFinancieros.Controls.Add(this.label44);
             this.TPDatosFinancieros.Controls.Add(this.label45);
             this.TPDatosFinancieros.Controls.Add(this.TBFin_NumCuenta);
             this.TPDatosFinancieros.Controls.Add(this.TBFin_Banco);
+            this.TPDatosFinancieros.Controls.Add(this.btnEliminar_Financiera);
+            this.TPDatosFinancieros.Controls.Add(this.btnAgregar_Financiera);
+            this.TPDatosFinancieros.Controls.Add(this.button1);
             this.TPDatosFinancieros.Location = new System.Drawing.Point(4, 24);
             this.TPDatosFinancieros.Name = "TPDatosFinancieros";
             this.TPDatosFinancieros.Size = new System.Drawing.Size(652, 369);
             this.TPDatosFinancieros.TabIndex = 3;
             this.TPDatosFinancieros.Text = "Datos Financieros";
             this.TPDatosFinancieros.UseVisualStyleBackColor = true;
+            // 
+            // btnLimpiar_Financiera
+            // 
+            this.btnLimpiar_Financiera.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLimpiar_Financiera.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnLimpiar_Financiera.FlatAppearance.BorderSize = 0;
+            this.btnLimpiar_Financiera.Image = global::Presentacion.Botones.btnLimpiar;
+            this.btnLimpiar_Financiera.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLimpiar_Financiera.Location = new System.Drawing.Point(460, 333);
+            this.btnLimpiar_Financiera.Name = "btnLimpiar_Financiera";
+            this.btnLimpiar_Financiera.Size = new System.Drawing.Size(90, 30);
+            this.btnLimpiar_Financiera.TabIndex = 173;
+            this.btnLimpiar_Financiera.Text = "Limpiar";
+            this.btnLimpiar_Financiera.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLimpiar_Financiera.UseVisualStyleBackColor = true;
+            this.btnLimpiar_Financiera.Click += new System.EventHandler(this.btnLimpiar_Financiera_Click);
             // 
             // btnModificar_Financiera
             // 
@@ -1680,7 +1811,7 @@
             this.btnModificar_Financiera.FlatAppearance.BorderSize = 0;
             this.btnModificar_Financiera.Image = global::Presentacion.Botones.btnEditar;
             this.btnModificar_Financiera.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar_Financiera.Location = new System.Drawing.Point(460, 333);
+            this.btnModificar_Financiera.Location = new System.Drawing.Point(364, 333);
             this.btnModificar_Financiera.Name = "btnModificar_Financiera";
             this.btnModificar_Financiera.Size = new System.Drawing.Size(90, 30);
             this.btnModificar_Financiera.TabIndex = 172;
@@ -1705,38 +1836,6 @@
             this.lblTotal_Financiera.TabIndex = 169;
             this.lblTotal_Financiera.Text = "Datos Registrados: 0";
             // 
-            // btnEliminar_Financiera
-            // 
-            this.btnEliminar_Financiera.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar_Financiera.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnEliminar_Financiera.FlatAppearance.BorderSize = 0;
-            this.btnEliminar_Financiera.Image = global::Presentacion.Botones.btnEliminar;
-            this.btnEliminar_Financiera.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar_Financiera.Location = new System.Drawing.Point(556, 333);
-            this.btnEliminar_Financiera.Name = "btnEliminar_Financiera";
-            this.btnEliminar_Financiera.Size = new System.Drawing.Size(90, 30);
-            this.btnEliminar_Financiera.TabIndex = 168;
-            this.btnEliminar_Financiera.Text = "Eliminar";
-            this.btnEliminar_Financiera.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminar_Financiera.UseVisualStyleBackColor = true;
-            this.btnEliminar_Financiera.Click += new System.EventHandler(this.btnEliminar_Financiera_Click);
-            // 
-            // btnAgregar_Financiera
-            // 
-            this.btnAgregar_Financiera.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregar_Financiera.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnAgregar_Financiera.FlatAppearance.BorderSize = 0;
-            this.btnAgregar_Financiera.Image = global::Presentacion.Botones.btnAgregar;
-            this.btnAgregar_Financiera.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar_Financiera.Location = new System.Drawing.Point(364, 333);
-            this.btnAgregar_Financiera.Name = "btnAgregar_Financiera";
-            this.btnAgregar_Financiera.Size = new System.Drawing.Size(90, 30);
-            this.btnAgregar_Financiera.TabIndex = 167;
-            this.btnAgregar_Financiera.Text = "Agregar";
-            this.btnAgregar_Financiera.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAgregar_Financiera.UseVisualStyleBackColor = true;
-            this.btnAgregar_Financiera.Click += new System.EventHandler(this.btnAgregar_Financiera_Click);
-            // 
             // DGDetalle_Financiera
             // 
             this.DGDetalle_Financiera.AllowUserToAddRows = false;
@@ -1752,19 +1851,6 @@
             this.DGDetalle_Financiera.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGDetalle_Financiera.Size = new System.Drawing.Size(639, 267);
             this.DGDetalle_Financiera.TabIndex = 165;
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImage = global::Presentacion.Botones.btnExaminar;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(621, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(25, 21);
-            this.button1.TabIndex = 135;
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // CBFin_Cuenta
             // 
@@ -1816,7 +1902,9 @@
             this.TBFin_NumCuenta.Name = "TBFin_NumCuenta";
             this.TBFin_NumCuenta.Size = new System.Drawing.Size(248, 21);
             this.TBFin_NumCuenta.TabIndex = 34;
+            this.TBFin_NumCuenta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TBFin_NumCuenta.Enter += new System.EventHandler(this.TBFin_NumCuenta_Enter);
+            this.TBFin_NumCuenta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBFin_NumCuenta_KeyPress);
             this.TBFin_NumCuenta.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBFin_NumCuenta_KeyUp);
             this.TBFin_NumCuenta.Leave += new System.EventHandler(this.TBFin_NumCuenta_Leave);
             // 
@@ -1827,13 +1915,57 @@
             this.TBFin_Banco.Size = new System.Drawing.Size(367, 21);
             this.TBFin_Banco.TabIndex = 33;
             // 
+            // btnEliminar_Financiera
+            // 
+            this.btnEliminar_Financiera.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminar_Financiera.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnEliminar_Financiera.FlatAppearance.BorderSize = 0;
+            this.btnEliminar_Financiera.Image = global::Presentacion.Botones.btnEliminar;
+            this.btnEliminar_Financiera.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminar_Financiera.Location = new System.Drawing.Point(556, 333);
+            this.btnEliminar_Financiera.Name = "btnEliminar_Financiera";
+            this.btnEliminar_Financiera.Size = new System.Drawing.Size(90, 30);
+            this.btnEliminar_Financiera.TabIndex = 168;
+            this.btnEliminar_Financiera.Text = "Eliminar";
+            this.btnEliminar_Financiera.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminar_Financiera.UseVisualStyleBackColor = true;
+            this.btnEliminar_Financiera.Click += new System.EventHandler(this.btnEliminar_Financiera_Click);
+            // 
+            // btnAgregar_Financiera
+            // 
+            this.btnAgregar_Financiera.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregar_Financiera.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnAgregar_Financiera.FlatAppearance.BorderSize = 0;
+            this.btnAgregar_Financiera.Image = global::Presentacion.Botones.btnAgregar;
+            this.btnAgregar_Financiera.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregar_Financiera.Location = new System.Drawing.Point(268, 333);
+            this.btnAgregar_Financiera.Name = "btnAgregar_Financiera";
+            this.btnAgregar_Financiera.Size = new System.Drawing.Size(90, 30);
+            this.btnAgregar_Financiera.TabIndex = 167;
+            this.btnAgregar_Financiera.Text = "Agregar";
+            this.btnAgregar_Financiera.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregar_Financiera.UseVisualStyleBackColor = true;
+            this.btnAgregar_Financiera.Click += new System.EventHandler(this.btnAgregar_Financiera_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::Presentacion.Botones.btnExaminar;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(621, 6);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(25, 21);
+            this.button1.TabIndex = 135;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnLimpiar_Contacto);
             this.tabPage1.Controls.Add(this.btnModificar_Contacto);
             this.tabPage1.Controls.Add(this.TBCon_Parentesco);
             this.tabPage1.Controls.Add(this.lblTotal_Contacto);
-            this.tabPage1.Controls.Add(this.btnEliminar_Contacto);
-            this.tabPage1.Controls.Add(this.btnAgregar_Contacto);
             this.tabPage1.Controls.Add(this.DGDetalle_Contacto);
             this.tabPage1.Controls.Add(this.label59);
             this.tabPage1.Controls.Add(this.TBCon_Correo);
@@ -1848,6 +1980,8 @@
             this.tabPage1.Controls.Add(this.label54);
             this.tabPage1.Controls.Add(this.TBCon_Contacto);
             this.tabPage1.Controls.Add(this.label53);
+            this.tabPage1.Controls.Add(this.btnEliminar_Contacto);
+            this.tabPage1.Controls.Add(this.btnAgregar_Contacto);
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -1856,6 +1990,22 @@
             this.tabPage1.Text = "Datos de Contacto";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // btnLimpiar_Contacto
+            // 
+            this.btnLimpiar_Contacto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLimpiar_Contacto.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnLimpiar_Contacto.FlatAppearance.BorderSize = 0;
+            this.btnLimpiar_Contacto.Image = global::Presentacion.Botones.btnLimpiar;
+            this.btnLimpiar_Contacto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLimpiar_Contacto.Location = new System.Drawing.Point(460, 333);
+            this.btnLimpiar_Contacto.Name = "btnLimpiar_Contacto";
+            this.btnLimpiar_Contacto.Size = new System.Drawing.Size(90, 30);
+            this.btnLimpiar_Contacto.TabIndex = 173;
+            this.btnLimpiar_Contacto.Text = "Limpiar";
+            this.btnLimpiar_Contacto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLimpiar_Contacto.UseVisualStyleBackColor = true;
+            this.btnLimpiar_Contacto.Click += new System.EventHandler(this.btnLimpiar_Contacto_Click);
+            // 
             // btnModificar_Contacto
             // 
             this.btnModificar_Contacto.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -1863,7 +2013,7 @@
             this.btnModificar_Contacto.FlatAppearance.BorderSize = 0;
             this.btnModificar_Contacto.Image = global::Presentacion.Botones.btnEditar;
             this.btnModificar_Contacto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar_Contacto.Location = new System.Drawing.Point(460, 333);
+            this.btnModificar_Contacto.Location = new System.Drawing.Point(364, 333);
             this.btnModificar_Contacto.Name = "btnModificar_Contacto";
             this.btnModificar_Contacto.Size = new System.Drawing.Size(90, 30);
             this.btnModificar_Contacto.TabIndex = 172;
@@ -1891,38 +2041,6 @@
             this.lblTotal_Contacto.TabIndex = 168;
             this.lblTotal_Contacto.Text = "Datos Registrados: 0";
             // 
-            // btnEliminar_Contacto
-            // 
-            this.btnEliminar_Contacto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar_Contacto.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnEliminar_Contacto.FlatAppearance.BorderSize = 0;
-            this.btnEliminar_Contacto.Image = global::Presentacion.Botones.btnEliminar;
-            this.btnEliminar_Contacto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar_Contacto.Location = new System.Drawing.Point(556, 333);
-            this.btnEliminar_Contacto.Name = "btnEliminar_Contacto";
-            this.btnEliminar_Contacto.Size = new System.Drawing.Size(90, 30);
-            this.btnEliminar_Contacto.TabIndex = 167;
-            this.btnEliminar_Contacto.Text = "Eliminar";
-            this.btnEliminar_Contacto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminar_Contacto.UseVisualStyleBackColor = true;
-            this.btnEliminar_Contacto.Click += new System.EventHandler(this.btnEliminar_Contacto_Click);
-            // 
-            // btnAgregar_Contacto
-            // 
-            this.btnAgregar_Contacto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregar_Contacto.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnAgregar_Contacto.FlatAppearance.BorderSize = 0;
-            this.btnAgregar_Contacto.Image = global::Presentacion.Botones.btnAgregar;
-            this.btnAgregar_Contacto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar_Contacto.Location = new System.Drawing.Point(364, 333);
-            this.btnAgregar_Contacto.Name = "btnAgregar_Contacto";
-            this.btnAgregar_Contacto.Size = new System.Drawing.Size(90, 30);
-            this.btnAgregar_Contacto.TabIndex = 166;
-            this.btnAgregar_Contacto.Text = "Agregar";
-            this.btnAgregar_Contacto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAgregar_Contacto.UseVisualStyleBackColor = true;
-            this.btnAgregar_Contacto.Click += new System.EventHandler(this.btnAgregar_Contacto_Click);
-            // 
             // DGDetalle_Contacto
             // 
             this.DGDetalle_Contacto.AllowUserToAddRows = false;
@@ -1936,7 +2054,7 @@
             this.DGDetalle_Contacto.Name = "DGDetalle_Contacto";
             this.DGDetalle_Contacto.ReadOnly = true;
             this.DGDetalle_Contacto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGDetalle_Contacto.Size = new System.Drawing.Size(639, 213);
+            this.DGDetalle_Contacto.Size = new System.Drawing.Size(640, 213);
             this.DGDetalle_Contacto.TabIndex = 165;
             // 
             // label59
@@ -1974,6 +2092,7 @@
             this.TBCon_Movil.Size = new System.Drawing.Size(260, 21);
             this.TBCon_Movil.TabIndex = 9;
             this.TBCon_Movil.Enter += new System.EventHandler(this.TBCon_Movil_Enter);
+            this.TBCon_Movil.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBCon_Movil_KeyPress);
             this.TBCon_Movil.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCon_Movil_KeyUp);
             this.TBCon_Movil.Leave += new System.EventHandler(this.TBCon_Movil_Leave);
             // 
@@ -1993,6 +2112,7 @@
             this.TBCon_Telefono.Size = new System.Drawing.Size(260, 21);
             this.TBCon_Telefono.TabIndex = 7;
             this.TBCon_Telefono.Enter += new System.EventHandler(this.TBCon_Telefono_Enter);
+            this.TBCon_Telefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBCon_Telefono_KeyPress);
             this.TBCon_Telefono.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCon_Telefono_KeyUp);
             this.TBCon_Telefono.Leave += new System.EventHandler(this.TBCon_Telefono_Leave);
             // 
@@ -2062,6 +2182,38 @@
             this.label53.TabIndex = 0;
             this.label53.Text = "Contacto";
             // 
+            // btnEliminar_Contacto
+            // 
+            this.btnEliminar_Contacto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminar_Contacto.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnEliminar_Contacto.FlatAppearance.BorderSize = 0;
+            this.btnEliminar_Contacto.Image = global::Presentacion.Botones.btnEliminar;
+            this.btnEliminar_Contacto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminar_Contacto.Location = new System.Drawing.Point(556, 333);
+            this.btnEliminar_Contacto.Name = "btnEliminar_Contacto";
+            this.btnEliminar_Contacto.Size = new System.Drawing.Size(90, 30);
+            this.btnEliminar_Contacto.TabIndex = 167;
+            this.btnEliminar_Contacto.Text = "Eliminar";
+            this.btnEliminar_Contacto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminar_Contacto.UseVisualStyleBackColor = true;
+            this.btnEliminar_Contacto.Click += new System.EventHandler(this.btnEliminar_Contacto_Click);
+            // 
+            // btnAgregar_Contacto
+            // 
+            this.btnAgregar_Contacto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregar_Contacto.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnAgregar_Contacto.FlatAppearance.BorderSize = 0;
+            this.btnAgregar_Contacto.Image = global::Presentacion.Botones.btnAgregar;
+            this.btnAgregar_Contacto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregar_Contacto.Location = new System.Drawing.Point(268, 333);
+            this.btnAgregar_Contacto.Name = "btnAgregar_Contacto";
+            this.btnAgregar_Contacto.Size = new System.Drawing.Size(90, 30);
+            this.btnAgregar_Contacto.TabIndex = 166;
+            this.btnAgregar_Contacto.Text = "Agregar";
+            this.btnAgregar_Contacto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregar_Contacto.UseVisualStyleBackColor = true;
+            this.btnAgregar_Contacto.Click += new System.EventHandler(this.btnAgregar_Contacto_Click);
+            // 
             // TBIdcliente
             // 
             this.TBIdcliente.Location = new System.Drawing.Point(106, 430);
@@ -2101,38 +2253,6 @@
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // btnImprimir
-            // 
-            this.btnImprimir.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnImprimir.FlatAppearance.BorderSize = 0;
-            this.btnImprimir.Image = global::Presentacion.Botones.btnImprimir;
-            this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImprimir.Location = new System.Drawing.Point(417, 425);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(90, 30);
-            this.btnImprimir.TabIndex = 4;
-            this.btnImprimir.Text = "Imprimir";
-            this.btnImprimir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnImprimir.UseVisualStyleBackColor = false;
-            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar.FlatAppearance.BorderSize = 0;
-            this.btnEliminar.Image = global::Presentacion.Botones.btnEliminar;
-            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(321, 425);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(90, 30);
-            this.btnEliminar.TabIndex = 3;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // label10
             // 
@@ -2194,40 +2314,37 @@
             this.TBBuscar.Size = new System.Drawing.Size(384, 21);
             this.TBBuscar.TabIndex = 3;
             // 
-            // TBIdfacturacion
+            // btnImprimir
             // 
-            this.TBIdfacturacion.Location = new System.Drawing.Point(225, 430);
-            this.TBIdfacturacion.Name = "TBIdfacturacion";
-            this.TBIdfacturacion.Size = new System.Drawing.Size(29, 21);
-            this.TBIdfacturacion.TabIndex = 7;
+            this.btnImprimir.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnImprimir.FlatAppearance.BorderSize = 0;
+            this.btnImprimir.Image = global::Presentacion.Botones.btnImprimir;
+            this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImprimir.Location = new System.Drawing.Point(417, 425);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(90, 30);
+            this.btnImprimir.TabIndex = 4;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnImprimir.UseVisualStyleBackColor = false;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
-            // TBIdcredito
+            // btnEliminar
             // 
-            this.TBIdcredito.Location = new System.Drawing.Point(260, 430);
-            this.TBIdcredito.Name = "TBIdcredito";
-            this.TBIdcredito.Size = new System.Drawing.Size(29, 21);
-            this.TBIdcredito.TabIndex = 8;
-            // 
-            // TBIddespacho
-            // 
-            this.TBIddespacho.Location = new System.Drawing.Point(295, 430);
-            this.TBIddespacho.Name = "TBIddespacho";
-            this.TBIddespacho.Size = new System.Drawing.Size(29, 21);
-            this.TBIddespacho.TabIndex = 9;
-            // 
-            // TBIdfinanciera
-            // 
-            this.TBIdfinanciera.Location = new System.Drawing.Point(330, 430);
-            this.TBIdfinanciera.Name = "TBIdfinanciera";
-            this.TBIdfinanciera.Size = new System.Drawing.Size(29, 21);
-            this.TBIdfinanciera.TabIndex = 10;
-            // 
-            // TBIdcontacto
-            // 
-            this.TBIdcontacto.Location = new System.Drawing.Point(365, 430);
-            this.TBIdcontacto.Name = "TBIdcontacto";
-            this.TBIdcontacto.Size = new System.Drawing.Size(29, 21);
-            this.TBIdcontacto.TabIndex = 11;
+            this.btnEliminar.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.Image = global::Presentacion.Botones.btnEliminar;
+            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminar.Location = new System.Drawing.Point(321, 425);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(90, 30);
+            this.btnEliminar.TabIndex = 3;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // frmCliente
             // 
@@ -2377,7 +2494,7 @@
         private System.Windows.Forms.TextBox TBCre_DiasDeProrroga;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.TextBox TBCre_CreditoMinimo;
+        private System.Windows.Forms.TextBox TBCre_Valor;
         private System.Windows.Forms.Label lblTotal_Financiera;
         private System.Windows.Forms.Button btnEliminar_Financiera;
         private System.Windows.Forms.Button btnAgregar_Financiera;
@@ -2451,5 +2568,10 @@
         private System.Windows.Forms.TextBox TBIddespacho;
         private System.Windows.Forms.TextBox TBIdcredito;
         private System.Windows.Forms.TextBox TBIdfacturacion;
+        private System.Windows.Forms.Button btnLimpiar_Facturacion;
+        private System.Windows.Forms.Button btnLimpiar_Credito;
+        private System.Windows.Forms.Button btnLimpiar_Despacho;
+        private System.Windows.Forms.Button btnLimpiar_Financiera;
+        private System.Windows.Forms.Button btnLimpiar_Contacto;
     }
 }

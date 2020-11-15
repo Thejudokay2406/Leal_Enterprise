@@ -133,6 +133,16 @@ namespace Presentacion {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap btnLimpiar {
+            get {
+                object obj = ResourceManager.GetObject("btnLimpiar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btnPrecios {
             get {
                 object obj = ResourceManager.GetObject("btnPrecios", resourceCulture);
