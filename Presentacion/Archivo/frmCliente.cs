@@ -90,11 +90,12 @@ namespace Presentacion
             this.TBIdcliente.Visible = false;
             this.TBIdbanco.Visible = false;
             this.TBIdempleado.Visible = false;
+            this.TBIdcliente_AutoSQL.Visible = false;
 
             this.TBIdfacturacion.Visible = false;
             this.TBIdcredito.Visible = false;
             this.TBIdfinanciera.Visible = false;
-            this.TBIdcredito.Visible = false;
+            this.TBIddespacho.Visible = false;
             this.TBIdcontacto.Visible = false;
 
             //this.TBIdcliente_AutoSQL.Visible = false;
@@ -497,8 +498,8 @@ namespace Presentacion
                 this.DtDetalle_Facturacion.Columns.Add("Codigo", System.Type.GetType("System.String"));
                 this.DtDetalle_Facturacion.Columns.Add("Empleado", System.Type.GetType("System.String"));
                 this.DtDetalle_Facturacion.Columns.Add("Cliente", System.Type.GetType("System.String"));
-                this.DtDetalle_Facturacion.Columns.Add("Documento", System.Type.GetType("System.String"));
-                this.DtDetalle_Facturacion.Columns.Add("Movil", System.Type.GetType("System.String"));
+                this.DtDetalle_Facturacion.Columns.Add("Documento", System.Type.GetType("System.Int64"));
+                this.DtDetalle_Facturacion.Columns.Add("Movil", System.Type.GetType("System.Int64"));
                 this.DtDetalle_Facturacion.Columns.Add("País", System.Type.GetType("System.String"));
                 this.DtDetalle_Facturacion.Columns.Add("Ciudad", System.Type.GetType("System.String"));
                 this.DtDetalle_Facturacion.Columns.Add("Departamento", System.Type.GetType("System.String"));
@@ -510,13 +511,13 @@ namespace Presentacion
                 this.DtDetalle_Credito = new DataTable();
                 this.DtDetalle_Credito.Columns.Add("Idcliente", System.Type.GetType("System.Int32"));
                 this.DtDetalle_Credito.Columns.Add("Valor", System.Type.GetType("System.String"));
-                this.DtDetalle_Credito.Columns.Add("Cuota", System.Type.GetType("System.Int32"));
-                this.DtDetalle_Credito.Columns.Add("T. Mensual", System.Type.GetType("System.Int32"));
-                this.DtDetalle_Credito.Columns.Add("T. Anual", System.Type.GetType("System.Int32"));
+                this.DtDetalle_Credito.Columns.Add("Cuota", System.Type.GetType("System.Int64"));
+                this.DtDetalle_Credito.Columns.Add("T. Mensual", System.Type.GetType("System.Int64"));
+                this.DtDetalle_Credito.Columns.Add("T. Anual", System.Type.GetType("System.Int64"));
                 this.DtDetalle_Credito.Columns.Add("Solicitud", System.Type.GetType("System.DateTime"));
                 this.DtDetalle_Credito.Columns.Add("Emisión", System.Type.GetType("System.DateTime"));
-                this.DtDetalle_Credito.Columns.Add("Días", System.Type.GetType("System.Int32"));
-                this.DtDetalle_Credito.Columns.Add("Mora", System.Type.GetType("System.Int32"));
+                this.DtDetalle_Credito.Columns.Add("Días", System.Type.GetType("System.Int64"));
+                this.DtDetalle_Credito.Columns.Add("Mora", System.Type.GetType("System.Int64"));
                 //Captura de los Datos en las Tablas
                 this.DGDetalle_Credito.DataSource = this.DtDetalle_Credito;
 
@@ -530,7 +531,7 @@ namespace Presentacion
                 this.DtDetalle_Despacho.Columns.Add("Receptor", System.Type.GetType("System.String"));
                 this.DtDetalle_Despacho.Columns.Add("Barrio", System.Type.GetType("System.String"));
                 this.DtDetalle_Despacho.Columns.Add("Apartamento", System.Type.GetType("System.String"));
-                this.DtDetalle_Despacho.Columns.Add("Móvil", System.Type.GetType("System.String"));
+                this.DtDetalle_Despacho.Columns.Add("Móvil", System.Type.GetType("System.Int64"));
                 this.DtDetalle_Despacho.Columns.Add("Dirección", System.Type.GetType("System.String"));
                 this.DtDetalle_Despacho.Columns.Add("Observación", System.Type.GetType("System.String"));
                 //Captura de los Datos en las Tablas
@@ -540,8 +541,10 @@ namespace Presentacion
                 this.DtDetalle_Financiera = new DataTable();
                 this.DtDetalle_Financiera.Columns.Add("Idcliente", System.Type.GetType("System.Int32"));
                 this.DtDetalle_Financiera.Columns.Add("Idbanco", System.Type.GetType("System.Int32"));
+                this.DtDetalle_Financiera.Columns.Add("Codigo", System.Type.GetType("System.String"));
+                this.DtDetalle_Financiera.Columns.Add("Banco", System.Type.GetType("System.String"));
                 this.DtDetalle_Financiera.Columns.Add("Cuenta", System.Type.GetType("System.String"));
-                this.DtDetalle_Financiera.Columns.Add("Nº. de Cuenta", System.Type.GetType("System.String"));
+                this.DtDetalle_Financiera.Columns.Add("Nº. de Cuenta", System.Type.GetType("System.Int64"));
                 //Captura de los Datos en las Tablas
                 this.DGDetalle_Financiera.DataSource = this.DtDetalle_Financiera;
 
@@ -551,25 +554,25 @@ namespace Presentacion
                 this.DtDetalle_Contacto.Columns.Add("Contacto", System.Type.GetType("System.String"));
                 this.DtDetalle_Contacto.Columns.Add("Ciudad", System.Type.GetType("System.String"));
                 this.DtDetalle_Contacto.Columns.Add("Dirección", System.Type.GetType("System.String"));
-                this.DtDetalle_Contacto.Columns.Add("Telefono", System.Type.GetType("System.String"));
-                this.DtDetalle_Contacto.Columns.Add("Móvil", System.Type.GetType("System.String"));
+                this.DtDetalle_Contacto.Columns.Add("Telefono", System.Type.GetType("System.Int64"));
+                this.DtDetalle_Contacto.Columns.Add("Móvil", System.Type.GetType("System.Int64"));
                 this.DtDetalle_Contacto.Columns.Add("Correo", System.Type.GetType("System.String"));
                 this.DtDetalle_Contacto.Columns.Add("Parentesco", System.Type.GetType("System.String"));
                 //Captura de los Datos en las Tablas
                 this.DGDetalle_Contacto.DataSource = this.DtDetalle_Contacto;
 
                 //************************************* Ocultacion de Columnas *************************************
-                //this.DGDetalle_Facturacion.Columns[0].Visible = false;
-                //this.DGDetalle_Facturacion.Columns[1].Visible = false;
+                this.DGDetalle_Facturacion.Columns[0].Visible = false;
+                this.DGDetalle_Facturacion.Columns[1].Visible = false;
 
-                //this.DGDetalle_Credito.Columns[1].Visible = false;
+                this.DGDetalle_Credito.Columns[0].Visible = false;
 
-                //this.DGDetalle_Despacho.Columns[0].Visible = false;
+                this.DGDetalle_Despacho.Columns[0].Visible = false;
 
-                //this.DGDetalle_Financiera.Columns[0].Visible = false;
-                //this.DGDetalle_Financiera.Columns[1].Visible = false;
+                this.DGDetalle_Financiera.Columns[0].Visible = false;
+                this.DGDetalle_Financiera.Columns[1].Visible = false;
 
-                //this.DGDetalle_Contacto.Columns[0].Visible = false;
+                this.DGDetalle_Contacto.Columns[0].Visible = false;
             }
             catch (Exception ex)
             {
@@ -1125,8 +1128,8 @@ namespace Presentacion
                         fila["Codigo"] = this.TBFac_CodigoAsesor.Text;
                         fila["Empleado"] = this.TBFac_Asesor.Text;
                         fila["Cliente"] = this.TBFac_Cliente.Text;
-                        fila["Documento"] = this.TBFac_DocumentoCliente.Text;
-                        fila["Movil"] = this.TBFac_Movil.Text;
+                        fila["Documento"] = Convert.ToInt64(this.TBFac_DocumentoCliente.Text);
+                        fila["Movil"] = Convert.ToInt64(this.TBFac_Movil.Text);
                         fila["País"] = this.TBFac_Pais.Text;
                         fila["Ciudad"] = this.TBFac_Ciudad.Text;
                         fila["Departamento"] = this.TBFac_Departamento.Text;
@@ -1247,17 +1250,25 @@ namespace Presentacion
                     
                     else
                     {
-                        
+                        if (TBCre_InteresMora.Text == String.Empty)
+                        {
+                            this.TBCre_InteresMora.Text = "0";
+                        }
+                        if (TBCre_DiasDeProrroga.Text == String.Empty)
+                        {
+                            this.TBCre_DiasDeProrroga.Text = "0";
+                        }
+
                         DataRow fila = this.DtDetalle_Credito.NewRow();
                         fila["Idcliente"] = Convert.ToInt32(this.TBIdcliente_AutoSQL.Text);
                         fila["Valor"] = this.TBCre_Valor.Text;
-                        fila["Cuota"] = Convert.ToInt32(this.TBCre_CuotaMeses.Text);
-                        fila["T. Mensual"] = Convert.ToInt32(this.TBCre_TasaMensual.Text);
-                        fila["T. Anual"] = Convert.ToInt32(this.TBCre_TasaMensual.Text);
+                        fila["Cuota"] = Convert.ToInt64(this.TBCre_CuotaMeses.Text);
+                        fila["T. Mensual"] = Convert.ToInt64(this.TBCre_TasaMensual.Text);
+                        fila["T. Anual"] = Convert.ToInt64(this.TBCre_TasaMensual.Text);
                         fila["Solicitud"] = this.DTCre_Solicitud.Value.ToString("dd/MM/yyyy");
                         fila["Emisión"] = this.DTCre_Emision.Value.ToString("dd/MM/yyyy");
-                        fila["Días"] = Convert.ToInt32(this.TBCre_DiasDeProrroga.Text);
-                        fila["Mora"] = Convert.ToInt32(this.TBCre_InteresMora.Text);
+                        fila["Días"] = Convert.ToInt64(this.TBCre_DiasDeProrroga.Text);
+                        fila["Mora"] = Convert.ToInt64(this.TBCre_InteresMora.Text);
                         this.DtDetalle_Credito.Rows.Add(fila);
 
                         //
@@ -1266,6 +1277,7 @@ namespace Presentacion
                         this.TBCre_CuotaMeses.Clear();
                         this.TBCre_DiasDeProrroga.Clear();
                         this.TBCre_InteresMora.Clear();
+                        this.TBCre_TasaAnual.Clear();
                         this.TBCre_TasaMensual.Clear();
                     }
                 }
@@ -1394,7 +1406,7 @@ namespace Presentacion
                         fila["Receptor"] = this.TBDes_Receptor.Text;
                         fila["Barrio"] = this.TBDes_Barrio.Text;
                         fila["Apartamento"] = this.TBDes_Apartamento.Text;
-                        fila["Móvil"] = this.TBDes_Movil.Text;
+                        fila["Móvil"] = Convert.ToInt64(this.TBDes_Movil.Text);
                         fila["Dirección"] = this.TBDes_Direccion.Text;
                         fila["Observación"] = this.TBDes_Observacion.Text;
                         this.DtDetalle_Despacho.Rows.Add(fila);
@@ -1534,7 +1546,7 @@ namespace Presentacion
                         fila["Idcliente"] = Convert.ToInt32(this.TBIdcliente.Text);
                         fila["Idbanco"] = this.TBFin_CodigoBanco.Text;
                         fila["Cuenta"] = this.CBFin_Cuenta.Text;
-                        fila["Nº. de Cuenta"] = this.TBFin_NumCuenta.Text;
+                        fila["Nº. de Cuenta"] = Convert.ToInt64(this.TBFin_NumCuenta.Text);
                         this.DtDetalle_Financiera.Rows.Add(fila);
 
                         //
@@ -1632,10 +1644,10 @@ namespace Presentacion
                         this.MensajeError("Por favor Especifique una Dirección de Contacto");
                         this.TBCon_Direccion.Select();
                     }
-                    else if (this.TBCon_Telefono.Text == String.Empty)
+                    else if (this.TBCon_Movil.Text == String.Empty)
                     {
-                        this.MensajeError("Por favor Especifique un Número Telefónico de Contacto");
-                        this.TBCon_Telefono.Select();
+                        this.MensajeError("Por favor Especifique un Número Movil de Contacto");
+                        this.TBCon_Movil.Select();
                     }
 
                     else
@@ -1646,8 +1658,8 @@ namespace Presentacion
                         fila["Contacto"] = this.TBCon_Contacto.Text;
                         fila["Ciudad"] = this.TBCon_Ciudad.Text;
                         fila["Dirección"] = this.TBCon_Direccion.Text;
-                        fila["Telefono"] = this.TBCon_Telefono.Text;
-                        fila["Móvil"] = this.TBCon_Movil.Text;
+                        fila["Telefono"] = Convert.ToInt64(this.TBCon_Telefono.Text);
+                        fila["Móvil"] = Convert.ToInt64(this.TBCon_Movil.Text);
                         fila["Correo"] = this.TBCon_Correo.Text;
                         fila["Parentesco"] = this.TBCon_Parentesco.Text;
                         this.DtDetalle_Contacto.Rows.Add(fila);

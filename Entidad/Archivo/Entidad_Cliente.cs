@@ -27,10 +27,10 @@ namespace Entidad
         private string _Dat_Codigo;
         private string _Dat_Cliente;
         private string _Dat_Documento;
-        private string _Dat_Telefono;
-        private string _Dat_TelefonoAux;
-        private string _Dat_Movil;
-        private string _Dat_MovilAux;
+        private Int64 _Dat_Telefono;
+        private Int64 _Dat_TelefonoAux;
+        private Int64 _Dat_Movil;
+        private Int64 _Dat_MovilAux;
         private string _Dat_Correo;
         private string _Dat_Pais;
         private string _Dat_Ciudad;
@@ -48,7 +48,7 @@ namespace Entidad
         private string _Fac_AsesorCodigo;
         private string _Fac_Cliente;
         private string _Fac_ClienteDoc;
-        private string _Fac_Movil;
+        private Int64 _Fac_Movil;
         private string _Fac_Pais;
         private string _Fac_Ciudad;
         private string _Fac_Departamento;
@@ -56,13 +56,13 @@ namespace Entidad
 
         //Datos de Credito
         private string _Cre_Valor;
-        private string _Cre_Cuotas;
-        private string _Cre_TasaMensual;
-        private string _Cre_TasaAnual;
+        private Int64 _Cre_Cuotas;
+        private Int64 _Cre_TasaMensual;
+        private Int64 _Cre_TasaAnual;
         private DateTime _Cre_Solicitud;
         private DateTime _Cre_Emision;
-        private string _Cre_Prorroga;
-        private string _Cre_TasaMora;
+        private Int64 _Cre_Prorroga;
+        private Int64 _Cre_TasaMora;
 
         //Datos de Envios
         private string _Des_Sucurzal;
@@ -72,7 +72,7 @@ namespace Entidad
         private string _Des_Receptor;
         private string _Des_Barrio;
         private string _Des_Apartamento;
-        private string _Des_Movil;
+        private Int64 _Des_Movil;
         private string _Des_Direccion;
         private string _Des_Observacion;
         
@@ -80,14 +80,14 @@ namespace Entidad
         private string _Fin_Banco;
         private string _Fin_BancoCodigo;
         private string _Fin_Cuenta;
-        private string _Fin_CuentaNumero;
+        private Int64 _Fin_CuentaNumero;
 
         //Datos de Contacto
         private string _Cont_Contacto;
         private string _Cont_Ciudad;
         private string _Cont_Direccion;
-        private string _Cont_Telefono;
-        private string _Cont_Movil;
+        private Int64 _Cont_Telefono;
+        private Int64 _Cont_Movil;
         private string _Cont_Correo;
         private string _Cont_Parentesco;
         
@@ -134,13 +134,19 @@ namespace Entidad
         public int Idtipo { get => _Idtipo; set => _Idtipo = value; }
         public int Idgrupo { get => _Idgrupo; set => _Idgrupo = value; }
         public int Idempleado { get => _Idempleado; set => _Idempleado = value; }
+        public int Idbanco { get => _Idbanco; set => _Idbanco = value; }
+        public int Idfacturacion { get => _Idfacturacion; set => _Idfacturacion = value; }
+        public int Idcredito { get => _Idcredito; set => _Idcredito = value; }
+        public int Iddespacho { get => _Iddespacho; set => _Iddespacho = value; }
+        public int Idfinanciera { get => _Idfinanciera; set => _Idfinanciera = value; }
+        public int Idcontacto { get => _Idcontacto; set => _Idcontacto = value; }
         public string Dat_Codigo { get => _Dat_Codigo; set => _Dat_Codigo = value; }
         public string Dat_Cliente { get => _Dat_Cliente; set => _Dat_Cliente = value; }
         public string Dat_Documento { get => _Dat_Documento; set => _Dat_Documento = value; }
-        public string Dat_Telefono { get => _Dat_Telefono; set => _Dat_Telefono = value; }
-        public string Dat_TelefonoAux { get => _Dat_TelefonoAux; set => _Dat_TelefonoAux = value; }
-        public string Dat_Movil { get => _Dat_Movil; set => _Dat_Movil = value; }
-        public string Dat_MovilAux { get => _Dat_MovilAux; set => _Dat_MovilAux = value; }
+        public long Dat_Telefono { get => _Dat_Telefono; set => _Dat_Telefono = value; }
+        public long Dat_TelefonoAux { get => _Dat_TelefonoAux; set => _Dat_TelefonoAux = value; }
+        public long Dat_Movil { get => _Dat_Movil; set => _Dat_Movil = value; }
+        public long Dat_MovilAux { get => _Dat_MovilAux; set => _Dat_MovilAux = value; }
         public string Dat_Correo { get => _Dat_Correo; set => _Dat_Correo = value; }
         public string Dat_Pais { get => _Dat_Pais; set => _Dat_Pais = value; }
         public string Dat_Ciudad { get => _Dat_Ciudad; set => _Dat_Ciudad = value; }
@@ -148,23 +154,27 @@ namespace Entidad
         public string Dat_PaginaWeb { get => _Dat_PaginaWeb; set => _Dat_PaginaWeb = value; }
         public string Dat_Direccion { get => _Dat_Direccion; set => _Dat_Direccion = value; }
         public string Dat_Observacion { get => _Dat_Observacion; set => _Dat_Observacion = value; }
+        public int Dat_Credito { get => _Dat_Credito; set => _Dat_Credito = value; }
+        public int Dat_Contado { get => _Dat_Contado; set => _Dat_Contado = value; }
+        public int Dat_Debito { get => _Dat_Debito; set => _Dat_Debito = value; }
+        public int Dat_Efectivo { get => _Dat_Efectivo; set => _Dat_Efectivo = value; }
         public string Fac_Asesor { get => _Fac_Asesor; set => _Fac_Asesor = value; }
         public string Fac_AsesorCodigo { get => _Fac_AsesorCodigo; set => _Fac_AsesorCodigo = value; }
         public string Fac_Cliente { get => _Fac_Cliente; set => _Fac_Cliente = value; }
         public string Fac_ClienteDoc { get => _Fac_ClienteDoc; set => _Fac_ClienteDoc = value; }
-        public string Fac_Movil { get => _Fac_Movil; set => _Fac_Movil = value; }
+        public long Fac_Movil { get => _Fac_Movil; set => _Fac_Movil = value; }
         public string Fac_Pais { get => _Fac_Pais; set => _Fac_Pais = value; }
         public string Fac_Ciudad { get => _Fac_Ciudad; set => _Fac_Ciudad = value; }
         public string Fac_Departamento { get => _Fac_Departamento; set => _Fac_Departamento = value; }
         public string Fac_Correo { get => _Fac_Correo; set => _Fac_Correo = value; }
         public string Cre_Valor { get => _Cre_Valor; set => _Cre_Valor = value; }
-        public string Cre_Cuotas { get => _Cre_Cuotas; set => _Cre_Cuotas = value; }
-        public string Cre_TasaMensual { get => _Cre_TasaMensual; set => _Cre_TasaMensual = value; }
-        public string Cre_TasaAnual { get => _Cre_TasaAnual; set => _Cre_TasaAnual = value; }
+        public long Cre_Cuotas { get => _Cre_Cuotas; set => _Cre_Cuotas = value; }
+        public long Cre_TasaMensual { get => _Cre_TasaMensual; set => _Cre_TasaMensual = value; }
+        public long Cre_TasaAnual { get => _Cre_TasaAnual; set => _Cre_TasaAnual = value; }
         public DateTime Cre_Solicitud { get => _Cre_Solicitud; set => _Cre_Solicitud = value; }
         public DateTime Cre_Emision { get => _Cre_Emision; set => _Cre_Emision = value; }
-        public string Cre_Prorroga { get => _Cre_Prorroga; set => _Cre_Prorroga = value; }
-        public string Cre_TasaMora { get => _Cre_TasaMora; set => _Cre_TasaMora = value; }
+        public long Cre_Prorroga { get => _Cre_Prorroga; set => _Cre_Prorroga = value; }
+        public long Cre_TasaMora { get => _Cre_TasaMora; set => _Cre_TasaMora = value; }
         public string Des_Sucurzal { get => _Des_Sucurzal; set => _Des_Sucurzal = value; }
         public string Des_Pais { get => _Des_Pais; set => _Des_Pais = value; }
         public string Des_Ciudad { get => _Des_Ciudad; set => _Des_Ciudad = value; }
@@ -172,18 +182,18 @@ namespace Entidad
         public string Des_Receptor { get => _Des_Receptor; set => _Des_Receptor = value; }
         public string Des_Barrio { get => _Des_Barrio; set => _Des_Barrio = value; }
         public string Des_Apartamento { get => _Des_Apartamento; set => _Des_Apartamento = value; }
-        public string Des_Movil { get => _Des_Movil; set => _Des_Movil = value; }
+        public long Des_Movil { get => _Des_Movil; set => _Des_Movil = value; }
         public string Des_Direccion { get => _Des_Direccion; set => _Des_Direccion = value; }
         public string Des_Observacion { get => _Des_Observacion; set => _Des_Observacion = value; }
         public string Fin_Banco { get => _Fin_Banco; set => _Fin_Banco = value; }
         public string Fin_BancoCodigo { get => _Fin_BancoCodigo; set => _Fin_BancoCodigo = value; }
         public string Fin_Cuenta { get => _Fin_Cuenta; set => _Fin_Cuenta = value; }
-        public string Fin_CuentaNumero { get => _Fin_CuentaNumero; set => _Fin_CuentaNumero = value; }
+        public long Fin_CuentaNumero { get => _Fin_CuentaNumero; set => _Fin_CuentaNumero = value; }
         public string Cont_Contacto { get => _Cont_Contacto; set => _Cont_Contacto = value; }
         public string Cont_Ciudad { get => _Cont_Ciudad; set => _Cont_Ciudad = value; }
         public string Cont_Direccion { get => _Cont_Direccion; set => _Cont_Direccion = value; }
-        public string Cont_Telefono { get => _Cont_Telefono; set => _Cont_Telefono = value; }
-        public string Cont_Movil { get => _Cont_Movil; set => _Cont_Movil = value; }
+        public long Cont_Telefono { get => _Cont_Telefono; set => _Cont_Telefono = value; }
+        public long Cont_Movil { get => _Cont_Movil; set => _Cont_Movil = value; }
         public string Cont_Correo { get => _Cont_Correo; set => _Cont_Correo = value; }
         public string Cont_Parentesco { get => _Cont_Parentesco; set => _Cont_Parentesco = value; }
         public int AutoDet_Facturacion { get => _AutoDet_Facturacion; set => _AutoDet_Facturacion = value; }
@@ -201,13 +211,6 @@ namespace Entidad
         public DataTable Det_Credito { get => _Det_Credito; set => _Det_Credito = value; }
         public DataTable Det_Financiera { get => _Det_Financiera; set => _Det_Financiera = value; }
         public DataTable Det_Contacto { get => _Det_Contacto; set => _Det_Contacto = value; }
-        public int Auto { get => _Auto; set => _Auto = value; }
-        public int Eliminar { get => _Eliminar; set => _Eliminar = value; }
-        public string Filtro { get => _Filtro; set => _Filtro = value; }
-        public int Dat_Credito { get => _Dat_Credito; set => _Dat_Credito = value; }
-        public int Dat_Contado { get => _Dat_Contado; set => _Dat_Contado = value; }
-        public int Dat_Debito { get => _Dat_Debito; set => _Dat_Debito = value; }
-        public int Dat_Efectivo { get => _Dat_Efectivo; set => _Dat_Efectivo = value; }
         public int Facturacion_AutoSQL { get => _Facturacion_AutoSQL; set => _Facturacion_AutoSQL = value; }
         public int Despacho_AutoSQL { get => _Despacho_AutoSQL; set => _Despacho_AutoSQL = value; }
         public int Credito_AutoSQL { get => _Credito_AutoSQL; set => _Credito_AutoSQL = value; }
@@ -218,11 +221,8 @@ namespace Entidad
         public int Tran_Credito { get => _Tran_Credito; set => _Tran_Credito = value; }
         public int Tran_Financiera { get => _Tran_Financiera; set => _Tran_Financiera = value; }
         public int Tran_Contacto { get => _Tran_Contacto; set => _Tran_Contacto = value; }
-        public int Idbanco { get => _Idbanco; set => _Idbanco = value; }
-        public int Idfacturacion { get => _Idfacturacion; set => _Idfacturacion = value; }
-        public int Idcredito { get => _Idcredito; set => _Idcredito = value; }
-        public int Iddespacho { get => _Iddespacho; set => _Iddespacho = value; }
-        public int Idfinanciera { get => _Idfinanciera; set => _Idfinanciera = value; }
-        public int Idcontacto { get => _Idcontacto; set => _Idcontacto = value; }
+        public int Auto { get => _Auto; set => _Auto = value; }
+        public int Eliminar { get => _Eliminar; set => _Eliminar = value; }
+        public string Filtro { get => _Filtro; set => _Filtro = value; }
     }
 }
