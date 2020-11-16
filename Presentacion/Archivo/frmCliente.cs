@@ -55,20 +55,17 @@ namespace Presentacion
 
         private string Tran_Facturacion, Tran_Credito, Tran_Despacho, Tran_Financiera, Tran_Contacto = "";
 
+        //********** Variables para AutoComplementar Combobox y Chexboxt segun la Consulta en SQL ******************************
+
+        private string Grupo_SQL, Tipo_SQL = "";
+
         // ******************************************* Variable para Metodo SQL Guardar, Eliminar, Editar, Consultar ************************************
         public string Guardar, Editar, Consultar, Eliminar, Imprimir = "";
 
         // ******************************************* Parametros para AutoCompletar los Texboxt *********************************************************
 
         //Panel Datos Basicos
-        private string Idcliente, Codigo, Idtipo, Idgrupo, Nombre, Documento, Telefono, Movil, Correo, Pais, Ciudad, Departamento = "";
-
-        //Panel Datos de Envio
-        private string PaisDeEnvio, CiudadDeEnvio, Receptor, DireccionPrincipal, TelefonoDeEnvio, MovilDeEnvio, Observacion = "";
-
-        //Panel Datos Financieros
-        private string Diasdecredito, Diasdeprorroga, Interesespormora, Creditominimo, Creditomaximo = "";
-
+        private string Idcliente, Idtipo, Idgrupo, Codigo, Cliente, Documento, Telefono, Movil, TelefonoAux, MovilAux, Correo, Pais, Ciudad, Departamento, Web, Direccion, Observacion, Efectivo, Credito, Debito, Contado = "";
         public frmCliente()
         {
             InitializeComponent();
@@ -235,15 +232,18 @@ namespace Presentacion
             this.CBGrupo.SelectedIndex = 0;
             this.TBDat_Codigo.Clear();
             this.TBDat_Codigo.Text = Campo;
+            this.TBDat_Codigo.ForeColor = Color.FromArgb(255, 255, 255);
             this.TBDat_Nombre.Clear();
             this.TBDat_Nombre.Text = Campo;
+            this.TBDat_Nombre.ForeColor = Color.FromArgb(255, 255, 255);
             this.TBDat_Documento.Clear();
             this.TBDat_Documento.Text = Campo;
+            this.TBDat_Documento.ForeColor = Color.FromArgb(255, 255, 255);
 
-            this.TBDat_Telefono.Clear();
-            this.TBDat_Movil.Clear();
-            this.TBDat_TelefonoAux.Clear();
-            this.TBDat_MovilAux.Clear();
+            //this.TBDat_Telefono.Clear();
+            //this.TBDat_Movil.Clear();
+            //this.TBDat_TelefonoAux.Clear();
+            //this.TBDat_MovilAux.Clear();
             this.TBDat_Correo.Clear();
             this.TBDat_Pais.Clear();
             this.TBDat_Ciudad.Clear();
@@ -314,6 +314,9 @@ namespace Presentacion
             //Se realiza el FOCUS al panel y campo de texto iniciales
             this.TCPrincipal.SelectedIndex = 0;
             this.TBDat_Codigo.Select();
+
+            //SE PROCEDE A LIMPIAR LAS TABLAS DE LOS MULTIPLEX PANELES
+            this.Diseño_TablasGenerales();
         }
 
         private void Botones()
@@ -485,6 +488,25 @@ namespace Presentacion
             {
                 this.Tran_Contacto = "0";
             }
+
+            //********************************* CAMPOS NUMERICOS VACIOS ********************************* 
+            if (TBDat_Telefono.Text == String.Empty)
+            {
+                this.TBDat_Telefono.Text = "0";
+            }
+            if (TBDat_TelefonoAux.Text == String.Empty)
+            {
+                this.TBDat_TelefonoAux.Text = "0";
+            }
+            if (TBDat_Movil.Text == String.Empty)
+            {
+                this.TBDat_Movil.Text = "0";
+            }
+            if (TBDat_MovilAux.Text == String.Empty)
+            {
+                this.TBDat_MovilAux.Text = "0";
+            }
+
         }
 
         private void Diseño_TablasGenerales()
@@ -645,7 +667,7 @@ namespace Presentacion
                                 Convert.ToInt32(1), Convert.ToInt32(this.CBTipo.SelectedValue), Convert.ToInt32(this.CBGrupo.SelectedValue),
 
                                 //Panel Datos Basicos
-                                this.TBDat_Codigo.Text, this.TBDat_Nombre.Text, this.TBDat_Documento.Text, this.TBDat_Telefono.Text, this.TBDat_Movil.Text, this.TBDat_TelefonoAux.Text, this.TBDat_MovilAux.Text, this.TBDat_Correo.Text, this.TBDat_Pais.Text, this.TBDat_Ciudad.Text, this.TBDat_Departamento.Text, this.TBDat_PaginaWeb.Text, this.TBDat_Direccion.Text, this.TBDat_Observacion.Text,
+                                this.TBDat_Codigo.Text, this.TBDat_Nombre.Text, Convert.ToInt64(this.TBDat_Documento.Text), Convert.ToInt64(this.TBDat_Telefono.Text), Convert.ToInt64(this.TBDat_Movil.Text), Convert.ToInt64(this.TBDat_TelefonoAux.Text), Convert.ToInt64(this.TBDat_MovilAux.Text), this.TBDat_Correo.Text, this.TBDat_Pais.Text, this.TBDat_Ciudad.Text, this.TBDat_Departamento.Text, this.TBDat_PaginaWeb.Text, this.TBDat_Direccion.Text, this.TBDat_Observacion.Text,
 
                                 //Tabla de Detalles - Facturacion, Credito, Despacho, Datos Financieros, Contacto
                                 this.DtDetalle_Facturacion, this.DtDetalle_Credito, this.DtDetalle_Despacho, this.DtDetalle_Financiera, this.DtDetalle_Contacto,
@@ -686,6 +708,11 @@ namespace Presentacion
                         //         2
                         //    );
                     }
+
+                    this.TBDat_Telefono.Clear();
+                    this.TBDat_Movil.Clear();
+                    this.TBDat_TelefonoAux.Clear();
+                    this.TBDat_MovilAux.Clear();
 
                     if (rptaDatosBasicos.Equals("OK"))
                     {
@@ -861,7 +888,7 @@ namespace Presentacion
                                  Convert.ToInt32(this.TBIdfacturacion.Text), Convert.ToInt32(this.TBIdcliente.Text), Convert.ToInt32(this.TBIdempleado.Text),
 
                                  //Panel Datos Basicos
-                                 this.TBFac_Asesor.Text, this.TBFac_CodigoAsesor.Text, this.TBFac_Cliente.Text, this.TBFac_DocumentoCliente.Text, this.TBFac_Movil.Text, this.TBFac_Pais.Text, this.TBFac_Ciudad.Text, this.TBFac_Departamento.Text, this.TBFac_Correo.Text,
+                                 this.TBFac_Asesor.Text, this.TBFac_CodigoAsesor.Text, this.TBFac_Cliente.Text, Convert.ToInt64(this.TBFac_DocumentoCliente.Text), Convert.ToInt64(this.TBFac_Movil.Text), this.TBFac_Pais.Text, this.TBFac_Ciudad.Text, this.TBFac_Departamento.Text, this.TBFac_Correo.Text,
 
                                 //SI ES IGUAL A 2 SE EDITARAN LOS REGISTROS EN LA BASE DE DATOS
                                 2
@@ -914,7 +941,7 @@ namespace Presentacion
                                  Convert.ToInt32(this.TBIdcredito.Text), Convert.ToInt32(this.TBIdcliente.Text),
 
                                  //Panel Datos Basicos
-                                 this.TBCre_Valor.Text, this.TBCre_CuotaMeses.Text, this.TBCre_TasaMensual.Text, this.TBCre_TasaAnual.Text, this.DTCre_Solicitud.Value, this.DTCre_Emision.Value, this.TBCre_DiasDeProrroga.Text, this.TBCre_InteresMora.Text,
+                                 Convert.ToDecimal(this.TBCre_Valor.Text), Convert.ToInt64(this.TBCre_CuotaMeses.Text), Convert.ToInt64(this.TBCre_TasaMensual.Text), Convert.ToInt64(this.TBCre_TasaAnual.Text), this.DTCre_Solicitud.Value, this.DTCre_Emision.Value, Convert.ToInt64(this.TBCre_DiasDeProrroga.Text), Convert.ToInt64(this.TBCre_InteresMora.Text),
 
                                 //SI ES IGUAL A 2 SE EDITARAN LOS REGISTROS EN LA BASE DE DATOS
                                 2
@@ -962,7 +989,7 @@ namespace Presentacion
                                  Convert.ToInt32(this.TBIddespacho.Text), Convert.ToInt32(this.TBIdcliente.Text),
 
                                  //Panel Datos Basicos
-                                 this.TBDes_Sucurzal.Text, this.TBDes_Pais.Text, this.TBDes_Ciudad.Text, this.TBDes_Departamento.Text, this.TBDes_Receptor.Text, this.TBDes_Barrio.Text, this.TBDes_Apartamento.Text, this.TBDes_Movil.Text, this.TBDes_Direccion.Text, this.TBDes_Observacion.Text,
+                                 this.TBDes_Sucurzal.Text, this.TBDes_Pais.Text, this.TBDes_Ciudad.Text, this.TBDes_Departamento.Text, this.TBDes_Receptor.Text, this.TBDes_Barrio.Text, this.TBDes_Apartamento.Text, Convert.ToInt64(this.TBDes_Movil.Text), this.TBDes_Direccion.Text, this.TBDes_Observacion.Text,
 
                                 //SI ES IGUAL A 2 SE EDITARAN LOS REGISTROS EN LA BASE DE DATOS
                                 2
@@ -1015,7 +1042,7 @@ namespace Presentacion
                                  Convert.ToInt32(this.TBIdfinanciera.Text), Convert.ToInt32(this.TBIdcliente.Text), Convert.ToInt32(this.TBIdbanco.Text),
 
                                  //Panel Datos Basicos
-                                 this.CBFin_Cuenta.Text, this.TBFin_NumCuenta.Text,
+                                 this.CBFin_Cuenta.Text, Convert.ToInt64(this.TBFin_NumCuenta.Text),
 
                                 //SI ES IGUAL A 2 SE EDITARAN LOS REGISTROS EN LA BASE DE DATOS
                                 2
@@ -1062,7 +1089,7 @@ namespace Presentacion
                                  Convert.ToInt32(this.TBIdcontacto.Text), Convert.ToInt32(this.TBIdcliente.Text),
 
                                  //Panel Datos Basicos
-                                 this.TBCon_Contacto.Text, this.TBCon_Ciudad.Text, this.TBCon_Direccion.Text, this.TBCon_Telefono.Text, this.TBCon_Movil.Text, this.TBCon_Correo.Text, this.TBCon_Parentesco.Text,
+                                 this.TBCon_Contacto.Text, this.TBCon_Ciudad.Text, this.TBCon_Direccion.Text, Convert.ToInt64(this.TBCon_Telefono.Text), Convert.ToInt64(this.TBCon_Movil.Text), this.TBCon_Correo.Text, this.TBCon_Parentesco.Text,
 
                                 //SI ES IGUAL A 2 SE EDITARAN LOS REGISTROS EN LA BASE DE DATOS
                                 2
@@ -1177,7 +1204,7 @@ namespace Presentacion
 
                                     (
                                          //Datos Basicos
-                                         Convert.ToInt32(this.TBIdcliente.Text), Convert.ToInt32(this.TBIdempleado.Text), this.TBFac_Asesor.Text, this.TBFac_CodigoAsesor.Text, this.TBFac_Cliente.Text, this.TBFac_DocumentoCliente.Text, this.TBFac_Movil.Text, this.TBFac_Pais.Text, this.TBFac_Ciudad.Text, this.TBFac_Departamento.Text, this.TBFac_Correo.Text,
+                                         Convert.ToInt32(this.TBIdcliente.Text), Convert.ToInt32(this.TBIdempleado.Text), this.TBFac_Asesor.Text, this.TBFac_CodigoAsesor.Text, this.TBFac_Cliente.Text, Convert.ToInt64(this.TBFac_DocumentoCliente.Text), Convert.ToInt64(this.TBFac_Movil.Text), this.TBFac_Pais.Text, this.TBFac_Ciudad.Text, this.TBFac_Departamento.Text, this.TBFac_Correo.Text,
 
                                         //Datos Auxiliares
                                         1
@@ -1210,7 +1237,7 @@ namespace Presentacion
                         }
                         else
                         {
-                            this.TBFac_Cliente.Select();
+                            this.TBFac_Cliente.Focus();
                         }
                     }
                 }
@@ -1247,7 +1274,7 @@ namespace Presentacion
                         this.MensajeError("Por favor Especifique el Porcentaje de Tasa Anual a Manejar en el Credito a Solicitar");
                         this.TBCre_TasaAnual.Select();
                     }
-                    
+
                     else
                     {
                         if (TBCre_InteresMora.Text == String.Empty)
@@ -1314,7 +1341,7 @@ namespace Presentacion
 
                                     (
                                          //Datos Basicos
-                                         Convert.ToInt32(this.TBIdcliente.Text),  this.TBCre_Valor.Text, this.TBCre_CuotaMeses.Text, this.TBCre_TasaMensual.Text, this.TBCre_TasaAnual.Text, this.DTCre_Solicitud.Value, this.DTCre_Emision.Value,this.TBCre_DiasDeProrroga.Text, this.TBCre_InteresMora.Text,
+                                         Convert.ToInt32(this.TBIdcliente.Text), Convert.ToDecimal(this.TBCre_Valor.Text), Convert.ToInt64(this.TBCre_CuotaMeses.Text), Convert.ToInt64(this.TBCre_TasaMensual.Text), Convert.ToInt64(this.TBCre_TasaAnual.Text), this.DTCre_Solicitud.Value, this.DTCre_Emision.Value, Convert.ToInt64(this.TBCre_DiasDeProrroga.Text), Convert.ToInt64(this.TBCre_InteresMora.Text),
 
                                         //Datos Auxiliares
                                         1
@@ -1396,7 +1423,7 @@ namespace Presentacion
                     }
                     else
                     {
-                        
+
                         DataRow fila = this.DtDetalle_Despacho.NewRow();
                         fila["Idcliente"] = Convert.ToInt32(this.TBIdcliente_AutoSQL.Text);
                         fila["Sucurzal"] = this.TBDes_Sucurzal.Text;
@@ -1473,7 +1500,7 @@ namespace Presentacion
 
                                     (
                                          //Datos Basicos
-                                         Convert.ToInt32(this.TBIdcliente.Text), this.TBDes_Sucurzal.Text, this.TBDes_Pais.Text, this.TBDes_Ciudad.Text, this.TBDes_Departamento.Text, this.TBDes_Receptor.Text, this.TBDes_Barrio.Text, this.TBDes_Apartamento.Text, this.TBDes_Movil.Text, this.TBDes_Direccion.Text, this.TBDes_Observacion.Text,
+                                         Convert.ToInt32(this.TBIdcliente.Text), this.TBDes_Sucurzal.Text, this.TBDes_Pais.Text, this.TBDes_Ciudad.Text, this.TBDes_Departamento.Text, this.TBDes_Receptor.Text, this.TBDes_Barrio.Text, this.TBDes_Apartamento.Text, Convert.ToInt64(this.TBDes_Movil.Text), this.TBDes_Direccion.Text, this.TBDes_Observacion.Text,
 
                                         //Datos Auxiliares
                                         1
@@ -1538,7 +1565,7 @@ namespace Presentacion
                         this.MensajeError("Por favor Especifique el Número de Cuenta Bancaria");
                         this.TBFin_NumCuenta.Select();
                     }
-                    
+
                     else
                     {
 
@@ -1585,7 +1612,7 @@ namespace Presentacion
 
                                     (
                                          //Datos Basicos
-                                         Convert.ToInt32(this.TBIdcliente.Text), Convert.ToInt32(this.TBIdbanco.Text), this.CBFin_Cuenta.Text, this.TBFin_NumCuenta.Text,
+                                         Convert.ToInt32(this.TBIdcliente.Text), Convert.ToInt32(this.TBIdbanco.Text), this.CBFin_Cuenta.Text, Convert.ToInt64(this.TBFin_NumCuenta.Text),
 
                                         //Datos Auxiliares
                                         1
@@ -1652,7 +1679,7 @@ namespace Presentacion
 
                     else
                     {
-                        
+
                         DataRow fila = this.DtDetalle_Contacto.NewRow();
                         fila["Idcliente"] = Convert.ToInt32(this.TBIdcliente_AutoSQL.Text);
                         fila["Contacto"] = this.TBCon_Contacto.Text;
@@ -1697,7 +1724,7 @@ namespace Presentacion
                         this.MensajeError("Por favor Especifique un Número Telefónico de Contacto");
                         this.TBCon_Telefono.Select();
                     }
-                    
+
                     else
                     {
                         DialogResult result = MessageBox.Show("¿Desea Registrar los Datos de Despacho del Cliente?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
@@ -1709,7 +1736,7 @@ namespace Presentacion
 
                                     (
                                          //Datos Basicos
-                                         Convert.ToInt32(this.TBIdcliente.Text), this.TBCon_Contacto.Text, this.TBCon_Ciudad.Text, this.TBCon_Direccion.Text, this.TBCon_Telefono.Text, this.TBCon_Movil.Text, this.TBCon_Correo.Text, this.TBCon_Parentesco.Text,
+                                         Convert.ToInt32(this.TBIdcliente.Text), this.TBCon_Contacto.Text, this.TBCon_Ciudad.Text, this.TBCon_Direccion.Text, Convert.ToInt64(this.TBCon_Telefono.Text), Convert.ToInt64(this.TBCon_Movil.Text), this.TBCon_Correo.Text, this.TBCon_Parentesco.Text,
 
                                         //Datos Auxiliares
                                         1
@@ -2161,64 +2188,89 @@ namespace Presentacion
                     //Captura de Valores en la Base de Datos
 
                     //Panel Datos Basicos
-                    Codigo = Datos.Rows[0][0].ToString();
+                    Idcliente = Datos.Rows[0][0].ToString();
                     Idtipo = Datos.Rows[0][1].ToString();
-                    Nombre = Datos.Rows[0][2].ToString();
-                    Documento = Datos.Rows[0][3].ToString();
-                    Telefono = Datos.Rows[0][4].ToString();
-                    Movil = Datos.Rows[0][5].ToString();
-                    Correo = Datos.Rows[0][6].ToString();
-                    Pais = Datos.Rows[0][7].ToString();
-                    Ciudad = Datos.Rows[0][8].ToString();
-                    Departamento = Datos.Rows[0][9].ToString();
+                    Idgrupo = Datos.Rows[0][2].ToString();
+                    Codigo = Datos.Rows[0][3].ToString();
+                    Documento = Datos.Rows[0][4].ToString();
+                    Telefono = Datos.Rows[0][5].ToString();
+                    Movil = Datos.Rows[0][6].ToString();
+                    TelefonoAux = Datos.Rows[0][7].ToString();
+                    MovilAux = Datos.Rows[0][8].ToString();
+                    Correo = Datos.Rows[0][9].ToString();
+                    Pais = Datos.Rows[0][10].ToString();
+                    Ciudad = Datos.Rows[0][11].ToString();
+                    Departamento = Datos.Rows[0][12].ToString();
+                    Web = Datos.Rows[0][13].ToString();
+                    Direccion = Datos.Rows[0][14].ToString();
+                    Observacion = Datos.Rows[0][15].ToString();
+                    Efectivo = Datos.Rows[0][16].ToString();
+                    Credito = Datos.Rows[0][17].ToString();
+                    Debito = Datos.Rows[0][18].ToString();
+                    Contado = Datos.Rows[0][19].ToString();
 
-                    //Panel Datos de Envio
-                    PaisDeEnvio = Datos.Rows[0][10].ToString();
-                    CiudadDeEnvio = Datos.Rows[0][11].ToString();
-                    Receptor = Datos.Rows[0][12].ToString();
-                    DireccionPrincipal = Datos.Rows[0][13].ToString();
-                    TelefonoDeEnvio = Datos.Rows[0][16].ToString();
-                    MovilDeEnvio = Datos.Rows[0][17].ToString();
-                    Observacion = Datos.Rows[0][18].ToString();
-
-                    //Panel Datos Financieros
-                    Diasdecredito = Datos.Rows[0][21].ToString();
-                    Diasdeprorroga = Datos.Rows[0][22].ToString();
-                    Interesespormora = Datos.Rows[0][23].ToString();
-                    Creditominimo = Datos.Rows[0][24].ToString();
-                    Creditomaximo = Datos.Rows[0][25].ToString();
-
-                    //Se procede a completar los campos de texto segun las consulta
-                    //Realizada anteriormente en la base de datos
-
+                    //Se procede a completar los campos de texto segun las consulta Realizada anteriormente en la base de datos
 
                     //Panel Datos Basicos
                     this.TBDat_Codigo.Text = Codigo;
-                    this.CBTipo.SelectedValue = Idtipo;
-                    this.TBDat_Nombre.Text = Nombre;
+                    this.TBIdcliente.Text = Idcliente;
+                    this.TBDat_Nombre.Text = Cliente;
                     this.TBDat_Documento.Text = Documento;
                     this.TBDat_Telefono.Text = Telefono;
                     this.TBDat_Movil.Text = Movil;
+                    this.TBDat_TelefonoAux.Text = TelefonoAux;
+                    this.TBDat_MovilAux.Text = MovilAux;
                     this.TBDat_Correo.Text = Correo;
                     this.TBDat_Pais.Text = Pais;
                     this.TBDat_Ciudad.Text = Ciudad;
                     this.TBDat_Departamento.Text = Departamento;
+                    this.TBDat_PaginaWeb.Text = Web;
+                    this.TBDat_Direccion.Text = Direccion;
+                    this.TBDat_Observacion.Text = Observacion;
 
-                    //Panel Datos de Envio
-                    this.TBDes_Pais.Text = PaisDeEnvio;
-                    this.TBDes_Ciudad.Text = CiudadDeEnvio;
-                    this.TBDes_Receptor.Text = Receptor;
-                    this.TBDes_Direccion.Text = DireccionPrincipal;
-                    this.TBDes_Movil.Text = TelefonoDeEnvio;
-                    this.TBDes_Movil.Text = MovilDeEnvio;
-                    this.TBDes_Observacion.Text = Observacion;
+                    //SE CARGAN LOS COMBOBOX SEGUN LOS REGISTROS EN LA BASE DE DATOS
+                    this.Tipo_SQL = Idtipo;
+                    this.CBTipo.SelectedValue = Tipo_SQL;
 
-                    //Panel Datos Financieros
-                    //this.TBCre_Diasdecredito.Text = Diasdecredito;
-                    this.TBCre_DiasDeProrroga.Text = Diasdeprorroga;
-                    this.TBCre_InteresMora.Text = Interesespormora;
-                    this.TBCre_Valor.Text = Creditominimo;
-                    //this.TBCre_CreditoMaximo.Text = Creditomaximo;
+                    this.Grupo_SQL = Idgrupo;
+                    this.CBGrupo.SelectedValue = Grupo_SQL;
+
+                    //SE VALIDAN LOS CHEXBOX SEGUN LOS REGISTROS EN LA BASE DE DATOS SI ESTAN HABILITADOS O NO
+                    if (Efectivo == "1")
+                    {
+                        this.CH_Efectivo.Checked = true;
+                    }
+                    else
+                    {
+                        this.CH_Efectivo.Checked = false;
+                    }
+
+                    if (Credito == "1")
+                    {
+                        this.CH_Credito.Checked = true;
+                    }
+                    else
+                    {
+                        this.CH_Credito.Checked = false;
+                    }
+
+                    if (Debito == "1")
+                    {
+                        this.CH_Debito.Checked = true;
+                    }
+                    else
+                    {
+                        this.CH_Debito.Checked = false;
+                    }
+
+                    if (Contado == "1")
+                    {
+                        this.CH_Contado.Checked = true;
+                    }
+                    else
+                    {
+                        this.CH_Contado.Checked = false;
+                    }
                 }
             }
             catch (Exception ex)
@@ -2260,6 +2312,7 @@ namespace Presentacion
                 if (CH_Facturacion.Checked)
                 {
                     this.TBFac_Cliente.Text = TBDat_Nombre.Text;
+                    this.TBFac_Cliente.Text = TBDat_Nombre.Text;
                     this.TBFac_DocumentoCliente.Text = TBDat_Documento.Text;
                     this.TBFac_Movil.Text = TBDat_Movil.Text;
                     this.TBFac_Pais.Text = TBDat_Pais.Text;
@@ -2282,6 +2335,12 @@ namespace Presentacion
                     this.TBFac_Departamento.BackColor = Color.FromArgb(72, 209, 204);
                     this.TBFac_Correo.Enabled = false;
                     this.TBFac_Correo.BackColor = Color.FromArgb(72, 209, 204);
+
+                    //********************************* CAMPOS NUMERICOS VACIOS ********************************* 
+                    if (TBDat_Telefono.Text == String.Empty)
+                    {
+                        this.TBFac_Movil.Text = "0";
+                    }
                 }
                 else
                 {
@@ -2370,6 +2429,11 @@ namespace Presentacion
                 this.TBDat_Nombre.ForeColor = Color.FromArgb(0, 0, 0);
                 this.TBDat_Nombre.Clear();
             }
+            else
+            {
+                this.TBDat_Nombre.BackColor = Color.Azure;
+                this.TBDat_Nombre.ForeColor = Color.FromArgb(0, 0, 0);
+            }
         }
 
         private void TBDat_Codigo_Enter(object sender, EventArgs e)
@@ -2381,6 +2445,11 @@ namespace Presentacion
                 this.TBDat_Codigo.ForeColor = Color.FromArgb(0, 0, 0);
                 this.TBDat_Codigo.Clear();
             }
+            else
+            {
+                this.TBDat_Codigo.BackColor = Color.Azure;
+                this.TBDat_Codigo.ForeColor = Color.FromArgb(0, 0, 0);
+            }
         }
 
         private void TBDat_Documento_Enter(object sender, EventArgs e)
@@ -2391,6 +2460,11 @@ namespace Presentacion
                 this.TBDat_Documento.BackColor = Color.Azure;
                 this.TBDat_Documento.ForeColor = Color.FromArgb(0, 0, 0);
                 this.TBDat_Documento.Clear();
+            }
+            else
+            {
+                this.TBDat_Documento.BackColor = Color.Azure;
+                this.TBDat_Documento.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 
@@ -4146,6 +4220,44 @@ namespace Presentacion
                             this.TBCre_DiasDeProrroga.Select();
                         }
                     }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void TBBuscar_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Consultar == "1")
+                {
+                    if (TBBuscar.Text != "")
+                    {
+                        this.DGResultados.DataSource = fCliente.Buscar(this.TBBuscar.Text, 1);
+                        //this.DGResultados.Columns[0].Visible = false;
+
+                        this.lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGResultados.Rows.Count);
+
+                        this.btnEliminar.Enabled = true;
+                        this.btnImprimir.Enabled = true;
+                    }
+                    else
+                    {
+                        //Se Limpian las Filas y Columnas de la tabla
+                        this.DGResultados.DataSource = null;
+                        this.lblTotal.Text = "Datos Registrados: 0";
+
+                        this.btnEliminar.Enabled = false;
+                        this.btnImprimir.Enabled = false;
+                    }
+                }
+
+                else
+                {
+                    MessageBox.Show(" El Usuario Iniciado no Contiene Permisos Para Realizar Consultas", "Leal Enterprise - 'Acceso Denegado' ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
             catch (Exception ex)

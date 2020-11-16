@@ -64,8 +64,7 @@ namespace Presentacion
 
         //********** Variables para AutoComplementar Combobox y Chexboxt segun la Consulta en SQL ******************************
 
-        //Panel Datos Basicos
-        private string Bodega_SQL, Empaque_SQL, Grupo_SQL, Marca_SQL, Tipo_SQL = "";
+        private string Empaque_SQL, Grupo_SQL, Marca_SQL, Tipo_SQL = "";
 
         //********** Variable para Metodo SQL Guardar, Eliminar, Editar, Consultar *********************************************
 

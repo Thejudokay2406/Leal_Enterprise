@@ -26,7 +26,7 @@ namespace Entidad
         //Datos Basicos
         private string _Dat_Codigo;
         private string _Dat_Cliente;
-        private string _Dat_Documento;
+        private Int64 _Dat_Documento;
         private Int64 _Dat_Telefono;
         private Int64 _Dat_TelefonoAux;
         private Int64 _Dat_Movil;
@@ -47,7 +47,7 @@ namespace Entidad
         private string _Fac_Asesor;
         private string _Fac_AsesorCodigo;
         private string _Fac_Cliente;
-        private string _Fac_ClienteDoc;
+        private Int64 _Fac_ClienteDoc;
         private Int64 _Fac_Movil;
         private string _Fac_Pais;
         private string _Fac_Ciudad;
@@ -55,7 +55,7 @@ namespace Entidad
         private string _Fac_Correo;
 
         //Datos de Credito
-        private string _Cre_Valor;
+        private decimal _Cre_Valor;
         private Int64 _Cre_Cuotas;
         private Int64 _Cre_TasaMensual;
         private Int64 _Cre_TasaAnual;
@@ -142,7 +142,7 @@ namespace Entidad
         public int Idcontacto { get => _Idcontacto; set => _Idcontacto = value; }
         public string Dat_Codigo { get => _Dat_Codigo; set => _Dat_Codigo = value; }
         public string Dat_Cliente { get => _Dat_Cliente; set => _Dat_Cliente = value; }
-        public string Dat_Documento { get => _Dat_Documento; set => _Dat_Documento = value; }
+        public long Dat_Documento { get => _Dat_Documento; set => _Dat_Documento = value; }
         public long Dat_Telefono { get => _Dat_Telefono; set => _Dat_Telefono = value; }
         public long Dat_TelefonoAux { get => _Dat_TelefonoAux; set => _Dat_TelefonoAux = value; }
         public long Dat_Movil { get => _Dat_Movil; set => _Dat_Movil = value; }
@@ -161,13 +161,13 @@ namespace Entidad
         public string Fac_Asesor { get => _Fac_Asesor; set => _Fac_Asesor = value; }
         public string Fac_AsesorCodigo { get => _Fac_AsesorCodigo; set => _Fac_AsesorCodigo = value; }
         public string Fac_Cliente { get => _Fac_Cliente; set => _Fac_Cliente = value; }
-        public string Fac_ClienteDoc { get => _Fac_ClienteDoc; set => _Fac_ClienteDoc = value; }
+        public long Fac_ClienteDoc { get => _Fac_ClienteDoc; set => _Fac_ClienteDoc = value; }
         public long Fac_Movil { get => _Fac_Movil; set => _Fac_Movil = value; }
         public string Fac_Pais { get => _Fac_Pais; set => _Fac_Pais = value; }
         public string Fac_Ciudad { get => _Fac_Ciudad; set => _Fac_Ciudad = value; }
         public string Fac_Departamento { get => _Fac_Departamento; set => _Fac_Departamento = value; }
         public string Fac_Correo { get => _Fac_Correo; set => _Fac_Correo = value; }
-        public string Cre_Valor { get => _Cre_Valor; set => _Cre_Valor = value; }
+        public decimal Cre_Valor { get => _Cre_Valor; set => _Cre_Valor = value; }
         public long Cre_Cuotas { get => _Cre_Cuotas; set => _Cre_Cuotas = value; }
         public long Cre_TasaMensual { get => _Cre_TasaMensual; set => _Cre_TasaMensual = value; }
         public long Cre_TasaAnual { get => _Cre_TasaAnual; set => _Cre_TasaAnual = value; }

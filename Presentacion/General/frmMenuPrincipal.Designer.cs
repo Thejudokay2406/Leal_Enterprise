@@ -265,21 +265,21 @@
             // datosBasicosToolStripMenuItem2
             // 
             this.datosBasicosToolStripMenuItem2.Name = "datosBasicosToolStripMenuItem2";
-            this.datosBasicosToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.datosBasicosToolStripMenuItem2.Size = new System.Drawing.Size(146, 22);
             this.datosBasicosToolStripMenuItem2.Text = "Datos Basicos";
             this.datosBasicosToolStripMenuItem2.Click += new System.EventHandler(this.datosBasicosToolStripMenuItem2_Click);
             // 
             // gruposToolStripMenuItem1
             // 
             this.gruposToolStripMenuItem1.Name = "gruposToolStripMenuItem1";
-            this.gruposToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.gruposToolStripMenuItem1.Size = new System.Drawing.Size(146, 22);
             this.gruposToolStripMenuItem1.Text = "Grupos";
             this.gruposToolStripMenuItem1.Click += new System.EventHandler(this.gruposToolStripMenuItem1_Click);
             // 
             // tiposToolStripMenuItem1
             // 
             this.tiposToolStripMenuItem1.Name = "tiposToolStripMenuItem1";
-            this.tiposToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.tiposToolStripMenuItem1.Size = new System.Drawing.Size(146, 22);
             this.tiposToolStripMenuItem1.Text = "Tipos";
             this.tiposToolStripMenuItem1.Click += new System.EventHandler(this.tiposToolStripMenuItem1_Click);
             // 
@@ -1466,8 +1466,7 @@
             // 
             // frmMenuPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::Presentacion.Properties.Resources.Fondo_LealEnterprise;

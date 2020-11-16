@@ -66,7 +66,7 @@ namespace Negocio
                 int auto, int idtipo, int idgrupo,
 
                 //Datos Basicos
-                string codigo, string cliente, string documento, string telefonoprin, string movilprin, string telefonoaux, string movilaux,
+                string codigo, string cliente, Int64 documento, Int64 telefonoprin, Int64 movilprin, Int64 telefonoaux, Int64 movilaux,
                 string correo, string pais, string ciudad, string departamento, string paginaweb, string direccion, string observacion,
 
                 //Panel Facturacion
@@ -161,7 +161,7 @@ namespace Negocio
         public static string Guardar_Facturacion
             (
                 //Ubicacion[]
-                int idcliente, int idempleado, string Empleado, string Cod_Empleado, string Cliente, string Doc_Cliente, string Movil, string Pais, string Ciudad, string Departamento, string Correo,
+                int idcliente, int idempleado, string Empleado, string Cod_Empleado, string Cliente, Int64 Doc_Cliente, Int64 Movil, string Pais, string Ciudad, string Departamento, string Correo,
 
                 //Datos Auxiliares
                 int autodet_facturacion
@@ -192,7 +192,7 @@ namespace Negocio
         public static string Guardar_Credito
             (
                 //Ubicacion[]
-                int Idcliente, string Valor, string CuoMeses, string TasaMensu, string TasaAnual, DateTime Solicitud, DateTime Emision, string Prorroga, string Mora,
+                int Idcliente, decimal Valor, Int64 CuoMeses, Int64 TasaMensu, Int64 TasaAnual, DateTime Solicitud, DateTime Emision, Int64 Prorroga, Int64 Mora,
 
                 //Datos Auxiliares
                 int autodet_credito
@@ -221,7 +221,7 @@ namespace Negocio
         public static string Guardar_Despacho
             (
                 //Despacho[]
-                int Idcliente, string Sucurzal, string Pais, string Ciudad, string Departamento, string Receptor, string Barrio, string Apartamento, string Movil, string Direccion, string Observacion,
+                int Idcliente, string Sucurzal, string Pais, string Ciudad, string Departamento, string Receptor, string Barrio, string Apartamento, Int64 Movil, string Direccion, string Observacion,
 
                 //Datos Auxiliares
                 int autodet_despacho
@@ -252,7 +252,7 @@ namespace Negocio
         public static string Guardar_Financiera
             (
                 //Ubicacion[]
-                int idcliente, int Idbanco, string Cuenta, string Numerodecuenta,
+                int idcliente, int Idbanco, string Cuenta, Int64 Numerodecuenta,
 
                 //Datos Auxiliares
                 int autodet_financiera
@@ -276,7 +276,7 @@ namespace Negocio
         public static string Guardar_Contacto
             (
                 //Ubicacion[]
-                int Idcliente, string Contacto, string Ciudad, string Direccion, string Telefono, string Movil, string Correo, string Parentesco,
+                int Idcliente, string Contacto, string Ciudad, string Direccion, Int64 Telefono, Int64 Movil, string Correo, string Parentesco,
 
                 //Datos Auxiliares
                 int autodet_contacto
@@ -307,7 +307,7 @@ namespace Negocio
                 int auto, int idcliente, int idtipo, int idgrupo,
 
                 //Datos Basicos
-                string codigo, string cliente, string documento, string telefonoprin, string movilprin, string telefonoaux, string movilaux,
+                string codigo, string cliente, Int64 documento, Int64 telefonoprin, Int64 movilprin, Int64 telefonoaux, Int64 movilaux,
                 string correo, string pais, string ciudad, string departamento, string paginaweb, string direccion, string observacion
             )
         {
@@ -342,7 +342,7 @@ namespace Negocio
         public static string Editar_Facturacion
             (
                 //Facturacion[]
-                int idfacturacion, int idcliente, int idempleado, string Empleado, string Cod_Empleado, string Cliente, string Doc_Cliente, string Movil, string Pais, string Ciudad, string Departamento, string Correo,
+                int idfacturacion, int idcliente, int idempleado, string Empleado, string Cod_Empleado, string Cliente, Int64 Doc_Cliente, Int64 Movil, string Pais, string Ciudad, string Departamento, string Correo,
 
                 //Datos Auxiliares
                 int autodet_facturacion
@@ -374,7 +374,7 @@ namespace Negocio
         public static string Editar_Credito
             (
                 //Credito[]
-                int idcredito, int Idcliente, string Valor, string CuoMeses, string TasaMensu, string TasaAnual, DateTime Solicitud, DateTime Emision, string Prorroga, string Mora,
+                int idcredito, int Idcliente, decimal Valor, Int64 CuoMeses, Int64 TasaMensu, Int64 TasaAnual, DateTime Solicitud, DateTime Emision, Int64 Prorroga, Int64 Mora,
 
                 //Datos Auxiliares
                 int autodet_credito
@@ -404,7 +404,7 @@ namespace Negocio
         public static string Editar_Despacho
             (
                 //Despacho[]
-                int iddespacho, int Idcliente, string Sucurzal, string Pais, string Ciudad, string Departamento, string Receptor, string Barrio, string Apartamento, string Movil, string Direccion, string Observacion,
+                int iddespacho, int Idcliente, string Sucurzal, string Pais, string Ciudad, string Departamento, string Receptor, string Barrio, string Apartamento, Int64 Movil, string Direccion, string Observacion,
 
                 //Datos Auxiliares
                 int autodet_despacho
@@ -436,7 +436,7 @@ namespace Negocio
         public static string Editar_Financiera
             (
                 //Financiera[]
-                int idfinanciera, int idcliente, int Idbanco, string Cuenta, string Numerodecuenta,
+                int idfinanciera, int idcliente, int Idbanco, string Cuenta, Int64 Numerodecuenta,
 
                 //Datos Auxiliares
                 int autodet_financiera
@@ -461,7 +461,7 @@ namespace Negocio
         public static string Editar_Contacto
             (
                 //Contacto[]
-                int idcontacto, int Idcliente, string Contacto, string Ciudad, string Direccion, string Telefono, string Movil, string Correo, string Parentesco,
+                int idcontacto, int Idcliente, string Contacto, string Ciudad, string Direccion, Int64 Telefono, Int64 Movil, string Correo, string Parentesco,
 
                 //Datos Auxiliares
                 int autodet_contacto

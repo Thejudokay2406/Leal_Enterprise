@@ -294,11 +294,11 @@ namespace Datos
 
                 Comando.Parameters.Add("@Codigo", SqlDbType.VarChar).Value = Obj.Dat_Codigo;
                 Comando.Parameters.Add("@Nombre", SqlDbType.VarChar).Value = Obj.Dat_Cliente;
-                Comando.Parameters.Add("@Documento", SqlDbType.VarChar).Value = Obj.Dat_Documento;
-                Comando.Parameters.Add("@Telefono01", SqlDbType.VarChar).Value = Obj.Dat_Telefono;
-                Comando.Parameters.Add("@Telefono02", SqlDbType.VarChar).Value = Obj.Dat_TelefonoAux;
-                Comando.Parameters.Add("@Movil01", SqlDbType.VarChar).Value = Obj.Dat_Movil;
-                Comando.Parameters.Add("@Movil02", SqlDbType.VarChar).Value = Obj.Dat_MovilAux;
+                Comando.Parameters.Add("@Documento", SqlDbType.BigInt).Value = Obj.Dat_Documento;
+                Comando.Parameters.Add("@Telefono01", SqlDbType.BigInt).Value = Obj.Dat_Telefono;
+                Comando.Parameters.Add("@Telefono02", SqlDbType.BigInt).Value = Obj.Dat_TelefonoAux;
+                Comando.Parameters.Add("@Movil01", SqlDbType.BigInt).Value = Obj.Dat_Movil;
+                Comando.Parameters.Add("@Movil02", SqlDbType.BigInt).Value = Obj.Dat_MovilAux;
                 Comando.Parameters.Add("@Correo", SqlDbType.VarChar).Value = Obj.Dat_Correo;
                 Comando.Parameters.Add("@Ciudad", SqlDbType.VarChar).Value = Obj.Dat_Ciudad;
                 Comando.Parameters.Add("@Pais", SqlDbType.VarChar).Value = Obj.Dat_Pais;
@@ -362,8 +362,8 @@ namespace Datos
                 Comando.Parameters.Add("@Empleado", SqlDbType.VarChar).Value = Obj.Fac_Asesor;
                 Comando.Parameters.Add("@CodEmpleado", SqlDbType.VarChar).Value = Obj.Fac_AsesorCodigo;
                 Comando.Parameters.Add("@Cliente", SqlDbType.VarChar).Value = Obj.Fac_Cliente;
-                Comando.Parameters.Add("@DocCliente", SqlDbType.VarChar).Value = Obj.Fac_ClienteDoc;
-                Comando.Parameters.Add("@Movil", SqlDbType.VarChar).Value = Obj.Fac_Movil;
+                Comando.Parameters.Add("@DocCliente", SqlDbType.BigInt).Value = Obj.Fac_ClienteDoc;
+                Comando.Parameters.Add("@Movil", SqlDbType.BigInt).Value = Obj.Fac_Movil;
                 Comando.Parameters.Add("@Pais", SqlDbType.VarChar).Value = Obj.Fac_Pais;
                 Comando.Parameters.Add("@Ciudad", SqlDbType.VarChar).Value = Obj.Fac_Ciudad;
                 Comando.Parameters.Add("@Departamento", SqlDbType.VarChar).Value = Obj.Fac_Departamento;
@@ -402,13 +402,13 @@ namespace Datos
                 //Panel Ubicaciones -- Campos Obligatorios
                 Comando.Parameters.Add("@Idcliente", SqlDbType.Int).Value = Obj.Idcliente;
                 Comando.Parameters.Add("@Valor", SqlDbType.Money).Value = Obj.Cre_Valor;
-                Comando.Parameters.Add("@CuoMeses", SqlDbType.Int).Value = Obj.Cre_Cuotas;
-                Comando.Parameters.Add("@TasaMensual", SqlDbType.Int).Value = Obj.Cre_TasaMensual;
-                Comando.Parameters.Add("@TasaAnual", SqlDbType.Int).Value = Obj.Cre_TasaAnual;
+                Comando.Parameters.Add("@CuoMeses", SqlDbType.BigInt).Value = Obj.Cre_Cuotas;
+                Comando.Parameters.Add("@TasaMensual", SqlDbType.BigInt).Value = Obj.Cre_TasaMensual;
+                Comando.Parameters.Add("@TasaAnual", SqlDbType.BigInt).Value = Obj.Cre_TasaAnual;
                 Comando.Parameters.Add("@Solicitud", SqlDbType.DateTime).Value = Obj.Cre_Solicitud;
                 Comando.Parameters.Add("@Emision", SqlDbType.DateTime).Value = Obj.Cre_Emision;
-                Comando.Parameters.Add("@Prorroga", SqlDbType.Int).Value = Obj.Cre_Prorroga;
-                Comando.Parameters.Add("@Mora", SqlDbType.Int).Value = Obj.Cre_TasaMora;
+                Comando.Parameters.Add("@Prorroga", SqlDbType.BigInt).Value = Obj.Cre_Prorroga;
+                Comando.Parameters.Add("@Mora", SqlDbType.BigInt).Value = Obj.Cre_TasaMora;
 
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Realizar el Registro";
@@ -449,7 +449,7 @@ namespace Datos
                 Comando.Parameters.Add("@Receptor", SqlDbType.VarChar).Value = Obj.Des_Receptor;
                 Comando.Parameters.Add("@Barrio", SqlDbType.VarChar).Value = Obj.Des_Barrio;
                 Comando.Parameters.Add("@Apartamento", SqlDbType.VarChar).Value = Obj.Des_Apartamento;
-                Comando.Parameters.Add("@Movil", SqlDbType.VarChar).Value = Obj.Des_Movil;
+                Comando.Parameters.Add("@Movil", SqlDbType.BigInt).Value = Obj.Des_Movil;
                 Comando.Parameters.Add("@Direccion", SqlDbType.VarChar).Value = Obj.Des_Direccion;
                 Comando.Parameters.Add("@Observacion", SqlDbType.VarChar).Value = Obj.Des_Observacion;
 
@@ -487,7 +487,7 @@ namespace Datos
                 Comando.Parameters.Add("@Idcliente", SqlDbType.Int).Value = Obj.Idcliente;
                 //Comando.Parameters.Add("@Idbanco", SqlDbType.Int).Value = Obj.idban;
                 Comando.Parameters.Add("@Cuenta", SqlDbType.VarChar).Value = Obj.Fin_Cuenta;
-                Comando.Parameters.Add("@NumeroCuenta", SqlDbType.VarChar).Value = Obj.Fin_CuentaNumero;
+                Comando.Parameters.Add("@NumeroCuenta", SqlDbType.BigInt).Value = Obj.Fin_CuentaNumero;
 
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Realizar el Registro";
@@ -524,8 +524,8 @@ namespace Datos
                 Comando.Parameters.Add("@Contacto", SqlDbType.VarChar).Value = Obj.Cont_Contacto;
                 Comando.Parameters.Add("@Ciudad", SqlDbType.VarChar).Value = Obj.Cont_Ciudad;
                 Comando.Parameters.Add("@Direccion", SqlDbType.VarChar).Value = Obj.Cont_Direccion;
-                Comando.Parameters.Add("@Telefono", SqlDbType.VarChar).Value = Obj.Cont_Telefono;
-                Comando.Parameters.Add("@Movil", SqlDbType.VarChar).Value = Obj.Cont_Movil;
+                Comando.Parameters.Add("@Telefono", SqlDbType.BigInt).Value = Obj.Cont_Telefono;
+                Comando.Parameters.Add("@Movil", SqlDbType.BigInt).Value = Obj.Cont_Movil;
                 Comando.Parameters.Add("@Correo", SqlDbType.VarChar).Value = Obj.Cont_Correo;
                 Comando.Parameters.Add("@Parentesco", SqlDbType.VarChar).Value = Obj.Cont_Parentesco;
                 
@@ -785,7 +785,7 @@ namespace Datos
                 Comando.Parameters.Add("@Ciudad", SqlDbType.VarChar).Value = Obj.Cont_Ciudad;
                 Comando.Parameters.Add("@Direccion", SqlDbType.VarChar).Value = Obj.Cont_Direccion;
                 Comando.Parameters.Add("@Telefono", SqlDbType.VarChar).Value = Obj.Cont_Telefono;
-                Comando.Parameters.Add("@Movil", SqlDbType.VarChar).Value = Obj.Cont_Movil;
+                Comando.Parameters.Add("@Movil", SqlDbType.Int).Value = Obj.Cont_Movil;
                 Comando.Parameters.Add("@Correo", SqlDbType.VarChar).Value = Obj.Cont_Correo;
                 Comando.Parameters.Add("@Parentesco", SqlDbType.VarChar).Value = Obj.Cont_Parentesco;
 
