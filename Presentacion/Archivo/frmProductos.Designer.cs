@@ -242,7 +242,7 @@
             // 
             // TBIdproducto_AutoSQL
             // 
-            this.TBIdproducto_AutoSQL.Location = new System.Drawing.Point(273, 460);
+            this.TBIdproducto_AutoSQL.Location = new System.Drawing.Point(225, 460);
             this.TBIdproducto_AutoSQL.Name = "TBIdproducto_AutoSQL";
             this.TBIdproducto_AutoSQL.Size = new System.Drawing.Size(18, 21);
             this.TBIdproducto_AutoSQL.TabIndex = 14;
@@ -256,7 +256,7 @@
             this.btnCancelar.FlatAppearance.BorderSize = 0;
             this.btnCancelar.Image = global::Presentacion.Botones.btnCancelar;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(102, 455);
+            this.btnCancelar.Location = new System.Drawing.Point(304, 455);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(90, 30);
             this.btnCancelar.TabIndex = 7;

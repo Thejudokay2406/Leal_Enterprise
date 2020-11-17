@@ -804,13 +804,18 @@ namespace Presentacion
         {
             try
             {
+                this.Digitar = true;
+                this.TBIdcliente.Text = "0";
+
+                this.Botones();
                 this.Limpiar_Datos();
+                this.Diseño_TablasGenerales();
+
+                this.TBBuscar.Clear();
 
                 //Se Limpian las Filas y Columnas de la tabla
                 this.DGResultados.DataSource = null;
-                this.DGResultados.Enabled = false;
                 this.lblTotal.Text = "Datos Registrados: 0";
-                this.TBBuscar.Text = "";
             }
             catch (Exception ex)
             {
@@ -2271,6 +2276,35 @@ namespace Presentacion
                     {
                         this.CH_Contado.Checked = false;
                     }
+
+                    //************************************************************************************************************************
+                    //Se realizan las consultas para llenar los DataGriview donde se mostrarian los MultiPlex Registros.
+
+                    this.DGDetalle_Contacto.DataSource = fCliente.Buscar_Contacto(1, Convert.ToInt32(this.TBIdcliente.Text));
+                    this.lblTotal_Contacto.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Contacto.Rows.Count);
+                    this.DGDetalle_Contacto.Columns[0].Visible = false;
+
+                    this.DGDetalle_Credito.DataSource = fCliente.Buscar_Credito(1, Convert.ToInt32(this.TBIdcliente.Text));
+                    this.lblTotal_Credito.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Credito.Rows.Count);
+                    this.DGDetalle_Credito.Columns[0].Visible = false;
+
+                    this.DGDetalle_Despacho.DataSource = fCliente.Buscar_Despacho(1, Convert.ToInt32(this.TBIdcliente.Text));
+                    this.lblTotal_Despacho.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Despacho.Rows.Count);
+                    this.DGDetalle_Despacho.Columns[0].Visible = false;
+                    //this.DGDetalle_Impuesto.Columns[1].Visible = false;
+                    //this.DGDetalle_Impuesto.Columns["IdDet_impuesto"].Visible = false;
+
+                    this.DGDetalle_Facturacion.DataSource = fCliente.Buscar_Facturacion(1, Convert.ToInt32(this.TBIdcliente.Text));
+                    this.lblTotal_Facturacion.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Facturacion.Rows.Count);
+                    this.DGDetalle_Facturacion.Columns[0].Visible = false;
+                    this.DGDetalle_Facturacion.Columns[1].Visible = false;
+                    this.DGDetalle_Facturacion.Columns[2].Visible = false;
+                    this.DGDetalle_Facturacion.Columns[3].Visible = false;
+
+                    this.DGDetalle_Financiera.DataSource = fCliente.Buscar_Financiera(1, Convert.ToInt32(this.TBIdcliente.Text));
+                    this.lblTotal_Financiera.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Financiera.Rows.Count);
+                    this.DGDetalle_Financiera.Columns[0].Visible = false;
+
                 }
             }
             catch (Exception ex)

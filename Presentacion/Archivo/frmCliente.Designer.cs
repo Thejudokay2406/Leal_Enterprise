@@ -1066,10 +1066,10 @@
             this.TPFacturacion.Controls.Add(this.label36);
             this.TPFacturacion.Controls.Add(this.label37);
             this.TPFacturacion.Controls.Add(this.label40);
-            this.TPFacturacion.Location = new System.Drawing.Point(4, 24);
+            this.TPFacturacion.Location = new System.Drawing.Point(4, 22);
             this.TPFacturacion.Name = "TPFacturacion";
             this.TPFacturacion.Padding = new System.Windows.Forms.Padding(3);
-            this.TPFacturacion.Size = new System.Drawing.Size(652, 369);
+            this.TPFacturacion.Size = new System.Drawing.Size(652, 371);
             this.TPFacturacion.TabIndex = 4;
             this.TPFacturacion.Text = "Datos de Facturación";
             this.TPFacturacion.UseVisualStyleBackColor = true;
@@ -1086,7 +1086,7 @@
             this.btnLimpiar_Facturacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLimpiar_Facturacion.Location = new System.Drawing.Point(460, 333);
             this.btnLimpiar_Facturacion.Name = "btnLimpiar_Facturacion";
-            this.btnLimpiar_Facturacion.Size = new System.Drawing.Size(90, 28);
+            this.btnLimpiar_Facturacion.Size = new System.Drawing.Size(90, 26);
             this.btnLimpiar_Facturacion.TabIndex = 166;
             this.btnLimpiar_Facturacion.Text = "Limpiar";
             this.btnLimpiar_Facturacion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1105,7 +1105,7 @@
             this.btnModificar_Facturacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnModificar_Facturacion.Location = new System.Drawing.Point(364, 333);
             this.btnModificar_Facturacion.Name = "btnModificar_Facturacion";
-            this.btnModificar_Facturacion.Size = new System.Drawing.Size(90, 28);
+            this.btnModificar_Facturacion.Size = new System.Drawing.Size(90, 26);
             this.btnModificar_Facturacion.TabIndex = 165;
             this.btnModificar_Facturacion.Text = "Modificar";
             this.btnModificar_Facturacion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1136,7 +1136,7 @@
             this.btnEliminar_Facturacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEliminar_Facturacion.Location = new System.Drawing.Point(556, 333);
             this.btnEliminar_Facturacion.Name = "btnEliminar_Facturacion";
-            this.btnEliminar_Facturacion.Size = new System.Drawing.Size(90, 28);
+            this.btnEliminar_Facturacion.Size = new System.Drawing.Size(90, 26);
             this.btnEliminar_Facturacion.TabIndex = 163;
             this.btnEliminar_Facturacion.Text = "Eliminar";
             this.btnEliminar_Facturacion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1155,7 +1155,7 @@
             this.btnAgregar_Facturacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAgregar_Facturacion.Location = new System.Drawing.Point(268, 333);
             this.btnAgregar_Facturacion.Name = "btnAgregar_Facturacion";
-            this.btnAgregar_Facturacion.Size = new System.Drawing.Size(90, 28);
+            this.btnAgregar_Facturacion.Size = new System.Drawing.Size(90, 26);
             this.btnAgregar_Facturacion.TabIndex = 162;
             this.btnAgregar_Facturacion.Text = "Agregar";
             this.btnAgregar_Facturacion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1178,7 +1178,7 @@
             this.DGDetalle_Facturacion.Name = "DGDetalle_Facturacion";
             this.DGDetalle_Facturacion.ReadOnly = true;
             this.DGDetalle_Facturacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGDetalle_Facturacion.Size = new System.Drawing.Size(640, 183);
+            this.DGDetalle_Facturacion.Size = new System.Drawing.Size(640, 181);
             this.DGDetalle_Facturacion.TabIndex = 160;
             this.DGDetalle_Facturacion.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGDetalle_Facturacion_CellContentClick);
             // 
@@ -1205,7 +1205,7 @@
             this.btnExaminar_Asesor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExaminar_Asesor.Location = new System.Drawing.Point(620, 7);
             this.btnExaminar_Asesor.Name = "btnExaminar_Asesor";
-            this.btnExaminar_Asesor.Size = new System.Drawing.Size(25, 19);
+            this.btnExaminar_Asesor.Size = new System.Drawing.Size(25, 17);
             this.btnExaminar_Asesor.TabIndex = 158;
             this.btnExaminar_Asesor.UseVisualStyleBackColor = true;
             this.btnExaminar_Asesor.Click += new System.EventHandler(this.btnExaminar_Asesor_Click);
@@ -1442,10 +1442,10 @@
             this.TPCredito.Controls.Add(this.TBCre_Valor);
             this.TPCredito.Controls.Add(this.btnEliminar_Credito);
             this.TPCredito.Controls.Add(this.btnAgregar_Credito);
-            this.TPCredito.Location = new System.Drawing.Point(4, 24);
+            this.TPCredito.Location = new System.Drawing.Point(4, 22);
             this.TPCredito.Name = "TPCredito";
             this.TPCredito.Padding = new System.Windows.Forms.Padding(3);
-            this.TPCredito.Size = new System.Drawing.Size(652, 369);
+            this.TPCredito.Size = new System.Drawing.Size(652, 371);
             this.TPCredito.TabIndex = 5;
             this.TPCredito.Text = "Datos de Credito";
             this.TPCredito.UseVisualStyleBackColor = true;
@@ -1792,10 +1792,10 @@
             this.TPDatosDeEnvio.Controls.Add(this.label11);
             this.TPDatosDeEnvio.Controls.Add(this.btnEliminar_Despacho);
             this.TPDatosDeEnvio.Controls.Add(this.btnAgregar_Despacho);
-            this.TPDatosDeEnvio.Location = new System.Drawing.Point(4, 24);
+            this.TPDatosDeEnvio.Location = new System.Drawing.Point(4, 22);
             this.TPDatosDeEnvio.Name = "TPDatosDeEnvio";
             this.TPDatosDeEnvio.Padding = new System.Windows.Forms.Padding(3);
-            this.TPDatosDeEnvio.Size = new System.Drawing.Size(652, 369);
+            this.TPDatosDeEnvio.Size = new System.Drawing.Size(652, 371);
             this.TPDatosDeEnvio.TabIndex = 1;
             this.TPDatosDeEnvio.Text = "Despacho - Envio";
             this.TPDatosDeEnvio.UseVisualStyleBackColor = true;
@@ -2174,9 +2174,9 @@
             this.TPDatosFinancieros.Controls.Add(this.btnEliminar_Financiera);
             this.TPDatosFinancieros.Controls.Add(this.btnAgregar_Financiera);
             this.TPDatosFinancieros.Controls.Add(this.button1);
-            this.TPDatosFinancieros.Location = new System.Drawing.Point(4, 24);
+            this.TPDatosFinancieros.Location = new System.Drawing.Point(4, 22);
             this.TPDatosFinancieros.Name = "TPDatosFinancieros";
-            this.TPDatosFinancieros.Size = new System.Drawing.Size(652, 369);
+            this.TPDatosFinancieros.Size = new System.Drawing.Size(652, 371);
             this.TPDatosFinancieros.TabIndex = 3;
             this.TPDatosFinancieros.Text = "Datos Financieros";
             this.TPDatosFinancieros.UseVisualStyleBackColor = true;

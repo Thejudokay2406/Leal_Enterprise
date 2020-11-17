@@ -54,6 +54,32 @@ namespace Negocio
             return Datos.Buscar(Filtro, auto);
         }
 
+        public static DataTable Buscar_Contacto(int Auto_Contacto, int Filtro)
+        {
+            Conexion_Cliente Datos = new Conexion_Cliente();
+            return Datos.Buscar_Contacto(Auto_Contacto, Filtro);
+        }
+        public static DataTable Buscar_Credito(int Auto_Credito, int Filtro)
+        {
+            Conexion_Cliente Datos = new Conexion_Cliente();
+            return Datos.Buscar_Credito(Auto_Credito, Filtro);
+        }
+        public static DataTable Buscar_Despacho(int Auto_Despacho, int Filtro)
+        {
+            Conexion_Cliente Datos = new Conexion_Cliente();
+            return Datos.Buscar_Despacho(Auto_Despacho, Filtro);
+        }
+        public static DataTable Buscar_Facturacion(int Auto_Facturacion, int Filtro)
+        {
+            Conexion_Cliente Datos = new Conexion_Cliente();
+            return Datos.Buscar_Facturacion(Auto_Facturacion, Filtro);
+        }
+        public static DataTable Buscar_Financiera(int Auto_Financiera, int Filtro)
+        {
+            Conexion_Cliente Datos = new Conexion_Cliente();
+            return Datos.Buscar_Financiera(Auto_Financiera, Filtro);
+        }
+
         public static DataTable AutoComplementar_SQL(int auto)
         {
             Conexion_Cliente Datos = new Conexion_Cliente();
