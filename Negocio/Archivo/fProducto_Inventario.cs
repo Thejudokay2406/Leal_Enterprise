@@ -141,7 +141,7 @@ namespace Negocio
                 //Datos Auxiliares
                 int lote_autosql, int codbarra_autosql, int igualdad_autosql, int impuesto_autosql, int ubicacion_autosql, int proveedor_autosql,
 
-                //SI VALIDA SI SE REALIZA O NO LA VALIDACION
+                //SE VALIDA SI SE REALIZA O NO LA VALIDACION
                 int tran_ubicacion, int tran_igualdad, int tran_impuesto, int tran_proveedor, int tran_codBarra, int tran_lote,
 
                 //Variables

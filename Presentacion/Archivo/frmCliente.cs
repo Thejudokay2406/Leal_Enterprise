@@ -240,10 +240,10 @@ namespace Presentacion
             this.TBDat_Documento.Text = Campo;
             this.TBDat_Documento.ForeColor = Color.FromArgb(255, 255, 255);
 
-            //this.TBDat_Telefono.Clear();
-            //this.TBDat_Movil.Clear();
-            //this.TBDat_TelefonoAux.Clear();
-            //this.TBDat_MovilAux.Clear();
+            this.TBDat_Telefono.Clear();
+            this.TBDat_Movil.Clear();
+            this.TBDat_TelefonoAux.Clear();
+            this.TBDat_MovilAux.Clear();
             this.TBDat_Correo.Clear();
             this.TBDat_Pais.Clear();
             this.TBDat_Ciudad.Clear();
@@ -2193,7 +2193,7 @@ namespace Presentacion
                     //Captura de Valores en la Base de Datos
 
                     //Panel Datos Basicos
-                    Idcliente = Datos.Rows[0][0].ToString();
+                    //Idcliente = Datos.Rows[0][0].ToString();
                     Idtipo = Datos.Rows[0][1].ToString();
                     Idgrupo = Datos.Rows[0][2].ToString();
                     Codigo = Datos.Rows[0][3].ToString();
@@ -2217,8 +2217,8 @@ namespace Presentacion
                     //Se procede a completar los campos de texto segun las consulta Realizada anteriormente en la base de datos
 
                     //Panel Datos Basicos
+                    //this.TBIdcliente.Text = Idcliente;
                     this.TBDat_Codigo.Text = Codigo;
-                    this.TBIdcliente.Text = Idcliente;
                     this.TBDat_Nombre.Text = Cliente;
                     this.TBDat_Documento.Text = Documento;
                     this.TBDat_Telefono.Text = Telefono;
@@ -2281,29 +2281,29 @@ namespace Presentacion
                     //Se realizan las consultas para llenar los DataGriview donde se mostrarian los MultiPlex Registros.
 
                     this.DGDetalle_Contacto.DataSource = fCliente.Buscar_Contacto(1, Convert.ToInt32(this.TBIdcliente.Text));
-                    this.lblTotal_Contacto.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Contacto.Rows.Count);
                     this.DGDetalle_Contacto.Columns[0].Visible = false;
+                    this.lblTotal_Contacto.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Contacto.Rows.Count);
 
                     this.DGDetalle_Credito.DataSource = fCliente.Buscar_Credito(1, Convert.ToInt32(this.TBIdcliente.Text));
-                    this.lblTotal_Credito.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Credito.Rows.Count);
                     this.DGDetalle_Credito.Columns[0].Visible = false;
+                    this.lblTotal_Credito.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Credito.Rows.Count);
 
                     this.DGDetalle_Despacho.DataSource = fCliente.Buscar_Despacho(1, Convert.ToInt32(this.TBIdcliente.Text));
-                    this.lblTotal_Despacho.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Despacho.Rows.Count);
                     this.DGDetalle_Despacho.Columns[0].Visible = false;
+                    this.lblTotal_Despacho.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Despacho.Rows.Count);
                     //this.DGDetalle_Impuesto.Columns[1].Visible = false;
                     //this.DGDetalle_Impuesto.Columns["IdDet_impuesto"].Visible = false;
 
                     this.DGDetalle_Facturacion.DataSource = fCliente.Buscar_Facturacion(1, Convert.ToInt32(this.TBIdcliente.Text));
-                    this.lblTotal_Facturacion.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Facturacion.Rows.Count);
                     this.DGDetalle_Facturacion.Columns[0].Visible = false;
-                    this.DGDetalle_Facturacion.Columns[1].Visible = false;
-                    this.DGDetalle_Facturacion.Columns[2].Visible = false;
-                    this.DGDetalle_Facturacion.Columns[3].Visible = false;
+                    this.lblTotal_Facturacion.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Facturacion.Rows.Count);
+                    //this.DGDetalle_Facturacion.Columns[1].Visible = false;
+                    //this.DGDetalle_Facturacion.Columns[2].Visible = false;
+                    //this.DGDetalle_Facturacion.Columns[3].Visible = false;
 
-                    this.DGDetalle_Financiera.DataSource = fCliente.Buscar_Financiera(1, Convert.ToInt32(this.TBIdcliente.Text));
-                    this.lblTotal_Financiera.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Financiera.Rows.Count);
-                    this.DGDetalle_Financiera.Columns[0].Visible = false;
+                    //this.DGDetalle_Financiera.DataSource = fCliente.Buscar_Financiera(1, Convert.ToInt32(this.TBIdcliente.Text));
+                    //this.lblTotal_Financiera.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Financiera.Rows.Count);
+                    //this.DGDetalle_Financiera.Columns[0].Visible = false;
 
                 }
             }
@@ -2326,7 +2326,6 @@ namespace Presentacion
                     //Se procede a completar los campos de textos segun
                     //la consulta realizada en la base de datos
                     this.TBIdcliente.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells["Codigo"].Value);
-
                 }
                 else
                 {
@@ -4272,11 +4271,16 @@ namespace Presentacion
                     {
                         this.DGResultados.DataSource = fCliente.Buscar(this.TBBuscar.Text, 1);
                         //this.DGResultados.Columns[0].Visible = false;
-
                         this.lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGResultados.Rows.Count);
 
                         this.btnEliminar.Enabled = true;
                         this.btnImprimir.Enabled = true;
+
+                        //************************************* Alineacion de las Celdas *************************************
+
+                        //Panel Codigo de Barra
+                        this.DGResultados.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                        this.DGResultados.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                     }
                     else
                     {

@@ -200,7 +200,7 @@ namespace Datos
             }
         }
 
-        public DataTable Buscar(string Valor, int Auto)
+        public DataTable Buscar(string Filtro, int Auto)
         {
             SqlDataReader Resultado;
             DataTable Tabla = new DataTable();
@@ -212,7 +212,7 @@ namespace Datos
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Auto;
-                Comando.Parameters.Add("@Filtro", SqlDbType.VarChar).Value = Valor;
+                Comando.Parameters.Add("@Filtro", SqlDbType.VarChar).Value = Filtro;
 
                 SqlCon.Open();
                 Resultado = Comando.ExecuteReader();
@@ -232,7 +232,7 @@ namespace Datos
             }
         }
 
-        public DataTable Buscar_Facturacion(int auto_impuesto, int Valor)
+        public DataTable Buscar_Facturacion(int auto_impuesto, int Filtro)
         {
             SqlDataReader Resultado;
             DataTable Tabla = new DataTable();
@@ -244,7 +244,7 @@ namespace Datos
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 Comando.Parameters.Add("@Auto_Factura", SqlDbType.Int).Value = auto_impuesto;
-                Comando.Parameters.Add("@Det_Factura", SqlDbType.Int).Value = Valor;
+                Comando.Parameters.Add("@Det_Factura", SqlDbType.Int).Value = Filtro;
 
                 SqlCon.Open();
                 Resultado = Comando.ExecuteReader();
@@ -264,7 +264,7 @@ namespace Datos
             }
         }
 
-        public DataTable Buscar_Financiera(int auto_Financiera, int Valor)
+        public DataTable Buscar_Financiera(int auto_Financiera, int Filtro)
         {
             SqlDataReader Resultado;
             DataTable Tabla = new DataTable();
@@ -276,7 +276,7 @@ namespace Datos
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 Comando.Parameters.Add("@Auto_Financiera", SqlDbType.Int).Value = auto_Financiera;
-                Comando.Parameters.Add("@Det_Financiera", SqlDbType.Int).Value = Valor;
+                Comando.Parameters.Add("@Det_Financiera", SqlDbType.Int).Value = Filtro;
 
                 SqlCon.Open();
                 Resultado = Comando.ExecuteReader();
@@ -296,7 +296,7 @@ namespace Datos
             }
         }
 
-        public DataTable Buscar_Credito(int auto_Credito, int Valor)
+        public DataTable Buscar_Credito(int auto_Credito, int Filtro)
         {
             SqlDataReader Resultado;
             DataTable Tabla = new DataTable();
@@ -308,7 +308,7 @@ namespace Datos
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 Comando.Parameters.Add("@Auto_Credito", SqlDbType.Int).Value = auto_Credito;
-                Comando.Parameters.Add("@Det_Credito", SqlDbType.Int).Value = Valor;
+                Comando.Parameters.Add("@Det_Credito", SqlDbType.Int).Value = Filtro;
 
                 SqlCon.Open();
                 Resultado = Comando.ExecuteReader();
@@ -328,7 +328,7 @@ namespace Datos
             }
         }
 
-        public DataTable Buscar_Contacto(int auto_Contacto, int Valor)
+        public DataTable Buscar_Contacto(int auto_Contacto, int Filtro)
         {
             SqlDataReader Resultado;
             DataTable Tabla = new DataTable();
@@ -339,8 +339,8 @@ namespace Datos
                 SqlCommand Comando = new SqlCommand("Consulta.Cliente", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
-                Comando.Parameters.Add("@Auto_Contacto", SqlDbType.Int).Value = auto_Contacto
-                Comando.Parameters.Add("@Det_Contacto", SqlDbType.Int).Value = Valor;
+                Comando.Parameters.Add("@Auto_Contacto", SqlDbType.Int).Value = auto_Contacto;
+                Comando.Parameters.Add("@Det_Contacto", SqlDbType.Int).Value = Filtro;
 
                 SqlCon.Open();
                 Resultado = Comando.ExecuteReader();
@@ -360,7 +360,7 @@ namespace Datos
             }
         }
 
-        public DataTable Buscar_Despacho(int auto_Despacho, int Valor)
+        public DataTable Buscar_Despacho(int auto_Despacho, int Filtro)
         {
             SqlDataReader Resultado;
             DataTable Tabla = new DataTable();
@@ -372,7 +372,7 @@ namespace Datos
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 Comando.Parameters.Add("@Auto_Despacho", SqlDbType.Int).Value = auto_Despacho;
-                Comando.Parameters.Add("@Det_Despacho", SqlDbType.Int).Value = Valor;
+                Comando.Parameters.Add("@Det_Despacho", SqlDbType.Int).Value = Filtro;
 
                 SqlCon.Open();
                 Resultado = Comando.ExecuteReader();

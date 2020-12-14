@@ -499,8 +499,7 @@ namespace Datos
 
                 //Datos Auxiliares
                 Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Obj.Auto;
-                //Comando.Parameters.Add("@Producto_AutoSQL", SqlDbType.Int).Value = Obj.Producto_AutoSQL;
-
+                
                 Comando.Parameters.Add("@Lote_AutoSQL", SqlDbType.Int).Value = Obj.Lote_AutoSQL;
                 Comando.Parameters.Add("@CodBarra_AutoSQL", SqlDbType.Int).Value = Obj.CodBarra_AutoSQL;
                 Comando.Parameters.Add("@Igualdad_AutoSQL", SqlDbType.Int).Value = Obj.Igualdad_AutoSQL;

@@ -5486,6 +5486,11 @@ namespace Presentacion
             }
         }
 
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
         private void TBGastodeEnvio_KeyPress(object sender, KeyPressEventArgs e)
         {
             //Para obligar a que sólo se introduzcan números
@@ -6663,7 +6668,7 @@ namespace Presentacion
                 if (Editar == "1")
                 {
                     this.Digitar = false;
-                    this.TBIdproducto.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells["ID"].Value);
+                    this.TBIdproducto.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells[0].Value);
                     this.TBNombre.Select();
 
                     //

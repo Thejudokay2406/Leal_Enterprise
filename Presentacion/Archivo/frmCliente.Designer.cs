@@ -1086,7 +1086,7 @@
             this.btnLimpiar_Facturacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLimpiar_Facturacion.Location = new System.Drawing.Point(460, 333);
             this.btnLimpiar_Facturacion.Name = "btnLimpiar_Facturacion";
-            this.btnLimpiar_Facturacion.Size = new System.Drawing.Size(90, 26);
+            this.btnLimpiar_Facturacion.Size = new System.Drawing.Size(90, 30);
             this.btnLimpiar_Facturacion.TabIndex = 166;
             this.btnLimpiar_Facturacion.Text = "Limpiar";
             this.btnLimpiar_Facturacion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1105,7 +1105,7 @@
             this.btnModificar_Facturacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnModificar_Facturacion.Location = new System.Drawing.Point(364, 333);
             this.btnModificar_Facturacion.Name = "btnModificar_Facturacion";
-            this.btnModificar_Facturacion.Size = new System.Drawing.Size(90, 26);
+            this.btnModificar_Facturacion.Size = new System.Drawing.Size(90, 30);
             this.btnModificar_Facturacion.TabIndex = 165;
             this.btnModificar_Facturacion.Text = "Modificar";
             this.btnModificar_Facturacion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1136,7 +1136,7 @@
             this.btnEliminar_Facturacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEliminar_Facturacion.Location = new System.Drawing.Point(556, 333);
             this.btnEliminar_Facturacion.Name = "btnEliminar_Facturacion";
-            this.btnEliminar_Facturacion.Size = new System.Drawing.Size(90, 26);
+            this.btnEliminar_Facturacion.Size = new System.Drawing.Size(90, 30);
             this.btnEliminar_Facturacion.TabIndex = 163;
             this.btnEliminar_Facturacion.Text = "Eliminar";
             this.btnEliminar_Facturacion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1155,7 +1155,7 @@
             this.btnAgregar_Facturacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAgregar_Facturacion.Location = new System.Drawing.Point(268, 333);
             this.btnAgregar_Facturacion.Name = "btnAgregar_Facturacion";
-            this.btnAgregar_Facturacion.Size = new System.Drawing.Size(90, 26);
+            this.btnAgregar_Facturacion.Size = new System.Drawing.Size(90, 30);
             this.btnAgregar_Facturacion.TabIndex = 162;
             this.btnAgregar_Facturacion.Text = "Agregar";
             this.btnAgregar_Facturacion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1178,7 +1178,7 @@
             this.DGDetalle_Facturacion.Name = "DGDetalle_Facturacion";
             this.DGDetalle_Facturacion.ReadOnly = true;
             this.DGDetalle_Facturacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGDetalle_Facturacion.Size = new System.Drawing.Size(640, 181);
+            this.DGDetalle_Facturacion.Size = new System.Drawing.Size(640, 185);
             this.DGDetalle_Facturacion.TabIndex = 160;
             this.DGDetalle_Facturacion.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGDetalle_Facturacion_CellContentClick);
             // 
@@ -1205,7 +1205,7 @@
             this.btnExaminar_Asesor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExaminar_Asesor.Location = new System.Drawing.Point(620, 7);
             this.btnExaminar_Asesor.Name = "btnExaminar_Asesor";
-            this.btnExaminar_Asesor.Size = new System.Drawing.Size(25, 17);
+            this.btnExaminar_Asesor.Size = new System.Drawing.Size(25, 21);
             this.btnExaminar_Asesor.TabIndex = 158;
             this.btnExaminar_Asesor.UseVisualStyleBackColor = true;
             this.btnExaminar_Asesor.Click += new System.EventHandler(this.btnExaminar_Asesor_Click);
@@ -1462,7 +1462,7 @@
             this.btnLimpiar_Credito.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLimpiar_Credito.Location = new System.Drawing.Point(460, 333);
             this.btnLimpiar_Credito.Name = "btnLimpiar_Credito";
-            this.btnLimpiar_Credito.Size = new System.Drawing.Size(90, 28);
+            this.btnLimpiar_Credito.Size = new System.Drawing.Size(90, 30);
             this.btnLimpiar_Credito.TabIndex = 172;
             this.btnLimpiar_Credito.Text = "Limpiar";
             this.btnLimpiar_Credito.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1481,7 +1481,7 @@
             this.btnModificar_Credito.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnModificar_Credito.Location = new System.Drawing.Point(364, 333);
             this.btnModificar_Credito.Name = "btnModificar_Credito";
-            this.btnModificar_Credito.Size = new System.Drawing.Size(90, 28);
+            this.btnModificar_Credito.Size = new System.Drawing.Size(90, 30);
             this.btnModificar_Credito.TabIndex = 171;
             this.btnModificar_Credito.Text = "Modificar";
             this.btnModificar_Credito.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1516,7 +1516,7 @@
             this.DGDetalle_Credito.Name = "DGDetalle_Credito";
             this.DGDetalle_Credito.ReadOnly = true;
             this.DGDetalle_Credito.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGDetalle_Credito.Size = new System.Drawing.Size(640, 211);
+            this.DGDetalle_Credito.Size = new System.Drawing.Size(640, 213);
             this.DGDetalle_Credito.TabIndex = 167;
             // 
             // DTCre_Emision
@@ -1738,7 +1738,7 @@
             this.btnEliminar_Credito.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEliminar_Credito.Location = new System.Drawing.Point(556, 333);
             this.btnEliminar_Credito.Name = "btnEliminar_Credito";
-            this.btnEliminar_Credito.Size = new System.Drawing.Size(90, 28);
+            this.btnEliminar_Credito.Size = new System.Drawing.Size(90, 30);
             this.btnEliminar_Credito.TabIndex = 169;
             this.btnEliminar_Credito.Text = "Eliminar";
             this.btnEliminar_Credito.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1757,7 +1757,7 @@
             this.btnAgregar_Credito.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAgregar_Credito.Location = new System.Drawing.Point(268, 333);
             this.btnAgregar_Credito.Name = "btnAgregar_Credito";
-            this.btnAgregar_Credito.Size = new System.Drawing.Size(90, 28);
+            this.btnAgregar_Credito.Size = new System.Drawing.Size(90, 30);
             this.btnAgregar_Credito.TabIndex = 168;
             this.btnAgregar_Credito.Text = "Agregar";
             this.btnAgregar_Credito.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1812,7 +1812,7 @@
             this.btnLimpiar_Despacho.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLimpiar_Despacho.Location = new System.Drawing.Point(460, 333);
             this.btnLimpiar_Despacho.Name = "btnLimpiar_Despacho";
-            this.btnLimpiar_Despacho.Size = new System.Drawing.Size(90, 28);
+            this.btnLimpiar_Despacho.Size = new System.Drawing.Size(90, 30);
             this.btnLimpiar_Despacho.TabIndex = 173;
             this.btnLimpiar_Despacho.Text = "Limpiar";
             this.btnLimpiar_Despacho.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1831,7 +1831,7 @@
             this.btnModificar_Despacho.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnModificar_Despacho.Location = new System.Drawing.Point(364, 333);
             this.btnModificar_Despacho.Name = "btnModificar_Despacho";
-            this.btnModificar_Despacho.Size = new System.Drawing.Size(90, 28);
+            this.btnModificar_Despacho.Size = new System.Drawing.Size(90, 30);
             this.btnModificar_Despacho.TabIndex = 172;
             this.btnModificar_Despacho.Text = "Modificar";
             this.btnModificar_Despacho.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1866,7 +1866,7 @@
             this.DGDetalle_Despacho.Name = "DGDetalle_Despacho";
             this.DGDetalle_Despacho.ReadOnly = true;
             this.DGDetalle_Despacho.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGDetalle_Despacho.Size = new System.Drawing.Size(640, 156);
+            this.DGDetalle_Despacho.Size = new System.Drawing.Size(640, 158);
             this.DGDetalle_Despacho.TabIndex = 146;
             // 
             // TBDes_Departamento
@@ -2132,7 +2132,7 @@
             this.btnEliminar_Despacho.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEliminar_Despacho.Location = new System.Drawing.Point(556, 333);
             this.btnEliminar_Despacho.Name = "btnEliminar_Despacho";
-            this.btnEliminar_Despacho.Size = new System.Drawing.Size(90, 28);
+            this.btnEliminar_Despacho.Size = new System.Drawing.Size(90, 30);
             this.btnEliminar_Despacho.TabIndex = 149;
             this.btnEliminar_Despacho.Text = "Eliminar";
             this.btnEliminar_Despacho.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2151,7 +2151,7 @@
             this.btnAgregar_Despacho.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAgregar_Despacho.Location = new System.Drawing.Point(268, 333);
             this.btnAgregar_Despacho.Name = "btnAgregar_Despacho";
-            this.btnAgregar_Despacho.Size = new System.Drawing.Size(90, 28);
+            this.btnAgregar_Despacho.Size = new System.Drawing.Size(90, 30);
             this.btnAgregar_Despacho.TabIndex = 148;
             this.btnAgregar_Despacho.Text = "Agregar";
             this.btnAgregar_Despacho.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2193,7 +2193,7 @@
             this.btnLimpiar_Financiera.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLimpiar_Financiera.Location = new System.Drawing.Point(460, 333);
             this.btnLimpiar_Financiera.Name = "btnLimpiar_Financiera";
-            this.btnLimpiar_Financiera.Size = new System.Drawing.Size(90, 28);
+            this.btnLimpiar_Financiera.Size = new System.Drawing.Size(90, 30);
             this.btnLimpiar_Financiera.TabIndex = 173;
             this.btnLimpiar_Financiera.Text = "Limpiar";
             this.btnLimpiar_Financiera.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2212,7 +2212,7 @@
             this.btnModificar_Financiera.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnModificar_Financiera.Location = new System.Drawing.Point(364, 333);
             this.btnModificar_Financiera.Name = "btnModificar_Financiera";
-            this.btnModificar_Financiera.Size = new System.Drawing.Size(90, 28);
+            this.btnModificar_Financiera.Size = new System.Drawing.Size(90, 30);
             this.btnModificar_Financiera.TabIndex = 172;
             this.btnModificar_Financiera.Text = "Modificar";
             this.btnModificar_Financiera.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2257,7 +2257,7 @@
             this.DGDetalle_Financiera.Name = "DGDetalle_Financiera";
             this.DGDetalle_Financiera.ReadOnly = true;
             this.DGDetalle_Financiera.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGDetalle_Financiera.Size = new System.Drawing.Size(639, 265);
+            this.DGDetalle_Financiera.Size = new System.Drawing.Size(639, 267);
             this.DGDetalle_Financiera.TabIndex = 165;
             // 
             // CBFin_Cuenta
@@ -2353,7 +2353,7 @@
             this.btnEliminar_Financiera.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEliminar_Financiera.Location = new System.Drawing.Point(556, 333);
             this.btnEliminar_Financiera.Name = "btnEliminar_Financiera";
-            this.btnEliminar_Financiera.Size = new System.Drawing.Size(90, 28);
+            this.btnEliminar_Financiera.Size = new System.Drawing.Size(90, 30);
             this.btnEliminar_Financiera.TabIndex = 168;
             this.btnEliminar_Financiera.Text = "Eliminar";
             this.btnEliminar_Financiera.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2372,7 +2372,7 @@
             this.btnAgregar_Financiera.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAgregar_Financiera.Location = new System.Drawing.Point(268, 333);
             this.btnAgregar_Financiera.Name = "btnAgregar_Financiera";
-            this.btnAgregar_Financiera.Size = new System.Drawing.Size(90, 28);
+            this.btnAgregar_Financiera.Size = new System.Drawing.Size(90, 30);
             this.btnAgregar_Financiera.TabIndex = 167;
             this.btnAgregar_Financiera.Text = "Agregar";
             this.btnAgregar_Financiera.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2391,7 +2391,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Location = new System.Drawing.Point(621, 6);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(25, 19);
+            this.button1.Size = new System.Drawing.Size(25, 21);
             this.button1.TabIndex = 135;
             this.button1.UseVisualStyleBackColor = true;
             // 

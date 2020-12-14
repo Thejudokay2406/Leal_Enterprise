@@ -225,9 +225,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.TBIdproducto_AutoSQL);
             this.groupBox1.Controls.Add(this.btnCancelar);
             this.groupBox1.Controls.Add(this.TCPrincipal);
@@ -235,7 +232,7 @@
             this.groupBox1.Controls.Add(this.btnGuardar);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(404, 491);
+            this.groupBox1.Size = new System.Drawing.Size(506, 491);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Leal Enterprise - Registro de Productos";
@@ -249,9 +246,6 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelar.FlatAppearance.BorderSize = 0;
             this.btnCancelar.Image = global::Presentacion.Botones.btnCancelar;
@@ -267,9 +261,6 @@
             // 
             // TCPrincipal
             // 
-            this.TCPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TCPrincipal.Controls.Add(this.TPDatosBasicos);
             this.TCPrincipal.Controls.Add(this.TPValores);
             this.TCPrincipal.Controls.Add(this.TPUbicacion);
@@ -285,7 +276,7 @@
             this.TCPrincipal.Multiline = true;
             this.TCPrincipal.Name = "TCPrincipal";
             this.TCPrincipal.SelectedIndex = 0;
-            this.TCPrincipal.Size = new System.Drawing.Size(392, 429);
+            this.TCPrincipal.Size = new System.Drawing.Size(450, 429);
             this.TCPrincipal.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.TCPrincipal.TabIndex = 0;
             // 
@@ -331,15 +322,12 @@
             this.TPDatosBasicos.Location = new System.Drawing.Point(4, 44);
             this.TPDatosBasicos.Name = "TPDatosBasicos";
             this.TPDatosBasicos.Padding = new System.Windows.Forms.Padding(3);
-            this.TPDatosBasicos.Size = new System.Drawing.Size(384, 381);
+            this.TPDatosBasicos.Size = new System.Drawing.Size(486, 381);
             this.TPDatosBasicos.TabIndex = 0;
             this.TPDatosBasicos.Text = "Datos";
             // 
             // TBComision_Valor
             // 
-            this.TBComision_Valor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBComision_Valor.Location = new System.Drawing.Point(176, 141);
             this.TBComision_Valor.Name = "TBComision_Valor";
             this.TBComision_Valor.Size = new System.Drawing.Size(199, 21);
@@ -351,9 +339,6 @@
             // 
             // TBComision_Porcentaje
             // 
-            this.TBComision_Porcentaje.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBComision_Porcentaje.Location = new System.Drawing.Point(91, 141);
             this.TBComision_Porcentaje.Name = "TBComision_Porcentaje";
             this.TBComision_Porcentaje.Size = new System.Drawing.Size(79, 21);
@@ -365,9 +350,6 @@
             // 
             // label48
             // 
-            this.label48.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label48.AutoSize = true;
             this.label48.Location = new System.Drawing.Point(6, 144);
             this.label48.Name = "label48";
@@ -377,9 +359,6 @@
             // 
             // CBManejaComision
             // 
-            this.CBManejaComision.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.CBManejaComision.AutoSize = true;
             this.CBManejaComision.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CBManejaComision.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -393,9 +372,6 @@
             // 
             // label49
             // 
-            this.label49.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label49.AutoSize = true;
             this.label49.Location = new System.Drawing.Point(196, 353);
             this.label49.Name = "label49";
@@ -405,9 +381,6 @@
             // 
             // CBOfertable
             // 
-            this.CBOfertable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.CBOfertable.AutoSize = true;
             this.CBOfertable.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CBOfertable.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -421,9 +394,6 @@
             // 
             // CBUnidad
             // 
-            this.CBUnidad.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.CBUnidad.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CBUnidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBUnidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -445,9 +415,6 @@
             // 
             // label27
             // 
-            this.label27.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label27.AutoSize = true;
             this.label27.Location = new System.Drawing.Point(6, 280);
             this.label27.Name = "label27";
@@ -457,9 +424,6 @@
             // 
             // label41
             // 
-            this.label41.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label41.AutoSize = true;
             this.label41.Location = new System.Drawing.Point(6, 353);
             this.label41.Name = "label41";
@@ -469,9 +433,6 @@
             // 
             // CBExportado
             // 
-            this.CBExportado.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.CBExportado.AutoSize = true;
             this.CBExportado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CBExportado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -485,9 +446,6 @@
             // 
             // CBImportado
             // 
-            this.CBImportado.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.CBImportado.AutoSize = true;
             this.CBImportado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CBImportado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -501,9 +459,6 @@
             // 
             // label21
             // 
-            this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label21.AutoSize = true;
             this.label21.Location = new System.Drawing.Point(196, 330);
             this.label21.Name = "label21";
@@ -513,9 +468,6 @@
             // 
             // label36
             // 
-            this.label36.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label36.AutoSize = true;
             this.label36.Location = new System.Drawing.Point(6, 330);
             this.label36.Name = "label36";
@@ -525,9 +477,6 @@
             // 
             // CBImpuesto
             // 
-            this.CBImpuesto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.CBImpuesto.AutoSize = true;
             this.CBImpuesto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CBImpuesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -541,9 +490,6 @@
             // 
             // label8
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(196, 308);
             this.label8.Name = "label8";
@@ -553,9 +499,6 @@
             // 
             // CBVencimiento
             // 
-            this.CBVencimiento.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.CBVencimiento.AutoSize = true;
             this.CBVencimiento.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CBVencimiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -569,9 +512,6 @@
             // 
             // label37
             // 
-            this.label37.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label37.AutoSize = true;
             this.label37.Location = new System.Drawing.Point(6, 308);
             this.label37.Name = "label37";
@@ -581,9 +521,6 @@
             // 
             // CBEmpaque
             // 
-            this.CBEmpaque.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.CBEmpaque.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CBEmpaque.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBEmpaque.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -596,9 +533,6 @@
             // 
             // label22
             // 
-            this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label22.AutoSize = true;
             this.label22.Location = new System.Drawing.Point(6, 251);
             this.label22.Name = "label22";
@@ -608,9 +542,6 @@
             // 
             // TBPresentacion
             // 
-            this.TBPresentacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBPresentacion.Location = new System.Drawing.Point(91, 114);
             this.TBPresentacion.Name = "TBPresentacion";
             this.TBPresentacion.Size = new System.Drawing.Size(284, 21);
@@ -621,9 +552,6 @@
             // 
             // label25
             // 
-            this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label25.AutoSize = true;
             this.label25.Location = new System.Drawing.Point(6, 117);
             this.label25.Name = "label25";
@@ -633,9 +561,6 @@
             // 
             // CBGrupo
             // 
-            this.CBGrupo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.CBGrupo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CBGrupo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -648,9 +573,6 @@
             // 
             // label13
             // 
-            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(6, 196);
             this.label13.Name = "label13";
@@ -660,9 +582,6 @@
             // 
             // CBTipo
             // 
-            this.CBTipo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.CBTipo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CBTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -675,9 +594,6 @@
             // 
             // label10
             // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(6, 223);
             this.label10.Name = "label10";
@@ -687,9 +603,6 @@
             // 
             // TBDescripcion01
             // 
-            this.TBDescripcion01.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBDescripcion01.Location = new System.Drawing.Point(91, 87);
             this.TBDescripcion01.Name = "TBDescripcion01";
             this.TBDescripcion01.Size = new System.Drawing.Size(284, 21);
@@ -700,9 +613,6 @@
             // 
             // label5
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(6, 90);
             this.label5.Name = "label5";
@@ -712,9 +622,6 @@
             // 
             // TBReferencia
             // 
-            this.TBReferencia.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBReferencia.Location = new System.Drawing.Point(91, 60);
             this.TBReferencia.Name = "TBReferencia";
             this.TBReferencia.Size = new System.Drawing.Size(284, 21);
@@ -725,9 +632,6 @@
             // 
             // CBMarca
             // 
-            this.CBMarca.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.CBMarca.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CBMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -740,9 +644,6 @@
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(6, 169);
             this.label4.Name = "label4";
@@ -752,9 +653,6 @@
             // 
             // label3
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 63);
             this.label3.Name = "label3";
@@ -764,9 +662,6 @@
             // 
             // TBNombre
             // 
-            this.TBNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBNombre.Location = new System.Drawing.Point(91, 33);
             this.TBNombre.Name = "TBNombre";
             this.TBNombre.Size = new System.Drawing.Size(284, 21);
@@ -777,9 +672,6 @@
             // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 36);
             this.label2.Name = "label2";
@@ -789,9 +681,6 @@
             // 
             // TBCodigo
             // 
-            this.TBCodigo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBCodigo.Location = new System.Drawing.Point(91, 6);
             this.TBCodigo.Name = "TBCodigo";
             this.TBCodigo.Size = new System.Drawing.Size(284, 21);
@@ -803,9 +692,6 @@
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 9);
             this.label1.Name = "label1";
@@ -842,15 +728,12 @@
             this.TPValores.Controls.Add(this.panel2);
             this.TPValores.Location = new System.Drawing.Point(4, 44);
             this.TPValores.Name = "TPValores";
-            this.TPValores.Size = new System.Drawing.Size(384, 381);
+            this.TPValores.Size = new System.Drawing.Size(442, 381);
             this.TPValores.TabIndex = 3;
             this.TPValores.Text = "Valores";
             // 
             // TBCostos_Adicional
             // 
-            this.TBCostos_Adicional.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBCostos_Adicional.Location = new System.Drawing.Point(132, 299);
             this.TBCostos_Adicional.Name = "TBCostos_Adicional";
             this.TBCostos_Adicional.Size = new System.Drawing.Size(247, 21);
@@ -863,9 +746,6 @@
             // 
             // label59
             // 
-            this.label59.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label59.AutoSize = true;
             this.label59.Location = new System.Drawing.Point(4, 302);
             this.label59.Name = "label59";
@@ -875,9 +755,6 @@
             // 
             // TBCostos_Seguridad
             // 
-            this.TBCostos_Seguridad.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBCostos_Seguridad.Location = new System.Drawing.Point(132, 272);
             this.TBCostos_Seguridad.Name = "TBCostos_Seguridad";
             this.TBCostos_Seguridad.Size = new System.Drawing.Size(247, 21);
@@ -890,9 +767,6 @@
             // 
             // label58
             // 
-            this.label58.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label58.AutoSize = true;
             this.label58.Location = new System.Drawing.Point(4, 275);
             this.label58.Name = "label58";
@@ -902,9 +776,6 @@
             // 
             // TBCostos_Imprtacion
             // 
-            this.TBCostos_Imprtacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBCostos_Imprtacion.Location = new System.Drawing.Point(132, 245);
             this.TBCostos_Imprtacion.Name = "TBCostos_Imprtacion";
             this.TBCostos_Imprtacion.Size = new System.Drawing.Size(247, 21);
@@ -917,9 +788,6 @@
             // 
             // label57
             // 
-            this.label57.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label57.AutoSize = true;
             this.label57.Location = new System.Drawing.Point(4, 248);
             this.label57.Name = "label57";
@@ -929,9 +797,6 @@
             // 
             // TBCostos_Exportacion
             // 
-            this.TBCostos_Exportacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBCostos_Exportacion.Location = new System.Drawing.Point(132, 218);
             this.TBCostos_Exportacion.Name = "TBCostos_Exportacion";
             this.TBCostos_Exportacion.Size = new System.Drawing.Size(247, 21);
@@ -944,9 +809,6 @@
             // 
             // label56
             // 
-            this.label56.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label56.AutoSize = true;
             this.label56.Location = new System.Drawing.Point(4, 221);
             this.label56.Name = "label56";
@@ -956,9 +818,6 @@
             // 
             // TBCostos_Materiales
             // 
-            this.TBCostos_Materiales.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBCostos_Materiales.Location = new System.Drawing.Point(132, 191);
             this.TBCostos_Materiales.Name = "TBCostos_Materiales";
             this.TBCostos_Materiales.Size = new System.Drawing.Size(247, 21);
@@ -971,9 +830,6 @@
             // 
             // label55
             // 
-            this.label55.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label55.AutoSize = true;
             this.label55.Location = new System.Drawing.Point(4, 194);
             this.label55.Name = "label55";
@@ -983,9 +839,6 @@
             // 
             // TBCosto_Fabricacion
             // 
-            this.TBCosto_Fabricacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBCosto_Fabricacion.Location = new System.Drawing.Point(132, 164);
             this.TBCosto_Fabricacion.Name = "TBCosto_Fabricacion";
             this.TBCosto_Fabricacion.Size = new System.Drawing.Size(247, 21);
@@ -998,9 +851,6 @@
             // 
             // label54
             // 
-            this.label54.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label54.AutoSize = true;
             this.label54.Location = new System.Drawing.Point(4, 167);
             this.label54.Name = "label54";
@@ -1010,9 +860,6 @@
             // 
             // label31
             // 
-            this.label31.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label31.AutoSize = true;
             this.label31.Location = new System.Drawing.Point(4, 140);
             this.label31.Name = "label31";
@@ -1022,9 +869,6 @@
             // 
             // TBCompraPromedio
             // 
-            this.TBCompraPromedio.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBCompraPromedio.Location = new System.Drawing.Point(132, 30);
             this.TBCompraPromedio.Name = "TBCompraPromedio";
             this.TBCompraPromedio.Size = new System.Drawing.Size(247, 21);
@@ -1037,9 +881,6 @@
             // 
             // TBVentaMayorista
             // 
-            this.TBVentaMayorista.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBVentaMayorista.Location = new System.Drawing.Point(132, 137);
             this.TBVentaMayorista.Name = "TBVentaMayorista";
             this.TBVentaMayorista.Size = new System.Drawing.Size(247, 21);
@@ -1052,9 +893,6 @@
             // 
             // label23
             // 
-            this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label23.AutoSize = true;
             this.label23.Location = new System.Drawing.Point(4, 32);
             this.label23.Name = "label23";
@@ -1064,9 +902,6 @@
             // 
             // label32
             // 
-            this.label32.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label32.AutoSize = true;
             this.label32.Location = new System.Drawing.Point(4, 113);
             this.label32.Name = "label32";
@@ -1076,9 +911,6 @@
             // 
             // TBValorVenta_Excento
             // 
-            this.TBValorVenta_Excento.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBValorVenta_Excento.Location = new System.Drawing.Point(132, 83);
             this.TBValorVenta_Excento.Name = "TBValorVenta_Excento";
             this.TBValorVenta_Excento.Size = new System.Drawing.Size(247, 21);
@@ -1091,9 +923,6 @@
             // 
             // TBCompraFinal
             // 
-            this.TBCompraFinal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBCompraFinal.Location = new System.Drawing.Point(132, 56);
             this.TBCompraFinal.Name = "TBCompraFinal";
             this.TBCompraFinal.Size = new System.Drawing.Size(247, 21);
@@ -1106,9 +935,6 @@
             // 
             // label29
             // 
-            this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label29.AutoSize = true;
             this.label29.Location = new System.Drawing.Point(4, 59);
             this.label29.Name = "label29";
@@ -1118,9 +944,6 @@
             // 
             // TBValorVenta_NoExcento
             // 
-            this.TBValorVenta_NoExcento.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBValorVenta_NoExcento.Location = new System.Drawing.Point(132, 110);
             this.TBValorVenta_NoExcento.Name = "TBValorVenta_NoExcento";
             this.TBValorVenta_NoExcento.Size = new System.Drawing.Size(247, 21);
@@ -1133,9 +956,6 @@
             // 
             // label26
             // 
-            this.label26.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label26.AutoSize = true;
             this.label26.Location = new System.Drawing.Point(4, 86);
             this.label26.Name = "label26";
@@ -1152,7 +972,7 @@
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel2.Location = new System.Drawing.Point(7, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(372, 20);
+            this.panel2.Size = new System.Drawing.Size(430, 20);
             this.panel2.TabIndex = 122;
             // 
             // TPUbicacion
@@ -1175,15 +995,12 @@
             this.TPUbicacion.Location = new System.Drawing.Point(4, 44);
             this.TPUbicacion.Name = "TPUbicacion";
             this.TPUbicacion.Padding = new System.Windows.Forms.Padding(3);
-            this.TPUbicacion.Size = new System.Drawing.Size(384, 381);
+            this.TPUbicacion.Size = new System.Drawing.Size(442, 381);
             this.TPUbicacion.TabIndex = 4;
             this.TPUbicacion.Text = "Ubicación";
             // 
             // btnModificar_Ubicacion
             // 
-            this.btnModificar_Ubicacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnModificar_Ubicacion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnModificar_Ubicacion.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnModificar_Ubicacion.FlatAppearance.BorderSize = 0;
@@ -1200,9 +1017,6 @@
             // 
             // lblTotal_Ubicacion
             // 
-            this.lblTotal_Ubicacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTotal_Ubicacion.AutoSize = true;
             this.lblTotal_Ubicacion.Location = new System.Drawing.Point(6, 111);
             this.lblTotal_Ubicacion.Name = "lblTotal_Ubicacion";
@@ -1213,9 +1027,6 @@
             // DGDetalles_Ubicacion
             // 
             this.DGDetalles_Ubicacion.AllowUserToAddRows = false;
-            this.DGDetalles_Ubicacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.DGDetalles_Ubicacion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DGDetalles_Ubicacion.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.DGDetalles_Ubicacion.BackgroundColor = System.Drawing.Color.White;
@@ -1226,16 +1037,13 @@
             this.DGDetalles_Ubicacion.ReadOnly = true;
             this.DGDetalles_Ubicacion.RowHeadersVisible = false;
             this.DGDetalles_Ubicacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGDetalles_Ubicacion.Size = new System.Drawing.Size(370, 208);
+            this.DGDetalles_Ubicacion.Size = new System.Drawing.Size(428, 208);
             this.DGDetalles_Ubicacion.TabIndex = 36;
             this.DGDetalles_Ubicacion.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGDetalles_Ubicacion_CellClick);
             this.DGDetalles_Ubicacion.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGDetalles_Ubicacion_RowEnter);
             // 
             // CBBodega
             // 
-            this.CBBodega.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.CBBodega.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CBBodega.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBBodega.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1249,9 +1057,6 @@
             // 
             // label24
             // 
-            this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label24.AutoSize = true;
             this.label24.Location = new System.Drawing.Point(6, 7);
             this.label24.Name = "label24";
@@ -1261,9 +1066,6 @@
             // 
             // TBUbicacion
             // 
-            this.TBUbicacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBUbicacion.Location = new System.Drawing.Point(77, 33);
             this.TBUbicacion.Name = "TBUbicacion";
             this.TBUbicacion.Size = new System.Drawing.Size(299, 21);
@@ -1274,9 +1076,6 @@
             // 
             // TBNivel
             // 
-            this.TBNivel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBNivel.Location = new System.Drawing.Point(77, 87);
             this.TBNivel.Name = "TBNivel";
             this.TBNivel.Size = new System.Drawing.Size(299, 21);
@@ -1287,9 +1086,6 @@
             // 
             // label20
             // 
-            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label20.AutoSize = true;
             this.label20.Location = new System.Drawing.Point(6, 90);
             this.label20.Name = "label20";
@@ -1299,9 +1095,6 @@
             // 
             // TBEstante
             // 
-            this.TBEstante.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBEstante.Location = new System.Drawing.Point(77, 60);
             this.TBEstante.Name = "TBEstante";
             this.TBEstante.Size = new System.Drawing.Size(299, 21);
@@ -1312,9 +1105,6 @@
             // 
             // label19
             // 
-            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label19.AutoSize = true;
             this.label19.Location = new System.Drawing.Point(6, 63);
             this.label19.Name = "label19";
@@ -1324,9 +1114,6 @@
             // 
             // label18
             // 
-            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label18.AutoSize = true;
             this.label18.Location = new System.Drawing.Point(6, 36);
             this.label18.Name = "label18";
@@ -1336,9 +1123,6 @@
             // 
             // btnEliminar_Ubicacion
             // 
-            this.btnEliminar_Ubicacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEliminar_Ubicacion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEliminar_Ubicacion.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnEliminar_Ubicacion.FlatAppearance.BorderSize = 0;
@@ -1355,9 +1139,6 @@
             // 
             // btnAgregar_Ubicacion
             // 
-            this.btnAgregar_Ubicacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAgregar_Ubicacion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgregar_Ubicacion.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnAgregar_Ubicacion.FlatAppearance.BorderSize = 0;
@@ -1394,16 +1175,13 @@
             this.TPCantidad.Controls.Add(this.panel1);
             this.TPCantidad.Location = new System.Drawing.Point(4, 44);
             this.TPCantidad.Name = "TPCantidad";
-            this.TPCantidad.Size = new System.Drawing.Size(384, 381);
+            this.TPCantidad.Size = new System.Drawing.Size(442, 381);
             this.TPCantidad.TabIndex = 17;
             this.TPCantidad.Text = "Cantidades";
             this.TPCantidad.UseVisualStyleBackColor = true;
             // 
             // TBCompraMaxima_Mayorista
             // 
-            this.TBCompraMaxima_Mayorista.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBCompraMaxima_Mayorista.Location = new System.Drawing.Point(127, 249);
             this.TBCompraMaxima_Mayorista.Name = "TBCompraMaxima_Mayorista";
             this.TBCompraMaxima_Mayorista.Size = new System.Drawing.Size(252, 21);
@@ -1416,9 +1194,6 @@
             // 
             // TBCompraMinima_Mayorista
             // 
-            this.TBCompraMinima_Mayorista.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBCompraMinima_Mayorista.Location = new System.Drawing.Point(127, 222);
             this.TBCompraMinima_Mayorista.Name = "TBCompraMinima_Mayorista";
             this.TBCompraMinima_Mayorista.Size = new System.Drawing.Size(252, 21);
@@ -1431,9 +1206,6 @@
             // 
             // label43
             // 
-            this.label43.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label43.AutoSize = true;
             this.label43.Location = new System.Drawing.Point(6, 252);
             this.label43.Name = "label43";
@@ -1443,9 +1215,6 @@
             // 
             // label45
             // 
-            this.label45.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label45.AutoSize = true;
             this.label45.Location = new System.Drawing.Point(6, 225);
             this.label45.Name = "label45";
@@ -1455,9 +1224,6 @@
             // 
             // TBCompraMaxima_Cliente
             // 
-            this.TBCompraMaxima_Cliente.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBCompraMaxima_Cliente.Location = new System.Drawing.Point(127, 195);
             this.TBCompraMaxima_Cliente.Name = "TBCompraMaxima_Cliente";
             this.TBCompraMaxima_Cliente.Size = new System.Drawing.Size(252, 21);
@@ -1470,9 +1236,6 @@
             // 
             // TBCompraMinima_Cliente
             // 
-            this.TBCompraMinima_Cliente.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBCompraMinima_Cliente.Location = new System.Drawing.Point(127, 168);
             this.TBCompraMinima_Cliente.Name = "TBCompraMinima_Cliente";
             this.TBCompraMinima_Cliente.Size = new System.Drawing.Size(252, 21);
@@ -1485,9 +1248,6 @@
             // 
             // label46
             // 
-            this.label46.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label46.AutoSize = true;
             this.label46.Location = new System.Drawing.Point(6, 198);
             this.label46.Name = "label46";
@@ -1497,9 +1257,6 @@
             // 
             // label47
             // 
-            this.label47.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label47.AutoSize = true;
             this.label47.Location = new System.Drawing.Point(6, 171);
             this.label47.Name = "label47";
@@ -1509,9 +1266,6 @@
             // 
             // TBVentaMaxima_Mayorista
             // 
-            this.TBVentaMaxima_Mayorista.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBVentaMaxima_Mayorista.Location = new System.Drawing.Point(127, 115);
             this.TBVentaMaxima_Mayorista.Name = "TBVentaMaxima_Mayorista";
             this.TBVentaMaxima_Mayorista.Size = new System.Drawing.Size(252, 21);
@@ -1524,9 +1278,6 @@
             // 
             // TBVentaMinima_Mayorista
             // 
-            this.TBVentaMinima_Mayorista.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBVentaMinima_Mayorista.Location = new System.Drawing.Point(127, 88);
             this.TBVentaMinima_Mayorista.Name = "TBVentaMinima_Mayorista";
             this.TBVentaMinima_Mayorista.Size = new System.Drawing.Size(252, 21);
@@ -1539,9 +1290,6 @@
             // 
             // label40
             // 
-            this.label40.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label40.AutoSize = true;
             this.label40.Location = new System.Drawing.Point(6, 118);
             this.label40.Name = "label40";
@@ -1551,9 +1299,6 @@
             // 
             // label38
             // 
-            this.label38.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label38.AutoSize = true;
             this.label38.Location = new System.Drawing.Point(6, 91);
             this.label38.Name = "label38";
@@ -1563,9 +1308,6 @@
             // 
             // TBVentaMaxima_Cliente
             // 
-            this.TBVentaMaxima_Cliente.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBVentaMaxima_Cliente.Location = new System.Drawing.Point(127, 61);
             this.TBVentaMaxima_Cliente.Name = "TBVentaMaxima_Cliente";
             this.TBVentaMaxima_Cliente.Size = new System.Drawing.Size(252, 21);
@@ -1578,9 +1320,6 @@
             // 
             // TBVentaMinina_Cliente
             // 
-            this.TBVentaMinina_Cliente.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBVentaMinina_Cliente.Location = new System.Drawing.Point(127, 34);
             this.TBVentaMinina_Cliente.Name = "TBVentaMinina_Cliente";
             this.TBVentaMinina_Cliente.Size = new System.Drawing.Size(252, 21);
@@ -1593,9 +1332,6 @@
             // 
             // label17
             // 
-            this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(6, 64);
             this.label17.Name = "label17";
@@ -1605,9 +1341,6 @@
             // 
             // label16
             // 
-            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(6, 37);
             this.label16.Name = "label16";
@@ -1617,9 +1350,6 @@
             // 
             // panel3
             // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackgroundImage = global::Presentacion.Titulos.Producto___Cantidad_de_Compra;
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel3.Location = new System.Drawing.Point(9, 142);
@@ -1629,9 +1359,6 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackgroundImage = global::Presentacion.Titulos.Producto___Cantidad_de_Venta;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Location = new System.Drawing.Point(9, 8);
@@ -1652,9 +1379,6 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.PB_Imagen);
             this.groupBox3.Location = new System.Drawing.Point(7, 6);
             this.groupBox3.Name = "groupBox3";
@@ -1665,9 +1389,6 @@
             // 
             // PB_Imagen
             // 
-            this.PB_Imagen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.PB_Imagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PB_Imagen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PB_Imagen.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -1698,16 +1419,13 @@
             this.TPLote.Location = new System.Drawing.Point(4, 44);
             this.TPLote.Name = "TPLote";
             this.TPLote.Padding = new System.Windows.Forms.Padding(3);
-            this.TPLote.Size = new System.Drawing.Size(384, 381);
+            this.TPLote.Size = new System.Drawing.Size(442, 381);
             this.TPLote.TabIndex = 11;
             this.TPLote.Text = "Lote";
             this.TPLote.UseVisualStyleBackColor = true;
             // 
             // btnModificar_Lote
             // 
-            this.btnModificar_Lote.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnModificar_Lote.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnModificar_Lote.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnModificar_Lote.FlatAppearance.BorderSize = 0;
@@ -1724,9 +1442,6 @@
             // 
             // TBLote_Venta
             // 
-            this.TBLote_Venta.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBLote_Venta.Location = new System.Drawing.Point(111, 60);
             this.TBLote_Venta.Name = "TBLote_Venta";
             this.TBLote_Venta.Size = new System.Drawing.Size(267, 21);
@@ -1738,9 +1453,6 @@
             // 
             // label50
             // 
-            this.label50.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label50.AutoSize = true;
             this.label50.Location = new System.Drawing.Point(6, 63);
             this.label50.Name = "label50";
@@ -1750,9 +1462,6 @@
             // 
             // TBLote_Cantidad
             // 
-            this.TBLote_Cantidad.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBLote_Cantidad.Location = new System.Drawing.Point(111, 87);
             this.TBLote_Cantidad.Name = "TBLote_Cantidad";
             this.TBLote_Cantidad.Size = new System.Drawing.Size(267, 21);
@@ -1764,9 +1473,6 @@
             // 
             // label42
             // 
-            this.label42.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label42.AutoSize = true;
             this.label42.Location = new System.Drawing.Point(6, 90);
             this.label42.Name = "label42";
@@ -1776,9 +1482,6 @@
             // 
             // DTLote_Vencimiento
             // 
-            this.DTLote_Vencimiento.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.DTLote_Vencimiento.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DTLote_Vencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DTLote_Vencimiento.Location = new System.Drawing.Point(178, 114);
@@ -1788,9 +1491,6 @@
             // 
             // label34
             // 
-            this.label34.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label34.AutoSize = true;
             this.label34.Location = new System.Drawing.Point(6, 114);
             this.label34.Name = "label34";
@@ -1801,9 +1501,6 @@
             // DGDetalles_Lotes
             // 
             this.DGDetalles_Lotes.AllowUserToAddRows = false;
-            this.DGDetalles_Lotes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.DGDetalles_Lotes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.DGDetalles_Lotes.BackgroundColor = System.Drawing.Color.White;
             this.DGDetalles_Lotes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -1818,9 +1515,6 @@
             // 
             // lblTotal_Lotes
             // 
-            this.lblTotal_Lotes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTotal_Lotes.AutoSize = true;
             this.lblTotal_Lotes.Location = new System.Drawing.Point(6, 138);
             this.lblTotal_Lotes.Name = "lblTotal_Lotes";
@@ -1830,9 +1524,6 @@
             // 
             // TBValor_Lote
             // 
-            this.TBValor_Lote.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBValor_Lote.Location = new System.Drawing.Point(111, 33);
             this.TBValor_Lote.Name = "TBValor_Lote";
             this.TBValor_Lote.Size = new System.Drawing.Size(267, 21);
@@ -1844,9 +1535,6 @@
             // 
             // label7
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(6, 36);
             this.label7.Name = "label7";
@@ -1856,9 +1544,6 @@
             // 
             // TBLotedeingreso
             // 
-            this.TBLotedeingreso.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBLotedeingreso.Location = new System.Drawing.Point(111, 6);
             this.TBLotedeingreso.Name = "TBLotedeingreso";
             this.TBLotedeingreso.Size = new System.Drawing.Size(267, 21);
@@ -1870,9 +1555,6 @@
             // 
             // label12
             // 
-            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(6, 9);
             this.label12.Name = "label12";
@@ -1882,9 +1564,6 @@
             // 
             // btnEliminar_Lote
             // 
-            this.btnEliminar_Lote.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEliminar_Lote.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEliminar_Lote.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnEliminar_Lote.FlatAppearance.BorderSize = 0;
@@ -1901,9 +1580,6 @@
             // 
             // btnAgregar_Lote
             // 
-            this.btnAgregar_Lote.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAgregar_Lote.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgregar_Lote.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnAgregar_Lote.FlatAppearance.BorderSize = 0;
@@ -1937,9 +1613,6 @@
             // 
             // btnModificar_CodigoDeBarra
             // 
-            this.btnModificar_CodigoDeBarra.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnModificar_CodigoDeBarra.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnModificar_CodigoDeBarra.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnModificar_CodigoDeBarra.FlatAppearance.BorderSize = 0;
@@ -1956,9 +1629,6 @@
             // 
             // TBCodigodeBarra
             // 
-            this.TBCodigodeBarra.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBCodigodeBarra.Location = new System.Drawing.Point(108, 6);
             this.TBCodigodeBarra.Name = "TBCodigodeBarra";
             this.TBCodigodeBarra.Size = new System.Drawing.Size(270, 21);
@@ -1969,9 +1639,6 @@
             // 
             // label35
             // 
-            this.label35.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label35.AutoSize = true;
             this.label35.Location = new System.Drawing.Point(6, 9);
             this.label35.Name = "label35";
@@ -1981,9 +1648,6 @@
             // 
             // lblTotal_Codigodebarra
             // 
-            this.lblTotal_Codigodebarra.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTotal_Codigodebarra.AutoSize = true;
             this.lblTotal_Codigodebarra.Location = new System.Drawing.Point(6, 30);
             this.lblTotal_Codigodebarra.Name = "lblTotal_Codigodebarra";
@@ -1994,9 +1658,6 @@
             // DGDetalle_CodigoDeBarra
             // 
             this.DGDetalle_CodigoDeBarra.AllowUserToAddRows = false;
-            this.DGDetalle_CodigoDeBarra.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.DGDetalle_CodigoDeBarra.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DGDetalle_CodigoDeBarra.BackgroundColor = System.Drawing.Color.White;
             this.DGDetalle_CodigoDeBarra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -2011,9 +1672,6 @@
             // 
             // btnAgregar_CodigoDeBarra
             // 
-            this.btnAgregar_CodigoDeBarra.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAgregar_CodigoDeBarra.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnAgregar_CodigoDeBarra.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgregar_CodigoDeBarra.FlatAppearance.BorderColor = System.Drawing.Color.White;
@@ -2031,9 +1689,6 @@
             // 
             // btnEliminar_CodigosDeBarra
             // 
-            this.btnEliminar_CodigosDeBarra.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEliminar_CodigosDeBarra.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnEliminar_CodigosDeBarra.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEliminar_CodigosDeBarra.FlatAppearance.BorderColor = System.Drawing.Color.White;
@@ -2071,9 +1726,6 @@
             // 
             // TBIdproveedor
             // 
-            this.TBIdproveedor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBIdproveedor.Location = new System.Drawing.Point(49, 350);
             this.TBIdproveedor.Name = "TBIdproveedor";
             this.TBIdproveedor.Size = new System.Drawing.Size(21, 21);
@@ -2082,9 +1734,6 @@
             // 
             // TBProveedor_Documento
             // 
-            this.TBProveedor_Documento.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBProveedor_Documento.Location = new System.Drawing.Point(84, 33);
             this.TBProveedor_Documento.Name = "TBProveedor_Documento";
             this.TBProveedor_Documento.Size = new System.Drawing.Size(294, 21);
@@ -2093,9 +1742,6 @@
             // 
             // label28
             // 
-            this.label28.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label28.AutoSize = true;
             this.label28.Location = new System.Drawing.Point(7, 36);
             this.label28.Name = "label28";
@@ -2105,9 +1751,6 @@
             // 
             // btnAgregar_Proveedor
             // 
-            this.btnAgregar_Proveedor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAgregar_Proveedor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgregar_Proveedor.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnAgregar_Proveedor.FlatAppearance.BorderSize = 0;
@@ -2124,9 +1767,6 @@
             // 
             // lblTotal_Proveedor
             // 
-            this.lblTotal_Proveedor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTotal_Proveedor.AutoSize = true;
             this.lblTotal_Proveedor.Location = new System.Drawing.Point(7, 57);
             this.lblTotal_Proveedor.Name = "lblTotal_Proveedor";
@@ -2137,9 +1777,6 @@
             // DGDetalle_Proveedor
             // 
             this.DGDetalle_Proveedor.AllowUserToAddRows = false;
-            this.DGDetalle_Proveedor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.DGDetalle_Proveedor.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DGDetalle_Proveedor.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.DGDetalle_Proveedor.BackgroundColor = System.Drawing.Color.White;
@@ -2155,9 +1792,6 @@
             // 
             // TBProveedor
             // 
-            this.TBProveedor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBProveedor.Location = new System.Drawing.Point(84, 6);
             this.TBProveedor.Name = "TBProveedor";
             this.TBProveedor.Size = new System.Drawing.Size(263, 21);
@@ -2168,9 +1802,6 @@
             // 
             // label6
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(7, 9);
             this.label6.Name = "label6";
@@ -2180,9 +1811,6 @@
             // 
             // btnEliminar_Proveedor
             // 
-            this.btnEliminar_Proveedor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEliminar_Proveedor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEliminar_Proveedor.FlatAppearance.BorderSize = 0;
             this.btnEliminar_Proveedor.Image = global::Presentacion.Botones.btnEliminar;
@@ -2198,9 +1826,6 @@
             // 
             // btnExaminar_Proveedor
             // 
-            this.btnExaminar_Proveedor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExaminar_Proveedor.BackgroundImage = global::Presentacion.Botones.btnExaminar;
             this.btnExaminar_Proveedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnExaminar_Proveedor.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -2237,9 +1862,6 @@
             // 
             // btnExaminar_Impuesto
             // 
-            this.btnExaminar_Impuesto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExaminar_Impuesto.BackgroundImage = global::Presentacion.Botones.btnExaminar;
             this.btnExaminar_Impuesto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnExaminar_Impuesto.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -2261,9 +1883,6 @@
             // 
             // label11
             // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(6, 63);
             this.label11.Name = "label11";
@@ -2273,9 +1892,6 @@
             // 
             // label9
             // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(6, 36);
             this.label9.Name = "label9";
@@ -2299,9 +1915,6 @@
             // 
             // TBIdimpuesto
             // 
-            this.TBIdimpuesto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBIdimpuesto.Location = new System.Drawing.Point(10, 350);
             this.TBIdimpuesto.Name = "TBIdimpuesto";
             this.TBIdimpuesto.Size = new System.Drawing.Size(28, 21);
@@ -2309,9 +1922,6 @@
             // 
             // lblTotal_Impuesto
             // 
-            this.lblTotal_Impuesto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTotal_Impuesto.AutoSize = true;
             this.lblTotal_Impuesto.Location = new System.Drawing.Point(7, 86);
             this.lblTotal_Impuesto.Name = "lblTotal_Impuesto";
@@ -2322,9 +1932,6 @@
             // DGDetalle_Impuesto
             // 
             this.DGDetalle_Impuesto.AllowUserToAddRows = false;
-            this.DGDetalle_Impuesto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.DGDetalle_Impuesto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DGDetalle_Impuesto.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.DGDetalle_Impuesto.BackgroundColor = System.Drawing.Color.White;
@@ -2340,9 +1947,6 @@
             // 
             // label15
             // 
-            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(6, 9);
             this.label15.Name = "label15";
@@ -2352,9 +1956,6 @@
             // 
             // btnAgregar_Impuesto
             // 
-            this.btnAgregar_Impuesto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAgregar_Impuesto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgregar_Impuesto.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnAgregar_Impuesto.FlatAppearance.BorderSize = 0;
@@ -2371,9 +1972,6 @@
             // 
             // btnEliminar_Impuesto
             // 
-            this.btnEliminar_Impuesto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEliminar_Impuesto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEliminar_Impuesto.FlatAppearance.BorderSize = 0;
             this.btnEliminar_Impuesto.Image = global::Presentacion.Botones.btnEliminar;
@@ -2417,9 +2015,6 @@
             // 
             // TBIgualdad_Marca
             // 
-            this.TBIgualdad_Marca.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBIgualdad_Marca.Location = new System.Drawing.Point(65, 60);
             this.TBIgualdad_Marca.Name = "TBIgualdad_Marca";
             this.TBIgualdad_Marca.Size = new System.Drawing.Size(313, 21);
@@ -2428,9 +2023,6 @@
             // 
             // TBIgualdad_Producto
             // 
-            this.TBIgualdad_Producto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBIgualdad_Producto.Location = new System.Drawing.Point(65, 33);
             this.TBIgualdad_Producto.Name = "TBIgualdad_Producto";
             this.TBIgualdad_Producto.Size = new System.Drawing.Size(313, 21);
@@ -2439,9 +2031,6 @@
             // 
             // label33
             // 
-            this.label33.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label33.AutoSize = true;
             this.label33.Location = new System.Drawing.Point(3, 63);
             this.label33.Name = "label33";
@@ -2451,9 +2040,6 @@
             // 
             // TBIgualdad_Codigo
             // 
-            this.TBIgualdad_Codigo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBIgualdad_Codigo.Location = new System.Drawing.Point(65, 6);
             this.TBIgualdad_Codigo.Name = "TBIgualdad_Codigo";
             this.TBIgualdad_Codigo.Size = new System.Drawing.Size(282, 21);
@@ -2462,9 +2048,6 @@
             // 
             // label30
             // 
-            this.label30.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label30.AutoSize = true;
             this.label30.Location = new System.Drawing.Point(3, 36);
             this.label30.Name = "label30";
@@ -2474,9 +2057,6 @@
             // 
             // btnAgregar_Igualdad
             // 
-            this.btnAgregar_Igualdad.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAgregar_Igualdad.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgregar_Igualdad.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnAgregar_Igualdad.FlatAppearance.BorderSize = 0;
@@ -2510,9 +2090,6 @@
             // 
             // lblTotal_Igualdad
             // 
-            this.lblTotal_Igualdad.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTotal_Igualdad.AutoSize = true;
             this.lblTotal_Igualdad.Location = new System.Drawing.Point(3, 84);
             this.lblTotal_Igualdad.Name = "lblTotal_Igualdad";
@@ -2523,9 +2100,6 @@
             // DGDetalle_Igualdad
             // 
             this.DGDetalle_Igualdad.AllowUserToAddRows = false;
-            this.DGDetalle_Igualdad.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.DGDetalle_Igualdad.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.DGDetalle_Igualdad.BackgroundColor = System.Drawing.Color.White;
             this.DGDetalle_Igualdad.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -2540,9 +2114,6 @@
             // 
             // label39
             // 
-            this.label39.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label39.AutoSize = true;
             this.label39.Location = new System.Drawing.Point(3, 9);
             this.label39.Name = "label39";
@@ -2552,9 +2123,6 @@
             // 
             // btnEliminar_Igualdad
             // 
-            this.btnEliminar_Igualdad.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEliminar_Igualdad.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEliminar_Igualdad.FlatAppearance.BorderSize = 0;
             this.btnEliminar_Igualdad.Image = global::Presentacion.Botones.btnEliminar;
@@ -2570,9 +2138,6 @@
             // 
             // TBIdproducto
             // 
-            this.TBIdproducto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBIdproducto.Location = new System.Drawing.Point(198, 460);
             this.TBIdproducto.Name = "TBIdproducto";
             this.TBIdproducto.Size = new System.Drawing.Size(21, 21);
@@ -2581,9 +2146,6 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGuardar.FlatAppearance.BorderSize = 0;
             this.btnGuardar.Image = global::Presentacion.Botones.btnGuardar;
@@ -2599,32 +2161,27 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.btnEliminar);
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.btnImprimir);
             this.groupBox2.Controls.Add(this.TBBuscar);
             this.groupBox2.Controls.Add(this.lblTotal);
             this.groupBox2.Controls.Add(this.DGResultados);
-            this.groupBox2.Location = new System.Drawing.Point(422, 12);
+            this.groupBox2.Location = new System.Drawing.Point(524, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(616, 491);
+            this.groupBox2.Size = new System.Drawing.Size(513, 491);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Leal Enterprise - Consulta de Productos Registrados";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEliminar.FlatAppearance.BorderSize = 0;
             this.btnEliminar.Image = global::Presentacion.Botones.btnEliminar;
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(420, 455);
+            this.btnEliminar.Location = new System.Drawing.Point(320, 455);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(90, 30);
             this.btnEliminar.TabIndex = 4;
@@ -2635,9 +2192,6 @@
             // 
             // label14
             // 
-            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(6, 23);
             this.label14.Name = "label14";
@@ -2647,14 +2201,11 @@
             // 
             // btnImprimir
             // 
-            this.btnImprimir.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnImprimir.FlatAppearance.BorderSize = 0;
             this.btnImprimir.Image = global::Presentacion.Botones.btnImprimir;
             this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImprimir.Location = new System.Drawing.Point(516, 455);
+            this.btnImprimir.Location = new System.Drawing.Point(416, 455);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(90, 30);
             this.btnImprimir.TabIndex = 6;
@@ -2665,12 +2216,9 @@
             // 
             // TBBuscar
             // 
-            this.TBBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TBBuscar.Location = new System.Drawing.Point(133, 20);
             this.TBBuscar.Name = "TBBuscar";
-            this.TBBuscar.Size = new System.Drawing.Size(473, 21);
+            this.TBBuscar.Size = new System.Drawing.Size(373, 21);
             this.TBBuscar.TabIndex = 12;
             this.TBBuscar.TextChanged += new System.EventHandler(this.TBBuscar_TextChanged);
             this.TBBuscar.Enter += new System.EventHandler(this.TBBuscar_Enter);
@@ -2678,9 +2226,6 @@
             // 
             // lblTotal
             // 
-            this.lblTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTotal.AutoSize = true;
             this.lblTotal.Location = new System.Drawing.Point(6, 463);
             this.lblTotal.Name = "lblTotal";
@@ -2692,9 +2237,6 @@
             // 
             this.DGResultados.AllowUserToAddRows = false;
             this.DGResultados.AllowUserToDeleteRows = false;
-            this.DGResultados.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.DGResultados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DGResultados.BackgroundColor = System.Drawing.Color.White;
             this.DGResultados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -2703,7 +2245,7 @@
             this.DGResultados.Name = "DGResultados";
             this.DGResultados.ReadOnly = true;
             this.DGResultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGResultados.Size = new System.Drawing.Size(600, 402);
+            this.DGResultados.Size = new System.Drawing.Size(500, 402);
             this.DGResultados.TabIndex = 13;
             this.DGResultados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGResultados_CellDoubleClick);
             this.DGResultados.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DGResultados_KeyPress);
