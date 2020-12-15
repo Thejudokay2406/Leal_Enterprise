@@ -156,10 +156,10 @@ namespace Presentacion
             this.TBCompraPromedio.BackColor = Color.FromArgb(3, 155, 229);
             this.TBCompraFinal.ReadOnly = false;
             this.TBCompraFinal.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBValorVenta_NoExcento.ReadOnly = false;
-            this.TBValorVenta_NoExcento.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBValorVenta_Excento.ReadOnly = false;
-            this.TBValorVenta_Excento.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBValorVenta_02.ReadOnly = false;
+            this.TBValorVenta_02.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBValorVenta_01.ReadOnly = false;
+            this.TBValorVenta_01.BackColor = Color.FromArgb(3, 155, 229);
             this.TBVentaMayorista.ReadOnly = false;
             this.TBVentaMayorista.BackColor = Color.FromArgb(3, 155, 229);
             this.TBCosto_Fabricacion.ReadOnly = false;
@@ -276,8 +276,8 @@ namespace Presentacion
             //Panel - Valores
             this.TBCompraPromedio.Clear();
             this.TBCompraFinal.Clear();
-            this.TBValorVenta_NoExcento.Enabled = false;
-            this.TBValorVenta_Excento.Clear();
+            this.TBValorVenta_02.Enabled = false;
+            this.TBValorVenta_01.Clear();
             this.TBVentaMayorista.Clear();
             this.TBCosto_Fabricacion.Clear();
             this.TBCostos_Materiales.Clear();
@@ -834,7 +834,7 @@ namespace Presentacion
                                  Convert.ToInt32(Checkbox_Exportado), Convert.ToInt32(Checkbox_Ofertable), Convert.ToInt32(Checkbox_Comision),
 
                                  //Panel de Valores
-                                 this.TBCompraPromedio.Text, this.TBCompraFinal.Text, this.TBValorVenta_Excento.Text, this.TBValorVenta_NoExcento.Text, this.TBVentaMayorista.Text,
+                                 this.TBCompraPromedio.Text, this.TBCompraFinal.Text, this.TBValorVenta_01.Text, this.TBValorVenta_02.Text, this.TBVentaMayorista.Text,
                                  this.TBCosto_Fabricacion.Text, this.TBCostos_Materiales.Text, this.TBCostos_Exportacion.Text, this.TBCostos_Imprtacion.Text,
                                  this.TBCostos_Seguridad.Text, this.TBCostos_Adicional.Text,
 
@@ -880,7 +880,7 @@ namespace Presentacion
                                 Convert.ToInt32(Checkbox_Exportado), Convert.ToInt32(Checkbox_Ofertable), Convert.ToInt32(Checkbox_Comision),
 
                                 //Panel de Valores
-                                this.TBCompraPromedio.Text, this.TBCompraFinal.Text, this.TBValorVenta_Excento.Text, this.TBValorVenta_NoExcento.Text, this.TBVentaMayorista.Text,
+                                this.TBCompraPromedio.Text, this.TBCompraFinal.Text, this.TBValorVenta_01.Text, this.TBValorVenta_02.Text, this.TBVentaMayorista.Text,
                                 this.TBCosto_Fabricacion.Text, this.TBCostos_Materiales.Text, this.TBCostos_Exportacion.Text, this.TBCostos_Imprtacion.Text,
                                 this.TBCostos_Seguridad.Text, this.TBCostos_Adicional.Text,
 
@@ -1072,6 +1072,8 @@ namespace Presentacion
                         fila["Estante"] = this.TBEstante.Text;
                         fila["Nivel"] = this.TBNivel.Text;
                         this.DtDetalle_Ubicacion.Rows.Add(fila);
+
+                        this.lblTotal_Ubicacion.Text = "Datos Registrados: " + Convert.ToString(DGDetalles_Ubicacion.Rows.Count);
 
                         //
                         this.CBBodega.SelectedIndex = 0;
@@ -1429,7 +1431,7 @@ namespace Presentacion
         private void TBValor01_Enter(object sender, EventArgs e)
         {
             //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
-            this.TBValorVenta_NoExcento.BackColor = Color.Azure;
+            this.TBValorVenta_02.BackColor = Color.Azure;
         }
 
         private void TBCantidadMininaCliente_Enter(object sender, EventArgs e)
@@ -2001,7 +2003,7 @@ namespace Presentacion
                 {
                     if (CBImpuesto.Checked)
                     {
-                        this.TBValorVenta_NoExcento.Select();
+                        this.TBValorVenta_02.Select();
                     }
                     else
                     {
@@ -2038,7 +2040,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBValorVenta_Excento.Select();
+                            this.TBValorVenta_01.Select();
                         }
                     }
                     else
@@ -2055,7 +2057,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBValorVenta_Excento.Select();
+                            this.TBValorVenta_01.Select();
                         }
                     }
                 }
@@ -2074,7 +2076,7 @@ namespace Presentacion
                 {
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
-                    this.TBValorVenta_Excento.Select();
+                    this.TBValorVenta_01.Select();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
                 {
@@ -2174,7 +2176,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBValorVenta_NoExcento.Select();
+                            this.TBValorVenta_02.Select();
                         }
                     }
                     else
@@ -2191,7 +2193,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBValorVenta_NoExcento.Select();
+                            this.TBValorVenta_02.Select();
                         }
                     }
                 }
@@ -2759,11 +2761,11 @@ namespace Presentacion
         {
             if (this.CBImpuesto.Checked)
             {
-                this.TBValorVenta_NoExcento.Enabled = true;
+                this.TBValorVenta_02.Enabled = true;
             }
             else
             {
-                this.TBValorVenta_NoExcento.Enabled = false;
+                this.TBValorVenta_02.Enabled = false;
             }
         }
 
@@ -5491,6 +5493,23 @@ namespace Presentacion
 
         }
 
+        private void CBUnidad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CBUnidad.SelectedIndex == 1)
+            {
+                //SE PROCEDE HABILITAR LOS CAMPOS DE TEXTO CON LOS VALORES POR UNIDADES
+            }
+            else
+            {
+                //SE DESABILITAN Y SE LIMPIAN LOS CAMPOS DE TEXTO
+            }
+        }
+
+        private void CBBodega_Stock_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void TBGastodeEnvio_KeyPress(object sender, KeyPressEventArgs e)
         {
             //Para obligar a que sólo se introduzcan números
@@ -6256,7 +6275,7 @@ namespace Presentacion
         private void TBValorVenta_Leave(object sender, EventArgs e)
         {
             //Color de texboxt cuando este posee el FOCUS Activado
-            this.TBValorVenta_NoExcento.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBValorVenta_02.BackColor = Color.FromArgb(3, 155, 229);
 
             // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
             TextBox tb = (TextBox)sender;
@@ -6344,13 +6363,13 @@ namespace Presentacion
         private void TBValorVenta_SinImpuesto_Enter(object sender, EventArgs e)
         {
             //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
-            this.TBValorVenta_Excento.BackColor = Color.Azure;
+            this.TBValorVenta_01.BackColor = Color.Azure;
         }
 
         private void TBValorVenta_SinImpuesto_Leave(object sender, EventArgs e)
         {
             //Color de texboxt cuando este posee el FOCUS Activado
-            this.TBValorVenta_Excento.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBValorVenta_01.BackColor = Color.FromArgb(3, 155, 229);
 
             // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
             TextBox tb = (TextBox)sender;
@@ -6546,8 +6565,8 @@ namespace Presentacion
                     //Panel - Valores
                     this.TBCompraPromedio.Text = Valor_Promedio;
                     this.TBCompraFinal.Text = ValCom_Final;
-                    this.TBValorVenta_Excento.Text = Valor_Excento;
-                    this.TBValorVenta_NoExcento.Text = Valor_NoExcento;
+                    this.TBValorVenta_01.Text = Valor_Excento;
+                    this.TBValorVenta_02.Text = Valor_NoExcento;
                     this.TBVentaMayorista.Text = Valor_Mayorista;
                     this.TBCosto_Fabricacion.Text = Valor_Fabricacion;
                     this.TBCostos_Materiales.Text = Valor_Materiales;
