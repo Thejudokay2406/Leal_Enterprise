@@ -373,6 +373,10 @@ namespace Presentacion
             this.CHImportado.Checked = false;
             this.CHExportado.Checked = false;
             this.CHManejaComision.Checked = false;
+            this.CHBalanza.Checked = false;
+            this.CHEmpaque.Checked = false;
+            this.CHRetencion.Checked = false;
+            this.CHFabricado.Checked = false;
 
             //Panel Compuesto
             this.TBCompuesto.Clear();
