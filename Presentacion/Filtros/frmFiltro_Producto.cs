@@ -126,7 +126,7 @@ namespace Presentacion
                 frmOrdenDeCompra frmOC = frmOrdenDeCompra.GetInstancia();
                 frmInventario_Ingreso frmBI = frmInventario_Ingreso.GetInstancia();
                 frmCotizacionDeCompra frmCot = frmCotizacionDeCompra.GetInstancia();
-                frmOrdenDeCompra frmOCom = frmOrdenDeCompra.GetInstancia();
+                //frmOrdenDeCompra frmOCom = frmOrdenDeCompra.GetInstancia();
 
                 //Variables Para Los Filtros
                 string idproducto, producto;
@@ -155,13 +155,13 @@ namespace Presentacion
                     this.Hide();
                 }
 
-                if (frmOCom.Examinar)
-                {
-                    idproducto = this.DGFiltro_General.CurrentRow.Cells[0].Value.ToString();
-                    producto = Convert.ToString(this.DGFiltro_General.CurrentRow.Cells[2].Value);
-                    frmOCom.setProducto(idproducto, producto);
-                    this.Hide();
-                }
+                //if (frmOCom.Examinar)
+                //{
+                //    idproducto = this.DGFiltro_General.CurrentRow.Cells[0].Value.ToString();
+                //    producto = Convert.ToString(this.DGFiltro_General.CurrentRow.Cells[2].Value);
+                //    frmOCom.setProducto(idproducto, producto);
+                //    this.Hide();
+                //}
             }
             catch (Exception ex)
             {

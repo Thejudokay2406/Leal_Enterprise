@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProductos));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TBIdproveedor_Exterior = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.TCPrincipal = new System.Windows.Forms.TabControl();
             this.TPDatosBasicos = new System.Windows.Forms.TabPage();
@@ -134,7 +135,7 @@
             this.label70 = new System.Windows.Forms.Label();
             this.TBExterior_Proveedor = new System.Windows.Forms.TextBox();
             this.label69 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnExaminar_Exterior = new System.Windows.Forms.Button();
             this.TBExteriorMon_Comision = new System.Windows.Forms.TextBox();
             this.label59 = new System.Windows.Forms.Label();
             this.TBExterior_Seguridad = new System.Windows.Forms.TextBox();
@@ -301,7 +302,6 @@
             this.TBBuscar = new System.Windows.Forms.TextBox();
             this.lblTotal = new System.Windows.Forms.Label();
             this.DGResultados = new System.Windows.Forms.DataGridView();
-            this.TBIdproveedor_Exterior = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.TCPrincipal.SuspendLayout();
             this.TPDatosBasicos.SuspendLayout();
@@ -345,6 +345,13 @@
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Leal Enterprise - Registro de Productos";
+            // 
+            // TBIdproveedor_Exterior
+            // 
+            this.TBIdproveedor_Exterior.Location = new System.Drawing.Point(258, 492);
+            this.TBIdproveedor_Exterior.Name = "TBIdproveedor_Exterior";
+            this.TBIdproveedor_Exterior.Size = new System.Drawing.Size(36, 21);
+            this.TBIdproveedor_Exterior.TabIndex = 8;
             // 
             // btnCancelar
             // 
@@ -1257,6 +1264,9 @@
             this.TBCompuesto_Descrip.Name = "TBCompuesto_Descrip";
             this.TBCompuesto_Descrip.Size = new System.Drawing.Size(350, 21);
             this.TBCompuesto_Descrip.TabIndex = 67;
+            this.TBCompuesto_Descrip.Enter += new System.EventHandler(this.TBCompuesto_Descrip_Enter);
+            this.TBCompuesto_Descrip.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCompuesto_Descrip_KeyUp);
+            this.TBCompuesto_Descrip.Leave += new System.EventHandler(this.TBCompuesto_Descrip_Leave);
             // 
             // label84
             // 
@@ -1273,6 +1283,9 @@
             this.TBCompuesto.Name = "TBCompuesto";
             this.TBCompuesto.Size = new System.Drawing.Size(350, 21);
             this.TBCompuesto.TabIndex = 65;
+            this.TBCompuesto.Enter += new System.EventHandler(this.TBCompuesto_Enter);
+            this.TBCompuesto.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCompuesto_KeyUp);
+            this.TBCompuesto.Leave += new System.EventHandler(this.TBCompuesto_Leave);
             // 
             // label83
             // 
@@ -1378,7 +1391,7 @@
             this.TPExterior.Controls.Add(this.label70);
             this.TPExterior.Controls.Add(this.TBExterior_Proveedor);
             this.TPExterior.Controls.Add(this.label69);
-            this.TPExterior.Controls.Add(this.button1);
+            this.TPExterior.Controls.Add(this.btnExaminar_Exterior);
             this.TPExterior.Controls.Add(this.TBExteriorMon_Comision);
             this.TPExterior.Controls.Add(this.label59);
             this.TPExterior.Controls.Add(this.TBExterior_Seguridad);
@@ -1402,6 +1415,10 @@
             this.TBExteriorMon_Seguridad.Size = new System.Drawing.Size(145, 21);
             this.TBExteriorMon_Seguridad.TabIndex = 170;
             this.TBExteriorMon_Seguridad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBExteriorMon_Seguridad.Enter += new System.EventHandler(this.TBExteriorMon_Seguridad_Enter);
+            this.TBExteriorMon_Seguridad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBExteriorMon_Seguridad_KeyPress);
+            this.TBExteriorMon_Seguridad.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBExteriorMon_Seguridad_KeyUp);
+            this.TBExteriorMon_Seguridad.Leave += new System.EventHandler(this.TBExteriorMon_Seguridad_Leave);
             // 
             // TBExteriorMon_Importacion
             // 
@@ -1410,6 +1427,10 @@
             this.TBExteriorMon_Importacion.Size = new System.Drawing.Size(145, 21);
             this.TBExteriorMon_Importacion.TabIndex = 169;
             this.TBExteriorMon_Importacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBExteriorMon_Importacion.Enter += new System.EventHandler(this.TBExteriorMon_Importacion_Enter);
+            this.TBExteriorMon_Importacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBExteriorMon_Importacion_KeyPress);
+            this.TBExteriorMon_Importacion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBExteriorMon_Importacion_KeyUp);
+            this.TBExteriorMon_Importacion.Leave += new System.EventHandler(this.TBExteriorMon_Importacion_Leave);
             // 
             // TBExteriorMon_Exportacion
             // 
@@ -1418,6 +1439,10 @@
             this.TBExteriorMon_Exportacion.Size = new System.Drawing.Size(145, 21);
             this.TBExteriorMon_Exportacion.TabIndex = 168;
             this.TBExteriorMon_Exportacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBExteriorMon_Exportacion.Enter += new System.EventHandler(this.TBExteriorMon_Exportacion_Enter);
+            this.TBExteriorMon_Exportacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBExteriorMon_Exportacion_KeyPress);
+            this.TBExteriorMon_Exportacion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBExteriorMon_Exportacion_KeyUp);
+            this.TBExteriorMon_Exportacion.Leave += new System.EventHandler(this.TBExteriorMon_Exportacion_Leave);
             // 
             // button2
             // 
@@ -1483,6 +1508,10 @@
             this.TBExterior_Adicional.Size = new System.Drawing.Size(145, 21);
             this.TBExterior_Adicional.TabIndex = 163;
             this.TBExterior_Adicional.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBExterior_Adicional.Enter += new System.EventHandler(this.TBExterior_Adicional_Enter);
+            this.TBExterior_Adicional.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBExterior_Adicional_KeyPress);
+            this.TBExterior_Adicional.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBExterior_Adicional_KeyUp);
+            this.TBExterior_Adicional.Leave += new System.EventHandler(this.TBExterior_Adicional_Leave);
             // 
             // TBExteriorMon_Adicional
             // 
@@ -1491,6 +1520,10 @@
             this.TBExteriorMon_Adicional.Size = new System.Drawing.Size(145, 21);
             this.TBExteriorMon_Adicional.TabIndex = 162;
             this.TBExteriorMon_Adicional.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBExteriorMon_Adicional.Enter += new System.EventHandler(this.TBExteriorMon_Adicional_Enter);
+            this.TBExteriorMon_Adicional.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBExteriorMon_Adicional_KeyPress);
+            this.TBExteriorMon_Adicional.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBExteriorMon_Adicional_KeyUp);
+            this.TBExteriorMon_Adicional.Leave += new System.EventHandler(this.TBExteriorMon_Adicional_Leave);
             // 
             // TBExterior_Documento
             // 
@@ -1499,6 +1532,10 @@
             this.TBExterior_Documento.Size = new System.Drawing.Size(145, 21);
             this.TBExterior_Documento.TabIndex = 161;
             this.TBExterior_Documento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBExterior_Documento.Enter += new System.EventHandler(this.TBExterior_Documento_Enter);
+            this.TBExterior_Documento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBExterior_Documento_KeyPress);
+            this.TBExterior_Documento.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBExterior_Documento_KeyUp);
+            this.TBExterior_Documento.Leave += new System.EventHandler(this.TBExterior_Documento_Leave);
             // 
             // dataGridView1
             // 
@@ -1522,6 +1559,10 @@
             this.TBExterior_Comision.Size = new System.Drawing.Size(145, 21);
             this.TBExterior_Comision.TabIndex = 159;
             this.TBExterior_Comision.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBExterior_Comision.Enter += new System.EventHandler(this.TBExterior_Comision_Enter);
+            this.TBExterior_Comision.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBExterior_Comision_KeyPress);
+            this.TBExterior_Comision.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBExterior_Comision_KeyUp);
+            this.TBExterior_Comision.Leave += new System.EventHandler(this.TBExterior_Comision_Leave);
             // 
             // label68
             // 
@@ -1539,6 +1580,10 @@
             this.TBExteriorMon_Documento.Size = new System.Drawing.Size(145, 21);
             this.TBExteriorMon_Documento.TabIndex = 157;
             this.TBExteriorMon_Documento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBExteriorMon_Documento.Enter += new System.EventHandler(this.TBExteriorMon_Documento_Enter);
+            this.TBExteriorMon_Documento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBExteriorMon_Documento_KeyPress);
+            this.TBExteriorMon_Documento.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBExteriorMon_Documento_KeyUp);
+            this.TBExteriorMon_Documento.Leave += new System.EventHandler(this.TBExteriorMon_Documento_Leave);
             // 
             // TBExteriorMon_Aduana
             // 
@@ -1547,6 +1592,10 @@
             this.TBExteriorMon_Aduana.Size = new System.Drawing.Size(145, 21);
             this.TBExteriorMon_Aduana.TabIndex = 155;
             this.TBExteriorMon_Aduana.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBExteriorMon_Aduana.Enter += new System.EventHandler(this.TBExteriorMon_Aduana_Enter);
+            this.TBExteriorMon_Aduana.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBExteriorMon_Aduana_KeyPress);
+            this.TBExteriorMon_Aduana.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBExteriorMon_Aduana_KeyUp);
+            this.TBExteriorMon_Aduana.Leave += new System.EventHandler(this.TBExteriorMon_Aduana_Leave);
             // 
             // label71
             // 
@@ -1564,6 +1613,10 @@
             this.TBExterior_Aduana.Size = new System.Drawing.Size(145, 21);
             this.TBExterior_Aduana.TabIndex = 153;
             this.TBExterior_Aduana.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBExterior_Aduana.Enter += new System.EventHandler(this.TBExterior_Aduana_Enter);
+            this.TBExterior_Aduana.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBExterior_Aduana_KeyPress);
+            this.TBExterior_Aduana.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBExterior_Aduana_KeyUp);
+            this.TBExterior_Aduana.Leave += new System.EventHandler(this.TBExterior_Aduana_Leave);
             // 
             // label70
             // 
@@ -1591,18 +1644,19 @@
             this.label69.TabIndex = 147;
             this.label69.Text = "Proveedor";
             // 
-            // button1
+            // btnExaminar_Exterior
             // 
-            this.button1.BackgroundImage = global::Presentacion.Botones.btnExaminar;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(409, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(25, 21);
-            this.button1.TabIndex = 149;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnExaminar_Exterior.BackgroundImage = global::Presentacion.Botones.btnExaminar;
+            this.btnExaminar_Exterior.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnExaminar_Exterior.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExaminar_Exterior.FlatAppearance.BorderSize = 0;
+            this.btnExaminar_Exterior.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExaminar_Exterior.Location = new System.Drawing.Point(409, 6);
+            this.btnExaminar_Exterior.Name = "btnExaminar_Exterior";
+            this.btnExaminar_Exterior.Size = new System.Drawing.Size(25, 21);
+            this.btnExaminar_Exterior.TabIndex = 149;
+            this.btnExaminar_Exterior.UseVisualStyleBackColor = true;
+            this.btnExaminar_Exterior.Click += new System.EventHandler(this.btnExaminar_Exterior_Click);
             // 
             // TBExteriorMon_Comision
             // 
@@ -1611,6 +1665,10 @@
             this.TBExteriorMon_Comision.Size = new System.Drawing.Size(145, 21);
             this.TBExteriorMon_Comision.TabIndex = 146;
             this.TBExteriorMon_Comision.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBExteriorMon_Comision.Enter += new System.EventHandler(this.TBExteriorMon_Comision_Enter);
+            this.TBExteriorMon_Comision.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBExteriorMon_Comision_KeyPress);
+            this.TBExteriorMon_Comision.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBExteriorMon_Comision_KeyUp);
+            this.TBExteriorMon_Comision.Leave += new System.EventHandler(this.TBExteriorMon_Comision_Leave);
             // 
             // label59
             // 
@@ -1628,6 +1686,10 @@
             this.TBExterior_Seguridad.Size = new System.Drawing.Size(145, 21);
             this.TBExterior_Seguridad.TabIndex = 144;
             this.TBExterior_Seguridad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBExterior_Seguridad.Enter += new System.EventHandler(this.TBExterior_Seguridad_Enter);
+            this.TBExterior_Seguridad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBExterior_Seguridad_KeyPress);
+            this.TBExterior_Seguridad.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBExterior_Seguridad_KeyUp);
+            this.TBExterior_Seguridad.Leave += new System.EventHandler(this.TBExterior_Seguridad_Leave);
             // 
             // label58
             // 
@@ -1645,6 +1707,10 @@
             this.TBExterior_Importacion.Size = new System.Drawing.Size(145, 21);
             this.TBExterior_Importacion.TabIndex = 142;
             this.TBExterior_Importacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBExterior_Importacion.Enter += new System.EventHandler(this.TBExterior_Importacion_Enter);
+            this.TBExterior_Importacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBExterior_Importacion_KeyPress);
+            this.TBExterior_Importacion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBExterior_Importacion_KeyUp);
+            this.TBExterior_Importacion.Leave += new System.EventHandler(this.TBExterior_Importacion_Leave);
             // 
             // label57
             // 
@@ -1662,6 +1728,10 @@
             this.TBExterior_Exportacion.Size = new System.Drawing.Size(145, 21);
             this.TBExterior_Exportacion.TabIndex = 140;
             this.TBExterior_Exportacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBExterior_Exportacion.Enter += new System.EventHandler(this.TBExterior_Exportacion_Enter);
+            this.TBExterior_Exportacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBExterior_Exportacion_KeyPress);
+            this.TBExterior_Exportacion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBExterior_Exportacion_KeyUp);
+            this.TBExterior_Exportacion.Leave += new System.EventHandler(this.TBExterior_Exportacion_Leave);
             // 
             // label56
             // 
@@ -1712,6 +1782,9 @@
             this.TBFabri_TotalFabricacion.Size = new System.Drawing.Size(231, 21);
             this.TBFabri_TotalFabricacion.TabIndex = 152;
             this.TBFabri_TotalFabricacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBFabri_TotalFabricacion.Enter += new System.EventHandler(this.TBFabri_TotalFabricacion_Enter);
+            this.TBFabri_TotalFabricacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBFabri_TotalFabricacion_KeyPress);
+            this.TBFabri_TotalFabricacion.Leave += new System.EventHandler(this.TBFabri_TotalFabricacion_Leave);
             // 
             // label67
             // 
@@ -1729,6 +1802,10 @@
             this.TBFabri_Manual.Size = new System.Drawing.Size(231, 21);
             this.TBFabri_Manual.TabIndex = 150;
             this.TBFabri_Manual.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBFabri_Manual.Enter += new System.EventHandler(this.TBFabri_Manual_Enter);
+            this.TBFabri_Manual.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBFabri_Manual_KeyPress);
+            this.TBFabri_Manual.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBFabri_Manual_KeyUp);
+            this.TBFabri_Manual.Leave += new System.EventHandler(this.TBFabri_Manual_Leave);
             // 
             // label66
             // 
@@ -1746,6 +1823,10 @@
             this.TBFabri_Maquinaria.Size = new System.Drawing.Size(253, 21);
             this.TBFabri_Maquinaria.TabIndex = 148;
             this.TBFabri_Maquinaria.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBFabri_Maquinaria.Enter += new System.EventHandler(this.TBFabri_Maquinaria_Enter);
+            this.TBFabri_Maquinaria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBFabri_Maquinaria_KeyPress);
+            this.TBFabri_Maquinaria.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBFabri_Maquinaria_KeyUp);
+            this.TBFabri_Maquinaria.Leave += new System.EventHandler(this.TBFabri_Maquinaria_Leave);
             // 
             // label65
             // 
@@ -1763,6 +1844,10 @@
             this.TBFabri_Almacenamiento.Size = new System.Drawing.Size(253, 21);
             this.TBFabri_Almacenamiento.TabIndex = 146;
             this.TBFabri_Almacenamiento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBFabri_Almacenamiento.Enter += new System.EventHandler(this.TBFabri_Almacenamiento_Enter);
+            this.TBFabri_Almacenamiento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBFabri_Almacenamiento_KeyPress);
+            this.TBFabri_Almacenamiento.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBFabri_Almacenamiento_KeyUp);
+            this.TBFabri_Almacenamiento.Leave += new System.EventHandler(this.TBFabri_Almacenamiento_Leave);
             // 
             // label64
             // 
@@ -1780,6 +1865,11 @@
             this.TBFabri_Envio.Size = new System.Drawing.Size(253, 21);
             this.TBFabri_Envio.TabIndex = 144;
             this.TBFabri_Envio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBFabri_Envio.TextChanged += new System.EventHandler(this.TBFabri_Envio_TextChanged);
+            this.TBFabri_Envio.Enter += new System.EventHandler(this.TBFabri_Envio_Enter);
+            this.TBFabri_Envio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBFabri_Envio_KeyPress);
+            this.TBFabri_Envio.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBFabri_Envio_KeyUp);
+            this.TBFabri_Envio.Leave += new System.EventHandler(this.TBFabri_Envio_Leave);
             // 
             // label63
             // 
@@ -1797,6 +1887,10 @@
             this.TBFabri_OtroMaterial.Size = new System.Drawing.Size(253, 21);
             this.TBFabri_OtroMaterial.TabIndex = 142;
             this.TBFabri_OtroMaterial.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBFabri_OtroMaterial.Enter += new System.EventHandler(this.TBFabri_OtroMaterial_Enter);
+            this.TBFabri_OtroMaterial.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBFabri_OtroMaterial_KeyPress);
+            this.TBFabri_OtroMaterial.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBFabri_OtroMaterial_KeyUp);
+            this.TBFabri_OtroMaterial.Leave += new System.EventHandler(this.TBFabri_OtroMaterial_Leave);
             // 
             // label62
             // 
@@ -1814,6 +1908,10 @@
             this.TBFabri_Material03.Size = new System.Drawing.Size(253, 21);
             this.TBFabri_Material03.TabIndex = 140;
             this.TBFabri_Material03.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBFabri_Material03.Enter += new System.EventHandler(this.TBFabri_Material03_Enter);
+            this.TBFabri_Material03.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBFabri_Material03_KeyPress);
+            this.TBFabri_Material03.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBFabri_Material03_KeyUp);
+            this.TBFabri_Material03.Leave += new System.EventHandler(this.TBFabri_Material03_Leave);
             // 
             // label61
             // 
@@ -1831,6 +1929,10 @@
             this.TBFabri_Material02.Size = new System.Drawing.Size(253, 21);
             this.TBFabri_Material02.TabIndex = 138;
             this.TBFabri_Material02.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBFabri_Material02.Enter += new System.EventHandler(this.TBFabri_Material02_Enter);
+            this.TBFabri_Material02.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBFabri_Material02_KeyPress);
+            this.TBFabri_Material02.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBFabri_Material02_KeyUp);
+            this.TBFabri_Material02.Leave += new System.EventHandler(this.TBFabri_Material02_Leave);
             // 
             // label60
             // 
@@ -1848,6 +1950,10 @@
             this.TBFabri_Material01.Size = new System.Drawing.Size(253, 21);
             this.TBFabri_Material01.TabIndex = 136;
             this.TBFabri_Material01.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBFabri_Material01.Enter += new System.EventHandler(this.TBFabri_Material01_Enter);
+            this.TBFabri_Material01.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBFabri_Material01_KeyPress);
+            this.TBFabri_Material01.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBFabri_Material01_KeyUp);
+            this.TBFabri_Material01.Leave += new System.EventHandler(this.TBFabri_Material01_Leave);
             // 
             // label53
             // 
@@ -1865,6 +1971,10 @@
             this.TBFabri_Materiales.Size = new System.Drawing.Size(253, 21);
             this.TBFabri_Materiales.TabIndex = 134;
             this.TBFabri_Materiales.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBFabri_Materiales.Enter += new System.EventHandler(this.TBFabri_Materiales_Enter);
+            this.TBFabri_Materiales.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBFabri_Materiales_KeyPress);
+            this.TBFabri_Materiales.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBFabri_Materiales_KeyUp);
+            this.TBFabri_Materiales.Leave += new System.EventHandler(this.TBFabri_Materiales_Leave);
             // 
             // label55
             // 
@@ -1882,6 +1992,11 @@
             this.TBFabri_ManoDeObra.Size = new System.Drawing.Size(253, 21);
             this.TBFabri_ManoDeObra.TabIndex = 132;
             this.TBFabri_ManoDeObra.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBFabri_ManoDeObra.TextChanged += new System.EventHandler(this.TBFabri_ManoDeObra_TextChanged);
+            this.TBFabri_ManoDeObra.Enter += new System.EventHandler(this.TBFabri_ManoDeObra_Enter);
+            this.TBFabri_ManoDeObra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBFabri_ManoDeObra_KeyPress);
+            this.TBFabri_ManoDeObra.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBFabri_ManoDeObra_KeyUp);
+            this.TBFabri_ManoDeObra.Leave += new System.EventHandler(this.TBFabri_ManoDeObra_Leave);
             // 
             // label54
             // 
@@ -2913,7 +3028,7 @@
             // 
             // TBValor_PorUnidad03
             // 
-            this.TBValor_PorUnidad03.Location = new System.Drawing.Point(269, 351);
+            this.TBValor_PorUnidad03.Location = new System.Drawing.Point(269, 352);
             this.TBValor_PorUnidad03.Name = "TBValor_PorUnidad03";
             this.TBValor_PorUnidad03.Size = new System.Drawing.Size(37, 21);
             this.TBValor_PorUnidad03.TabIndex = 208;
@@ -2943,6 +3058,10 @@
             this.TBValor_Unidad03.Size = new System.Drawing.Size(141, 21);
             this.TBValor_Unidad03.TabIndex = 205;
             this.TBValor_Unidad03.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBValor_Unidad03.Enter += new System.EventHandler(this.TBValor_Unidad03_Enter);
+            this.TBValor_Unidad03.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBValor_Unidad03_KeyPress);
+            this.TBValor_Unidad03.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBValor_Unidad03_KeyUp);
+            this.TBValor_Unidad03.Leave += new System.EventHandler(this.TBValor_Unidad03_Leave);
             // 
             // textBox38
             // 
@@ -2957,7 +3076,7 @@
             // 
             // TBValor_PorUnidad02
             // 
-            this.TBValor_PorUnidad02.Location = new System.Drawing.Point(269, 324);
+            this.TBValor_PorUnidad02.Location = new System.Drawing.Point(269, 325);
             this.TBValor_PorUnidad02.Name = "TBValor_PorUnidad02";
             this.TBValor_PorUnidad02.Size = new System.Drawing.Size(37, 21);
             this.TBValor_PorUnidad02.TabIndex = 203;
@@ -2973,7 +3092,7 @@
             // 
             // TBValor_PorUnidad01
             // 
-            this.TBValor_PorUnidad01.Location = new System.Drawing.Point(269, 297);
+            this.TBValor_PorUnidad01.Location = new System.Drawing.Point(269, 298);
             this.TBValor_PorUnidad01.Name = "TBValor_PorUnidad01";
             this.TBValor_PorUnidad01.Size = new System.Drawing.Size(37, 21);
             this.TBValor_PorUnidad01.TabIndex = 201;
@@ -3003,6 +3122,10 @@
             this.TBValor_Unidad01.Size = new System.Drawing.Size(141, 21);
             this.TBValor_Unidad01.TabIndex = 198;
             this.TBValor_Unidad01.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBValor_Unidad01.Enter += new System.EventHandler(this.TBValor_Unidad01_Enter);
+            this.TBValor_Unidad01.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBValor_Unidad01_KeyPress);
+            this.TBValor_Unidad01.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBValor_Unidad01_KeyUp);
+            this.TBValor_Unidad01.Leave += new System.EventHandler(this.TBValor_Unidad01_Leave);
             // 
             // TBValor_Unidad02
             // 
@@ -3011,6 +3134,10 @@
             this.TBValor_Unidad02.Size = new System.Drawing.Size(141, 21);
             this.TBValor_Unidad02.TabIndex = 197;
             this.TBValor_Unidad02.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBValor_Unidad02.Enter += new System.EventHandler(this.TBValor_Unidad02_Enter);
+            this.TBValor_Unidad02.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBValor_Unidad02_KeyPress);
+            this.TBValor_Unidad02.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBValor_Unidad02_KeyUp);
+            this.TBValor_Unidad02.Leave += new System.EventHandler(this.TBValor_Unidad02_Leave);
             // 
             // label79
             // 
@@ -3087,7 +3214,7 @@
             // 
             // TBValor_PorVenta03
             // 
-            this.TBValor_PorVenta03.Location = new System.Drawing.Point(269, 163);
+            this.TBValor_PorVenta03.Location = new System.Drawing.Point(269, 164);
             this.TBValor_PorVenta03.Name = "TBValor_PorVenta03";
             this.TBValor_PorVenta03.Size = new System.Drawing.Size(37, 21);
             this.TBValor_PorVenta03.TabIndex = 189;
@@ -3117,6 +3244,10 @@
             this.TBValor_Venta03.Size = new System.Drawing.Size(150, 21);
             this.TBValor_Venta03.TabIndex = 186;
             this.TBValor_Venta03.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBValor_Venta03.Enter += new System.EventHandler(this.TBValor_Venta03_Enter);
+            this.TBValor_Venta03.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBValor_Venta03_KeyPress);
+            this.TBValor_Venta03.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBValor_Venta03_KeyUp);
+            this.TBValor_Venta03.Leave += new System.EventHandler(this.TBValor_Venta03_Leave);
             // 
             // textBox24
             // 
@@ -3144,10 +3275,11 @@
             this.TBValor_ImpMayorista.Size = new System.Drawing.Size(125, 21);
             this.TBValor_ImpMayorista.TabIndex = 183;
             this.TBValor_ImpMayorista.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBValor_ImpMayorista.Leave += new System.EventHandler(this.TBValor_ImpMayorista_Leave);
             // 
             // TBValor_PorVenta02
             // 
-            this.TBValor_PorVenta02.Location = new System.Drawing.Point(269, 136);
+            this.TBValor_PorVenta02.Location = new System.Drawing.Point(269, 137);
             this.TBValor_PorVenta02.Name = "TBValor_PorVenta02";
             this.TBValor_PorVenta02.Size = new System.Drawing.Size(37, 21);
             this.TBValor_PorVenta02.TabIndex = 182;
@@ -3163,11 +3295,12 @@
             // 
             // TBValor_PorVenta01
             // 
-            this.TBValor_PorVenta01.Location = new System.Drawing.Point(269, 109);
+            this.TBValor_PorVenta01.Location = new System.Drawing.Point(269, 110);
             this.TBValor_PorVenta01.Name = "TBValor_PorVenta01";
             this.TBValor_PorVenta01.Size = new System.Drawing.Size(37, 21);
             this.TBValor_PorVenta01.TabIndex = 180;
             this.TBValor_PorVenta01.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBValor_PorVenta01.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBValor_PorVenta01_KeyPress);
             // 
             // TBValor_ImpVenta01
             // 
@@ -3184,6 +3317,9 @@
             this.TBValor_Unidad.Size = new System.Drawing.Size(128, 21);
             this.TBValor_Unidad.TabIndex = 172;
             this.TBValor_Unidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBValor_Unidad.Enter += new System.EventHandler(this.TBValor_Unidad_Enter);
+            this.TBValor_Unidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBValor_Unidad_KeyPress);
+            this.TBValor_Unidad.Leave += new System.EventHandler(this.TBValor_Unidad_Leave);
             // 
             // label31
             // 
@@ -3201,7 +3337,7 @@
             this.TBValor_CompraPromedio.Size = new System.Drawing.Size(271, 21);
             this.TBValor_CompraPromedio.TabIndex = 99;
             this.TBValor_CompraPromedio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TBValor_CompraPromedio.Enter += new System.EventHandler(this.TBCompraPromedio_Enter);
+            this.TBValor_CompraPromedio.Enter += new System.EventHandler(this.TBValor_CompraPromedio_Enter);
             this.TBValor_CompraPromedio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBCompraPromedio_KeyPress);
             this.TBValor_CompraPromedio.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCompraPromedio_KeyUp);
             this.TBValor_CompraPromedio.Leave += new System.EventHandler(this.TBCompraPromedio_Leave);
@@ -3243,10 +3379,10 @@
             this.TBValor_Venta01.Size = new System.Drawing.Size(150, 21);
             this.TBValor_Venta01.TabIndex = 86;
             this.TBValor_Venta01.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TBValor_Venta01.Enter += new System.EventHandler(this.TBValorVenta_SinImpuesto_Enter);
+            this.TBValor_Venta01.Enter += new System.EventHandler(this.TBValor_Venta01_Enter);
             this.TBValor_Venta01.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBValorVenta_SinImpuesto_KeyPress);
             this.TBValor_Venta01.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBValorVenta_SinImpuesto_KeyUp);
-            this.TBValor_Venta01.Leave += new System.EventHandler(this.TBValorVenta_SinImpuesto_Leave);
+            this.TBValor_Venta01.Leave += new System.EventHandler(this.TBValor_Venta01_Leave);
             // 
             // TBValor_CompraFinal
             // 
@@ -3276,7 +3412,7 @@
             this.TBValor_Venta02.Size = new System.Drawing.Size(150, 21);
             this.TBValor_Venta02.TabIndex = 7;
             this.TBValor_Venta02.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TBValor_Venta02.Enter += new System.EventHandler(this.TBValor01_Enter);
+            this.TBValor_Venta02.Enter += new System.EventHandler(this.TBValor_Venta02_Enter);
             this.TBValor_Venta02.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBValorVenta_KeyPress);
             this.TBValor_Venta02.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBValorVenta_KeyUp);
             this.TBValor_Venta02.Leave += new System.EventHandler(this.TBValorVenta_Leave);
@@ -3441,13 +3577,6 @@
             this.DGResultados.TabIndex = 13;
             this.DGResultados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGResultados_CellDoubleClick);
             this.DGResultados.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DGResultados_KeyPress);
-            // 
-            // TBIdproveedor_Exterior
-            // 
-            this.TBIdproveedor_Exterior.Location = new System.Drawing.Point(258, 492);
-            this.TBIdproveedor_Exterior.Name = "TBIdproveedor_Exterior";
-            this.TBIdproveedor_Exterior.Size = new System.Drawing.Size(36, 21);
-            this.TBIdproveedor_Exterior.TabIndex = 8;
             // 
             // frmProductos
             // 
@@ -3715,7 +3844,7 @@
         private System.Windows.Forms.Label label67;
         private System.Windows.Forms.TextBox TBExterior_Proveedor;
         private System.Windows.Forms.Label label69;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnExaminar_Exterior;
         private System.Windows.Forms.TextBox TBExterior_Aduana;
         private System.Windows.Forms.Label label70;
         private System.Windows.Forms.TextBox TBExteriorMon_Documento;
