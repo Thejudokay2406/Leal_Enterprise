@@ -87,5 +87,63 @@ namespace Presentacion
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
+
+        private void TBBuscar_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
+            {
+                //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
+
+                DGFiltro_Resultados.CurrentRow.Cells[2].Selected = true;
+            }
+        }
+
+        private void DGFiltro_Resultados_KeyUp(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+                {
+                    string idimpuesto, impuesto, valor, descripcion;
+
+                    frmProductos frmPro = frmProductos.GetInstancia();
+
+                    idimpuesto = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
+                    impuesto = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
+                    valor = this.DGFiltro_Resultados.CurrentRow.Cells[2].Value.ToString();
+                    descripcion = this.DGFiltro_Resultados.CurrentRow.Cells[3].Value.ToString();
+                    frmPro.setImpuesto(idimpuesto, impuesto, valor, descripcion);
+                    this.Hide();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }   
+        }
+
+        private void DGFiltro_Resultados_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    string idimpuesto, impuesto, valor, descripcion;
+
+                    frmProductos frmPro = frmProductos.GetInstancia();
+
+                    idimpuesto = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
+                    impuesto = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
+                    valor = this.DGFiltro_Resultados.CurrentRow.Cells[2].Value.ToString();
+                    descripcion = this.DGFiltro_Resultados.CurrentRow.Cells[3].Value.ToString();
+                    frmPro.setImpuesto(idimpuesto, impuesto, valor, descripcion);
+                    this.Hide();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
     }
 }

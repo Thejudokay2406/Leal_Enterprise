@@ -221,11 +221,11 @@ namespace Presentacion
                     {
                         if (this.Digitar)
                         {
-                            this.MensajeOk("Impuesto: " + this.TBImpuesto.Text + " Registrado Exitosamente");
+                            this.MensajeOk("El Impuesto: " + this.TBImpuesto.Text + " a Sido Registrado Exitosamente");
                         }
                         else
                         {
-                            this.MensajeOk("Registro del Impuesto: " + this.TBImpuesto.Text + " Actualizado Exitosamente");
+                            this.MensajeOk("Registro del Impuesto: " + this.TBImpuesto.Text + " a Sido Actualizado Exitosamente");
                         }
                     }
                     else

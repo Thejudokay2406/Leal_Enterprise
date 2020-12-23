@@ -30,10 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProductos));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TBIntervalo = new System.Windows.Forms.TextBox();
             this.TBIdproveedor_Exterior = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.TCPrincipal = new System.Windows.Forms.TabControl();
             this.TPDatosBasicos = new System.Windows.Forms.TabPage();
+            this.TBCodigo_Empaque = new System.Windows.Forms.TextBox();
+            this.TBCodigo_Tipo = new System.Windows.Forms.TextBox();
+            this.TBCodigo_Grupo = new System.Windows.Forms.TextBox();
+            this.TBCodigo_Marca = new System.Windows.Forms.TextBox();
             this.CHEmpaque = new System.Windows.Forms.CheckBox();
             this.label76 = new System.Windows.Forms.Label();
             this.CHFabricado = new System.Windows.Forms.CheckBox();
@@ -103,6 +109,7 @@
             this.btnAgregar_CodigoDeBarra = new System.Windows.Forms.Button();
             this.btnEliminar_CodigosDeBarra = new System.Windows.Forms.Button();
             this.TPCompuesto = new System.Windows.Forms.TabPage();
+            this.textBox20 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label85 = new System.Windows.Forms.Label();
             this.TBCompuesto_Descrip = new System.Windows.Forms.TextBox();
@@ -115,6 +122,14 @@
             this.button7 = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.TPExterior = new System.Windows.Forms.TabPage();
+            this.label91 = new System.Windows.Forms.Label();
+            this.label90 = new System.Windows.Forms.Label();
+            this.label89 = new System.Windows.Forms.Label();
+            this.label88 = new System.Windows.Forms.Label();
+            this.label87 = new System.Windows.Forms.Label();
+            this.label86 = new System.Windows.Forms.Label();
+            this.label72 = new System.Windows.Forms.Label();
+            this.textBox15 = new System.Windows.Forms.TextBox();
             this.TBExteriorMon_Seguridad = new System.Windows.Forms.TextBox();
             this.TBExteriorMon_Importacion = new System.Windows.Forms.TextBox();
             this.TBExteriorMon_Exportacion = new System.Windows.Forms.TextBox();
@@ -224,6 +239,8 @@
             this.btnExaminar_Proveedor = new System.Windows.Forms.Button();
             this.TPRetencion = new System.Windows.Forms.TabPage();
             this.TPStockDisponible = new System.Windows.Forms.TabPage();
+            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.textBox19 = new System.Windows.Forms.TextBox();
             this.label81 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.Ubicacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -231,13 +248,13 @@
             this.Nivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Unidades = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Existencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CBBodega_Stock = new System.Windows.Forms.ComboBox();
             this.label80 = new System.Windows.Forms.Label();
             this.TPUbicacion = new System.Windows.Forms.TabPage();
+            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.textBox16 = new System.Windows.Forms.TextBox();
             this.btnModificar_Ubicacion = new System.Windows.Forms.Button();
             this.lblTotal_Ubicacion = new System.Windows.Forms.Label();
             this.DGDetalles_Ubicacion = new System.Windows.Forms.DataGridView();
-            this.CBBodega = new System.Windows.Forms.ComboBox();
             this.label24 = new System.Windows.Forms.Label();
             this.TBUbicacion = new System.Windows.Forms.TextBox();
             this.TBNivel = new System.Windows.Forms.TextBox();
@@ -248,6 +265,17 @@
             this.btnEliminar_Ubicacion = new System.Windows.Forms.Button();
             this.btnAgregar_Ubicacion = new System.Windows.Forms.Button();
             this.TPValores = new System.Windows.Forms.TabPage();
+            this.TBmultiplicador_Impuesto = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.TBDivisor_Impuesto = new System.Windows.Forms.TextBox();
             this.textBox22 = new System.Windows.Forms.TextBox();
             this.TBValor_PorUnidad03 = new System.Windows.Forms.TextBox();
             this.TBValor_ImpUnidad03 = new System.Windows.Forms.TextBox();
@@ -291,14 +319,13 @@
             this.label26 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnImprimir = new System.Windows.Forms.Button();
             this.TBIdigualdad_Producto = new System.Windows.Forms.TextBox();
             this.TBIdproveedor = new System.Windows.Forms.TextBox();
             this.TBIdproducto_AutoSQL = new System.Windows.Forms.TextBox();
             this.TBIdproducto = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnEliminar = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
-            this.btnImprimir = new System.Windows.Forms.Button();
             this.TBBuscar = new System.Windows.Forms.TextBox();
             this.lblTotal = new System.Windows.Forms.Label();
             this.DGResultados = new System.Windows.Forms.DataGridView();
@@ -335,22 +362,32 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.TBIntervalo);
             this.groupBox1.Controls.Add(this.TBIdproveedor_Exterior);
             this.groupBox1.Controls.Add(this.btnCancelar);
+            this.groupBox1.Controls.Add(this.btnEliminar);
             this.groupBox1.Controls.Add(this.TCPrincipal);
             this.groupBox1.Controls.Add(this.btnGuardar);
+            this.groupBox1.Controls.Add(this.btnImprimir);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(461, 525);
+            this.groupBox1.Size = new System.Drawing.Size(594, 505);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Leal Enterprise - Registro de Productos";
             // 
+            // TBIntervalo
+            // 
+            this.TBIntervalo.Location = new System.Drawing.Point(300, 472);
+            this.TBIntervalo.Name = "TBIntervalo";
+            this.TBIntervalo.Size = new System.Drawing.Size(17, 21);
+            this.TBIntervalo.TabIndex = 9;
+            // 
             // TBIdproveedor_Exterior
             // 
-            this.TBIdproveedor_Exterior.Location = new System.Drawing.Point(258, 492);
+            this.TBIdproveedor_Exterior.Location = new System.Drawing.Point(258, 472);
             this.TBIdproveedor_Exterior.Name = "TBIdproveedor_Exterior";
-            this.TBIdproveedor_Exterior.Size = new System.Drawing.Size(36, 21);
+            this.TBIdproveedor_Exterior.Size = new System.Drawing.Size(27, 21);
             this.TBIdproveedor_Exterior.TabIndex = 8;
             // 
             // btnCancelar
@@ -360,7 +397,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Image = global::Presentacion.Botones.btnCancelar;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(132, 489);
+            this.btnCancelar.Location = new System.Drawing.Point(132, 469);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(120, 30);
             this.btnCancelar.TabIndex = 7;
@@ -368,6 +405,22 @@
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Image = global::Presentacion.Botones.btnEliminar;
+            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminar.Location = new System.Drawing.Point(338, 469);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(120, 30);
+            this.btnEliminar.TabIndex = 4;
+            this.btnEliminar.Text = "Eliminar - F4";
+            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // TCPrincipal
             // 
@@ -391,7 +444,7 @@
             this.TCPrincipal.Multiline = true;
             this.TCPrincipal.Name = "TCPrincipal";
             this.TCPrincipal.SelectedIndex = 0;
-            this.TCPrincipal.Size = new System.Drawing.Size(450, 463);
+            this.TCPrincipal.Size = new System.Drawing.Size(582, 443);
             this.TCPrincipal.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.TCPrincipal.TabIndex = 0;
             // 
@@ -399,6 +452,10 @@
             // 
             this.TPDatosBasicos.BackColor = System.Drawing.Color.White;
             this.TPDatosBasicos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TPDatosBasicos.Controls.Add(this.TBCodigo_Empaque);
+            this.TPDatosBasicos.Controls.Add(this.TBCodigo_Tipo);
+            this.TPDatosBasicos.Controls.Add(this.TBCodigo_Grupo);
+            this.TPDatosBasicos.Controls.Add(this.TBCodigo_Marca);
             this.TPDatosBasicos.Controls.Add(this.CHEmpaque);
             this.TPDatosBasicos.Controls.Add(this.label76);
             this.TPDatosBasicos.Controls.Add(this.CHFabricado);
@@ -440,19 +497,59 @@
             this.TPDatosBasicos.Controls.Add(this.label2);
             this.TPDatosBasicos.Controls.Add(this.TBCodigo);
             this.TPDatosBasicos.Controls.Add(this.label1);
-            this.TPDatosBasicos.Location = new System.Drawing.Point(4, 64);
+            this.TPDatosBasicos.Location = new System.Drawing.Point(4, 44);
             this.TPDatosBasicos.Name = "TPDatosBasicos";
             this.TPDatosBasicos.Padding = new System.Windows.Forms.Padding(3);
-            this.TPDatosBasicos.Size = new System.Drawing.Size(442, 395);
+            this.TPDatosBasicos.Size = new System.Drawing.Size(574, 395);
             this.TPDatosBasicos.TabIndex = 0;
             this.TPDatosBasicos.Text = "Datos";
+            // 
+            // TBCodigo_Empaque
+            // 
+            this.TBCodigo_Empaque.Location = new System.Drawing.Point(91, 249);
+            this.TBCodigo_Empaque.Name = "TBCodigo_Empaque";
+            this.TBCodigo_Empaque.Size = new System.Drawing.Size(117, 21);
+            this.TBCodigo_Empaque.TabIndex = 198;
+            this.TBCodigo_Empaque.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBCodigo_Empaque.Enter += new System.EventHandler(this.TBCodigo_Empaque_Enter);
+            this.TBCodigo_Empaque.Leave += new System.EventHandler(this.TBCodigo_Empaque_Leave);
+            // 
+            // TBCodigo_Tipo
+            // 
+            this.TBCodigo_Tipo.Location = new System.Drawing.Point(91, 222);
+            this.TBCodigo_Tipo.Name = "TBCodigo_Tipo";
+            this.TBCodigo_Tipo.Size = new System.Drawing.Size(117, 21);
+            this.TBCodigo_Tipo.TabIndex = 197;
+            this.TBCodigo_Tipo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBCodigo_Tipo.Enter += new System.EventHandler(this.TBCodigo_Tipo_Enter);
+            this.TBCodigo_Tipo.Leave += new System.EventHandler(this.TBCodigo_Tipo_Leave);
+            // 
+            // TBCodigo_Grupo
+            // 
+            this.TBCodigo_Grupo.Location = new System.Drawing.Point(91, 195);
+            this.TBCodigo_Grupo.Name = "TBCodigo_Grupo";
+            this.TBCodigo_Grupo.Size = new System.Drawing.Size(117, 21);
+            this.TBCodigo_Grupo.TabIndex = 196;
+            this.TBCodigo_Grupo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBCodigo_Grupo.Enter += new System.EventHandler(this.TBCodigo_Grupo_Enter);
+            this.TBCodigo_Grupo.Leave += new System.EventHandler(this.TBCodigo_Grupo_Leave);
+            // 
+            // TBCodigo_Marca
+            // 
+            this.TBCodigo_Marca.Location = new System.Drawing.Point(91, 168);
+            this.TBCodigo_Marca.Name = "TBCodigo_Marca";
+            this.TBCodigo_Marca.Size = new System.Drawing.Size(117, 21);
+            this.TBCodigo_Marca.TabIndex = 195;
+            this.TBCodigo_Marca.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBCodigo_Marca.Enter += new System.EventHandler(this.TBCodigo_Marca_Enter);
+            this.TBCodigo_Marca.Leave += new System.EventHandler(this.TBCodigo_Marca_Leave);
             // 
             // CHEmpaque
             // 
             this.CHEmpaque.AutoSize = true;
             this.CHEmpaque.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CHEmpaque.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHEmpaque.Location = new System.Drawing.Point(132, 277);
+            this.CHEmpaque.Location = new System.Drawing.Point(203, 277);
             this.CHEmpaque.Name = "CHEmpaque";
             this.CHEmpaque.Size = new System.Drawing.Size(58, 17);
             this.CHEmpaque.TabIndex = 194;
@@ -464,16 +561,16 @@
             this.label76.AutoSize = true;
             this.label76.Location = new System.Drawing.Point(6, 276);
             this.label76.Name = "label76";
-            this.label76.Size = new System.Drawing.Size(98, 15);
+            this.label76.Size = new System.Drawing.Size(164, 15);
             this.label76.TabIndex = 193;
-            this.label76.Text = "Utiliza Empaque";
+            this.label76.Text = "El Producto Utiliza Empaque";
             // 
             // CHFabricado
             // 
             this.CHFabricado.AutoSize = true;
             this.CHFabricado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CHFabricado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHFabricado.Location = new System.Drawing.Point(375, 277);
+            this.CHFabricado.Location = new System.Drawing.Point(446, 277);
             this.CHFabricado.Name = "CHFabricado";
             this.CHFabricado.Size = new System.Drawing.Size(58, 17);
             this.CHFabricado.TabIndex = 162;
@@ -483,7 +580,7 @@
             // label52
             // 
             this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(196, 276);
+            this.label52.Location = new System.Drawing.Point(267, 276);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(144, 15);
             this.label52.TabIndex = 161;
@@ -494,7 +591,7 @@
             this.CHRetencion.AutoSize = true;
             this.CHRetencion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CHRetencion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHRetencion.Location = new System.Drawing.Point(375, 346);
+            this.CHRetencion.Location = new System.Drawing.Point(446, 346);
             this.CHRetencion.Name = "CHRetencion";
             this.CHRetencion.Size = new System.Drawing.Size(58, 17);
             this.CHRetencion.TabIndex = 160;
@@ -504,7 +601,7 @@
             // label51
             // 
             this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(196, 345);
+            this.label51.Location = new System.Drawing.Point(267, 345);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(174, 15);
             this.label51.TabIndex = 159;
@@ -515,7 +612,7 @@
             this.CHBalanza.AutoSize = true;
             this.CHBalanza.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CHBalanza.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHBalanza.Location = new System.Drawing.Point(132, 300);
+            this.CHBalanza.Location = new System.Drawing.Point(203, 300);
             this.CHBalanza.Name = "CHBalanza";
             this.CHBalanza.Size = new System.Drawing.Size(58, 17);
             this.CHBalanza.TabIndex = 158;
@@ -527,15 +624,15 @@
             this.label44.AutoSize = true;
             this.label44.Location = new System.Drawing.Point(6, 299);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(89, 15);
+            this.label44.Size = new System.Drawing.Size(155, 15);
             this.label44.TabIndex = 157;
-            this.label44.Text = "Utiliza Balanza";
+            this.label44.Text = "El Producto Utiliza Balanza";
             // 
             // TBComision_Valor
             // 
             this.TBComision_Valor.Location = new System.Drawing.Point(214, 141);
             this.TBComision_Valor.Name = "TBComision_Valor";
-            this.TBComision_Valor.Size = new System.Drawing.Size(220, 21);
+            this.TBComision_Valor.Size = new System.Drawing.Size(352, 21);
             this.TBComision_Valor.TabIndex = 156;
             this.TBComision_Valor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TBComision_Valor.Enter += new System.EventHandler(this.TBComision_Valor_Enter);
@@ -567,7 +664,7 @@
             this.CHManejaComision.AutoSize = true;
             this.CHManejaComision.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CHManejaComision.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHManejaComision.Location = new System.Drawing.Point(375, 323);
+            this.CHManejaComision.Location = new System.Drawing.Point(446, 323);
             this.CHManejaComision.Name = "CHManejaComision";
             this.CHManejaComision.Size = new System.Drawing.Size(58, 17);
             this.CHManejaComision.TabIndex = 153;
@@ -578,7 +675,7 @@
             // label49
             // 
             this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(196, 322);
+            this.label49.Location = new System.Drawing.Point(267, 322);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(170, 15);
             this.label49.TabIndex = 152;
@@ -589,7 +686,7 @@
             this.CHOfertable.AutoSize = true;
             this.CHOfertable.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CHOfertable.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHOfertable.Location = new System.Drawing.Point(132, 369);
+            this.CHOfertable.Location = new System.Drawing.Point(203, 369);
             this.CHOfertable.Name = "CHOfertable";
             this.CHOfertable.Size = new System.Drawing.Size(58, 17);
             this.CHOfertable.TabIndex = 145;
@@ -602,16 +699,16 @@
             this.label41.AutoSize = true;
             this.label41.Location = new System.Drawing.Point(6, 368);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(92, 15);
+            this.label41.Size = new System.Drawing.Size(191, 15);
             this.label41.TabIndex = 144;
-            this.label41.Text = "Aplica a Ofertas";
+            this.label41.Text = "El Producto es Aplicable a Ofertas";
             // 
             // CHExportado
             // 
             this.CHExportado.AutoSize = true;
             this.CHExportado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CHExportado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHExportado.Location = new System.Drawing.Point(375, 300);
+            this.CHExportado.Location = new System.Drawing.Point(446, 300);
             this.CHExportado.Name = "CHExportado";
             this.CHExportado.Size = new System.Drawing.Size(58, 17);
             this.CHExportado.TabIndex = 143;
@@ -624,7 +721,7 @@
             this.CHImportado.AutoSize = true;
             this.CHImportado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CHImportado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHImportado.Location = new System.Drawing.Point(132, 346);
+            this.CHImportado.Location = new System.Drawing.Point(203, 346);
             this.CHImportado.Name = "CHImportado";
             this.CHImportado.Size = new System.Drawing.Size(58, 17);
             this.CHImportado.TabIndex = 142;
@@ -635,7 +732,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(196, 299);
+            this.label21.Location = new System.Drawing.Point(267, 299);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(145, 15);
             this.label21.TabIndex = 141;
@@ -646,16 +743,16 @@
             this.label36.AutoSize = true;
             this.label36.Location = new System.Drawing.Point(6, 345);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(115, 15);
+            this.label36.Size = new System.Drawing.Size(145, 15);
             this.label36.TabIndex = 140;
-            this.label36.Text = "Producto Importado";
+            this.label36.Text = "El Producto es Importado";
             // 
             // CHImpuesto
             // 
             this.CHImpuesto.AutoSize = true;
             this.CHImpuesto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CHImpuesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHImpuesto.Location = new System.Drawing.Point(375, 369);
+            this.CHImpuesto.Location = new System.Drawing.Point(446, 369);
             this.CHImpuesto.Name = "CHImpuesto";
             this.CHImpuesto.Size = new System.Drawing.Size(58, 17);
             this.CHImpuesto.TabIndex = 135;
@@ -666,7 +763,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(196, 368);
+            this.label8.Location = new System.Drawing.Point(267, 368);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(169, 15);
             this.label8.TabIndex = 134;
@@ -677,7 +774,7 @@
             this.CHVencimiento.AutoSize = true;
             this.CHVencimiento.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CHVencimiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHVencimiento.Location = new System.Drawing.Point(132, 323);
+            this.CHVencimiento.Location = new System.Drawing.Point(203, 323);
             this.CHVencimiento.Name = "CHVencimiento";
             this.CHVencimiento.Size = new System.Drawing.Size(58, 17);
             this.CHVencimiento.TabIndex = 133;
@@ -690,9 +787,9 @@
             this.label37.AutoSize = true;
             this.label37.Location = new System.Drawing.Point(6, 322);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(120, 15);
+            this.label37.Size = new System.Drawing.Size(186, 15);
             this.label37.TabIndex = 132;
-            this.label37.Text = "Maneja Vencimiento";
+            this.label37.Text = "El Producto Maneja Vencimiento";
             // 
             // CBEmpaque
             // 
@@ -700,11 +797,12 @@
             this.CBEmpaque.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBEmpaque.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBEmpaque.FormattingEnabled = true;
-            this.CBEmpaque.Location = new System.Drawing.Point(91, 250);
+            this.CBEmpaque.Location = new System.Drawing.Point(214, 249);
             this.CBEmpaque.Name = "CBEmpaque";
-            this.CBEmpaque.Size = new System.Drawing.Size(343, 21);
+            this.CBEmpaque.Size = new System.Drawing.Size(352, 21);
             this.CBEmpaque.Sorted = true;
             this.CBEmpaque.TabIndex = 37;
+            this.CBEmpaque.SelectedIndexChanged += new System.EventHandler(this.CBEmpaque_SelectedIndexChanged);
             // 
             // label22
             // 
@@ -719,7 +817,7 @@
             // 
             this.TBPresentacion.Location = new System.Drawing.Point(91, 114);
             this.TBPresentacion.Name = "TBPresentacion";
-            this.TBPresentacion.Size = new System.Drawing.Size(343, 21);
+            this.TBPresentacion.Size = new System.Drawing.Size(475, 21);
             this.TBPresentacion.TabIndex = 27;
             this.TBPresentacion.Enter += new System.EventHandler(this.TBPresentacion_Enter);
             this.TBPresentacion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBPresentacion_KeyUp);
@@ -740,11 +838,12 @@
             this.CBGrupo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBGrupo.FormattingEnabled = true;
-            this.CBGrupo.Location = new System.Drawing.Point(91, 195);
+            this.CBGrupo.Location = new System.Drawing.Point(214, 195);
             this.CBGrupo.Name = "CBGrupo";
-            this.CBGrupo.Size = new System.Drawing.Size(343, 21);
+            this.CBGrupo.Size = new System.Drawing.Size(352, 21);
             this.CBGrupo.Sorted = true;
             this.CBGrupo.TabIndex = 25;
+            this.CBGrupo.SelectedIndexChanged += new System.EventHandler(this.CBGrupo_SelectedIndexChanged);
             // 
             // label13
             // 
@@ -761,11 +860,12 @@
             this.CBTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBTipo.FormattingEnabled = true;
-            this.CBTipo.Location = new System.Drawing.Point(91, 222);
+            this.CBTipo.Location = new System.Drawing.Point(214, 222);
             this.CBTipo.Name = "CBTipo";
-            this.CBTipo.Size = new System.Drawing.Size(343, 21);
+            this.CBTipo.Size = new System.Drawing.Size(352, 21);
             this.CBTipo.Sorted = true;
             this.CBTipo.TabIndex = 20;
+            this.CBTipo.SelectedIndexChanged += new System.EventHandler(this.CBTipo_SelectedIndexChanged);
             // 
             // label10
             // 
@@ -780,7 +880,7 @@
             // 
             this.TBDescripcion01.Location = new System.Drawing.Point(91, 87);
             this.TBDescripcion01.Name = "TBDescripcion01";
-            this.TBDescripcion01.Size = new System.Drawing.Size(343, 21);
+            this.TBDescripcion01.Size = new System.Drawing.Size(475, 21);
             this.TBDescripcion01.TabIndex = 10;
             this.TBDescripcion01.Enter += new System.EventHandler(this.TBDescripcion01_Enter);
             this.TBDescripcion01.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBDescripcion01_KeyUp);
@@ -799,7 +899,7 @@
             // 
             this.TBReferencia.Location = new System.Drawing.Point(91, 60);
             this.TBReferencia.Name = "TBReferencia";
-            this.TBReferencia.Size = new System.Drawing.Size(343, 21);
+            this.TBReferencia.Size = new System.Drawing.Size(475, 21);
             this.TBReferencia.TabIndex = 7;
             this.TBReferencia.Enter += new System.EventHandler(this.TBReferencia_Enter);
             this.TBReferencia.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBReferencia_KeyUp);
@@ -811,11 +911,12 @@
             this.CBMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBMarca.FormattingEnabled = true;
-            this.CBMarca.Location = new System.Drawing.Point(91, 168);
+            this.CBMarca.Location = new System.Drawing.Point(214, 168);
             this.CBMarca.Name = "CBMarca";
-            this.CBMarca.Size = new System.Drawing.Size(343, 21);
+            this.CBMarca.Size = new System.Drawing.Size(352, 21);
             this.CBMarca.Sorted = true;
             this.CBMarca.TabIndex = 6;
+            this.CBMarca.SelectedIndexChanged += new System.EventHandler(this.CBMarca_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -839,7 +940,7 @@
             // 
             this.TBNombre.Location = new System.Drawing.Point(91, 33);
             this.TBNombre.Name = "TBNombre";
-            this.TBNombre.Size = new System.Drawing.Size(343, 21);
+            this.TBNombre.Size = new System.Drawing.Size(475, 21);
             this.TBNombre.TabIndex = 3;
             this.TBNombre.Enter += new System.EventHandler(this.TBNombre_Enter);
             this.TBNombre.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBNombre_KeyUp);
@@ -858,7 +959,7 @@
             // 
             this.TBCodigo.Location = new System.Drawing.Point(91, 6);
             this.TBCodigo.Name = "TBCodigo";
-            this.TBCodigo.Size = new System.Drawing.Size(343, 21);
+            this.TBCodigo.Size = new System.Drawing.Size(475, 21);
             this.TBCodigo.TabIndex = 1;
             this.TBCodigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TBCodigo.Enter += new System.EventHandler(this.TBCodigo_Enter);
@@ -895,9 +996,9 @@
             this.TPCantidad.Controls.Add(this.label16);
             this.TPCantidad.Controls.Add(this.panel3);
             this.TPCantidad.Controls.Add(this.panel1);
-            this.TPCantidad.Location = new System.Drawing.Point(4, 64);
+            this.TPCantidad.Location = new System.Drawing.Point(4, 44);
             this.TPCantidad.Name = "TPCantidad";
-            this.TPCantidad.Size = new System.Drawing.Size(442, 395);
+            this.TPCantidad.Size = new System.Drawing.Size(574, 395);
             this.TPCantidad.TabIndex = 17;
             this.TPCantidad.Text = "Cantidad";
             this.TPCantidad.UseVisualStyleBackColor = true;
@@ -1098,10 +1199,10 @@
             this.TPCodigosdeBarra.Controls.Add(this.DGDetalle_CodigoDeBarra);
             this.TPCodigosdeBarra.Controls.Add(this.btnAgregar_CodigoDeBarra);
             this.TPCodigosdeBarra.Controls.Add(this.btnEliminar_CodigosDeBarra);
-            this.TPCodigosdeBarra.Location = new System.Drawing.Point(4, 64);
+            this.TPCodigosdeBarra.Location = new System.Drawing.Point(4, 44);
             this.TPCodigosdeBarra.Name = "TPCodigosdeBarra";
             this.TPCodigosdeBarra.Padding = new System.Windows.Forms.Padding(3);
-            this.TPCodigosdeBarra.Size = new System.Drawing.Size(442, 395);
+            this.TPCodigosdeBarra.Size = new System.Drawing.Size(574, 395);
             this.TPCodigosdeBarra.TabIndex = 12;
             this.TPCodigosdeBarra.Text = "Cod. de Barra";
             this.TPCodigosdeBarra.UseVisualStyleBackColor = true;
@@ -1114,7 +1215,7 @@
             this.btnModificar_CodigoDeBarra.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar_CodigoDeBarra.Image = global::Presentacion.Botones.btnEditar;
             this.btnModificar_CodigoDeBarra.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar_CodigoDeBarra.Location = new System.Drawing.Point(188, 357);
+            this.btnModificar_CodigoDeBarra.Location = new System.Drawing.Point(320, 357);
             this.btnModificar_CodigoDeBarra.Name = "btnModificar_CodigoDeBarra";
             this.btnModificar_CodigoDeBarra.Size = new System.Drawing.Size(120, 30);
             this.btnModificar_CodigoDeBarra.TabIndex = 60;
@@ -1127,7 +1228,7 @@
             // 
             this.TBCodigodeBarra.Location = new System.Drawing.Point(108, 6);
             this.TBCodigodeBarra.Name = "TBCodigodeBarra";
-            this.TBCodigodeBarra.Size = new System.Drawing.Size(326, 21);
+            this.TBCodigodeBarra.Size = new System.Drawing.Size(458, 21);
             this.TBCodigodeBarra.TabIndex = 17;
             this.TBCodigodeBarra.Enter += new System.EventHandler(this.TBCodigodeBarra_Enter);
             this.TBCodigodeBarra.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCodigodeBarra_KeyUp);
@@ -1145,7 +1246,7 @@
             // lblTotal_Codigodebarra
             // 
             this.lblTotal_Codigodebarra.AutoSize = true;
-            this.lblTotal_Codigodebarra.Location = new System.Drawing.Point(6, 30);
+            this.lblTotal_Codigodebarra.Location = new System.Drawing.Point(6, 363);
             this.lblTotal_Codigodebarra.Name = "lblTotal_Codigodebarra";
             this.lblTotal_Codigodebarra.Size = new System.Drawing.Size(114, 15);
             this.lblTotal_Codigodebarra.TabIndex = 3;
@@ -1158,12 +1259,12 @@
             this.DGDetalle_CodigoDeBarra.BackgroundColor = System.Drawing.Color.White;
             this.DGDetalle_CodigoDeBarra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGDetalle_CodigoDeBarra.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.DGDetalle_CodigoDeBarra.Location = new System.Drawing.Point(6, 48);
+            this.DGDetalle_CodigoDeBarra.Location = new System.Drawing.Point(6, 33);
             this.DGDetalle_CodigoDeBarra.Name = "DGDetalle_CodigoDeBarra";
             this.DGDetalle_CodigoDeBarra.ReadOnly = true;
             this.DGDetalle_CodigoDeBarra.RowHeadersVisible = false;
             this.DGDetalle_CodigoDeBarra.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGDetalle_CodigoDeBarra.Size = new System.Drawing.Size(428, 303);
+            this.DGDetalle_CodigoDeBarra.Size = new System.Drawing.Size(560, 318);
             this.DGDetalle_CodigoDeBarra.TabIndex = 2;
             // 
             // btnAgregar_CodigoDeBarra
@@ -1175,7 +1276,7 @@
             this.btnAgregar_CodigoDeBarra.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar_CodigoDeBarra.Image = global::Presentacion.Botones.btnAgregar;
             this.btnAgregar_CodigoDeBarra.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar_CodigoDeBarra.Location = new System.Drawing.Point(62, 357);
+            this.btnAgregar_CodigoDeBarra.Location = new System.Drawing.Point(194, 357);
             this.btnAgregar_CodigoDeBarra.Name = "btnAgregar_CodigoDeBarra";
             this.btnAgregar_CodigoDeBarra.Size = new System.Drawing.Size(120, 30);
             this.btnAgregar_CodigoDeBarra.TabIndex = 15;
@@ -1193,7 +1294,7 @@
             this.btnEliminar_CodigosDeBarra.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar_CodigosDeBarra.Image = global::Presentacion.Botones.btnEliminar;
             this.btnEliminar_CodigosDeBarra.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar_CodigosDeBarra.Location = new System.Drawing.Point(314, 357);
+            this.btnEliminar_CodigosDeBarra.Location = new System.Drawing.Point(446, 357);
             this.btnEliminar_CodigosDeBarra.Name = "btnEliminar_CodigosDeBarra";
             this.btnEliminar_CodigosDeBarra.Size = new System.Drawing.Size(120, 30);
             this.btnEliminar_CodigosDeBarra.TabIndex = 14;
@@ -1205,6 +1306,7 @@
             // TPCompuesto
             // 
             this.TPCompuesto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TPCompuesto.Controls.Add(this.textBox20);
             this.TPCompuesto.Controls.Add(this.comboBox1);
             this.TPCompuesto.Controls.Add(this.label85);
             this.TPCompuesto.Controls.Add(this.TBCompuesto_Descrip);
@@ -1216,13 +1318,20 @@
             this.TPCompuesto.Controls.Add(this.button6);
             this.TPCompuesto.Controls.Add(this.button7);
             this.TPCompuesto.Controls.Add(this.dataGridView3);
-            this.TPCompuesto.Location = new System.Drawing.Point(4, 64);
+            this.TPCompuesto.Location = new System.Drawing.Point(4, 44);
             this.TPCompuesto.Name = "TPCompuesto";
             this.TPCompuesto.Padding = new System.Windows.Forms.Padding(3);
-            this.TPCompuesto.Size = new System.Drawing.Size(442, 395);
+            this.TPCompuesto.Size = new System.Drawing.Size(574, 395);
             this.TPCompuesto.TabIndex = 21;
             this.TPCompuesto.Text = "Compuesto";
             this.TPCompuesto.UseVisualStyleBackColor = true;
+            // 
+            // textBox20
+            // 
+            this.textBox20.Location = new System.Drawing.Point(238, 60);
+            this.textBox20.Name = "textBox20";
+            this.textBox20.Size = new System.Drawing.Size(328, 21);
+            this.textBox20.TabIndex = 10;
             // 
             // comboBox1
             // 
@@ -1243,9 +1352,9 @@
             "MTS",
             "TON",
             "UNI"});
-            this.comboBox1.Location = new System.Drawing.Point(84, 60);
+            this.comboBox1.Location = new System.Drawing.Point(82, 60);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(89, 21);
+            this.comboBox1.Size = new System.Drawing.Size(150, 21);
             this.comboBox1.Sorted = true;
             this.comboBox1.TabIndex = 195;
             // 
@@ -1260,9 +1369,9 @@
             // 
             // TBCompuesto_Descrip
             // 
-            this.TBCompuesto_Descrip.Location = new System.Drawing.Point(84, 33);
+            this.TBCompuesto_Descrip.Location = new System.Drawing.Point(82, 33);
             this.TBCompuesto_Descrip.Name = "TBCompuesto_Descrip";
-            this.TBCompuesto_Descrip.Size = new System.Drawing.Size(350, 21);
+            this.TBCompuesto_Descrip.Size = new System.Drawing.Size(484, 21);
             this.TBCompuesto_Descrip.TabIndex = 67;
             this.TBCompuesto_Descrip.Enter += new System.EventHandler(this.TBCompuesto_Descrip_Enter);
             this.TBCompuesto_Descrip.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCompuesto_Descrip_KeyUp);
@@ -1279,9 +1388,9 @@
             // 
             // TBCompuesto
             // 
-            this.TBCompuesto.Location = new System.Drawing.Point(84, 6);
+            this.TBCompuesto.Location = new System.Drawing.Point(82, 6);
             this.TBCompuesto.Name = "TBCompuesto";
-            this.TBCompuesto.Size = new System.Drawing.Size(350, 21);
+            this.TBCompuesto.Size = new System.Drawing.Size(484, 21);
             this.TBCompuesto.TabIndex = 65;
             this.TBCompuesto.Enter += new System.EventHandler(this.TBCompuesto_Enter);
             this.TBCompuesto.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCompuesto_KeyUp);
@@ -1304,7 +1413,7 @@
             this.button5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.Image = global::Presentacion.Botones.btnEditar;
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(188, 357);
+            this.button5.Location = new System.Drawing.Point(320, 357);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(120, 30);
             this.button5.TabIndex = 63;
@@ -1315,7 +1424,7 @@
             // label82
             // 
             this.label82.AutoSize = true;
-            this.label82.Location = new System.Drawing.Point(179, 61);
+            this.label82.Location = new System.Drawing.Point(6, 363);
             this.label82.Name = "label82";
             this.label82.Size = new System.Drawing.Size(114, 15);
             this.label82.TabIndex = 60;
@@ -1329,7 +1438,7 @@
             this.button6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.Image = global::Presentacion.Botones.btnEliminar;
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(314, 357);
+            this.button6.Location = new System.Drawing.Point(446, 357);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(120, 30);
             this.button6.TabIndex = 62;
@@ -1345,7 +1454,7 @@
             this.button7.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.Image = global::Presentacion.Botones.btnAgregar;
             this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.Location = new System.Drawing.Point(62, 357);
+            this.button7.Location = new System.Drawing.Point(194, 357);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(120, 30);
             this.button7.TabIndex = 61;
@@ -1365,12 +1474,20 @@
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.ReadOnly = true;
             this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView3.Size = new System.Drawing.Size(428, 264);
+            this.dataGridView3.Size = new System.Drawing.Size(560, 264);
             this.dataGridView3.TabIndex = 0;
             // 
             // TPExterior
             // 
             this.TPExterior.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TPExterior.Controls.Add(this.label91);
+            this.TPExterior.Controls.Add(this.label90);
+            this.TPExterior.Controls.Add(this.label89);
+            this.TPExterior.Controls.Add(this.label88);
+            this.TPExterior.Controls.Add(this.label87);
+            this.TPExterior.Controls.Add(this.label86);
+            this.TPExterior.Controls.Add(this.label72);
+            this.TPExterior.Controls.Add(this.textBox15);
             this.TPExterior.Controls.Add(this.TBExteriorMon_Seguridad);
             this.TPExterior.Controls.Add(this.TBExteriorMon_Importacion);
             this.TPExterior.Controls.Add(this.TBExteriorMon_Exportacion);
@@ -1400,17 +1517,88 @@
             this.TPExterior.Controls.Add(this.label57);
             this.TPExterior.Controls.Add(this.TBExterior_Exportacion);
             this.TPExterior.Controls.Add(this.label56);
-            this.TPExterior.Location = new System.Drawing.Point(4, 64);
+            this.TPExterior.Location = new System.Drawing.Point(4, 44);
             this.TPExterior.Name = "TPExterior";
             this.TPExterior.Padding = new System.Windows.Forms.Padding(3);
-            this.TPExterior.Size = new System.Drawing.Size(442, 395);
+            this.TPExterior.Size = new System.Drawing.Size(574, 395);
             this.TPExterior.TabIndex = 20;
             this.TPExterior.Text = "Exterior";
             this.TPExterior.UseVisualStyleBackColor = true;
             // 
+            // label91
+            // 
+            this.label91.AutoSize = true;
+            this.label91.Location = new System.Drawing.Point(296, 198);
+            this.label91.Name = "label91";
+            this.label91.Size = new System.Drawing.Size(112, 15);
+            this.label91.TabIndex = 178;
+            this.label91.Text = "Moneda Extranjera";
+            // 
+            // label90
+            // 
+            this.label90.AutoSize = true;
+            this.label90.Location = new System.Drawing.Point(296, 171);
+            this.label90.Name = "label90";
+            this.label90.Size = new System.Drawing.Size(112, 15);
+            this.label90.TabIndex = 177;
+            this.label90.Text = "Moneda Extranjera";
+            // 
+            // label89
+            // 
+            this.label89.AutoSize = true;
+            this.label89.Location = new System.Drawing.Point(296, 144);
+            this.label89.Name = "label89";
+            this.label89.Size = new System.Drawing.Size(112, 15);
+            this.label89.TabIndex = 176;
+            this.label89.Text = "Moneda Extranjera";
+            // 
+            // label88
+            // 
+            this.label88.AutoSize = true;
+            this.label88.Location = new System.Drawing.Point(296, 117);
+            this.label88.Name = "label88";
+            this.label88.Size = new System.Drawing.Size(112, 15);
+            this.label88.TabIndex = 175;
+            this.label88.Text = "Moneda Extranjera";
+            // 
+            // label87
+            // 
+            this.label87.AutoSize = true;
+            this.label87.Location = new System.Drawing.Point(296, 90);
+            this.label87.Name = "label87";
+            this.label87.Size = new System.Drawing.Size(112, 15);
+            this.label87.TabIndex = 174;
+            this.label87.Text = "Moneda Extranjera";
+            // 
+            // label86
+            // 
+            this.label86.AutoSize = true;
+            this.label86.Location = new System.Drawing.Point(296, 63);
+            this.label86.Name = "label86";
+            this.label86.Size = new System.Drawing.Size(112, 15);
+            this.label86.TabIndex = 173;
+            this.label86.Text = "Moneda Extranjera";
+            // 
+            // label72
+            // 
+            this.label72.AutoSize = true;
+            this.label72.Location = new System.Drawing.Point(296, 36);
+            this.label72.Name = "label72";
+            this.label72.Size = new System.Drawing.Size(112, 15);
+            this.label72.TabIndex = 172;
+            this.label72.Text = "Moneda Extranjera";
+            // 
+            // textBox15
+            // 
+            this.textBox15.Location = new System.Drawing.Point(75, 6);
+            this.textBox15.Name = "textBox15";
+            this.textBox15.Size = new System.Drawing.Size(148, 21);
+            this.textBox15.TabIndex = 171;
+            this.textBox15.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // TBExteriorMon_Seguridad
             // 
-            this.TBExteriorMon_Seguridad.Location = new System.Drawing.Point(289, 195);
+            this.TBExteriorMon_Seguridad.Location = new System.Drawing.Point(421, 195);
             this.TBExteriorMon_Seguridad.Name = "TBExteriorMon_Seguridad";
             this.TBExteriorMon_Seguridad.Size = new System.Drawing.Size(145, 21);
             this.TBExteriorMon_Seguridad.TabIndex = 170;
@@ -1422,7 +1610,7 @@
             // 
             // TBExteriorMon_Importacion
             // 
-            this.TBExteriorMon_Importacion.Location = new System.Drawing.Point(289, 168);
+            this.TBExteriorMon_Importacion.Location = new System.Drawing.Point(421, 168);
             this.TBExteriorMon_Importacion.Name = "TBExteriorMon_Importacion";
             this.TBExteriorMon_Importacion.Size = new System.Drawing.Size(145, 21);
             this.TBExteriorMon_Importacion.TabIndex = 169;
@@ -1434,7 +1622,7 @@
             // 
             // TBExteriorMon_Exportacion
             // 
-            this.TBExteriorMon_Exportacion.Location = new System.Drawing.Point(289, 141);
+            this.TBExteriorMon_Exportacion.Location = new System.Drawing.Point(421, 141);
             this.TBExteriorMon_Exportacion.Name = "TBExteriorMon_Exportacion";
             this.TBExteriorMon_Exportacion.Size = new System.Drawing.Size(145, 21);
             this.TBExteriorMon_Exportacion.TabIndex = 168;
@@ -1452,7 +1640,7 @@
             this.button2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Image = global::Presentacion.Botones.btnEditar;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(188, 357);
+            this.button2.Location = new System.Drawing.Point(320, 357);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(120, 30);
             this.button2.TabIndex = 167;
@@ -1463,7 +1651,7 @@
             // label73
             // 
             this.label73.AutoSize = true;
-            this.label73.Location = new System.Drawing.Point(6, 219);
+            this.label73.Location = new System.Drawing.Point(6, 363);
             this.label73.Name = "label73";
             this.label73.Size = new System.Drawing.Size(114, 15);
             this.label73.TabIndex = 164;
@@ -1477,7 +1665,7 @@
             this.button3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Image = global::Presentacion.Botones.btnEliminar;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(314, 357);
+            this.button3.Location = new System.Drawing.Point(446, 357);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(120, 30);
             this.button3.TabIndex = 166;
@@ -1493,7 +1681,7 @@
             this.button4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.Image = global::Presentacion.Botones.btnAgregar;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(62, 357);
+            this.button4.Location = new System.Drawing.Point(194, 357);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(120, 30);
             this.button4.TabIndex = 165;
@@ -1515,7 +1703,7 @@
             // 
             // TBExteriorMon_Adicional
             // 
-            this.TBExteriorMon_Adicional.Location = new System.Drawing.Point(289, 114);
+            this.TBExteriorMon_Adicional.Location = new System.Drawing.Point(421, 114);
             this.TBExteriorMon_Adicional.Name = "TBExteriorMon_Adicional";
             this.TBExteriorMon_Adicional.Size = new System.Drawing.Size(145, 21);
             this.TBExteriorMon_Adicional.TabIndex = 162;
@@ -1545,11 +1733,11 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 237);
+            this.dataGridView1.Location = new System.Drawing.Point(6, 222);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(428, 114);
+            this.dataGridView1.Size = new System.Drawing.Size(560, 129);
             this.dataGridView1.TabIndex = 160;
             // 
             // TBExterior_Comision
@@ -1575,7 +1763,7 @@
             // 
             // TBExteriorMon_Documento
             // 
-            this.TBExteriorMon_Documento.Location = new System.Drawing.Point(289, 87);
+            this.TBExteriorMon_Documento.Location = new System.Drawing.Point(421, 87);
             this.TBExteriorMon_Documento.Name = "TBExteriorMon_Documento";
             this.TBExteriorMon_Documento.Size = new System.Drawing.Size(145, 21);
             this.TBExteriorMon_Documento.TabIndex = 157;
@@ -1587,7 +1775,7 @@
             // 
             // TBExteriorMon_Aduana
             // 
-            this.TBExteriorMon_Aduana.Location = new System.Drawing.Point(289, 33);
+            this.TBExteriorMon_Aduana.Location = new System.Drawing.Point(421, 33);
             this.TBExteriorMon_Aduana.Name = "TBExteriorMon_Aduana";
             this.TBExteriorMon_Aduana.Size = new System.Drawing.Size(145, 21);
             this.TBExteriorMon_Aduana.TabIndex = 155;
@@ -1629,9 +1817,9 @@
             // 
             // TBExterior_Proveedor
             // 
-            this.TBExterior_Proveedor.Location = new System.Drawing.Point(84, 6);
+            this.TBExterior_Proveedor.Location = new System.Drawing.Point(229, 6);
             this.TBExterior_Proveedor.Name = "TBExterior_Proveedor";
-            this.TBExterior_Proveedor.Size = new System.Drawing.Size(319, 21);
+            this.TBExterior_Proveedor.Size = new System.Drawing.Size(306, 21);
             this.TBExterior_Proveedor.TabIndex = 148;
             this.TBExterior_Proveedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1651,7 +1839,7 @@
             this.btnExaminar_Exterior.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExaminar_Exterior.FlatAppearance.BorderSize = 0;
             this.btnExaminar_Exterior.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExaminar_Exterior.Location = new System.Drawing.Point(409, 6);
+            this.btnExaminar_Exterior.Location = new System.Drawing.Point(541, 6);
             this.btnExaminar_Exterior.Name = "btnExaminar_Exterior";
             this.btnExaminar_Exterior.Size = new System.Drawing.Size(25, 21);
             this.btnExaminar_Exterior.TabIndex = 149;
@@ -1660,7 +1848,7 @@
             // 
             // TBExteriorMon_Comision
             // 
-            this.TBExteriorMon_Comision.Location = new System.Drawing.Point(289, 60);
+            this.TBExteriorMon_Comision.Location = new System.Drawing.Point(421, 60);
             this.TBExteriorMon_Comision.Name = "TBExteriorMon_Comision";
             this.TBExteriorMon_Comision.Size = new System.Drawing.Size(145, 21);
             this.TBExteriorMon_Comision.TabIndex = 146;
@@ -1767,10 +1955,10 @@
             this.TPFabricacion.Controls.Add(this.label55);
             this.TPFabricacion.Controls.Add(this.TBFabri_ManoDeObra);
             this.TPFabricacion.Controls.Add(this.label54);
-            this.TPFabricacion.Location = new System.Drawing.Point(4, 64);
+            this.TPFabricacion.Location = new System.Drawing.Point(4, 44);
             this.TPFabricacion.Name = "TPFabricacion";
             this.TPFabricacion.Padding = new System.Windows.Forms.Padding(3);
-            this.TPFabricacion.Size = new System.Drawing.Size(442, 395);
+            this.TPFabricacion.Size = new System.Drawing.Size(574, 395);
             this.TPFabricacion.TabIndex = 19;
             this.TPFabricacion.Text = "Valor de Fabricación";
             this.TPFabricacion.UseVisualStyleBackColor = true;
@@ -2021,9 +2209,9 @@
             this.TPIgualdad.Controls.Add(this.DGDetalle_Igualdad);
             this.TPIgualdad.Controls.Add(this.label39);
             this.TPIgualdad.Controls.Add(this.btnEliminar_Igualdad);
-            this.TPIgualdad.Location = new System.Drawing.Point(4, 64);
+            this.TPIgualdad.Location = new System.Drawing.Point(4, 44);
             this.TPIgualdad.Name = "TPIgualdad";
-            this.TPIgualdad.Size = new System.Drawing.Size(442, 395);
+            this.TPIgualdad.Size = new System.Drawing.Size(574, 395);
             this.TPIgualdad.TabIndex = 16;
             this.TPIgualdad.Text = "Igualdad";
             this.TPIgualdad.UseVisualStyleBackColor = true;
@@ -2032,7 +2220,7 @@
             // 
             this.TBIgualdad_Marca.Location = new System.Drawing.Point(65, 60);
             this.TBIgualdad_Marca.Name = "TBIgualdad_Marca";
-            this.TBIgualdad_Marca.Size = new System.Drawing.Size(369, 21);
+            this.TBIgualdad_Marca.Size = new System.Drawing.Size(501, 21);
             this.TBIgualdad_Marca.TabIndex = 166;
             this.TBIgualdad_Marca.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -2040,7 +2228,7 @@
             // 
             this.TBIgualdad_Producto.Location = new System.Drawing.Point(65, 33);
             this.TBIgualdad_Producto.Name = "TBIgualdad_Producto";
-            this.TBIgualdad_Producto.Size = new System.Drawing.Size(369, 21);
+            this.TBIgualdad_Producto.Size = new System.Drawing.Size(501, 21);
             this.TBIgualdad_Producto.TabIndex = 164;
             this.TBIgualdad_Producto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -2057,7 +2245,7 @@
             // 
             this.TBIgualdad_Codigo.Location = new System.Drawing.Point(65, 6);
             this.TBIgualdad_Codigo.Name = "TBIgualdad_Codigo";
-            this.TBIgualdad_Codigo.Size = new System.Drawing.Size(338, 21);
+            this.TBIgualdad_Codigo.Size = new System.Drawing.Size(470, 21);
             this.TBIgualdad_Codigo.TabIndex = 162;
             this.TBIgualdad_Codigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -2078,7 +2266,7 @@
             this.btnAgregar_Igualdad.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar_Igualdad.Image = global::Presentacion.Botones.btnAgregar;
             this.btnAgregar_Igualdad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar_Igualdad.Location = new System.Drawing.Point(188, 357);
+            this.btnAgregar_Igualdad.Location = new System.Drawing.Point(320, 357);
             this.btnAgregar_Igualdad.Name = "btnAgregar_Igualdad";
             this.btnAgregar_Igualdad.Size = new System.Drawing.Size(120, 30);
             this.btnAgregar_Igualdad.TabIndex = 160;
@@ -2094,7 +2282,7 @@
             this.btnExaminar_Igualdad.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExaminar_Igualdad.FlatAppearance.BorderSize = 0;
             this.btnExaminar_Igualdad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExaminar_Igualdad.Location = new System.Drawing.Point(409, 6);
+            this.btnExaminar_Igualdad.Location = new System.Drawing.Point(541, 6);
             this.btnExaminar_Igualdad.Name = "btnExaminar_Igualdad";
             this.btnExaminar_Igualdad.Size = new System.Drawing.Size(25, 21);
             this.btnExaminar_Igualdad.TabIndex = 159;
@@ -2104,7 +2292,7 @@
             // lblTotal_Igualdad
             // 
             this.lblTotal_Igualdad.AutoSize = true;
-            this.lblTotal_Igualdad.Location = new System.Drawing.Point(5, 365);
+            this.lblTotal_Igualdad.Location = new System.Drawing.Point(3, 363);
             this.lblTotal_Igualdad.Name = "lblTotal_Igualdad";
             this.lblTotal_Igualdad.Size = new System.Drawing.Size(114, 15);
             this.lblTotal_Igualdad.TabIndex = 153;
@@ -2122,7 +2310,7 @@
             this.DGDetalle_Igualdad.ReadOnly = true;
             this.DGDetalle_Igualdad.RowHeadersVisible = false;
             this.DGDetalle_Igualdad.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGDetalle_Igualdad.Size = new System.Drawing.Size(428, 266);
+            this.DGDetalle_Igualdad.Size = new System.Drawing.Size(560, 264);
             this.DGDetalle_Igualdad.TabIndex = 155;
             // 
             // label39
@@ -2141,7 +2329,7 @@
             this.btnEliminar_Igualdad.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar_Igualdad.Image = global::Presentacion.Botones.btnEliminar;
             this.btnEliminar_Igualdad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar_Igualdad.Location = new System.Drawing.Point(314, 357);
+            this.btnEliminar_Igualdad.Location = new System.Drawing.Point(446, 357);
             this.btnEliminar_Igualdad.Name = "btnEliminar_Igualdad";
             this.btnEliminar_Igualdad.Size = new System.Drawing.Size(120, 30);
             this.btnEliminar_Igualdad.TabIndex = 157;
@@ -2154,10 +2342,10 @@
             // 
             this.TPImagen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TPImagen.Controls.Add(this.groupBox3);
-            this.TPImagen.Location = new System.Drawing.Point(4, 64);
+            this.TPImagen.Location = new System.Drawing.Point(4, 44);
             this.TPImagen.Name = "TPImagen";
             this.TPImagen.Padding = new System.Windows.Forms.Padding(3);
-            this.TPImagen.Size = new System.Drawing.Size(442, 395);
+            this.TPImagen.Size = new System.Drawing.Size(574, 395);
             this.TPImagen.TabIndex = 13;
             this.TPImagen.Text = "Imagen";
             this.TPImagen.UseVisualStyleBackColor = true;
@@ -2199,10 +2387,10 @@
             this.TPImpuesto.Controls.Add(this.label15);
             this.TPImpuesto.Controls.Add(this.btnAgregar_Impuesto);
             this.TPImpuesto.Controls.Add(this.btnEliminar_Impuesto);
-            this.TPImpuesto.Location = new System.Drawing.Point(4, 64);
+            this.TPImpuesto.Location = new System.Drawing.Point(4, 44);
             this.TPImpuesto.Name = "TPImpuesto";
             this.TPImpuesto.Padding = new System.Windows.Forms.Padding(3);
-            this.TPImpuesto.Size = new System.Drawing.Size(442, 395);
+            this.TPImpuesto.Size = new System.Drawing.Size(574, 395);
             this.TPImpuesto.TabIndex = 15;
             this.TPImpuesto.Text = "Impuesto";
             this.TPImpuesto.UseVisualStyleBackColor = true;
@@ -2214,7 +2402,7 @@
             this.btnExaminar_Impuesto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExaminar_Impuesto.FlatAppearance.BorderSize = 0;
             this.btnExaminar_Impuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExaminar_Impuesto.Location = new System.Drawing.Point(409, 6);
+            this.btnExaminar_Impuesto.Location = new System.Drawing.Point(541, 6);
             this.btnExaminar_Impuesto.Name = "btnExaminar_Impuesto";
             this.btnExaminar_Impuesto.Size = new System.Drawing.Size(25, 21);
             this.btnExaminar_Impuesto.TabIndex = 160;
@@ -2225,7 +2413,7 @@
             // 
             this.TBImpuesto.Location = new System.Drawing.Point(92, 6);
             this.TBImpuesto.Name = "TBImpuesto";
-            this.TBImpuesto.Size = new System.Drawing.Size(311, 21);
+            this.TBImpuesto.Size = new System.Drawing.Size(443, 21);
             this.TBImpuesto.TabIndex = 159;
             // 
             // label11
@@ -2250,14 +2438,14 @@
             // 
             this.TBDescripcion_Impuesto.Location = new System.Drawing.Point(92, 60);
             this.TBDescripcion_Impuesto.Name = "TBDescripcion_Impuesto";
-            this.TBDescripcion_Impuesto.Size = new System.Drawing.Size(342, 21);
+            this.TBDescripcion_Impuesto.Size = new System.Drawing.Size(474, 21);
             this.TBDescripcion_Impuesto.TabIndex = 156;
             // 
             // TBValor_Impuesto
             // 
             this.TBValor_Impuesto.Location = new System.Drawing.Point(92, 33);
             this.TBValor_Impuesto.Name = "TBValor_Impuesto";
-            this.TBValor_Impuesto.Size = new System.Drawing.Size(342, 21);
+            this.TBValor_Impuesto.Size = new System.Drawing.Size(474, 21);
             this.TBValor_Impuesto.TabIndex = 155;
             // 
             // TBIdimpuesto
@@ -2285,12 +2473,13 @@
             this.DGDetalle_Impuesto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGDetalle_Impuesto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DGDetalle_Impuesto.Location = new System.Drawing.Point(6, 87);
+            this.DGDetalle_Impuesto.MultiSelect = false;
             this.DGDetalle_Impuesto.Name = "DGDetalle_Impuesto";
             this.DGDetalle_Impuesto.ReadOnly = true;
-            this.DGDetalle_Impuesto.RowHeadersVisible = false;
             this.DGDetalle_Impuesto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGDetalle_Impuesto.Size = new System.Drawing.Size(428, 264);
+            this.DGDetalle_Impuesto.Size = new System.Drawing.Size(560, 264);
             this.DGDetalle_Impuesto.TabIndex = 134;
+            this.DGDetalle_Impuesto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGDetalle_Impuesto_CellContentClick);
             // 
             // label15
             // 
@@ -2309,7 +2498,7 @@
             this.btnAgregar_Impuesto.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar_Impuesto.Image = global::Presentacion.Botones.btnAgregar;
             this.btnAgregar_Impuesto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar_Impuesto.Location = new System.Drawing.Point(188, 357);
+            this.btnAgregar_Impuesto.Location = new System.Drawing.Point(320, 357);
             this.btnAgregar_Impuesto.Name = "btnAgregar_Impuesto";
             this.btnAgregar_Impuesto.Size = new System.Drawing.Size(120, 30);
             this.btnAgregar_Impuesto.TabIndex = 153;
@@ -2325,7 +2514,7 @@
             this.btnEliminar_Impuesto.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar_Impuesto.Image = global::Presentacion.Botones.btnEliminar;
             this.btnEliminar_Impuesto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar_Impuesto.Location = new System.Drawing.Point(314, 357);
+            this.btnEliminar_Impuesto.Location = new System.Drawing.Point(446, 357);
             this.btnEliminar_Impuesto.Name = "btnEliminar_Impuesto";
             this.btnEliminar_Impuesto.Size = new System.Drawing.Size(120, 30);
             this.btnEliminar_Impuesto.TabIndex = 135;
@@ -2353,19 +2542,19 @@
             this.TPLote.Controls.Add(this.label12);
             this.TPLote.Controls.Add(this.btnEliminar_Lote);
             this.TPLote.Controls.Add(this.btnAgregar_Lote);
-            this.TPLote.Location = new System.Drawing.Point(4, 64);
+            this.TPLote.Location = new System.Drawing.Point(4, 44);
             this.TPLote.Name = "TPLote";
             this.TPLote.Padding = new System.Windows.Forms.Padding(3);
-            this.TPLote.Size = new System.Drawing.Size(442, 395);
+            this.TPLote.Size = new System.Drawing.Size(574, 395);
             this.TPLote.TabIndex = 11;
             this.TPLote.Text = "Lote";
             this.TPLote.UseVisualStyleBackColor = true;
             // 
             // textBox47
             // 
-            this.textBox47.Location = new System.Drawing.Point(334, 87);
+            this.textBox47.Location = new System.Drawing.Point(331, 87);
             this.textBox47.Name = "textBox47";
-            this.textBox47.Size = new System.Drawing.Size(100, 21);
+            this.textBox47.Size = new System.Drawing.Size(235, 21);
             this.textBox47.TabIndex = 68;
             // 
             // btnModificar_Lote
@@ -2376,7 +2565,7 @@
             this.btnModificar_Lote.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar_Lote.Image = global::Presentacion.Botones.btnEditar;
             this.btnModificar_Lote.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar_Lote.Location = new System.Drawing.Point(188, 357);
+            this.btnModificar_Lote.Location = new System.Drawing.Point(320, 357);
             this.btnModificar_Lote.Name = "btnModificar_Lote";
             this.btnModificar_Lote.Size = new System.Drawing.Size(120, 30);
             this.btnModificar_Lote.TabIndex = 67;
@@ -2389,7 +2578,7 @@
             // 
             this.TBLote_Venta.Location = new System.Drawing.Point(111, 60);
             this.TBLote_Venta.Name = "TBLote_Venta";
-            this.TBLote_Venta.Size = new System.Drawing.Size(323, 21);
+            this.TBLote_Venta.Size = new System.Drawing.Size(455, 21);
             this.TBLote_Venta.TabIndex = 66;
             this.TBLote_Venta.Enter += new System.EventHandler(this.TBLote_Venta_Enter);
             this.TBLote_Venta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBLote_Venta_KeyPress);
@@ -2409,7 +2598,7 @@
             // 
             this.TBLote_Cantidad.Location = new System.Drawing.Point(111, 87);
             this.TBLote_Cantidad.Name = "TBLote_Cantidad";
-            this.TBLote_Cantidad.Size = new System.Drawing.Size(190, 21);
+            this.TBLote_Cantidad.Size = new System.Drawing.Size(214, 21);
             this.TBLote_Cantidad.TabIndex = 61;
             this.TBLote_Cantidad.Enter += new System.EventHandler(this.TBLote_Stock_Enter);
             this.TBLote_Cantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBLote_Stock_KeyPress);
@@ -2449,18 +2638,18 @@
             this.DGDetalles_Lotes.BackgroundColor = System.Drawing.Color.White;
             this.DGDetalles_Lotes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGDetalles_Lotes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.DGDetalles_Lotes.Location = new System.Drawing.Point(6, 156);
+            this.DGDetalles_Lotes.Location = new System.Drawing.Point(6, 141);
             this.DGDetalles_Lotes.Name = "DGDetalles_Lotes";
             this.DGDetalles_Lotes.ReadOnly = true;
             this.DGDetalles_Lotes.RowHeadersVisible = false;
             this.DGDetalles_Lotes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGDetalles_Lotes.Size = new System.Drawing.Size(428, 195);
+            this.DGDetalles_Lotes.Size = new System.Drawing.Size(560, 210);
             this.DGDetalles_Lotes.TabIndex = 56;
             // 
             // lblTotal_Lotes
             // 
             this.lblTotal_Lotes.AutoSize = true;
-            this.lblTotal_Lotes.Location = new System.Drawing.Point(6, 138);
+            this.lblTotal_Lotes.Location = new System.Drawing.Point(6, 363);
             this.lblTotal_Lotes.Name = "lblTotal_Lotes";
             this.lblTotal_Lotes.Size = new System.Drawing.Size(121, 15);
             this.lblTotal_Lotes.TabIndex = 51;
@@ -2470,7 +2659,7 @@
             // 
             this.TBValor_Lote.Location = new System.Drawing.Point(111, 33);
             this.TBValor_Lote.Name = "TBValor_Lote";
-            this.TBValor_Lote.Size = new System.Drawing.Size(323, 21);
+            this.TBValor_Lote.Size = new System.Drawing.Size(455, 21);
             this.TBValor_Lote.TabIndex = 47;
             this.TBValor_Lote.Enter += new System.EventHandler(this.TBValor_Lote_Enter);
             this.TBValor_Lote.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBValor_Lote_KeyPress);
@@ -2490,7 +2679,7 @@
             // 
             this.TBLotedeingreso.Location = new System.Drawing.Point(111, 6);
             this.TBLotedeingreso.Name = "TBLotedeingreso";
-            this.TBLotedeingreso.Size = new System.Drawing.Size(323, 21);
+            this.TBLotedeingreso.Size = new System.Drawing.Size(455, 21);
             this.TBLotedeingreso.TabIndex = 44;
             this.TBLotedeingreso.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TBLotedeingreso.Enter += new System.EventHandler(this.TBLotedeingreso_Enter);
@@ -2514,7 +2703,7 @@
             this.btnEliminar_Lote.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar_Lote.Image = global::Presentacion.Botones.btnEliminar;
             this.btnEliminar_Lote.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar_Lote.Location = new System.Drawing.Point(314, 357);
+            this.btnEliminar_Lote.Location = new System.Drawing.Point(446, 357);
             this.btnEliminar_Lote.Name = "btnEliminar_Lote";
             this.btnEliminar_Lote.Size = new System.Drawing.Size(120, 30);
             this.btnEliminar_Lote.TabIndex = 63;
@@ -2531,7 +2720,7 @@
             this.btnAgregar_Lote.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar_Lote.Image = global::Presentacion.Botones.btnAgregar;
             this.btnAgregar_Lote.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar_Lote.Location = new System.Drawing.Point(62, 357);
+            this.btnAgregar_Lote.Location = new System.Drawing.Point(194, 357);
             this.btnAgregar_Lote.Name = "btnAgregar_Lote";
             this.btnAgregar_Lote.Size = new System.Drawing.Size(120, 30);
             this.btnAgregar_Lote.TabIndex = 62;
@@ -2552,10 +2741,10 @@
             this.TPProveedor.Controls.Add(this.label6);
             this.TPProveedor.Controls.Add(this.btnEliminar_Proveedor);
             this.TPProveedor.Controls.Add(this.btnExaminar_Proveedor);
-            this.TPProveedor.Location = new System.Drawing.Point(4, 64);
+            this.TPProveedor.Location = new System.Drawing.Point(4, 44);
             this.TPProveedor.Name = "TPProveedor";
             this.TPProveedor.Padding = new System.Windows.Forms.Padding(3);
-            this.TPProveedor.Size = new System.Drawing.Size(442, 395);
+            this.TPProveedor.Size = new System.Drawing.Size(574, 395);
             this.TPProveedor.TabIndex = 14;
             this.TPProveedor.Text = "Proveedor";
             this.TPProveedor.UseVisualStyleBackColor = true;
@@ -2564,7 +2753,7 @@
             // 
             this.TBProveedor_Documento.Location = new System.Drawing.Point(84, 33);
             this.TBProveedor_Documento.Name = "TBProveedor_Documento";
-            this.TBProveedor_Documento.Size = new System.Drawing.Size(350, 21);
+            this.TBProveedor_Documento.Size = new System.Drawing.Size(482, 21);
             this.TBProveedor_Documento.TabIndex = 139;
             this.TBProveedor_Documento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -2585,7 +2774,7 @@
             this.btnAgregar_Proveedor.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar_Proveedor.Image = global::Presentacion.Botones.btnAgregar;
             this.btnAgregar_Proveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar_Proveedor.Location = new System.Drawing.Point(188, 357);
+            this.btnAgregar_Proveedor.Location = new System.Drawing.Point(320, 357);
             this.btnAgregar_Proveedor.Name = "btnAgregar_Proveedor";
             this.btnAgregar_Proveedor.Size = new System.Drawing.Size(120, 30);
             this.btnAgregar_Proveedor.TabIndex = 137;
@@ -2616,14 +2805,14 @@
             this.DGDetalle_Proveedor.ReadOnly = true;
             this.DGDetalle_Proveedor.RowHeadersVisible = false;
             this.DGDetalle_Proveedor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGDetalle_Proveedor.Size = new System.Drawing.Size(428, 291);
+            this.DGDetalle_Proveedor.Size = new System.Drawing.Size(560, 291);
             this.DGDetalle_Proveedor.TabIndex = 134;
             // 
             // TBProveedor
             // 
             this.TBProveedor.Location = new System.Drawing.Point(84, 6);
             this.TBProveedor.Name = "TBProveedor";
-            this.TBProveedor.Size = new System.Drawing.Size(319, 21);
+            this.TBProveedor.Size = new System.Drawing.Size(451, 21);
             this.TBProveedor.TabIndex = 132;
             this.TBProveedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TBProveedor.Enter += new System.EventHandler(this.TBBuscar_Proveedor_Enter);
@@ -2645,7 +2834,7 @@
             this.btnEliminar_Proveedor.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar_Proveedor.Image = global::Presentacion.Botones.btnEliminar;
             this.btnEliminar_Proveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar_Proveedor.Location = new System.Drawing.Point(314, 357);
+            this.btnEliminar_Proveedor.Location = new System.Drawing.Point(446, 357);
             this.btnEliminar_Proveedor.Name = "btnEliminar_Proveedor";
             this.btnEliminar_Proveedor.Size = new System.Drawing.Size(120, 30);
             this.btnEliminar_Proveedor.TabIndex = 135;
@@ -2661,7 +2850,7 @@
             this.btnExaminar_Proveedor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExaminar_Proveedor.FlatAppearance.BorderSize = 0;
             this.btnExaminar_Proveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExaminar_Proveedor.Location = new System.Drawing.Point(409, 6);
+            this.btnExaminar_Proveedor.Location = new System.Drawing.Point(541, 6);
             this.btnExaminar_Proveedor.Name = "btnExaminar_Proveedor";
             this.btnExaminar_Proveedor.Size = new System.Drawing.Size(25, 21);
             this.btnExaminar_Proveedor.TabIndex = 133;
@@ -2671,10 +2860,10 @@
             // TPRetencion
             // 
             this.TPRetencion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TPRetencion.Location = new System.Drawing.Point(4, 64);
+            this.TPRetencion.Location = new System.Drawing.Point(4, 44);
             this.TPRetencion.Name = "TPRetencion";
             this.TPRetencion.Padding = new System.Windows.Forms.Padding(3);
-            this.TPRetencion.Size = new System.Drawing.Size(442, 395);
+            this.TPRetencion.Size = new System.Drawing.Size(574, 395);
             this.TPRetencion.TabIndex = 18;
             this.TPRetencion.Text = "Retención";
             this.TPRetencion.UseVisualStyleBackColor = true;
@@ -2682,17 +2871,32 @@
             // TPStockDisponible
             // 
             this.TPStockDisponible.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TPStockDisponible.Controls.Add(this.textBox18);
+            this.TPStockDisponible.Controls.Add(this.textBox19);
             this.TPStockDisponible.Controls.Add(this.label81);
             this.TPStockDisponible.Controls.Add(this.dataGridView2);
-            this.TPStockDisponible.Controls.Add(this.CBBodega_Stock);
             this.TPStockDisponible.Controls.Add(this.label80);
-            this.TPStockDisponible.Location = new System.Drawing.Point(4, 64);
+            this.TPStockDisponible.Location = new System.Drawing.Point(4, 44);
             this.TPStockDisponible.Name = "TPStockDisponible";
             this.TPStockDisponible.Padding = new System.Windows.Forms.Padding(3);
-            this.TPStockDisponible.Size = new System.Drawing.Size(442, 395);
+            this.TPStockDisponible.Size = new System.Drawing.Size(574, 395);
             this.TPStockDisponible.TabIndex = 22;
             this.TPStockDisponible.Text = "Stock Disponible";
             this.TPStockDisponible.UseVisualStyleBackColor = true;
+            // 
+            // textBox18
+            // 
+            this.textBox18.Location = new System.Drawing.Point(233, 6);
+            this.textBox18.Name = "textBox18";
+            this.textBox18.Size = new System.Drawing.Size(333, 21);
+            this.textBox18.TabIndex = 63;
+            // 
+            // textBox19
+            // 
+            this.textBox19.Location = new System.Drawing.Point(77, 6);
+            this.textBox19.Name = "textBox19";
+            this.textBox19.Size = new System.Drawing.Size(150, 21);
+            this.textBox19.TabIndex = 62;
             // 
             // label81
             // 
@@ -2722,7 +2926,7 @@
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(428, 333);
+            this.dataGridView2.Size = new System.Drawing.Size(560, 333);
             this.dataGridView2.TabIndex = 38;
             // 
             // Ubicacion
@@ -2760,19 +2964,6 @@
             this.Existencia.ReadOnly = true;
             this.Existencia.Width = 88;
             // 
-            // CBBodega_Stock
-            // 
-            this.CBBodega_Stock.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CBBodega_Stock.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CBBodega_Stock.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBBodega_Stock.FormattingEnabled = true;
-            this.CBBodega_Stock.Location = new System.Drawing.Point(77, 6);
-            this.CBBodega_Stock.Name = "CBBodega_Stock";
-            this.CBBodega_Stock.Size = new System.Drawing.Size(357, 21);
-            this.CBBodega_Stock.Sorted = true;
-            this.CBBodega_Stock.TabIndex = 37;
-            this.CBBodega_Stock.SelectedIndexChanged += new System.EventHandler(this.CBBodega_Stock_SelectedIndexChanged);
-            // 
             // label80
             // 
             this.label80.AutoSize = true;
@@ -2786,10 +2977,11 @@
             // 
             this.TPUbicacion.BackColor = System.Drawing.Color.White;
             this.TPUbicacion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TPUbicacion.Controls.Add(this.textBox17);
+            this.TPUbicacion.Controls.Add(this.textBox16);
             this.TPUbicacion.Controls.Add(this.btnModificar_Ubicacion);
             this.TPUbicacion.Controls.Add(this.lblTotal_Ubicacion);
             this.TPUbicacion.Controls.Add(this.DGDetalles_Ubicacion);
-            this.TPUbicacion.Controls.Add(this.CBBodega);
             this.TPUbicacion.Controls.Add(this.label24);
             this.TPUbicacion.Controls.Add(this.TBUbicacion);
             this.TPUbicacion.Controls.Add(this.TBNivel);
@@ -2799,12 +2991,26 @@
             this.TPUbicacion.Controls.Add(this.label18);
             this.TPUbicacion.Controls.Add(this.btnEliminar_Ubicacion);
             this.TPUbicacion.Controls.Add(this.btnAgregar_Ubicacion);
-            this.TPUbicacion.Location = new System.Drawing.Point(4, 64);
+            this.TPUbicacion.Location = new System.Drawing.Point(4, 44);
             this.TPUbicacion.Name = "TPUbicacion";
             this.TPUbicacion.Padding = new System.Windows.Forms.Padding(3);
-            this.TPUbicacion.Size = new System.Drawing.Size(442, 395);
+            this.TPUbicacion.Size = new System.Drawing.Size(574, 395);
             this.TPUbicacion.TabIndex = 4;
             this.TPUbicacion.Text = "Ubicación";
+            // 
+            // textBox17
+            // 
+            this.textBox17.Location = new System.Drawing.Point(233, 6);
+            this.textBox17.Name = "textBox17";
+            this.textBox17.Size = new System.Drawing.Size(333, 21);
+            this.textBox17.TabIndex = 61;
+            // 
+            // textBox16
+            // 
+            this.textBox16.Location = new System.Drawing.Point(77, 6);
+            this.textBox16.Name = "textBox16";
+            this.textBox16.Size = new System.Drawing.Size(150, 21);
+            this.textBox16.TabIndex = 60;
             // 
             // btnModificar_Ubicacion
             // 
@@ -2814,7 +3020,7 @@
             this.btnModificar_Ubicacion.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar_Ubicacion.Image = global::Presentacion.Botones.btnEditar;
             this.btnModificar_Ubicacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar_Ubicacion.Location = new System.Drawing.Point(188, 357);
+            this.btnModificar_Ubicacion.Location = new System.Drawing.Point(320, 357);
             this.btnModificar_Ubicacion.Name = "btnModificar_Ubicacion";
             this.btnModificar_Ubicacion.Size = new System.Drawing.Size(120, 30);
             this.btnModificar_Ubicacion.TabIndex = 59;
@@ -2826,7 +3032,7 @@
             // lblTotal_Ubicacion
             // 
             this.lblTotal_Ubicacion.AutoSize = true;
-            this.lblTotal_Ubicacion.Location = new System.Drawing.Point(233, 90);
+            this.lblTotal_Ubicacion.Location = new System.Drawing.Point(6, 363);
             this.lblTotal_Ubicacion.Name = "lblTotal_Ubicacion";
             this.lblTotal_Ubicacion.Size = new System.Drawing.Size(114, 15);
             this.lblTotal_Ubicacion.TabIndex = 56;
@@ -2845,23 +3051,10 @@
             this.DGDetalles_Ubicacion.ReadOnly = true;
             this.DGDetalles_Ubicacion.RowHeadersVisible = false;
             this.DGDetalles_Ubicacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGDetalles_Ubicacion.Size = new System.Drawing.Size(428, 237);
+            this.DGDetalles_Ubicacion.Size = new System.Drawing.Size(560, 237);
             this.DGDetalles_Ubicacion.TabIndex = 36;
             this.DGDetalles_Ubicacion.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGDetalles_Ubicacion_CellClick);
             this.DGDetalles_Ubicacion.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGDetalles_Ubicacion_RowEnter);
-            // 
-            // CBBodega
-            // 
-            this.CBBodega.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CBBodega.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CBBodega.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBBodega.FormattingEnabled = true;
-            this.CBBodega.Location = new System.Drawing.Point(77, 6);
-            this.CBBodega.Name = "CBBodega";
-            this.CBBodega.Size = new System.Drawing.Size(357, 21);
-            this.CBBodega.Sorted = true;
-            this.CBBodega.TabIndex = 35;
-            this.CBBodega.SelectedIndexChanged += new System.EventHandler(this.CBBodega_SelectedIndexChanged);
             // 
             // label24
             // 
@@ -2876,7 +3069,7 @@
             // 
             this.TBUbicacion.Location = new System.Drawing.Point(77, 33);
             this.TBUbicacion.Name = "TBUbicacion";
-            this.TBUbicacion.Size = new System.Drawing.Size(357, 21);
+            this.TBUbicacion.Size = new System.Drawing.Size(489, 21);
             this.TBUbicacion.TabIndex = 25;
             this.TBUbicacion.Enter += new System.EventHandler(this.TBUbicacion_Enter);
             this.TBUbicacion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBUbicacion_KeyUp);
@@ -2886,7 +3079,7 @@
             // 
             this.TBNivel.Location = new System.Drawing.Point(77, 87);
             this.TBNivel.Name = "TBNivel";
-            this.TBNivel.Size = new System.Drawing.Size(150, 21);
+            this.TBNivel.Size = new System.Drawing.Size(489, 21);
             this.TBNivel.TabIndex = 5;
             this.TBNivel.Enter += new System.EventHandler(this.TBNivel_Enter);
             this.TBNivel.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBNivel_KeyUp);
@@ -2905,7 +3098,7 @@
             // 
             this.TBEstante.Location = new System.Drawing.Point(77, 60);
             this.TBEstante.Name = "TBEstante";
-            this.TBEstante.Size = new System.Drawing.Size(357, 21);
+            this.TBEstante.Size = new System.Drawing.Size(489, 21);
             this.TBEstante.TabIndex = 3;
             this.TBEstante.Enter += new System.EventHandler(this.TBEstante_Enter);
             this.TBEstante.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBEstante_KeyUp);
@@ -2937,7 +3130,7 @@
             this.btnEliminar_Ubicacion.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar_Ubicacion.Image = global::Presentacion.Botones.btnEliminar;
             this.btnEliminar_Ubicacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar_Ubicacion.Location = new System.Drawing.Point(314, 357);
+            this.btnEliminar_Ubicacion.Location = new System.Drawing.Point(446, 357);
             this.btnEliminar_Ubicacion.Name = "btnEliminar_Ubicacion";
             this.btnEliminar_Ubicacion.Size = new System.Drawing.Size(120, 30);
             this.btnEliminar_Ubicacion.TabIndex = 58;
@@ -2954,7 +3147,7 @@
             this.btnAgregar_Ubicacion.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar_Ubicacion.Image = global::Presentacion.Botones.btnAgregar;
             this.btnAgregar_Ubicacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar_Ubicacion.Location = new System.Drawing.Point(62, 357);
+            this.btnAgregar_Ubicacion.Location = new System.Drawing.Point(194, 357);
             this.btnAgregar_Ubicacion.Name = "btnAgregar_Ubicacion";
             this.btnAgregar_Ubicacion.Size = new System.Drawing.Size(120, 30);
             this.btnAgregar_Ubicacion.TabIndex = 57;
@@ -2967,6 +3160,17 @@
             // 
             this.TPValores.BackColor = System.Drawing.Color.White;
             this.TPValores.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TPValores.Controls.Add(this.TBmultiplicador_Impuesto);
+            this.TPValores.Controls.Add(this.textBox7);
+            this.TPValores.Controls.Add(this.textBox8);
+            this.TPValores.Controls.Add(this.textBox9);
+            this.TPValores.Controls.Add(this.textBox10);
+            this.TPValores.Controls.Add(this.textBox2);
+            this.TPValores.Controls.Add(this.textBox3);
+            this.TPValores.Controls.Add(this.textBox4);
+            this.TPValores.Controls.Add(this.textBox5);
+            this.TPValores.Controls.Add(this.textBox6);
+            this.TPValores.Controls.Add(this.TBDivisor_Impuesto);
             this.TPValores.Controls.Add(this.textBox22);
             this.TPValores.Controls.Add(this.TBValor_PorUnidad03);
             this.TPValores.Controls.Add(this.TBValor_ImpUnidad03);
@@ -3009,16 +3213,108 @@
             this.TPValores.Controls.Add(this.TBValor_Venta02);
             this.TPValores.Controls.Add(this.label26);
             this.TPValores.Controls.Add(this.panel2);
-            this.TPValores.Location = new System.Drawing.Point(4, 64);
+            this.TPValores.Location = new System.Drawing.Point(4, 44);
             this.TPValores.Name = "TPValores";
-            this.TPValores.Size = new System.Drawing.Size(442, 395);
+            this.TPValores.Size = new System.Drawing.Size(574, 395);
             this.TPValores.TabIndex = 3;
             this.TPValores.Text = "Valor - Precios";
+            // 
+            // TBmultiplicador_Impuesto
+            // 
+            this.TBmultiplicador_Impuesto.Location = new System.Drawing.Point(51, 83);
+            this.TBmultiplicador_Impuesto.Name = "TBmultiplicador_Impuesto";
+            this.TBmultiplicador_Impuesto.Size = new System.Drawing.Size(38, 21);
+            this.TBmultiplicador_Impuesto.TabIndex = 220;
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(312, 354);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(125, 21);
+            this.textBox7.TabIndex = 219;
+            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox8
+            // 
+            this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox8.Location = new System.Drawing.Point(312, 274);
+            this.textBox8.Multiline = true;
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(125, 20);
+            this.textBox8.TabIndex = 218;
+            this.textBox8.Text = "Valor Base Inicial";
+            this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(312, 327);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(125, 21);
+            this.textBox9.TabIndex = 217;
+            this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(312, 300);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(125, 21);
+            this.textBox10.TabIndex = 216;
+            this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(312, 166);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(125, 21);
+            this.textBox2.TabIndex = 215;
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox3
+            // 
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox3.Location = new System.Drawing.Point(312, 86);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(125, 20);
+            this.textBox3.TabIndex = 214;
+            this.textBox3.Text = "Valor Base Inicial";
+            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(312, 193);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(125, 21);
+            this.textBox4.TabIndex = 213;
+            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(312, 139);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(125, 21);
+            this.textBox5.TabIndex = 212;
+            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(312, 112);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(125, 21);
+            this.textBox6.TabIndex = 211;
+            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // TBDivisor_Impuesto
+            // 
+            this.TBDivisor_Impuesto.Location = new System.Drawing.Point(7, 83);
+            this.TBDivisor_Impuesto.Name = "TBDivisor_Impuesto";
+            this.TBDivisor_Impuesto.Size = new System.Drawing.Size(38, 21);
+            this.TBDivisor_Impuesto.TabIndex = 210;
             // 
             // textBox22
             // 
             this.textBox22.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox22.Location = new System.Drawing.Point(269, 272);
+            this.textBox22.Location = new System.Drawing.Point(269, 274);
             this.textBox22.Multiline = true;
             this.textBox22.Name = "textBox22";
             this.textBox22.Size = new System.Drawing.Size(37, 20);
@@ -3028,7 +3324,7 @@
             // 
             // TBValor_PorUnidad03
             // 
-            this.TBValor_PorUnidad03.Location = new System.Drawing.Point(269, 352);
+            this.TBValor_PorUnidad03.Location = new System.Drawing.Point(269, 354);
             this.TBValor_PorUnidad03.Name = "TBValor_PorUnidad03";
             this.TBValor_PorUnidad03.Size = new System.Drawing.Size(37, 21);
             this.TBValor_PorUnidad03.TabIndex = 208;
@@ -3036,7 +3332,7 @@
             // 
             // TBValor_ImpUnidad03
             // 
-            this.TBValor_ImpUnidad03.Location = new System.Drawing.Point(312, 352);
+            this.TBValor_ImpUnidad03.Location = new System.Drawing.Point(443, 354);
             this.TBValor_ImpUnidad03.Name = "TBValor_ImpUnidad03";
             this.TBValor_ImpUnidad03.Size = new System.Drawing.Size(125, 21);
             this.TBValor_ImpUnidad03.TabIndex = 207;
@@ -3045,7 +3341,7 @@
             // label77
             // 
             this.label77.AutoSize = true;
-            this.label77.Location = new System.Drawing.Point(4, 354);
+            this.label77.Location = new System.Drawing.Point(4, 356);
             this.label77.Name = "label77";
             this.label77.Size = new System.Drawing.Size(112, 15);
             this.label77.TabIndex = 206;
@@ -3053,7 +3349,7 @@
             // 
             // TBValor_Unidad03
             // 
-            this.TBValor_Unidad03.Location = new System.Drawing.Point(122, 352);
+            this.TBValor_Unidad03.Location = new System.Drawing.Point(122, 354);
             this.TBValor_Unidad03.Name = "TBValor_Unidad03";
             this.TBValor_Unidad03.Size = new System.Drawing.Size(141, 21);
             this.TBValor_Unidad03.TabIndex = 205;
@@ -3066,7 +3362,7 @@
             // textBox38
             // 
             this.textBox38.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox38.Location = new System.Drawing.Point(312, 272);
+            this.textBox38.Location = new System.Drawing.Point(443, 274);
             this.textBox38.Multiline = true;
             this.textBox38.Name = "textBox38";
             this.textBox38.Size = new System.Drawing.Size(125, 20);
@@ -3076,7 +3372,7 @@
             // 
             // TBValor_PorUnidad02
             // 
-            this.TBValor_PorUnidad02.Location = new System.Drawing.Point(269, 325);
+            this.TBValor_PorUnidad02.Location = new System.Drawing.Point(269, 327);
             this.TBValor_PorUnidad02.Name = "TBValor_PorUnidad02";
             this.TBValor_PorUnidad02.Size = new System.Drawing.Size(37, 21);
             this.TBValor_PorUnidad02.TabIndex = 203;
@@ -3084,7 +3380,7 @@
             // 
             // TBValor_ImpUnidad02
             // 
-            this.TBValor_ImpUnidad02.Location = new System.Drawing.Point(312, 325);
+            this.TBValor_ImpUnidad02.Location = new System.Drawing.Point(443, 327);
             this.TBValor_ImpUnidad02.Name = "TBValor_ImpUnidad02";
             this.TBValor_ImpUnidad02.Size = new System.Drawing.Size(125, 21);
             this.TBValor_ImpUnidad02.TabIndex = 202;
@@ -3092,7 +3388,7 @@
             // 
             // TBValor_PorUnidad01
             // 
-            this.TBValor_PorUnidad01.Location = new System.Drawing.Point(269, 298);
+            this.TBValor_PorUnidad01.Location = new System.Drawing.Point(269, 300);
             this.TBValor_PorUnidad01.Name = "TBValor_PorUnidad01";
             this.TBValor_PorUnidad01.Size = new System.Drawing.Size(37, 21);
             this.TBValor_PorUnidad01.TabIndex = 201;
@@ -3100,7 +3396,7 @@
             // 
             // TBValor_ImpUnidad01
             // 
-            this.TBValor_ImpUnidad01.Location = new System.Drawing.Point(312, 298);
+            this.TBValor_ImpUnidad01.Location = new System.Drawing.Point(443, 300);
             this.TBValor_ImpUnidad01.Name = "TBValor_ImpUnidad01";
             this.TBValor_ImpUnidad01.Size = new System.Drawing.Size(125, 21);
             this.TBValor_ImpUnidad01.TabIndex = 200;
@@ -3109,7 +3405,7 @@
             // label78
             // 
             this.label78.AutoSize = true;
-            this.label78.Location = new System.Drawing.Point(4, 327);
+            this.label78.Location = new System.Drawing.Point(4, 329);
             this.label78.Name = "label78";
             this.label78.Size = new System.Drawing.Size(112, 15);
             this.label78.TabIndex = 199;
@@ -3117,7 +3413,7 @@
             // 
             // TBValor_Unidad01
             // 
-            this.TBValor_Unidad01.Location = new System.Drawing.Point(122, 298);
+            this.TBValor_Unidad01.Location = new System.Drawing.Point(122, 300);
             this.TBValor_Unidad01.Name = "TBValor_Unidad01";
             this.TBValor_Unidad01.Size = new System.Drawing.Size(141, 21);
             this.TBValor_Unidad01.TabIndex = 198;
@@ -3129,7 +3425,7 @@
             // 
             // TBValor_Unidad02
             // 
-            this.TBValor_Unidad02.Location = new System.Drawing.Point(122, 325);
+            this.TBValor_Unidad02.Location = new System.Drawing.Point(122, 327);
             this.TBValor_Unidad02.Name = "TBValor_Unidad02";
             this.TBValor_Unidad02.Size = new System.Drawing.Size(141, 21);
             this.TBValor_Unidad02.TabIndex = 197;
@@ -3142,7 +3438,7 @@
             // label79
             // 
             this.label79.AutoSize = true;
-            this.label79.Location = new System.Drawing.Point(4, 300);
+            this.label79.Location = new System.Drawing.Point(4, 302);
             this.label79.Name = "label79";
             this.label79.Size = new System.Drawing.Size(112, 15);
             this.label79.TabIndex = 196;
@@ -3150,9 +3446,9 @@
             // 
             // textBox35
             // 
-            this.textBox35.Location = new System.Drawing.Point(3, 218);
+            this.textBox35.Location = new System.Drawing.Point(3, 220);
             this.textBox35.Name = "textBox35";
-            this.textBox35.Size = new System.Drawing.Size(434, 21);
+            this.textBox35.Size = new System.Drawing.Size(565, 21);
             this.textBox35.TabIndex = 195;
             this.textBox35.Text = "Detalle de Unidades - Productos";
             this.textBox35.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -3176,7 +3472,7 @@
             "MTS",
             "TON",
             "UNI"});
-            this.CBUnidad.Location = new System.Drawing.Point(119, 245);
+            this.CBUnidad.Location = new System.Drawing.Point(119, 247);
             this.CBUnidad.Name = "CBUnidad";
             this.CBUnidad.Size = new System.Drawing.Size(89, 21);
             this.CBUnidad.Sorted = true;
@@ -3186,7 +3482,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(3, 248);
+            this.label27.Location = new System.Drawing.Point(3, 250);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(109, 15);
             this.label27.TabIndex = 193;
@@ -3195,7 +3491,7 @@
             // label75
             // 
             this.label75.AutoSize = true;
-            this.label75.Location = new System.Drawing.Point(214, 248);
+            this.label75.Location = new System.Drawing.Point(214, 250);
             this.label75.Name = "label75";
             this.label75.Size = new System.Drawing.Size(89, 15);
             this.label75.TabIndex = 191;
@@ -3204,7 +3500,7 @@
             // textBox34
             // 
             this.textBox34.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox34.Location = new System.Drawing.Point(269, 84);
+            this.textBox34.Location = new System.Drawing.Point(269, 86);
             this.textBox34.Multiline = true;
             this.textBox34.Name = "textBox34";
             this.textBox34.Size = new System.Drawing.Size(37, 20);
@@ -3214,7 +3510,7 @@
             // 
             // TBValor_PorVenta03
             // 
-            this.TBValor_PorVenta03.Location = new System.Drawing.Point(269, 164);
+            this.TBValor_PorVenta03.Location = new System.Drawing.Point(269, 166);
             this.TBValor_PorVenta03.Name = "TBValor_PorVenta03";
             this.TBValor_PorVenta03.Size = new System.Drawing.Size(37, 21);
             this.TBValor_PorVenta03.TabIndex = 189;
@@ -3222,7 +3518,7 @@
             // 
             // TBValor_ImpVenta03
             // 
-            this.TBValor_ImpVenta03.Location = new System.Drawing.Point(312, 164);
+            this.TBValor_ImpVenta03.Location = new System.Drawing.Point(443, 166);
             this.TBValor_ImpVenta03.Name = "TBValor_ImpVenta03";
             this.TBValor_ImpVenta03.Size = new System.Drawing.Size(125, 21);
             this.TBValor_ImpVenta03.TabIndex = 188;
@@ -3231,7 +3527,7 @@
             // label74
             // 
             this.label74.AutoSize = true;
-            this.label74.Location = new System.Drawing.Point(4, 166);
+            this.label74.Location = new System.Drawing.Point(4, 168);
             this.label74.Name = "label74";
             this.label74.Size = new System.Drawing.Size(103, 15);
             this.label74.TabIndex = 187;
@@ -3239,7 +3535,7 @@
             // 
             // TBValor_Venta03
             // 
-            this.TBValor_Venta03.Location = new System.Drawing.Point(113, 164);
+            this.TBValor_Venta03.Location = new System.Drawing.Point(113, 166);
             this.TBValor_Venta03.Name = "TBValor_Venta03";
             this.TBValor_Venta03.Size = new System.Drawing.Size(150, 21);
             this.TBValor_Venta03.TabIndex = 186;
@@ -3252,7 +3548,7 @@
             // textBox24
             // 
             this.textBox24.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox24.Location = new System.Drawing.Point(312, 84);
+            this.textBox24.Location = new System.Drawing.Point(443, 86);
             this.textBox24.Multiline = true;
             this.textBox24.Name = "textBox24";
             this.textBox24.Size = new System.Drawing.Size(125, 20);
@@ -3262,7 +3558,7 @@
             // 
             // TBValor_PorMayorista
             // 
-            this.TBValor_PorMayorista.Location = new System.Drawing.Point(269, 191);
+            this.TBValor_PorMayorista.Location = new System.Drawing.Point(269, 193);
             this.TBValor_PorMayorista.Name = "TBValor_PorMayorista";
             this.TBValor_PorMayorista.Size = new System.Drawing.Size(37, 21);
             this.TBValor_PorMayorista.TabIndex = 184;
@@ -3270,7 +3566,7 @@
             // 
             // TBValor_ImpMayorista
             // 
-            this.TBValor_ImpMayorista.Location = new System.Drawing.Point(312, 191);
+            this.TBValor_ImpMayorista.Location = new System.Drawing.Point(443, 193);
             this.TBValor_ImpMayorista.Name = "TBValor_ImpMayorista";
             this.TBValor_ImpMayorista.Size = new System.Drawing.Size(125, 21);
             this.TBValor_ImpMayorista.TabIndex = 183;
@@ -3279,7 +3575,7 @@
             // 
             // TBValor_PorVenta02
             // 
-            this.TBValor_PorVenta02.Location = new System.Drawing.Point(269, 137);
+            this.TBValor_PorVenta02.Location = new System.Drawing.Point(269, 139);
             this.TBValor_PorVenta02.Name = "TBValor_PorVenta02";
             this.TBValor_PorVenta02.Size = new System.Drawing.Size(37, 21);
             this.TBValor_PorVenta02.TabIndex = 182;
@@ -3287,7 +3583,7 @@
             // 
             // TBValor_ImpVenta02
             // 
-            this.TBValor_ImpVenta02.Location = new System.Drawing.Point(312, 137);
+            this.TBValor_ImpVenta02.Location = new System.Drawing.Point(443, 139);
             this.TBValor_ImpVenta02.Name = "TBValor_ImpVenta02";
             this.TBValor_ImpVenta02.Size = new System.Drawing.Size(125, 21);
             this.TBValor_ImpVenta02.TabIndex = 181;
@@ -3295,7 +3591,7 @@
             // 
             // TBValor_PorVenta01
             // 
-            this.TBValor_PorVenta01.Location = new System.Drawing.Point(269, 110);
+            this.TBValor_PorVenta01.Location = new System.Drawing.Point(269, 112);
             this.TBValor_PorVenta01.Name = "TBValor_PorVenta01";
             this.TBValor_PorVenta01.Size = new System.Drawing.Size(37, 21);
             this.TBValor_PorVenta01.TabIndex = 180;
@@ -3304,15 +3600,16 @@
             // 
             // TBValor_ImpVenta01
             // 
-            this.TBValor_ImpVenta01.Location = new System.Drawing.Point(312, 110);
+            this.TBValor_ImpVenta01.Location = new System.Drawing.Point(443, 112);
             this.TBValor_ImpVenta01.Name = "TBValor_ImpVenta01";
             this.TBValor_ImpVenta01.Size = new System.Drawing.Size(125, 21);
             this.TBValor_ImpVenta01.TabIndex = 179;
             this.TBValor_ImpVenta01.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBValor_ImpVenta01.Leave += new System.EventHandler(this.TBValor_ImpVenta01_Leave);
             // 
             // TBValor_Unidad
             // 
-            this.TBValor_Unidad.Location = new System.Drawing.Point(309, 245);
+            this.TBValor_Unidad.Location = new System.Drawing.Point(309, 247);
             this.TBValor_Unidad.Name = "TBValor_Unidad";
             this.TBValor_Unidad.Size = new System.Drawing.Size(128, 21);
             this.TBValor_Unidad.TabIndex = 172;
@@ -3324,7 +3621,7 @@
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(4, 194);
+            this.label31.Location = new System.Drawing.Point(4, 196);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(104, 15);
             this.label31.TabIndex = 100;
@@ -3332,9 +3629,9 @@
             // 
             // TBValor_CompraPromedio
             // 
-            this.TBValor_CompraPromedio.Location = new System.Drawing.Point(166, 31);
+            this.TBValor_CompraPromedio.Location = new System.Drawing.Point(166, 33);
             this.TBValor_CompraPromedio.Name = "TBValor_CompraPromedio";
-            this.TBValor_CompraPromedio.Size = new System.Drawing.Size(271, 21);
+            this.TBValor_CompraPromedio.Size = new System.Drawing.Size(402, 21);
             this.TBValor_CompraPromedio.TabIndex = 99;
             this.TBValor_CompraPromedio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TBValor_CompraPromedio.Enter += new System.EventHandler(this.TBValor_CompraPromedio_Enter);
@@ -3344,7 +3641,7 @@
             // 
             // TBValor_Mayorista
             // 
-            this.TBValor_Mayorista.Location = new System.Drawing.Point(113, 191);
+            this.TBValor_Mayorista.Location = new System.Drawing.Point(113, 193);
             this.TBValor_Mayorista.Name = "TBValor_Mayorista";
             this.TBValor_Mayorista.Size = new System.Drawing.Size(150, 21);
             this.TBValor_Mayorista.TabIndex = 97;
@@ -3357,7 +3654,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(4, 32);
+            this.label23.Location = new System.Drawing.Point(4, 34);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(156, 15);
             this.label23.TabIndex = 98;
@@ -3366,7 +3663,7 @@
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(4, 139);
+            this.label32.Location = new System.Drawing.Point(4, 141);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(103, 15);
             this.label32.TabIndex = 87;
@@ -3374,21 +3671,21 @@
             // 
             // TBValor_Venta01
             // 
-            this.TBValor_Venta01.Location = new System.Drawing.Point(113, 110);
+            this.TBValor_Venta01.Location = new System.Drawing.Point(113, 112);
             this.TBValor_Venta01.Name = "TBValor_Venta01";
             this.TBValor_Venta01.Size = new System.Drawing.Size(150, 21);
             this.TBValor_Venta01.TabIndex = 86;
             this.TBValor_Venta01.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TBValor_Venta01.Enter += new System.EventHandler(this.TBValor_Venta01_Enter);
             this.TBValor_Venta01.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBValorVenta_SinImpuesto_KeyPress);
-            this.TBValor_Venta01.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBValorVenta_SinImpuesto_KeyUp);
+            this.TBValor_Venta01.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBValor_Venta01_KeyUp);
             this.TBValor_Venta01.Leave += new System.EventHandler(this.TBValor_Venta01_Leave);
             // 
             // TBValor_CompraFinal
             // 
-            this.TBValor_CompraFinal.Location = new System.Drawing.Point(166, 57);
+            this.TBValor_CompraFinal.Location = new System.Drawing.Point(166, 59);
             this.TBValor_CompraFinal.Name = "TBValor_CompraFinal";
-            this.TBValor_CompraFinal.Size = new System.Drawing.Size(271, 21);
+            this.TBValor_CompraFinal.Size = new System.Drawing.Size(402, 21);
             this.TBValor_CompraFinal.TabIndex = 83;
             this.TBValor_CompraFinal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TBValor_CompraFinal.Enter += new System.EventHandler(this.TBValordecompra_Enter);
@@ -3399,7 +3696,7 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(4, 59);
+            this.label29.Location = new System.Drawing.Point(4, 61);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(129, 15);
             this.label29.TabIndex = 82;
@@ -3407,7 +3704,7 @@
             // 
             // TBValor_Venta02
             // 
-            this.TBValor_Venta02.Location = new System.Drawing.Point(113, 137);
+            this.TBValor_Venta02.Location = new System.Drawing.Point(113, 139);
             this.TBValor_Venta02.Name = "TBValor_Venta02";
             this.TBValor_Venta02.Size = new System.Drawing.Size(150, 21);
             this.TBValor_Venta02.TabIndex = 7;
@@ -3420,7 +3717,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(4, 112);
+            this.label26.Location = new System.Drawing.Point(4, 114);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(103, 15);
             this.label26.TabIndex = 1;
@@ -3430,9 +3727,9 @@
             // 
             this.panel2.BackgroundImage = global::Presentacion.Titulos.Producto___Valores__Iniciales;
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel2.Location = new System.Drawing.Point(3, 4);
+            this.panel2.Location = new System.Drawing.Point(3, 6);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(434, 21);
+            this.panel2.Size = new System.Drawing.Size(565, 21);
             this.panel2.TabIndex = 122;
             // 
             // btnGuardar
@@ -3442,7 +3739,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Image = global::Presentacion.Botones.btnGuardar;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(6, 489);
+            this.btnGuardar.Location = new System.Drawing.Point(6, 469);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(120, 30);
             this.btnGuardar.TabIndex = 5;
@@ -3451,16 +3748,32 @@
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnImprimir.FlatAppearance.BorderSize = 0;
+            this.btnImprimir.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimir.Image = global::Presentacion.Botones.btnImprimir;
+            this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImprimir.Location = new System.Drawing.Point(464, 469);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(120, 30);
+            this.btnImprimir.TabIndex = 6;
+            this.btnImprimir.Text = "Imprimir - F11";
+            this.btnImprimir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
             // TBIdigualdad_Producto
             // 
-            this.TBIdigualdad_Producto.Location = new System.Drawing.Point(60, 492);
+            this.TBIdigualdad_Producto.Location = new System.Drawing.Point(83, 472);
             this.TBIdigualdad_Producto.Name = "TBIdigualdad_Producto";
             this.TBIdigualdad_Producto.Size = new System.Drawing.Size(53, 21);
             this.TBIdigualdad_Producto.TabIndex = 15;
             // 
             // TBIdproveedor
             // 
-            this.TBIdproveedor.Location = new System.Drawing.Point(170, 494);
+            this.TBIdproveedor.Location = new System.Drawing.Point(184, 474);
             this.TBIdproveedor.Name = "TBIdproveedor";
             this.TBIdproveedor.Size = new System.Drawing.Size(21, 21);
             this.TBIdproveedor.TabIndex = 13;
@@ -3468,14 +3781,14 @@
             // 
             // TBIdproducto_AutoSQL
             // 
-            this.TBIdproducto_AutoSQL.Location = new System.Drawing.Point(224, 494);
+            this.TBIdproducto_AutoSQL.Location = new System.Drawing.Point(238, 474);
             this.TBIdproducto_AutoSQL.Name = "TBIdproducto_AutoSQL";
             this.TBIdproducto_AutoSQL.Size = new System.Drawing.Size(18, 21);
             this.TBIdproducto_AutoSQL.TabIndex = 14;
             // 
             // TBIdproducto
             // 
-            this.TBIdproducto.Location = new System.Drawing.Point(197, 494);
+            this.TBIdproducto.Location = new System.Drawing.Point(211, 474);
             this.TBIdproducto.Name = "TBIdproducto";
             this.TBIdproducto.Size = new System.Drawing.Size(21, 21);
             this.TBIdproducto.TabIndex = 12;
@@ -3486,36 +3799,18 @@
             this.groupBox2.Controls.Add(this.TBIdigualdad_Producto);
             this.groupBox2.Controls.Add(this.TBIdproveedor);
             this.groupBox2.Controls.Add(this.TBIdproducto_AutoSQL);
-            this.groupBox2.Controls.Add(this.btnEliminar);
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.TBIdproducto);
-            this.groupBox2.Controls.Add(this.btnImprimir);
             this.groupBox2.Controls.Add(this.TBBuscar);
             this.groupBox2.Controls.Add(this.lblTotal);
             this.groupBox2.Controls.Add(this.DGResultados);
-            this.groupBox2.Location = new System.Drawing.Point(479, 12);
+            this.groupBox2.Location = new System.Drawing.Point(612, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(513, 525);
+            this.groupBox2.Size = new System.Drawing.Size(513, 505);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Leal Enterprise - Consulta de Productos Registrados";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar.FlatAppearance.BorderSize = 0;
-            this.btnEliminar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Image = global::Presentacion.Botones.btnEliminar;
-            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(260, 489);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(120, 30);
-            this.btnEliminar.TabIndex = 4;
-            this.btnEliminar.Text = "Eliminar - F4";
-            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // label14
             // 
@@ -3525,22 +3820,6 @@
             this.label14.Size = new System.Drawing.Size(121, 15);
             this.label14.TabIndex = 11;
             this.label14.Text = "Producto a Consultar";
-            // 
-            // btnImprimir
-            // 
-            this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnImprimir.FlatAppearance.BorderSize = 0;
-            this.btnImprimir.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImprimir.Image = global::Presentacion.Botones.btnImprimir;
-            this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImprimir.Location = new System.Drawing.Point(386, 489);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(120, 30);
-            this.btnImprimir.TabIndex = 6;
-            this.btnImprimir.Text = "Imprimir - F11";
-            this.btnImprimir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnImprimir.UseVisualStyleBackColor = true;
-            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // TBBuscar
             // 
@@ -3555,7 +3834,7 @@
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(6, 497);
+            this.lblTotal.Location = new System.Drawing.Point(6, 475);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(31, 15);
             this.lblTotal.TabIndex = 14;
@@ -3573,7 +3852,7 @@
             this.DGResultados.Name = "DGResultados";
             this.DGResultados.ReadOnly = true;
             this.DGResultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGResultados.Size = new System.Drawing.Size(500, 436);
+            this.DGResultados.Size = new System.Drawing.Size(500, 416);
             this.DGResultados.TabIndex = 13;
             this.DGResultados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGResultados_CellDoubleClick);
             this.DGResultados.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DGResultados_KeyPress);
@@ -3585,7 +3864,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1003, 549);
+            this.ClientSize = new System.Drawing.Size(1137, 524);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -3670,7 +3949,6 @@
         private System.Windows.Forms.TextBox TBValor_Venta02;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.TabPage TPUbicacion;
-        private System.Windows.Forms.ComboBox CBBodega;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox TBNivel;
         private System.Windows.Forms.Label label20;
@@ -3897,7 +4175,6 @@
         private System.Windows.Forms.TextBox TBValor_Unidad02;
         private System.Windows.Forms.Label label79;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.ComboBox CBBodega_Stock;
         private System.Windows.Forms.Label label80;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ubicacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estante;
@@ -3918,5 +4195,34 @@
         private System.Windows.Forms.Label label85;
         private System.Windows.Forms.TextBox textBox47;
         private System.Windows.Forms.TextBox TBIdproveedor_Exterior;
+        private System.Windows.Forms.TextBox TBIntervalo;
+        private System.Windows.Forms.TextBox TBDivisor_Impuesto;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox TBCodigo_Empaque;
+        private System.Windows.Forms.TextBox TBCodigo_Tipo;
+        private System.Windows.Forms.TextBox TBCodigo_Grupo;
+        private System.Windows.Forms.TextBox TBCodigo_Marca;
+        private System.Windows.Forms.Label label91;
+        private System.Windows.Forms.Label label90;
+        private System.Windows.Forms.Label label89;
+        private System.Windows.Forms.Label label88;
+        private System.Windows.Forms.Label label87;
+        private System.Windows.Forms.Label label86;
+        private System.Windows.Forms.Label label72;
+        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.TextBox textBox19;
+        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.TextBox TBmultiplicador_Impuesto;
     }
 }

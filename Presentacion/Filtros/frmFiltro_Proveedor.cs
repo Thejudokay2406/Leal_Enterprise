@@ -76,12 +76,23 @@ namespace Presentacion
                 //Variables para realizar los Filtro 
                 string idproveedor, proveedor, documento;
 
-                if (frmPro.Examinar)
+                if (frmPro.Examinar_Exterior)
+                {
+                    idproveedor = this.DGFiltro_Resultados.CurrentRow.Cells["Codigo"].Value.ToString();
+                    proveedor = this.DGFiltro_Resultados.CurrentRow.Cells["Proveedor"].Value.ToString();
+                    documento = this.DGFiltro_Resultados.CurrentRow.Cells["Documento"].Value.ToString();
+                    frmPro.setProveedor_Exterior(idproveedor, proveedor, documento);
+                    frmPro.Examinar_Exterior = false;
+                    this.Hide();
+                }
+                
+                if (frmPro.Examinar_Proveedor)
                 {
                     idproveedor = this.DGFiltro_Resultados.CurrentRow.Cells["Codigo"].Value.ToString();
                     proveedor = this.DGFiltro_Resultados.CurrentRow.Cells["Proveedor"].Value.ToString();
                     documento = this.DGFiltro_Resultados.CurrentRow.Cells["Documento"].Value.ToString();
                     frmPro.setProveedor(idproveedor, proveedor, documento);
+                    frmPro.Examinar_Proveedor = false;
                     this.Hide();
                 }
 

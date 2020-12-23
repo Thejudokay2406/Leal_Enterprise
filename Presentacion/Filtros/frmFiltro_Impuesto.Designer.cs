@@ -62,8 +62,10 @@
             this.DGFiltro_Resultados.ReadOnly = true;
             this.DGFiltro_Resultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGFiltro_Resultados.Size = new System.Drawing.Size(599, 250);
-            this.DGFiltro_Resultados.TabIndex = 3;
+            this.DGFiltro_Resultados.TabIndex = 2;
             this.DGFiltro_Resultados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGFiltro_Resultados_CellDoubleClick);
+            this.DGFiltro_Resultados.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DGFiltro_Resultados_KeyDown);
+            this.DGFiltro_Resultados.KeyUp += new System.Windows.Forms.KeyEventHandler(this.DGFiltro_Resultados_KeyUp);
             // 
             // lblTotal
             // 
@@ -81,6 +83,7 @@
             this.TBBuscar.Size = new System.Drawing.Size(472, 21);
             this.TBBuscar.TabIndex = 1;
             this.TBBuscar.TextChanged += new System.EventHandler(this.TBBuscar_TextChanged);
+            this.TBBuscar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBBuscar_KeyUp);
             // 
             // label1
             // 
