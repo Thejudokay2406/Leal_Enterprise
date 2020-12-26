@@ -193,6 +193,18 @@
     <Compile Include="Filtros\frmFiltro_Empleado.Designer.cs">
       <DependentUpon>frmFiltro_Empleado.cs</DependentUpon>
     </Compile>
+    <Compile Include="Financiera\frmBanco.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financiera\frmBanco.Designer.cs">
+      <DependentUpon>frmBanco.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCodigo_Archivo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCodigo_Archivo.Designer.cs">
+      <DependentUpon>frmCodigo_Archivo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gestion Humana\frmTipoDeContrato.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -387,6 +399,9 @@
     <EmbeddedResource Include="Filtros\frmFiltro_Empleado.resx">
       <DependentUpon>frmFiltro_Empleado.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Financiera\frmBanco.resx">
+      <DependentUpon>frmBanco.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Financiera\frmCuentaPorPagar.resx">
       <DependentUpon>frmCuentaPorPagar.cs</DependentUpon>
     </EmbeddedResource>
@@ -407,6 +422,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Filtros\frmFiltro_Impuesto.resx">
       <DependentUpon>frmFiltro_Impuesto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCodigo_Archivo.resx">
+      <DependentUpon>frmCodigo_Archivo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion Humana\frmTipoDeContrato.resx">
       <DependentUpon>frmTipoDeContrato.cs</DependentUpon>
@@ -594,6 +612,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="NewFolder1\" />
     <Folder Include="SQL Server\" />
   </ItemGroup>
   <ItemGroup>

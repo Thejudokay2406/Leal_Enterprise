@@ -26,12 +26,17 @@ namespace Presentacion
         private string Numerico = "Campo Numerico - Leal Enterprise";
         private string Vacio = "";
 
+        //Variables para Eliminar y ejecutar los procedimientos Internos en los paneles
+        //Datos Bancarios, Datos de Envio ETC donde se realizan multiplex registros
+        private bool Eliminar_Banco = false;
+        private bool Eliminar_Envio = false;
+
+        //Variable para Agregar los Detalles a la Base de Datos
+        private DataTable DtDetalle_Banco;
+        private DataTable DtDetalle_Envio;
+
         //Variable para Metodo SQL Guardar, Eliminar, Editar, Consultar
-        public string Guardar = "";
-        public string Editar = "";
-        public string Consultar = "";
-        public string Eliminar = "";
-        public string Imprimir = "";
+        public string Guardar, Editar, Consultar, Eliminar, Imprimir = "";
 
         //********** Parametros para AutoCompletar los Texboxt **********************************
                
@@ -57,6 +62,8 @@ namespace Presentacion
             //Inicio de Clase y Botones
             this.Botones();
             this.Habilitar();
+            this.Combobox_Sucurzal();
+            this.Diseño_TablasGenerales();
             this.CBTipo.SelectedIndex = 0;
             
             //Focus a Texboxt
@@ -74,7 +81,8 @@ namespace Presentacion
         {
             //Panel - Datos Basicos  
             //this.TBCodigo.Enabled = false;
-
+            this.TBCodigo.ReadOnly = false;
+            this.TBCodigo.BackColor = Color.FromArgb(3, 155, 229);
             this.TBNombre.ReadOnly = false;
             this.TBNombre.BackColor = Color.FromArgb(3, 155, 229);
             this.TBNombre.ForeColor = Color.FromArgb(255, 255, 255);
@@ -133,6 +141,7 @@ namespace Presentacion
         {
             //Panel - Datos Basicos
             this.TBIdproveedor.Clear();
+            this.TBCodigo.Clear();
             this.CBTipo.SelectedIndex = 0;
             this.TBNombre.Clear();
             this.TBNombre.Text = Campo;
@@ -168,46 +177,114 @@ namespace Presentacion
             //se realiza la seleccion al campo de texto para asi este salte
             //al campo siguiente inicial el cual es TBNombre.Text
             this.TCPrincipal.SelectedIndex = 0;
-            this.TBCorreo.Select();
+            this.TBNombre.Select();
+        }
+
+        private void Diseño_TablasGenerales()
+        {
+            try
+            {
+                //Panel - Datos de Envio
+                this.DtDetalle_Envio = new DataTable();
+                this.DtDetalle_Envio.Columns.Add("Idproveedor", System.Type.GetType("System.Int32"));
+                this.DtDetalle_Envio.Columns.Add("Receptor", System.Type.GetType("System.String"));
+                this.DtDetalle_Envio.Columns.Add("Pais", System.Type.GetType("System.String"));
+                this.DtDetalle_Envio.Columns.Add("Ciudad", System.Type.GetType("System.String"));
+                this.DtDetalle_Envio.Columns.Add("Dirección", System.Type.GetType("System.String"));
+                this.DtDetalle_Envio.Columns.Add("Telefono", System.Type.GetType("System.String"));
+                this.DtDetalle_Envio.Columns.Add("Movil", System.Type.GetType("System.String"));
+                this.DtDetalle_Envio.Columns.Add("Observación", System.Type.GetType("System.String"));
+                //Captura de los Datos en las Tablas
+                this.DGDetalle_Envio.DataSource = DtDetalle_Envio;
+
+                //Panel - Datos Bancarios
+                this.DtDetalle_Banco = new DataTable();
+                this.DtDetalle_Banco.Columns.Add("Idproveedor", System.Type.GetType("System.Int32"));
+                this.DtDetalle_Banco.Columns.Add("Idbanco", System.Type.GetType("System.Int32"));
+                this.DtDetalle_Banco.Columns.Add("Codigo", System.Type.GetType("System.String"));
+                this.DtDetalle_Banco.Columns.Add("Banco", System.Type.GetType("System.String"));
+                this.DtDetalle_Banco.Columns.Add("Tipo", System.Type.GetType("System.String"));
+                this.DtDetalle_Banco.Columns.Add("Cuenta", System.Type.GetType("System.Int32"));
+                //Captura de los Datos en las Tablas
+                this.DGDetalle_Bancario.DataSource = this.DtDetalle_Banco;
+
+                //Medidas de las Columnas - Codigo de Barra
+                //this.DGDetalle_CodigoDeBarra.Columns[1].Width = 370;
+
+                //Formato de Celdas
+                //this.DGDetalles_Lotes.Columns[2].DefaultCellStyle.Format = "##,##0.00";
+
+                //************************************* Alineacion de las Celdas *************************************
+
+                //Panel Datos Bancarios
+                this.DGDetalle_Bancario.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                this.DGDetalle_Bancario.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+                //Panel - Datos de Envio
+                this.DGDetalle_Envio.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                this.DGDetalle_Envio.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+                //************************************* Aliniacion de Emcabezados *************************************
+
+                //Panel Datos Bancarios
+                this.DGDetalle_Bancario.Columns[2].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                this.DGDetalle_Bancario.Columns[5].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+                //Panel - Datos de Envio
+                this.DGDetalle_Envio.Columns[5].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                this.DGDetalle_Envio.Columns[6].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+                //************************************* Ocultacion de Columnas *************************************
+                this.DGDetalle_Envio.Columns[0].Visible = false;
+                this.DGDetalle_Bancario.Columns[0].Visible = false;
+                this.DGDetalle_Bancario.Columns[1].Visible = false;
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
 
         private void Botones()
         {
             if (Digitar)
             {
-                ////El boton btnGuardar Mantendra su imagen original
-                //this.btnGuardar.Enabled = true;
-                //this.btnGuardar.Image = Properties.Resources.BV_Guardar;
+                this.btnGuardar.Enabled = true;
+                this.btnGuardar.Text = "Guardar - F10";
 
                 this.btnEliminar.Enabled = false;
                 this.btnCancelar.Enabled = false;
-                this.btnImprimir.Enabled = false;
+
+                this.btnModificar_Envio.Enabled = false;
+                this.btnModificar_Bancos.Enabled = false;
             }
             else if (!Digitar)
             {
-                ////El boton btnGuardar cambiara su imagen original de Guardar a Editar
-                //this.btnGuardar.Enabled = true;
-                //this.btnGuardar.Image = Properties.Resources.BV_Editar;
+                this.btnGuardar.Enabled = true;
+                this.btnGuardar.Text = "Editar - F10";
 
                 this.btnEliminar.Enabled = false;
                 this.btnCancelar.Enabled = true;
-                this.btnImprimir.Enabled = false;
+
+                this.btnModificar_Envio.Enabled = true;
+                this.btnModificar_Bancos.Enabled = true;
             }
         }
 
-        //private void Combobox_Sucurzal()
-        //{
-        //    try
-        //    {
-        //        this.TBRepresentante.DataSource = fSistema_Sucurzal.Mostrar();
-        //        this.TBRepresentante.ValueMember = "Cliente";
-        //        this.TBRepresentante.DisplayMember = "Nombre";
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message + ex.StackTrace);
-        //    }
-        //}
+        private void Combobox_Sucurzal()
+        {
+            try
+            {
+                this.CBSucurzal.DataSource = fSucurzal.Lista();
+                this.CBSucurzal.ValueMember = "Codigo";
+                this.CBSucurzal.DisplayMember = "Sucurzal";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
 
         private void Guardar_SQL()
         {
@@ -232,6 +309,10 @@ namespace Presentacion
                 else if (this.CBTipo.SelectedIndex == 0)
                 {
                     MensajeError("Seleccione el Tipo de Proveedor");
+                }
+                else if (this.CBSucurzal.SelectedIndex == 0)
+                {
+                    MensajeError("Seleccione la Sucurzal a la Cual Pertenece el Proveedor");
                 }
 
                 else
@@ -285,12 +366,12 @@ namespace Presentacion
                     {
                         if (this.Digitar)
                         {
-                            this.MensajeOk("Registro Exitoso");
+                            this.MensajeOk("El Proveedor: “" + this.TBNombre.Text + "” a Sido Registrado Exitosamente");
                         }
 
                         else
                         {
-                            this.MensajeOk("Registro Actualizado");
+                            this.MensajeOk("El Registro del Proveedor: “" + this.TBNombre.Text + "” a Sido Actualizado Exitosamente");
                         }
                     }
 
@@ -300,7 +381,8 @@ namespace Presentacion
                     }
 
                     //Llamada de Clase
-                    this.Digitar = false;
+                    this.Digitar = true;
+                    this.Botones();
                     this.Limpiar_Datos();
                 }
 
@@ -337,7 +419,7 @@ namespace Presentacion
 
                     else
                     {
-                        MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Guardar", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Guardar Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                 }
 
@@ -368,22 +450,19 @@ namespace Presentacion
             try
             {
                 this.Digitar = true;
+                //this.TBIdproducto.Text = "0";
+
                 this.Botones();
-
                 this.Limpiar_Datos();
-                this.TBBuscar.Clear();
+                this.Diseño_TablasGenerales();
 
-                //Se restablece la imagen predeterminada del boton
-                this.btnGuardar.Image = Properties.Resources.BV_Guardar;
+                this.TBBuscar.Clear();
 
                 //Se Limpian las Filas y Columnas de la tabla
                 this.DGResultados.DataSource = null;
-                this.DGResultados.Enabled = false;
+                this.DGDetalle_Envio.DataSource = null;
+                this.DGDetalle_Bancario.DataSource = null;
                 this.lblTotal.Text = "Datos Registrados: 0";
-
-                //Focus
-                this.TCPrincipal.SelectedIndex = 0;
-                this.TBCorreo.Select();
             }
             catch (Exception ex)
             {
@@ -2374,6 +2453,265 @@ namespace Presentacion
         private void TBCiudad_01_Enter(object sender, EventArgs e)
         {
             this.TBCiudad_01.BackColor = Color.Azure;
+        }
+
+        private void btnExaminar_Proveedor_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAgregar_Envio_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ////if (Digitar)
+                ////{
+                ////    if (this.TBProveedor.Text == String.Empty)
+                ////    {
+                ////        this.MensajeError("Por favor Especifique el Proveedor que desea Agregar");
+                ////        this.TBProveedor.Select();
+                ////    }
+                ////    else if (this.TBProveedor_Documento.Text == String.Empty)
+                ////    {
+                ////        this.MensajeError("Por favor Especifique el Documento del Proveedor que Desea Agregar");
+                ////        this.TBProveedor_Documento.Select();
+                ////    }
+
+                ////    else
+                ////    {
+                ////        bool agregar = true;
+                ////        foreach (DataRow Fila in dtde.Rows)
+                ////        {
+                ////            if (Convert.ToString(Fila["Codigo"]) == TBIgualdad_Producto.Text)
+                ////            {
+                ////                this.MensajeError("El producto o servicio que desea agregar ya se encuentra en la lista");
+                ////            }
+                ////            else if (Convert.ToString(Fila["Producto"]) == TBIgualdad_Producto.Text)
+                ////            {
+                ////                this.MensajeError("El producto o servicio que desea agregar ya se encuentra en la lista");
+                ////            }
+                ////        }
+                ////        if (agregar)
+                ////        {
+                ////            DataRow fila = this.DtDetalle_Proveedor.NewRow();
+                ////            fila["Idproducto"] = Convert.ToInt32(this.TBIdproducto_AutoSQL.Text);
+                ////            fila["Idproveedor"] = Convert.ToInt32(this.TBIdproveedor.Text);
+                ////            fila["Proveedor"] = this.TBProveedor.Text;
+                ////            fila["Documento"] = this.TBProveedor_Documento.Text;
+                ////            this.DtDetalle_Proveedor.Rows.Add(fila);
+                ////        }
+
+                ////        //
+                ////        this.TBProveedor.Clear();
+                ////        this.TBProveedor_Documento.Clear();
+                ////    }
+                ////}
+                ////else
+                ////{
+                ////    string rptaDatosBasicos = "";
+
+                ////    // <<<<<<------ Panel Datos Basicos ------>>>>>
+
+                ////    if (this.TBProveedor.Text == String.Empty)
+                ////    {
+                ////        this.MensajeError("Por favor Especifique el Nombre del Proveedor que Desea Agregar");
+                ////        this.TBProveedor.Select();
+                ////    }
+                ////    else if (this.TBProveedor_Documento.Text == String.Empty)
+                ////    {
+                ////        this.MensajeError("Por favor Especifique el Documento del Proveedor que Desea Agregar");
+                ////        this.TBProveedor_Documento.Select();
+                ////    }
+
+                ////    else
+                ////    {
+                ////        foreach (DataRow Fila in DtDetalle_Proveedor.Rows)
+                ////        {
+                ////            if (Convert.ToString(Fila["Idproveedor"]) == TBIdproveedor.Text)
+                ////            {
+                ////                this.MensajeError("El Proveedor que desea agregar ya se encuentra en la lista");
+                ////                this.TBProveedor.Clear();
+                ////                this.TBProveedor_Documento.Clear();
+                ////            }
+                ////            else if (Convert.ToString(Fila["Idproveedor"]) == TBIdproveedor.Text)
+                ////            {
+                ////                this.MensajeError("El Proveedor que desea agregar ya se encuentra en la lista");
+                ////                this.TBProveedor.Clear();
+                ////                this.TBProveedor_Documento.Clear();
+                ////            }
+                ////        }
+
+                ////        DialogResult result = MessageBox.Show("¿Desea Añadir el Proveedor a la Lista del Producto?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                ////        if (result == DialogResult.Yes)
+                ////        {
+                ////            rptaDatosBasicos = fProducto_Inventario.Guardar_Proveedor
+
+                ////                (
+                ////                     //Datos Basicos
+                ////                     Convert.ToInt32(this.TBIdproducto.Text), Convert.ToInt32(this.TBIdproveedor.Text), this.TBProveedor.Text, this.TBProveedor_Documento.Text,
+
+                ////                    //Datos Auxiliares
+                ////                    4
+                ////                );
+
+                ////            if (rptaDatosBasicos.Equals("OK"))
+                ////            {
+                ////                this.MensajeOk("El Proveedor: " + this.TBProveedor.Text + " del Producto: " + TBNombre.Text + " con Codigo: " + this.TBCodigo.Text + " A Sido Registrado Exitosamente");
+                ////            }
+
+                ////            else
+                ////            {
+                ////                this.MensajeError(rptaDatosBasicos);
+                ////            }
+
+                ////            //
+                ////            this.TBIdproveedor.Clear();
+                ////            this.TBProveedor.Clear();
+                ////            this.TBProveedor_Documento.Clear();
+                ////        }
+                ////        else
+                ////        {
+                ////            this.TBProveedor.Select();
+                ////        }
+
+                ////        //
+                ////        this.Actualizar_DetProveedor();
+                ////    }
+                ////}
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnAgregar_Bancos_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //if (Digitar)
+                //{
+                //    if (this.TBProveedor.Text == String.Empty)
+                //    {
+                //        this.MensajeError("Por favor Especifique el Proveedor que desea Agregar");
+                //        this.TBProveedor.Select();
+                //    }
+                //    else if (this.TBProveedor_Documento.Text == String.Empty)
+                //    {
+                //        this.MensajeError("Por favor Especifique el Documento del Proveedor que Desea Agregar");
+                //        this.TBProveedor_Documento.Select();
+                //    }
+
+                //    else
+                //    {
+                //        bool agregar = true;
+                //        foreach (DataRow Fila in DtDetalle_Proveedor.Rows)
+                //        {
+                //            if (Convert.ToString(Fila["Codigo"]) == TBIgualdad_Producto.Text)
+                //            {
+                //                this.MensajeError("El producto o servicio que desea agregar ya se encuentra en la lista");
+                //            }
+                //            else if (Convert.ToString(Fila["Producto"]) == TBIgualdad_Producto.Text)
+                //            {
+                //                this.MensajeError("El producto o servicio que desea agregar ya se encuentra en la lista");
+                //            }
+                //        }
+                //        if (agregar)
+                //        {
+                //            DataRow fila = this.DtDetalle_Proveedor.NewRow();
+                //            fila["Idproducto"] = Convert.ToInt32(this.TBIdproducto_AutoSQL.Text);
+                //            fila["Idproveedor"] = Convert.ToInt32(this.TBIdproveedor.Text);
+                //            fila["Proveedor"] = this.TBProveedor.Text;
+                //            fila["Documento"] = this.TBProveedor_Documento.Text;
+                //            this.DtDetalle_Proveedor.Rows.Add(fila);
+                //        }
+
+                //        //
+                //        this.TBProveedor.Clear();
+                //        this.TBProveedor_Documento.Clear();
+                //    }
+                //}
+                //else
+                //{
+                //    string rptaDatosBasicos = "";
+
+                //    // <<<<<<------ Panel Datos Basicos ------>>>>>
+
+                //    if (this.TBProveedor.Text == String.Empty)
+                //    {
+                //        this.MensajeError("Por favor Especifique el Nombre del Proveedor que Desea Agregar");
+                //        this.TBProveedor.Select();
+                //    }
+                //    else if (this.TBProveedor_Documento.Text == String.Empty)
+                //    {
+                //        this.MensajeError("Por favor Especifique el Documento del Proveedor que Desea Agregar");
+                //        this.TBProveedor_Documento.Select();
+                //    }
+
+                //    else
+                //    {
+                //        foreach (DataRow Fila in DtDetalle_Proveedor.Rows)
+                //        {
+                //            if (Convert.ToString(Fila["Idproveedor"]) == TBIdproveedor.Text)
+                //            {
+                //                this.MensajeError("El Proveedor que desea agregar ya se encuentra en la lista");
+                //                this.TBProveedor.Clear();
+                //                this.TBProveedor_Documento.Clear();
+                //            }
+                //            else if (Convert.ToString(Fila["Idproveedor"]) == TBIdproveedor.Text)
+                //            {
+                //                this.MensajeError("El Proveedor que desea agregar ya se encuentra en la lista");
+                //                this.TBProveedor.Clear();
+                //                this.TBProveedor_Documento.Clear();
+                //            }
+                //        }
+
+                //        DialogResult result = MessageBox.Show("¿Desea Añadir el Proveedor a la Lista del Producto?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                //        if (result == DialogResult.Yes)
+                //        {
+                //            rptaDatosBasicos = fProducto_Inventario.Guardar_Proveedor
+
+                //                (
+                //                     //Datos Basicos
+                //                     Convert.ToInt32(this.TBIdproducto.Text), Convert.ToInt32(this.TBIdproveedor.Text), this.TBProveedor.Text, this.TBProveedor_Documento.Text,
+
+                //                    //Datos Auxiliares
+                //                    4
+                //                );
+
+                //            if (rptaDatosBasicos.Equals("OK"))
+                //            {
+                //                this.MensajeOk("El Proveedor: " + this.TBProveedor.Text + " del Producto: " + TBNombre.Text + " con Codigo: " + this.TBCodigo.Text + " A Sido Registrado Exitosamente");
+                //            }
+
+                //            else
+                //            {
+                //                this.MensajeError(rptaDatosBasicos);
+                //            }
+
+                //            //
+                //            this.TBIdproveedor.Clear();
+                //            this.TBProveedor.Clear();
+                //            this.TBProveedor_Documento.Clear();
+                //        }
+                //        else
+                //        {
+                //            this.TBProveedor.Select();
+                //        }
+
+                //        //
+                //        this.Actualizar_DetProveedor();
+                //    }
+                //}
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void TBDireccionPrincipal_Enter(object sender, EventArgs e)

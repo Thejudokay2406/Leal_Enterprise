@@ -481,5 +481,10 @@ namespace Presentacion
             frmTipo_Cliente.Consultar = Convert.ToString(this.SQL_Consultar);
             frmTipo_Cliente.Imprimir = Convert.ToString(this.SQL_Imprimir);
         }
+
+        private void confiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -65,6 +65,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.TBUsuario);
+            this.groupBox1.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 10);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(541, 244);
@@ -108,7 +109,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(9, 23);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 15);
+            this.label3.Size = new System.Drawing.Size(59, 17);
             this.label3.TabIndex = 14;
             this.label3.Text = "Conexión";
             // 
@@ -135,9 +136,9 @@
             this.btnCancelar.FlatAppearance.BorderSize = 0;
             this.btnCancelar.Image = global::Presentacion.Botones.btnCancelar;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(188, 103);
+            this.btnCancelar.Location = new System.Drawing.Point(185, 104);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(147, 30);
+            this.btnCancelar.Size = new System.Drawing.Size(150, 30);
             this.btnCancelar.TabIndex = 12;
             this.btnCancelar.Text = "Cancelar Aplicación";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -153,9 +154,9 @@
             this.btnIniciar.FlatAppearance.BorderSize = 0;
             this.btnIniciar.Image = global::Presentacion.Botones.btnGuardar;
             this.btnIniciar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnIniciar.Location = new System.Drawing.Point(6, 103);
+            this.btnIniciar.Location = new System.Drawing.Point(6, 104);
             this.btnIniciar.Name = "btnIniciar";
-            this.btnIniciar.Size = new System.Drawing.Size(147, 30);
+            this.btnIniciar.Size = new System.Drawing.Size(150, 30);
             this.btnIniciar.TabIndex = 11;
             this.btnIniciar.Text = "Iniciar Aplicación";
             this.btnIniciar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -213,7 +214,7 @@
             this.TBContraseña.Location = new System.Drawing.Point(85, 76);
             this.TBContraseña.Name = "TBContraseña";
             this.TBContraseña.PasswordChar = '*';
-            this.TBContraseña.Size = new System.Drawing.Size(250, 21);
+            this.TBContraseña.Size = new System.Drawing.Size(250, 22);
             this.TBContraseña.TabIndex = 3;
             this.TBContraseña.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TBContraseña.Enter += new System.EventHandler(this.TBContraseña_Enter);
@@ -228,7 +229,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(9, 76);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 15);
+            this.label2.Size = new System.Drawing.Size(72, 17);
             this.label2.TabIndex = 2;
             this.label2.Text = "Contraseña";
             // 
@@ -240,7 +241,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(9, 49);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 15);
+            this.label1.Size = new System.Drawing.Size(50, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "Usuario";
             // 
@@ -251,7 +252,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TBUsuario.Location = new System.Drawing.Point(85, 49);
             this.TBUsuario.Name = "TBUsuario";
-            this.TBUsuario.Size = new System.Drawing.Size(250, 21);
+            this.TBUsuario.Size = new System.Drawing.Size(250, 22);
             this.TBUsuario.TabIndex = 0;
             this.TBUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TBUsuario.Enter += new System.EventHandler(this.TBUsuario_Enter);
