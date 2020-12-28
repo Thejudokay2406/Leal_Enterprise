@@ -486,5 +486,18 @@ namespace Presentacion
         {
 
         }
+
+        private void datosBasicosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmBanco frmBanco = new frmBanco();
+            frmBanco.MdiParent = this;
+            frmBanco.Show();
+
+            frmBanco.Guardar = Convert.ToString(this.SQL_Guardar);
+            frmBanco.Editar = Convert.ToString(this.SQL_Editar);
+            frmBanco.Eliminar = Convert.ToString(this.SQL_Eliminar);
+            frmBanco.Consultar = Convert.ToString(this.SQL_Consultar);
+            frmBanco.Imprimir = Convert.ToString(this.SQL_Imprimir);
+        }
     }
 }

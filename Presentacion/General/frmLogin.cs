@@ -246,5 +246,10 @@ namespace Presentacion
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
+
+        private void frmLogin_Activated(object sender, EventArgs e)
+        {
+            this.TBUsuario.Focus();
+        }
     }
 }

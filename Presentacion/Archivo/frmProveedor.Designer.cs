@@ -73,7 +73,7 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TBMoneda03 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.TBDiasProrroga = new System.Windows.Forms.TextBox();
@@ -103,20 +103,18 @@
             this.btnEliminar_Envio = new System.Windows.Forms.Button();
             this.btnAgregar_Envio = new System.Windows.Forms.Button();
             this.TPDatosFinancieros = new System.Windows.Forms.TabPage();
-            this.btnExaminar = new System.Windows.Forms.Button();
-            this.TBCodigo_Banco = new System.Windows.Forms.TextBox();
             this.lblTotal_Banco = new System.Windows.Forms.Label();
             this.DGDetalle_Bancario = new System.Windows.Forms.DataGridView();
             this.CBTipoDeCuenta = new System.Windows.Forms.ComboBox();
             this.TBCuenta01 = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.TBBancoPrincipal = new System.Windows.Forms.TextBox();
             this.btnModificar_Bancos = new System.Windows.Forms.Button();
             this.btnEliminar_Banco = new System.Windows.Forms.Button();
             this.btnAgregar_Bancos = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGResultados)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -571,7 +569,7 @@
             this.TPDatosCredito.Controls.Add(this.label22);
             this.TPDatosCredito.Controls.Add(this.label20);
             this.TPDatosCredito.Controls.Add(this.label18);
-            this.TPDatosCredito.Controls.Add(this.textBox1);
+            this.TPDatosCredito.Controls.Add(this.TBMoneda03);
             this.TPDatosCredito.Controls.Add(this.textBox2);
             this.TPDatosCredito.Controls.Add(this.textBox3);
             this.TPDatosCredito.Controls.Add(this.TBDiasProrroga);
@@ -649,13 +647,13 @@
             this.label18.TabIndex = 47;
             this.label18.Text = "Moneda Extranjera";
             // 
-            // textBox1
+            // TBMoneda03
             // 
-            this.textBox1.Location = new System.Drawing.Point(387, 60);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(150, 22);
-            this.textBox1.TabIndex = 46;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBMoneda03.Location = new System.Drawing.Point(387, 60);
+            this.TBMoneda03.Name = "TBMoneda03";
+            this.TBMoneda03.Size = new System.Drawing.Size(150, 22);
+            this.TBMoneda03.TabIndex = 46;
+            this.TBMoneda03.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox2
             // 
@@ -963,15 +961,13 @@
             // 
             // TPDatosFinancieros
             // 
-            this.TPDatosFinancieros.Controls.Add(this.btnExaminar);
-            this.TPDatosFinancieros.Controls.Add(this.TBCodigo_Banco);
+            this.TPDatosFinancieros.Controls.Add(this.comboBox1);
             this.TPDatosFinancieros.Controls.Add(this.lblTotal_Banco);
             this.TPDatosFinancieros.Controls.Add(this.DGDetalle_Bancario);
             this.TPDatosFinancieros.Controls.Add(this.CBTipoDeCuenta);
             this.TPDatosFinancieros.Controls.Add(this.TBCuenta01);
             this.TPDatosFinancieros.Controls.Add(this.label21);
             this.TPDatosFinancieros.Controls.Add(this.label19);
-            this.TPDatosFinancieros.Controls.Add(this.TBBancoPrincipal);
             this.TPDatosFinancieros.Controls.Add(this.btnModificar_Bancos);
             this.TPDatosFinancieros.Controls.Add(this.btnEliminar_Banco);
             this.TPDatosFinancieros.Controls.Add(this.btnAgregar_Bancos);
@@ -982,27 +978,6 @@
             this.TPDatosFinancieros.TabIndex = 2;
             this.TPDatosFinancieros.Text = "Datos Bancarios";
             this.TPDatosFinancieros.UseVisualStyleBackColor = true;
-            // 
-            // btnExaminar
-            // 
-            this.btnExaminar.BackgroundImage = global::Presentacion.Botones.btnExaminar;
-            this.btnExaminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnExaminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExaminar.FlatAppearance.BorderSize = 0;
-            this.btnExaminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExaminar.Location = new System.Drawing.Point(512, 6);
-            this.btnExaminar.Name = "btnExaminar";
-            this.btnExaminar.Size = new System.Drawing.Size(24, 22);
-            this.btnExaminar.TabIndex = 179;
-            this.btnExaminar.UseVisualStyleBackColor = true;
-            this.btnExaminar.Click += new System.EventHandler(this.btnExaminar_Proveedor_Click);
-            // 
-            // TBCodigo_Banco
-            // 
-            this.TBCodigo_Banco.Location = new System.Drawing.Point(80, 6);
-            this.TBCodigo_Banco.Name = "TBCodigo_Banco";
-            this.TBCodigo_Banco.Size = new System.Drawing.Size(146, 22);
-            this.TBCodigo_Banco.TabIndex = 178;
             // 
             // lblTotal_Banco
             // 
@@ -1033,23 +1008,23 @@
             // 
             this.CBTipoDeCuenta.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CBTipoDeCuenta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CBTipoDeCuenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBTipoDeCuenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBTipoDeCuenta.FormattingEnabled = true;
             this.CBTipoDeCuenta.Items.AddRange(new object[] {
             "-",
             "Ahorro",
             "Corriente",
             "Nomina"});
-            this.CBTipoDeCuenta.Location = new System.Drawing.Point(80, 34);
+            this.CBTipoDeCuenta.Location = new System.Drawing.Point(81, 32);
             this.CBTipoDeCuenta.Name = "CBTipoDeCuenta";
             this.CBTipoDeCuenta.Size = new System.Drawing.Size(146, 21);
             this.CBTipoDeCuenta.TabIndex = 25;
             // 
             // TBCuenta01
             // 
-            this.TBCuenta01.Location = new System.Drawing.Point(232, 34);
+            this.TBCuenta01.Location = new System.Drawing.Point(233, 32);
             this.TBCuenta01.Name = "TBCuenta01";
-            this.TBCuenta01.Size = new System.Drawing.Size(305, 22);
+            this.TBCuenta01.Size = new System.Drawing.Size(304, 22);
             this.TBCuenta01.TabIndex = 24;
             this.TBCuenta01.Enter += new System.EventHandler(this.TBCuenta01_Enter);
             this.TBCuenta01.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCuenta01_KeyUp);
@@ -1058,7 +1033,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(6, 37);
+            this.label21.Location = new System.Drawing.Point(6, 33);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(69, 17);
             this.label21.TabIndex = 22;
@@ -1072,16 +1047,6 @@
             this.label19.Size = new System.Drawing.Size(43, 17);
             this.label19.TabIndex = 20;
             this.label19.Text = "Banco";
-            // 
-            // TBBancoPrincipal
-            // 
-            this.TBBancoPrincipal.Location = new System.Drawing.Point(232, 6);
-            this.TBBancoPrincipal.Name = "TBBancoPrincipal";
-            this.TBBancoPrincipal.Size = new System.Drawing.Size(273, 22);
-            this.TBBancoPrincipal.TabIndex = 18;
-            this.TBBancoPrincipal.Enter += new System.EventHandler(this.TBBancoPrincipal_Enter);
-            this.TBBancoPrincipal.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBBancoPrincipal_KeyUp);
-            this.TBBancoPrincipal.Leave += new System.EventHandler(this.TBBancoPrincipal_Leave);
             // 
             // btnModificar_Bancos
             // 
@@ -1163,6 +1128,22 @@
             this.btnImprimir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnImprimir.UseVisualStyleBackColor = true;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "-",
+            "Ahorro",
+            "Corriente",
+            "Nomina"});
+            this.comboBox1.Location = new System.Drawing.Point(80, 5);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(457, 21);
+            this.comboBox1.TabIndex = 178;
             // 
             // frmProveedor
             // 
@@ -1249,7 +1230,6 @@
         private System.Windows.Forms.TextBox TBCuenta01;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox TBBancoPrincipal;
         private System.Windows.Forms.TextBox TBMovil_01;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.TextBox TBTelefono_01;
@@ -1273,12 +1253,10 @@
         private System.Windows.Forms.Button btnModificar_Bancos;
         private System.Windows.Forms.Button btnEliminar_Banco;
         private System.Windows.Forms.Button btnAgregar_Bancos;
-        private System.Windows.Forms.TextBox TBCodigo_Banco;
-        private System.Windows.Forms.Button btnExaminar;
         private System.Windows.Forms.ComboBox CBSucurzal;
         private System.Windows.Forms.TextBox TBCodigo;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TBMoneda03;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label18;
@@ -1288,5 +1266,6 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

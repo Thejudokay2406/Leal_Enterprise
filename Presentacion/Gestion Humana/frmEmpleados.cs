@@ -771,9 +771,9 @@ namespace Presentacion
                     this.TBCiudad_Dom.Select();
                 }
 
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -839,9 +839,9 @@ namespace Presentacion
                     this.TBFijo_Dom.Select();
                 }
 
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -907,9 +907,9 @@ namespace Presentacion
                     this.TBExtension_Dom.Select();
                 }
 
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -975,9 +975,9 @@ namespace Presentacion
                     this.TBMovil_Dom.Select();
                 }
 
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -1043,9 +1043,9 @@ namespace Presentacion
                     this.TBDireccion_Dom.Select();
                 }
 
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -1111,9 +1111,9 @@ namespace Presentacion
                     this.TBPais_Emp.Select();
                 }
 
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -1179,9 +1179,9 @@ namespace Presentacion
                     this.TBCiudad_Emp.Select();
                 }
 
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -1247,9 +1247,9 @@ namespace Presentacion
                     this.TBFijo_Emp.Select();
                 }
 
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -1315,9 +1315,9 @@ namespace Presentacion
                     this.TBExtension_Emp.Select();
                 }
 
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -1383,9 +1383,9 @@ namespace Presentacion
                     this.TBMovil_Emp.Select();
                 }
 
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -1451,9 +1451,9 @@ namespace Presentacion
                     this.TBDireccion_Emp.Select();
                 }
 
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -1519,9 +1519,9 @@ namespace Presentacion
                     this.TBEmpleado.Select();
                 }
 
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -1746,9 +1746,9 @@ namespace Presentacion
                     this.TBEmpleado.Select();
                 }
 
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -1946,9 +1946,9 @@ namespace Presentacion
                     this.TBDocumento.Select();
                 }
 
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -2014,9 +2014,9 @@ namespace Presentacion
                     this.TBProfesion.Select();
                 }
 
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -2082,9 +2082,9 @@ namespace Presentacion
                     this.TBCiudad_Dom.Select();
                 }
 
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -2150,9 +2150,9 @@ namespace Presentacion
                     this.TBFijo_Dom.Select();
                 }
 
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -2218,9 +2218,9 @@ namespace Presentacion
                     this.TBExtension_Dom.Select();
                 }
 
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -2286,9 +2286,9 @@ namespace Presentacion
                     this.TBCorreo.Select();
                 }
 
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -2354,9 +2354,9 @@ namespace Presentacion
                     this.TBPais_Dom.Select();
                 }
 
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -2422,9 +2422,9 @@ namespace Presentacion
                     this.TBCargo.Select();
                 }
 
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -2490,9 +2490,9 @@ namespace Presentacion
                     this.TBCorreo.Select();
                 }
 
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)

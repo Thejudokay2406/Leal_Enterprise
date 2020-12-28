@@ -1341,7 +1341,6 @@ namespace Presentacion
         }
 
         private void btnAgregar_Ubicacion_Click(object sender, EventArgs e)
-
         {
             try
             {
@@ -1877,7 +1876,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -1961,7 +1960,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -2045,7 +2044,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -2129,7 +2128,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -2220,7 +2219,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -2305,7 +2304,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -2390,7 +2389,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -2474,7 +2473,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -2557,7 +2556,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -2641,7 +2640,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -2725,7 +2724,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -2809,7 +2808,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -2895,7 +2894,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -2979,7 +2978,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -3063,7 +3062,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -3149,7 +3148,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -3233,7 +3232,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -4427,7 +4426,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -4509,7 +4508,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -4591,7 +4590,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -4673,7 +4672,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -4755,7 +4754,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -4837,7 +4836,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -4987,7 +4986,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -5071,7 +5070,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -5360,7 +5359,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -5442,7 +5441,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -5524,7 +5523,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -5606,7 +5605,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -5688,7 +5687,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -5770,7 +5769,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -5853,7 +5852,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -5935,7 +5934,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -7407,7 +7406,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -7491,7 +7490,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -7575,7 +7574,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -7659,7 +7658,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -7743,7 +7742,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -7827,7 +7826,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -7911,7 +7910,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -7995,7 +7994,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -8079,7 +8078,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -8163,7 +8162,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -8247,7 +8246,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -8331,7 +8330,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -8415,7 +8414,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -8499,7 +8498,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -8583,7 +8582,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -8667,7 +8666,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -8757,7 +8756,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -8839,7 +8838,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -8921,7 +8920,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -9003,7 +9002,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -9088,7 +9087,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -9173,7 +9172,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -9258,7 +9257,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -9343,7 +9342,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -9433,7 +9432,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -9523,7 +9522,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -9608,7 +9607,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -9693,7 +9692,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -9778,7 +9777,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -9863,7 +9862,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -10614,7 +10613,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -10704,7 +10703,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -10788,7 +10787,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -10872,7 +10871,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -10956,7 +10955,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
@@ -11543,7 +11542,6 @@ namespace Presentacion
             {
                 if (Editar == "1")
                 {
-                    this.Digitar = false;
                     this.TBIdproducto.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells[0].Value);
                     this.TBNombre.Select();
 
@@ -11557,6 +11555,7 @@ namespace Presentacion
                     this.Eliminar_CodigoDeBarra = true;
 
                     //
+                    this.Digitar = false;
                     this.Botones();
                     this.TCPrincipal.SelectedIndex = 0;
                 }
@@ -11577,8 +11576,6 @@ namespace Presentacion
             {
                 if (e.KeyChar == Convert.ToChar(Keys.Enter))
                 {
-                    this.Digitar = false;
-
                     if (Editar == "1")
                     {
                         this.TBIdproducto.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells["ID"].Value);
@@ -11594,6 +11591,7 @@ namespace Presentacion
                         this.Eliminar_CodigoDeBarra = true;
 
                         //
+                        this.Digitar = false;
                         this.Botones();
                         this.TCPrincipal.SelectedIndex = 0;
                     }

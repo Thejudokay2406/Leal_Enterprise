@@ -49,6 +49,7 @@
     <Compile Include="Archivo\fTipoDePago.cs" />
     <Compile Include="Archivo\fGrupoDeCliente.cs" />
     <Compile Include="Archivo\fProducto_Inventario.cs" />
+    <Compile Include="Financiera\fBanco.cs" />
     <Compile Include="Gestion Humana\fGestion_Departameto.cs" />
     <Compile Include="Gestion Humana\fGestion_TipoDeContrato.cs" />
     <Compile Include="Inventario\fIngreso_Bodega.cs" />
@@ -75,8 +76,6 @@
       <Name>Entidad</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Financiera\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

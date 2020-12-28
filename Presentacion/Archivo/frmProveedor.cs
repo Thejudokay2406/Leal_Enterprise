@@ -24,7 +24,6 @@ namespace Presentacion
         public int Idempleado; //Variable para Captura el Empleado Logueado
         private string Campo = "Campo Obligatorio";
         private string Numerico = "Campo Numerico - Leal Enterprise";
-        private string Vacio = "";
 
         //Variables para Eliminar y ejecutar los procedimientos Internos en los paneles
         //Datos Bancarios, Datos de Envio ETC donde se realizan multiplex registros
@@ -39,7 +38,7 @@ namespace Presentacion
         public string Guardar, Editar, Consultar, Eliminar, Imprimir = "";
 
         //********** Parametros para AutoCompletar los Texboxt **********************************
-               
+
         //Panel Datos Basicos
         public string Idproveedor, Tipo, Proveedor, Documento, Representante, Telefono, Movil, Correo, Pais, Ciudad, Nacionalidad, FechaDeInicio = "";
 
@@ -65,7 +64,7 @@ namespace Presentacion
             this.Combobox_Sucurzal();
             this.Diseño_TablasGenerales();
             this.CBTipo.SelectedIndex = 0;
-            
+
             //Focus a Texboxt
             this.TBNombre.Select();
 
@@ -125,8 +124,6 @@ namespace Presentacion
             this.TBObservacion.BackColor = Color.FromArgb(3, 155, 229);
 
             //
-            this.TBBancoPrincipal.ReadOnly = false;
-            this.TBBancoPrincipal.BackColor = Color.FromArgb(3, 155, 229);
             this.TBCuenta01.ReadOnly = false;
             this.TBCuenta01.BackColor = Color.FromArgb(3, 155, 229);
             this.TBCreditoMinimo.ReadOnly = false;
@@ -167,7 +164,6 @@ namespace Presentacion
 
 
             //Datos Financieros
-            this.TBBancoPrincipal.Clear();
             this.TBCuenta01.Clear();
             this.TBCreditoMinimo.Clear();
             this.TBCreditoMaximo.Clear();
@@ -238,7 +234,7 @@ namespace Presentacion
                 this.DGDetalle_Envio.Columns[0].Visible = false;
                 this.DGDetalle_Bancario.Columns[0].Visible = false;
                 this.DGDetalle_Bancario.Columns[1].Visible = false;
-                
+
             }
             catch (Exception ex)
             {
@@ -284,6 +280,18 @@ namespace Presentacion
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
+        }
+
+        //Mensaje de confirmacion
+        private void MensajeOk(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Leal Enterprise - Solicitud Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+        }
+
+        //Mensaje de Error
+        private void MensajeError(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Leal Enterprise - Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void Guardar_SQL()
@@ -393,17 +401,6 @@ namespace Presentacion
             }
         }
 
-        //Mensaje de confirmacion
-        private void MensajeOk(string mensaje)
-        {
-            MessageBox.Show(mensaje, "Leal Enterprise - Solicitud Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-        }
-
-        //Mensaje de Error
-        private void MensajeError(string mensaje)
-        {
-            MessageBox.Show(mensaje, "Leal Enterprise - Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -420,6 +417,11 @@ namespace Presentacion
                     else
                     {
                         MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Guardar Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                        //Llamada de Clase
+                        this.Digitar = true;
+                        this.Botones();
+                        this.Limpiar_Datos();
                     }
                 }
 
@@ -432,12 +434,14 @@ namespace Presentacion
                     }
                     else
                     {
-                        MessageBox.Show("Acceso Denegado Para Editar los Registros", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Editar Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                        //Llamada de Clase
+                        this.Digitar = true;
+                        this.Botones();
+                        this.Limpiar_Datos();
                     }
                 }
-
-                //Se restablece la imagen predeterminada del boton
-                this.btnGuardar.Image = Properties.Resources.BV_Guardar;
             }
             catch (Exception ex)
             {
@@ -450,7 +454,6 @@ namespace Presentacion
             try
             {
                 this.Digitar = true;
-                //this.TBIdproducto.Text = "0";
 
                 this.Botones();
                 this.Limpiar_Datos();
@@ -460,8 +463,6 @@ namespace Presentacion
 
                 //Se Limpian las Filas y Columnas de la tabla
                 this.DGResultados.DataSource = null;
-                this.DGDetalle_Envio.DataSource = null;
-                this.DGDetalle_Bancario.DataSource = null;
                 this.lblTotal.Text = "Datos Registrados: 0";
             }
             catch (Exception ex)
@@ -647,8 +648,8 @@ namespace Presentacion
                     this.TBObservacion.Text = Observacion;
 
                     //
-                    this.TBBancoPrincipal.Text = BancoPrincipal;
-                    this.TBCuenta01.Text = Cuenta01;   
+
+                    this.TBCuenta01.Text = Cuenta01;
                     this.TBCreditoMinimo.Text = CreditoMinimo;
                     this.TBCreditoMaximo.Text = CreditoMaximo;
                     this.TBDiasProrroga.Text = Prorroga;
@@ -672,26 +673,23 @@ namespace Presentacion
         {
             try
             {
-                this.Digitar = false;
-
                 if (Editar == "1")
                 {
-                    //
-                    this.TBIdproveedor.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells["Codigo"].Value);
+                    this.Digitar = false;
+                    this.TBIdproveedor.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells[0].Value);
                     this.TBNombre.Select();
 
-                    //Cuando se le realice el evento Clip del Boton Ediatar/Guardar
+                    //
+                    //this.Digitar = false;
+                    this.Eliminar_Banco = true;
 
-                    this.btnGuardar.Enabled = true;
-                    this.btnCancelar.Enabled = true;
-
-                    //Se cambia la imagen del Boton la cual inicialmente es Guardar
-                    //Y se cambiar por la imagen Editar
-                    this.btnGuardar.Image = Properties.Resources.BV_Editar;
+                    //
+                    this.Botones();
+                    this.TCPrincipal.SelectedIndex = 0;
                 }
                 else
                 {
-                    MessageBox.Show("Acceso denegado para actualizar registros", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Actualizar Datos en el Sistema", "Leal Enterprise - 'Acceso Denegado' ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
             catch (Exception ex)
@@ -699,12 +697,11 @@ namespace Presentacion
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
-
         private void DGResultados_KeyUp(object sender, KeyEventArgs e)
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
                 {
                     this.Digitar = false;
 
@@ -748,23 +745,29 @@ namespace Presentacion
 
                     this.TBDocumento.Select();
                 }
-
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
-                    //Al precionar la tecla Control+TAB Se cambia al campo de Texto TBBuscar
-                    //Para realizar consultas en el sistema Y se realiza Focus al primer Texboxt
+                    //
+                    this.Digitar = true;
 
-                    this.TCPrincipal.SelectedIndex = 1;
-                    this.TBReceptor.Select();
+                    this.Botones();
+                    this.Limpiar_Datos();
+                    this.Diseño_TablasGenerales();
+
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo,  MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -775,7 +778,7 @@ namespace Presentacion
                             }
                             else
                             {
-                                                            MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                                 //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
                                 //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
@@ -825,23 +828,29 @@ namespace Presentacion
 
                     this.TBRepresentante.Select();
                 }
-
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
-                    //Al precionar la tecla Control+TAB Se cambia al campo de Texto TBBuscar
-                    //Para realizar consultas en el sistema Y se realiza Focus al primer Texboxt
+                    //
+                    this.Digitar = true;
 
-                    this.TCPrincipal.SelectedIndex = 1;
-                    this.TBReceptor.Select();
+                    this.Botones();
+                    this.Limpiar_Datos();
+                    this.Diseño_TablasGenerales();
+
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo,  MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -852,7 +861,7 @@ namespace Presentacion
                             }
                             else
                             {
-                                                            MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                                 //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
                                 //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
@@ -902,23 +911,29 @@ namespace Presentacion
 
                     this.TBPais.Select();
                 }
-
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
-                    //Al precionar la tecla Control+TAB Se cambia al campo de Texto TBBuscar
-                    //Para realizar consultas en el sistema Y se realiza Focus al primer Texboxt
+                    //
+                    this.Digitar = true;
 
-                    this.TCPrincipal.SelectedIndex = 1;
-                    this.TBReceptor.Select();
+                    this.Botones();
+                    this.Limpiar_Datos();
+                    this.Diseño_TablasGenerales();
+
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo,  MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -929,7 +944,7 @@ namespace Presentacion
                             }
                             else
                             {
-                                                            MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                                 //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
                                 //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
@@ -979,23 +994,29 @@ namespace Presentacion
 
                     this.TBCiudad.Select();
                 }
-
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
-                    //Al precionar la tecla Control+TAB Se cambia al campo de Texto TBBuscar
-                    //Para realizar consultas en el sistema Y se realiza Focus al primer Texboxt
+                    //
+                    this.Digitar = true;
 
-                    this.TCPrincipal.SelectedIndex = 1;
-                    this.TBReceptor.Select();
+                    this.Botones();
+                    this.Limpiar_Datos();
+                    this.Diseño_TablasGenerales();
+
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo,  MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1006,7 +1027,7 @@ namespace Presentacion
                             }
                             else
                             {
-                                                            MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                                 //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
                                 //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
@@ -1056,23 +1077,29 @@ namespace Presentacion
 
                     this.TBNacionalidad.Select();
                 }
-
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
-                    //Al precionar la tecla Control+TAB Se cambia al campo de Texto TBBuscar
-                    //Para realizar consultas en el sistema Y se realiza Focus al primer Texboxt
+                    //
+                    this.Digitar = true;
 
-                    this.TCPrincipal.SelectedIndex = 1;
-                    this.TBReceptor.Select();
+                    this.Botones();
+                    this.Limpiar_Datos();
+                    this.Diseño_TablasGenerales();
+
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo,  MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1083,7 +1110,7 @@ namespace Presentacion
                             }
                             else
                             {
-                                                            MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                                 //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
                                 //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
@@ -1133,23 +1160,29 @@ namespace Presentacion
 
                     this.TBTelefono.Select();
                 }
-
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
-                    //Al precionar la tecla Control+TAB Se cambia al campo de Texto TBBuscar
-                    //Para realizar consultas en el sistema Y se realiza Focus al primer Texboxt
+                    //
+                    this.Digitar = true;
 
-                    this.TCPrincipal.SelectedIndex = 1;
-                    this.TBReceptor.Select();
+                    this.Botones();
+                    this.Limpiar_Datos();
+                    this.Diseño_TablasGenerales();
+
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo,  MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1160,7 +1193,7 @@ namespace Presentacion
                             }
                             else
                             {
-                                                            MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                                 //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
                                 //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
@@ -1210,23 +1243,29 @@ namespace Presentacion
 
                     this.TBMovil.Select();
                 }
-
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
-                    //Al precionar la tecla Control+TAB Se cambia al campo de Texto TBBuscar
-                    //Para realizar consultas en el sistema Y se realiza Focus al primer Texboxt
+                    //
+                    this.Digitar = true;
 
-                    this.TCPrincipal.SelectedIndex = 1;
-                    this.TBReceptor.Select();
+                    this.Botones();
+                    this.Limpiar_Datos();
+                    this.Diseño_TablasGenerales();
+
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo,  MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1237,7 +1276,7 @@ namespace Presentacion
                             }
                             else
                             {
-                                                            MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                                 //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
                                 //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
@@ -1287,23 +1326,29 @@ namespace Presentacion
 
                     this.TBCorreo.Select();
                 }
-
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
-                    //Al precionar la tecla Control+TAB Se cambia al campo de Texto TBBuscar
-                    //Para realizar consultas en el sistema Y se realiza Focus al primer Texboxt
+                    //
+                    this.Digitar = true;
 
-                    this.TCPrincipal.SelectedIndex = 1;
-                    this.TBReceptor.Select();
+                    this.Botones();
+                    this.Limpiar_Datos();
+                    this.Diseño_TablasGenerales();
+
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo,  MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1314,7 +1359,7 @@ namespace Presentacion
                             }
                             else
                             {
-                                                            MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                                 //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
                                 //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
@@ -1364,23 +1409,29 @@ namespace Presentacion
 
                     this.TBNombre.Select();
                 }
-
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
-                    //Al precionar la tecla Control+TAB Se cambia al campo de Texto TBBuscar
-                    //Para realizar consultas en el sistema Y se realiza Focus al primer Texboxt
+                    //
+                    this.Digitar = true;
 
-                    this.TCPrincipal.SelectedIndex = 1;
-                    this.TBReceptor.Select();
+                    this.Botones();
+                    this.Limpiar_Datos();
+                    this.Diseño_TablasGenerales();
+
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo,  MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1391,7 +1442,7 @@ namespace Presentacion
                             }
                             else
                             {
-                                                            MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                                 //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
                                 //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
@@ -1443,23 +1494,29 @@ namespace Presentacion
 
                     this.TBPais_01.Select();
                 }
-
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
-                    //Al precionar la tecla Control+TAB Se cambia al campo de Texto TBBuscar
-                    //Para realizar consultas en el sistema Y se realiza Focus al primer Texboxt
+                    //
+                    this.Digitar = true;
 
-                    this.TCPrincipal.SelectedIndex = 2;
-                    this.TBBancoPrincipal.Select();
+                    this.Botones();
+                    this.Limpiar_Datos();
+                    this.Diseño_TablasGenerales();
+
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo,  MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1470,7 +1527,7 @@ namespace Presentacion
                             }
                             else
                             {
-                                                            MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                                 //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
                                 //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
@@ -1520,23 +1577,29 @@ namespace Presentacion
 
                     this.TBCiudad_01.Select();
                 }
-
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
-                    //Al precionar la tecla Control+TAB Se cambia al campo de Texto TBBuscar
-                    //Para realizar consultas en el sistema Y se realiza Focus al primer Texboxt
+                    //
+                    this.Digitar = true;
 
-                    this.TCPrincipal.SelectedIndex = 2;
-                    this.TBBancoPrincipal.Select();
+                    this.Botones();
+                    this.Limpiar_Datos();
+                    this.Diseño_TablasGenerales();
+
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo,  MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1547,7 +1610,7 @@ namespace Presentacion
                             }
                             else
                             {
-                                                            MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                                 //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
                                 //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
@@ -1597,23 +1660,29 @@ namespace Presentacion
 
                     this.TBDireccionPrincipal.Select();
                 }
-
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
-                    //Al precionar la tecla Control+TAB Se cambia al campo de Texto TBBuscar
-                    //Para realizar consultas en el sistema Y se realiza Focus al primer Texboxt
+                    //
+                    this.Digitar = true;
 
-                    this.TCPrincipal.SelectedIndex = 2;
-                    this.TBBancoPrincipal.Select();
+                    this.Botones();
+                    this.Limpiar_Datos();
+                    this.Diseño_TablasGenerales();
+
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo,  MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1624,7 +1693,7 @@ namespace Presentacion
                             }
                             else
                             {
-                                                            MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                                 //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
                                 //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
@@ -1674,23 +1743,29 @@ namespace Presentacion
 
                     this.TBTelefono_01.Select();
                 }
-
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
-                    //Al precionar la tecla Control+TAB Se cambia al campo de Texto TBBuscar
-                    //Para realizar consultas en el sistema Y se realiza Focus al primer Texboxt
+                    //
+                    this.Digitar = true;
 
-                    this.TCPrincipal.SelectedIndex = 2;
-                    this.TBBancoPrincipal.Select();
+                    this.Botones();
+                    this.Limpiar_Datos();
+                    this.Diseño_TablasGenerales();
+
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo,  MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1701,7 +1776,7 @@ namespace Presentacion
                             }
                             else
                             {
-                                                            MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                                 //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
                                 //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
@@ -1751,23 +1826,29 @@ namespace Presentacion
 
                     this.TBMovil_01.Select();
                 }
-
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
-                    //Al precionar la tecla Control+TAB Se cambia al campo de Texto TBBuscar
-                    //Para realizar consultas en el sistema Y se realiza Focus al primer Texboxt
+                    //
+                    this.Digitar = true;
 
-                    this.TCPrincipal.SelectedIndex = 2;
-                    this.TBBancoPrincipal.Select();
+                    this.Botones();
+                    this.Limpiar_Datos();
+                    this.Diseño_TablasGenerales();
+
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo,  MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1778,7 +1859,7 @@ namespace Presentacion
                             }
                             else
                             {
-                                                            MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                                 //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
                                 //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
@@ -1828,23 +1909,29 @@ namespace Presentacion
 
                     this.TBObservacion.Select();
                 }
-
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
-                    //Al precionar la tecla Control+TAB Se cambia al campo de Texto TBBuscar
-                    //Para realizar consultas en el sistema Y se realiza Focus al primer Texboxt
+                    //
+                    this.Digitar = true;
 
-                    this.TCPrincipal.SelectedIndex = 2;
-                    this.TBBancoPrincipal.Select();
+                    this.Botones();
+                    this.Limpiar_Datos();
+                    this.Diseño_TablasGenerales();
+
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo,  MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1855,7 +1942,7 @@ namespace Presentacion
                             }
                             else
                             {
-                                                            MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                                 //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
                                 //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
@@ -1905,23 +1992,29 @@ namespace Presentacion
 
                     this.TBReceptor.Select();
                 }
-
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
-                    //Al precionar la tecla Control+TAB Se cambia al campo de Texto TBBuscar
-                    //Para realizar consultas en el sistema Y se realiza Focus al primer Texboxt
+                    //
+                    this.Digitar = true;
 
-                    this.TCPrincipal.SelectedIndex = 2;
-                    this.TBBancoPrincipal.Select();
+                    this.Botones();
+                    this.Limpiar_Datos();
+                    this.Diseño_TablasGenerales();
+
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo,  MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1932,7 +2025,7 @@ namespace Presentacion
                             }
                             else
                             {
-                                                            MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                                 //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
                                 //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
@@ -1962,84 +2055,6 @@ namespace Presentacion
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
                             this.TBObservacion.Select();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        //
-        private void TBBancoPrincipal_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
-                {
-                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
-
-                    this.TBCuenta01.Select();
-                }
-
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
-                {
-                    //Al precionar la tecla Control+TAB Se cambia al campo de Texto TBBuscar
-                    //Para realizar consultas en el sistema Y se realiza Focus al primer Texboxt
-
-                    this.TCPrincipal.SelectedIndex = 0;
-                    this.TBNombre.Select();
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
-                {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
-                    //Y se realizara las validaciones en el sistema
-
-                    if (Digitar)
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo,  MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            if (Guardar == "1")
-                            {
-                                //Llamada de Clase
-                                this.Guardar_SQL();
-                            }
-                            else
-                            {
-                                                            MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
-                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
-                                this.Digitar = false;
-                                this.Limpiar_Datos();
-                            }
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBBancoPrincipal.Select();
-                        }
-                    }
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los Campos Consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            //Llamada de Clase
-                            this.Digitar = false;
-                            this.Guardar_SQL();
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBBancoPrincipal.Select();
                         }
                     }
                 }
@@ -2060,23 +2075,29 @@ namespace Presentacion
 
                     //this.TBBancoAuxiliar.Select();
                 }
-
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
-                    //Al precionar la tecla Control+TAB Se cambia al campo de Texto TBBuscar
-                    //Para realizar consultas en el sistema Y se realiza Focus al primer Texboxt
+                    //
+                    this.Digitar = true;
 
-                    this.TCPrincipal.SelectedIndex = 0;
-                    this.TBNombre.Select();
+                    this.Botones();
+                    this.Limpiar_Datos();
+                    this.Diseño_TablasGenerales();
+
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo,  MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -2087,7 +2108,7 @@ namespace Presentacion
                             }
                             else
                             {
-                                                            MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                                 //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
                                 //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
@@ -2137,23 +2158,29 @@ namespace Presentacion
 
                     this.TBCreditoMaximo.Select();
                 }
-
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
-                    //Al precionar la tecla Control+TAB Se cambia al campo de Texto TBBuscar
-                    //Para realizar consultas en el sistema Y se realiza Focus al primer Texboxt
+                    //
+                    this.Digitar = true;
 
-                    this.TCPrincipal.SelectedIndex = 0;
-                    this.TBNombre.Select();
+                    this.Botones();
+                    this.Limpiar_Datos();
+                    this.Diseño_TablasGenerales();
+
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo,  MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -2164,7 +2191,7 @@ namespace Presentacion
                             }
                             else
                             {
-                                                            MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                                 //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
                                 //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
@@ -2214,23 +2241,29 @@ namespace Presentacion
 
                     this.TBDiasProrroga.Select();
                 }
-
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
-                    //Al precionar la tecla Control+TAB Se cambia al campo de Texto TBBuscar
-                    //Para realizar consultas en el sistema Y se realiza Focus al primer Texboxt
+                    //
+                    this.Digitar = true;
 
-                    this.TCPrincipal.SelectedIndex = 0;
-                    this.TBNombre.Select();
+                    this.Botones();
+                    this.Limpiar_Datos();
+                    this.Diseño_TablasGenerales();
+
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo,  MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -2241,7 +2274,7 @@ namespace Presentacion
                             }
                             else
                             {
-                                                            MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                                 //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
                                 //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
@@ -2289,25 +2322,31 @@ namespace Presentacion
                 {
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
-                    this.TBBancoPrincipal.Select();
+                    this.TBMoneda03.Select();
                 }
-
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
-                    //Al precionar la tecla Control+TAB Se cambia al campo de Texto TBBuscar
-                    //Para realizar consultas en el sistema Y se realiza Focus al primer Texboxt
+                    //
+                    this.Digitar = true;
 
-                    this.TCPrincipal.SelectedIndex = 0;
-                    this.TBNombre.Select();
+                    this.Botones();
+                    this.Limpiar_Datos();
+                    this.Diseño_TablasGenerales();
+
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Enter))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
-                    //Al precionar las teclas Control+Enter se realizara el registro en la base de datos
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
                     //Y se realizara las validaciones en el sistema
 
                     if (Digitar)
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo,  MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -2318,7 +2357,7 @@ namespace Presentacion
                             }
                             else
                             {
-                                                            MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                                 //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
                                 //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
@@ -2736,11 +2775,6 @@ namespace Presentacion
 
         //******************** FOCUS ENTER  DATOS FINANCIEROS ********************
 
-        private void TBBancoPrincipal_Enter(object sender, EventArgs e)
-        {
-            this.TBBancoPrincipal.BackColor = Color.Azure;
-        }
-
         private void TBCuenta01_Enter(object sender, EventArgs e)
         {
             this.TBCuenta01.BackColor = Color.Azure;
@@ -2877,11 +2911,6 @@ namespace Presentacion
         }
 
         //******************** FOCUS LEAVE DATOS FINANCIEROS ********************
-
-        private void TBBancoPrincipal_Leave(object sender, EventArgs e)
-        {
-            this.TBBancoPrincipal.BackColor = Color.FromArgb(3, 155, 229);
-        }
 
         private void TBCuenta01_Leave(object sender, EventArgs e)
         {

@@ -199,10 +199,10 @@
     <Compile Include="Financiera\frmBanco.Designer.cs">
       <DependentUpon>frmBanco.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCodigo_Archivo.cs">
+    <Compile Include="Sistema\frmCodigo_Archivo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCodigo_Archivo.Designer.cs">
+    <Compile Include="Sistema\frmCodigo_Archivo.Designer.cs">
       <DependentUpon>frmCodigo_Archivo.cs</DependentUpon>
     </Compile>
     <Compile Include="Gestion Humana\frmTipoDeContrato.cs">
@@ -216,12 +216,6 @@
     </Compile>
     <Compile Include="Sistema\frmUsuario.Designer.cs">
       <DependentUpon>frmUsuario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sistema\frmCodigoID_Productos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sistema\frmCodigoID_Productos.Designer.cs">
-      <DependentUpon>frmCodigoID_Productos.cs</DependentUpon>
     </Compile>
     <Compile Include="Inventario\frmInventario_Inicial.cs">
       <SubType>Form</SubType>
@@ -423,7 +417,7 @@
     <EmbeddedResource Include="Filtros\frmFiltro_Impuesto.resx">
       <DependentUpon>frmFiltro_Impuesto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCodigo_Archivo.resx">
+    <EmbeddedResource Include="Sistema\frmCodigo_Archivo.resx">
       <DependentUpon>frmCodigo_Archivo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion Humana\frmTipoDeContrato.resx">

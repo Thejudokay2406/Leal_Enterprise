@@ -53,6 +53,7 @@
     <Compile Include="Compra\Entidad_CotizacionDeCompra.cs" />
     <Compile Include="Archivo\Entidad_TipoDePago.cs" />
     <Compile Include="Archivo\Entidad_GrupoDeCliente.cs" />
+    <Compile Include="Financiera\Entidad_Banco.cs" />
     <Compile Include="Gestion Humana\Entidad_Departamento.cs" />
     <Compile Include="Gestion Humana\Entidad_TipoDeContrato.cs" />
     <Compile Include="Archivo\Entidad_TipoDeCliente.cs" />
@@ -66,7 +67,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Financiera\" />
     <Folder Include="Inventario\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
