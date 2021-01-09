@@ -114,7 +114,9 @@
             this.btnAgregar_Bancos = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.TBBanco = new System.Windows.Forms.TextBox();
+            this.TBBanco_Documento = new System.Windows.Forms.TextBox();
+            this.btnExaminar = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGResultados)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -206,7 +208,7 @@
             this.groupBox1.Size = new System.Drawing.Size(563, 433);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Leal Enterprise - Registro de Proveedores";
+            this.groupBox1.Text = "Registro de Proveedores - Leal Enterprise";
             // 
             // btnCancelar
             // 
@@ -310,9 +312,9 @@
             this.CBSucurzal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBSucurzal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBSucurzal.FormattingEnabled = true;
-            this.CBSucurzal.Location = new System.Drawing.Point(100, 33);
+            this.CBSucurzal.Location = new System.Drawing.Point(102, 34);
             this.CBSucurzal.Name = "CBSucurzal";
-            this.CBSucurzal.Size = new System.Drawing.Size(437, 21);
+            this.CBSucurzal.Size = new System.Drawing.Size(435, 21);
             this.CBSucurzal.Sorted = true;
             this.CBSucurzal.TabIndex = 23;
             // 
@@ -328,7 +330,7 @@
             // 
             // DTFechadeinicio
             // 
-            this.DTFechadeinicio.Location = new System.Drawing.Point(100, 311);
+            this.DTFechadeinicio.Location = new System.Drawing.Point(103, 313);
             this.DTFechadeinicio.Name = "DTFechadeinicio";
             this.DTFechadeinicio.Size = new System.Drawing.Size(250, 22);
             this.DTFechadeinicio.TabIndex = 21;
@@ -346,9 +348,9 @@
             // TBCorreo
             // 
             this.TBCorreo.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBCorreo.Location = new System.Drawing.Point(100, 283);
+            this.TBCorreo.Location = new System.Drawing.Point(102, 285);
             this.TBCorreo.Name = "TBCorreo";
-            this.TBCorreo.Size = new System.Drawing.Size(437, 22);
+            this.TBCorreo.Size = new System.Drawing.Size(435, 22);
             this.TBCorreo.TabIndex = 19;
             this.TBCorreo.Enter += new System.EventHandler(this.TBCorreo_Enter);
             this.TBCorreo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCorreo_KeyUp);
@@ -362,7 +364,7 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(37, 17);
             this.label10.TabIndex = 18;
-            this.label10.Text = "Movil";
+            this.label10.Text = "Móvil";
             // 
             // label9
             // 
@@ -372,7 +374,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(56, 17);
             this.label9.TabIndex = 17;
-            this.label9.Text = "Telefono";
+            this.label9.Text = "Teléfono";
             // 
             // label8
             // 
@@ -415,9 +417,9 @@
             "Extranjero",
             "Juridico",
             "Natural"});
-            this.CBTipo.Location = new System.Drawing.Point(100, 6);
+            this.CBTipo.Location = new System.Drawing.Point(103, 6);
             this.CBTipo.Name = "CBTipo";
-            this.CBTipo.Size = new System.Drawing.Size(142, 21);
+            this.CBTipo.Size = new System.Drawing.Size(140, 21);
             this.CBTipo.Sorted = true;
             this.CBTipo.TabIndex = 13;
             this.CBTipo.SelectedIndexChanged += new System.EventHandler(this.CBTipo_SelectedIndexChanged);
@@ -425,9 +427,9 @@
             // TBMovil
             // 
             this.TBMovil.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBMovil.Location = new System.Drawing.Point(100, 255);
+            this.TBMovil.Location = new System.Drawing.Point(102, 257);
             this.TBMovil.Name = "TBMovil";
-            this.TBMovil.Size = new System.Drawing.Size(437, 22);
+            this.TBMovil.Size = new System.Drawing.Size(435, 22);
             this.TBMovil.TabIndex = 12;
             this.TBMovil.Enter += new System.EventHandler(this.TBMovil_Enter);
             this.TBMovil.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBMovil_KeyUp);
@@ -436,9 +438,9 @@
             // TBTelefono
             // 
             this.TBTelefono.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBTelefono.Location = new System.Drawing.Point(100, 227);
+            this.TBTelefono.Location = new System.Drawing.Point(102, 229);
             this.TBTelefono.Name = "TBTelefono";
-            this.TBTelefono.Size = new System.Drawing.Size(437, 22);
+            this.TBTelefono.Size = new System.Drawing.Size(435, 22);
             this.TBTelefono.TabIndex = 11;
             this.TBTelefono.Enter += new System.EventHandler(this.TBTelefono_Enter);
             this.TBTelefono.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBTelefono_KeyUp);
@@ -447,9 +449,9 @@
             // TBNacionalidad
             // 
             this.TBNacionalidad.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBNacionalidad.Location = new System.Drawing.Point(100, 199);
+            this.TBNacionalidad.Location = new System.Drawing.Point(102, 201);
             this.TBNacionalidad.Name = "TBNacionalidad";
-            this.TBNacionalidad.Size = new System.Drawing.Size(437, 22);
+            this.TBNacionalidad.Size = new System.Drawing.Size(435, 22);
             this.TBNacionalidad.TabIndex = 10;
             this.TBNacionalidad.Enter += new System.EventHandler(this.TBNacionalidad_Enter);
             this.TBNacionalidad.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBNacionalidad_KeyUp);
@@ -458,9 +460,9 @@
             // TBCiudad
             // 
             this.TBCiudad.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBCiudad.Location = new System.Drawing.Point(100, 172);
+            this.TBCiudad.Location = new System.Drawing.Point(102, 173);
             this.TBCiudad.Name = "TBCiudad";
-            this.TBCiudad.Size = new System.Drawing.Size(437, 22);
+            this.TBCiudad.Size = new System.Drawing.Size(435, 22);
             this.TBCiudad.TabIndex = 9;
             this.TBCiudad.Enter += new System.EventHandler(this.TBCiudad_Enter);
             this.TBCiudad.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCiudad_KeyUp);
@@ -469,9 +471,9 @@
             // TBPais
             // 
             this.TBPais.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBPais.Location = new System.Drawing.Point(100, 144);
+            this.TBPais.Location = new System.Drawing.Point(102, 145);
             this.TBPais.Name = "TBPais";
-            this.TBPais.Size = new System.Drawing.Size(437, 22);
+            this.TBPais.Size = new System.Drawing.Size(435, 22);
             this.TBPais.TabIndex = 8;
             this.TBPais.Enter += new System.EventHandler(this.TBPais_Enter);
             this.TBPais.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBPais_KeyUp);
@@ -480,9 +482,9 @@
             // TBRepresentante
             // 
             this.TBRepresentante.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBRepresentante.Location = new System.Drawing.Point(100, 116);
+            this.TBRepresentante.Location = new System.Drawing.Point(102, 117);
             this.TBRepresentante.Name = "TBRepresentante";
-            this.TBRepresentante.Size = new System.Drawing.Size(437, 22);
+            this.TBRepresentante.Size = new System.Drawing.Size(435, 22);
             this.TBRepresentante.TabIndex = 7;
             this.TBRepresentante.Enter += new System.EventHandler(this.TBRepresentante_Enter);
             this.TBRepresentante.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBRepresentante_KeyUp);
@@ -491,9 +493,9 @@
             // TBDocumento
             // 
             this.TBDocumento.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBDocumento.Location = new System.Drawing.Point(100, 88);
+            this.TBDocumento.Location = new System.Drawing.Point(102, 89);
             this.TBDocumento.Name = "TBDocumento";
-            this.TBDocumento.Size = new System.Drawing.Size(437, 22);
+            this.TBDocumento.Size = new System.Drawing.Size(435, 22);
             this.TBDocumento.TabIndex = 6;
             this.TBDocumento.Enter += new System.EventHandler(this.TBDocumento_Enter);
             this.TBDocumento.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBDocumento_KeyUp);
@@ -502,9 +504,9 @@
             // TBNombre
             // 
             this.TBNombre.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBNombre.Location = new System.Drawing.Point(100, 60);
+            this.TBNombre.Location = new System.Drawing.Point(102, 61);
             this.TBNombre.Name = "TBNombre";
-            this.TBNombre.Size = new System.Drawing.Size(437, 22);
+            this.TBNombre.Size = new System.Drawing.Size(435, 22);
             this.TBNombre.TabIndex = 5;
             this.TBNombre.Enter += new System.EventHandler(this.TBNombre_Enter);
             this.TBNombre.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBNombre_KeyUp);
@@ -518,7 +520,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(32, 17);
             this.label5.TabIndex = 4;
-            this.label5.Text = "Pais";
+            this.label5.Text = "País";
             // 
             // label4
             // 
@@ -858,7 +860,6 @@
             this.TBCiudad_01.Name = "TBCiudad_01";
             this.TBCiudad_01.Size = new System.Drawing.Size(202, 22);
             this.TBCiudad_01.TabIndex = 21;
-            this.TBCiudad_01.Text = "Cartagena de Indias D.T.y C.";
             this.TBCiudad_01.Enter += new System.EventHandler(this.TBCiudad_01_Enter);
             this.TBCiudad_01.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCiudad_01_KeyUp);
             this.TBCiudad_01.Leave += new System.EventHandler(this.TBCiudad_01_Leave);
@@ -961,7 +962,9 @@
             // 
             // TPDatosFinancieros
             // 
-            this.TPDatosFinancieros.Controls.Add(this.comboBox1);
+            this.TPDatosFinancieros.Controls.Add(this.btnExaminar);
+            this.TPDatosFinancieros.Controls.Add(this.TBBanco_Documento);
+            this.TPDatosFinancieros.Controls.Add(this.TBBanco);
             this.TPDatosFinancieros.Controls.Add(this.lblTotal_Banco);
             this.TPDatosFinancieros.Controls.Add(this.DGDetalle_Bancario);
             this.TPDatosFinancieros.Controls.Add(this.CBTipoDeCuenta);
@@ -982,7 +985,7 @@
             // lblTotal_Banco
             // 
             this.lblTotal_Banco.AutoSize = true;
-            this.lblTotal_Banco.Location = new System.Drawing.Point(8, 311);
+            this.lblTotal_Banco.Location = new System.Drawing.Point(6, 311);
             this.lblTotal_Banco.Name = "lblTotal_Banco";
             this.lblTotal_Banco.Size = new System.Drawing.Size(118, 17);
             this.lblTotal_Banco.TabIndex = 177;
@@ -1015,14 +1018,14 @@
             "Ahorro",
             "Corriente",
             "Nomina"});
-            this.CBTipoDeCuenta.Location = new System.Drawing.Point(81, 32);
+            this.CBTipoDeCuenta.Location = new System.Drawing.Point(81, 34);
             this.CBTipoDeCuenta.Name = "CBTipoDeCuenta";
             this.CBTipoDeCuenta.Size = new System.Drawing.Size(146, 21);
             this.CBTipoDeCuenta.TabIndex = 25;
             // 
             // TBCuenta01
             // 
-            this.TBCuenta01.Location = new System.Drawing.Point(233, 32);
+            this.TBCuenta01.Location = new System.Drawing.Point(233, 34);
             this.TBCuenta01.Name = "TBCuenta01";
             this.TBCuenta01.Size = new System.Drawing.Size(304, 22);
             this.TBCuenta01.TabIndex = 24;
@@ -1129,21 +1132,33 @@
             this.btnImprimir.UseVisualStyleBackColor = true;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
-            // comboBox1
+            // TBBanco
             // 
-            this.comboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "-",
-            "Ahorro",
-            "Corriente",
-            "Nomina"});
-            this.comboBox1.Location = new System.Drawing.Point(80, 5);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(457, 21);
-            this.comboBox1.TabIndex = 178;
+            this.TBBanco.Location = new System.Drawing.Point(233, 6);
+            this.TBBanco.Name = "TBBanco";
+            this.TBBanco.Size = new System.Drawing.Size(273, 22);
+            this.TBBanco.TabIndex = 178;
+            // 
+            // TBBanco_Documento
+            // 
+            this.TBBanco_Documento.Location = new System.Drawing.Point(81, 6);
+            this.TBBanco_Documento.Name = "TBBanco_Documento";
+            this.TBBanco_Documento.Size = new System.Drawing.Size(146, 22);
+            this.TBBanco_Documento.TabIndex = 179;
+            // 
+            // btnExaminar
+            // 
+            this.btnExaminar.BackgroundImage = global::Presentacion.Botones.btnExaminar;
+            this.btnExaminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnExaminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExaminar.FlatAppearance.BorderSize = 0;
+            this.btnExaminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExaminar.Location = new System.Drawing.Point(512, 6);
+            this.btnExaminar.Name = "btnExaminar";
+            this.btnExaminar.Size = new System.Drawing.Size(25, 22);
+            this.btnExaminar.TabIndex = 218;
+            this.btnExaminar.UseVisualStyleBackColor = true;
+            this.btnExaminar.Click += new System.EventHandler(this.btnExaminar_Click);
             // 
             // frmProveedor
             // 
@@ -1266,6 +1281,8 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox TBBanco_Documento;
+        private System.Windows.Forms.TextBox TBBanco;
+        private System.Windows.Forms.Button btnExaminar;
     }
 }

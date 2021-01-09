@@ -573,86 +573,89 @@ namespace Presentacion
 
         private void TBIdproveedor_TextChanged(object sender, EventArgs e)
         {
-            try
             //SE REALIZA LA CONSULTA A LA BASE DE DATOS POR MEDIO DEL Idcliente
             //Y ASI AUTOCOMPLETAR LOS CAMPOS DE TEXTOS NECESARIOS O CONSULTADOS
+            
+            try
             {
-
-                // ENVIAN LOS DATOS A LA BASE DE DATOS Y SE EVALUAN QUE EXISTEN O ESTEN REGISTRADOS
-
-                DataTable Datos = Negocio.fProveedor.Buscar(this.TBIdproveedor.Text, 2);
-                //Evaluamos si  existen los Datos
-                if (Datos.Rows.Count == 0)
+                if (TBIdproveedor.Text != string.Empty)
                 {
-                    MessageBox.Show("No se encontraron registros en la base de datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
+                    // ENVIAN LOS DATOS A LA BASE DE DATOS Y SE EVALUAN QUE EXISTEN O ESTEN REGISTRADOS
 
-                    //Panel Datos Basicos
-                    Tipo = Datos.Rows[0][0].ToString();
-                    Proveedor = Datos.Rows[0][1].ToString();
-                    Documento = Datos.Rows[0][2].ToString();
-                    Representante = Datos.Rows[0][3].ToString();
-                    Pais = Datos.Rows[0][4].ToString();
-                    Ciudad = Datos.Rows[0][5].ToString();
-                    Nacionalidad = Datos.Rows[0][6].ToString();
-                    Telefono = Datos.Rows[0][7].ToString();
-                    Movil = Datos.Rows[0][8].ToString();
-                    Correo = Datos.Rows[0][9].ToString();
-                    FechaDeInicio = Datos.Rows[0][10].ToString();
+                    DataTable Datos = Negocio.fProveedor.Buscar(this.TBIdproveedor.Text, 2);
+                    //Evaluamos si  existen los Datos
+                    if (Datos.Rows.Count == 0)
+                    {
+                        MessageBox.Show("No se encontraron registros en la base de datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
 
-                    //Panel Datos de Envio
-                    Receptor = Datos.Rows[0][11].ToString();
-                    Pais_DE = Datos.Rows[0][12].ToString();
-                    Ciudad_DE = Datos.Rows[0][13].ToString();
-                    DireccionPrincipal = Datos.Rows[0][14].ToString();
-                    Direccion01 = Datos.Rows[0][15].ToString();
-                    Direccion02 = Datos.Rows[0][16].ToString();
-                    Telefono_Envio = Datos.Rows[0][17].ToString();
-                    Movil_Envio = Datos.Rows[0][18].ToString();
-                    Observacion = Datos.Rows[0][19].ToString();
+                        //Panel Datos Basicos
+                        Tipo = Datos.Rows[0][0].ToString();
+                        Proveedor = Datos.Rows[0][1].ToString();
+                        Documento = Datos.Rows[0][2].ToString();
+                        Representante = Datos.Rows[0][3].ToString();
+                        Pais = Datos.Rows[0][4].ToString();
+                        Ciudad = Datos.Rows[0][5].ToString();
+                        Nacionalidad = Datos.Rows[0][6].ToString();
+                        Telefono = Datos.Rows[0][7].ToString();
+                        Movil = Datos.Rows[0][8].ToString();
+                        Correo = Datos.Rows[0][9].ToString();
+                        FechaDeInicio = Datos.Rows[0][10].ToString();
 
-                    //Panel Datos Financiero
-                    Retencion = Datos.Rows[0][20].ToString();
-                    Valor_Retencion = Datos.Rows[0][21].ToString();
-                    BancoPrincipal = Datos.Rows[0][22].ToString();
-                    Cuenta01 = Datos.Rows[0][23].ToString();
-                    BancoAuxiliar = Datos.Rows[0][24].ToString();
-                    Cuenta02 = Datos.Rows[0][25].ToString();
-                    CreditoMinimo = Datos.Rows[0][26].ToString();
-                    CreditoMaximo = Datos.Rows[0][27].ToString();
-                    Prorroga = Datos.Rows[0][28].ToString();
+                        //Panel Datos de Envio
+                        Receptor = Datos.Rows[0][11].ToString();
+                        Pais_DE = Datos.Rows[0][12].ToString();
+                        Ciudad_DE = Datos.Rows[0][13].ToString();
+                        DireccionPrincipal = Datos.Rows[0][14].ToString();
+                        Direccion01 = Datos.Rows[0][15].ToString();
+                        Direccion02 = Datos.Rows[0][16].ToString();
+                        Telefono_Envio = Datos.Rows[0][17].ToString();
+                        Movil_Envio = Datos.Rows[0][18].ToString();
+                        Observacion = Datos.Rows[0][19].ToString();
 
-                    //SE PROCEDE A LLENAR LOS CAMPOS DE TEXTO SEGUN LA CONSULTA REALIZADA
+                        //Panel Datos Financiero
+                        Retencion = Datos.Rows[0][20].ToString();
+                        Valor_Retencion = Datos.Rows[0][21].ToString();
+                        BancoPrincipal = Datos.Rows[0][22].ToString();
+                        Cuenta01 = Datos.Rows[0][23].ToString();
+                        BancoAuxiliar = Datos.Rows[0][24].ToString();
+                        Cuenta02 = Datos.Rows[0][25].ToString();
+                        CreditoMinimo = Datos.Rows[0][26].ToString();
+                        CreditoMaximo = Datos.Rows[0][27].ToString();
+                        Prorroga = Datos.Rows[0][28].ToString();
 
-                    this.CBTipo.Text = Tipo;
-                    this.TBNombre.Text = Proveedor;
-                    this.TBDocumento.Text = Documento;
-                    this.TBRepresentante.Text = Representante;
-                    this.TBPais.Text = Pais;
-                    this.TBCiudad.Text = Ciudad;
-                    this.TBNacionalidad.Text = Nacionalidad;
-                    this.TBTelefono.Text = Telefono;
-                    this.TBMovil.Text = Movil;
-                    this.TBCorreo.Text = Correo;
-                    this.DTFechadeinicio.Text = FechaDeInicio;
+                        //SE PROCEDE A LLENAR LOS CAMPOS DE TEXTO SEGUN LA CONSULTA REALIZADA
 
-                    //
-                    this.TBReceptor.Text = Receptor;
-                    this.TBPais_01.Text = Pais_DE;
-                    this.TBCiudad_01.Text = Ciudad_DE;
-                    this.TBDireccionPrincipal.Text = DireccionPrincipal;
-                    this.TBTelefono_01.Text = Telefono_Envio;
-                    this.TBMovil_01.Text = Movil_Envio;
-                    this.TBObservacion.Text = Observacion;
+                        this.CBTipo.Text = Tipo;
+                        this.TBNombre.Text = Proveedor;
+                        this.TBDocumento.Text = Documento;
+                        this.TBRepresentante.Text = Representante;
+                        this.TBPais.Text = Pais;
+                        this.TBCiudad.Text = Ciudad;
+                        this.TBNacionalidad.Text = Nacionalidad;
+                        this.TBTelefono.Text = Telefono;
+                        this.TBMovil.Text = Movil;
+                        this.TBCorreo.Text = Correo;
+                        this.DTFechadeinicio.Text = FechaDeInicio;
 
-                    //
+                        //
+                        this.TBReceptor.Text = Receptor;
+                        this.TBPais_01.Text = Pais_DE;
+                        this.TBCiudad_01.Text = Ciudad_DE;
+                        this.TBDireccionPrincipal.Text = DireccionPrincipal;
+                        this.TBTelefono_01.Text = Telefono_Envio;
+                        this.TBMovil_01.Text = Movil_Envio;
+                        this.TBObservacion.Text = Observacion;
 
-                    this.TBCuenta01.Text = Cuenta01;
-                    this.TBCreditoMinimo.Text = CreditoMinimo;
-                    this.TBCreditoMaximo.Text = CreditoMaximo;
-                    this.TBDiasProrroga.Text = Prorroga;
+                        //
+
+                        this.TBCuenta01.Text = Cuenta01;
+                        this.TBCreditoMinimo.Text = CreditoMinimo;
+                        this.TBCreditoMaximo.Text = CreditoMaximo;
+                        this.TBDiasProrroga.Text = Prorroga;
+                    }
                 }
             }
             catch (Exception ex)
@@ -2495,6 +2498,11 @@ namespace Presentacion
         }
 
         private void btnExaminar_Proveedor_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnExaminar_Click(object sender, EventArgs e)
         {
 
         }

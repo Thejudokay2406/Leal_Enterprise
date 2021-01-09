@@ -18,10 +18,22 @@ namespace Negocio
             return Datos.Lista();
         }
 
-        public static DataTable Lista_Contacto(int auto, int idbanco)
+        public static DataTable Lista_Contacto(int auto, int idcontacto)
         {
             Conexion_Banco Datos = new Conexion_Banco();
-            return Datos.Lista_Contacto(auto, idbanco);
+            return Datos.Lista_Contacto(auto, idcontacto);
+        }
+
+        public static DataTable Existencia_Banco(int Idsql, int auto)
+        {
+            Conexion_Banco Datos = new Conexion_Banco();
+            return Datos.Existencia_Banco(Idsql, auto);
+        }
+
+        public static DataTable Existencia_Contacto(int Idsql, int auto)
+        {
+            Conexion_Banco Datos = new Conexion_Banco();
+            return Datos.Existencia_Contacto(Idsql, auto);
         }
 
         public static DataTable Buscar(string Filtro, int auto)
@@ -30,10 +42,10 @@ namespace Negocio
             return Datos.Buscar(Filtro, auto);
         }
 
-        public static DataTable AutoComplementar_SQL(int auto)
+        public static DataTable Buscar_Contacto(int Auto_Contacto, string Filtro)
         {
             Conexion_Banco Datos = new Conexion_Banco();
-            return Datos.AutoComplementar_SQL(auto);
+            return Datos.Buscar_Contacto(Auto_Contacto, Filtro);
         }
 
         public static string Guardar_DatosBasicos
@@ -42,22 +54,16 @@ namespace Negocio
                 int auto,
 
                 //Datos Basicos
-                string Nombre, Int64 Identificacion, string Pais, string Ciudad, string Area, string Direccion01, string Direccion02, Int64 Telefono01, Int64 Extension01, Int64 Telefono02, Int64 Extension02, Int64 Movil01, Int64 Movil02, string Pagina,
-
-                //Panel Contacto
-                DataTable detalle_contacto,
-
-                //Datos Auxiliares
-                int contacto_autosql,
-
-                //SE VALIDA SI SE REALIZA O NO LA VALIDACION
-                int tran_contacto
-
+                string Nombre, Int64 Identificacion, string Pais, string Ciudad, string Area, string Direccion01, string Direccion02, Int64 Telefono01, Int64 Extension01, Int64 Telefono02, Int64 Extension02, Int64 Movil01, Int64 Movil02, string Pagina
             )
         {
             Conexion_Banco Datos = new Conexion_Banco();
             Entidad_Banco Obj = new Entidad_Banco();
 
+            //Datos Auxiliare
+            Obj.Auto = auto;
+
+            //Datos Basicos
             Obj.Nombre = Nombre;
             Obj.Identificacion = Identificacion;
             Obj.Pais = Pais;
@@ -72,27 +78,17 @@ namespace Negocio
             Obj.Movil01 = Movil01;
             Obj.Movil02 = Movil02;
             Obj.Pagina = Pagina;
-
-            //Panel Contacto
-            Obj.Detalle_Contacto = detalle_contacto;
-
-            //Datos Auxiliares
-            Obj.Contacto_AutoSQL = contacto_autosql;
-
-            //SE VALIDA SI SE REALIZA O NO LA VALIDACION
-            Obj.Tran_Contacto = tran_contacto;
-
-            Obj.Auto = auto;
+                        
             return Datos.Guardar_DatosBasicos(Obj);
         }
 
         public static string Guardar_Contacto
            (
-               //Datos Auxiliares y Llaves Primaria
-               int auto, int idbanco,
+                //Datos Auxiliares y Llaves Primaria
+                int auto, int idbanco,
 
-               //Datos Basicos
-               string asesor, string cargo, string ciudad, Int64 telefono, Int64 extension, Int64 movil, string area,  string observacion
+                //Datos Basicos
+                string contacto, string cargo, string ciudad, Int64 telefono, Int64 extension, Int64 movil, string area, string observacion
             )
         {
             Conexion_Banco Datos = new Conexion_Banco();
@@ -102,7 +98,8 @@ namespace Negocio
             Obj.Auto = auto;
             Obj.Idbanco = idbanco;
 
-            Obj.Cont_Asesor = asesor;
+            //Datos Basicos
+            Obj.Cont_Asesor = contacto;
             Obj.Cont_Cargo = cargo;
             Obj.Cont_Ciudad = ciudad;
             Obj.Cont_Telefono = telefono;
@@ -110,6 +107,7 @@ namespace Negocio
             Obj.Cont_Movil = movil;
             Obj.Cont_Area = area;
             Obj.Cont_Observacion1 = observacion;
+            Obj.Extension01 = extension;
 
             return Datos.Guardar_Contacto(Obj);
         }
@@ -120,16 +118,7 @@ namespace Negocio
                 int auto, int idbanco,
 
                 //Datos Basicos
-                string Nombre, Int64 Identificacion, string Pais, string Ciudad, string Area, string Direccion01, string Direccion02, Int64 Telefono01, Int64 Extension01, Int64 Telefono02, Int64 Extension02, Int64 Movil01, Int64 Movil02, string Pagina,
-
-                //Panel Contacto
-                DataTable detalle_contacto,
-
-                //Datos Auxiliares
-                int contacto_autosql,
-
-                //SE VALIDA SI SE REALIZA O NO LA VALIDACION
-                int tran_contacto
+                string Nombre, Int64 Identificacion, string Pais, string Ciudad, string Area, string Direccion01, string Direccion02, Int64 Telefono01, Int64 Extension01, Int64 Telefono02, Int64 Extension02, Int64 Movil01, Int64 Movil02, string Pagina
             )
         {
             Conexion_Banco Datos = new Conexion_Banco();
@@ -151,15 +140,6 @@ namespace Negocio
             Obj.Movil02 = Movil02;
             Obj.Pagina = Pagina;
 
-            //Panel Contacto
-            Obj.Detalle_Contacto = detalle_contacto;
-
-            //Datos Auxiliares
-            Obj.Contacto_AutoSQL = contacto_autosql;
-
-            //SE VALIDA SI SE REALIZA O NO LA VALIDACION
-            Obj.Tran_Contacto = tran_contacto;
-
             Obj.Auto = auto;
             return Datos.Editar_DatosBasicos(Obj);
         }
@@ -167,7 +147,7 @@ namespace Negocio
         public static string Editar_Contacto
            (
                //Datos Auxiliares y Llaves Primaria
-               int auto, int idbanco,
+               int auto, int idcontacto, int idbanco, 
 
                //Datos Basicos
                string asesor, string cargo, string ciudad, Int64 telefono, Int64 extension, Int64 movil, string area, string observacion
@@ -179,6 +159,7 @@ namespace Negocio
             //Datos Auxiliares
             Obj.Auto = auto;
             Obj.Idbanco = idbanco;
+            Obj.Idcontacto = idcontacto;
 
             Obj.Cont_Asesor = asesor;
             Obj.Cont_Cargo = cargo;

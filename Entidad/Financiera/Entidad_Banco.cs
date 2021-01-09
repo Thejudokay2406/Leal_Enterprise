@@ -14,12 +14,6 @@ namespace Entidad
         private int _Idbanco;
         private int _Idcontacto;
 
-        //Llaves Auxiliares de los Detalles
-        private int _Contacto_SQL;
-
-        //Datos Auxiliares para Editar los Detalles
-        private int _AutoDet_Contacto;
-
         //Datos Basicos
         private string _Nombre;
         private Int64 _Identificacion;
@@ -46,29 +40,16 @@ namespace Entidad
         private string _Cont_Area;
         private string Cont_Observacion;
 
-        //Detalles de Productos
-        private DataTable _Detalle_Contacto;
-
-        //Datos para Ejecutar las Transacciones en SQL
-        private int _Contacto_AutoSQL;
-
-        //
-        private int _Tran_Contacto;
-        
-        //Datos Para Filtrar los Multiples registro del Producto Como Contacto, Lotes ETC
-        private int _Auto_Contacto;
-
-        private int _Det_Contacto;
-
         //Datos Auxiliares
         private int _Auto;
+        private int _Auto_Contacto;
         private int _Eliminar;
+        private int _Eliminar_Contacto;
         private string _Filtro;
+        private string _Filtro_Contacto;
 
         public int Idbanco { get => _Idbanco; set => _Idbanco = value; }
         public int Idcontacto { get => _Idcontacto; set => _Idcontacto = value; }
-        public int Contacto_SQL { get => _Contacto_SQL; set => _Contacto_SQL = value; }
-        public int AutoDet_Contacto { get => _AutoDet_Contacto; set => _AutoDet_Contacto = value; }
         public string Nombre { get => _Nombre; set => _Nombre = value; }
         public long Identificacion { get => _Identificacion; set => _Identificacion = value; }
         public string Pais { get => _Pais; set => _Pais = value; }
@@ -91,13 +72,11 @@ namespace Entidad
         public long Cont_Movil { get => _Cont_Movil; set => _Cont_Movil = value; }
         public string Cont_Area { get => _Cont_Area; set => _Cont_Area = value; }
         public string Cont_Observacion1 { get => Cont_Observacion; set => Cont_Observacion = value; }
-        public DataTable Detalle_Contacto { get => _Detalle_Contacto; set => _Detalle_Contacto = value; }
-        public int Contacto_AutoSQL { get => _Contacto_AutoSQL; set => _Contacto_AutoSQL = value; }
-        public int Tran_Contacto { get => _Tran_Contacto; set => _Tran_Contacto = value; }
-        public int Auto_Contacto { get => _Auto_Contacto; set => _Auto_Contacto = value; }
-        public int Det_Contacto { get => _Det_Contacto; set => _Det_Contacto = value; }
         public int Auto { get => _Auto; set => _Auto = value; }
+        public int Auto_Contacto { get => _Auto_Contacto; set => _Auto_Contacto = value; }
         public int Eliminar { get => _Eliminar; set => _Eliminar = value; }
+        public int Eliminar_Contacto { get => _Eliminar_Contacto; set => _Eliminar_Contacto = value; }
         public string Filtro { get => _Filtro; set => _Filtro = value; }
+        public string Filtro_Contacto { get => _Filtro_Contacto; set => _Filtro_Contacto = value; }
     }
 }

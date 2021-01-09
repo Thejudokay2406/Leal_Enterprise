@@ -13,7 +13,8 @@ using Negocio;
 namespace Presentacion
 {
     public partial class frmBanco : Form
-    {// Variable con la cual se define si el procecimiento 
+    {
+        // Variable con la cual se define si el procecimiento 
         // A realizar es Editar, Guardar, Buscar, Eliminar
         private bool Digitar = true;
         public bool Filtro = true;
@@ -23,18 +24,8 @@ namespace Presentacion
         public int Idempleado; //Variable para Captura el Empleado Logueado
         private string Campo = "Campo Obligatorio";
 
-        //Variables para Eliminar y ejecutar los procedimientos Internos en los paneles
-        //Datos de Contacto ETC donde se realizan multiplex registros
-        private bool Eliminar_Contacto = false;
-
-        //Variable para Agregar los Detalles a la Base de Datos
-        private DataTable DtDetalle_Contacto;
-
         //Variable para Metodo SQL Guardar, Eliminar, Editar, Consultar
         public string Guardar, Editar, Consultar, Eliminar, Imprimir = "";
-
-        //********** Variables para la Validacion de las Transacciones en SQL **************************************************
-        private string Tran_Contacto = "";
 
         //********** Parametros para AutoCompletar los Texboxt **********************************
 
@@ -55,15 +46,12 @@ namespace Presentacion
             //Inicio de Clase y Botones
             this.Botones();
             this.Habilitar();
-            this.Diseño_TablasGenerales();
-            this.AutoIncrementable_SQL();
-
+            
             //Focus a Texboxt
             this.TBNombre.Select();
 
             //Ocultacion de Texboxt
             this.TBIdbanco.Visible = false;
-            this.TBIdbanco_AutoSQL.Visible = false;
             this.DGResultados.Enabled = false;
 
             //Color para Texboxt Buscar
@@ -109,29 +97,12 @@ namespace Presentacion
             this.TBMovil02.BackColor = Color.FromArgb(3, 155, 229);
             this.TBPaginaWEB.ReadOnly = false;
             this.TBPaginaWEB.BackColor = Color.FromArgb(3, 155, 229);
-
-            //
-            this.TBAsesor.ReadOnly = false;
-            this.TBAsesor.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBCargo.ReadOnly = false;
-            this.TBCargo.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBCont_Ciudad.ReadOnly = false;
-            this.TBCont_Ciudad.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBCont_Telefono.ReadOnly = false;
-            this.TBCont_Telefono.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBCont_Extension.ReadOnly = false;
-            this.TBCont_Extension.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBCont_Movil.ReadOnly = false;
-            this.TBCont_Movil.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBCont_Area.ReadOnly = false;
-            this.TBCont_Area.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBCont_Observacion.ReadOnly = false;
-            this.TBCont_Observacion.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void Limpiar_Datos()
         {
             //Panel - Datos Basicos
+            this.TBIdbanco.Clear();
             this.TBNombre.Clear();
             this.TBNombre.Text = Campo;
             this.TBNombre.ForeColor = Color.FromArgb(255, 255, 255);
@@ -150,98 +121,9 @@ namespace Presentacion
             this.TBPaginaWEB.Clear();
 
             //
-            this.TBAsesor.Clear();
-            this.TBCargo.Clear();
-            this.TBCont_Ciudad.Clear();
-            this.TBCont_Telefono.Clear();
-            this.TBCont_Extension.Clear();
-            this.TBCont_Movil.Clear();
-            this.TBCont_Area.Clear();
-            this.TBCont_Observacion.Clear();
-
-            //se realiza la seleccion al campo de texto para asi este salte
-            //al campo siguiente inicial el cual es TBNombre.Text
-            this.TCPrincipal.SelectedIndex = 0;
             this.TBNombre.Select();
         }
-
-        private void Diseño_TablasGenerales()
-        {
-            try
-            {
-                //Panel - Datos de Envio
-                this.DtDetalle_Contacto = new DataTable();
-                this.DtDetalle_Contacto.Columns.Add("Idbanco", System.Type.GetType("System.Int32"));
-                this.DtDetalle_Contacto.Columns.Add("Asesor", System.Type.GetType("System.String"));
-                this.DtDetalle_Contacto.Columns.Add("Cargo", System.Type.GetType("System.String"));
-                this.DtDetalle_Contacto.Columns.Add("Ciudad", System.Type.GetType("System.String"));
-                this.DtDetalle_Contacto.Columns.Add("Telefono", System.Type.GetType("System.Int64"));
-                this.DtDetalle_Contacto.Columns.Add("Extensión", System.Type.GetType("System.Int64"));
-                this.DtDetalle_Contacto.Columns.Add("Movil", System.Type.GetType("System.Int64"));
-                this.DtDetalle_Contacto.Columns.Add("Área", System.Type.GetType("System.String"));
-                this.DtDetalle_Contacto.Columns.Add("Observación", System.Type.GetType("System.String"));
-                //Captura de los Datos en las Tablas
-                this.DGDetalle_Contacto.DataSource = DtDetalle_Contacto;
-
-                //Medidas de las Columnas - Codigo de Barra
-                //this.DGDetalle_CodigoDeBarra.Columns[1].Width = 370;
-
-                //Formato de Celdas
-                //this.DGDetalles_Lotes.Columns[2].DefaultCellStyle.Format = "##,##0.00";
-
-                //************************************* Alineacion de las Celdas *************************************
-
-                //Panel Datos Bancarios
-                this.DGDetalle_Contacto.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                this.DGDetalle_Contacto.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                this.DGDetalle_Contacto.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
-                //************************************* Aliniacion de Emcabezados *************************************
-
-                //Panel Datos Bancarios
-                this.DGDetalle_Contacto.Columns[3].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                this.DGDetalle_Contacto.Columns[4].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                this.DGDetalle_Contacto.Columns[5].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
-                //************************************* Ocultacion de Columnas *************************************
-                this.DGDetalle_Contacto.Columns[0].Visible = false;
-                //this.DGDetalle_Bancario.Columns[0].Visible = false;
-                //this.DGDetalle_Bancario.Columns[1].Visible = false;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-        private void AutoIncrementable_SQL()
-        {
-            try
-            {
-                DataTable Datos = Negocio.fBanco.AutoComplementar_SQL(0);
-                //Evaluamos si  existen los Datos
-
-                if (Datos.Rows.Count == 0)
-                {
-                    TBIdbanco_AutoSQL.Text = "1";
-                    //TBCodigoID.Text = "1";
-                    //MessageBox.Show("No se Encontraron Registros en la Base de Datos", "Sistema Instituto Fundecar", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    //Captura de Valores en la Base de Datos
-
-                    Idbanco = Datos.Rows[0][0].ToString();
-
-                    //Se procede a completar los campos de texto segun las consulta realizada anteriormente en la base de datos
-                    this.TBIdbanco_AutoSQL.Text = Idbanco;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
+        
         private void Botones()
         {
             if (Digitar)
@@ -251,8 +133,6 @@ namespace Presentacion
 
                 this.btnEliminar.Enabled = false;
                 this.btnCancelar.Enabled = false;
-
-                this.btnModificar_Banco.Enabled = false;
             }
             else if (!Digitar)
             {
@@ -261,30 +141,11 @@ namespace Presentacion
 
                 this.btnEliminar.Enabled = false;
                 this.btnCancelar.Enabled = true;
-
-                this.btnModificar_Banco.Enabled = true;
             }
-        }
-
-        private void Actualizar_DetContacto()
-        {
-            this.DGDetalle_Contacto.DataSource = fBanco.Lista_Contacto(6, Convert.ToInt32(TBIdbanco.Text)); ;
-            this.lblTotal_Contacto.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Contacto.Rows.Count);
         }
 
         private void Validaciones_SQL()
         {
-            //Se valida el valor de los checbox que se encuentran en el panel de datos basicos
-            //En el cual si este esta seleccionado su valor sera 1 y si no esta seleccionado este seria 0
-            if (DGDetalle_Contacto.Rows.Count == 0)
-            {
-                this.Tran_Contacto = "1";
-            }
-            else
-            {
-                this.Tran_Contacto = "0";
-            }
-
             //SI LOS CAMPOS NUMERICOS SE ENCUENTRAN VACIOS ESTOS SE LLENARAN CON CEROS
             if (TBTelefono.Text == string.Empty)
             {
@@ -316,6 +177,18 @@ namespace Presentacion
                 this.TBExtension02.Text = "0";
             }
 
+        }
+
+        //Mensaje de confirmacion
+        private void MensajeOk(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Leal Enterprise - Solicitud Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+        }
+
+        //Mensaje de Error
+        private void MensajeError(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Leal Enterprise - Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void Guardar_SQL()
@@ -362,18 +235,7 @@ namespace Presentacion
                                 1,
 
                                 //Panel Datos Basicos
-                                this.TBNombre.Text, Convert.ToInt64(this.TBDocumento.Text), this.TBPais.Text, this.TBCiudad.Text, this.TBArea.Text, this.TBDireccion01.Text, this.TBDireccion02.Text, Convert.ToInt64(this.TBTelefono.Text), Convert.ToInt64(this.TBExtension01.Text), Convert.ToInt64(this.TBTelefono02.Text), Convert.ToInt64(this.TBExtension02.Text), Convert.ToInt64(this.TBMovil01.Text), Convert.ToInt64(this.TBMovil02.Text), this.TBPaginaWEB.Text,
-
-                                 //Tabla de Detalles - Contacto
-                                 this.DtDetalle_Contacto,
-
-                                 //Variables Para Confirmar el Insertar en la Transaccion en SQL
-                                 //Donde esten las Validaciones IF NOT
-                                 1,
-
-                                 //Variables para Ordenar Si se Ejecutan o No las Transacciones en SQL
-                                 //Si los Datagriview estan vacios seran Iguales a 0 Si Tienen Datos Seran Iguales a 1
-                                 Convert.ToInt32(Tran_Contacto)
+                                this.TBNombre.Text, Convert.ToInt64(this.TBDocumento.Text), this.TBPais.Text, this.TBCiudad.Text, this.TBArea.Text, this.TBDireccion01.Text, this.TBDireccion02.Text, Convert.ToInt64(this.TBTelefono.Text), Convert.ToInt64(this.TBExtension01.Text), Convert.ToInt64(this.TBTelefono02.Text), Convert.ToInt64(this.TBExtension02.Text), Convert.ToInt64(this.TBMovil01.Text), Convert.ToInt64(this.TBMovil02.Text), this.TBPaginaWEB.Text
                             );
                     }
 
@@ -386,38 +248,35 @@ namespace Presentacion
                                  2, Convert.ToInt32(this.TBIdbanco.Text),
 
                                 //Panel Datos Basicos
-                                this.TBNombre.Text, Convert.ToInt64(this.TBDocumento.Text), this.TBPais.Text, this.TBCiudad.Text, this.TBArea.Text, this.TBDireccion01.Text, this.TBDireccion02.Text, Convert.ToInt64(this.TBTelefono.Text), Convert.ToInt64(this.TBExtension01.Text), Convert.ToInt64(this.TBTelefono02.Text), Convert.ToInt64(this.TBExtension02.Text), Convert.ToInt64(this.TBMovil01.Text), Convert.ToInt64(this.TBMovil02.Text), this.TBPaginaWEB.Text,
-
-                                 //Tabla de Detalles - Contacto
-                                 this.DtDetalle_Contacto,
-
-                                 //Variables Para Confirmar el Insertar en la Transaccion en SQL
-                                 //Donde esten las Validaciones IF NOT
-                                 1,
-
-                                 //Variables para Ordenar Si se Ejecutan o No las Transacciones en SQL
-                                 //Si los Datagriview estan vacios seran Iguales a 0 Si Tienen Datos Seran Iguales a 1
-                                 Convert.ToInt32(Tran_Contacto)
+                                this.TBNombre.Text, Convert.ToInt64(this.TBDocumento.Text), this.TBPais.Text, this.TBCiudad.Text, this.TBArea.Text, this.TBDireccion01.Text, this.TBDireccion02.Text, Convert.ToInt64(this.TBTelefono.Text), Convert.ToInt64(this.TBExtension01.Text), Convert.ToInt64(this.TBTelefono02.Text), Convert.ToInt64(this.TBExtension02.Text), Convert.ToInt64(this.TBMovil01.Text), Convert.ToInt64(this.TBMovil02.Text), this.TBPaginaWEB.Text
                             );
                     }
 
                     if (rptaDatosBasicos.Equals("OK"))
                     {
-                        //SE LIMPIAN LOS CAMPOS DE TEXTO NUMERICOS Y DESPUES LO GENERALES AL PRESIONAR OK EN LA INTERFAS
-                        this.TBTelefono.Clear();
-                        this.TBTelefono02.Clear();
-                        this.TBExtension01.Clear();
-                        this.TBExtension02.Clear();
-                        this.TBMovil01.Clear();
-                        this.TBMovil02.Clear();
-
                         if (this.Digitar)
                         {
+                            //SE LIMPIAN LOS CAMPOS DE TEXTO NUMERICOS Y DESPUES LO GENERALES AL PRESIONAR OK EN LA INTERFAS
+                            this.TBTelefono.Clear();
+                            this.TBTelefono02.Clear();
+                            this.TBExtension01.Clear();
+                            this.TBExtension02.Clear();
+                            this.TBMovil01.Clear();
+                            this.TBMovil02.Clear();
+
                             this.MensajeOk("El Banco: “" + this.TBNombre.Text + "” a Sido Registrado Exitosamente");
                         }
 
                         else
                         {
+                            //SE LIMPIAN LOS CAMPOS DE TEXTO NUMERICOS Y DESPUES LO GENERALES AL PRESIONAR OK EN LA INTERFAS
+                            this.TBTelefono.Clear();
+                            this.TBTelefono02.Clear();
+                            this.TBExtension01.Clear();
+                            this.TBExtension02.Clear();
+                            this.TBMovil01.Clear();
+                            this.TBMovil02.Clear();
+
                             this.MensajeOk("El Registro del Banco: “" + this.TBNombre.Text + "” a Sido Actualizado Exitosamente");
                         }
 
@@ -439,17 +298,6 @@ namespace Presentacion
             }
         }
 
-        //Mensaje de confirmacion
-        private void MensajeOk(string mensaje)
-        {
-            MessageBox.Show(mensaje, "Leal Enterprise - Solicitud Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-        }
-
-        //Mensaje de Error
-        private void MensajeError(string mensaje)
-        {
-            MessageBox.Show(mensaje, "Leal Enterprise - Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             try
@@ -505,7 +353,6 @@ namespace Presentacion
 
                 this.Botones();
                 this.Limpiar_Datos();
-                this.Diseño_TablasGenerales();
 
                 this.TBBuscar.Clear();
 
@@ -555,7 +402,6 @@ namespace Presentacion
                         this.Botones();
 
                         //Se regresa el focus al campo principal
-                        this.TCPrincipal.SelectedIndex = 0;
                         this.TBNombre.Select();
                     }
                 }
@@ -576,260 +422,37 @@ namespace Presentacion
 
         }
 
-        private void btnAgregar_Banco_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (Digitar)
-                {
-                    if (this.TBAsesor.Text == string.Empty)
-                    {
-                        this.MensajeError("Por Favor Especifique el Nombre del Asesor del Banco.");
-                        this.TBAsesor.Select();
-                    }
-                    else
-                    {
-                        if (TBCont_Telefono.Text == string.Empty)
-                        {
-                            this.TBCont_Telefono.Text = "0";
-                        }
-                        if (TBCont_Extension.Text == string.Empty)
-                        {
-                            this.TBCont_Extension.Text = "0";
-                        }
-                        if (TBCont_Movil.Text == string.Empty)
-                        {
-                            this.TBCont_Movil.Text = "0";
-                        }
-
-                        DataRow fila = this.DtDetalle_Contacto.NewRow();
-                        fila["Idbanco"] = Convert.ToInt32(this.TBIdbanco_AutoSQL.Text);
-                        fila["Asesor"] = this.TBAsesor.Text;
-                        fila["Cargo"] = this.TBCargo.Text;
-                        fila["Ciudad"] = this.TBCont_Ciudad.Text;
-                        fila["Telefono"] = Convert.ToInt64(this.TBCont_Telefono.Text);
-                        fila["Extensión"] = Convert.ToInt64(this.TBCont_Extension.Text);
-                        fila["Movil"] = Convert.ToInt64(this.TBCont_Movil.Text);
-                        fila["Área"] = this.TBCont_Area.Text;
-                        fila["Observación"] = this.TBCont_Observacion.Text;
-                        this.DtDetalle_Contacto.Rows.Add(fila);
-
-                        this.lblTotal_Contacto.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Contacto.Rows.Count);
-
-                        //
-                        this.TBAsesor.Clear();
-                        this.TBCargo.Clear();
-                        this.TBCont_Ciudad.Clear();
-                        this.TBCont_Telefono.Clear();
-                        this.TBCont_Extension.Clear();
-                        this.TBCont_Movil.Clear();
-                        this.TBCont_Area.Clear();
-                        this.TBCont_Observacion.Clear();
-                    }
-                }
-                else
-                {
-                    if (this.TBAsesor.Text == String.Empty)
-                    {
-                        this.MensajeError("Por Favor Especifique el Nombre del Asesor del Banco.");
-                        this.TBAsesor.Select();
-                    }
-                    if (TBCont_Telefono.Text == string.Empty)
-                    {
-                        this.TBCont_Telefono.Text = "0";
-                    }
-                    if (TBCont_Extension.Text == string.Empty)
-                    {
-                        this.TBCont_Extension.Text = "0";
-                    }
-                    if (TBCont_Movil.Text == string.Empty)
-                    {
-                        this.TBCont_Movil.Text = "0";
-                    }
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar la Ubicacion del Producto?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            string rptaDatosBasicos = "";
-                            rptaDatosBasicos = fBanco.Guardar_Contacto
-
-                                    (
-                                        //Datos Auxiliares
-                                        1, Convert.ToInt32(TBIdbanco.Text),
-
-                                        //Datos Basicos
-                                        this.TBAsesor.Text, this.TBCargo.Text, this.TBCont_Ciudad.Text, Convert.ToInt64(this.TBCont_Telefono.Text), Convert.ToInt64(this.TBCont_Extension.Text), Convert.ToInt64(this.TBCont_Movil.Text), this.TBCont_Area.Text, this.TBCont_Observacion.Text
-                                    );
-
-                            if (rptaDatosBasicos.Equals("OK"))
-                            {
-                                this.MensajeOk("El Contacto: " + TBAsesor.Text + " del Banco: " + this.TBNombre.Text + " a Sido Registrado Exitosamente");
-                            }
-
-                            else
-                            {
-                                this.MensajeError(rptaDatosBasicos);
-                            }
-
-                            //
-                            this.TBAsesor.Clear();
-                            this.TBCargo.Clear();
-                            this.TBCont_Ciudad.Clear();
-                            this.TBCont_Telefono.Clear();
-                            this.TBCont_Extension.Clear();
-                            this.TBCont_Movil.Clear();
-                            this.TBCont_Area.Clear();
-                            this.TBCont_Observacion.Clear();
-
-                            this.Actualizar_DetContacto();
-                        }
-                        else
-                        {
-                            this.TBAsesor.Select();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void btnModificar_Banco_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string rptaDatosBasicos = "";
-
-                rptaDatosBasicos = fBanco.Editar_Contacto
-
-                            (
-                                 //Datos Auxiliares
-                                 2, Convert.ToInt32(this.TBIdbanco.Text),
-
-                                 //Panel Datos Basicos
-                                 this.TBAsesor.Text, this.TBCargo.Text, this.TBCont_Ciudad.Text, Convert.ToInt64(this.TBCont_Telefono.Text), Convert.ToInt64(this.TBCont_Extension.Text), Convert.ToInt64(this.TBCont_Movil.Text), this.TBCont_Area.Text, this.TBCont_Observacion.Text
-                            );
-
-                if (rptaDatosBasicos.Equals("OK"))
-                {
-                    if (this.Digitar)
-                    {
-                        this.MensajeOk("Los Datos de Contacto del Banco: “" + this.TBNombre.Text + "” a Sido Actualizada Exitosamente");
-                    }
-
-                    //SE LIMPIAN LOS CAMPOS DE TEXTO
-                    this.TBAsesor.Clear();
-                    this.TBCargo.Clear();
-                    this.TBCont_Ciudad.Clear();
-                    this.TBCont_Telefono.Clear();
-                    this.TBCont_Extension.Clear();
-                    this.TBCont_Movil.Clear();
-                    this.TBCont_Area.Clear();
-                    this.TBCont_Observacion.Clear();
-
-                    this.Actualizar_DetContacto();
-                }
-
-                else
-                {
-                    this.MensajeError(rptaDatosBasicos);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        private void btnEliminar_Banco_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (Eliminar_Contacto)
-                {
-                    if (Eliminar == "1")
-                    {
-                        DialogResult Opcion;
-                        string Respuesta = "";
-                        int Idbanco, Idubicacion;
-
-                        Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-                        if (Opcion == DialogResult.OK)
-                        {
-                            if (DGDetalle_Contacto.SelectedRows.Count > 0)
-                            {
-                                Idbanco = Convert.ToInt32(DGDetalle_Contacto.CurrentRow.Cells[0].Value.ToString());
-                                Respuesta = Negocio.fBanco.Eliminar_Contacto(Idbanco, 6);
-                            }
-
-                            if (Respuesta.Equals("OK"))
-                            {
-                                this.MensajeOk("Contacto Bancario Eliminado Correctamente");
-                            }
-                            else
-                            {
-                                this.MensajeError(Respuesta);
-                            }
-                        }
-
-                        //
-                        this.Actualizar_DetContacto();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise - Solicitud Rechazada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    }
-                }
-                else
-                {
-                    int Fila = this.DGDetalle_Contacto.CurrentCell.RowIndex;
-                    DataRow row = this.DtDetalle_Contacto.Rows[Fila];
-
-                    //Se remueve la fila
-                    this.DtDetalle_Contacto.Rows.Remove(row);
-                    this.lblTotal_Contacto.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Contacto.Rows.Count);
-                }
-            }
-            catch (Exception ex)
-            {
-                MensajeError("Por Favor Seleccione el Contacto que Desea Remover del Registo");
-            }
-        }
-
         private void TBBuscar_TextChanged(object sender, EventArgs e)
         {
             try
             {
                 if (Consultar == "1")
                 {
-                    if (TBBuscar.Text != "")
-                    {
-                        this.DGResultados.DataSource = fBanco.Buscar(this.TBBuscar.Text, 1);
-                        //this.DGResultados.Columns[1].Visible = false;
+                    this.DGResultados.DataSource = fBanco.Buscar(this.TBBuscar.Text, 1);
+                    //this.DGResultados.Columns[1].Visible = false;
 
-                        lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGResultados.Rows.Count);
+                    lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGResultados.Rows.Count);
 
-                        this.btnEliminar.Enabled = true;
-                        this.btnImprimir.Enabled = true;
-                        this.DGResultados.Enabled = true;
-                    }
-                    else
-                    {
-                        this.Limpiar_Datos();
+                    this.btnEliminar.Enabled = true;
+                    this.btnImprimir.Enabled = true;
+                    this.DGResultados.Enabled = true;
 
-                        //Se Limpian las Filas y Columnas de la tabla
-                        DGResultados.DataSource = null;
-                        this.DGResultados.Enabled = false;
-                        this.lblTotal.Text = "Datos Registrados: 0";
+                    //if (TBBuscar.Text != "")
+                    //{
 
-                        this.btnEliminar.Enabled = false;
-                        this.btnImprimir.Enabled = false;
-                    }
+                    //}
+                    //else
+                    //{
+                    //    //this.Limpiar_Datos();
+
+                    //    //Se Limpian las Filas y Columnas de la tabla
+                    //    this.DGResultados.DataSource = null;
+                    //    this.DGResultados.Enabled = false;
+                    //    this.lblTotal.Text = "Datos Registrados: 0";
+
+                    //    this.btnEliminar.Enabled = false;
+                    //    this.btnImprimir.Enabled = false;
+                    //}
                 }
 
                 else
@@ -850,15 +473,11 @@ namespace Presentacion
                 if (Editar == "1")
                 {
                     this.TBIdbanco.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells[0].Value);
-                    this.TBNombre.Focus();
-
-                    //
-                    this.Eliminar_Contacto = true;
+                    this.TBNombre.Select();
 
                     //
                     this.Digitar = false;
                     this.Botones();
-                    this.TCPrincipal.SelectedIndex = 0;
                 }
                 else
                 {
@@ -881,14 +500,10 @@ namespace Presentacion
                     {
                         this.TBIdbanco.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells[0].Value);
                         this.TBNombre.Focus();
-
-                        //
-                        this.Eliminar_Contacto = true;
-
+                        
                         //
                         this.Digitar = false;
                         this.Botones();
-                        this.TCPrincipal.SelectedIndex = 0;
                     }
                     else
                     {
@@ -950,51 +565,6 @@ namespace Presentacion
                 this.TBPais.BackColor = Color.Azure;
                 this.TBPais.ForeColor = Color.FromArgb(0, 0, 0);
             }
-        }
-
-        private void TBAsesor_Enter(object sender, EventArgs e)
-        {
-            this.TBAsesor.BackColor = Color.Azure;
-        }
-
-        private void TBCargo_Enter(object sender, EventArgs e)
-        {
-            this.TBCargo.BackColor = Color.Azure;
-        }
-
-        private void TBCont_Ciudad_Enter(object sender, EventArgs e)
-        {
-            this.TBCont_Ciudad.BackColor = Color.Azure;
-        }
-
-        private void TBCont_Telefono_Enter(object sender, EventArgs e)
-        {
-            this.TBCont_Telefono.BackColor = Color.Azure;
-        }
-
-        private void TBCont_Extension_Enter(object sender, EventArgs e)
-        {
-            this.TBCont_Extension.BackColor = Color.Azure;
-        }
-
-        private void TBCont_Movil_Enter(object sender, EventArgs e)
-        {
-            this.TBCont_Movil.BackColor = Color.Azure;
-        }
-
-        private void TBCont_Area_Enter(object sender, EventArgs e)
-        {
-            this.TBCont_Area.BackColor = Color.Azure;
-        }
-
-        private void TBCont_Observacion_Enter(object sender, EventArgs e)
-        {
-            this.TBCont_Observacion.BackColor = Color.Azure;
-        }
-
-        private void TBAsesor_Leave(object sender, EventArgs e)
-        {
-            this.TBAsesor.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBDocumento_Enter(object sender, EventArgs e)
@@ -1072,7 +642,7 @@ namespace Presentacion
                     this.Digitar = true;
                     this.Botones();
                     this.Limpiar_Datos();
-                    this.Diseño_TablasGenerales();
+                    
 
                     this.TBBuscar.Clear();
 
@@ -1153,7 +723,7 @@ namespace Presentacion
                     this.Digitar = true;
                     this.Botones();
                     this.Limpiar_Datos();
-                    this.Diseño_TablasGenerales();
+                    
 
                     this.TBBuscar.Clear();
 
@@ -1234,7 +804,7 @@ namespace Presentacion
                     this.Digitar = true;
                     this.Botones();
                     this.Limpiar_Datos();
-                    this.Diseño_TablasGenerales();
+                    
 
                     this.TBBuscar.Clear();
 
@@ -1315,7 +885,7 @@ namespace Presentacion
                     this.Digitar = true;
                     this.Botones();
                     this.Limpiar_Datos();
-                    this.Diseño_TablasGenerales();
+                    
 
                     this.TBBuscar.Clear();
 
@@ -1396,7 +966,7 @@ namespace Presentacion
                     this.Digitar = true;
                     this.Botones();
                     this.Limpiar_Datos();
-                    this.Diseño_TablasGenerales();
+                    
 
                     this.TBBuscar.Clear();
 
@@ -1477,7 +1047,7 @@ namespace Presentacion
                     this.Digitar = true;
                     this.Botones();
                     this.Limpiar_Datos();
-                    this.Diseño_TablasGenerales();
+                    
 
                     this.TBBuscar.Clear();
 
@@ -1558,7 +1128,7 @@ namespace Presentacion
                     this.Digitar = true;
                     this.Botones();
                     this.Limpiar_Datos();
-                    this.Diseño_TablasGenerales();
+                    
 
                     this.TBBuscar.Clear();
 
@@ -1639,7 +1209,7 @@ namespace Presentacion
                     this.Digitar = true;
                     this.Botones();
                     this.Limpiar_Datos();
-                    this.Diseño_TablasGenerales();
+                    
 
                     this.TBBuscar.Clear();
 
@@ -1720,7 +1290,7 @@ namespace Presentacion
                     this.Digitar = true;
                     this.Botones();
                     this.Limpiar_Datos();
-                    this.Diseño_TablasGenerales();
+                    
 
                     this.TBBuscar.Clear();
 
@@ -1801,7 +1371,7 @@ namespace Presentacion
                     this.Digitar = true;
                     this.Botones();
                     this.Limpiar_Datos();
-                    this.Diseño_TablasGenerales();
+                    
 
                     this.TBBuscar.Clear();
 
@@ -1882,7 +1452,7 @@ namespace Presentacion
                     this.Digitar = true;
                     this.Botones();
                     this.Limpiar_Datos();
-                    this.Diseño_TablasGenerales();
+                    
 
                     this.TBBuscar.Clear();
 
@@ -1964,7 +1534,7 @@ namespace Presentacion
                     this.Digitar = true;
                     this.Botones();
                     this.Limpiar_Datos();
-                    this.Diseño_TablasGenerales();
+                    
 
                     this.TBBuscar.Clear();
 
@@ -2046,7 +1616,7 @@ namespace Presentacion
                     this.Digitar = true;
                     this.Botones();
                     this.Limpiar_Datos();
-                    this.Diseño_TablasGenerales();
+                    
 
                     this.TBBuscar.Clear();
 
@@ -2128,7 +1698,7 @@ namespace Presentacion
                     this.Digitar = true;
                     this.Botones();
                     this.Limpiar_Datos();
-                    this.Diseño_TablasGenerales();
+                    
 
                     this.TBBuscar.Clear();
 
@@ -2184,662 +1754,6 @@ namespace Presentacion
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
                             this.TBPaginaWEB.Select();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        private void TBAsesor_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
-                {
-                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
-
-                    this.TBCargo.Select();
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
-                {
-                    //
-                    this.Digitar = true;
-                    this.Botones();
-                    this.Limpiar_Datos();
-                    this.Diseño_TablasGenerales();
-
-                    this.TBBuscar.Clear();
-
-                    //Se Limpian las Filas y Columnas de la tabla
-                    this.DGResultados.DataSource = null;
-                    this.lblTotal.Text = "Datos Registrados: 0";
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
-                {
-                    //Al precionar las teclas F10 se realizara el registro en la base de datos
-                    //Y se realizara las validaciones en el sistema
-
-                    if (Digitar)
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            if (Guardar == "1")
-                            {
-                                //Llamada de Clase
-                                this.Guardar_SQL();
-                            }
-                            else
-                            {
-                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
-                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
-                                this.Digitar = false;
-                                this.Limpiar_Datos();
-                            }
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBAsesor.Select();
-                        }
-                    }
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los Campos Consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            //Llamada de Clase
-                            this.Digitar = false;
-                            this.Guardar_SQL();
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBAsesor.Select();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        private void TBCargo_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
-                {
-                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
-
-                    this.TBCont_Ciudad.Select();
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
-                {
-                    //
-                    this.Digitar = true;
-                    this.Botones();
-                    this.Limpiar_Datos();
-                    this.Diseño_TablasGenerales();
-
-                    this.TBBuscar.Clear();
-
-                    //Se Limpian las Filas y Columnas de la tabla
-                    this.DGResultados.DataSource = null;
-                    this.lblTotal.Text = "Datos Registrados: 0";
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
-                {
-                    //Al precionar las teclas F10 se realizara el registro en la base de datos
-                    //Y se realizara las validaciones en el sistema
-
-                    if (Digitar)
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            if (Guardar == "1")
-                            {
-                                //Llamada de Clase
-                                this.Guardar_SQL();
-                            }
-                            else
-                            {
-                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
-                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
-                                this.Digitar = false;
-                                this.Limpiar_Datos();
-                            }
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCargo.Select();
-                        }
-                    }
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los Campos Consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            //Llamada de Clase
-                            this.Digitar = false;
-                            this.Guardar_SQL();
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCargo.Select();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        private void TBCont_Ciudad_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
-                {
-                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
-
-                    this.TBCont_Telefono.Select();
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
-                {
-                    //
-                    this.Digitar = true;
-                    this.Botones();
-                    this.Limpiar_Datos();
-                    this.Diseño_TablasGenerales();
-
-                    this.TBBuscar.Clear();
-
-                    //Se Limpian las Filas y Columnas de la tabla
-                    this.DGResultados.DataSource = null;
-                    this.lblTotal.Text = "Datos Registrados: 0";
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
-                {
-                    //Al precionar las teclas F10 se realizara el registro en la base de datos
-                    //Y se realizara las validaciones en el sistema
-
-                    if (Digitar)
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            if (Guardar == "1")
-                            {
-                                //Llamada de Clase
-                                this.Guardar_SQL();
-                            }
-                            else
-                            {
-                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
-                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
-                                this.Digitar = false;
-                                this.Limpiar_Datos();
-                            }
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCont_Ciudad.Select();
-                        }
-                    }
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los Campos Consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            //Llamada de Clase
-                            this.Digitar = false;
-                            this.Guardar_SQL();
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCont_Ciudad.Select();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        private void TBCont_Telefono_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
-                {
-                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
-
-                    this.TBCont_Extension.Select();
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
-                {
-                    //
-                    this.Digitar = true;
-                    this.Botones();
-                    this.Limpiar_Datos();
-                    this.Diseño_TablasGenerales();
-
-                    this.TBBuscar.Clear();
-
-                    //Se Limpian las Filas y Columnas de la tabla
-                    this.DGResultados.DataSource = null;
-                    this.lblTotal.Text = "Datos Registrados: 0";
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
-                {
-                    //Al precionar las teclas F10 se realizara el registro en la base de datos
-                    //Y se realizara las validaciones en el sistema
-
-                    if (Digitar)
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            if (Guardar == "1")
-                            {
-                                //Llamada de Clase
-                                this.Guardar_SQL();
-                            }
-                            else
-                            {
-                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
-                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
-                                this.Digitar = false;
-                                this.Limpiar_Datos();
-                            }
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCont_Telefono.Select();
-                        }
-                    }
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los Campos Consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            //Llamada de Clase
-                            this.Digitar = false;
-                            this.Guardar_SQL();
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCont_Telefono.Select();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        private void TBCont_Extension_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
-                {
-                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
-
-                    this.TBCont_Movil.Select();
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
-                {
-                    //
-                    this.Digitar = true;
-                    this.Botones();
-                    this.Limpiar_Datos();
-                    this.Diseño_TablasGenerales();
-
-                    this.TBBuscar.Clear();
-
-                    //Se Limpian las Filas y Columnas de la tabla
-                    this.DGResultados.DataSource = null;
-                    this.lblTotal.Text = "Datos Registrados: 0";
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
-                {
-                    //Al precionar las teclas F10 se realizara el registro en la base de datos
-                    //Y se realizara las validaciones en el sistema
-
-                    if (Digitar)
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            if (Guardar == "1")
-                            {
-                                //Llamada de Clase
-                                this.Guardar_SQL();
-                            }
-                            else
-                            {
-                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
-                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
-                                this.Digitar = false;
-                                this.Limpiar_Datos();
-                            }
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCont_Extension.Select();
-                        }
-                    }
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los Campos Consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            //Llamada de Clase
-                            this.Digitar = false;
-                            this.Guardar_SQL();
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCont_Extension.Select();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        private void TBCont_Movil_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
-                {
-                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
-
-                    this.TBCont_Area.Select();
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
-                {
-                    //
-                    this.Digitar = true;
-                    this.Botones();
-                    this.Limpiar_Datos();
-                    this.Diseño_TablasGenerales();
-
-                    this.TBBuscar.Clear();
-
-                    //Se Limpian las Filas y Columnas de la tabla
-                    this.DGResultados.DataSource = null;
-                    this.lblTotal.Text = "Datos Registrados: 0";
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
-                {
-                    //Al precionar las teclas F10 se realizara el registro en la base de datos
-                    //Y se realizara las validaciones en el sistema
-
-                    if (Digitar)
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            if (Guardar == "1")
-                            {
-                                //Llamada de Clase
-                                this.Guardar_SQL();
-                            }
-                            else
-                            {
-                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
-                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
-                                this.Digitar = false;
-                                this.Limpiar_Datos();
-                            }
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCont_Movil.Select();
-                        }
-                    }
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los Campos Consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            //Llamada de Clase
-                            this.Digitar = false;
-                            this.Guardar_SQL();
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCont_Movil.Select();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        private void TBCont_Area_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
-                {
-                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
-
-                    this.TBCont_Observacion.Select();
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
-                {
-                    //
-                    this.Digitar = true;
-                    this.Botones();
-                    this.Limpiar_Datos();
-                    this.Diseño_TablasGenerales();
-
-                    this.TBBuscar.Clear();
-
-                    //Se Limpian las Filas y Columnas de la tabla
-                    this.DGResultados.DataSource = null;
-                    this.lblTotal.Text = "Datos Registrados: 0";
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
-                {
-                    //Al precionar las teclas F10 se realizara el registro en la base de datos
-                    //Y se realizara las validaciones en el sistema
-
-                    if (Digitar)
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            if (Guardar == "1")
-                            {
-                                //Llamada de Clase
-                                this.Guardar_SQL();
-                            }
-                            else
-                            {
-                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
-                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
-                                this.Digitar = false;
-                                this.Limpiar_Datos();
-                            }
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCont_Area.Select();
-                        }
-                    }
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los Campos Consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            //Llamada de Clase
-                            this.Digitar = false;
-                            this.Guardar_SQL();
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCont_Area.Select();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        private void TBCont_Observacion_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
-                {
-                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
-
-                    this.TBAsesor.Select();
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
-                {
-                    //
-                    this.Digitar = true;
-                    this.Botones();
-                    this.Limpiar_Datos();
-                    this.Diseño_TablasGenerales();
-
-                    this.TBBuscar.Clear();
-
-                    //Se Limpian las Filas y Columnas de la tabla
-                    this.DGResultados.DataSource = null;
-                    this.lblTotal.Text = "Datos Registrados: 0";
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
-                {
-                    //Al precionar las teclas F10 se realizara el registro en la base de datos
-                    //Y se realizara las validaciones en el sistema
-
-                    if (Digitar)
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            if (Guardar == "1")
-                            {
-                                //Llamada de Clase
-                                this.Guardar_SQL();
-                            }
-                            else
-                            {
-                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
-                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
-                                this.Digitar = false;
-                                this.Limpiar_Datos();
-                            }
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCont_Observacion.Select();
-                        }
-                    }
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los Campos Consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            //Llamada de Clase
-                            this.Digitar = false;
-                            this.Guardar_SQL();
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCont_Observacion.Select();
                         }
                     }
                 }
@@ -2867,12 +1781,117 @@ namespace Presentacion
 
         private void TBIdbanco_TextChanged(object sender, EventArgs e)
         {
+            try
+            {
+                if (TBIdbanco.Text != string.Empty)
+                {
+                    DataTable Datos = Negocio.fBanco.Existencia_Banco(Convert.ToInt32(this.TBIdbanco.Text), 1);
+                    //Evaluamos si  existen los Datos
+                    if (Datos.Rows.Count == 0)
+                    {
+                        //MessageBox.Show("Actualmente no se encuentran registros en la Base de Datos", "Leal Enterprise - Consulta de Registro Invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        //Captura de Valores en la Base de Datos
 
-        }
+                        //Panel Datos Basicos - Campos Obligatorios
+                        Banco = Datos.Rows[0][0].ToString();
+                        Documento = Datos.Rows[0][1].ToString();
+                        Pais = Datos.Rows[0][2].ToString();
+                        Ciudad = Datos.Rows[0][3].ToString();
 
-        private void TBIdbanco_AutoSQL_TextChanged(object sender, EventArgs e)
-        {
+                        //Panel Datos Basicos - Campos NO Obligatorios
+                        Area = Datos.Rows[0][4].ToString();
+                        Direccion01 = Datos.Rows[0][5].ToString();
+                        Direccion02 = Datos.Rows[0][6].ToString();
+                        Telefono01 = Datos.Rows[0][7].ToString();
+                        Extension01 = Datos.Rows[0][8].ToString();
+                        Telefon02 = Datos.Rows[0][9].ToString();
+                        Extension02 = Datos.Rows[0][10].ToString();
+                        Movil01 = Datos.Rows[0][11].ToString();
+                        Movil02 = Datos.Rows[0][12].ToString();
+                        PaginaWEB = Datos.Rows[0][13].ToString();
 
+                        //Se procede a completar los campos de texto segun las consulta
+                        //Realizada anteriormente en la base de datos
+
+                        if (Telefono01 == "0")
+                        {
+                            this.TBTelefono.Clear();
+                        }
+                        else
+                        {
+                            this.TBTelefono.Text = Telefono01;
+                        }
+
+                        if (Telefon02 == "0")
+                        {
+                            this.TBTelefono02.Clear();
+                        }
+                        else
+                        {
+                            this.TBTelefono02.Text = Telefon02;
+                        }
+
+                        if (Extension01 == "0")
+                        {
+                            this.TBExtension01.Clear();
+                        }
+                        else
+                        {
+                            this.TBExtension01.Text = Extension01;
+                        }
+
+                        if (Extension02 == "0")
+                        {
+                            this.TBExtension02.Clear();
+                        }
+                        else
+                        {
+                            this.TBExtension02.Text = Extension02;
+                        }
+
+                        if (Movil01 == "0")
+                        {
+                            this.TBMovil01.Clear();
+                        }
+                        else
+                        {
+                            this.TBMovil01.Text = Movil01;
+                        }
+
+                        if (Movil02 == "0")
+                        {
+                            this.TBMovil02.Clear();
+                        }
+                        else
+                        {
+                            this.TBMovil02.Text = Movil02;
+                        }
+
+                        //Panel Datos Basicos
+                        this.TBNombre.Text = Banco;
+                        this.TBDocumento.Text = Documento;
+                        this.TBPais.Text = Pais;
+                        this.TBCiudad.Text = Ciudad;
+                        this.TBArea.Text = Area;
+                        this.TBDireccion01.Text = Direccion01;
+                        this.TBDireccion02.Text = Direccion02;
+                        //this.TBTelefono.Text = Telefono01;
+                        //this.TBExtension01.Text = Extension01;
+                        //this.TBTelefono02.Text = Telefon02;
+                        //this.TBExtension02.Text = Extension02;
+                        //this.TBMovil01.Text = Movil01;
+                        //this.TBMovil02.Text = Movil02;
+                        this.TBPaginaWEB.Text = PaginaWEB;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
 
         private void TBExtension01_Enter(object sender, EventArgs e)
@@ -3009,41 +2028,6 @@ namespace Presentacion
         private void TBPaginaWEB_Leave(object sender, EventArgs e)
         {
             this.TBPaginaWEB.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBCargo_Leave(object sender, EventArgs e)
-        {
-            this.TBCargo.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBCont_Ciudad_Leave(object sender, EventArgs e)
-        {
-            this.TBCont_Ciudad.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBCont_Telefono_Leave(object sender, EventArgs e)
-        {
-            this.TBCont_Telefono.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBCont_Extension_Leave(object sender, EventArgs e)
-        {
-            this.TBCont_Extension.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBCont_Movil_Leave(object sender, EventArgs e)
-        {
-            this.TBCont_Movil.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBCont_Area_Leave(object sender, EventArgs e)
-        {
-            this.TBCont_Area.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBCont_Observacion_Leave(object sender, EventArgs e)
-        {
-            this.TBCont_Observacion.BackColor = Color.FromArgb(3, 155, 229);
         }
     }
 }

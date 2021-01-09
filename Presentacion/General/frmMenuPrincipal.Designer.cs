@@ -199,6 +199,7 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
+            this.contactosBanariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -549,8 +550,9 @@
             // bancosToolStripMenuItem
             // 
             this.bancosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cuentasBancariasToolStripMenuItem1,
+            this.contactosBanariosToolStripMenuItem,
             this.consignacionesToolStripMenuItem,
+            this.cuentasBancariasToolStripMenuItem1,
             this.datosBasicosToolStripMenuItem1,
             this.transferenciasToolStripMenuItem,
             this.pagosPorChequesToolStripMenuItem});
@@ -1468,6 +1470,13 @@
             this.toolStripLabel5.Size = new System.Drawing.Size(31, 22);
             this.toolStripLabel5.Text = "------";
             // 
+            // contactosBanariosToolStripMenuItem
+            // 
+            this.contactosBanariosToolStripMenuItem.Name = "contactosBanariosToolStripMenuItem";
+            this.contactosBanariosToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.contactosBanariosToolStripMenuItem.Text = "Contactos Banarios";
+            this.contactosBanariosToolStripMenuItem.Click += new System.EventHandler(this.contactosBanariosToolStripMenuItem_Click);
+            // 
             // frmMenuPrincipal
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -1669,6 +1678,7 @@
         private System.Windows.Forms.ToolStripMenuItem datosBasicosToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem tiposToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem gruposToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem contactosBanariosToolStripMenuItem;
     }
 }
 
