@@ -19,6 +19,18 @@ namespace Negocio
             return Datos.Lista();
         }
 
+        public static DataTable Lista_Banco(int auto, int idproveedor)
+        {
+            Conexion_Proveedor Datos = new Conexion_Proveedor();
+            return Datos.Lista_Banco(auto, idproveedor);
+        }
+
+        public static DataTable Lista_Envio(int auto, int idproveedor)
+        {
+            Conexion_Proveedor Datos = new Conexion_Proveedor();
+            return Datos.Lista_Envio(auto, idproveedor);
+        }
+
         public static DataTable Buscar(string Filtro, int auto)
         {
             Conexion_Proveedor Datos = new Conexion_Proveedor();
@@ -40,14 +52,17 @@ namespace Negocio
                 string ciudad, string nacionalidad, string telefono, string movil, string correo,
                 DateTime fechadeinicio,
 
-                //Datos de Envio
-                string pais_DE, string ciudad_DE, string direccion_P, string direccion01,
-                string direccion02, string telefono_de, string movil_de, string receptor, string observacion,
+                //Panel Envio
+                DataTable detalle_envio,
 
-                //Datos Financieros
-                string bancoPrincipal, string bancoauxiliar, string cuenta01,
-                string cuenta02, string creditoMin, string creditoMax, string prorroga, int estado
-                                
+                //Panel Datos Bancarios
+                DataTable detalle_banco,
+
+                //Datos Auxiliares
+                int envio_autosql, int banco_autosql,
+
+                //SE VALIDA SI SE REALIZA O NO LA VALIDACION
+                int tran_envio, int tran_banco
             )
         {
             Conexion_Proveedor Datos = new Conexion_Proveedor();
@@ -67,29 +82,69 @@ namespace Negocio
             Obj.Fechadeinicio = fechadeinicio;
 
             //Datos de Envio
-            Obj.Pais_DE = pais_DE;
-            Obj.Ciudad_DE = ciudad_DE;
-            Obj.Direccion_P = direccion_P;
-            Obj.Direccion01 = direccion01;
-            Obj.Direccion02 = direccion02;
-            Obj.Telefono_DE = telefono_de;
-            Obj.Movil__DE = movil_de;
-            Obj.Receptor = receptor;
-            Obj.Observacion = observacion;
-
+            Obj.Detalle_Envio = detalle_envio;
+            
             //Datos Financieros
-            Obj.BancoPrincipal = bancoPrincipal;
-            Obj.BancoAuxiliar = bancoauxiliar;
-            Obj.Cuenta01 = cuenta01;
-            Obj.Cuenta02 = cuenta02;
-            Obj.CreditoMin = creditoMin;
-            Obj.CreditoMax = creditoMax;
-            Obj.Prorroga = prorroga;
+            Obj.Detalle_Banco = detalle_banco;
 
             //Datos Auxiliares
             Obj.Auto = auto;
-            Obj.Estado = estado;
+
+            Obj.Tran_Envio = tran_envio;
+            Obj.Tran_Banco = tran_banco;
+
+            Obj.Envio_AutoSQL = envio_autosql;
+            Obj.Banco_AutoSQL = banco_autosql;
+
             return Datos.Guardar_DatosBasicos(Obj);
+        }
+
+        public static string Guardar_Envio
+            (
+                //Datos Auxiliares y Llaves Primaria
+                int auto,
+
+                string receptor, string pais, string ciudad, string direccion, string telefono, string movil, string observacion
+            )
+        {
+            Conexion_Proveedor Datos = new Conexion_Proveedor();
+            Entidad_Proveedor Obj = new Entidad_Proveedor();
+
+            //Datos Basicos
+            Obj.Env_Receptor = receptor;
+            Obj.Env_Pais = pais;
+            Obj.Env_Ciudad = ciudad;
+            Obj.Env_Direccion = direccion;
+            Obj.Env_Telefono = telefono;
+            Obj.Env_Movil = movil;
+            Obj.Env_Observacion = observacion;
+
+            //Datos Auxiliares
+            Obj.Auto = auto;
+
+            return Datos.Guardar_Envio(Obj);
+        }
+
+        public static string Guardar_Banco
+            (
+                //Datos Auxiliares y Llaves Primaria
+                int auto,
+
+                int idbanco, string cuenta, Int64 numerodecuenta
+            )
+        {
+            Conexion_Proveedor Datos = new Conexion_Proveedor();
+            Entidad_Proveedor Obj = new Entidad_Proveedor();
+
+            //Datos Basicos
+            Obj.Idbanco = idbanco;
+            Obj.Cuenta = cuenta;
+            Obj.Numerodecuenta = numerodecuenta;
+
+            //Datos Auxiliares
+            Obj.Auto = auto;
+
+            return Datos.Guardar_Banco(Obj);
         }
 
         public static string Editar_DatosBasicos
@@ -101,13 +156,17 @@ namespace Negocio
                 string ciudad, string nacionalidad, string telefono, string movil, string correo,
                 DateTime fechadeinicio,
 
-                //Datos de Envio
-                string pais_DE, string ciudad_DE, string direccion_P, string direccion01,
-                string direccion02, string telefono_de, string movil_de, string receptor, string observacion,
+                //Panel Envio
+                DataTable detalle_envio,
 
-                //Datos Financieros
-                string bancoPrincipal, string bancoauxiliar, string cuenta01,
-                string cuenta02, string creditoMin, string creditoMax, string prorroga, int estado
+                //Panel Datos Bancarios
+                DataTable detalle_banco,
+
+                //Datos Auxiliares
+                int envio_autosql, int banco_autosql,
+
+                //SE VALIDA SI SE REALIZA O NO LA VALIDACION
+                int tran_envio, int tran_banco
             )
         {
             Conexion_Proveedor Datos = new Conexion_Proveedor();
@@ -128,36 +187,89 @@ namespace Negocio
             Obj.Fechadeinicio = fechadeinicio;
 
             //Datos de Envio
-            Obj.Pais_DE = pais_DE;
-            Obj.Ciudad_DE = ciudad_DE;
-            Obj.Direccion_P = direccion_P;
-            Obj.Direccion01 = direccion01;
-            Obj.Direccion02 = direccion02;
-            Obj.Telefono_DE = telefono_de;
-            Obj.Movil__DE = movil_de;
-            Obj.Receptor = receptor;
-            Obj.Observacion = observacion;
+            Obj.Detalle_Envio = detalle_envio;
 
             //Datos Financieros
-            Obj.BancoPrincipal = bancoPrincipal;
-            Obj.BancoAuxiliar = bancoauxiliar;
-            Obj.Cuenta01 = cuenta01;
-            Obj.Cuenta02 = cuenta02;
-            Obj.CreditoMin = creditoMin;
-            Obj.CreditoMax = creditoMax;
-            Obj.Prorroga = prorroga;
+            Obj.Detalle_Banco = detalle_banco;
 
             //Datos Auxiliares
             Obj.Auto = auto;
-            Obj.Estado = estado;
+
+            Obj.Tran_Envio = tran_envio;
+            Obj.Tran_Banco = tran_banco;
+
+            Obj.Envio_AutoSQL = envio_autosql;
+            Obj.Banco_AutoSQL = banco_autosql;
 
             return Datos.Editar_DatosBasicos(Obj);
         }
 
+        public static string Editar_Envio
+            (
+                //Datos Auxiliares y Llaves Primaria
+                int auto, int idproveedor,
+
+                string receptor, string pais, string ciudad, string direccion, string telefono, string movil, string observacion
+            )
+        {
+            Conexion_Proveedor Datos = new Conexion_Proveedor();
+            Entidad_Proveedor Obj = new Entidad_Proveedor();
+
+            //Datos Basicos
+            Obj.Idproveedor = idproveedor;
+            Obj.Env_Receptor = receptor;
+            Obj.Env_Pais = pais;
+            Obj.Env_Ciudad = ciudad;
+            Obj.Env_Direccion = direccion;
+            Obj.Env_Telefono = telefono;
+            Obj.Env_Movil = movil;
+            Obj.Env_Observacion = observacion;
+
+            //Datos Auxiliares
+            Obj.Auto = auto;
+
+            return Datos.Guardar_Envio(Obj);
+        }
+
+        public static string Editar_Banco
+            (
+                //Datos Auxiliares y Llaves Primaria
+                int auto, int idproveedor,
+
+                int idbanco, string cuenta, Int64 numerodecuenta
+            )
+        {
+            Conexion_Proveedor Datos = new Conexion_Proveedor();
+            Entidad_Proveedor Obj = new Entidad_Proveedor();
+
+            //Datos Basicos
+            Obj.Idproveedor = idproveedor;
+            Obj.Idbanco = idbanco;
+            Obj.Cuenta = cuenta;
+            Obj.Numerodecuenta = numerodecuenta;
+
+            //Datos Auxiliares
+            Obj.Auto = auto;
+
+            return Datos.Guardar_Banco(Obj);
+        }
+
         public static string Eliminar(int IDEliminar_SQL, int auto)
         {
-            Conexion_Cliente Datos = new Conexion_Cliente();
+            Conexion_Proveedor Datos = new Conexion_Proveedor();
             return Datos.Eliminar(IDEliminar_SQL, auto);
+        }
+
+        public static string Eliminar_Banco(int Idbanco, int auto)
+        {
+            Conexion_Proveedor Datos = new Conexion_Proveedor();
+            return Datos.Eliminar_Banco(Idbanco, auto);
+        }
+
+        public static string Eliminar_Envio(int Idbanco, int auto)
+        {
+            Conexion_Proveedor Datos = new Conexion_Proveedor();
+            return Datos.Eliminar_Envio(Idbanco, auto);
         }
     }
 }

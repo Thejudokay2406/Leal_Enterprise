@@ -684,7 +684,7 @@ namespace Presentacion
                 this.Checkbox_Comision = "0";
             }
 
-            //
+            //Validacion de Tablas o Detalles del Producto
             if (DGDetalles_Ubicacion.Rows.Count == 0)
             {
                 this.Tran_Ubicacion = "1";

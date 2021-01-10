@@ -219,7 +219,7 @@ namespace Presentacion
 
         private void proveedorToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            frmProveedor frmProveedor = new frmProveedor();
+            frmProveedor frmProveedor = frmProveedor.GetInstancia();
             frmProveedor.MdiParent = this;
             frmProveedor.Show();
 

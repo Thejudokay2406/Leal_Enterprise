@@ -66,13 +66,26 @@ namespace Presentacion
             try
             {
                 frmBanco_Contacto frmBanCon = frmBanco_Contacto.GetInstancia();
+                frmProveedor frmPro = frmProveedor.GetInstancia();
                 string idbanco, banco, documento;
 
-                idbanco = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
-                banco = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
-                documento = this.DGFiltro_Resultados.CurrentRow.Cells[2].Value.ToString();
-                frmBanCon.setBanco(idbanco, documento, banco);
-                this.Hide();
+                if (frmPro.Examinar)
+                {
+                    idbanco = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
+                    banco = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
+                    documento = this.DGFiltro_Resultados.CurrentRow.Cells[2].Value.ToString();
+                    frmPro.setBanco(idbanco, documento, banco);
+                    this.Hide();
+                }
+
+                if (frmBanCon.Examinar)
+                {
+                    idbanco = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
+                    banco = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
+                    documento = this.DGFiltro_Resultados.CurrentRow.Cells[2].Value.ToString();
+                    frmBanCon.setBanco(idbanco, documento, banco);
+                    this.Hide();
+                }                
             }
             catch (Exception ex)
             {

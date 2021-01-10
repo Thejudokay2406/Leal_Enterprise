@@ -12,10 +12,10 @@ namespace Entidad
     public class Entidad_Proveedor
     {
         //Llave primaria
+        private int _Idbanco;
         private int _Idproveedor;
 
         //Datos Basicos
-        private int _Estado;
         private string _Tipo;
         private string _Nombre;
         private string _Documento;
@@ -29,26 +29,33 @@ namespace Entidad
         private DateTime _Fechadeinicio;
 
         //Datos de Envio
-        private string _Pais_DE;
-        private string _Ciudad_DE;
-        private string _Direccion_P;
-        private string _Direccion01;
-        private string _Direccion02;
-        private string _Telefono_DE;
-        private string _Movil__DE;
-        private string _Receptor;
-        private string _Observacion;
+        private DataTable _Detalle_Envio;
+        private string _Env_Receptor;
+        private string _Env_Pais;
+        private string _Env_Ciudad;
+        private string _Env_Direccion;
+        private string _Env_Telefono;
+        private string _Env_Movil;
+        private string _Env_Observacion;
 
-        //Datos Financieros
-        private string _Retencion;
-        private string _ValorRetencion;
-        private string _BancoPrincipal;
-        private string _BancoAuxiliar;
-        private string _Cuenta01;
-        private string _Cuenta02;
-        private string _CreditoMin;
-        private string _CreditoMax;
-        private string _Prorroga;
+        //Datos Bancarios
+        private DataTable _Detalle_Banco;
+        private string _Cuenta;
+        private Int64 _Numerodecuenta;
+
+        //Datos para Ejecutar las Transacciones en SQL
+        private int _Envio_AutoSQL;
+        private int _Banco_AutoSQL;
+
+        //
+        private int _Tran_Envio;
+        private int _Tran_Banco;
+
+        //Datos Para Filtrar los Multiples registro del Producto Como Ubicacion, Lotes ETC
+        private int _Auto_Banco;
+        private int _Auto_Envio;
+        private int _Consulta_Banco;
+        private int _Consulta_Envio;
 
         //Datos Auxiliares
         private int _Auto;
@@ -67,27 +74,28 @@ namespace Entidad
         public string Movil { get => _Movil; set => _Movil = value; }
         public string Correo { get => _Correo; set => _Correo = value; }
         public DateTime Fechadeinicio { get => _Fechadeinicio; set => _Fechadeinicio = value; }
-        public string Pais_DE { get => _Pais_DE; set => _Pais_DE = value; }
-        public string Ciudad_DE { get => _Ciudad_DE; set => _Ciudad_DE = value; }
-        public string Direccion_P { get => _Direccion_P; set => _Direccion_P = value; }
-        public string Direccion01 { get => _Direccion01; set => _Direccion01 = value; }
-        public string Direccion02 { get => _Direccion02; set => _Direccion02 = value; }
-        public string Receptor { get => _Receptor; set => _Receptor = value; }
-        public string Observacion { get => _Observacion; set => _Observacion = value; }
-        public string Retencion { get => _Retencion; set => _Retencion = value; }
-        public string ValorRetencion { get => _ValorRetencion; set => _ValorRetencion = value; }
-        public string BancoPrincipal { get => _BancoPrincipal; set => _BancoPrincipal = value; }
-        public string BancoAuxiliar { get => _BancoAuxiliar; set => _BancoAuxiliar = value; }
-        public string Cuenta01 { get => _Cuenta01; set => _Cuenta01 = value; }
-        public string Cuenta02 { get => _Cuenta02; set => _Cuenta02 = value; }
-        public string CreditoMin { get => _CreditoMin; set => _CreditoMin = value; }
-        public string CreditoMax { get => _CreditoMax; set => _CreditoMax = value; }
+        public DataTable Detalle_Envio { get => _Detalle_Envio; set => _Detalle_Envio = value; }
+        public DataTable Detalle_Banco { get => _Detalle_Banco; set => _Detalle_Banco = value; }
+        public int Envio_AutoSQL { get => _Envio_AutoSQL; set => _Envio_AutoSQL = value; }
+        public int Banco_AutoSQL { get => _Banco_AutoSQL; set => _Banco_AutoSQL = value; }
+        public int Tran_Envio { get => _Tran_Envio; set => _Tran_Envio = value; }
+        public int Tran_Banco { get => _Tran_Banco; set => _Tran_Banco = value; }
+        public int Auto_Banco { get => _Auto_Banco; set => _Auto_Banco = value; }
+        public int Auto_Envio { get => _Auto_Envio; set => _Auto_Envio = value; }
+        public int Consulta_Banco { get => _Consulta_Banco; set => _Consulta_Banco = value; }
+        public int Consulta_Envio { get => _Consulta_Envio; set => _Consulta_Envio = value; }
         public int Auto { get => _Auto; set => _Auto = value; }
         public int Eliminar { get => _Eliminar; set => _Eliminar = value; }
         public string Filtro { get => _Filtro; set => _Filtro = value; }
-        public int Estado { get => _Estado; set => _Estado = value; }
-        public string Telefono_DE { get => _Telefono_DE; set => _Telefono_DE = value; }
-        public string Movil__DE { get => _Movil__DE; set => _Movil__DE = value; }
-        public string Prorroga { get => _Prorroga; set => _Prorroga = value; }
+        public int Idbanco { get => _Idbanco; set => _Idbanco = value; }
+        public string Env_Receptor { get => _Env_Receptor; set => _Env_Receptor = value; }
+        public string Env_Pais { get => _Env_Pais; set => _Env_Pais = value; }
+        public string Env_Ciudad { get => _Env_Ciudad; set => _Env_Ciudad = value; }
+        public string Env_Direccion { get => _Env_Direccion; set => _Env_Direccion = value; }
+        public string Env_Telefono { get => _Env_Telefono; set => _Env_Telefono = value; }
+        public string Env_Movil { get => _Env_Movil; set => _Env_Movil = value; }
+        public string Env_Observacion { get => _Env_Observacion; set => _Env_Observacion = value; }
+        public string Cuenta { get => _Cuenta; set => _Cuenta = value; }
+        public long Numerodecuenta { get => _Numerodecuenta; set => _Numerodecuenta = value; }
     }
 }
