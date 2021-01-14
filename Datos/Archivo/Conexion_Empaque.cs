@@ -20,7 +20,7 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.Empaque", SqlCon);
+                SqlCommand Comando = new SqlCommand("Archivo.LI_Empaque", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
                 SqlCon.Open();
                 Resultado = Comando.ExecuteReader();
@@ -48,41 +48,10 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.Empaque", SqlCon);
+                SqlCommand Comando = new SqlCommand("Archivo.LI_Empaque", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
-                Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Auto;
-                Comando.Parameters.Add("@Filtro", SqlDbType.VarChar).Value = Valor;
-
-                SqlCon.Open();
-                Resultado = Comando.ExecuteReader();
-                Tabla.Load(Resultado);
-                return Tabla;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                if (SqlCon.State == ConnectionState.Open)
-                {
-                    SqlCon.Close();
-                }
-            }
-        }
-
-        public DataTable BuscarExistencia_SQL(string Valor)
-        {
-            SqlDataReader Resultado;
-            DataTable Tabla = new DataTable();
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.Empaque", SqlCon);
-                Comando.CommandType = CommandType.StoredProcedure;
-
+                Comando.Parameters.Add("@Consulta", SqlDbType.Int).Value = Auto;
                 Comando.Parameters.Add("@Filtro", SqlDbType.VarChar).Value = Valor;
 
                 SqlCon.Open();
@@ -173,19 +142,19 @@ namespace Datos
             return Rpta;
         }
 
-        public string Eliminar(int IDEliminar_Sql, int Auto)
+        public string Eliminar(int Idempaque, int Auto)
         {
             string Rpta = "";
             SqlConnection SqlCon = new SqlConnection();
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.Empaque", SqlCon);
+                SqlCommand Comando = new SqlCommand("Archivo.LI_Empaque", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Panel Datos Basicos
-                Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Auto;
-                Comando.Parameters.Add("@Idgrupo", SqlDbType.Int).Value = IDEliminar_Sql;
+                Comando.Parameters.Add("@Eliminar", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Idempaque", SqlDbType.Int).Value = Idempaque;
 
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Eliminar el Registro";

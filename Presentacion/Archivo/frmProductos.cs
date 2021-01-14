@@ -919,7 +919,7 @@ namespace Presentacion
                 {
                     TBIdproducto_AutoSQL.Text = "1";
                     //TBCodigoID.Text = "1";
-                    //MessageBox.Show("No se Encontraron Registros en la Base de Datos", "Sistema Instituto Fundecar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //MessageBox.Show("No Se Encontraron Registros en la Base de Datos", "Sistema Instituto Fundecar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {

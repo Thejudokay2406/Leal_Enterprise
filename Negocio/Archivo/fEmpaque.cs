@@ -24,12 +24,6 @@ namespace Negocio
             return Datos.Buscar(Filtro, auto);
         }
 
-        public static DataTable BuscarExistencia_SQL(string Filtro)
-        {
-            Conexion_Empaque Datos = new Conexion_Empaque();
-            return Datos.BuscarExistencia_SQL(Filtro);
-        }
-
         public static string Guardar_DatosBasicos
             (
                 //Datos Auxiliares y Llaves Primaria
@@ -62,12 +56,15 @@ namespace Negocio
             Conexion_Empaque Datos = new Conexion_Empaque();
             Entidad_Empaque Obj = new Entidad_Empaque();
 
+            //Datos Auxiliares y Llaves Primaria
+            Obj.Auto = auto;
             Obj.Idempaque = idempaque;
+
+            //Datos Basicos
             Obj.Empaque = empaque;
             Obj.Descripcion = descripcion;
             Obj.Observacion = observacion;
-
-            Obj.Auto = auto;
+                        
             return Datos.Editar_DatosBasicos(Obj);
         }
 

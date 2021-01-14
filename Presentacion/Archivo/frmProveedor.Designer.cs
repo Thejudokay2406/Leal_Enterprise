@@ -41,8 +41,6 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.TCPrincipal = new System.Windows.Forms.TabControl();
             this.TPDatosBasicos = new System.Windows.Forms.TabPage();
-            this.TBCodigo = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.CBSucurzal = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.DTFechadeinicio = new System.Windows.Forms.DateTimePicker();
@@ -168,6 +166,9 @@
             this.TBBuscar.Size = new System.Drawing.Size(347, 22);
             this.TBBuscar.TabIndex = 4;
             this.TBBuscar.TextChanged += new System.EventHandler(this.TBBuscar_TextChanged);
+            this.TBBuscar.Enter += new System.EventHandler(this.TBBuscar_Enter);
+            this.TBBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBBuscar_KeyPress);
+            this.TBBuscar.Leave += new System.EventHandler(this.TBBuscar_Leave);
             // 
             // lblTotal
             // 
@@ -191,7 +192,7 @@
             this.DGResultados.ReadOnly = true;
             this.DGResultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGResultados.Size = new System.Drawing.Size(500, 344);
-            this.DGResultados.TabIndex = 0;
+            this.DGResultados.TabIndex = 1;
             this.DGResultados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGResultados_CellDoubleClick);
             this.DGResultados.KeyUp += new System.Windows.Forms.KeyEventHandler(this.DGResultados_KeyUp);
             // 
@@ -255,8 +256,6 @@
             // 
             // TPDatosBasicos
             // 
-            this.TPDatosBasicos.Controls.Add(this.TBCodigo);
-            this.TPDatosBasicos.Controls.Add(this.label12);
             this.TPDatosBasicos.Controls.Add(this.CBSucurzal);
             this.TPDatosBasicos.Controls.Add(this.label11);
             this.TPDatosBasicos.Controls.Add(this.DTFechadeinicio);
@@ -289,31 +288,15 @@
             this.TPDatosBasicos.Text = "Datos Basicos";
             this.TPDatosBasicos.UseVisualStyleBackColor = true;
             // 
-            // TBCodigo
-            // 
-            this.TBCodigo.Location = new System.Drawing.Point(300, 6);
-            this.TBCodigo.Name = "TBCodigo";
-            this.TBCodigo.Size = new System.Drawing.Size(237, 22);
-            this.TBCodigo.TabIndex = 25;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(248, 9);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(47, 17);
-            this.label12.TabIndex = 24;
-            this.label12.Text = "Codigo";
-            // 
             // CBSucurzal
             // 
             this.CBSucurzal.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CBSucurzal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBSucurzal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBSucurzal.FormattingEnabled = true;
-            this.CBSucurzal.Location = new System.Drawing.Point(102, 34);
+            this.CBSucurzal.Location = new System.Drawing.Point(309, 6);
             this.CBSucurzal.Name = "CBSucurzal";
-            this.CBSucurzal.Size = new System.Drawing.Size(435, 21);
+            this.CBSucurzal.Size = new System.Drawing.Size(228, 21);
             this.CBSucurzal.Sorted = true;
             this.CBSucurzal.TabIndex = 23;
             // 
@@ -321,7 +304,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(6, 34);
+            this.label11.Location = new System.Drawing.Point(249, 7);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(54, 17);
             this.label11.TabIndex = 22;
@@ -329,7 +312,7 @@
             // 
             // DTFechadeinicio
             // 
-            this.DTFechadeinicio.Location = new System.Drawing.Point(103, 313);
+            this.DTFechadeinicio.Location = new System.Drawing.Point(103, 285);
             this.DTFechadeinicio.Name = "DTFechadeinicio";
             this.DTFechadeinicio.Size = new System.Drawing.Size(250, 22);
             this.DTFechadeinicio.TabIndex = 21;
@@ -338,7 +321,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(6, 316);
+            this.label13.Location = new System.Drawing.Point(6, 288);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(91, 17);
             this.label13.TabIndex = 20;
@@ -347,9 +330,9 @@
             // TBCorreo
             // 
             this.TBCorreo.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBCorreo.Location = new System.Drawing.Point(102, 285);
+            this.TBCorreo.Location = new System.Drawing.Point(103, 257);
             this.TBCorreo.Name = "TBCorreo";
-            this.TBCorreo.Size = new System.Drawing.Size(435, 22);
+            this.TBCorreo.Size = new System.Drawing.Size(434, 22);
             this.TBCorreo.TabIndex = 19;
             this.TBCorreo.Enter += new System.EventHandler(this.TBCorreo_Enter);
             this.TBCorreo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCorreo_KeyUp);
@@ -359,7 +342,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(6, 258);
+            this.label10.Location = new System.Drawing.Point(7, 230);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(37, 17);
             this.label10.TabIndex = 18;
@@ -369,7 +352,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(6, 229);
+            this.label9.Location = new System.Drawing.Point(7, 201);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(56, 17);
             this.label9.TabIndex = 17;
@@ -379,7 +362,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(6, 286);
+            this.label8.Location = new System.Drawing.Point(7, 258);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(45, 17);
             this.label8.TabIndex = 16;
@@ -389,7 +372,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(6, 202);
+            this.label7.Location = new System.Drawing.Point(7, 174);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(80, 17);
             this.label7.TabIndex = 15;
@@ -399,7 +382,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(6, 175);
+            this.label6.Location = new System.Drawing.Point(7, 147);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(47, 17);
             this.label6.TabIndex = 14;
@@ -426,9 +409,9 @@
             // TBMovil
             // 
             this.TBMovil.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBMovil.Location = new System.Drawing.Point(102, 257);
+            this.TBMovil.Location = new System.Drawing.Point(103, 229);
             this.TBMovil.Name = "TBMovil";
-            this.TBMovil.Size = new System.Drawing.Size(435, 22);
+            this.TBMovil.Size = new System.Drawing.Size(434, 22);
             this.TBMovil.TabIndex = 12;
             this.TBMovil.Enter += new System.EventHandler(this.TBMovil_Enter);
             this.TBMovil.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBMovil_KeyUp);
@@ -437,9 +420,9 @@
             // TBTelefono
             // 
             this.TBTelefono.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBTelefono.Location = new System.Drawing.Point(102, 229);
+            this.TBTelefono.Location = new System.Drawing.Point(103, 201);
             this.TBTelefono.Name = "TBTelefono";
-            this.TBTelefono.Size = new System.Drawing.Size(435, 22);
+            this.TBTelefono.Size = new System.Drawing.Size(434, 22);
             this.TBTelefono.TabIndex = 11;
             this.TBTelefono.Enter += new System.EventHandler(this.TBTelefono_Enter);
             this.TBTelefono.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBTelefono_KeyUp);
@@ -448,9 +431,9 @@
             // TBNacionalidad
             // 
             this.TBNacionalidad.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBNacionalidad.Location = new System.Drawing.Point(102, 201);
+            this.TBNacionalidad.Location = new System.Drawing.Point(103, 173);
             this.TBNacionalidad.Name = "TBNacionalidad";
-            this.TBNacionalidad.Size = new System.Drawing.Size(435, 22);
+            this.TBNacionalidad.Size = new System.Drawing.Size(434, 22);
             this.TBNacionalidad.TabIndex = 10;
             this.TBNacionalidad.Enter += new System.EventHandler(this.TBNacionalidad_Enter);
             this.TBNacionalidad.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBNacionalidad_KeyUp);
@@ -459,9 +442,9 @@
             // TBCiudad
             // 
             this.TBCiudad.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBCiudad.Location = new System.Drawing.Point(102, 173);
+            this.TBCiudad.Location = new System.Drawing.Point(103, 145);
             this.TBCiudad.Name = "TBCiudad";
-            this.TBCiudad.Size = new System.Drawing.Size(435, 22);
+            this.TBCiudad.Size = new System.Drawing.Size(434, 22);
             this.TBCiudad.TabIndex = 9;
             this.TBCiudad.Enter += new System.EventHandler(this.TBCiudad_Enter);
             this.TBCiudad.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCiudad_KeyUp);
@@ -470,9 +453,9 @@
             // TBPais
             // 
             this.TBPais.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBPais.Location = new System.Drawing.Point(102, 145);
+            this.TBPais.Location = new System.Drawing.Point(103, 117);
             this.TBPais.Name = "TBPais";
-            this.TBPais.Size = new System.Drawing.Size(435, 22);
+            this.TBPais.Size = new System.Drawing.Size(434, 22);
             this.TBPais.TabIndex = 8;
             this.TBPais.Enter += new System.EventHandler(this.TBPais_Enter);
             this.TBPais.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBPais_KeyUp);
@@ -481,9 +464,9 @@
             // TBRepresentante
             // 
             this.TBRepresentante.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBRepresentante.Location = new System.Drawing.Point(102, 117);
+            this.TBRepresentante.Location = new System.Drawing.Point(103, 89);
             this.TBRepresentante.Name = "TBRepresentante";
-            this.TBRepresentante.Size = new System.Drawing.Size(435, 22);
+            this.TBRepresentante.Size = new System.Drawing.Size(434, 22);
             this.TBRepresentante.TabIndex = 7;
             this.TBRepresentante.Enter += new System.EventHandler(this.TBRepresentante_Enter);
             this.TBRepresentante.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBRepresentante_KeyUp);
@@ -492,9 +475,9 @@
             // TBDocumento
             // 
             this.TBDocumento.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBDocumento.Location = new System.Drawing.Point(102, 89);
+            this.TBDocumento.Location = new System.Drawing.Point(103, 61);
             this.TBDocumento.Name = "TBDocumento";
-            this.TBDocumento.Size = new System.Drawing.Size(435, 22);
+            this.TBDocumento.Size = new System.Drawing.Size(434, 22);
             this.TBDocumento.TabIndex = 6;
             this.TBDocumento.Enter += new System.EventHandler(this.TBDocumento_Enter);
             this.TBDocumento.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBDocumento_KeyUp);
@@ -503,9 +486,9 @@
             // TBNombre
             // 
             this.TBNombre.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBNombre.Location = new System.Drawing.Point(102, 61);
+            this.TBNombre.Location = new System.Drawing.Point(103, 33);
             this.TBNombre.Name = "TBNombre";
-            this.TBNombre.Size = new System.Drawing.Size(435, 22);
+            this.TBNombre.Size = new System.Drawing.Size(434, 22);
             this.TBNombre.TabIndex = 5;
             this.TBNombre.Enter += new System.EventHandler(this.TBNombre_Enter);
             this.TBNombre.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBNombre_KeyUp);
@@ -515,7 +498,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(6, 147);
+            this.label5.Location = new System.Drawing.Point(7, 119);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(32, 17);
             this.label5.TabIndex = 4;
@@ -525,7 +508,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(6, 119);
+            this.label4.Location = new System.Drawing.Point(7, 91);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 17);
             this.label4.TabIndex = 3;
@@ -535,7 +518,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 91);
+            this.label3.Location = new System.Drawing.Point(7, 63);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 17);
             this.label3.TabIndex = 2;
@@ -545,7 +528,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 63);
+            this.label2.Location = new System.Drawing.Point(7, 35);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 17);
             this.label2.TabIndex = 1;
@@ -597,7 +580,6 @@
             this.DGDetalle_Envio.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DGDetalle_Envio.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.DGDetalle_Envio.BackgroundColor = System.Drawing.Color.White;
-            this.DGDetalle_Envio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGDetalle_Envio.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DGDetalle_Envio.Location = new System.Drawing.Point(6, 146);
             this.DGDetalle_Envio.Name = "DGDetalle_Envio";
@@ -605,6 +587,8 @@
             this.DGDetalle_Envio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGDetalle_Envio.Size = new System.Drawing.Size(531, 153);
             this.DGDetalle_Envio.TabIndex = 172;
+            this.DGDetalle_Envio.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGDetalle_Envio_CellClick);
+            this.DGDetalle_Envio.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGDetalle_Envio_RowEnter);
             // 
             // lblTotal_Envio
             // 
@@ -867,7 +851,6 @@
             this.DGDetalle_Bancario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DGDetalle_Bancario.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.DGDetalle_Bancario.BackgroundColor = System.Drawing.Color.White;
-            this.DGDetalle_Bancario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGDetalle_Bancario.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DGDetalle_Bancario.Location = new System.Drawing.Point(6, 62);
             this.DGDetalle_Bancario.Name = "DGDetalle_Bancario";
@@ -875,6 +858,8 @@
             this.DGDetalle_Bancario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGDetalle_Bancario.Size = new System.Drawing.Size(531, 237);
             this.DGDetalle_Bancario.TabIndex = 176;
+            this.DGDetalle_Bancario.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGDetalle_Bancario_CellClick);
+            this.DGDetalle_Bancario.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGDetalle_Bancario_RowEnter);
             // 
             // CBTipoDeCuenta
             // 
@@ -1104,8 +1089,6 @@
         private System.Windows.Forms.Button btnEliminar_Banco;
         private System.Windows.Forms.Button btnAgregar_Bancos;
         private System.Windows.Forms.ComboBox CBSucurzal;
-        private System.Windows.Forms.TextBox TBCodigo;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox TBBanco_Documento;
         private System.Windows.Forms.TextBox TBBanco;
         private System.Windows.Forms.Button btnExaminar;

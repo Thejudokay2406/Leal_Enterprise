@@ -45,13 +45,17 @@ namespace Presentacion
         private DataTable DtDetalle_Banco;
         private DataTable DtDetalle_Envio;
 
+        //********** Variables para AutoComplementar Combobox segun la Consulta en SQL ******************************
+
+        private string Sucurzal_SQL = "";
+
         //Variable para Metodo SQL Guardar, Eliminar, Editar, Consultar
         public string Guardar, Editar, Consultar, Eliminar, Imprimir = "";
 
         //********** Parametros para AutoCompletar los Texboxt **********************************
 
         //Panel Datos Basicos
-        public string Idproveedor, Tipo, Proveedor, Documento, Representante, Telefono, Movil, Correo, Pais, Ciudad, Nacionalidad, FechaDeInicio = "";
+        public string Idproveedor, Idsucurzal, Tipo, Proveedor, Documento, Representante, Telefono, Movil, Correo, Pais, Ciudad, Nacionalidad, FechaDeInicio = "";
 
         //********** Variables para la Validacion de las Transacciones en SQL **************************************************
 
@@ -70,15 +74,17 @@ namespace Presentacion
             this.Botones();
             this.Habilitar();
             this.Combobox_Sucurzal();
+            this.AutoIncrementable_SQL();
             this.Diseño_TablasGenerales();
-            this.CBTipo.SelectedIndex = 0;
 
             //Focus a Texboxt
             this.TBNombre.Select();
+            this.CBTipo.SelectedIndex = 0;
 
             //Ocultacion de Texboxt
             this.TBIdbanco.Visible = false;
             this.TBIdproveedor.Visible = false;
+            this.TBIdproveedor_AutoSQL.Visible = false;
             this.DGResultados.Enabled = false;
 
             //Color para Texboxt Buscar
@@ -87,10 +93,7 @@ namespace Presentacion
 
         private void Habilitar()
         {
-            //Panel - Datos Basicos  
-            //this.TBCodigo.Enabled = false;
-            this.TBCodigo.ReadOnly = false;
-            this.TBCodigo.BackColor = Color.FromArgb(3, 155, 229);
+            //Panel - Datos Basicos
             this.TBNombre.ReadOnly = false;
             this.TBNombre.BackColor = Color.FromArgb(3, 155, 229);
             this.TBNombre.ForeColor = Color.FromArgb(255, 255, 255);
@@ -145,14 +148,17 @@ namespace Presentacion
         {
             //Panel - Datos Basicos
             this.TBIdproveedor.Clear();
-            this.TBCodigo.Clear();
             this.CBTipo.SelectedIndex = 0;
+            this.CBSucurzal.SelectedIndex = 0;
             this.TBNombre.Clear();
             this.TBNombre.Text = Campo;
+            this.TBNombre.ForeColor = Color.FromArgb(255, 255, 255);
             this.TBDocumento.Clear();
             this.TBDocumento.Text = Campo;
+            this.TBDocumento.ForeColor = Color.FromArgb(255, 255, 255);
             this.TBRepresentante.Clear();
             this.TBRepresentante.Text = Campo;
+            this.TBRepresentante.ForeColor = Color.FromArgb(255, 255, 255);
             this.TBCiudad.Clear();
             this.TBTelefono.Clear();
             this.TBMovil.Clear();
@@ -161,24 +167,25 @@ namespace Presentacion
             this.TBCorreo.Clear();
 
             //Panel - Datos de Envio
+            this.TBReceptor.Clear();
             this.TBEnv_Pais.Clear();
             this.TBEnv_Ciudad.Clear();
             this.TBEnv_Direccion.Clear();
-            this.TBReceptor.Clear();
             this.TBEnv_Telefono.Clear();
             this.TBEnv_Movil.Clear();
             this.TBEnv_Observacion.Clear();
 
-
             //Datos Financieros
-            this.TBCuenta01.Clear();
             this.TBBanco.Clear();
             this.TBBanco_Documento.Clear();
+            this.CBTipoDeCuenta.SelectedIndex = 0;
+            this.TBCuenta01.Clear();
 
             //se realiza la seleccion al campo de texto para asi este salte
             //al campo siguiente inicial el cual es TBNombre.Text
             this.TCPrincipal.SelectedIndex = 0;
             this.TBNombre.Select();
+            this.TBIdproveedor.Clear();
         }
 
         private void Diseño_TablasGenerales()
@@ -202,10 +209,10 @@ namespace Presentacion
                 this.DtDetalle_Banco = new DataTable();
                 this.DtDetalle_Banco.Columns.Add("Idproveedor", System.Type.GetType("System.Int32"));
                 this.DtDetalle_Banco.Columns.Add("Idbanco", System.Type.GetType("System.Int32"));
-                this.DtDetalle_Banco.Columns.Add("Codigo", System.Type.GetType("System.String"));
                 this.DtDetalle_Banco.Columns.Add("Banco", System.Type.GetType("System.String"));
+                this.DtDetalle_Banco.Columns.Add("Documento", System.Type.GetType("System.Int64"));
                 this.DtDetalle_Banco.Columns.Add("Tipo", System.Type.GetType("System.String"));
-                this.DtDetalle_Banco.Columns.Add("Cuenta", System.Type.GetType("System.Int32"));
+                this.DtDetalle_Banco.Columns.Add("Cuenta", System.Type.GetType("System.Int64"));
                 //Captura de los Datos en las Tablas
                 this.DGDetalle_Bancario.DataSource = this.DtDetalle_Banco;
 
@@ -219,6 +226,7 @@ namespace Presentacion
 
                 //Panel Datos Bancarios
                 this.DGDetalle_Bancario.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                this.DGDetalle_Bancario.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 this.DGDetalle_Bancario.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
                 //Panel - Datos de Envio
@@ -254,9 +262,7 @@ namespace Presentacion
                 this.btnGuardar.Enabled = true;
                 this.btnGuardar.Text = "Guardar - F10";
 
-                this.btnEliminar.Enabled = false;
                 this.btnCancelar.Enabled = false;
-
                 this.btnModificar_Envio.Enabled = false;
                 this.btnModificar_Bancos.Enabled = false;
             }
@@ -265,13 +271,42 @@ namespace Presentacion
                 this.btnGuardar.Enabled = true;
                 this.btnGuardar.Text = "Editar - F10";
 
-                this.btnEliminar.Enabled = false;
                 this.btnCancelar.Enabled = true;
-
                 this.btnModificar_Envio.Enabled = true;
                 this.btnModificar_Bancos.Enabled = true;
             }
         }
+
+
+        private void AutoIncrementable_SQL()
+        {
+            try
+            {
+                DataTable Datos = Negocio.fProveedor.AutoComplementar_SQL(0);
+                //Evaluamos si  existen los Datos
+
+                if (Datos.Rows.Count == 0)
+                {
+                    TBIdproveedor_AutoSQL.Text = "1";
+                    //TBCodigoID.Text = "1";
+                    //MessageBox.Show("No Se Encontraron Registros en la Base de Datos", "Sistema Instituto Fundecar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    //Captura de Valores en la Base de Datos
+
+                    Idproveedor = Datos.Rows[0][0].ToString();
+
+                    //Se procede a completar los campos de texto segun las consulta realizada anteriormente en la base de datos
+                    this.TBIdproveedor_AutoSQL.Text = Idproveedor;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
 
         private void Combobox_Sucurzal()
         {
@@ -307,23 +342,23 @@ namespace Presentacion
 
             if (DGDetalle_Bancario.Rows.Count == 0)
             {
-                this.Tran_Banco = "1";
+                this.Tran_Banco = "0";
             }
             else
             {
-                this.Tran_Banco = "0";
+                this.Tran_Banco = "1";
             }
         }
 
         private void Actualizar_DetBanco()
         {
-            this.DGDetalle_Bancario.DataSource = fProveedor.Lista_Banco(5, Convert.ToInt32(TBIdproveedor.Text));
+            this.DGDetalle_Bancario.DataSource = fProveedor.Lista_Banco(1, Convert.ToInt32(TBIdproveedor.Text));
             this.lblTotal_Banco.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Bancario.Rows.Count);
         }
 
         private void Actualizar_DetEnvio()
         {
-            this.DGDetalle_Envio.DataSource = fProveedor.Lista_Envio(5, Convert.ToInt32(TBIdproveedor.Text));
+            this.DGDetalle_Envio.DataSource = fProveedor.Lista_Envio(1, Convert.ToInt32(TBIdproveedor.Text));
             this.lblTotal_Envio.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Envio.Rows.Count);
         }
 
@@ -380,11 +415,10 @@ namespace Presentacion
                             (
 
                                 //Datos Auxiliares y llave primaria
-                                1,
+                                1, Convert.ToInt32(this.CBSucurzal.SelectedValue),
 
                                 //Panel Datos Basicos
-                                this.CBTipo.Text, this.TBNombre.Text, this.TBDocumento.Text, this.TBRepresentante.Text, this.TBPais.Text,
-                                this.TBCiudad.Text, this.TBNacionalidad.Text,this.TBTelefono.Text, this.TBMovil.Text, this.TBCorreo.Text, this.DTFechadeinicio.Value,
+                                this.CBTipo.Text, this.TBNombre.Text, this.TBDocumento.Text, this.TBRepresentante.Text, this.TBPais.Text, this.TBCiudad.Text, this.TBNacionalidad.Text, this.TBTelefono.Text, this.TBMovil.Text, this.TBCorreo.Text, this.DTFechadeinicio.Value,
 
                                 //Panel Datos De Envio
                                 this.DtDetalle_Envio,
@@ -408,25 +442,11 @@ namespace Presentacion
 
                             (
                                  //Datos Auxiliares y llave primaria
-                                 2, Convert.ToInt32(this.TBIdproveedor.Text),
+                                 2, Convert.ToInt32(this.TBIdproveedor.Text), Convert.ToInt32(this.CBSucurzal.SelectedValue),
 
                                 //Panel Datos Basicos
                                 this.CBTipo.Text, this.TBNombre.Text, this.TBDocumento.Text, this.TBRepresentante.Text, this.TBPais.Text,
-                                this.TBCiudad.Text, this.TBNacionalidad.Text, this.TBTelefono.Text, this.TBMovil.Text, this.TBCorreo.Text, this.DTFechadeinicio.Value,
-
-                                //Panel Datos De Envio
-                                this.DtDetalle_Envio,
-
-                                //Panel Datos Financieros
-                                this.DtDetalle_Banco,
-
-                                 //Variables Para Confirmar el Insertar en la Transaccion en SQL
-                                 //Donde esten las Validaciones IF NOT
-                                 1, 1,
-
-                                 //Variables para Ordenar Si se Ejecutan o No las Transacciones en SQL
-                                 //Si los Datagriview estan vacios seran Iguales a 0 Si Tienen Datos Seran Iguales a 1
-                                 Convert.ToInt32(Tran_Envio), Convert.ToInt32(Tran_Banco)
+                                this.TBCiudad.Text, this.TBNacionalidad.Text, this.TBTelefono.Text, this.TBMovil.Text, this.TBCorreo.Text, this.DTFechadeinicio.Value
                             );
                     }
 
@@ -439,7 +459,7 @@ namespace Presentacion
 
                         else
                         {
-                            this.MensajeOk("El Registro del Proveedor: “" + this.TBNombre.Text + "” a Sido Actualizado Exitosamente");
+                            this.MensajeOk("Los Datos del Proveedor: “" + this.TBNombre.Text + "” han Sido Modificados Exitosamente");
                         }
                     }
 
@@ -452,6 +472,7 @@ namespace Presentacion
                     this.Digitar = true;
                     this.Botones();
                     this.Limpiar_Datos();
+                    this.Diseño_TablasGenerales();
                 }
 
             }
@@ -461,6 +482,391 @@ namespace Presentacion
             }
         }
 
+        private void Modificar_Banco()
+        {
+            try
+            {
+                if (!Digitar)
+                {
+                    string rptaDatosBasicos = "";
+
+                    if (this.TBBanco.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique Banco que Desea Agregar");
+                        this.TBBanco.Select();
+                    }
+                    else if (this.TBBanco_Documento.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique la Identificación o Codigo del Banco");
+                        this.TBBanco_Documento.Select();
+                    }
+                    else if (this.CBTipoDeCuenta.SelectedIndex == 0)
+                    {
+                        this.MensajeError("Por favor Especifique el Tipo de Cuenta Bancaria");
+                        this.CBTipoDeCuenta.Select();
+                    }
+                    else if (this.TBCuenta01.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Número de Cuenta Bancaria que Desea Agregar");
+                        this.TBCuenta01.Select();
+                    }
+                    else
+                    {
+                        DialogResult result = MessageBox.Show("¿Desea Modificar el Registro Bancario del Proveedor?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            rptaDatosBasicos = fProveedor.Editar_Banco
+
+                                (
+                                    //Datos Auxiliares
+                                    1, Convert.ToInt32(TBIdproveedor.Text),
+
+                                     //Datos Basicos
+                                     Convert.ToInt32(this.TBIdbanco.Text), this.TBBanco.Text, this.TBBanco_Documento.Text, this.CBTipoDeCuenta.Text, Convert.ToInt64(this.TBCuenta01.Text)
+                                );
+
+                            if (rptaDatosBasicos.Equals("OK"))
+                            {
+                                this.MensajeOk("El Registro del Banco: " + this.TBBanco.Text + " a Sido Modificado Exitosamente");
+                            }
+
+                            else
+                            {
+                                this.MensajeError(rptaDatosBasicos);
+                            }
+
+                            //
+                            this.TBIdbanco.Clear();
+                            this.TBBanco_Documento.Clear();
+                            this.TBBanco.Clear();
+                            this.CBTipoDeCuenta.SelectedIndex = 0;
+                            this.TBCuenta01.Clear();
+                        }
+                        else
+                        {
+                            this.TBCuenta01.Select();
+                        }
+
+                        //
+                        this.Actualizar_DetBanco();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void Modificar_Envio()
+        {
+            try
+            {
+                if (!Digitar)
+                {
+                    string rptaDatosBasicos = "";
+
+                    if (this.TBReceptor.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Nombre del Receptor de Envíos");
+                        this.TBReceptor.Select();
+                    }
+                    else
+                    {
+                        DialogResult result = MessageBox.Show("¿Desea Modificar los Datos de Envió al Proveedor?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            rptaDatosBasicos = fProveedor.Editar_Envio
+
+                                (
+                                     //Datos Auxiliares y Llave Primaria
+                                     2, Convert.ToInt32(TBIdproveedor.Text),
+
+                                     //Datos Basicos
+                                     this.TBReceptor.Text, this.TBEnv_Pais.Text, this.TBEnv_Ciudad.Text, this.TBEnv_Direccion.Text, this.TBEnv_Telefono.Text, this.TBEnv_Movil.Text, this.TBEnv_Observacion.Text
+                                );
+
+                            if (rptaDatosBasicos.Equals("OK"))
+                            {
+                                this.MensajeOk("Los Datos de Envio del Proveedor: " + this.TBNombre.Text + " Han Sido Modificado Exitosamente");
+                            }
+
+                            else
+                            {
+                                this.MensajeError(rptaDatosBasicos);
+                            }
+
+                            //
+                            this.TBReceptor.Clear();
+                            this.TBEnv_Ciudad.Clear();
+                            this.TBEnv_Direccion.Clear();
+                            this.TBEnv_Movil.Clear();
+                            this.TBEnv_Observacion.Clear();
+                            this.TBEnv_Pais.Clear();
+                            this.TBEnv_Telefono.Clear();
+                        }
+                        else
+                        {
+                            this.TBReceptor.Select();
+                        }
+
+                        //
+                        this.Actualizar_DetEnvio();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void Agregar_Banco()
+        {
+            try
+            {
+                if (Digitar)
+                {
+                    if (this.TBBanco.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique Banco que Desea Agregar");
+                        this.TBBanco.Select();
+                    }
+                    else if (this.TBBanco_Documento.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique la Identificación o Codigo del Banco");
+                        this.TBBanco_Documento.Select();
+                    }
+                    else if (this.CBTipoDeCuenta.SelectedIndex == 0)
+                    {
+                        this.MensajeError("Por favor Especifique el Tipo de Cuenta Bancaria");
+                        this.CBTipoDeCuenta.Select();
+                    }
+                    else if (this.TBCuenta01.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Número de Cuenta Bancaria que Desea Agregar");
+                        this.TBCuenta01.Select();
+                    }
+
+                    else
+                    {
+                        bool agregar = true;
+                        foreach (DataRow Fila in DtDetalle_Banco.Rows)
+                        {
+                            if (Convert.ToString(Fila["Idbanco"]) == TBIdbanco.Text)
+                            {
+                                this.MensajeError("El Banco que Desea Agregar ya se Encuentra en la Lista");
+                            }
+                        }
+                        if (agregar)
+                        {
+                            DataRow fila = this.DtDetalle_Banco.NewRow();
+                            fila["Idproveedor"] = Convert.ToInt32(this.TBIdproveedor_AutoSQL.Text);
+                            fila["Idbanco"] = Convert.ToInt32(this.TBIdbanco.Text);
+                            fila["Banco"] = this.TBBanco.Text;
+                            fila["Documento"] = Convert.ToInt64(this.TBBanco_Documento.Text);
+                            fila["Tipo"] = this.CBTipoDeCuenta.Text;
+                            fila["Cuenta"] = Convert.ToInt64(this.TBCuenta01.Text);
+                            this.DtDetalle_Banco.Rows.Add(fila);
+                        }
+
+                        //
+                        this.TBIdbanco.Clear();
+                        this.TBBanco_Documento.Clear();
+                        this.TBBanco.Clear();
+                        this.CBTipoDeCuenta.SelectedIndex = 0;
+                        this.TBCuenta01.Clear();
+                    }
+                }
+                else
+                {
+                    string rptaDatosBasicos = "";
+
+                    // <<<<<<------ Panel Datos Basicos ------>>>>>
+
+                    if (this.TBBanco.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique Banco que Desea Agregar");
+                        this.TBBanco.Select();
+                    }
+                    else if (this.TBBanco_Documento.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique la Identificación o Codigo del Banco");
+                        this.TBBanco_Documento.Select();
+                    }
+                    else if (this.CBTipoDeCuenta.SelectedIndex == 0)
+                    {
+                        this.MensajeError("Por favor Especifique el Tipo de Cuenta Bancaria");
+                        this.CBTipoDeCuenta.Select();
+                    }
+                    else if (this.TBCuenta01.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Número de Cuenta Bancaria que Desea Agregar");
+                        this.TBCuenta01.Select();
+                    }
+
+                    else
+                    {
+                        foreach (DataRow Fila in DtDetalle_Banco.Rows)
+                        {
+                            if (Convert.ToString(Fila["Idbanco"]) == TBIdbanco.Text)
+                            {
+                                this.MensajeError("El Banco que Desea Agregar ya se Encuentra en la Lista");
+                            }
+                        }
+
+                        DialogResult result = MessageBox.Show("¿Desea Añadir el Banco a la Lista del Proveedor?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            rptaDatosBasicos = fProveedor.Guardar_Banco
+
+                                (
+                                    //Datos Auxiliares
+                                    1, Convert.ToInt32(TBIdproveedor.Text),
+
+                                     //Datos Basicos
+                                     Convert.ToInt32(this.TBIdbanco.Text), this.TBBanco.Text, this.TBBanco_Documento.Text, this.CBTipoDeCuenta.Text, Convert.ToInt64(this.TBCuenta01.Text)
+                                );
+
+                            if (rptaDatosBasicos.Equals("OK"))
+                            {
+                                this.MensajeOk("El Banco: " + this.TBBanco.Text + " del Proveedor: " + TBNombre.Text + " A Sido Registrado Exitosamente");
+                            }
+
+                            else
+                            {
+                                this.MensajeError(rptaDatosBasicos);
+                            }
+
+                            //
+                            this.TBIdbanco.Clear();
+                            this.TBBanco_Documento.Clear();
+                            this.TBBanco.Clear();
+                            this.CBTipoDeCuenta.SelectedIndex = 0;
+                            this.TBCuenta01.Clear();
+                        }
+                        else
+                        {
+                            this.TBCuenta01.Select();
+                        }
+
+                        //
+                        this.Actualizar_DetBanco();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void Agregar_Envio()
+        {
+            try
+            {
+                if (Digitar)
+                {
+                    if (this.TBReceptor.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Nombre del Receptor de Envíos");
+                        this.TBReceptor.Select();
+                    }
+
+                    else
+                    {
+                        bool agregar = true;
+
+                        if (agregar)
+                        {
+                            DataRow fila = this.DtDetalle_Envio.NewRow();
+                            fila["Idproveedor"] = Convert.ToInt32(this.TBIdproveedor_AutoSQL.Text);
+                            fila["Receptor"] = this.TBReceptor.Text;
+                            fila["País"] = this.TBEnv_Pais.Text;
+                            fila["Ciudad"] = this.TBEnv_Ciudad.Text;
+                            fila["Dirección"] = this.TBEnv_Direccion.Text;
+                            fila["Teléfono"] = this.TBEnv_Telefono.Text;
+                            fila["Móvil"] = this.TBEnv_Movil.Text;
+                            fila["Observación"] = this.TBEnv_Observacion.Text;
+                            this.DtDetalle_Envio.Rows.Add(fila);
+                        }
+
+                        //
+                        this.TBReceptor.Clear();
+                        this.TBEnv_Ciudad.Clear();
+                        this.TBEnv_Direccion.Clear();
+                        this.TBEnv_Movil.Clear();
+                        this.TBEnv_Observacion.Clear();
+                        this.TBEnv_Pais.Clear();
+                        this.TBEnv_Telefono.Clear();
+                    }
+                }
+                else
+                {
+                    string rptaDatosBasicos = "";
+
+                    // <<<<<<------ Panel Datos Basicos ------>>>>>
+
+                    if (this.TBReceptor.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Nombre del Receptor de Envíos");
+                        this.TBReceptor.Select();
+                    }
+
+                    else
+                    {
+                        DialogResult result = MessageBox.Show("¿Desea Añadir los Datos de Envió al Proveedor?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            rptaDatosBasicos = fProveedor.Guardar_Envio
+
+                                (
+                                     //Datos Auxiliares
+                                     1,
+
+                                     //Datos Basicos
+                                     this.TBReceptor.Text, this.TBEnv_Pais.Text, this.TBEnv_Ciudad.Text, this.TBEnv_Direccion.Text, this.TBEnv_Telefono.Text, this.TBEnv_Movil.Text, this.TBEnv_Observacion.Text
+
+                                );
+
+                            if (rptaDatosBasicos.Equals("OK"))
+                            {
+                                this.MensajeOk("Los Datos de Envio del Proveedor: " + this.TBNombre.Text + " A Sido Registrado Exitosamente");
+                            }
+
+                            else
+                            {
+                                this.MensajeError(rptaDatosBasicos);
+                            }
+
+                            //
+                            this.TBReceptor.Clear();
+                            this.TBEnv_Ciudad.Clear();
+                            this.TBEnv_Direccion.Clear();
+                            this.TBEnv_Movil.Clear();
+                            this.TBEnv_Observacion.Clear();
+                            this.TBEnv_Pais.Clear();
+                            this.TBEnv_Telefono.Clear();
+                        }
+                        else
+                        {
+                            this.TBReceptor.Select();
+                        }
+
+                        //
+                        this.Actualizar_DetEnvio();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -565,6 +971,8 @@ namespace Presentacion
                         this.Digitar = true;
                         this.TBBuscar.Clear();
                         this.Botones();
+                        this.Limpiar_Datos();
+                        this.Diseño_TablasGenerales();
 
                         //Se regresa el focus al campo principal
                         this.TCPrincipal.SelectedIndex = 0;
@@ -575,7 +983,6 @@ namespace Presentacion
                 {
                     MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise - Solicitud Rechazada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
-
             }
             catch (Exception ex)
             {
@@ -607,10 +1014,8 @@ namespace Presentacion
                     }
                     else
                     {
-                        this.Limpiar_Datos();
-
                         //Se Limpian las Filas y Columnas de la tabla
-                        DGResultados.DataSource = null;
+                        this.DGResultados.DataSource = null;
                         this.DGResultados.Enabled = false;
                         this.lblTotal.Text = "Datos Registrados: 0";
 
@@ -646,7 +1051,7 @@ namespace Presentacion
                     //Evaluamos si  existen los Datos
                     if (Datos.Rows.Count == 0)
                     {
-                        MessageBox.Show("No se encontraron registros en la base de datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("No Se Encontraron Registros en la Base de Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
@@ -663,6 +1068,7 @@ namespace Presentacion
                         Movil = Datos.Rows[0][8].ToString();
                         Correo = Datos.Rows[0][9].ToString();
                         FechaDeInicio = Datos.Rows[0][10].ToString();
+                        Idsucurzal = Datos.Rows[0][11].ToString();
 
                         //SE PROCEDE A LLENAR LOS CAMPOS DE TEXTO SEGUN LA CONSULTA REALIZADA
 
@@ -677,6 +1083,27 @@ namespace Presentacion
                         this.TBMovil.Text = Movil;
                         this.TBCorreo.Text = Correo;
                         this.DTFechadeinicio.Text = FechaDeInicio;
+
+                        this.Sucurzal_SQL = Idsucurzal;
+                        this.CBSucurzal.SelectedValue = Sucurzal_SQL;
+
+                        //************************************************************************************************************************
+                        //Se realizan las consultas para llenar los DataGriview donde se mostrarian los MultiPlex Registros.
+
+                        this.DGDetalle_Envio.DataSource = fProveedor.Buscar_Envio(this.TBIdproveedor.Text, 1);
+                        this.lblTotal_Envio.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Envio.Rows.Count);
+                        this.DGDetalle_Envio.Columns[0].Visible = false;
+
+                        this.DGDetalle_Bancario.DataSource = fProveedor.Buscar_Banco(this.TBIdproveedor.Text, 1);
+                        this.lblTotal_Banco.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Bancario.Rows.Count);
+
+                        //SE ALINEAN LAS CELDAS DE LA TABLA
+                        //this.DGDetalle_Bancario.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                        //this.DGDetalle_Bancario.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+                        //SE OCULTAN LAS COLUMNAS
+                        this.DGDetalle_Bancario.Columns[0].Visible = false;
+                        this.DGDetalle_Bancario.Columns[1].Visible = false;
                     }
                 }
             }
@@ -712,6 +1139,25 @@ namespace Presentacion
                     //
                     this.Botones();
                     this.TCPrincipal.SelectedIndex = 0;
+
+                    if (DGDetalle_Envio.Rows.Count == 0)
+                    {
+                        this.TBReceptor.Clear();
+                        this.TBEnv_Pais.Clear();
+                        this.TBEnv_Ciudad.Clear();
+                        this.TBEnv_Direccion.Clear();
+                        this.TBEnv_Telefono.Clear();
+                        this.TBEnv_Movil.Clear();
+                        this.TBEnv_Observacion.Clear();
+                    }
+
+                    if (DGDetalle_Bancario.Rows.Count == 0)
+                    {
+                        this.TBBanco.Clear();
+                        this.TBBanco_Documento.Clear();
+                        this.CBTipoDeCuenta.SelectedIndex = 0;
+                        this.TBCuenta01.Clear();
+                    }
                 }
                 else
                 {
@@ -729,27 +1175,88 @@ namespace Presentacion
             {
                 if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
                 {
-                    this.Digitar = false;
-
                     if (Editar == "1")
                     {
-                        //
-                        this.TBIdproveedor.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells["Codigo"].Value);
+                        this.Digitar = false;
+                        this.TBIdproveedor.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells[0].Value);
                         this.TBNombre.Select();
 
-                        //Se procede Habilitar los campos de Textos y Botones
-                        //cuando se le realice el evento Clip del Boton Ediatar/Guardar
+                        //
+                        //this.Digitar = false;
+                        this.Eliminar_Banco = true;
+                        this.Eliminar_Envio = true;
 
-                        this.btnGuardar.Enabled = true;
-                        this.btnCancelar.Enabled = true;
+                        //
+                        this.Botones();
+                        this.TCPrincipal.SelectedIndex = 0;
 
-                        //Se cambia la imagen del Boton la cual inicialmente es Guardar
-                        //Y se cambiar por la imagen Editar
-                        this.btnGuardar.Image = Properties.Resources.BV_Editar;
+                        if (DGDetalle_Envio.Rows.Count == 0)
+                        {
+                            this.TBReceptor.Clear();
+                            this.TBEnv_Pais.Clear();
+                            this.TBEnv_Ciudad.Clear();
+                            this.TBEnv_Direccion.Clear();
+                            this.TBEnv_Telefono.Clear();
+                            this.TBEnv_Movil.Clear();
+                            this.TBEnv_Observacion.Clear();
+                        }
+
+                        if (DGDetalle_Bancario.Rows.Count == 0)
+                        {
+                            this.TBBanco.Clear();
+                            this.TBBanco_Documento.Clear();
+                            this.CBTipoDeCuenta.SelectedIndex = 0;
+                            this.TBCuenta01.Clear();
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Acceso denegado para actualizar registros", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Actualizar Datos en el Sistema", "Leal Enterprise - 'Acceso Denegado' ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F4))
+                {
+                    if (Eliminar == "1")
+                    {
+
+                        DialogResult Opcion;
+                        string Respuesta = "";
+                        int Eliminacion;
+
+                        Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                        if (Opcion == DialogResult.OK)
+                        {
+                            if (DGResultados.SelectedRows.Count > 0)
+                            {
+                                Eliminacion = Convert.ToInt32(DGResultados.CurrentRow.Cells[0].Value.ToString());
+                                Respuesta = Negocio.fProveedor.Eliminar(Eliminacion, 0);
+                            }
+
+                            if (Respuesta.Equals("OK"))
+                            {
+                                this.MensajeOk("Registro Eliminado Correctamente");
+                            }
+                            else
+                            {
+                                this.MensajeError(Respuesta);
+                            }
+
+                            //Botones Comunes
+                            this.Digitar = true;
+                            this.TBBuscar.Clear();
+                            this.Botones();
+                            this.Limpiar_Datos();
+                            this.Diseño_TablasGenerales();
+
+                            //Se regresa el focus al campo principal
+                            this.TCPrincipal.SelectedIndex = 0;
+                            this.TBNombre.Select();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise - Solicitud Rechazada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                 }
             }
@@ -1520,6 +2027,16 @@ namespace Presentacion
 
                     this.TBEnv_Pais.Select();
                 }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F3))
+                {
+                    //AL PRESIONAR F3 SE PROCEDE EN AGREGAR UN DATO DE ENVIO A LA LISTA O REGISTRAR UNO NUEVO
+                    this.Agregar_Envio();
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F8))
+                {
+                    //AL PRESIONAR F8 SE PROCEDE A MODIFICAR EL REGISTRO CARGADO O SELECCIONADO
+                    this.Modificar_Envio();
+                }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
                     //
@@ -1602,6 +2119,16 @@ namespace Presentacion
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
                     this.TBEnv_Ciudad.Select();
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F3))
+                {
+                    //AL PRESIONAR F3 SE PROCEDE EN AGREGAR UN DATO DE ENVIO A LA LISTA O REGISTRAR UNO NUEVO
+                    this.Agregar_Envio();
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F8))
+                {
+                    //AL PRESIONAR F8 SE PROCEDE A MODIFICAR EL REGISTRO CARGADO O SELECCIONADO
+                    this.Modificar_Envio();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
@@ -1686,6 +2213,16 @@ namespace Presentacion
 
                     this.TBEnv_Direccion.Select();
                 }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F3))
+                {
+                    //AL PRESIONAR F3 SE PROCEDE EN AGREGAR UN DATO DE ENVIO A LA LISTA O REGISTRAR UNO NUEVO
+                    this.Agregar_Envio();
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F8))
+                {
+                    //AL PRESIONAR F8 SE PROCEDE A MODIFICAR EL REGISTRO CARGADO O SELECCIONADO
+                    this.Modificar_Envio();
+                }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
                     //
@@ -1768,6 +2305,16 @@ namespace Presentacion
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
                     this.TBEnv_Telefono.Select();
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F3))
+                {
+                    //AL PRESIONAR F3 SE PROCEDE EN AGREGAR UN DATO DE ENVIO A LA LISTA O REGISTRAR UNO NUEVO
+                    this.Agregar_Envio();
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F8))
+                {
+                    //AL PRESIONAR F8 SE PROCEDE A MODIFICAR EL REGISTRO CARGADO O SELECCIONADO
+                    this.Modificar_Envio();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
@@ -1852,6 +2399,16 @@ namespace Presentacion
 
                     this.TBEnv_Movil.Select();
                 }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F3))
+                {
+                    //AL PRESIONAR F3 SE PROCEDE EN AGREGAR UN DATO DE ENVIO A LA LISTA O REGISTRAR UNO NUEVO
+                    this.Agregar_Envio();
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F8))
+                {
+                    //AL PRESIONAR F8 SE PROCEDE A MODIFICAR EL REGISTRO CARGADO O SELECCIONADO
+                    this.Modificar_Envio();
+                }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
                     //
@@ -1934,6 +2491,16 @@ namespace Presentacion
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
                     this.TBEnv_Observacion.Select();
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F3))
+                {
+                    //AL PRESIONAR F3 SE PROCEDE EN AGREGAR UN DATO DE ENVIO A LA LISTA O REGISTRAR UNO NUEVO
+                    this.Agregar_Envio();
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F8))
+                {
+                    //AL PRESIONAR F8 SE PROCEDE A MODIFICAR EL REGISTRO CARGADO O SELECCIONADO
+                    this.Modificar_Envio();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
@@ -2018,6 +2585,16 @@ namespace Presentacion
 
                     this.TBReceptor.Select();
                 }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F3))
+                {
+                    //AL PRESIONAR F3 SE PROCEDE EN AGREGAR UN DATO DE ENVIO A LA LISTA O REGISTRAR UNO NUEVO
+                    this.Agregar_Envio();
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F8))
+                {
+                    //AL PRESIONAR F8 SE PROCEDE A MODIFICAR EL REGISTRO CARGADO O SELECCIONADO
+                    this.Modificar_Envio();
+                }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
                     //
@@ -2095,11 +2672,15 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F3))
                 {
-                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
-
-                    //this.TBBancoAuxiliar.Select();
+                    //AL PRESIONAR F3 SE PROCEDE EN AGREGAR UN BANCO A LA LISTA O REGISTRAR UNO NUEVO
+                    this.Agregar_Banco();
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F8))
+                {
+                    //AL PRESIONAR F8 SE PROCEDE A MODIFICAR EL REGISTRO CARGADO O SELECCIONADO
+                    this.Modificar_Banco();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
@@ -2189,6 +2770,7 @@ namespace Presentacion
             {
                 //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
                 this.TBNombre.BackColor = Color.Azure;
+                this.TBNombre.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 
@@ -2205,6 +2787,7 @@ namespace Presentacion
             {
                 //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
                 this.TBDocumento.BackColor = Color.Azure;
+                this.TBDocumento.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 
@@ -2221,6 +2804,7 @@ namespace Presentacion
             {
                 //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
                 this.TBRepresentante.BackColor = Color.Azure;
+                this.TBRepresentante.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 
@@ -2286,99 +2870,7 @@ namespace Presentacion
         {
             try
             {
-                if (Digitar)
-                {
-                    if (this.TBReceptor.Text == String.Empty)
-                    {
-                        this.MensajeError("Por favor Especifique el Nombre del Receptor de Envíos");
-                        this.TBReceptor.Select();
-                    }
-                    
-                    else
-                    {
-                        bool agregar = true;
-                        
-                        if (agregar)
-                        {
-                            DataRow fila = this.DtDetalle_Envio.NewRow();
-                            fila["Idproveedor"] = Convert.ToInt32(this.TBIdproveedor_AutoSQL.Text);
-                            fila["Receptor"] = this.TBReceptor.Text;
-                            fila["País"] = this.TBEnv_Pais.Text;
-                            fila["Ciudad"] = this.TBEnv_Ciudad.Text;
-                            fila["Dirección"] = this.TBEnv_Direccion.Text;
-                            fila["Teléfono"] = this.TBEnv_Telefono.Text;
-                            fila["Móvil"] = this.TBEnv_Movil.Text;
-                            fila["Observación"] = this.TBEnv_Observacion.Text;
-                            this.DtDetalle_Envio.Rows.Add(fila);
-                        }
-
-                        //
-                        this.TBReceptor.Clear();
-                        this.TBEnv_Ciudad.Clear();
-                        this.TBEnv_Direccion.Clear();
-                        this.TBEnv_Movil.Clear();
-                        this.TBEnv_Observacion.Clear();
-                        this.TBEnv_Pais.Clear();
-                        this.TBEnv_Telefono.Clear();
-                    }
-                }
-                else
-                {
-                    string rptaDatosBasicos = "";
-
-                    // <<<<<<------ Panel Datos Basicos ------>>>>>
-
-                    if (this.TBReceptor.Text == String.Empty)
-                    {
-                        this.MensajeError("Por favor Especifique el Nombre del Receptor de Envíos");
-                        this.TBReceptor.Select();
-                    }
-
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Añadir los Datos de Envió al Proveedor?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            rptaDatosBasicos = fProveedor.Guardar_Envio
-
-                                (
-                                     //Datos Auxiliares
-                                     1,
-
-                                     //Datos Basicos
-                                     this.TBReceptor.Text, this.TBEnv_Pais.Text, this.TBEnv_Ciudad.Text, this.TBEnv_Direccion.Text, this.TBEnv_Telefono.Text, this.TBEnv_Movil.Text, this.TBEnv_Observacion.Text
-
-                                );
-
-                            if (rptaDatosBasicos.Equals("OK"))
-                            {
-                                this.MensajeOk("Los Datos de Envio del Proveedor: " + this.TBNombre.Text + " A Sido Registrado Exitosamente");
-                            }
-
-                            else
-                            {
-                                this.MensajeError(rptaDatosBasicos);
-                            }
-
-                            //
-                            this.TBReceptor.Clear();
-                            this.TBEnv_Ciudad.Clear();
-                            this.TBEnv_Direccion.Clear();
-                            this.TBEnv_Movil.Clear();
-                            this.TBEnv_Observacion.Clear();
-                            this.TBEnv_Pais.Clear();
-                            this.TBEnv_Telefono.Clear();
-                        }
-                        else
-                        {
-                            this.TBReceptor.Select();
-                        }
-
-                        //
-                        this.Actualizar_DetEnvio();
-                    }
-                }
+                
             }
             catch (Exception ex)
             {
@@ -2428,10 +2920,10 @@ namespace Presentacion
                             DataRow fila = this.DtDetalle_Banco.NewRow();
                             fila["Idproveedor"] = Convert.ToInt32(this.TBIdproveedor_AutoSQL.Text);
                             fila["Idbanco"] = Convert.ToInt32(this.TBIdbanco.Text);
-                            fila["Codigo"] = this.TBBanco_Documento.Text;
                             fila["Banco"] = this.TBBanco.Text;
-                            fila["Tipo"] = this.CBTipoDeCuenta.SelectedIndex == 0;
-                            fila["Cuenta"] = this.TBCuenta01.Text;
+                            fila["Documento"] = Convert.ToInt64(this.TBBanco_Documento.Text);
+                            fila["Tipo"] = this.CBTipoDeCuenta.Text;
+                            fila["Cuenta"] = Convert.ToInt64(this.TBCuenta01.Text);
                             this.DtDetalle_Banco.Rows.Add(fila);
                         }
 
@@ -2488,9 +2980,10 @@ namespace Presentacion
 
                                 (
                                     //Datos Auxiliares
-                                    1,
-                                     //Datos Basicos
-                                     Convert.ToInt32(this.TBIdbanco.Text), this.CBTipoDeCuenta.Text, Convert.ToInt64(this.TBCuenta01.Text)
+                                    1, Convert.ToInt32(TBIdproveedor.Text),
+
+                                    //Datos Basicos
+                                     Convert.ToInt32(this.TBIdbanco.Text), this.TBBanco.Text,this.TBBanco_Documento.Text, this.CBTipoDeCuenta.Text, Convert.ToInt64(this.TBCuenta01.Text)
                                 );
 
                             if (rptaDatosBasicos.Equals("OK"))
@@ -2563,7 +3056,6 @@ namespace Presentacion
                 this.TBNombre.Text = Campo;
                 this.TBNombre.ForeColor = Color.FromArgb(255, 255, 255);
             }
-
             else
             {
                 TBNombre.BackColor = Color.FromArgb(3, 155, 229);
@@ -2625,8 +3117,9 @@ namespace Presentacion
                                 (
                                     //Datos Auxiliares
                                     1, Convert.ToInt32(TBIdproveedor.Text),
-                                     //Datos Basicos
-                                     Convert.ToInt32(this.TBIdbanco.Text), this.CBTipoDeCuenta.Text, Convert.ToInt64(this.TBCuenta01.Text)
+                                    
+                                    //Datos Basicos
+                                     Convert.ToInt32(this.TBIdbanco.Text), this.TBBanco.Text, this.TBBanco_Documento.Text, this.CBTipoDeCuenta.Text, Convert.ToInt64(this.TBCuenta01.Text)
                                 );
 
                             if (rptaDatosBasicos.Equals("OK"))
@@ -2779,6 +3272,135 @@ namespace Presentacion
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void DGDetalle_Bancario_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                // Teniendo en cuenta que DataGridView1 es tu DataGridView.
+                DataGridViewRow fila = DGDetalle_Bancario.Rows[e.RowIndex];
+
+                //Pasamos los datos de la celda seleccionada a los texboxt correspondientes
+                //this.CBBodega.SelectedValue = Convert.ToString(fila.Cells["Idbodega"].Value);
+                this.TBBanco.Text = Convert.ToString(fila.Cells[2].Value);
+                this.TBBanco_Documento.Text = Convert.ToString(fila.Cells[3].Value);
+                this.CBTipoDeCuenta.Text = Convert.ToString(fila.Cells[4].Value);
+                this.TBCuenta01.Text = Convert.ToString(fila.Cells[5].Value);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void DGDetalle_Envio_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                // Teniendo en cuenta que DataGridView1 es tu DataGridView.
+                DataGridViewRow fila = DGDetalle_Envio.Rows[e.RowIndex];
+
+                //Pasamos los datos de la celda seleccionada a los texboxt correspondientes
+                //this.CBBodega.SelectedValue = Convert.ToString(fila.Cells["Idbodega"].Value);
+                this.TBReceptor.Text = Convert.ToString(fila.Cells[1].Value);
+                this.TBEnv_Pais.Text = Convert.ToString(fila.Cells[2].Value);
+                this.TBEnv_Ciudad.Text = Convert.ToString(fila.Cells[3].Value);
+                this.TBEnv_Direccion.Text = Convert.ToString(fila.Cells[4].Value);
+                this.TBEnv_Telefono.Text = Convert.ToString(fila.Cells[5].Value);
+                this.TBEnv_Movil.Text = Convert.ToString(fila.Cells[6].Value);
+                this.TBEnv_Observacion.Text = Convert.ToString(fila.Cells[7].Value);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void DGDetalle_Envio_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                // Teniendo en cuenta que DataGridView1 es tu DataGridView.
+                DataGridViewRow fila = DGDetalle_Envio.Rows[e.RowIndex];
+
+                //Pasamos los datos de la celda seleccionada a los texboxt correspondientes
+                //this.CBBodega.SelectedValue = Convert.ToString(fila.Cells["Idbodega"].Value);
+                this.TBReceptor.Text = Convert.ToString(fila.Cells[1].Value);
+                this.TBEnv_Pais.Text = Convert.ToString(fila.Cells[2].Value);
+                this.TBEnv_Ciudad.Text = Convert.ToString(fila.Cells[3].Value);
+                this.TBEnv_Direccion.Text = Convert.ToString(fila.Cells[4].Value);
+                this.TBEnv_Telefono.Text = Convert.ToString(fila.Cells[5].Value);
+                this.TBEnv_Movil.Text = Convert.ToString(fila.Cells[6].Value);
+                this.TBEnv_Observacion.Text = Convert.ToString(fila.Cells[7].Value);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void DGDetalle_Bancario_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                // Teniendo en cuenta que DataGridView1 es tu DataGridView.
+                DataGridViewRow fila = DGDetalle_Bancario.Rows[e.RowIndex];
+
+                //Pasamos los datos de la celda seleccionada a los texboxt correspondientes
+                //this.CBBodega.SelectedValue = Convert.ToString(fila.Cells["Idbodega"].Value);
+                this.TBBanco.Text = Convert.ToString(fila.Cells[2].Value);
+                this.TBBanco_Documento.Text = Convert.ToString(fila.Cells[3].Value);
+                this.CBTipoDeCuenta.Text = Convert.ToString(fila.Cells[4].Value);
+                this.TBCuenta01.Text = Convert.ToString(fila.Cells[5].Value);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void TBBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            //{
+            //    ////funciona
+            //    //DGResultados.Rows[2].Cells[2].Selected = true;
+
+            //    ////TAMBIEN FUNCIONA
+            //    //this.DGResultados.CurrentCell = DGResultados.Rows[DGResultados.Rows.Count - 0].Cells[0];
+            //    ////
+            //    ///
+
+            //    //
+            //    this.DGResultados.CurrentCell = this.DGResultados[1, 0];
+
+            //    //this.DGResultados.Rows[2].Cells[0].Selected = true;
+
+            //    ////DGResultados.DataSource = null;
+            //    //DGResultados.Rows.Add();
+            //    //DGResultados.CurrentRow.Cells[1].Selected = true;
+
+
+            //    //this.DGResultados.CurrentCell = DGResultados.Rows[DGResultados.Rows.Count - 1].Cells[0];
+
+
+
+            //    ////DGResultados.Rows[3].Selected = true;
+            //    //DGResultados.SelectedRows[2].Selected = true;
+
+            //    //DGResultados.CurrentCell = DGResultados.Rows[0][1];
+            //}
+        }
+
+        private void TBBuscar_Enter(object sender, EventArgs e)
+        {
+            this.TBBuscar.BackColor = Color.Azure;
+        }
+
+        private void TBBuscar_Leave(object sender, EventArgs e)
+        {
+            this.TBBuscar.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void btnEliminar_Envio_Click(object sender, EventArgs e)

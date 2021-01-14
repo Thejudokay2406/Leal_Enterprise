@@ -19,31 +19,18 @@ namespace Presentacion
         private bool Digitar = true;
         public bool Filtro = true;
         private string Campo = "Campo Obligatorio";
-        private string Numerico = "Campo Numerico - Leal Enterprise";
-
 
         //Variable para Captura el Empleado Logueado
         public int Idempleado;
 
         //Variable para Metodo SQL Guardar, Eliminar, Editar, Consultar
-        public string Guardar = "";
-        public string Editar = "";
-        public string Consultar = "";
-        public string Eliminar = "";
-        public string Imprimir = "";
+        public string Guardar, Editar, Consultar, Eliminar, Imprimir = "";
 
         //Parametros para AutoCompletar los Texboxt
 
         //Panel Datos Basicos
-        public string Idbodega = "";
-        public string Idsucurzal = "";
-        public string Nombre = "";
-        public string Tipo = "";
-        public string Ciudad = "";
-        public string Telefono = "";
-        public string Movil = "";
-        public string Correo = "";
-        public string Responsable = "";
+        public string Idgrupo, Grupo, Descripcion, Observacion = "";
+
         public frmGrupoProductos()
         {
             InitializeComponent();
@@ -86,18 +73,18 @@ namespace Presentacion
         {
             //Panel - Datos Basicos
             this.TBGrupo.Clear();
-            this.TBGrupo.Text = Campo;
             this.TBDescripcion.Clear();
             this.TBDescripcion.Text = Campo;
+            this.TBDescripcion.ForeColor = Color.FromArgb(255, 255, 255);
             this.TBObservacion.Clear();
 
             //Se habilitan los botones a su estado por DEFAULT
             this.Digitar = true;
             this.Botones();
-            this.Habilitar();
 
             //Se realiza el FOCUS al panel y campo de texto iniciales
-            this.TBObservacion.Focus();
+            this.TBGrupo.Focus();
+            this.TBIdgrupo.Clear();
         }
 
         private void Botones()
@@ -105,7 +92,7 @@ namespace Presentacion
             if (Digitar)
             {
                 this.btnGuardar.Enabled = true;
-                this.btnGuardar.Text = "Guardar";
+                this.btnGuardar.Text = "Guardar - F10";
 
                 this.btnEliminar.Enabled = false;
                 this.btnCancelar.Enabled = false;
@@ -113,11 +100,23 @@ namespace Presentacion
             else if (!Digitar)
             {
                 this.btnGuardar.Enabled = true;
-                this.btnGuardar.Text = "Editar";
+                this.btnGuardar.Text = "Editar - F10";
 
                 this.btnEliminar.Enabled = true;
                 this.btnCancelar.Enabled = true;
             }
+        }
+
+        //Mensaje de confirmacion
+        private void MensajeOk(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Leal Enterprise - Solicitud Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+        }
+
+        //Mensaje de Error
+        private void MensajeError(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Leal Enterprise - Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void Guardar_SQL()
@@ -130,11 +129,11 @@ namespace Presentacion
 
                 if (this.TBGrupo.Text == Campo)
                 {
-                    MensajeError("Ingrese el nombre del Origen");
+                    MensajeError("Por Favor Ingrese el Nombre del Grupo");
                 }
                 else if (this.TBDescripcion.Text == Campo)
                 {
-                    MensajeError("Ingrese la Descripcion del Origen");
+                    MensajeError("Por Favor Ingrese la Descripción del Grupo");
                 }
 
                 else
@@ -154,11 +153,11 @@ namespace Presentacion
                     {
                         if (this.Digitar)
                         {
-                            this.MensajeOk("Registro Exitoso");
+                            this.MensajeOk("El Grupo: “" + this.TBGrupo.Text + "” a Sido Registrado Exitosamente");
                         }
                         else
                         {
-                            this.MensajeOk("Registro Actualizado");
+                            this.MensajeOk("Los Datos del Grupo: " + this.TBGrupo.Text + " Han Sido Modificado Exitosamente");
                         }
                     }
 
@@ -178,18 +177,6 @@ namespace Presentacion
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
-        }
-
-        //Mensaje de confirmacion
-        private void MensajeOk(string mensaje)
-        {
-            MessageBox.Show(mensaje, "Leal Enterprise - Solicitud Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-        }
-
-        //Mensaje de Error
-        private void MensajeError(string mensaje)
-        {
-            MessageBox.Show(mensaje, "Leal Enterprise - Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -250,7 +237,6 @@ namespace Presentacion
                 this.Botones();
                 this.Limpiar_Datos();
 
-                this.TBGrupo.Focus();
                 this.TBBuscar.Clear();
 
                 //Se Limpian las Filas y Columnas de la tabla
@@ -322,7 +308,7 @@ namespace Presentacion
                     if (TBBuscar.Text != "")
                     {
                         this.DGResultados.DataSource = fGrupoDeProducto.Buscar(this.TBBuscar.Text, 1);
-                        //this.DGResultados.Columns[0].Visible = false;
+                        this.DGResultados.Columns[0].Visible = false;
 
                         lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGResultados.Rows.Count);
 
@@ -361,10 +347,8 @@ namespace Presentacion
                     this.Digitar = false;
                     this.Botones();
 
-                    this.TBIdgrupo.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells["Codigo"].Value);
-                    this.TBGrupo.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells["Grupo"].Value);
-                    this.TBDescripcion.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells["Descripcion"].Value);
-                    this.TBObservacion.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells["Observacion"].Value);
+                    //
+                    this.TBIdgrupo.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells[0].Value);
 
                     this.TBGrupo.Select();
                 }
@@ -381,7 +365,33 @@ namespace Presentacion
 
         private void DGResultados_KeyPress(object sender, KeyPressEventArgs e)
         {
+            try
+            {
+                if (Convert.ToInt32(e.KeyChar) == Convert.ToInt32(Keys.Enter))
+                {
+                    if (Editar == "1")
+                    {
+                        //
+                        this.Digitar = false;
+                        this.Botones();
 
+                        this.TBIdgrupo.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells[0].Value);
+                        this.TBGrupo.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells[1].Value);
+                        this.TBDescripcion.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells[2].Value);
+                        this.TBObservacion.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells[3].Value);
+
+                        this.TBGrupo.Select();
+                    }
+                    else
+                    {
+                        MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Actualizar Datos en el Sistema", "Leal Enterprise - 'Acceso Denegado' ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
 
         private void TBIdorigen_KeyUp(object sender, KeyEventArgs e)
@@ -411,14 +421,18 @@ namespace Presentacion
 
                     this.TBDescripcion.Select();
                 }
-
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
-                    //Al precionar la tecla Control+TAB Se cambia las pestaña del TapControl
-                    //Y se realiza Focus al primer Texboxt de la segunda pestaña del TapControl
+                    this.Digitar = true;
+                    this.Botones();
+                    this.Limpiar_Datos();
 
-                    //this.TCPrincipal.SelectedIndex = 1;
-                    this.TBBuscar.Select();
+                    this.TBGrupo.Focus();
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
@@ -487,14 +501,18 @@ namespace Presentacion
 
                     this.TBObservacion.Select();
                 }
-
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
-                    //Al precionar la tecla Control+TAB Se cambia las pestaña del TapControl
-                    //Y se realiza Focus al primer Texboxt de la segunda pestaña del TapControl
+                    this.Digitar = true;
+                    this.Botones();
+                    this.Limpiar_Datos();
 
-                    //this.TCPrincipal.SelectedIndex = 1;
-                    this.TBBuscar.Select();
+                    this.TBGrupo.Focus();
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
@@ -563,14 +581,18 @@ namespace Presentacion
 
                     this.TBGrupo.Select();
                 }
-
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
-                    //Al precionar la tecla Control+TAB Se cambia las pestaña del TapControl
-                    //Y se realiza Focus al primer Texboxt de la segunda pestaña del TapControl
+                    this.Digitar = true;
+                    this.Botones();
+                    this.Limpiar_Datos();
 
-                    //this.TCPrincipal.SelectedIndex = 1;
-                    this.TBBuscar.Select();
+                    this.TBGrupo.Focus();
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
@@ -643,10 +665,11 @@ namespace Presentacion
                 this.TBGrupo.ForeColor = Color.FromArgb(0, 0, 0);
                 this.TBGrupo.Clear();
             }
-            else
+            else if (TBGrupo.Text != Campo)
             {
                 //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
                 this.TBGrupo.BackColor = Color.Azure;
+                this.TBGrupo.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 
@@ -663,6 +686,7 @@ namespace Presentacion
             {
                 //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
                 this.TBDescripcion.BackColor = Color.Azure;
+                this.TBDescripcion.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 
@@ -712,24 +736,99 @@ namespace Presentacion
 
         private void TBObservacion_Leave(object sender, EventArgs e)
         {
-            if (TBObservacion.Text == string.Empty)
-            {
-                //Color de texboxt cuando este posee el FOCUS Activado
-                this.TBObservacion.BackColor = Color.FromArgb(3, 155, 229);
-                this.TBObservacion.Text = Campo;
-                this.TBObservacion.ForeColor = Color.FromArgb(255, 255, 255);
-            }
-
-            else
-            {
-                this.TBObservacion.ForeColor = Color.FromArgb(0, 0, 0);
-                this.TBObservacion.BackColor = Color.FromArgb(3, 155, 229);
-            }
+            this.TBObservacion.BackColor = Color.FromArgb(3, 155, 229);
         }
         
         private void TBBuscar_Leave(object sender, EventArgs e)
         {
             this.TBBuscar.BackColor = Color.FromArgb(3, 155, 229);
+        }
+
+        private void DGResultados_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F4))
+            {
+                if (Eliminar == "1")
+                {
+
+                    DialogResult Opcion;
+                    string Respuesta = "";
+                    int Eliminacion;
+
+                    Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                    if (Opcion == DialogResult.OK)
+                    {
+                        if (DGResultados.SelectedRows.Count > 0)
+                        {
+                            Eliminacion = Convert.ToInt32(DGResultados.CurrentRow.Cells[0].Value.ToString());
+                            Respuesta = Negocio.fGrupoDeProducto.Eliminar(Eliminacion, 0);
+                        }
+
+                        if (Respuesta.Equals("OK"))
+                        {
+                            this.MensajeOk("Registro Eliminado Correctamente");
+                        }
+                        else
+                        {
+                            this.MensajeError(Respuesta);
+                        }
+
+                        //Botones Comunes
+                        this.Digitar = true;
+                        this.TBBuscar.Clear();
+                        this.Botones();
+                        this.Limpiar_Datos();
+
+                        //Se regresa el focus al campo principal
+                        this.TBGrupo.Select();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise - Solicitud Rechazada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+        }
+
+        private void frmGrupoProductos_Activated(object sender, EventArgs e)
+        {
+            this.TBGrupo.Select();
+        }
+
+        private void TBIdgrupo_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (TBIdgrupo.Text != string.Empty)
+                {
+                    // ENVIAN LOS DATOS A LA BASE DE DATOS Y SE EVALUAN QUE EXISTEN O ESTEN REGISTRADOS
+
+                    DataTable Datos = Negocio.fGrupoDeProducto.Buscar(this.TBIdgrupo.Text, 2);
+                    //Evaluamos si  existen los Datos
+                    if (Datos.Rows.Count == 0)
+                    {
+                        MessageBox.Show("No Se Encontraron Registros en la Base de Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+
+                        //Panel Datos Basicos
+                        Grupo = Datos.Rows[0][0].ToString();
+                        Descripcion = Datos.Rows[0][1].ToString();
+                        Observacion = Datos.Rows[0][2].ToString();
+                        //SE PROCEDE A LLENAR LOS CAMPOS DE TEXTO SEGUN LA CONSULTA REALIZADA
+
+                        this.TBGrupo.Text = Grupo;
+                        this.TBDescripcion.Text = Descripcion;
+                        this.TBObservacion.Text = Observacion;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
     }
 }

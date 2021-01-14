@@ -24,24 +24,13 @@ namespace Presentacion
         public int Idempleado;
 
         //Variable para Metodo SQL Guardar, Eliminar, Editar, Consultar
-        public string Guardar = "";
-        public string Editar = "";
-        public string Consultar = "";
-        public string Eliminar = "";
-        public string Imprimir = "";
+        public string Guardar, Editar, Consultar, Eliminar, Imprimir = "";
 
         //Parametros para AutoCompletar los Texboxt
 
         //Panel Datos Basicos
-        public string Idbodega = "";
-        public string Idsucurzal = "";
-        public string Nombre = "";
-        public string Tipo = "";
-        public string Ciudad = "";
-        public string Telefono = "";
-        public string Movil = "";
-        public string Correo = "";
-        public string Responsable = "";
+        public string Idsucurzal, Sucurzal, Nit, Descripcion, Gerente, Pais, Ciudad, Direccion = "";
+        
         public frmSucurzal()
         {
             InitializeComponent();
@@ -63,28 +52,23 @@ namespace Presentacion
         private void Habilitar()
         {
             //Panel - Datos Basicos
-
-            this.TBCodigo.ReadOnly = false;
-            this.TBCodigo.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBCodigo.ForeColor = Color.FromArgb(255, 255, 255);
-            this.TBCodigo.Text = Campo;
-            this.TBDescripcion.ReadOnly = false;
-            this.TBDescripcion.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBDescripcion.ForeColor = Color.FromArgb(255, 255, 255);
-            this.TBDescripcion.Text = Campo;
             this.TBSucurzal.ReadOnly = false;
             this.TBSucurzal.BackColor = Color.FromArgb(3, 155, 229);
             this.TBSucurzal.ForeColor = Color.FromArgb(255, 255, 255);
             this.TBSucurzal.Text = Campo;
+            this.TBDescripcion.ReadOnly = false;
+            this.TBDescripcion.BackColor = Color.FromArgb(3, 155, 229);
             this.TBNit.ReadOnly = false;
             this.TBNit.BackColor = Color.FromArgb(3, 155, 229);
             this.TBNit.ForeColor = Color.FromArgb(255, 255, 255);
             this.TBNit.Text = Campo;
+            this.TBGerente.ReadOnly = false;
+            this.TBGerente.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBGerente.ForeColor = Color.FromArgb(255, 255, 255);
+            this.TBGerente.Text = Campo;
 
             this.TBCiudad.ReadOnly = false;
             this.TBCiudad.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBGerente.ReadOnly = false;
-            this.TBGerente.BackColor = Color.FromArgb(3, 155, 229);
             this.TBPais.ReadOnly = false;
             this.TBPais.BackColor = Color.FromArgb(3, 155, 229);
             this.TBDireccion.ReadOnly = false;
@@ -97,23 +81,19 @@ namespace Presentacion
         private void Limpiar_Datos()
         {
             //Panel - Datos Basicos
-
-            this.TBCodigo.Clear();
-            this.TBCodigo.Text = Campo;
-            this.TBDescripcion.Clear();
-            this.TBDescripcion.Text = Campo;
             this.TBSucurzal.Clear();
-            this.TBSucurzal.Text = Campo;
             this.TBNit.Clear();
-            this.TBNit.Text = Campo;
-
+            this.TBNit.Text = Campo;        
             this.TBGerente.Clear();
+            this.TBGerente.Text = Campo;
+            this.TBDescripcion.Clear();
             this.TBPais.Clear();
             this.TBCiudad.Clear();
             this.TBDireccion.Clear();
 
             //Se realiza el FOCUS al panel y campo de texto iniciales
-            this.TBSucurzal.Focus();
+            this.TBSucurzal.Select();
+            this.TBIdsucurzal.Clear();
         }
 
         private void Botones()
@@ -121,7 +101,7 @@ namespace Presentacion
             if (Digitar)
             {
                 this.btnGuardar.Enabled = true;
-                this.btnGuardar.Text = "Guardar";
+                this.btnGuardar.Text = "Guardar - F10";
 
                 this.btnEliminar.Enabled = false;
                 this.btnCancelar.Enabled = false;
@@ -129,7 +109,7 @@ namespace Presentacion
             else if (!Digitar)
             {
                 this.btnGuardar.Enabled = true;
-                this.btnGuardar.Text = "Editar";
+                this.btnGuardar.Text = "Editar - F10";
 
                 this.btnEliminar.Enabled = true;
                 this.btnCancelar.Enabled = true;
@@ -147,10 +127,6 @@ namespace Presentacion
                 if (this.TBSucurzal.Text == Campo)
                 {
                     MensajeError("Ingrese el nombre de la Sucurzal a registrar");
-                }
-                else if (this.TBCodigo.Text == Campo)
-                {
-                    MensajeError("Ingrese el Codigo ID de la Sucurzal");
                 }
                 else if (this.TBDescripcion.Text == Campo)
                 {
@@ -174,8 +150,7 @@ namespace Presentacion
                                  1,
 
                                  //Panel Datos Basicos
-                                 this.TBCodigo.Text, this.TBSucurzal.Text, this.TBNit.Text, this.TBDescripcion.Text, this.TBGerente.Text,
-                                 this.TBPais.Text, this.TBCiudad.Text, this.TBDireccion.Text
+                                 this.TBSucurzal.Text, this.TBNit.Text, this.TBDescripcion.Text, this.TBGerente.Text, this.TBPais.Text, this.TBCiudad.Text, this.TBDireccion.Text
                             );
                     }
                     else
@@ -186,8 +161,7 @@ namespace Presentacion
                                  2,
 
                                  //Panel Datos Basicos
-                                 Convert.ToInt32(this.TBIdsucurzal.Text), this.TBCodigo.Text, this.TBSucurzal.Text, this.TBNit.Text, this.TBDescripcion.Text, this.TBGerente.Text,
-                                 this.TBPais.Text, this.TBCiudad.Text, this.TBDireccion.Text
+                                 Convert.ToInt32(this.TBIdsucurzal.Text), this.TBSucurzal.Text, this.TBNit.Text, this.TBDescripcion.Text, this.TBGerente.Text, this.TBPais.Text, this.TBCiudad.Text, this.TBDireccion.Text
                             );
                     }
 
@@ -195,11 +169,11 @@ namespace Presentacion
                     {
                         if (this.Digitar)
                         {
-                            this.MensajeOk("Registro Exitoso");
+                            this.MensajeOk("La Sucurzal: “" + this.TBSucurzal.Text + "” a Sido Registrada Exitosamente");
                         }
                         else
                         {
-                            this.MensajeOk("Registro Actualizado");
+                            this.MensajeOk("Los Datos de la Sucurzal: " + this.TBSucurzal.Text + " han Sido Modificados Exitosamente");
                         }
                     }
                     else
@@ -208,7 +182,8 @@ namespace Presentacion
                     }
 
                     //Llamada de Clase
-                    this.Digitar = false;
+                    this.Digitar = true;
+                    this.Botones();
                     this.Limpiar_Datos();
                 }
 
@@ -278,14 +253,15 @@ namespace Presentacion
         {
             try
             {
+                this.Digitar = true;
+                this.Botones();
                 this.Limpiar_Datos();
+
+                this.TBBuscar.Clear();
 
                 //Se Limpian las Filas y Columnas de la tabla
                 this.DGResultados.DataSource = null;
-                this.DGResultados.Enabled = false;
                 this.lblTotal.Text = "Datos Registrados: 0";
-                this.TBBuscar.Clear();
-
             }
             catch (Exception ex)
             {
@@ -310,7 +286,7 @@ namespace Presentacion
                     {
                         if (DGResultados.SelectedRows.Count > 0)
                         {
-                            Eliminacion = Convert.ToInt32(DGResultados.CurrentRow.Cells["ID"].Value.ToString());
+                            Eliminacion = Convert.ToInt32(DGResultados.CurrentRow.Cells[0].Value.ToString());
                             Respuesta = Negocio.fSucurzal.Eliminar(Eliminacion, 0);
                         }
 
@@ -352,7 +328,7 @@ namespace Presentacion
                 {
                     if (TBBuscar.Text != "")
                     {
-                        this.DGResultados.DataSource = fCliente.Buscar(this.TBBuscar.Text, 1);
+                        this.DGResultados.DataSource = fSucurzal.Buscar(this.TBBuscar.Text, 1);
                         //this.DGResultadoss.Columns[1].Visible = false;
 
                         lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGResultados.Rows.Count);
@@ -384,17 +360,16 @@ namespace Presentacion
         {
             try
             {
-                this.Digitar = false;
-
                 if (Editar == "1")
                 {
                     //
-                    this.TBIdsucurzal.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells["Codigo"].Value);
-                    this.TBSucurzal.Select();
+                    this.Digitar = false;
+                    this.Botones();
 
                     //
-                    this.Limpiar_Datos();
+                    this.TBIdsucurzal.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells[0].Value);
 
+                    this.TBSucurzal.Select();
                 }
                 else
                 {
@@ -407,58 +382,7 @@ namespace Presentacion
             }
         }
 
-        private void DGResultados_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            try
-            {
-                if (e.KeyChar == Convert.ToChar(Keys.Enter))
-                {
-                    this.Digitar = false;
-
-                    if (Editar == "1")
-                    {
-                        //
-                        this.TBIdsucurzal.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells["Codigo"].Value);
-                        this.TBSucurzal.Select();
-
-                        //Se procede Habilitar los campos de Textos y Botones
-                        //cuando se le realice el evento Clip del Boton Ediatar/Guardar
-
-                        this.Habilitar();
-                        this.btnGuardar.Enabled = true;
-                        this.btnCancelar.Enabled = true;
-
-                        //
-                        this.Limpiar_Datos();
-                    }
-                    else
-                    {
-                        MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Actualizar Datos", "Leal Enterprise - 'Acceso Denegado' ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
         //******************** FOCUS ENTER DATOS BASICOS ********************
-        private void TBCodigo_Enter(object sender, EventArgs e)
-        {
-            //Se evalua si el campo de texto esta vacio y se espeicifca que es obligatorio en la base de datos
-            if (TBCodigo.Text == Campo)
-            {
-                this.TBCodigo.BackColor = Color.Azure;
-                this.TBCodigo.ForeColor = Color.FromArgb(0, 0, 0);
-                this.TBCodigo.Clear();
-            }
-            else
-            {
-                //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
-                this.TBCodigo.BackColor = Color.Azure;
-            }
-        }
 
         private void TBSucurzal_Enter(object sender, EventArgs e)
         {
@@ -473,6 +397,7 @@ namespace Presentacion
             {
                 //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
                 this.TBSucurzal.BackColor = Color.Azure;
+                this.TBSucurzal.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 
@@ -489,23 +414,13 @@ namespace Presentacion
             {
                 //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
                 this.TBNit.BackColor = Color.Azure;
+                this.TBNit.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 
         private void TBDescripcion_Enter(object sender, EventArgs e)
         {
-            //Se evalua si el campo de texto esta vacio y se espeicifca que es obligatorio en la base de datos
-            if (TBDescripcion.Text == Campo)
-            {
-                this.TBDescripcion.BackColor = Color.Azure;
-                this.TBDescripcion.ForeColor = Color.FromArgb(0, 0, 0);
-                this.TBDescripcion.Clear();
-            }
-            else
-            {
-                //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
-                this.TBDescripcion.BackColor = Color.Azure;
-            }
+            this.TBDescripcion.BackColor = Color.Azure;
         }
 
         private void TBGerente_Enter(object sender, EventArgs e)
@@ -521,6 +436,7 @@ namespace Presentacion
             {
                 //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
                 this.TBGerente.BackColor = Color.Azure;
+                this.TBGerente.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 
@@ -540,21 +456,6 @@ namespace Presentacion
         }
 
         //******************** FOCUS LEAVE DATOS BASICOS ********************
-        private void TBCodigo_Leave(object sender, EventArgs e)
-        {
-            if (TBCodigo.Text == string.Empty)
-            {
-                //Color de texboxt cuando este posee el FOCUS Activado
-                this.TBCodigo.BackColor = Color.FromArgb(3, 155, 229);
-                this.TBCodigo.Text = Campo;
-                this.TBCodigo.ForeColor = Color.FromArgb(255, 255, 255);
-            }
-
-            else
-            {
-                TBCodigo.BackColor = Color.FromArgb(3, 155, 229);
-            }
-        }
 
         private void TBSucurzal_Leave(object sender, EventArgs e)
         {
@@ -584,24 +485,14 @@ namespace Presentacion
 
             else
             {
-                TBNit.BackColor = Color.FromArgb(3, 155, 229);
+                this.TBNit.BackColor = Color.FromArgb(3, 155, 229);
+                this.TBNit.ForeColor = Color.FromArgb(255, 255, 255);
             }
         }
 
         private void TBDescripcion_Leave(object sender, EventArgs e)
         {
-            if (TBDescripcion.Text == string.Empty)
-            {
-                //Color de texboxt cuando este posee el FOCUS Activado
-                this.TBDescripcion.BackColor = Color.FromArgb(3, 155, 229);
-                this.TBDescripcion.Text = Campo;
-                this.TBDescripcion.ForeColor = Color.FromArgb(255, 255, 255);
-            }
-
-            else
-            {
-                TBDescripcion.BackColor = Color.FromArgb(3, 155, 229);
-            }
+            this.TBDescripcion.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBGerente_Leave(object sender, EventArgs e)
@@ -620,85 +511,46 @@ namespace Presentacion
             }
         }
 
-        private void TBPais_Leave(object sender, EventArgs e)
-        {
-            TBPais.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBCiudad_Leave(object sender, EventArgs e)
-        {
-            TBCiudad.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBDireccion_Leave(object sender, EventArgs e)
-        {
-            TBDireccion.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBCodigo_KeyUp(object sender, KeyEventArgs e)
+        private void DGResultados_KeyUp(object sender, KeyEventArgs e)
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F4))
                 {
-                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
-
-                    this.TBSucurzal.Select();
-                }
-
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
-                {
-                    this.TBBuscar.Select();
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
-                {
-                    //Al precionar las teclas F10 se realizara el registro en la base de datos
-                    //Y se realizara las validaciones en el sistema
-
-                    if (Digitar)
+                    if (Eliminar == "1")
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo,  MessageBoxIcon.Question);
 
-                        if (result == DialogResult.Yes)
+                        DialogResult Opcion;
+                        string Respuesta = "";
+                        int Eliminacion;
+
+                        Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                        if (Opcion == DialogResult.OK)
                         {
-                            if (Guardar == "1")
+                            if (DGResultados.SelectedRows.Count > 0)
                             {
-                                //Llamada de Clase
-                                this.Guardar_SQL();
+                                Eliminacion = Convert.ToInt32(DGResultados.CurrentRow.Cells[0].Value.ToString());
+                                Respuesta = Negocio.fSucurzal.Eliminar(Eliminacion, 0);
+                            }
+
+                            if (Respuesta.Equals("OK"))
+                            {
+                                this.MensajeOk("Registro Eliminado Correctamente");
                             }
                             else
                             {
-                                                            MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
-                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
-                                this.Digitar = false;
-                                this.Limpiar_Datos();
+                                this.MensajeError(Respuesta);
                             }
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCodigo.Select();
+
+                            //Botones Comunes
+                            this.TBBuscar.Clear();
+                            this.Limpiar_Datos();
                         }
                     }
                     else
                     {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los Campos Consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            //Llamada de Clase
-                            this.Digitar = false;
-                            this.Limpiar_Datos();
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCodigo.Select();
-                        }
+                        MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise - Solicitud Rechazada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                 }
             }
@@ -706,6 +558,31 @@ namespace Presentacion
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
+        }
+
+        private void TBBuscar_Enter(object sender, EventArgs e)
+        {
+            this.TBBuscar.BackColor = Color.Azure;
+        }
+
+        private void TBBuscar_Leave(object sender, EventArgs e)
+        {
+            this.TBBuscar.BackColor = Color.FromArgb(3, 155, 229);
+        }
+
+        private void TBPais_Leave(object sender, EventArgs e)
+        {
+            this.TBPais.BackColor = Color.FromArgb(3, 155, 229);
+        }
+
+        private void TBCiudad_Leave(object sender, EventArgs e)
+        {
+            this.TBCiudad.BackColor = Color.FromArgb(3, 155, 229);
+        }
+
+        private void TBDireccion_Leave(object sender, EventArgs e)
+        {
+            this.TBDireccion.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBSucurzal_KeyUp(object sender, KeyEventArgs e)
@@ -719,9 +596,17 @@ namespace Presentacion
                     this.TBNit.Select();
                 }
 
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
-                    this.TBBuscar.Select();
+                    this.Digitar = true;
+                    this.Botones();
+                    this.Limpiar_Datos();
+
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
@@ -792,9 +677,17 @@ namespace Presentacion
                     this.TBDescripcion.Select();
                 }
 
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
-                    this.TBBuscar.Select();
+                    this.Digitar = true;
+                    this.Botones();
+                    this.Limpiar_Datos();
+
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
@@ -865,9 +758,17 @@ namespace Presentacion
                     this.TBGerente.Select();
                 }
 
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
-                    this.TBBuscar.Select();
+                    this.Digitar = true;
+                    this.Botones();
+                    this.Limpiar_Datos();
+
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
@@ -938,9 +839,17 @@ namespace Presentacion
                     this.TBPais.Select();
                 }
 
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
-                    this.TBBuscar.Select();
+                    this.Digitar = true;
+                    this.Botones();
+                    this.Limpiar_Datos();
+
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
@@ -1011,9 +920,17 @@ namespace Presentacion
                     this.TBCiudad.Select();
                 }
 
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
-                    this.TBBuscar.Select();
+                    this.Digitar = true;
+                    this.Botones();
+                    this.Limpiar_Datos();
+
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
@@ -1084,9 +1001,17 @@ namespace Presentacion
                     this.TBDireccion.Select();
                 }
 
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
-                    this.TBBuscar.Select();
+                    this.Digitar = true;
+                    this.Botones();
+                    this.Limpiar_Datos();
+
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
@@ -1157,9 +1082,17 @@ namespace Presentacion
                     this.TBSucurzal.Select();
                 }
 
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
-                    this.TBBuscar.Select();
+                    this.Digitar = true;
+                    this.Botones();
+                    this.Limpiar_Datos();
+
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
@@ -1210,6 +1143,49 @@ namespace Presentacion
                             //Donde se realizo la operacion o combinacion de teclas
                             this.TBDireccion.Select();
                         }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void TBIdsucurzal_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (TBIdsucurzal.Text != string.Empty)
+                {
+                    // ENVIAN LOS DATOS A LA BASE DE DATOS Y SE EVALUAN QUE EXISTEN O ESTEN REGISTRADOS
+
+                    DataTable Datos = Negocio.fSucurzal.Buscar(this.TBIdsucurzal.Text, 2);
+                    //Evaluamos si  existen los Datos
+                    if (Datos.Rows.Count == 0)
+                    {
+                        MessageBox.Show("No Se Encontraron Registros en la Base de Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+
+                        //Panel Datos Basicos
+                        Sucurzal = Datos.Rows[0][0].ToString();
+                        Nit = Datos.Rows[0][1].ToString();
+                        Descripcion = Datos.Rows[0][2].ToString();
+                        Gerente = Datos.Rows[0][3].ToString();
+                        Pais = Datos.Rows[0][4].ToString();
+                        Ciudad = Datos.Rows[0][5].ToString();
+                        Direccion = Datos.Rows[0][6].ToString();
+                        //SE PROCEDE A LLENAR LOS CAMPOS DE TEXTO SEGUN LA CONSULTA REALIZADA
+
+                        this.TBSucurzal.Text = Sucurzal;
+                        this.TBNit.Text = Nit;
+                        this.TBDescripcion.Text = Descripcion;
+                        this.TBGerente.Text = Gerente;
+                        this.TBPais.Text = Pais;
+                        this.TBCiudad.Text = Ciudad;
+                        this.TBDireccion.Text = Direccion;
                     }
                 }
             }

@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 
 namespace Datos
 {
-    public class Conexion_GrupoDeProductoDeCliente
+    public class Conexion_GrupoDeCliente
     {
         public DataTable Lista()
         {
@@ -20,7 +20,7 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.GrupoCliente", SqlCon);
+                SqlCommand Comando = new SqlCommand("Cliente.LI_Grupo", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
                 SqlCon.Open();
                 Resultado = Comando.ExecuteReader();
@@ -48,10 +48,10 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.GrupoCliente", SqlCon);
+                SqlCommand Comando = new SqlCommand("Cliente.LI_Grupo", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
-                Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Consulta", SqlDbType.Int).Value = Auto;
                 Comando.Parameters.Add("@Filtro", SqlDbType.VarChar).Value = Valor;
 
                 SqlCon.Open();
@@ -72,7 +72,7 @@ namespace Datos
             }
         }
 
-        public string Guardar_DatosBasicos(Entidad_GrupoDeProductoDeCliente Obj)
+        public string Guardar_DatosBasicos(Entidad_GrupoDeCliente Obj)
         {
             string Rpta = "";
             SqlConnection SqlCon = new SqlConnection();
@@ -107,7 +107,7 @@ namespace Datos
             return Rpta;
         }
 
-        public string Editar_DatosBasicos(Entidad_GrupoDeProductoDeCliente Obj)
+        public string Editar_DatosBasicos(Entidad_GrupoDeCliente Obj)
         {
             string Rpta = "";
             SqlConnection SqlCon = new SqlConnection();
@@ -150,7 +150,7 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.GrupoCliente", SqlCon);
+                SqlCommand Comando = new SqlCommand("Cliente.LI_Grupo", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Panel Datos Basicos

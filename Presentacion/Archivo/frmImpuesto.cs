@@ -88,8 +88,10 @@ namespace Presentacion
 
             this.TBImpuesto.Clear();
             this.TBImpuesto.Text = Campo;
+            this.TBImpuesto.ForeColor = Color.FromArgb(255, 255, 255);
             this.TBValor.Clear();
             this.TBValor.Text = Campo;
+            this.TBValor.ForeColor = Color.FromArgb(255, 255, 255);
             this.TBDescripcion.Clear();
             this.TBCompra.Clear();
             this.TBVenta.Clear();
@@ -103,6 +105,7 @@ namespace Presentacion
 
             //Se realiza el FOCUS al panel y campo de texto iniciales
             this.TBImpuesto.Focus();
+            this.TBIdimpuesto.Focus();
         }
 
         private void Botones()
@@ -225,7 +228,7 @@ namespace Presentacion
                         }
                         else
                         {
-                            this.MensajeOk("Registro del Impuesto: " + this.TBImpuesto.Text + " a Sido Actualizado Exitosamente");
+                            this.MensajeOk("Los Datos del Impuesto: " + this.TBImpuesto.Text + " Han Sido Modificado Exitosamente");
                         }
                     }
                     else
@@ -342,8 +345,8 @@ namespace Presentacion
                     {
                         if (DGResultados.SelectedRows.Count > 0)
                         {
-                            Eliminacion = Convert.ToInt32(DGResultados.CurrentRow.Cells["Codigo"].Value.ToString());
-                            Respuesta = Negocio.fImpuesto.Eliminar(Eliminacion, 1);
+                            Eliminacion = Convert.ToInt32(DGResultados.CurrentRow.Cells[0].Value.ToString());
+                            Respuesta = Negocio.fImpuesto.Eliminar(Eliminacion, 0);
                         }
 
                         if (Respuesta.Equals("OK"))
@@ -473,11 +476,31 @@ namespace Presentacion
             this.TBImpuesto.Focus();
         }
 
+        private void DGResultados_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                if (Editar == "1")
+                {
+                    //
+                    this.Digitar = false;
+                    this.TBImpuesto.Focus();
+                    this.Botones();
+
+                    this.TBIdimpuesto.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells[0].Value);
+                }
+                else
+                {
+                    MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Actualizar Datos en el Sistema", "Leal Enterprise - 'Acceso Denegado' ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+        }
+
         private void TBIdimpuesto_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                DataTable Datos = Negocio.fImpuesto.BuscarExistencia_SQL(this.TBIdimpuesto.Text);
+                DataTable Datos = Negocio.fImpuesto.Buscar(this.TBIdimpuesto.Text, 2);
                 //Evaluamos si  existen los Datos
                 if (Datos.Rows.Count == 0)
                 {

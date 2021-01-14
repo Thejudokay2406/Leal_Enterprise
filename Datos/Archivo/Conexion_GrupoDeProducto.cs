@@ -20,7 +20,7 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.GrupoProducto", SqlCon);
+                SqlCommand Comando = new SqlCommand("Productos.LI_Grupo", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
                 SqlCon.Open();
                 Resultado = Comando.ExecuteReader();
@@ -48,10 +48,10 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.GrupoProducto", SqlCon);
+                SqlCommand Comando = new SqlCommand("Productos.LI_Grupo", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
-                Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Consulta", SqlDbType.Int).Value = Auto;
                 Comando.Parameters.Add("@Filtro", SqlDbType.VarChar).Value = Valor;
 
                 SqlCon.Open();
@@ -121,7 +121,7 @@ namespace Datos
                 Comando.Parameters.Add("@Idgrupo", SqlDbType.Int).Value = Obj.Idgrupo;
 
                 //Panel Datos Basicos
-                Comando.Parameters.Add("@Origen", SqlDbType.VarChar).Value = Obj.Grupo;
+                Comando.Parameters.Add("@Grupo", SqlDbType.VarChar).Value = Obj.Grupo;
                 Comando.Parameters.Add("@Descripcion", SqlDbType.VarChar).Value = Obj.Descripcion;
                 Comando.Parameters.Add("@Observacion", SqlDbType.VarChar).Value = Obj.Observacion;
 
@@ -149,11 +149,11 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.GrupoProducto", SqlCon);
+                SqlCommand Comando = new SqlCommand("Productos.LI_Grupo", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Panel Datos Basicos
-                Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Consulta", SqlDbType.Int).Value = Auto;
                 Comando.Parameters.Add("@Idgrupo", SqlDbType.Int).Value = IDEliminar_Sql;
 
                 SqlCon.Open();

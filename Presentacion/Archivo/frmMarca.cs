@@ -49,7 +49,10 @@ namespace Presentacion
         private void Habilitar()
         {
             //Panel - Datos Basicos
-
+            this.TBCodigo.ReadOnly = false;
+            this.TBCodigo.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBCodigo.ForeColor = Color.FromArgb(255, 255, 255);
+            this.TBCodigo.Text = Campo;
             this.TBNombre.ReadOnly = false;
             this.TBNombre.BackColor = Color.FromArgb(3, 155, 229);
             this.TBNombre.ForeColor = Color.FromArgb(255, 255, 255);
@@ -72,14 +75,14 @@ namespace Presentacion
             //Panel - Datos Basicos
             this.TBCodigo.Clear();
             this.TBNombre.Clear();
-            this.TBNombre.Text = Campo;
             this.TBDescripcion.Clear();
             this.TBDescripcion.Text = Campo;
             this.TBReferencia.Clear();
             this.TBObservacion.Clear();
 
             //Se realiza el FOCUS al panel y campo de texto iniciales
-            this.TBObservacion.Focus();
+            this.TBIdmarca.Clear();
+            this.TBNombre.Focus();
         }
 
         private void Botones()
@@ -87,7 +90,7 @@ namespace Presentacion
             if (Digitar)
             {
                 this.btnGuardar.Enabled = true;
-                this.btnGuardar.Text = "Guardar";
+                this.btnGuardar.Text = "Guardar - F10";
 
                 this.btnEliminar.Enabled = false;
                 this.btnCancelar.Enabled = false;
@@ -95,7 +98,7 @@ namespace Presentacion
             else if (!Digitar)
             {
                 this.btnGuardar.Enabled = true;
-                this.btnGuardar.Text = "Editar";
+                this.btnGuardar.Text = "Editar - F10";
 
                 this.btnEliminar.Enabled = false;
                 this.btnCancelar.Enabled = true;
@@ -140,7 +143,7 @@ namespace Presentacion
 
                         else
                         {
-                            this.MensajeOk("El Registro de la Marca: " + this.TBNombre.Text + " a Sido Actualizado Exitosamente");
+                            this.MensajeOk("Los Datos de la Marca: " + this.TBNombre.Text + " han Sido Modificados Exitosamente");
                         }
                     }
                     else
@@ -303,6 +306,7 @@ namespace Presentacion
                     if (TBBuscar.Text != "")
                     {
                         this.DGResultados.DataSource = fMarca.Buscar(this.TBBuscar.Text, 1);
+                        this.DGResultados.Columns[0].Visible = false;
                         this.lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGResultados.Rows.Count);
 
                         this.btnEliminar.Enabled = true;

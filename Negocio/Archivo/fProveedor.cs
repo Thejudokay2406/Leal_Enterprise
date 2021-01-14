@@ -11,8 +11,13 @@ using System.Data;
 namespace Negocio
 {
     public class fProveedor
-
     {
+        public static DataTable AutoComplementar_SQL(int auto)
+        {
+            Conexion_Proveedor Datos = new Conexion_Proveedor();
+            return Datos.AutoComplementar_SQL(auto);
+        }
+
         public static DataTable Lista()
         {
             Conexion_Proveedor Datos = new Conexion_Proveedor();
@@ -37,19 +42,24 @@ namespace Negocio
             return Datos.Buscar(Filtro, auto);
         }
 
-        public static DataTable BuscarExistencia_SQL(string Filtro)
+        public static DataTable Buscar_Envio(string Filtro, int auto)
         {
             Conexion_Proveedor Datos = new Conexion_Proveedor();
-            return Datos.BuscarExistencia_SQL(Filtro);
+            return Datos.Buscar_Envio(Filtro, auto);
+        }
+
+        public static DataTable Buscar_Banco(string Filtro, int auto)
+        {
+            Conexion_Proveedor Datos = new Conexion_Proveedor();
+            return Datos.Buscar_Banco(Filtro, auto);
         }
 
         public static string Guardar_DatosBasicos
             (
                 //Datos Auxiliares y Llaves Primaria
-                int auto,
+                int auto, int idsucurzal,
 
-                string tipo, string nombre, string documento, string representante, string pais,
-                string ciudad, string nacionalidad, string telefono, string movil, string correo,
+                string tipo, string nombre, string documento, string representante, string pais, string ciudad, string nacionalidad, string telefono, string movil, string correo,
                 DateTime fechadeinicio,
 
                 //Panel Envio
@@ -69,6 +79,7 @@ namespace Negocio
             Entidad_Proveedor Obj = new Entidad_Proveedor();
 
             //Datos Basicos
+            Obj.Idsucurzal = idsucurzal;
             Obj.Tipo = tipo;
             Obj.Nombre = nombre;
             Obj.Documento = documento;
@@ -128,21 +139,26 @@ namespace Negocio
         public static string Guardar_Banco
             (
                 //Datos Auxiliares y Llaves Primaria
-                int auto,
+                int auto, int idproveedor,
 
-                int idbanco, string cuenta, Int64 numerodecuenta
+                int idbanco, string banco, string banco_documento, string cuenta, Int64 numerodecuenta
             )
         {
             Conexion_Proveedor Datos = new Conexion_Proveedor();
             Entidad_Proveedor Obj = new Entidad_Proveedor();
 
+            //Datos Auxiliares
+            Obj.Auto = auto;
+
             //Datos Basicos
+            Obj.Idproveedor = idproveedor;
             Obj.Idbanco = idbanco;
+            Obj.Banco = banco;
+            Obj.Banco_Documento = banco_documento;
             Obj.Cuenta = cuenta;
             Obj.Numerodecuenta = numerodecuenta;
 
-            //Datos Auxiliares
-            Obj.Auto = auto;
+            
 
             return Datos.Guardar_Banco(Obj);
         }
@@ -150,29 +166,21 @@ namespace Negocio
         public static string Editar_DatosBasicos
             (
                 //Datos Auxiliares y Llaves Primaria
-                int auto, int idproveedor,
+                int auto, int idproveedor, int idscurzal,
 
                 string tipo, string nombre, string documento, string representante, string pais,
                 string ciudad, string nacionalidad, string telefono, string movil, string correo,
-                DateTime fechadeinicio,
-
-                //Panel Envio
-                DataTable detalle_envio,
-
-                //Panel Datos Bancarios
-                DataTable detalle_banco,
-
-                //Datos Auxiliares
-                int envio_autosql, int banco_autosql,
-
-                //SE VALIDA SI SE REALIZA O NO LA VALIDACION
-                int tran_envio, int tran_banco
+                DateTime fechadeinicio
             )
         {
             Conexion_Proveedor Datos = new Conexion_Proveedor();
             Entidad_Proveedor Obj = new Entidad_Proveedor();
 
+            //Datos Auxiliares
+            Obj.Auto = auto;
+
             //Datos Basicos
+            Obj.Idsucurzal = idscurzal;
             Obj.Idproveedor = idproveedor;
             Obj.Tipo = tipo;
             Obj.Nombre = nombre;
@@ -185,21 +193,6 @@ namespace Negocio
             Obj.Ciudad = ciudad;
             Obj.Nacionalidad = nacionalidad;
             Obj.Fechadeinicio = fechadeinicio;
-
-            //Datos de Envio
-            Obj.Detalle_Envio = detalle_envio;
-
-            //Datos Financieros
-            Obj.Detalle_Banco = detalle_banco;
-
-            //Datos Auxiliares
-            Obj.Auto = auto;
-
-            Obj.Tran_Envio = tran_envio;
-            Obj.Tran_Banco = tran_banco;
-
-            Obj.Envio_AutoSQL = envio_autosql;
-            Obj.Banco_AutoSQL = banco_autosql;
 
             return Datos.Editar_DatosBasicos(Obj);
         }
@@ -236,7 +229,7 @@ namespace Negocio
                 //Datos Auxiliares y Llaves Primaria
                 int auto, int idproveedor,
 
-                int idbanco, string cuenta, Int64 numerodecuenta
+                int idbanco, string banco, string banco_documento, string cuenta, Int64 numerodecuenta
             )
         {
             Conexion_Proveedor Datos = new Conexion_Proveedor();
@@ -245,6 +238,8 @@ namespace Negocio
             //Datos Basicos
             Obj.Idproveedor = idproveedor;
             Obj.Idbanco = idbanco;
+            Obj.Banco = banco;
+            Obj.Banco_Documento = banco_documento;
             Obj.Cuenta = cuenta;
             Obj.Numerodecuenta = numerodecuenta;
 

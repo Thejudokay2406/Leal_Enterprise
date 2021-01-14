@@ -24,12 +24,6 @@ namespace Negocio
             return Datos.Buscar(Filtro, auto);
         }
 
-        public static DataTable BuscarExistencia_SQL(string Filtro)
-        {
-            Conexion_Impuesto Datos = new Conexion_Impuesto();
-            return Datos.BuscarExistencia_SQL(Filtro);
-        }
-
         public static string Guardar_DatosBasicos
             (
                 //Datos Auxiliares y Llaves Primaria

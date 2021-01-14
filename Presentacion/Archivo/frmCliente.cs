@@ -357,7 +357,7 @@ namespace Presentacion
                 this.CBTipo.ValueMember = "Codigo";
                 this.CBTipo.DisplayMember = "Tipo";
 
-                this.CBGrupo.DataSource = fGrupoDeProductoDeCliente.Lista();
+                this.CBGrupo.DataSource = fGrupoDeCliente.Lista();
                 this.CBGrupo.ValueMember = "Codigo";
                 this.CBGrupo.DisplayMember = "Grupo";
             }
@@ -2400,42 +2400,6 @@ namespace Presentacion
                     this.TBFac_Departamento.BackColor = Color.FromArgb(3, 155, 229);
                     this.TBFac_Correo.Enabled = true;
                     this.TBFac_Correo.BackColor = Color.FromArgb(3, 155, 229);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        private void DGResultados_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            try
-            {
-                if (e.KeyChar == Convert.ToChar(Keys.Enter))
-                {
-                    try
-                    {
-                        if (Editar == "1")
-                        {
-                            //
-                            this.Digitar = false;
-                            this.Botones();
-
-                            //Se procede a completar los campos de textos segun
-                            //la consulta realizada en la base de datos
-                            this.TBIdcliente.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells["Codigo"].Value);
-
-                        }
-                        else
-                        {
-                            MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Actualizar Datos en el Sistema", "Leal Enterprise - 'Acceso Denegado' ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message + ex.StackTrace);
-                    }
                 }
             }
             catch (Exception ex)

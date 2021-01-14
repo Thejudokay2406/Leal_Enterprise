@@ -30,14 +30,13 @@ namespace Negocio
                 int auto,
 
                 //Datos Basicos
-                string codigo, string sucurzal, string nit, string descripcion, 
+                string sucurzal, string nit, string descripcion, 
                 string gerente, string pais, string ciudad, string direccion
             )
         {
             Conexion_Sucurzal Datos = new Conexion_Sucurzal();
             Entidad_Sucurzal Obj = new Entidad_Sucurzal();
 
-            Obj.Codigo = codigo;
             Obj.Sucurzal = sucurzal;
             Obj.Descripcion = descripcion;
             Obj.Nit = nit;
@@ -56,7 +55,7 @@ namespace Negocio
                 int auto, int idsucurzal,
 
                 //Datos Basicos
-                string codigo, string sucurzal, string nit, string descripcion,
+                string sucurzal, string nit, string descripcion,
                 string gerente, string pais, string ciudad, string direccion
             )
         {
@@ -64,7 +63,6 @@ namespace Negocio
             Entidad_Sucurzal Obj = new Entidad_Sucurzal();
 
             Obj.Idsucurzal = idsucurzal;
-            Obj.Codigo = codigo;
             Obj.Sucurzal = sucurzal;
             Obj.Descripcion = descripcion;
             Obj.Nit = nit;

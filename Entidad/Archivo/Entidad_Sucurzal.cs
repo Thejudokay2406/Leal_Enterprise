@@ -13,7 +13,6 @@ namespace Entidad
         private int _Auto;
 
         //Datos Basicos
-        private string _Codigo;
         private string _Sucurzal;
         private string _Nit;
         private string _Descripcion;
@@ -25,7 +24,6 @@ namespace Entidad
 
         public int Idsucurzal { get => _Idsucurzal; set => _Idsucurzal = value; }
         public int Auto { get => _Auto; set => _Auto = value; }
-        public string Codigo { get => _Codigo; set => _Codigo = value; }
         public string Sucurzal { get => _Sucurzal; set => _Sucurzal = value; }
         public string Nit { get => _Nit; set => _Nit = value; }
         public string Descripcion { get => _Descripcion; set => _Descripcion = value; }

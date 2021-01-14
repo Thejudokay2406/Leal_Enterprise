@@ -20,7 +20,7 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.Impuesto", SqlCon);
+                SqlCommand Comando = new SqlCommand("Archivo.LI_Impuesto", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
                 SqlCon.Open();
                 Resultado = Comando.ExecuteReader();
@@ -48,42 +48,11 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.Impuesto", SqlCon);
+                SqlCommand Comando = new SqlCommand("Archivo.LI_Impuesto", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 Comando.Parameters.Add("@Filtro", SqlDbType.VarChar).Value = Valor;
-                Comando.Parameters.Add("@Auto", SqlDbType.VarChar).Value = Auto;
-
-                SqlCon.Open();
-                Resultado = Comando.ExecuteReader();
-                Tabla.Load(Resultado);
-                return Tabla;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                if (SqlCon.State == ConnectionState.Open)
-                {
-                    SqlCon.Close();
-                }
-            }
-        }
-
-        public DataTable BuscarExistencia_SQL(string Valor)
-        {
-            SqlDataReader Resultado;
-            DataTable Tabla = new DataTable();
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.Impuesto", SqlCon);
-                Comando.CommandType = CommandType.StoredProcedure;
-
-                Comando.Parameters.Add("@Filtro", SqlDbType.VarChar).Value = Valor;
+                Comando.Parameters.Add("@Consulta", SqlDbType.VarChar).Value = Auto;
 
                 SqlCon.Open();
                 Resultado = Comando.ExecuteReader();
@@ -193,11 +162,11 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.Impuesto", SqlCon);
+                SqlCommand Comando = new SqlCommand("Archivo.LI_Impuesto", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Panel Datos Basicos
-                Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Eliminar", SqlDbType.Int).Value = Auto;
                 Comando.Parameters.Add("@Idimpuesto", SqlDbType.Int).Value = IDEliminar_Sql;
 
                 SqlCon.Open();

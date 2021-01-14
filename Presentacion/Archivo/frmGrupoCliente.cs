@@ -73,6 +73,7 @@ namespace Presentacion
 
             //Se realiza el FOCUS al panel y campo de texto iniciales
             this.TBGrupo.Select();
+            this.TBIdgrupo.Clear();
         }
 
         private void Botones()
@@ -113,7 +114,7 @@ namespace Presentacion
                 {
                     if (this.Digitar)
                     {
-                        rptaDatosBasicos = fGrupoDeProductoDeCliente.Guardar_DatosBasicos
+                        rptaDatosBasicos = fGrupoDeCliente.Guardar_DatosBasicos
 
                             (
                                  //Datos Auxiliares
@@ -126,7 +127,7 @@ namespace Presentacion
 
                     else
                     {
-                        rptaDatosBasicos = fGrupoDeProductoDeCliente.Editar_DatosBasicos
+                        rptaDatosBasicos = fGrupoDeCliente.Editar_DatosBasicos
 
                             (
                                  //Datos Auxiliares
@@ -145,7 +146,7 @@ namespace Presentacion
                         }
                         else
                         {
-                            this.MensajeOk("El Registro del Grupo de Cliente: " + this.TBGrupo.Text + " a Sido Actualizado");
+                            this.MensajeOk("Los Datos del Grupo de Cliente: " + this.TBGrupo.Text + " Han Sido Modificado Exitosamente");
                         }
                     }
                     else
@@ -264,7 +265,7 @@ namespace Presentacion
                         if (DGResultados.SelectedRows.Count > 0)
                         {
                             Eliminacion = Convert.ToInt32(DGResultados.CurrentRow.Cells["Codigo"].Value.ToString());
-                            Respuesta = Negocio.fGrupoDeProductoDeCliente.Eliminar(Eliminacion, 0);
+                            Respuesta = Negocio.fGrupoDeCliente.Eliminar(Eliminacion, 0);
                         }
 
                         if (Respuesta.Equals("OK"))
@@ -305,8 +306,8 @@ namespace Presentacion
                 {
                     if (TBBuscar.Text != "")
                     {
-                        this.DGResultados.DataSource = fGrupoDeProductoDeCliente.Buscar(this.TBBuscar.Text, 1);
-                        //this.DGResultadoss.Columns[1].Visible = false;
+                        this.DGResultados.DataSource = fGrupoDeCliente.Buscar(this.TBBuscar.Text, 1);
+                        this.DGResultados.Columns[0].Visible = false;
 
                         this.lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGResultados.Rows.Count);
 
@@ -343,7 +344,7 @@ namespace Presentacion
                 {
                     //
                     this.TBGrupo.Select();
-                    this.TBIdgrupo.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells["Codigo"].Value);
+                    this.TBIdgrupo.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells[0].Value);
 
                     //
                     this.Botones();
@@ -415,6 +416,70 @@ namespace Presentacion
             }
         }
 
+        private void frmGrupoCliente_Activated(object sender, EventArgs e)
+        {
+            this.TBGrupo.Focus();
+        }
+
+        private void DGResultados_KeyUp(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F4))
+                {
+                    if (Eliminar == "1")
+                    {
+
+                        DialogResult Opcion;
+                        string Respuesta = "";
+                        int Eliminacion;
+
+                        Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                        if (Opcion == DialogResult.OK)
+                        {
+                            if (DGResultados.SelectedRows.Count > 0)
+                            {
+                                Eliminacion = Convert.ToInt32(DGResultados.CurrentRow.Cells[0].Value.ToString());
+                                Respuesta = Negocio.fGrupoDeCliente.Eliminar(Eliminacion, 0);
+                            }
+
+                            if (Respuesta.Equals("OK"))
+                            {
+                                this.MensajeOk("Registro de Grupo de Cliente: " + this.TBGrupo.Text + " Eliminado Exitosamente");
+                            }
+                            else
+                            {
+                                this.MensajeError(Respuesta);
+                            }
+
+                            //Botones Comunes
+                            this.TBBuscar.Clear();
+                            this.Limpiar_Datos();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise - Solicitud Rechazada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void TBBuscar_Enter(object sender, EventArgs e)
+        {
+            this.TBBuscar.BackColor = Color.Azure;
+        }
+
+        private void TBBuscar_Leave(object sender, EventArgs e)
+        {
+            this.TBBuscar.BackColor = Color.FromArgb(3, 155, 229);
+        }
+
         private void TBDescripcion_Leave(object sender, EventArgs e)
         {
             if (TBDescripcion.Text == string.Empty)
@@ -441,29 +506,32 @@ namespace Presentacion
         {
             try
             {
-                DataTable Datos = Negocio.fGrupoDeProductoDeCliente.Buscar(this.TBIdgrupo.Text, 2);
-
-                //Evaluamos si  existen los Datos
-                if (Datos.Rows.Count == 0)
+                if (TBIdgrupo.Text != string.Empty)
                 {
-                    MessageBox.Show("Actualmente no se encuentran registros en la Base de Datos", "Leal Enterprise - Consulta de Registro Invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    //Captura de Valores en la Base de Datos
+                    DataTable Datos = Negocio.fGrupoDeCliente.Buscar(this.TBIdgrupo.Text, 2);
 
-                    //Panel Datos Basicos
-                    Grupo = Datos.Rows[0][0].ToString();
-                    Descripcion = Datos.Rows[0][1].ToString();
-                    Observacion = Datos.Rows[0][2].ToString();
+                    //Evaluamos si  existen los Datos
+                    if (Datos.Rows.Count == 0)
+                    {
+                        MessageBox.Show("Actualmente no se encuentran registros en la Base de Datos", "Leal Enterprise - Consulta de Registro Invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        //Captura de Valores en la Base de Datos
 
-                    //Se procede a completar los campos de texto segun las consulta
-                    //Realizada anteriormente en la base de datos
+                        //Panel Datos Basicos
+                        Grupo = Datos.Rows[0][0].ToString();
+                        Descripcion = Datos.Rows[0][1].ToString();
+                        Observacion = Datos.Rows[0][2].ToString();
 
-                    //Panel Datos Basicos
-                    this.TBGrupo.Text = Grupo;
-                    this.TBDescripcion.Text = Descripcion;
-                    this.TBObservacion.Text = Observacion;
+                        //Se procede a completar los campos de texto segun las consulta
+                        //Realizada anteriormente en la base de datos
+
+                        //Panel Datos Basicos
+                        this.TBGrupo.Text = Grupo;
+                        this.TBDescripcion.Text = Descripcion;
+                        this.TBObservacion.Text = Observacion;
+                    }
                 }
             }
             catch (Exception ex)
@@ -481,6 +549,18 @@ namespace Presentacion
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
                     this.TBDescripcion.Select();
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
+                {
+                    this.Digitar = true;
+                    this.Botones();
+                    this.Limpiar_Datos();
+
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
@@ -500,7 +580,7 @@ namespace Presentacion
                             }
                             else
                             {
-                                                            MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                                 //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
                                 //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
@@ -549,6 +629,18 @@ namespace Presentacion
 
                     this.TBObservacion.Select();
                 }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
+                {
+                    this.Digitar = true;
+                    this.Botones();
+                    this.Limpiar_Datos();
+
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
+                }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
                     //Al precionar las teclas F10 se realizara el registro en la base de datos
@@ -567,7 +659,7 @@ namespace Presentacion
                             }
                             else
                             {
-                                                            MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                                 //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
                                 //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
@@ -616,6 +708,18 @@ namespace Presentacion
 
                     this.TBGrupo.Select();
                 }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
+                {
+                    this.Digitar = true;
+                    this.Botones();
+                    this.Limpiar_Datos();
+
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
+                }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
                     //Al precionar las teclas F10 se realizara el registro en la base de datos
@@ -634,7 +738,7 @@ namespace Presentacion
                             }
                             else
                             {
-                                                            MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                                 //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
                                 //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.

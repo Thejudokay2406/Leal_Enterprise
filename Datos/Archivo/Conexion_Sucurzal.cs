@@ -20,7 +20,7 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.Sucurzal", SqlCon);
+                SqlCommand Comando = new SqlCommand("Archivo.LI_Sucurzal", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
                 SqlCon.Open();
                 Resultado = Comando.ExecuteReader();
@@ -48,10 +48,10 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.Sucurzal", SqlCon);
+                SqlCommand Comando = new SqlCommand("Archivo.LI_Sucurzal", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
-                Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Consulta", SqlDbType.Int).Value = Auto;
                 Comando.Parameters.Add("@Filtro", SqlDbType.VarChar).Value = Valor;
 
                 SqlCon.Open();
@@ -86,7 +86,6 @@ namespace Datos
                 Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Obj.Auto;
 
                 //Panel Datos Basicos
-                Comando.Parameters.Add("@Codigo", SqlDbType.VarChar).Value = Obj.Codigo;
                 Comando.Parameters.Add("@Sucurzal", SqlDbType.VarChar).Value = Obj.Sucurzal;
                 Comando.Parameters.Add("@Nit", SqlDbType.VarChar).Value = Obj.Nit;
                 Comando.Parameters.Add("@Descripcion", SqlDbType.VarChar).Value = Obj.Descripcion;
@@ -126,7 +125,6 @@ namespace Datos
 
                 //Panel Datos Basicos
                 Comando.Parameters.Add("@Idsucurzal", SqlDbType.Int).Value = Obj.Idsucurzal;
-                Comando.Parameters.Add("@Codigo", SqlDbType.VarChar).Value = Obj.Codigo;
                 Comando.Parameters.Add("@Sucurzal", SqlDbType.VarChar).Value = Obj.Sucurzal;
                 Comando.Parameters.Add("@Nit", SqlDbType.VarChar).Value = Obj.Nit;
                 Comando.Parameters.Add("@Descripcion", SqlDbType.VarChar).Value = Obj.Descripcion;
@@ -159,11 +157,11 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.Sucurzal", SqlCon);
+                SqlCommand Comando = new SqlCommand("Archivo.LI_Sucurzal", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Panel Datos Basicos
-                Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Eliminar", SqlDbType.Int).Value = Auto;
                 Comando.Parameters.Add("@Idsucurzal", SqlDbType.Int).Value = IDEliminar_Sql;
 
                 SqlCon.Open();

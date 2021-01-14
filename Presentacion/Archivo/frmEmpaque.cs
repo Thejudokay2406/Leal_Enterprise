@@ -88,12 +88,15 @@ namespace Presentacion
 
             this.TBEmpaque.Clear();
             this.TBEmpaque.Text = Campo;
+            this.TBEmpaque.ForeColor = Color.FromArgb(255, 255, 255);
             this.TBDescripcion.Clear();
             this.TBDescripcion.Text = Campo;
+            this.TBDescripcion.ForeColor = Color.FromArgb(255, 255, 255);
             this.TBObservacion.Clear();
 
             //Se realiza el FOCUS al panel y campo de texto iniciales
-            this.TBObservacion.Focus();
+            this.TBEmpaque.Select();
+            this.TBIdempaque.Clear();
         }
 
         private void Botones()
@@ -101,19 +104,29 @@ namespace Presentacion
             if (Digitar)
             {
                 this.btnGuardar.Enabled = true;
-                this.btnGuardar.Text = "Guardar";
+                this.btnGuardar.Text = "Guardar - F10";
 
-                this.btnEliminar.Enabled = false;
                 this.btnCancelar.Enabled = false;
             }
-            else
+            else if (!Digitar)
             {
                 this.btnGuardar.Enabled = true;
-                this.btnGuardar.Text = "Editar";
+                this.btnGuardar.Text = "Editar - F10";
 
-                this.btnEliminar.Enabled = true;
                 this.btnCancelar.Enabled = true;
             }
+        }
+
+        //Mensaje de confirmacion
+        private void MensajeOk(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Leal Enterprise - Solicitud Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+        }
+
+        //Mensaje de Error
+        private void MensajeError(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Leal Enterprise - Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void Guardar_SQL()
@@ -147,11 +160,11 @@ namespace Presentacion
                     {
                         if (this.Digitar)
                         {
-                            this.MensajeOk("Registro Exitoso");
+                            this.MensajeOk("El Empaque: " + this.TBEmpaque.Text + " a Sido Registrado Exitosamente");
                         }
                         else
                         {
-                            this.MensajeOk("Registro Actualizado");
+                            this.MensajeOk("Los Datos del Empaque: " + this.TBEmpaque.Text + " han Sido Modificado Exitosamente");
                         }
                     }
 
@@ -172,19 +185,6 @@ namespace Presentacion
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
-
-        //Mensaje de confirmacion
-        private void MensajeOk(string mensaje)
-        {
-            MessageBox.Show(mensaje, "Leal Enterprise - Solicitud Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-        }
-
-        //Mensaje de Error
-        private void MensajeError(string mensaje)
-        {
-            MessageBox.Show(mensaje, "Leal Enterprise - Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        }
-
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -357,7 +357,10 @@ namespace Presentacion
 
                     //Se procede a completar los campos de textos segun
                     //la consulta realizada en la base de datos
-                    this.TBIdempaque.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells["Codigo"].Value);
+                    this.TBIdempaque.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells[0].Value);
+
+                    //SE REALIZA EL FOCUS
+                    this.TBEmpaque.Focus();
                 }
                 else
                 {
@@ -368,11 +371,6 @@ namespace Presentacion
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
-        }
-
-        private void DGResultados_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
         }
 
         private void TBIdorigen_KeyUp(object sender, KeyEventArgs e)
@@ -392,7 +390,7 @@ namespace Presentacion
             }
         }
 
-        private void TBGrupo_KeyUp(object sender, KeyEventArgs e)
+        private void TBEmpaque_KeyUp(object sender, KeyEventArgs e)
         {
             try
             {
@@ -402,14 +400,19 @@ namespace Presentacion
 
                     this.TBDescripcion.Select();
                 }
-
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
-                    //Al precionar la tecla Control+TAB Se cambia las pestaña del TapControl
-                    //Y se realiza Focus al primer Texboxt de la segunda pestaña del TapControl
+                    //
+                    this.Digitar = true;
 
-                    //this.TCPrincipal.SelectedIndex = 1;
-                    this.TBBuscar.Select();
+                    this.Botones();
+                    this.Limpiar_Datos();
+
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
@@ -478,14 +481,19 @@ namespace Presentacion
 
                     this.TBObservacion.Select();
                 }
-
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
-                    //Al precionar la tecla Control+TAB Se cambia las pestaña del TapControl
-                    //Y se realiza Focus al primer Texboxt de la segunda pestaña del TapControl
+                    //
+                    this.Digitar = true;
 
-                    //this.TCPrincipal.SelectedIndex = 1;
-                    this.TBBuscar.Select();
+                    this.Botones();
+                    this.Limpiar_Datos();
+
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
@@ -554,14 +562,19 @@ namespace Presentacion
 
                     this.TBEmpaque.Select();
                 }
-
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.Tab))
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
-                    //Al precionar la tecla Control+TAB Se cambia las pestaña del TapControl
-                    //Y se realiza Focus al primer Texboxt de la segunda pestaña del TapControl
+                    //
+                    this.Digitar = true;
 
-                    //this.TCPrincipal.SelectedIndex = 1;
-                    this.TBBuscar.Select();
+                    this.Botones();
+                    this.Limpiar_Datos();
+
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
@@ -659,6 +672,60 @@ namespace Presentacion
             _Instancia = null;
         }
 
+        private void DGResultados_KeyUp(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F4))
+                {
+                    if (Eliminar == "1")
+                    {
+
+                        DialogResult Opcion;
+                        string Respuesta = "";
+                        int Eliminacion;
+
+                        Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                        if (Opcion == DialogResult.OK)
+                        {
+                            if (DGResultados.SelectedRows.Count > 0)
+                            {
+                                Eliminacion = Convert.ToInt32(DGResultados.CurrentRow.Cells[0].Value.ToString());
+                                Respuesta = Negocio.fEmpaque.Eliminar(Eliminacion, 0);
+                            }
+
+                            if (Respuesta.Equals("OK"))
+                            {
+                                this.MensajeOk("Registro Eliminado Correctamente");
+                            }
+                            else
+                            {
+                                this.MensajeError(Respuesta);
+                            }
+
+                            //Botones Comunes
+                            this.Digitar = true;
+                            this.TBBuscar.Clear();
+                            this.Botones();
+                            this.Limpiar_Datos();
+
+                            //Se regresa el focus al campo principal
+                            this.TBEmpaque.Select();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise - Solicitud Rechazada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
         private void TBObservacion_Enter(object sender, EventArgs e)
         {
             this.TBObservacion.BackColor = Color.Azure;
@@ -713,7 +780,7 @@ namespace Presentacion
         {
             try
             {
-                DataTable Datos = Negocio.fEmpaque.BuscarExistencia_SQL(this.TBIdempaque.Text);
+                DataTable Datos = Negocio.fEmpaque.Buscar(this.TBIdempaque.Text, 2);
                 //Evaluamos si  existen los Datos
                 if (Datos.Rows.Count == 0)
                 {

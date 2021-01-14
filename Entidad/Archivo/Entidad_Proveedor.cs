@@ -14,6 +14,7 @@ namespace Entidad
         //Llave primaria
         private int _Idbanco;
         private int _Idproveedor;
+        private int _Idsucurzal;
 
         //Datos Basicos
         private string _Tipo;
@@ -40,6 +41,8 @@ namespace Entidad
 
         //Datos Bancarios
         private DataTable _Detalle_Banco;
+        private string _Banco;
+        private string _Banco_Documento;
         private string _Cuenta;
         private Int64 _Numerodecuenta;
 
@@ -97,5 +100,8 @@ namespace Entidad
         public string Env_Observacion { get => _Env_Observacion; set => _Env_Observacion = value; }
         public string Cuenta { get => _Cuenta; set => _Cuenta = value; }
         public long Numerodecuenta { get => _Numerodecuenta; set => _Numerodecuenta = value; }
+        public int Idsucurzal { get => _Idsucurzal; set => _Idsucurzal = value; }
+        public string Banco { get => _Banco; set => _Banco = value; }
+        public string Banco_Documento { get => _Banco_Documento; set => _Banco_Documento = value; }
     }
 }

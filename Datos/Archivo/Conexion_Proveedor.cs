@@ -12,6 +12,38 @@ namespace Datos
 {
     public class Conexion_Proveedor
     {
+
+        public DataTable AutoComplementar_SQL(int Auto)
+        {
+            SqlDataReader Resultado;
+            DataTable Tabla = new DataTable();
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
+                SqlCommand Comando = new SqlCommand("Proveedor.LI_DatosBasicos", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
+
+                Comando.Parameters.Add("@Consulta", SqlDbType.Int).Value = Auto;
+
+                SqlCon.Open();
+                Resultado = Comando.ExecuteReader();
+                Tabla.Load(Resultado);
+                return Tabla;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open)
+                {
+                    SqlCon.Close();
+                }
+            }
+        }
+
         public DataTable Lista()
         {
             SqlDataReader Resultado;
@@ -51,7 +83,7 @@ namespace Datos
                 SqlCommand Comando = new SqlCommand("Proveedor.LI_DatosBasicos", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
-                Comando.Parameters.Add("@Filtro_Envio", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Consulta_Envio", SqlDbType.Int).Value = Auto;
                 Comando.Parameters.Add("@idproveedor", SqlDbType.Int).Value = idproveedor;
 
                 SqlCon.Open();
@@ -83,7 +115,7 @@ namespace Datos
                 SqlCommand Comando = new SqlCommand("Proveedor.LI_DatosBasicos", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
-                Comando.Parameters.Add("@Filtro_Banco", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Consulta_Banco", SqlDbType.Int).Value = Auto;
                 Comando.Parameters.Add("@idproveedor", SqlDbType.Int).Value = idproveedor;
 
                 SqlCon.Open();
@@ -112,10 +144,10 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.Proveedor", SqlCon);
+                SqlCommand Comando = new SqlCommand("Proveedor.LI_DatosBasicos", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
-                Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Consulta", SqlDbType.Int).Value = Auto;
                 Comando.Parameters.Add("@Filtro", SqlDbType.VarChar).Value = Valor;
 
                 SqlCon.Open();
@@ -136,7 +168,7 @@ namespace Datos
             }
         }
 
-        public DataTable BuscarExistencia_SQL(string Valor)
+        public DataTable Buscar_Banco(string Valor, int Auto)
         {
             SqlDataReader Resultado;
             DataTable Tabla = new DataTable();
@@ -144,10 +176,11 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.Proveedor", SqlCon);
+                SqlCommand Comando = new SqlCommand("Proveedor.LI_DatosBasicos", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
-                Comando.Parameters.Add("@Filtro", SqlDbType.VarChar).Value = Valor;
+                Comando.Parameters.Add("@Consulta_Banco", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@idproveedor", SqlDbType.VarChar).Value = Valor;
 
                 SqlCon.Open();
                 Resultado = Comando.ExecuteReader();
@@ -167,16 +200,36 @@ namespace Datos
             }
         }
 
-        //Mensaje de confirmacion
-        private void MensajeOk(string mensaje)
+        public DataTable Buscar_Envio(string Valor, int Auto)
         {
-            mensaje = "Leal Enterprise - Solicitud Exitosa";
-        }
+            SqlDataReader Resultado;
+            DataTable Tabla = new DataTable();
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
+                SqlCommand Comando = new SqlCommand("Proveedor.LI_DatosBasicos", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
 
-        //Mensaje de Error
-        private void MensajeError(string mensaje)
-        {
-            mensaje = "Leal Enterprise - Error al Realizar el Registro";
+                Comando.Parameters.Add("@Consulta_Envio", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Filtro", SqlDbType.VarChar).Value = Valor;
+
+                SqlCon.Open();
+                Resultado = Comando.ExecuteReader();
+                Tabla.Load(Resultado);
+                return Tabla;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open)
+                {
+                    SqlCon.Close();
+                }
+            }
         }
 
         public string Guardar_DatosBasicos(Entidad_Proveedor Obj)
@@ -199,6 +252,7 @@ namespace Datos
                 Comando.Parameters.Add("@Tran_Banco", SqlDbType.Int).Value = Obj.Tran_Banco;
 
                 //Panel Datos Basicos
+                Comando.Parameters.Add("@Idsucurzal", SqlDbType.Int).Value = Obj.Idsucurzal;
                 Comando.Parameters.Add("@Tipo", SqlDbType.VarChar).Value = Obj.Tipo;
                 Comando.Parameters.Add("@Nombre", SqlDbType.VarChar).Value = Obj.Nombre;
                 Comando.Parameters.Add("@Documento", SqlDbType.VarChar).Value = Obj.Documento;
@@ -218,26 +272,29 @@ namespace Datos
                 Comando.Parameters.Add("@Det_Banco", SqlDbType.Structured).Value = Obj.Detalle_Banco;
 
                 SqlCon.Open();
-                if (Comando.ExecuteNonQuery() == 1)
-                {
-                    this.MensajeOk("OK");
-                }
-                else if (Comando.ExecuteNonQuery() == 2)
-                {
-                    this.MensajeOk("OK");
-                }
-                else if (Comando.ExecuteNonQuery() == 3)
-                {
-                    this.MensajeOk("OK");
-                }
-                else
-                {
-                    this.MensajeError("Error al Realizar el Registro");
-                }
+                Rpta = Comando.ExecuteNonQuery() != 1 ? "OK" : "Error al Actualizar el Registro";
+                //if (Comando.ExecuteNonQuery() == 1)
+                //{
+                //    this.MensajeOk("OK");
+                //}
+                //else if (Comando.ExecuteNonQuery() == 2)
+                //{
+                //    this.MensajeOk("OK");
+                //}
+                //else if (Comando.ExecuteNonQuery() == 3)
+                //{
+                //    this.MensajeOk("OK");
+                //}
+                //else
+                //{
+                //    this.MensajeError("Error al Realizar el Registro");
+                //}
+                //SqlCon.Open();
+                //Rpta = Comando.ExecuteNonQuery() != 1 ? "OK" : "Error al Realizar el Registro";
             }
             catch (Exception ex)
             {
-                this.MensajeError(ex.Message + ex.StackTrace);
+                Rpta = ex.Message;
             }
             finally
             {
@@ -265,6 +322,8 @@ namespace Datos
                 //Panel Datos Basicos
                 Comando.Parameters.Add("@Idproveedor", SqlDbType.Int).Value = Obj.Idproveedor;
                 Comando.Parameters.Add("@Idbanco", SqlDbType.Int).Value = Obj.Idbanco;
+                Comando.Parameters.Add("@Banco", SqlDbType.VarChar).Value = Obj.Banco;
+                Comando.Parameters.Add("@Banco_Documento", SqlDbType.VarChar).Value = Obj.Banco_Documento;
                 Comando.Parameters.Add("@Cuenta", SqlDbType.VarChar).Value = Obj.Cuenta;
                 Comando.Parameters.Add("@Numerodecuenta", SqlDbType.BigInt).Value = Obj.Numerodecuenta;
 
@@ -337,15 +396,10 @@ namespace Datos
 
                 //Datos Auxiliares
                 Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Obj.Auto;
-                Comando.Parameters.Add("@Envio_AutoSQL", SqlDbType.Int).Value = Obj.Envio_AutoSQL;
-                Comando.Parameters.Add("@Banco_AutoSQL", SqlDbType.Int).Value = Obj.Banco_AutoSQL;
-
-                //Variables Para Ejecutar Si o No Las Transacciones
-                Comando.Parameters.Add("@Tran_Envio", SqlDbType.Int).Value = Obj.Tran_Envio;
-                Comando.Parameters.Add("@Tran_Banco", SqlDbType.Int).Value = Obj.Tran_Banco;
-
+                
                 //Panel Datos Basicos
                 Comando.Parameters.Add("@Idproveedor", SqlDbType.Int).Value = Obj.Idproveedor;
+                Comando.Parameters.Add("@Idsucurzal", SqlDbType.Int).Value = Obj.Idsucurzal;
                 Comando.Parameters.Add("@Tipo", SqlDbType.VarChar).Value = Obj.Tipo;
                 Comando.Parameters.Add("@Nombre", SqlDbType.VarChar).Value = Obj.Nombre;
                 Comando.Parameters.Add("@Documento", SqlDbType.VarChar).Value = Obj.Documento;
@@ -353,16 +407,10 @@ namespace Datos
                 Comando.Parameters.Add("@Pais", SqlDbType.VarChar).Value = Obj.Pais;
                 Comando.Parameters.Add("@Ciudad", SqlDbType.VarChar).Value = Obj.Ciudad;
                 Comando.Parameters.Add("@Nacionalidad", SqlDbType.VarChar).Value = Obj.Nacionalidad;
-                Comando.Parameters.Add("@Telefono", SqlDbType.BigInt).Value = Obj.Telefono;
-                Comando.Parameters.Add("@Movil", SqlDbType.BigInt).Value = Obj.Movil;
+                Comando.Parameters.Add("@Telefono", SqlDbType.VarChar).Value = Obj.Telefono;
+                Comando.Parameters.Add("@Movil", SqlDbType.VarChar).Value = Obj.Movil;
                 Comando.Parameters.Add("@Correo", SqlDbType.VarChar).Value = Obj.Correo;
                 Comando.Parameters.Add("@Inicio", SqlDbType.DateTime).Value = Obj.Fechadeinicio;
-
-                //Panel Datos de Envio -- Campos Obligatorios
-                Comando.Parameters.Add("@Det_Envio", SqlDbType.Structured).Value = Obj.Detalle_Envio;
-
-                //Panel Datos Bancarios -- Campos Obligatorios
-                Comando.Parameters.Add("@Det_Banco", SqlDbType.Structured).Value = Obj.Detalle_Banco;
 
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() != 1 ? "OK" : "Error al Actualizar el Registro";
@@ -397,6 +445,8 @@ namespace Datos
                 //Panel Datos Basicos
                 Comando.Parameters.Add("@Idproveedor", SqlDbType.Int).Value = Obj.Idproveedor;
                 Comando.Parameters.Add("@Idbanco", SqlDbType.Int).Value = Obj.Idbanco;
+                Comando.Parameters.Add("@Banco", SqlDbType.VarChar).Value = Obj.Banco;
+                Comando.Parameters.Add("@Banco_Documento", SqlDbType.VarChar).Value = Obj.Banco_Documento;
                 Comando.Parameters.Add("@Cuenta", SqlDbType.VarChar).Value = Obj.Cuenta;
                 Comando.Parameters.Add("@Numerodecuenta", SqlDbType.BigInt).Value = Obj.Numerodecuenta;
 
@@ -441,7 +491,7 @@ namespace Datos
                 Comando.Parameters.Add("@Observacion", SqlDbType.VarChar).Value = Obj.Env_Observacion;
 
                 SqlCon.Open();
-                Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Actualizar el Registro";
+                Rpta = Comando.ExecuteNonQuery() != 1 ? "OK" : "Error al Actualizar el Registro";
             }
             catch (Exception ex)
             {
@@ -468,7 +518,7 @@ namespace Datos
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Panel Datos Basicos
-                Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Eliminar", SqlDbType.Int).Value = Auto;
                 Comando.Parameters.Add("@Idproveedor", SqlDbType.Int).Value = IDEliminar_Sql;
 
                 SqlCon.Open();

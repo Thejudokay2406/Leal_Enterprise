@@ -76,6 +76,7 @@ namespace Presentacion
 
             //Se realiza el FOCUS al panel y campo de texto iniciales
             this.TBTipo.Focus();
+            this.TBIdtipo.Focus();
         }
 
         private void Botones()
@@ -83,7 +84,7 @@ namespace Presentacion
             if (Digitar)
             {
                 this.btnGuardar.Enabled = true;
-                this.btnGuardar.Text = "Guardar";
+                this.btnGuardar.Text = "Guardar - F10";
 
                 this.btnEliminar.Enabled = false;
                 this.btnCancelar.Enabled = false;
@@ -91,7 +92,7 @@ namespace Presentacion
             else if (!Digitar)
             {
                 this.btnGuardar.Enabled = true;
-                this.btnGuardar.Text = "Editar";
+                this.btnGuardar.Text = "Editar - F10";
 
                 this.btnEliminar.Enabled = true;
                 this.btnCancelar.Enabled = true;
@@ -215,6 +216,7 @@ namespace Presentacion
                 //Se Limpian las Filas y Columnas de la tabla
                 this.DGResultados.DataSource = null;
                 this.DGResultados.Enabled = false;
+
                 this.lblTotal.Text = "Datos Registrados: 0";
                 this.TBBuscar.Clear();
             }
@@ -321,7 +323,7 @@ namespace Presentacion
                 {
                     //
                     this.TBTipo.Select();
-                    this.TBIdtipo.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells["Codigo"].Value);
+                    this.TBIdtipo.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells[0].Value);
 
                     //
                     this.Botones();
@@ -390,6 +392,64 @@ namespace Presentacion
             }
         }
 
+        private void TBBuscar_Enter(object sender, EventArgs e)
+        {
+            this.TBBuscar.BackColor = Color.Azure;
+        }
+
+        private void TBBuscar_Leave(object sender, EventArgs e)
+        {
+            this.TBBuscar.BackColor = Color.FromArgb(3, 155, 229);
+        }
+
+        private void DGResultados_KeyUp(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F4))
+                {
+                    if (Eliminar == "1")
+                    {
+                        DialogResult Opcion;
+                        string Respuesta = "";
+                        int Eliminacion;
+
+                        Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                        if (Opcion == DialogResult.OK)
+                        {
+                            if (DGResultados.SelectedRows.Count > 0)
+                            {
+                                Eliminacion = Convert.ToInt32(DGResultados.CurrentRow.Cells["Codigo"].Value.ToString());
+                                Respuesta = Negocio.fTipoDeCliente.Eliminar(Eliminacion, 0);
+                            }
+
+                            if (Respuesta.Equals("OK"))
+                            {
+                                this.MensajeOk("Registro Eliminado Correctamente");
+                            }
+                            else
+                            {
+                                this.MensajeError(Respuesta);
+                            }
+
+                            //Botones Comunes
+                            this.TBBuscar.Clear();
+                            this.Limpiar_Datos();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise - Solicitud Rechazada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
         private void TBDescripcion_Leave(object sender, EventArgs e)
         {
             if (TBDescripcion.Text == string.Empty)
@@ -415,29 +475,32 @@ namespace Presentacion
         {
             try
             {
-                DataTable Datos = Negocio.fTipoDeCliente.Buscar(this.TBIdtipo.Text, 2);
-
-                //Evaluamos si  existen los Datos
-                if (Datos.Rows.Count == 0)
+                if (TBIdtipo.Text != string.Empty)
                 {
-                    MessageBox.Show("Actualmente no se encuentran registros en la Base de Datos", "Leal Enterprise - Consulta de Registro Invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    //Captura de Valores en la Base de Datos
+                    DataTable Datos = Negocio.fTipoDeCliente.Buscar(this.TBIdtipo.Text, 2);
 
-                    //Panel Datos Basicos
-                    Tipo = Datos.Rows[0][0].ToString();
-                    Descripcion = Datos.Rows[0][1].ToString();
-                    Observacion = Datos.Rows[0][2].ToString();
+                    //Evaluamos si  existen los Datos
+                    if (Datos.Rows.Count == 0)
+                    {
+                        MessageBox.Show("Actualmente no se encuentran registros en la Base de Datos", "Leal Enterprise - Consulta de Registro Invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        //Captura de Valores en la Base de Datos
 
-                    //Se procede a completar los campos de texto segun las consulta
-                    //Realizada anteriormente en la base de datos
+                        //Panel Datos Basicos
+                        Tipo = Datos.Rows[0][0].ToString();
+                        Descripcion = Datos.Rows[0][1].ToString();
+                        Observacion = Datos.Rows[0][2].ToString();
 
-                    //Panel Datos Basicos
-                    this.TBTipo.Text = Tipo;
-                    this.TBDescripcion.Text = Descripcion;
-                    this.TBObservacion.Text = Observacion;
+                        //Se procede a completar los campos de texto segun las consulta
+                        //Realizada anteriormente en la base de datos
+
+                        //Panel Datos Basicos
+                        this.TBTipo.Text = Tipo;
+                        this.TBDescripcion.Text = Descripcion;
+                        this.TBObservacion.Text = Observacion;
+                    }
                 }
             }
             catch (Exception ex)
@@ -455,6 +518,17 @@ namespace Presentacion
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
                     this.TBDescripcion.Select();
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
+                {
+                    this.Limpiar_Datos();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.DGResultados.Enabled = false;
+
+                    this.lblTotal.Text = "Datos Registrados: 0";
+                    this.TBBuscar.Clear();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
@@ -523,6 +597,17 @@ namespace Presentacion
 
                     this.TBObservacion.Select();
                 }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
+                {
+                    this.Limpiar_Datos();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.DGResultados.Enabled = false;
+
+                    this.lblTotal.Text = "Datos Registrados: 0";
+                    this.TBBuscar.Clear();
+                }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
                     //Al precionar las teclas F10 se realizara el registro en la base de datos
@@ -589,6 +674,17 @@ namespace Presentacion
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
                     this.TBTipo.Select();
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
+                {
+                    this.Limpiar_Datos();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.DGResultados.Enabled = false;
+
+                    this.lblTotal.Text = "Datos Registrados: 0";
+                    this.TBBuscar.Clear();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
