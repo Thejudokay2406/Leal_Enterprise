@@ -12,7 +12,8 @@ namespace Datos
 {
     public class Conexion_Sucurzal
     {
-        public DataTable Lista()
+
+        public DataTable Lista(int Auto)
         {
             SqlDataReader Resultado;
             DataTable Tabla = new DataTable();
@@ -22,6 +23,9 @@ namespace Datos
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
                 SqlCommand Comando = new SqlCommand("Archivo.LI_Sucurzal", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
+
+                Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Auto;
+
                 SqlCon.Open();
                 Resultado = Comando.ExecuteReader();
                 Tabla.Load(Resultado);

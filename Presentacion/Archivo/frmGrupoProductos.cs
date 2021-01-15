@@ -179,6 +179,44 @@ namespace Presentacion
             }
         }
 
+        private void Eliminar_SQL()
+        {
+            if (Eliminar == "1")
+            {
+                DialogResult Opcion;
+                string Respuesta = "";
+                int Eliminacion;
+
+                Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                if (Opcion == DialogResult.OK)
+                {
+                    if (DGResultados.SelectedRows.Count > 0)
+                    {
+                        Eliminacion = Convert.ToInt32(DGResultados.CurrentRow.Cells[0].Value.ToString());
+                        Respuesta = Negocio.fGrupoDeProducto.Eliminar(Eliminacion, 0);
+                    }
+
+                    if (Respuesta.Equals("OK"))
+                    {
+                        this.MensajeOk("Registro Eliminado Correctamente");
+                    }
+                    else
+                    {
+                        this.MensajeError(Respuesta);
+                    }
+
+                    //Botones Comunes
+                    this.Limpiar_Datos();
+                    this.TBBuscar.Clear();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise - Solicitud Rechazada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             try
@@ -253,40 +291,7 @@ namespace Presentacion
         {
             try
             {
-                if (Eliminar == "1")
-                {
-                    DialogResult Opcion;
-                    string Respuesta = "";
-                    int Eliminacion;
-
-                    Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-                    if (Opcion == DialogResult.OK)
-                    {
-                        if (DGResultados.SelectedRows.Count > 0)
-                        {
-                            Eliminacion = Convert.ToInt32(DGResultados.CurrentRow.Cells["Codigo"].Value.ToString());
-                            Respuesta = Negocio.fGrupoDeProducto.Eliminar(Eliminacion, 0);
-                        }
-
-                        if (Respuesta.Equals("OK"))
-                        {
-                            this.MensajeOk("Registro Eliminado Correctamente");
-                        }
-                        else
-                        {
-                            this.MensajeError(Respuesta);
-                        }
-
-                        //Botones Comunes
-                        this.Limpiar_Datos();
-                        this.TBBuscar.Clear();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise - Solicitud Rechazada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
+                this.Eliminar_SQL();
             }
             catch (Exception ex)
             {
@@ -355,37 +360,6 @@ namespace Presentacion
                 else
                 {
                     MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Actualizar Datos en el Sistema", "Leal Enterprise - 'Acceso Denegado' ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        private void DGResultados_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            try
-            {
-                if (Convert.ToInt32(e.KeyChar) == Convert.ToInt32(Keys.Enter))
-                {
-                    if (Editar == "1")
-                    {
-                        //
-                        this.Digitar = false;
-                        this.Botones();
-
-                        this.TBIdgrupo.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells[0].Value);
-                        this.TBGrupo.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells[1].Value);
-                        this.TBDescripcion.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells[2].Value);
-                        this.TBObservacion.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells[3].Value);
-
-                        this.TBGrupo.Select();
-                    }
-                    else
-                    {
-                        MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Actualizar Datos en el Sistema", "Leal Enterprise - 'Acceso Denegado' ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    }
                 }
             }
             catch (Exception ex)
@@ -665,7 +639,7 @@ namespace Presentacion
                 this.TBGrupo.ForeColor = Color.FromArgb(0, 0, 0);
                 this.TBGrupo.Clear();
             }
-            else if (TBGrupo.Text != Campo)
+            else
             {
                 //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
                 this.TBGrupo.BackColor = Color.Azure;
@@ -709,10 +683,8 @@ namespace Presentacion
                 this.TBGrupo.Text = Campo;
                 this.TBGrupo.ForeColor = Color.FromArgb(255, 255, 255);
             }
-
             else
             {
-                this.TBGrupo.ForeColor = Color.FromArgb(0, 0, 0);
                 this.TBGrupo.BackColor = Color.FromArgb(3, 155, 229);
             }
         }
@@ -726,10 +698,8 @@ namespace Presentacion
                 this.TBDescripcion.Text = Campo;
                 this.TBDescripcion.ForeColor = Color.FromArgb(255, 255, 255);
             }
-
             else
             {
-                this.TBDescripcion.ForeColor = Color.FromArgb(0, 0, 0);
                 this.TBDescripcion.BackColor = Color.FromArgb(3, 155, 229);
             }
         }
@@ -750,43 +720,7 @@ namespace Presentacion
             {
                 if (Eliminar == "1")
                 {
-
-                    DialogResult Opcion;
-                    string Respuesta = "";
-                    int Eliminacion;
-
-                    Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-                    if (Opcion == DialogResult.OK)
-                    {
-                        if (DGResultados.SelectedRows.Count > 0)
-                        {
-                            Eliminacion = Convert.ToInt32(DGResultados.CurrentRow.Cells[0].Value.ToString());
-                            Respuesta = Negocio.fGrupoDeProducto.Eliminar(Eliminacion, 0);
-                        }
-
-                        if (Respuesta.Equals("OK"))
-                        {
-                            this.MensajeOk("Registro Eliminado Correctamente");
-                        }
-                        else
-                        {
-                            this.MensajeError(Respuesta);
-                        }
-
-                        //Botones Comunes
-                        this.Digitar = true;
-                        this.TBBuscar.Clear();
-                        this.Botones();
-                        this.Limpiar_Datos();
-
-                        //Se regresa el focus al campo principal
-                        this.TBGrupo.Select();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise - Solicitud Rechazada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    this.Eliminar_SQL();
                 }
             }
         }

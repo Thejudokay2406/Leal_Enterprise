@@ -72,8 +72,9 @@
             this.retencionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.financieraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bancosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cuentasBancariasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.contactosBanariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consignacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cuentasBancariasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.datosBasicosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.transferenciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pagosPorChequesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -199,7 +200,6 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
-            this.contactosBanariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -375,7 +375,7 @@
             // 
             this.sucurzalToolStripMenuItem.Name = "sucurzalToolStripMenuItem";
             this.sucurzalToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
-            this.sucurzalToolStripMenuItem.Text = "Sucurzal de Almacen";
+            this.sucurzalToolStripMenuItem.Text = "Sucursal de Almacen";
             this.sucurzalToolStripMenuItem.Click += new System.EventHandler(this.sucurzalToolStripMenuItem_Click);
             // 
             // tiposDePagoToolStripMenuItem
@@ -560,17 +560,24 @@
             this.bancosToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.bancosToolStripMenuItem.Text = "Bancos";
             // 
-            // cuentasBancariasToolStripMenuItem1
+            // contactosBanariosToolStripMenuItem
             // 
-            this.cuentasBancariasToolStripMenuItem1.Name = "cuentasBancariasToolStripMenuItem1";
-            this.cuentasBancariasToolStripMenuItem1.Size = new System.Drawing.Size(189, 22);
-            this.cuentasBancariasToolStripMenuItem1.Text = "Cuentas Bancarias";
+            this.contactosBanariosToolStripMenuItem.Name = "contactosBanariosToolStripMenuItem";
+            this.contactosBanariosToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.contactosBanariosToolStripMenuItem.Text = "Contactos Banarios";
+            this.contactosBanariosToolStripMenuItem.Click += new System.EventHandler(this.contactosBanariosToolStripMenuItem_Click);
             // 
             // consignacionesToolStripMenuItem
             // 
             this.consignacionesToolStripMenuItem.Name = "consignacionesToolStripMenuItem";
             this.consignacionesToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
             this.consignacionesToolStripMenuItem.Text = "Consignaciones";
+            // 
+            // cuentasBancariasToolStripMenuItem1
+            // 
+            this.cuentasBancariasToolStripMenuItem1.Name = "cuentasBancariasToolStripMenuItem1";
+            this.cuentasBancariasToolStripMenuItem1.Size = new System.Drawing.Size(189, 22);
+            this.cuentasBancariasToolStripMenuItem1.Text = "Cuentas Bancarias";
             // 
             // datosBasicosToolStripMenuItem1
             // 
@@ -1469,13 +1476,6 @@
             this.toolStripLabel5.Name = "toolStripLabel5";
             this.toolStripLabel5.Size = new System.Drawing.Size(31, 22);
             this.toolStripLabel5.Text = "------";
-            // 
-            // contactosBanariosToolStripMenuItem
-            // 
-            this.contactosBanariosToolStripMenuItem.Name = "contactosBanariosToolStripMenuItem";
-            this.contactosBanariosToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.contactosBanariosToolStripMenuItem.Text = "Contactos Banarios";
-            this.contactosBanariosToolStripMenuItem.Click += new System.EventHandler(this.contactosBanariosToolStripMenuItem_Click);
             // 
             // frmMenuPrincipal
             // 

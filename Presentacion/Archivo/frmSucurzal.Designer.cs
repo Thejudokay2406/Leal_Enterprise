@@ -303,7 +303,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TBIdsucurzal.Location = new System.Drawing.Point(92, 216);
             this.TBIdsucurzal.Name = "TBIdsucurzal";
-            this.TBIdsucurzal.Size = new System.Drawing.Size(18, 22);
+            this.TBIdsucurzal.Size = new System.Drawing.Size(35, 22);
             this.TBIdsucurzal.TabIndex = 16;
             this.TBIdsucurzal.TextChanged += new System.EventHandler(this.TBIdsucurzal_TextChanged);
             // 

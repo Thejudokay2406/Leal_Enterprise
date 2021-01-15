@@ -85,11 +85,11 @@
             this.TBCodigo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBCodigo.Location = new System.Drawing.Point(85, 21);
+            this.TBCodigo.Location = new System.Drawing.Point(87, 21);
             this.TBCodigo.Name = "TBCodigo";
-            this.TBCodigo.Size = new System.Drawing.Size(300, 22);
+            this.TBCodigo.Size = new System.Drawing.Size(298, 22);
             this.TBCodigo.TabIndex = 14;
-            this.TBCodigo.Enter += new System.EventHandler(this.textBox1_Enter);
+            this.TBCodigo.Enter += new System.EventHandler(this.TBCodigo_Enter);
             this.TBCodigo.Leave += new System.EventHandler(this.TBCodigo_Leave);
             // 
             // label6
@@ -113,7 +113,7 @@
             this.btnCancelar.FlatAppearance.BorderSize = 0;
             this.btnCancelar.Image = global::Presentacion.Botones.btnCancelar;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(264, 267);
+            this.btnCancelar.Location = new System.Drawing.Point(264, 268);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(120, 30);
             this.btnCancelar.TabIndex = 10;
@@ -131,7 +131,7 @@
             this.btnGuardar.FlatAppearance.BorderSize = 0;
             this.btnGuardar.Image = global::Presentacion.Botones.btnGuardar;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(9, 267);
+            this.btnGuardar.Location = new System.Drawing.Point(6, 268);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(120, 30);
             this.btnGuardar.TabIndex = 9;
@@ -150,17 +150,16 @@
             this.TBIdmarca.Size = new System.Drawing.Size(38, 22);
             this.TBIdmarca.TabIndex = 8;
             this.TBIdmarca.TextChanged += new System.EventHandler(this.TBIdmarca_TextChanged);
-            this.TBIdmarca.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBIdmarca_KeyUp);
             // 
             // TBObservacion
             // 
             this.TBObservacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBObservacion.Location = new System.Drawing.Point(84, 133);
+            this.TBObservacion.Location = new System.Drawing.Point(88, 133);
             this.TBObservacion.Multiline = true;
             this.TBObservacion.Name = "TBObservacion";
-            this.TBObservacion.Size = new System.Drawing.Size(300, 128);
+            this.TBObservacion.Size = new System.Drawing.Size(297, 129);
             this.TBObservacion.TabIndex = 7;
             this.TBObservacion.Enter += new System.EventHandler(this.TBObservacion_Enter);
             this.TBObservacion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBObservacion_KeyUp);
@@ -172,7 +171,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 136);
+            this.label4.Location = new System.Drawing.Point(6, 136);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(76, 17);
             this.label4.TabIndex = 6;
@@ -183,9 +182,9 @@
             this.TBReferencia.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBReferencia.Location = new System.Drawing.Point(85, 105);
+            this.TBReferencia.Location = new System.Drawing.Point(88, 105);
             this.TBReferencia.Name = "TBReferencia";
-            this.TBReferencia.Size = new System.Drawing.Size(300, 22);
+            this.TBReferencia.Size = new System.Drawing.Size(297, 22);
             this.TBReferencia.TabIndex = 5;
             this.TBReferencia.Enter += new System.EventHandler(this.TBReferencia_Enter);
             this.TBReferencia.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBReferencia_KeyUp);
@@ -208,9 +207,9 @@
             this.TBDescripcion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBDescripcion.Location = new System.Drawing.Point(85, 77);
+            this.TBDescripcion.Location = new System.Drawing.Point(88, 77);
             this.TBDescripcion.Name = "TBDescripcion";
-            this.TBDescripcion.Size = new System.Drawing.Size(300, 22);
+            this.TBDescripcion.Size = new System.Drawing.Size(297, 22);
             this.TBDescripcion.TabIndex = 3;
             this.TBDescripcion.Enter += new System.EventHandler(this.TBDescripcion_Enter);
             this.TBDescripcion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBDescripcion_KeyUp);
@@ -233,9 +232,9 @@
             this.TBNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBNombre.Location = new System.Drawing.Point(85, 49);
+            this.TBNombre.Location = new System.Drawing.Point(88, 49);
             this.TBNombre.Name = "TBNombre";
-            this.TBNombre.Size = new System.Drawing.Size(300, 22);
+            this.TBNombre.Size = new System.Drawing.Size(297, 22);
             this.TBNombre.TabIndex = 1;
             this.TBNombre.Enter += new System.EventHandler(this.TBNombre_Enter);
             this.TBNombre.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBNombre_KeyUp);
@@ -264,7 +263,7 @@
             this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnImprimir.Location = new System.Drawing.Point(386, 268);
             this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(120, 30);
+            this.btnImprimir.Size = new System.Drawing.Size(119, 30);
             this.btnImprimir.TabIndex = 12;
             this.btnImprimir.Text = "Imprimir - F11";
             this.btnImprimir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -282,7 +281,7 @@
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEliminar.Location = new System.Drawing.Point(260, 268);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(120, 30);
+            this.btnEliminar.Size = new System.Drawing.Size(119, 30);
             this.btnEliminar.TabIndex = 11;
             this.btnEliminar.Text = "Eliminar - F4";
             this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -303,7 +302,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(409, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(516, 304);
+            this.groupBox2.Size = new System.Drawing.Size(515, 304);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Consulta de Marcas Registradas - Leal Enterprise";
@@ -315,7 +314,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TBBuscar.Location = new System.Drawing.Point(119, 20);
             this.TBBuscar.Name = "TBBuscar";
-            this.TBBuscar.Size = new System.Drawing.Size(387, 22);
+            this.TBBuscar.Size = new System.Drawing.Size(390, 22);
             this.TBBuscar.TabIndex = 3;
             this.TBBuscar.TextChanged += new System.EventHandler(this.TBBuscar_TextChanged);
             this.TBBuscar.Enter += new System.EventHandler(this.TBBuscar_Enter);
@@ -357,13 +356,14 @@
             this.DGResultados.BackgroundColor = System.Drawing.Color.White;
             this.DGResultados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGResultados.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.DGResultados.Location = new System.Drawing.Point(6, 47);
+            this.DGResultados.Location = new System.Drawing.Point(6, 48);
             this.DGResultados.Name = "DGResultados";
             this.DGResultados.ReadOnly = true;
             this.DGResultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGResultados.Size = new System.Drawing.Size(500, 214);
+            this.DGResultados.Size = new System.Drawing.Size(503, 214);
             this.DGResultados.TabIndex = 0;
             this.DGResultados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGResultados_CellDoubleClick);
+            this.DGResultados.KeyUp += new System.Windows.Forms.KeyEventHandler(this.DGResultados_KeyUp);
             // 
             // frmMarca
             // 

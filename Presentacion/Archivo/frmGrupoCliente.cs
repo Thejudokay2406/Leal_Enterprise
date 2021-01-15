@@ -167,6 +167,52 @@ namespace Presentacion
             }
         }
 
+        private void Eliminar_SQL()
+        {
+            try
+            {
+                if (Eliminar == "1")
+                {
+
+                    DialogResult Opcion;
+                    string Respuesta = "";
+                    int Eliminacion;
+
+                    Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                    if (Opcion == DialogResult.OK)
+                    {
+                        if (DGResultados.SelectedRows.Count > 0)
+                        {
+                            Eliminacion = Convert.ToInt32(DGResultados.CurrentRow.Cells[0].Value.ToString());
+                            Respuesta = Negocio.fGrupoDeCliente.Eliminar(Eliminacion, 0);
+                        }
+
+                        if (Respuesta.Equals("OK"))
+                        {
+                            this.MensajeOk("Registro de Grupo de Cliente: " + this.TBGrupo.Text + " Eliminado Exitosamente");
+                        }
+                        else
+                        {
+                            this.MensajeError(Respuesta);
+                        }
+
+                        //Botones Comunes
+                        this.TBBuscar.Clear();
+                        this.Limpiar_Datos();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise - Solicitud Rechazada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
         //Mensaje de confirmacion
         private void MensajeOk(string mensaje)
         {
@@ -251,41 +297,7 @@ namespace Presentacion
         {
             try
             {
-                if (Eliminar == "1")
-                {
-
-                    DialogResult Opcion;
-                    string Respuesta = "";
-                    int Eliminacion;
-
-                    Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-                    if (Opcion == DialogResult.OK)
-                    {
-                        if (DGResultados.SelectedRows.Count > 0)
-                        {
-                            Eliminacion = Convert.ToInt32(DGResultados.CurrentRow.Cells["Codigo"].Value.ToString());
-                            Respuesta = Negocio.fGrupoDeCliente.Eliminar(Eliminacion, 0);
-                        }
-
-                        if (Respuesta.Equals("OK"))
-                        {
-                            this.MensajeOk("Registro de Grupo de Cliente: " + this.TBGrupo.Text + " Eliminado Exitosamente");
-                        }
-                        else
-                        {
-                            this.MensajeError(Respuesta);
-                        }
-
-                        //Botones Comunes
-                        this.TBBuscar.Clear();
-                        this.Limpiar_Datos();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise - Solicitud Rechazada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
+                this.Eliminar_SQL();
             }
             catch (Exception ex)
             {
@@ -425,44 +437,7 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F4))
-                {
-                    if (Eliminar == "1")
-                    {
-
-                        DialogResult Opcion;
-                        string Respuesta = "";
-                        int Eliminacion;
-
-                        Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-                        if (Opcion == DialogResult.OK)
-                        {
-                            if (DGResultados.SelectedRows.Count > 0)
-                            {
-                                Eliminacion = Convert.ToInt32(DGResultados.CurrentRow.Cells[0].Value.ToString());
-                                Respuesta = Negocio.fGrupoDeCliente.Eliminar(Eliminacion, 0);
-                            }
-
-                            if (Respuesta.Equals("OK"))
-                            {
-                                this.MensajeOk("Registro de Grupo de Cliente: " + this.TBGrupo.Text + " Eliminado Exitosamente");
-                            }
-                            else
-                            {
-                                this.MensajeError(Respuesta);
-                            }
-
-                            //Botones Comunes
-                            this.TBBuscar.Clear();
-                            this.Limpiar_Datos();
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise - Solicitud Rechazada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    }
-                }
+                this.Eliminar_SQL();
             }
             catch (Exception ex)
             {

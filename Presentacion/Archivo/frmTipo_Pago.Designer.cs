@@ -115,7 +115,7 @@
             this.DGResultados.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DGResultados.Location = new System.Drawing.Point(6, 48);
             this.DGResultados.Name = "DGResultados";
-            this.DGResultados.Size = new System.Drawing.Size(491, 152);
+            this.DGResultados.Size = new System.Drawing.Size(491, 153);
             this.DGResultados.TabIndex = 0;
             this.DGResultados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGResultados_CellDoubleClick);
             this.DGResultados.KeyUp += new System.Windows.Forms.KeyEventHandler(this.DGResultados_KeyUp);
@@ -195,7 +195,7 @@
             this.TBObservacion.Location = new System.Drawing.Point(88, 77);
             this.TBObservacion.Multiline = true;
             this.TBObservacion.Name = "TBObservacion";
-            this.TBObservacion.Size = new System.Drawing.Size(299, 123);
+            this.TBObservacion.Size = new System.Drawing.Size(299, 124);
             this.TBObservacion.TabIndex = 9;
             this.TBObservacion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBObservacion_KeyUp);
             // 

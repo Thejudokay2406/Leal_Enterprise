@@ -61,6 +61,7 @@
             this.groupBox2.Controls.Add(this.DGResultados);
             this.groupBox2.Controls.Add(this.btnImprimir);
             this.groupBox2.Controls.Add(this.btnEliminar);
+            this.groupBox2.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(418, 14);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(503, 244);
@@ -76,7 +77,7 @@
             this.lblTotal.AutoSize = true;
             this.lblTotal.Location = new System.Drawing.Point(6, 214);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(31, 15);
+            this.lblTotal.Size = new System.Drawing.Size(26, 17);
             this.lblTotal.TabIndex = 3;
             this.lblTotal.Text = "------";
             // 
@@ -87,7 +88,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TBBuscar.Location = new System.Drawing.Point(181, 20);
             this.TBBuscar.Name = "TBBuscar";
-            this.TBBuscar.Size = new System.Drawing.Size(316, 21);
+            this.TBBuscar.Size = new System.Drawing.Size(316, 22);
             this.TBBuscar.TabIndex = 2;
             this.TBBuscar.TextChanged += new System.EventHandler(this.TBBuscar_TextChanged);
             this.TBBuscar.Enter += new System.EventHandler(this.TBBuscar_Enter);
@@ -101,7 +102,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(6, 23);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(165, 15);
+            this.label4.Size = new System.Drawing.Size(167, 17);
             this.label4.TabIndex = 1;
             this.label4.Text = "Tipo de Producto a Consultar";
             // 
@@ -116,13 +117,14 @@
             this.DGResultados.BackgroundColor = System.Drawing.Color.White;
             this.DGResultados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGResultados.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.DGResultados.Location = new System.Drawing.Point(6, 47);
+            this.DGResultados.Location = new System.Drawing.Point(6, 48);
             this.DGResultados.Name = "DGResultados";
             this.DGResultados.ReadOnly = true;
-            this.DGResultados.Size = new System.Drawing.Size(491, 153);
+            this.DGResultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGResultados.Size = new System.Drawing.Size(491, 154);
             this.DGResultados.TabIndex = 0;
             this.DGResultados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGResultados_CellDoubleClick);
-            this.DGResultados.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DGResultados_KeyPress);
+            this.DGResultados.KeyUp += new System.Windows.Forms.KeyEventHandler(this.DGResultados_KeyUp);
             // 
             // btnImprimir
             // 
@@ -132,11 +134,11 @@
             this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnImprimir.Image = global::Presentacion.Botones.btnImprimir;
             this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImprimir.Location = new System.Drawing.Point(407, 206);
+            this.btnImprimir.Location = new System.Drawing.Point(377, 208);
             this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(90, 30);
+            this.btnImprimir.Size = new System.Drawing.Size(120, 30);
             this.btnImprimir.TabIndex = 3;
-            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.Text = "Imprimir - F11";
             this.btnImprimir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnImprimir.UseVisualStyleBackColor = true;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
@@ -149,11 +151,11 @@
             this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEliminar.Image = global::Presentacion.Botones.btnEliminar;
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(311, 206);
+            this.btnEliminar.Location = new System.Drawing.Point(251, 208);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(90, 30);
+            this.btnEliminar.Size = new System.Drawing.Size(120, 30);
             this.btnEliminar.TabIndex = 2;
-            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.Text = "Eliminar - F4";
             this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -172,6 +174,7 @@
             this.groupBox1.Controls.Add(this.btnCancelar);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnGuardar);
+            this.groupBox1.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 14);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(400, 244);
@@ -184,21 +187,21 @@
             this.TBIdtipo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBIdtipo.Location = new System.Drawing.Point(128, 211);
+            this.TBIdtipo.Location = new System.Drawing.Point(135, 211);
             this.TBIdtipo.Name = "TBIdtipo";
-            this.TBIdtipo.Size = new System.Drawing.Size(39, 21);
+            this.TBIdtipo.Size = new System.Drawing.Size(39, 22);
             this.TBIdtipo.TabIndex = 10;
-            this.TBIdtipo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBIdtipo_KeyUp);
+            this.TBIdtipo.TextChanged += new System.EventHandler(this.TBIdtipo_TextChanged);
             // 
             // TBObservacion
             // 
             this.TBObservacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBObservacion.Location = new System.Drawing.Point(87, 74);
+            this.TBObservacion.Location = new System.Drawing.Point(88, 77);
             this.TBObservacion.Multiline = true;
             this.TBObservacion.Name = "TBObservacion";
-            this.TBObservacion.Size = new System.Drawing.Size(300, 126);
+            this.TBObservacion.Size = new System.Drawing.Size(306, 125);
             this.TBObservacion.TabIndex = 9;
             this.TBObservacion.Enter += new System.EventHandler(this.TBObservacion_Enter);
             this.TBObservacion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBObservacion_KeyUp);
@@ -212,18 +215,18 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 77);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 15);
+            this.label3.Size = new System.Drawing.Size(76, 17);
             this.label3.TabIndex = 8;
-            this.label3.Text = "Observacion";
+            this.label3.Text = "Observación";
             // 
             // TBDescripcion
             // 
             this.TBDescripcion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBDescripcion.Location = new System.Drawing.Point(87, 47);
+            this.TBDescripcion.Location = new System.Drawing.Point(88, 49);
             this.TBDescripcion.Name = "TBDescripcion";
-            this.TBDescripcion.Size = new System.Drawing.Size(300, 21);
+            this.TBDescripcion.Size = new System.Drawing.Size(306, 22);
             this.TBDescripcion.TabIndex = 7;
             this.TBDescripcion.Enter += new System.EventHandler(this.TBDescripcion_Enter);
             this.TBDescripcion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBDescripcion_KeyUp);
@@ -237,18 +240,18 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 50);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 15);
+            this.label2.Size = new System.Drawing.Size(73, 17);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Descripcion";
+            this.label2.Text = "Descripción";
             // 
             // TBTipo
             // 
             this.TBTipo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBTipo.Location = new System.Drawing.Point(87, 20);
+            this.TBTipo.Location = new System.Drawing.Point(88, 21);
             this.TBTipo.Name = "TBTipo";
-            this.TBTipo.Size = new System.Drawing.Size(300, 21);
+            this.TBTipo.Size = new System.Drawing.Size(306, 22);
             this.TBTipo.TabIndex = 5;
             this.TBTipo.Enter += new System.EventHandler(this.TBTipo_Enter);
             this.TBTipo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBTipo_KeyUp);
@@ -262,11 +265,11 @@
             this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelar.Image = global::Presentacion.Botones.btnCancelar;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(297, 206);
+            this.btnCancelar.Location = new System.Drawing.Point(274, 208);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(90, 30);
+            this.btnCancelar.Size = new System.Drawing.Size(120, 30);
             this.btnCancelar.TabIndex = 1;
-            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.Text = "Cancelar - F9";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -279,7 +282,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 15);
+            this.label1.Size = new System.Drawing.Size(31, 17);
             this.label1.TabIndex = 4;
             this.label1.Text = "Tipo";
             // 
@@ -291,11 +294,11 @@
             this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGuardar.Image = global::Presentacion.Botones.btnGuardar;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(9, 206);
+            this.btnGuardar.Location = new System.Drawing.Point(6, 208);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(90, 30);
+            this.btnGuardar.Size = new System.Drawing.Size(120, 30);
             this.btnGuardar.TabIndex = 0;
-            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.Text = "Guardar - F10";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);

@@ -198,9 +198,9 @@ namespace Presentacion
                 this.CBDepartamento.ValueMember = "ID";
                 this.CBDepartamento.DisplayMember = "Departamento";
 
-                this.CBSucurzal.DataSource = fSucurzal.Lista();
+                this.CBSucurzal.DataSource = fSucurzal.Lista(3);
                 this.CBSucurzal.ValueMember = "Codigo";
-                this.CBSucurzal.DisplayMember = "Sucurzal";
+                this.CBSucurzal.DisplayMember = "Sucursal";
             }
             catch (Exception ex)
             {

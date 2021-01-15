@@ -12,10 +12,10 @@ namespace Negocio
 {
     public class fSucurzal
     {
-        public static DataTable Lista()
+        public static DataTable Lista(int auto)
         {
             Conexion_Sucurzal Datos = new Conexion_Sucurzal();
-            return Datos.Lista();
+            return Datos.Lista(auto);
         }
 
         public static DataTable Buscar(string Filtro, int auto)

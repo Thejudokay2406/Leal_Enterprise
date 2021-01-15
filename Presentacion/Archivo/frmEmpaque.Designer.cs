@@ -176,7 +176,6 @@
             this.TBIdempaque.Size = new System.Drawing.Size(39, 22);
             this.TBIdempaque.TabIndex = 10;
             this.TBIdempaque.TextChanged += new System.EventHandler(this.TBIdempaque_TextChanged);
-            this.TBIdempaque.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBIdorigen_KeyUp);
             // 
             // TBObservacion
             // 

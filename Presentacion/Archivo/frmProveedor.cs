@@ -312,9 +312,9 @@ namespace Presentacion
         {
             try
             {
-                this.CBSucurzal.DataSource = fSucurzal.Lista();
+                this.CBSucurzal.DataSource = fSucurzal.Lista(3);
                 this.CBSucurzal.ValueMember = "Codigo";
-                this.CBSucurzal.DisplayMember = "Sucurzal";
+                this.CBSucurzal.DisplayMember = "Sucursal";
             }
             catch (Exception ex)
             {
@@ -372,6 +372,59 @@ namespace Presentacion
         private void MensajeError(string mensaje)
         {
             MessageBox.Show(mensaje, "Leal Enterprise - Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void Eliminar_SQL()
+        {
+            try
+            {
+                if (Eliminar == "1")
+                {
+
+                    DialogResult Opcion;
+                    string Respuesta = "";
+                    int Eliminacion;
+
+                    Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                    if (Opcion == DialogResult.OK)
+                    {
+                        if (DGResultados.SelectedRows.Count > 0)
+                        {
+                            Eliminacion = Convert.ToInt32(DGResultados.CurrentRow.Cells["Codigo"].Value.ToString());
+                            Respuesta = Negocio.fProveedor.Eliminar(Eliminacion, 0);
+                        }
+
+                        if (Respuesta.Equals("OK"))
+                        {
+                            this.MensajeOk("Registro Eliminado Correctamente");
+                        }
+                        else
+                        {
+                            this.MensajeError(Respuesta);
+                        }
+
+                        //Botones Comunes
+                        this.Digitar = true;
+                        this.TBBuscar.Clear();
+                        this.Botones();
+                        this.Limpiar_Datos();
+                        this.Diseño_TablasGenerales();
+
+                        //Se regresa el focus al campo principal
+                        this.TCPrincipal.SelectedIndex = 0;
+                        this.TBNombre.Select();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise - Solicitud Rechazada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
 
         private void Guardar_SQL()
@@ -941,48 +994,7 @@ namespace Presentacion
         {
             try
             {
-                if (Eliminar == "1")
-                {
-
-                    DialogResult Opcion;
-                    string Respuesta = "";
-                    int Eliminacion;
-
-                    Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-                    if (Opcion == DialogResult.OK)
-                    {
-                        if (DGResultados.SelectedRows.Count > 0)
-                        {
-                            Eliminacion = Convert.ToInt32(DGResultados.CurrentRow.Cells["Codigo"].Value.ToString());
-                            Respuesta = Negocio.fProveedor.Eliminar(Eliminacion, 0);
-                        }
-
-                        if (Respuesta.Equals("OK"))
-                        {
-                            this.MensajeOk("Registro Eliminado Correctamente");
-                        }
-                        else
-                        {
-                            this.MensajeError(Respuesta);
-                        }
-
-                        //Botones Comunes
-                        this.Digitar = true;
-                        this.TBBuscar.Clear();
-                        this.Botones();
-                        this.Limpiar_Datos();
-                        this.Diseño_TablasGenerales();
-
-                        //Se regresa el focus al campo principal
-                        this.TCPrincipal.SelectedIndex = 0;
-                        this.TBNombre.Select();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise - Solicitud Rechazada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
+                this.Eliminar_SQL();
             }
             catch (Exception ex)
             {
@@ -1216,48 +1228,7 @@ namespace Presentacion
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F4))
                 {
-                    if (Eliminar == "1")
-                    {
-
-                        DialogResult Opcion;
-                        string Respuesta = "";
-                        int Eliminacion;
-
-                        Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-                        if (Opcion == DialogResult.OK)
-                        {
-                            if (DGResultados.SelectedRows.Count > 0)
-                            {
-                                Eliminacion = Convert.ToInt32(DGResultados.CurrentRow.Cells[0].Value.ToString());
-                                Respuesta = Negocio.fProveedor.Eliminar(Eliminacion, 0);
-                            }
-
-                            if (Respuesta.Equals("OK"))
-                            {
-                                this.MensajeOk("Registro Eliminado Correctamente");
-                            }
-                            else
-                            {
-                                this.MensajeError(Respuesta);
-                            }
-
-                            //Botones Comunes
-                            this.Digitar = true;
-                            this.TBBuscar.Clear();
-                            this.Botones();
-                            this.Limpiar_Datos();
-                            this.Diseño_TablasGenerales();
-
-                            //Se regresa el focus al campo principal
-                            this.TCPrincipal.SelectedIndex = 0;
-                            this.TBNombre.Select();
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise - Solicitud Rechazada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    }
+                    this.Eliminar_SQL();
                 }
             }
             catch (Exception ex)

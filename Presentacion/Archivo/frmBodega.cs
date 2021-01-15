@@ -26,29 +26,8 @@ namespace Presentacion
         // ***************************************************** Variable para Metodo SQL Guardar, Eliminar, Editar, Consultar *********************************
         public string Guardar, Editar, Consultar, Eliminar, Imprimir = "";
 
-        // ***************************************************** Parametros para AutoCompletar los Texboxt *****************************************************
-
-        //Panel Datos Basicos - Llaves Primarias
-        public string Idbodega, Idsucurzal = "";
-
         //Panel Datos Basicos
-        private string Nombre, Documento, Descripcion, Director, Ciudad, Telefono, Movil, Correo, Zona, Dimensiones, Direccion01, Direccion02 = "";
-
-        //Panel Datos Datos de Pagos
-        private string Autorizacion_Pagos, Aut_InicioLaboral, Aut_FinalLaboral, Aut_Lunes, Aut_Martes, Aut_Miercoles, Aut_Jueves, Aut_Viernes, Aut_Sabado, Aut_Domingo, Aut_Bono, Aut_Credito, Aut_Debito, Aut_Efectivo, Aut_Sodexo, Aut_Transferencia, Aut_Cheques, Aut_Otros = "";
-
-        //Panel Datos de Despacho
-        private string Despacho, Des_InicioLaboral, Des_FinalLaboral, Des_Lunes, Des_Martes, Des_Miercoles, Des_Jueves, Des_Viernes, Des_Sabado, Des_Domingo, Des_Encargado, Des_Observacion = "";
-
-        //Panel Datos de Recepcion
-        private string Recepcion, Rec_InicioLaboral, Rec_FinalLaboral, Rec_Lunes, Rec_Martes, Rec_Miercoles, Rec_Jueves, Rec_Viernes, Rec_Sabado, Rec_Domingo, Rec_Encargado, Rec_Observacion = "";
-
-        // ***************************************************** Parametros para Validar los Chexbox en General ************************************************
-
-        private string ChbPagos_Lunes, ChbPagos_Martes, ChbPagos_Miercoles, ChbPagos_Jueves, ChbPagos_Viernes, ChbPagos_Sabado, ChbPagos_Domingo = "";
-        private string ChbMetodos_Bono, ChbMetodos_Cheque, ChbMetodos_Credito, ChbMetodos_Debito, ChbMetodos_Efectivo, ChbMetodos_Sodexo, ChbMetodos_Transferencia, ChbMetodos_Otros = "";
-        private string ChbRecepcion_Lunes, ChbRecepcion_Martes, ChbRecepcion_Miercoles, ChbRecepcion_Jueves, ChbRecepcion_Viernes, ChbRecepcion_Sabado, ChbRecepcion_Domingo = "";
-        private string ChbDespacho_Lunes, ChbDespacho_Martes, ChbDespacho_Miercoles, ChbDespacho_Jueves, ChbDespacho_Viernes, ChbDespacho_Sabado, ChbDespacho_Domingo = "";
+        private string Idbodega, Idsucurzal, Nombre, Documento, Descripcion, Director, Ciudad, Telefono01, Extension01, Telefono02, Extension02, Movil01, Movil02, Correo, Medida, Direccion01, Direccion02 = "";
 
         public frmBodega()
         {
@@ -64,7 +43,7 @@ namespace Presentacion
 
             //Focus a Texboxt y Combobox
             this.TBBodega.Select();
-            this.CBZona.SelectedIndex = 0;
+            this.CBSucurzal.SelectedIndex = 0;
 
             //Ocultacion de Texboxt
             this.TBIdbodega.Visible = false;
@@ -91,10 +70,18 @@ namespace Presentacion
 
             this.TBCiudad.ReadOnly = false;
             this.TBCiudad.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBMovil.ReadOnly = false;
-            this.TBMovil.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBTelefono.ReadOnly = false;
-            this.TBTelefono.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBMovil01.ReadOnly = false;
+            this.TBMovil01.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBMovil02.ReadOnly = false;
+            this.TBMovil02.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBTelefono01.ReadOnly = false;
+            this.TBTelefono01.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBExtension01.ReadOnly = false;
+            this.TBExtension01.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBTelefono02.ReadOnly = false;
+            this.TBTelefono02.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBExtension02.ReadOnly = false;
+            this.TBExtension02.BackColor = Color.FromArgb(3, 155, 229);
             this.TBCorreo.ReadOnly = false;
             this.TBCorreo.BackColor = Color.FromArgb(3, 155, 229);
             this.TBDireccion01.ReadOnly = false;
@@ -103,38 +90,6 @@ namespace Presentacion
             this.TBDireccion02.BackColor = Color.FromArgb(3, 155, 229);
             this.TBMedidas.ReadOnly = false;
             this.TBMedidas.BackColor = Color.FromArgb(3, 155, 229);
-
-            //Dias de Pagos
-            this.TBAutorizacion_Pagos.ReadOnly = false;
-            this.TBAutorizacion_Pagos.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBInicioHorario_Pagos.ReadOnly = false;
-            this.TBInicioHorario_Pagos.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBFinHorario_Pagos.ReadOnly = false;
-            this.TBFinHorario_Pagos.BackColor = Color.FromArgb(3, 155, 229);
-
-            //Dias de Recepcion
-            this.TBRecepcion.ReadOnly = false;
-            this.TBRecepcion.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBInicioRecepcion.ReadOnly = false;
-            this.TBInicioRecepcion.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBFinRecepcion.ReadOnly = false;
-            this.TBFinRecepcion.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBEncargado_Recepcion.ReadOnly = false;
-            this.TBEncargado_Recepcion.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBObservacion_Recepcion.ReadOnly = false;
-            this.TBObservacion_Recepcion.BackColor = Color.FromArgb(3, 155, 229);
-
-            //Dias de Despacho
-            this.TBDespacho.ReadOnly = false;
-            this.TBDespacho.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBInicioDespacho.ReadOnly = false;
-            this.TBInicioDespacho.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBFinDeDespacho.ReadOnly = false;
-            this.TBFinDeDespacho.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBEncargado_Despacho.ReadOnly = false;
-            this.TBEncargado_Despacho.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBObservacion_Despacho.ReadOnly = false;
-            this.TBObservacion_Despacho.BackColor = Color.FromArgb(3, 155, 229);
 
             //Texboxt de Consulta
             this.TBBuscar.BackColor = Color.FromArgb(3, 155, 229);
@@ -146,40 +101,30 @@ namespace Presentacion
 
             this.TBIdbodega.Clear();
             this.CBSucurzal.SelectedIndex = 0;
-            this.CBZona.SelectedIndex = 0;
             this.TBBodega.Clear();
-            this.TBBodega.Text = Campo;
             this.TBDocumento.Clear();
             this.TBDescripcion.Clear();
             this.TBDescripcion.Text = Campo;
+            this.TBDescripcion.ForeColor = Color.FromArgb(255, 255, 255);
             this.TBDirector.Clear();
             this.TBDirector.Text = Campo;
+            this.TBDirector.ForeColor = Color.FromArgb(255, 255, 255);
 
             this.TBCiudad.Clear();
-            this.TBMovil.Clear();
-            this.TBTelefono.Clear();
+            this.TBMovil01.Clear();
+            this.TBMovil02.Clear();
+            this.TBTelefono01.Clear();
+            this.TBExtension01.Clear();
+            this.TBTelefono02.Clear();
+            this.TBExtension02.Clear();
             this.TBCorreo.Clear();
             this.TBDireccion01.Clear();
             this.TBDireccion02.Clear();
             this.TBMedidas.Clear();
 
-            //Dias de Recepcion
-            this.TBRecepcion.Clear();
-            this.TBInicioRecepcion.Clear();
-            this.TBFinRecepcion.Clear();
-            this.TBEncargado_Recepcion.Clear();
-            this.TBObservacion_Recepcion.Clear();
-
-            //Dias de Despacho
-            this.TBDespacho.Clear();
-            this.TBInicioDespacho.Clear();
-            this.TBFinDeDespacho.Clear();
-            this.TBEncargado_Despacho.Clear();
-            this.TBObservacion_Despacho.Clear();
-
             //Se realiza el FOCUS al panel y campo de texto iniciales
-            this.TCPrincipal.SelectedIndex = 0;
-            this.TBDireccion02.Select();
+            this.TBBodega.Select();
+            this.TBIdbodega.Clear();
         }
         
         private void Botones()
@@ -187,7 +132,7 @@ namespace Presentacion
             if (Digitar)
             {
                 this.btnGuardar.Enabled = true;
-                this.btnGuardar.Text = "Guardar";
+                this.btnGuardar.Text = "Guardar - F10";
 
                 this.btnEliminar.Enabled = false;
                 this.btnCancelar.Enabled = false;
@@ -195,7 +140,7 @@ namespace Presentacion
             else if (!Digitar)
             {
                 this.btnGuardar.Enabled = true;
-                this.btnGuardar.Text = "Editar";
+                this.btnGuardar.Text = "Editar - F10";
 
                 this.btnEliminar.Enabled = true;
                 this.btnCancelar.Enabled = true;
@@ -206,9 +151,9 @@ namespace Presentacion
         {
             try
             {
-                this.CBSucurzal.DataSource = fSucurzal.Lista();
+                this.CBSucurzal.DataSource = fSucurzal.Lista(3);
                 this.CBSucurzal.ValueMember = "Codigo";
-                this.CBSucurzal.DisplayMember = "Sucurzal";
+                this.CBSucurzal.DisplayMember = "Sucursal";
             }
             catch (Exception ex)
             {
@@ -216,280 +161,16 @@ namespace Presentacion
             }
         }
 
-        private void Validaciones_Chexbox()
+        //Mensaje de confirmacion
+        private void MensajeOk(string mensaje)
         {
-            try
-            {
-                //Panel Dato de Pagos
+            MessageBox.Show(mensaje, "Leal Enterprise - Solicitud Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+        }
 
-                if (CHLunes_Pagos.Checked)
-                {
-                    ChbPagos_Lunes = "1";
-                }
-                else
-                {
-                    ChbPagos_Lunes = "0";
-                }
-
-                if (CHMartes_Pagos.Checked)
-                {
-                    ChbPagos_Martes = "1";
-                }
-                else
-                {
-                    ChbPagos_Martes = "0";
-                }
-
-                if (CHMiercoles_Pagos.Checked)
-                {
-                    ChbPagos_Miercoles = "1";
-                }
-                else
-                {
-                    ChbPagos_Miercoles = "0";
-                }
-
-                if (CHJueves_Pagos.Checked)
-                {
-                    ChbPagos_Jueves = "1";
-                }
-                else
-                {
-                    ChbPagos_Jueves = "0";
-                }
-
-                if (CHViernes_Pagos.Checked)
-                {
-                    ChbPagos_Viernes = "1";
-                }
-                else
-                {
-                    ChbPagos_Viernes = "0";
-                }
-
-                if (CHSabado_Pagos.Checked)
-                {
-                    ChbPagos_Sabado = "1";
-                }
-                else
-                {
-                    ChbPagos_Sabado = "0";
-                }
-
-                if (CHDomingo_Pagos.Checked)
-                {
-                    ChbPagos_Domingo = "1";
-                }
-                else
-                {
-                    ChbPagos_Domingo = "0";
-                }
-
-                //
-                if (CHBono.Checked)
-                {
-                    ChbMetodos_Bono = "1";
-                }
-                else
-                {
-                    ChbMetodos_Bono = "0";
-                }
-
-                if (CHCheques.Checked)
-                {
-                    ChbMetodos_Cheque = "1";
-                }
-                else
-                {
-                    ChbMetodos_Cheque = "0";
-                }
-
-                if (CHEfectivo.Checked)
-                {
-                    ChbMetodos_Efectivo = "1";
-                }
-                else
-                {
-                    ChbMetodos_Efectivo = "0";
-                }
-
-                if (CHCredito.Checked)
-                {
-                    ChbMetodos_Credito = "1";
-                }
-                else
-                {
-                    ChbMetodos_Credito = "0";
-                }
-
-                if (CHDebito.Checked)
-                {
-                    ChbMetodos_Debito = "1";
-                }
-                else
-                {
-                    ChbMetodos_Debito = "0";
-                }
-
-                if (CHTransferencia.Checked)
-                {
-                    ChbMetodos_Transferencia = "1";
-                }
-                else
-                {
-                    ChbMetodos_Transferencia = "0";
-                }
-
-                if (CHSodexo.Checked)
-                {
-                    ChbMetodos_Sodexo = "1";
-                }
-                else
-                {
-                    ChbMetodos_Sodexo = "0";
-                }
-
-                if (CHOtros.Checked)
-                {
-                    ChbMetodos_Otros = "1";
-                }
-                else
-                {
-                    ChbMetodos_Otros = "0";
-                }
-
-                //Panel Datos de Recepcion
-                if (CHLunes_Recepcion.Checked)
-                {
-                    ChbRecepcion_Lunes = "1";
-                }
-                else
-                {
-                    ChbRecepcion_Lunes = "0";
-                }
-
-                if (CHMartes_Recepcion.Checked)
-                {
-                    ChbRecepcion_Martes = "1";
-                }
-                else
-                {
-                    ChbRecepcion_Martes = "0";
-                }
-
-                if (CHMiercoles_Recepcion.Checked)
-                {
-                    ChbRecepcion_Miercoles = "1";
-                }
-                else
-                {
-                    ChbRecepcion_Miercoles = "0";
-                }
-
-                if (CHJueves_Recepcion.Checked)
-                {
-                    ChbRecepcion_Jueves = "1";
-                }
-                else
-                {
-                    ChbRecepcion_Jueves = "0";
-                }
-
-                if (CHViernes_Recepcion.Checked)
-                {
-                    ChbRecepcion_Viernes = "1";
-                }
-                else
-                {
-                    ChbRecepcion_Viernes = "0";
-                }
-
-                if (CHSabado_Recepcion.Checked)
-                {
-                    ChbRecepcion_Sabado = "1";
-                }
-                else
-                {
-                    ChbRecepcion_Sabado = "0";
-                }
-
-                if (CHDomingo_Recepcion.Checked)
-                {
-                    ChbRecepcion_Domingo = "1";
-                }
-                else
-                {
-                    ChbRecepcion_Domingo = "0";
-                }
-
-                //Panel Datos de Despacho
-                if (CHLunes_Despacho.Checked)
-                {
-                    ChbDespacho_Lunes = "1";
-                }
-                else
-                {
-                    ChbDespacho_Lunes = "0";
-                }
-
-                if (CHMartes_Despacho.Checked)
-                {
-                    ChbDespacho_Martes = "1";
-                }
-                else
-                {
-                    ChbDespacho_Martes = "0";
-                }
-
-                if (CHMiercoles_Despacho.Checked)
-                {
-                    ChbDespacho_Miercoles = "1";
-                }
-                else
-                {
-                    ChbDespacho_Miercoles = "0";
-                }
-
-                if (CHJueves_Despacho.Checked)
-                {
-                    ChbDespacho_Jueves = "1";
-                }
-                else
-                {
-                    ChbDespacho_Jueves = "0";
-                }
-
-                if (CHViernes_Despacho.Checked)
-                {
-                    ChbDespacho_Viernes = "1";
-                }
-                else
-                {
-                    ChbDespacho_Viernes = "0";
-                }
-
-                if (CHSabado_Despacho.Checked)
-                {
-                    ChbDespacho_Sabado = "1";
-                }
-                else
-                {
-                    ChbDespacho_Sabado = "0";
-                }
-
-                if (CHDomingo_Despacho.Checked)
-                {
-                    ChbDespacho_Domingo = "1";
-                }
-                else
-                {
-                    ChbDespacho_Domingo = "0";
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+        //Mensaje de Error
+        private void MensajeError(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Leal Enterprise - Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void Guardar_SQL()
@@ -518,7 +199,6 @@ namespace Presentacion
                 }
                 else
                 {
-                    this.Validaciones_Chexbox();
 
                     if (this.Digitar)
                     {
@@ -528,16 +208,7 @@ namespace Presentacion
                                 1,
 
                                 //Panel Datos Basicos
-                                Convert.ToInt32(this.CBSucurzal.SelectedValue), this.TBBodega.Text, this.TBDocumento.Text, this.TBDescripcion.Text, this.TBDirector.Text, this.TBCiudad.Text, this.TBTelefono.Text, this.TBMovil.Text, this.TBCorreo.Text, this.TBMedidas.Text, this.TBDireccion01.Text, this.TBDireccion02.Text, this.CBZona.Text,
-
-                                //Panel - Datos de Pago
-                                this.TBAutorizacion_Pagos.Text, this.TBInicioHorario_Pagos.Text, this.TBFinHorario_Pagos.Text, Convert.ToInt32(ChbPagos_Lunes), Convert.ToInt32(ChbPagos_Martes), Convert.ToInt32(ChbPagos_Miercoles), Convert.ToInt32(ChbPagos_Jueves), Convert.ToInt32(ChbPagos_Viernes), Convert.ToInt32(ChbPagos_Sabado), Convert.ToInt32(ChbPagos_Domingo), Convert.ToInt32(ChbMetodos_Bono), Convert.ToInt32(ChbMetodos_Cheque), Convert.ToInt32(ChbMetodos_Credito), Convert.ToInt32(ChbMetodos_Debito), Convert.ToInt32(ChbMetodos_Efectivo), Convert.ToInt32(ChbMetodos_Sodexo), Convert.ToInt32(ChbMetodos_Transferencia), Convert.ToInt32(ChbMetodos_Otros),
-
-                                //
-                                this.TBRecepcion.Text, TBInicioRecepcion.Text, TBFinRecepcion.Text, Convert.ToInt32(ChbRecepcion_Lunes), Convert.ToInt32(ChbRecepcion_Martes), Convert.ToInt32(ChbRecepcion_Miercoles), Convert.ToInt32(ChbRecepcion_Jueves), Convert.ToInt32(ChbRecepcion_Viernes), Convert.ToInt32(ChbRecepcion_Sabado), Convert.ToInt32(ChbRecepcion_Domingo), this.TBEncargado_Recepcion.Text, this.TBObservacion_Recepcion.Text,
-
-                                //
-                                this.TBDespacho.Text, this.TBInicioDespacho.Text, this.TBFinDeDespacho.Text, Convert.ToInt32(this.ChbDespacho_Lunes), Convert.ToInt32(this.ChbDespacho_Martes), Convert.ToInt32(this.ChbDespacho_Miercoles), Convert.ToInt32(this.ChbDespacho_Jueves), Convert.ToInt32(this.ChbDespacho_Viernes), Convert.ToInt32(this.ChbDespacho_Sabado), Convert.ToInt32(this.ChbDespacho_Domingo), this.TBEncargado_Despacho.Text, this.TBObservacion_Despacho.Text
+                                Convert.ToInt32(this.CBSucurzal.SelectedValue), this.TBBodega.Text, this.TBDocumento.Text, this.TBDescripcion.Text, this.TBDirector.Text, this.TBCiudad.Text, this.TBTelefono01.Text, this.TBExtension01.Text, this.TBTelefono02.Text, this.TBExtension02.Text, this.TBMovil01.Text, this.TBMovil02.Text, this.TBCorreo.Text, this.TBMedidas.Text, this.TBDireccion01.Text, this.TBDireccion02.Text
                             );
                     }
                     
@@ -550,16 +221,7 @@ namespace Presentacion
                                  2, Convert.ToInt32(TBIdbodega.Text),
 
                                 //Panel Datos Basicos
-                                Convert.ToInt32(this.CBSucurzal.SelectedValue), this.TBBodega.Text, this.TBDocumento.Text, this.TBDescripcion.Text, this.TBDirector.Text, this.TBCiudad.Text, this.TBTelefono.Text, this.TBMovil.Text, this.TBCorreo.Text, this.TBMedidas.Text, this.TBDireccion01.Text, this.TBDireccion02.Text, this.CBZona.Text,
-
-                                //Panel - Datos de Pago
-                                this.TBAutorizacion_Pagos.Text, this.TBInicioHorario_Pagos.Text, this.TBFinHorario_Pagos.Text, Convert.ToInt32(ChbPagos_Lunes), Convert.ToInt32(ChbPagos_Martes), Convert.ToInt32(ChbPagos_Miercoles), Convert.ToInt32(ChbPagos_Jueves), Convert.ToInt32(ChbPagos_Viernes), Convert.ToInt32(ChbPagos_Sabado), Convert.ToInt32(ChbPagos_Domingo), Convert.ToInt32(ChbMetodos_Bono), Convert.ToInt32(ChbMetodos_Cheque), Convert.ToInt32(ChbMetodos_Credito), Convert.ToInt32(ChbMetodos_Debito), Convert.ToInt32(ChbMetodos_Efectivo), Convert.ToInt32(ChbMetodos_Sodexo), Convert.ToInt32(ChbMetodos_Transferencia), Convert.ToInt32(ChbMetodos_Otros),
-
-                                //
-                                this.TBRecepcion.Text, TBInicioRecepcion.Text, TBFinRecepcion.Text, Convert.ToInt32(ChbRecepcion_Lunes), Convert.ToInt32(ChbRecepcion_Martes), Convert.ToInt32(ChbRecepcion_Miercoles), Convert.ToInt32(ChbRecepcion_Jueves), Convert.ToInt32(ChbRecepcion_Viernes), Convert.ToInt32(ChbRecepcion_Sabado), Convert.ToInt32(ChbRecepcion_Domingo), this.TBEncargado_Recepcion.Text, this.TBObservacion_Recepcion.Text,
-
-                                //
-                                this.TBDespacho.Text, this.TBInicioDespacho.Text, this.TBFinDeDespacho.Text, Convert.ToInt32(this.ChbDespacho_Lunes), Convert.ToInt32(this.ChbDespacho_Martes), Convert.ToInt32(this.ChbDespacho_Miercoles), Convert.ToInt32(this.ChbDespacho_Jueves), Convert.ToInt32(this.ChbDespacho_Viernes), Convert.ToInt32(this.ChbDespacho_Sabado), Convert.ToInt32(this.ChbDespacho_Domingo), this.TBEncargado_Despacho.Text, this.TBObservacion_Despacho.Text
+                                Convert.ToInt32(this.CBSucurzal.SelectedValue), this.TBBodega.Text, this.TBDocumento.Text, this.TBDescripcion.Text, this.TBDirector.Text, this.TBCiudad.Text, this.TBTelefono01.Text, this.TBExtension01.Text, this.TBTelefono02.Text, this.TBExtension02.Text, this.TBMovil01.Text, this.TBMovil02.Text, this.TBCorreo.Text, this.TBMedidas.Text, this.TBDireccion01.Text, this.TBDireccion02.Text
                             );
                     }
 
@@ -567,11 +229,11 @@ namespace Presentacion
                     {
                         if (this.Digitar)
                         {
-                            this.MensajeOk("La Bodega: “" + this.TBBodega.Text + "” a Sido Registrado Exitosamente");
+                            this.MensajeOk("La Bodega: “" + this.TBBodega.Text + "” a Sido Registrada Exitosamente");
                         }
                         else
                         {
-                            this.MensajeOk("El Registro de La Bodega: “" + this.TBBodega.Text + "” a Sido Actualizado Exitosamente");
+                            this.MensajeOk("Los Datos de Registro de la Bodega: “" + this.TBBodega.Text + "” han Sido Actualizados Exitosamente");
                         }
                     }
 
@@ -592,16 +254,48 @@ namespace Presentacion
             }
         }
 
-        //Mensaje de confirmacion
-        private void MensajeOk(string mensaje)
+        private void Eliminar_SQL()
         {
-            MessageBox.Show(mensaje, "Leal Enterprise - Solicitud Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-        }
+            try
+            {
+                if (Eliminar == "1")
+                {
+                    DialogResult Opcion;
+                    string Respuesta = "";
+                    int Eliminacion;
 
-        //Mensaje de Error
-        private void MensajeError(string mensaje)
-        {
-            MessageBox.Show(mensaje, "Leal Enterprise - Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                    if (Opcion == DialogResult.OK)
+                    {
+                        if (DGResultados.SelectedRows.Count > 0)
+                        {
+                            Eliminacion = Convert.ToInt32(DGResultados.CurrentRow.Cells[0].Value.ToString());
+                            Respuesta = Negocio.fBodega.Eliminar(Eliminacion, 0);
+                        }
+
+                        if (Respuesta.Equals("OK"))
+                        {
+                            this.MensajeOk("Registro Eliminado Correctamente");
+                        }
+                        else
+                        {
+                            this.MensajeError(Respuesta);
+                        }
+
+                        //
+                        this.TBBuscar.Clear();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise - Solicitud Rechazada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -660,6 +354,7 @@ namespace Presentacion
             {
                 this.Digitar = true;
                 this.Botones();
+
                 this.Limpiar_Datos();
                 this.TBBuscar.Clear();
 
@@ -677,44 +372,7 @@ namespace Presentacion
         {
             try
             {
-                if (Eliminar == "1")
-                {
-                    DialogResult Opcion;
-                    string Respuesta = "";
-                    int Eliminacion;
-
-                    Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-                    if (Opcion == DialogResult.OK)
-                    {
-                        if (DGResultados.SelectedRows.Count > 0)
-                        {
-                            Eliminacion = Convert.ToInt32(DGResultados.CurrentRow.Cells["Codigo"].Value.ToString());
-                            Respuesta = Negocio.fBodega.Eliminar(Eliminacion, 0);
-                        }
-
-                        if (Respuesta.Equals("OK"))
-                        {
-                            this.MensajeOk("Registro Eliminado Correctamente");
-                        }
-                        else
-                        {
-                            this.MensajeError(Respuesta);
-                        }
-
-                        //Botones Comunes
-                        this.Limpiar_Datos();
-                        this.TBBuscar.Clear();
-
-                        //Se regresa el focus al campo principal
-                        this.TCPrincipal.SelectedIndex = 0;
-                        this.TBBodega.Select();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise - Solicitud Rechazada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
+                this.Eliminar_SQL();
             }
             catch (Exception ex)
             {
@@ -736,7 +394,7 @@ namespace Presentacion
                     if (TBBuscar.Text != "")
                     {
                         this.DGResultados.DataSource = fBodega.Buscar(this.TBBuscar.Text, 1);
-                        //this.DGResultadoss.Columns[1].Visible = false;
+                        this.DGResultados.Columns[0].Visible = false;
 
                         lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGResultados.Rows.Count);
 
@@ -769,376 +427,55 @@ namespace Presentacion
         {
             try
             {
-                DataTable Datos = Negocio.fBodega.AutoComplementar_SQL(this.TBIdbodega.Text);
-                //Evaluamos si  existen los Datos
-                if (Datos.Rows.Count == 0)
+                if (TBIdbodega.Text != string.Empty)
                 {
-                    MessageBox.Show("Actualmente no se encuentran registros en la Base de Datos", "Leal Enterprise - Consulta de Registro Invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    //Captura de Valores en la Base de Datos
-
-                    Idsucurzal = Datos.Rows[0][0].ToString();
-                    Nombre = Datos.Rows[0][1].ToString();
-                    Descripcion = Datos.Rows[0][2].ToString();
-                    Director = Datos.Rows[0][3].ToString();
-                    Ciudad = Datos.Rows[0][4].ToString();
-                    Telefono = Datos.Rows[0][5].ToString();
-                    Movil = Datos.Rows[0][6].ToString();
-                    Correo = Datos.Rows[0][7].ToString();
-                    Zona = Datos.Rows[0][8].ToString();
-                    Dimensiones = Datos.Rows[0][51].ToString();
-                    Direccion01 = Datos.Rows[0][52].ToString();
-                    Direccion02 = Datos.Rows[0][53].ToString();
-
-                    //Panel Autorizacion de Pagos
-                    Autorizacion_Pagos = Datos.Rows[0][9].ToString();
-                    Aut_InicioLaboral = Datos.Rows[0][10].ToString();
-                    Aut_FinalLaboral = Datos.Rows[0][11].ToString();
-                    Aut_Lunes = Datos.Rows[0][12].ToString();
-                    Aut_Martes = Datos.Rows[0][13].ToString();
-                    Aut_Miercoles = Datos.Rows[0][14].ToString();
-                    Aut_Jueves = Datos.Rows[0][15].ToString();
-                    Aut_Viernes = Datos.Rows[0][16].ToString();
-                    Aut_Sabado = Datos.Rows[0][17].ToString();
-                    Aut_Domingo = Datos.Rows[0][18].ToString();
-                    Aut_Bono = Datos.Rows[0][19].ToString();
-                    Aut_Cheques = Datos.Rows[0][20].ToString();
-                    Aut_Credito = Datos.Rows[0][21].ToString();
-                    Aut_Debito = Datos.Rows[0][22].ToString();
-                    Aut_Efectivo = Datos.Rows[0][23].ToString();
-                    Aut_Sodexo = Datos.Rows[0][24].ToString();
-                    Aut_Transferencia = Datos.Rows[0][25].ToString();
-                    Aut_Otros = Datos.Rows[0][26].ToString();
-
-                    //Panel Despachos
-                    Despacho = Datos.Rows[0][27].ToString();
-                    Des_InicioLaboral = Datos.Rows[0][28].ToString();
-                    Des_FinalLaboral = Datos.Rows[0][29].ToString();
-                    Des_Lunes = Datos.Rows[0][30].ToString();
-                    Des_Martes = Datos.Rows[0][31].ToString();
-                    Des_Miercoles = Datos.Rows[0][32].ToString();
-                    Des_Jueves = Datos.Rows[0][33].ToString();
-                    Des_Viernes = Datos.Rows[0][34].ToString();
-                    Des_Sabado = Datos.Rows[0][35].ToString();
-                    Des_Domingo = Datos.Rows[0][36].ToString();
-                    Des_Encargado = Datos.Rows[0][37].ToString();
-                    Des_Observacion = Datos.Rows[0][38].ToString();
-
-                    //Panel Recepcion
-                    Recepcion = Datos.Rows[0][39].ToString();
-                    Rec_InicioLaboral = Datos.Rows[0][40].ToString();
-                    Rec_FinalLaboral = Datos.Rows[0][41].ToString();
-                    Rec_Lunes = Datos.Rows[0][42].ToString();
-                    Rec_Martes = Datos.Rows[0][43].ToString();
-                    Rec_Miercoles = Datos.Rows[0][44].ToString();
-                    Rec_Jueves = Datos.Rows[0][45].ToString();
-                    Rec_Viernes = Datos.Rows[0][46].ToString();
-                    Rec_Sabado = Datos.Rows[0][47].ToString();
-                    Rec_Domingo = Datos.Rows[0][48].ToString();
-                    Rec_Encargado = Datos.Rows[0][49].ToString();
-                    Rec_Observacion = Datos.Rows[0][50].ToString();
-
-                    //Se procede a completar los campos de texto segun las consulta Realizada anteriormente en la base de datos
-
-                    this.CBSucurzal.SelectedValue = Idsucurzal;
-                    this.CBZona.Text = Zona;
-                    this.TBBodega.Text = Nombre;
-                    this.TBDocumento.Text = Documento;
-                    this.TBDescripcion.Text = Descripcion;
-                    this.TBDirector.Text = Director;
-                    this.TBCiudad.Text = Ciudad;
-                    this.TBTelefono.Text = Telefono;
-                    this.TBMovil.Text = Movil;
-                    this.TBCorreo.Text = Correo;
-                    this.TBDireccion01.Text = Direccion01;
-                    this.TBDireccion02.Text = Direccion02;
-                    this.TBMedidas.Text = Dimensiones;
-
-                    //
-                    this.TBAutorizacion_Pagos.Text = Autorizacion_Pagos;
-                    this.TBInicioHorario_Pagos.Text = Aut_InicioLaboral;
-                    this.TBFinHorario_Pagos.Text = Aut_FinalLaboral;
-                    
-                    //
-                    this.TBRecepcion.Text = Recepcion;
-                    this.TBInicioRecepcion.Text = Rec_InicioLaboral;
-                    this.TBFinRecepcion.Text = Rec_FinalLaboral;
-
-                    //
-                    this.TBDespacho.Text = Despacho;
-                    this.TBInicioDespacho.Text = Des_InicioLaboral;
-                    this.TBFinDeDespacho.Text = Des_FinalLaboral;
-
-                    //Se validan los Chebox si estan activos o no son activos
-
-                    //Panel Datos Pagos ***********************************************************************************************************
-                    if (this.ChbPagos_Lunes=="1")
+                    DataTable Datos = Negocio.fBodega.Buscar(this.TBIdbodega.Text, 2);
+                    //Evaluamos si  existen los Datos
+                    if (Datos.Rows.Count == 0)
                     {
-                        this.CHLunes_Pagos.Checked = true;
+                        MessageBox.Show("Actualmente no se encuentran registros en la Base de Datos", "Leal Enterprise - Consulta de Registro Invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
-                        this.CHLunes_Pagos.Checked = false;
-                    }
+                        //Captura de Valores en la Base de Datos
 
-                    if (this.ChbPagos_Martes=="1")
-                    {
-                        this.CHMartes_Pagos.Checked = true;
-                    }
-                    else
-                    {
-                        this.CHMartes_Pagos.Checked = false;
-                    }
+                        Idsucurzal = Datos.Rows[0][0].ToString();
+                        Nombre = Datos.Rows[0][1].ToString();
+                        Documento = Datos.Rows[0][2].ToString();
+                        Descripcion = Datos.Rows[0][3].ToString();
+                        Director = Datos.Rows[0][4].ToString();
+                        Ciudad = Datos.Rows[0][5].ToString();
+                        Telefono01 = Datos.Rows[0][6].ToString();
+                        Extension01 = Datos.Rows[0][7].ToString();
+                        Telefono02 = Datos.Rows[0][8].ToString();
+                        Extension02 = Datos.Rows[0][9].ToString();
+                        Movil01 = Datos.Rows[0][10].ToString();
+                        Movil02 = Datos.Rows[0][11].ToString();
+                        Correo = Datos.Rows[0][12].ToString();
+                        Medida = Datos.Rows[0][13].ToString();
+                        Direccion01 = Datos.Rows[0][14].ToString();
+                        Direccion02 = Datos.Rows[0][15].ToString();
 
-                    if (this.ChbPagos_Miercoles == "1")
-                    {
-                        this.CHMiercoles_Pagos.Checked = true;
-                    }
-                    else
-                    {
-                        this.CHMiercoles_Pagos.Checked = false;
-                    }
 
-                    if (this.ChbPagos_Jueves == "1")
-                    {
-                        this.CHJueves_Pagos.Checked = true;
-                    }
-                    else
-                    {
-                        this.CHJueves_Pagos.Checked = false;
-                    }
+                        //Se procede a completar los campos de texto segun las consulta Realizada anteriormente en la base de datos
 
-                    if (this.ChbPagos_Viernes == "1")
-                    {
-                        this.CHViernes_Pagos.Checked = true;
+                        this.CBSucurzal.SelectedValue = Idsucurzal;
+                        this.TBBodega.Text = Nombre;
+                        this.TBDocumento.Text = Documento;
+                        this.TBDescripcion.Text = Descripcion;
+                        this.TBDirector.Text = Director;
+                        this.TBCiudad.Text = Ciudad;
+                        this.TBTelefono01.Text = Telefono01;
+                        this.TBExtension01.Text = Extension01;
+                        this.TBTelefono02.Text = Telefono02;
+                        this.TBExtension02.Text = Extension02;
+                        this.TBMovil01.Text = Movil01;
+                        this.TBMovil02.Text = Movil02;
+                        this.TBCorreo.Text = Correo;
+                        this.TBMedidas.Text = Medida;
+                        this.TBDireccion01.Text = Direccion01;
+                        this.TBDireccion02.Text = Direccion02;
                     }
-                    else
-                    {
-                        this.CHViernes_Pagos.Checked = false;
-                    }
-
-                    if (this.ChbPagos_Sabado == "1")
-                    {
-                        this.CHSabado_Pagos.Checked = true;
-                    }
-                    else
-                    {
-                        this.CHSabado_Pagos.Checked = false;
-                    }
-
-                    if (this.ChbPagos_Domingo == "1")
-                    {
-                        this.CHDomingo_Pagos.Checked = true;
-                    }
-                    else
-                    {
-                        this.CHDomingo_Pagos.Checked = false;
-                    }
-
-                    if (this.ChbMetodos_Bono == "1")
-                    {
-                        this.CHBono.Checked = true;
-                    }
-                    else
-                    {
-                        this.CHBono.Checked = false;
-                    }
-
-                    if (this.ChbMetodos_Credito == "1")
-                    {
-                        this.CHCredito.Checked = true;
-                    }
-                    else
-                    {
-                        this.CHCredito.Checked = false;
-                    }
-
-                    if (this.ChbMetodos_Debito == "1")
-                    {
-                        this.CHDebito.Checked = true;
-                    }
-                    else
-                    {
-                        this.CHDebito.Checked = false;
-                    }
-
-                    if (this.ChbMetodos_Efectivo == "1")
-                    {
-                        this.CHEfectivo.Checked = true;
-                    }
-                    else
-                    {
-                        this.CHEfectivo.Checked = false;
-                    }
-
-                    if (this.ChbMetodos_Sodexo == "1")
-                    {
-                        this.CHSodexo.Checked = true;
-                    }
-                    else
-                    {
-                        this.CHSodexo.Checked = false;
-                    }
-
-                    if (this.ChbMetodos_Transferencia == "1")
-                    {
-                        this.CHTransferencia.Checked = true;
-                    }
-                    else
-                    {
-                        this.CHTransferencia.Checked = false;
-                    }
-
-                    if (this.ChbMetodos_Cheque == "1")
-                    {
-                        this.CHCheques.Checked = true;
-                    }
-                    else
-                    {
-                        this.CHCheques.Checked = false;
-                    }
-
-                    if (this.ChbMetodos_Otros == "1")
-                    {
-                        this.CHOtros.Checked = true;
-                    }
-                    else
-                    {
-                        this.CHOtros.Checked = false;
-                    }
-
-                    // Panel Datos de Despacho ***********************************************************************************************************
-
-                    if (this.ChbDespacho_Lunes == "1")
-                    {
-                        this.CHLunes_Despacho.Checked = true;
-                    }
-                    else
-                    {
-                        this.CHLunes_Despacho.Checked = false;
-                    }
-
-                    if (this.ChbDespacho_Martes == "1")
-                    {
-                        this.CHMartes_Despacho.Checked = true;
-                    }
-                    else
-                    {
-                        this.CHMartes_Despacho.Checked = false;
-                    }
-
-                    if (this.ChbDespacho_Miercoles == "1")
-                    {
-                        this.CHMiercoles_Despacho.Checked = true;
-                    }
-                    else
-                    {
-                        this.CHMiercoles_Despacho.Checked = false;
-                    }
-
-                    if (this.ChbDespacho_Jueves == "1")
-                    {
-                        this.CHJueves_Despacho.Checked = true;
-                    }
-                    else
-                    {
-                        this.CHJueves_Despacho.Checked = false;
-                    }
-
-                    if (this.ChbDespacho_Viernes == "1")
-                    {
-                        this.CHViernes_Despacho.Checked = true;
-                    }
-                    else
-                    {
-                        this.CHViernes_Despacho.Checked = false;
-                    }
-
-                    if (this.ChbDespacho_Sabado == "1")
-                    {
-                        this.CHSabado_Despacho.Checked = true;
-                    }
-                    else
-                    {
-                        this.CHSabado_Despacho.Checked = false;
-                    }
-
-                    if (this.ChbDespacho_Domingo == "1")
-                    {
-                        this.CHDomingo_Despacho.Checked = true;
-                    }
-                    else
-                    {
-                        this.CHDomingo_Despacho.Checked = false;
-                    }
-
-                    //Panel Datos de Recepcion ***********************************************************************************************************
-
-                    if (this.ChbRecepcion_Lunes == "1")
-                    {
-                        this.CHLunes_Recepcion.Checked = true;
-                    }
-                    else
-                    {
-                        this.CHLunes_Recepcion.Checked = false;
-                    }
-
-                    if (this.ChbRecepcion_Martes == "1")
-                    {
-                        this.CHMartes_Recepcion.Checked = true;
-                    }
-                    else
-                    {
-                        this.CHMartes_Recepcion.Checked = false;
-                    }
-
-                    if (this.ChbRecepcion_Miercoles == "1")
-                    {
-                        this.CHMiercoles_Recepcion.Checked = true;
-                    }
-                    else
-                    {
-                        this.CHMiercoles_Recepcion.Checked = false;
-                    }
-
-                    if (this.ChbRecepcion_Jueves == "1")
-                    {
-                        this.CHJueves_Recepcion.Checked = true;
-                    }
-                    else
-                    {
-                        this.CHJueves_Recepcion.Checked = false;
-                    }
-
-                    if (this.ChbRecepcion_Viernes == "1")
-                    {
-                        this.CHViernes_Recepcion.Checked = true;
-                    }
-                    else
-                    {
-                        this.CHViernes_Recepcion.Checked = false;
-                    }
-
-                    if (this.ChbRecepcion_Sabado == "1")
-                    {
-                        this.CHSabado_Recepcion.Checked = true;
-                    }
-                    else
-                    {
-                        this.CHSabado_Recepcion.Checked = false;
-                    }
-
-                    if (this.ChbRecepcion_Domingo == "1")
-                    {
-                        this.CHDomingo_Recepcion.Checked = true;
-                    }
-                    else
-                    {
-                        this.CHDomingo_Recepcion.Checked = false;
-                    }
-
                 }
             }
             catch (Exception ex)
@@ -1159,7 +496,7 @@ namespace Presentacion
 
                     //Se procede a completar los campos de textos segun
                     //la consulta realizada en la base de datos
-                    this.TBIdbodega.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells["Codigo"].Value);
+                    this.TBIdbodega.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells[0].Value);
                 }
                 else
                 {
@@ -1186,7 +523,7 @@ namespace Presentacion
 
                         //Se procede a completar los campos de textos segun
                         //la consulta realizada en la base de datos
-                        this.TBIdbodega.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells["Codigo"].Value);
+                        this.TBIdbodega.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells[0].Value);
                     }
                     else
                     {
@@ -1242,6 +579,7 @@ namespace Presentacion
             {
                 //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
                 this.TBDescripcion.BackColor = Color.Azure;
+                this.TBDescripcion.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 
@@ -1258,6 +596,7 @@ namespace Presentacion
             {
                 //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
                 this.TBDirector.BackColor = Color.Azure;
+                this.TBDirector.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 
@@ -1268,12 +607,12 @@ namespace Presentacion
 
         private void TBMovil_Enter(object sender, EventArgs e)
         {
-            this.TBMovil.BackColor = Color.Azure;
+            this.TBMovil01.BackColor = Color.Azure;
         }
 
         private void TBTelefono_Enter(object sender, EventArgs e)
         {
-            this.TBTelefono.BackColor = Color.Azure;
+            this.TBTelefono01.BackColor = Color.Azure;
         }
 
         private void TBCorreo_Enter(object sender, EventArgs e)
@@ -1299,7 +638,7 @@ namespace Presentacion
 
             else
             {
-                TBBodega.BackColor = Color.FromArgb(3, 155, 229);
+                this.TBBodega.BackColor = Color.FromArgb(3, 155, 229);
             }
         }
 
@@ -1315,7 +654,7 @@ namespace Presentacion
 
             else
             {
-                TBDescripcion.BackColor = Color.FromArgb(3, 155, 229);
+                this.TBDescripcion.BackColor = Color.FromArgb(3, 155, 229);
             }
         }
 
@@ -1331,7 +670,7 @@ namespace Presentacion
 
             else
             {
-                TBDirector.BackColor = Color.FromArgb(3, 155, 229);
+                this.TBDirector.BackColor = Color.FromArgb(3, 155, 229);
             }
         }
 
@@ -1342,12 +681,12 @@ namespace Presentacion
 
         private void TBMovil_Leave(object sender, EventArgs e)
         {
-            this.TBMovil.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBMovil01.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBTelefono_Leave(object sender, EventArgs e)
         {
-            this.TBTelefono.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBTelefono01.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBCorreo_Leave(object sender, EventArgs e)
@@ -1364,6 +703,18 @@ namespace Presentacion
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
                     this.TBDireccion01.Select();
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
+                {
+                    this.Digitar = true;
+                    this.Botones();
+
+                    this.Limpiar_Datos();
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
@@ -1433,6 +784,18 @@ namespace Presentacion
 
                     this.TBDireccion02.Select();
                 }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
+                {
+                    this.Digitar = true;
+                    this.Botones();
+
+                    this.Limpiar_Datos();
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
+                }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
                     //Al precionar las teclas F10 se realizara el registro en la base de datos
@@ -1501,6 +864,366 @@ namespace Presentacion
             this.TBDireccion01.BackColor = Color.Azure;
         }
 
+        private void TBMovil02_KeyUp(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
+                {
+                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
+
+                    this.TBTelefono01.Select();
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
+                {
+                    this.Digitar = true;
+                    this.Botones();
+
+                    this.Limpiar_Datos();
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
+                {
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
+                    //Y se realizara las validaciones en el sistema
+
+                    if (Digitar)
+                    {
+                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            if (Guardar == "1")
+                            {
+                                //Llamada de Clase
+                                this.Guardar_SQL();
+                            }
+                            else
+                            {
+                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
+                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
+
+                                this.Limpiar_Datos();
+                            }
+                        }
+                        else
+                        {
+                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
+                            //Donde se realizo la operacion o combinacion de teclas
+                            this.TBMovil02.Select();
+                        }
+                    }
+                    else
+                    {
+                        DialogResult result = MessageBox.Show("¿Desea Actualizar los Campos Consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            //Llamada de Clase
+                            this.Digitar = false;
+                            this.Guardar_SQL();
+                        }
+                        else
+                        {
+                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
+                            //Donde se realizo la operacion o combinacion de teclas
+                            this.TBMovil02.Select();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void TBExtension01_KeyUp(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
+                {
+                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
+
+                    this.TBTelefono02.Select();
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
+                {
+                    this.Digitar = true;
+                    this.Botones();
+
+                    this.Limpiar_Datos();
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
+                {
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
+                    //Y se realizara las validaciones en el sistema
+
+                    if (Digitar)
+                    {
+                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            if (Guardar == "1")
+                            {
+                                //Llamada de Clase
+                                this.Guardar_SQL();
+                            }
+                            else
+                            {
+                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
+                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
+
+                                this.Limpiar_Datos();
+                            }
+                        }
+                        else
+                        {
+                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
+                            //Donde se realizo la operacion o combinacion de teclas
+                            this.TBExtension01.Select();
+                        }
+                    }
+                    else
+                    {
+                        DialogResult result = MessageBox.Show("¿Desea Actualizar los Campos Consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            //Llamada de Clase
+                            this.Digitar = false;
+                            this.Guardar_SQL();
+                        }
+                        else
+                        {
+                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
+                            //Donde se realizo la operacion o combinacion de teclas
+                            this.TBExtension01.Select();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void TBExtension02_KeyUp(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
+                {
+                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
+
+                    this.TBCorreo.Select();
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
+                {
+                    this.Digitar = true;
+                    this.Botones();
+
+                    this.Limpiar_Datos();
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
+                {
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
+                    //Y se realizara las validaciones en el sistema
+
+                    if (Digitar)
+                    {
+                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            if (Guardar == "1")
+                            {
+                                //Llamada de Clase
+                                this.Guardar_SQL();
+                            }
+                            else
+                            {
+                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
+                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
+
+                                this.Limpiar_Datos();
+                            }
+                        }
+                        else
+                        {
+                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
+                            //Donde se realizo la operacion o combinacion de teclas
+                            this.TBExtension02.Select();
+                        }
+                    }
+                    else
+                    {
+                        DialogResult result = MessageBox.Show("¿Desea Actualizar los Campos Consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            //Llamada de Clase
+                            this.Digitar = false;
+                            this.Guardar_SQL();
+                        }
+                        else
+                        {
+                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
+                            //Donde se realizo la operacion o combinacion de teclas
+                            this.TBExtension02.Select();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void TBTelefono02_KeyUp(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
+                {
+                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
+
+                    this.TBExtension02.Select();
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
+                {
+                    this.Digitar = true;
+                    this.Botones();
+
+                    this.Limpiar_Datos();
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
+                {
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
+                    //Y se realizara las validaciones en el sistema
+
+                    if (Digitar)
+                    {
+                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            if (Guardar == "1")
+                            {
+                                //Llamada de Clase
+                                this.Guardar_SQL();
+                            }
+                            else
+                            {
+                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
+                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
+
+                                this.Limpiar_Datos();
+                            }
+                        }
+                        else
+                        {
+                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
+                            //Donde se realizo la operacion o combinacion de teclas
+                            this.TBTelefono02.Select();
+                        }
+                    }
+                    else
+                    {
+                        DialogResult result = MessageBox.Show("¿Desea Actualizar los Campos Consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            //Llamada de Clase
+                            this.Digitar = false;
+                            this.Guardar_SQL();
+                        }
+                        else
+                        {
+                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
+                            //Donde se realizo la operacion o combinacion de teclas
+                            this.TBTelefono02.Select();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void TBMovil02_Enter(object sender, EventArgs e)
+        {
+            this.TBMovil02.BackColor = Color.Azure;
+        }
+
+        private void TBExtension01_Enter(object sender, EventArgs e)
+        {
+            this.TBExtension01.BackColor = Color.Azure;
+        }
+
+        private void TBExtension02_Enter(object sender, EventArgs e)
+        {
+            this.TBExtension02.BackColor = Color.Azure;
+        }
+
+        private void TBTelefono02_Enter(object sender, EventArgs e)
+        {
+            this.TBTelefono02.BackColor = Color.Azure;
+        }
+
+        private void TBMovil02_Leave(object sender, EventArgs e)
+        {
+            this.TBMovil02.BackColor = Color.FromArgb(3, 155, 229);
+        }
+
+        private void TBExtension01_Leave(object sender, EventArgs e)
+        {
+            this.TBExtension01.BackColor = Color.FromArgb(3, 155, 229);
+        }
+
+        private void TBExtension02_Leave(object sender, EventArgs e)
+        {
+            this.TBExtension02.BackColor = Color.FromArgb(3, 155, 229);
+        }
+
+        private void TBTelefono02_Leave(object sender, EventArgs e)
+        {
+            this.TBTelefono02.BackColor = Color.FromArgb(3, 155, 229);
+        }
+
         private void TBDireccion01_Leave(object sender, EventArgs e)
         {
             this.TBDireccion01.BackColor = Color.FromArgb(3, 155, 229);
@@ -1530,6 +1253,18 @@ namespace Presentacion
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
                     this.TBBodega.Select();
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
+                {
+                    this.Digitar = true;
+                    this.Botones();
+
+                    this.Limpiar_Datos();
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
@@ -1589,136 +1324,6 @@ namespace Presentacion
             }
         }
 
-        private void TBAutorizacion_Pagos_Enter(object sender, EventArgs e)
-        {
-            this.TBAutorizacion_Pagos.BackColor = Color.Azure;
-        }
-
-        private void TBInicioHorario_Pagos_Enter(object sender, EventArgs e)
-        {
-            this.TBInicioHorario_Pagos.BackColor = Color.Azure;
-        }
-
-        private void TBFinHorario_Pagos_Enter(object sender, EventArgs e)
-        {
-            this.TBFinHorario_Pagos.BackColor = Color.Azure;
-        }
-
-        private void TBRecepcion_Enter(object sender, EventArgs e)
-        {
-            this.TBRecepcion.BackColor = Color.Azure;
-        }
-
-        private void TBInicioRecepcion_Enter(object sender, EventArgs e)
-        {
-            this.TBInicioRecepcion.BackColor = Color.Azure;
-        }
-
-        private void TBFinRecepcion_Enter(object sender, EventArgs e)
-        {
-            this.TBFinRecepcion.BackColor = Color.Azure;
-        }
-
-        private void TBDespacho_Enter(object sender, EventArgs e)
-        {
-            this.TBDespacho.BackColor = Color.Azure;
-        }
-
-        private void TBEncargado_Recepcion_Enter(object sender, EventArgs e)
-        {
-            this.TBEncargado_Recepcion.BackColor = Color.Azure;
-        }
-
-        private void TBObservacion_Recepcion_Enter(object sender, EventArgs e)
-        {
-            this.TBObservacion_Recepcion.BackColor = Color.Azure;
-        }
-
-        private void TBEncargado_Despacho_Enter(object sender, EventArgs e)
-        {
-            this.TBEncargado_Despacho.BackColor = Color.Azure;
-        }
-
-        private void TBObservacion_Despacho_Enter(object sender, EventArgs e)
-        {
-            this.TBObservacion_Despacho.BackColor = Color.Azure;
-        }
-
-        private void TBAutorizacion_Pagos_Leave(object sender, EventArgs e)
-        {
-            this.TBAutorizacion_Pagos.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBInicioHorario_Pagos_Leave(object sender, EventArgs e)
-        {
-            this.TBInicioHorario_Pagos.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBFinHorario_Pagos_Leave(object sender, EventArgs e)
-        {
-            this.TBFinHorario_Pagos.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBInicioRecepcion_Leave(object sender, EventArgs e)
-        {
-            this.TBInicioRecepcion.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBFinRecepcion_Leave(object sender, EventArgs e)
-        {
-            this.TBFinRecepcion.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBEncargado_Recepcion_Leave(object sender, EventArgs e)
-        {
-            this.TBEncargado_Recepcion.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBObservacion_Recepcion_Leave(object sender, EventArgs e)
-        {
-            this.TBObservacion_Recepcion.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBInicioDespacho_Enter(object sender, EventArgs e)
-        {
-            this.TBInicioDespacho.BackColor = Color.Azure;
-        }
-
-        private void TBFinDeDespacho_Enter(object sender, EventArgs e)
-        {
-            this.TBFinDeDespacho.BackColor = Color.Azure;
-        }
-
-        private void TBEncargado_Despacho_Leave(object sender, EventArgs e)
-        {
-            this.TBEncargado_Despacho.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBObservacion_Despacho_Leave(object sender, EventArgs e)
-        {
-            this.TBObservacion_Despacho.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBFinDeDespacho_Leave(object sender, EventArgs e)
-        {
-            this.TBFinDeDespacho.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBInicioDespacho_Leave(object sender, EventArgs e)
-        {
-            this.TBInicioDespacho.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBDespacho_Leave(object sender, EventArgs e)
-        {
-            this.TBDespacho.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBRecepcion_Leave(object sender, EventArgs e)
-        {
-            this.TBRecepcion.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
         //******************** FOCUS LEVAE  DATOS AUXILIARES ********************
 
         private void TBDireccion01_Leave_1(object sender, EventArgs e)
@@ -1745,6 +1350,18 @@ namespace Presentacion
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
                     this.TBDocumento.Select();
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
+                {
+                    this.Digitar = true;
+                    this.Botones();
+
+                    this.Limpiar_Datos();
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
@@ -1812,6 +1429,18 @@ namespace Presentacion
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
                     this.TBDirector.Select();
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
+                {
+                    this.Digitar = true;
+                    this.Botones();
+
+                    this.Limpiar_Datos();
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
@@ -1881,6 +1510,18 @@ namespace Presentacion
 
                     this.TBCiudad.Select();
                 }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
+                {
+                    this.Digitar = true;
+                    this.Botones();
+
+                    this.Limpiar_Datos();
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
+                }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
                     //Al precionar las teclas F10 se realizara el registro en la base de datos
@@ -1947,7 +1588,19 @@ namespace Presentacion
                 {
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
-                    this.TBMovil.Select();
+                    this.TBMovil01.Select();
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
+                {
+                    this.Digitar = true;
+                    this.Botones();
+
+                    this.Limpiar_Datos();
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
@@ -2015,7 +1668,19 @@ namespace Presentacion
                 {
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
-                    this.TBTelefono.Select();
+                    this.TBMovil02.Select();
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
+                {
+                    this.Digitar = true;
+                    this.Botones();
+
+                    this.Limpiar_Datos();
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
@@ -2047,7 +1712,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBMovil.Select();
+                            this.TBMovil01.Select();
                         }
                     }
                     else
@@ -2064,7 +1729,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBMovil.Select();
+                            this.TBMovil01.Select();
                         }
                     }
                 }
@@ -2083,7 +1748,19 @@ namespace Presentacion
                 {
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
-                    this.TBCorreo.Select();
+                    this.TBExtension01.Select();
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
+                {
+                    this.Digitar = true;
+                    this.Botones();
+
+                    this.Limpiar_Datos();
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
@@ -2115,7 +1792,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBTelefono.Select();
+                            this.TBTelefono01.Select();
                         }
                     }
                     else
@@ -2132,7 +1809,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBTelefono.Select();
+                            this.TBTelefono01.Select();
                         }
                     }
                 }
@@ -2153,6 +1830,18 @@ namespace Presentacion
 
                     this.TBMedidas.Select();
                 }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
+                {
+                    this.Digitar = true;
+                    this.Botones();
+
+                    this.Limpiar_Datos();
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
+                }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
                     //Al precionar las teclas F10 se realizara el registro en la base de datos
@@ -2201,74 +1890,6 @@ namespace Presentacion
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
                             this.TBCorreo.Select();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        private void TBRecepcion_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
-                {
-                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
-
-                    this.TBDespacho.Select();
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
-                {
-                    //Al precionar las teclas F10 se realizara el registro en la base de datos
-                    //Y se realizara las validaciones en el sistema
-
-                    if (Digitar)
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo,  MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            if (Guardar == "1")
-                            {
-                                //Llamada de Clase
-                                this.Guardar_SQL();
-                            }
-                            else
-                            {
-                                                            MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
-                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
-
-                                this.Limpiar_Datos();
-                            }
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBRecepcion.Select();
-                        }
-                    }
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los Campos Consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            //Llamada de Clase
-                            this.Digitar = false;
-                            this.Guardar_SQL();
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBRecepcion.Select();
                         }
                     }
                 }
@@ -2299,6 +1920,18 @@ namespace Presentacion
 
                     this.TBDescripcion.Select();
                 }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
+                {
+                    this.Digitar = true;
+                    this.Botones();
+
+                    this.Limpiar_Datos();
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
+                }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
                     //Al precionar las teclas F10 se realizara el registro en la base de datos
@@ -2317,7 +1950,7 @@ namespace Presentacion
                             }
                             else
                             {
-                                                            MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                                 //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
                                 //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
@@ -2434,7 +2067,7 @@ namespace Presentacion
                 {
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
-                    this.TBRecepcion.Select();
+                    this.TBBodega.Select();
                 }
 
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))

@@ -20,7 +20,7 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.TipoDeProducto", SqlCon);
+                SqlCommand Comando = new SqlCommand("Productos.LI_Tipo", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
                 SqlCon.Open();
                 Resultado = Comando.ExecuteReader();
@@ -48,10 +48,10 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.TipoDeProducto", SqlCon);
+                SqlCommand Comando = new SqlCommand("Productos.LI_Tipo", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
-                Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Consulta", SqlDbType.Int).Value = Auto;
                 Comando.Parameters.Add("@Filtro", SqlDbType.VarChar).Value = Valor;
 
                 SqlCon.Open();
@@ -79,7 +79,7 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Productos.LI_TipoDeProducto", SqlCon);
+                SqlCommand Comando = new SqlCommand("Productos.LI_Tipo", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Datos Auxiliares
@@ -89,7 +89,6 @@ namespace Datos
                 Comando.Parameters.Add("@Tipo", SqlDbType.VarChar).Value = Obj.Tipo;
                 Comando.Parameters.Add("@Descripcion", SqlDbType.VarChar).Value = Obj.Descripcion;
                 Comando.Parameters.Add("@Observacion", SqlDbType.VarChar).Value = Obj.Observacion;
-                Comando.Parameters.Add("@Estado", SqlDbType.Int).Value = Obj.Estado;
 
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Realizar el Registro";
@@ -114,7 +113,7 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Productos.LI_TipoDeProducto", SqlCon);
+                SqlCommand Comando = new SqlCommand("Productos.LI_Tipo", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Datos Auxiliares
@@ -125,7 +124,6 @@ namespace Datos
                 Comando.Parameters.Add("@Tipo", SqlDbType.VarChar).Value = Obj.Tipo;
                 Comando.Parameters.Add("@Descripcion", SqlDbType.VarChar).Value = Obj.Descripcion;
                 Comando.Parameters.Add("@Observacion", SqlDbType.VarChar).Value = Obj.Observacion;
-                Comando.Parameters.Add("@Estado", SqlDbType.Int).Value = Obj.Estado;
 
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Actualizar el Registro";
@@ -151,11 +149,11 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.TipoDeProducto", SqlCon);
+                SqlCommand Comando = new SqlCommand("Productos.LI_Tipo", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Panel Datos Basicos
-                Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Eliminar", SqlDbType.Int).Value = Auto;
                 Comando.Parameters.Add("@Idtipo", SqlDbType.Int).Value = IDEliminar_Sql;
 
                 SqlCon.Open();
