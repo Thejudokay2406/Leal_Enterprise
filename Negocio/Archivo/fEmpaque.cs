@@ -12,10 +12,10 @@ namespace Negocio
 {
     public class fEmpaque
     {
-        public static DataTable Lista()
+        public static DataTable Lista(int auto)
         {
             Conexion_Empaque Datos = new Conexion_Empaque();
-            return Datos.Lista();
+            return Datos.Lista(auto);
         }
 
         public static DataTable Buscar(string Filtro, int auto)

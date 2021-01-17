@@ -48,10 +48,8 @@
             this.ofertasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proveedorToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.retencionesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.serviciosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.sucurzalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tiposDePagoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.zonasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cotizacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.devolucionDeComprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -237,10 +235,8 @@
             this.ofertasToolStripMenuItem,
             this.proveedorToolStripMenuItem1,
             this.retencionesToolStripMenuItem1,
-            this.serviciosToolStripMenuItem1,
             this.sucurzalToolStripMenuItem,
-            this.tiposDePagoToolStripMenuItem,
-            this.zonasToolStripMenuItem});
+            this.tiposDePagoToolStripMenuItem});
             this.ficheroToolStripMenuItem.Image = global::Presentacion.Properties.Resources.Almacen;
             this.ficheroToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.ficheroToolStripMenuItem.Name = "ficheroToolStripMenuItem";
@@ -364,13 +360,6 @@
             this.retencionesToolStripMenuItem1.Size = new System.Drawing.Size(238, 22);
             this.retencionesToolStripMenuItem1.Text = "Retenciones";
             // 
-            // serviciosToolStripMenuItem1
-            // 
-            this.serviciosToolStripMenuItem1.Name = "serviciosToolStripMenuItem1";
-            this.serviciosToolStripMenuItem1.Size = new System.Drawing.Size(238, 22);
-            this.serviciosToolStripMenuItem1.Text = "Servicios Ofrecidos";
-            this.serviciosToolStripMenuItem1.Click += new System.EventHandler(this.serviciosToolStripMenuItem1_Click);
-            // 
             // sucurzalToolStripMenuItem
             // 
             this.sucurzalToolStripMenuItem.Name = "sucurzalToolStripMenuItem";
@@ -384,13 +373,6 @@
             this.tiposDePagoToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
             this.tiposDePagoToolStripMenuItem.Text = "Tipos de Pago Generales";
             this.tiposDePagoToolStripMenuItem.Click += new System.EventHandler(this.tiposDePagoToolStripMenuItem_Click);
-            // 
-            // zonasToolStripMenuItem
-            // 
-            this.zonasToolStripMenuItem.Name = "zonasToolStripMenuItem";
-            this.zonasToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
-            this.zonasToolStripMenuItem.Text = "Zonas";
-            this.zonasToolStripMenuItem.Click += new System.EventHandler(this.zonasToolStripMenuItem_Click);
             // 
             // comprasToolStripMenuItem
             // 
@@ -1634,9 +1616,7 @@
         private System.Windows.Forms.ToolStripMenuItem ofertasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem proveedorToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem retencionesToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem serviciosToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem sucurzalToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem zonasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem operacionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ajustesDeInventarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ingresosToolStripMenuItem;

@@ -136,19 +136,6 @@ namespace Presentacion
             frmDepartamento.Imprimir = Convert.ToString(this.SQL_Imprimir);
         }
 
-        private void serviciosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmServicio frmServicio = new frmServicio();
-            frmServicio.MdiParent = this;
-            frmServicio.Show();
-
-            frmServicio.Guardar = Convert.ToString(this.SQL_Guardar);
-            frmServicio.Editar = Convert.ToString(this.SQL_Editar);
-            frmServicio.Eliminar = Convert.ToString(this.SQL_Eliminar);
-            frmServicio.Consultar = Convert.ToString(this.SQL_Consultar);
-            frmServicio.Imprimir = Convert.ToString(this.SQL_Imprimir);
-        }
-
         private void frmMenuPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
@@ -392,19 +379,6 @@ namespace Presentacion
             frmUsuario frmUsuario = new frmUsuario();
             frmUsuario.MdiParent = this;
             frmUsuario.Show();
-        }
-
-        private void serviciosToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            frmServicio frmServicio = new frmServicio();
-            frmServicio.MdiParent = this;
-            frmServicio.Show();
-
-            frmServicio.Guardar = Convert.ToString(this.SQL_Guardar);
-            frmServicio.Editar = Convert.ToString(this.SQL_Editar);
-            frmServicio.Eliminar = Convert.ToString(this.SQL_Eliminar);
-            frmServicio.Consultar = Convert.ToString(this.SQL_Consultar);
-            frmServicio.Imprimir = Convert.ToString(this.SQL_Imprimir);
         }
 
         private void tiposDePagoToolStripMenuItem_Click(object sender, EventArgs e)

@@ -81,14 +81,14 @@ namespace Presentacion
             if (Digitar)
             {
                 this.btnGuardar.Enabled = true;
-                this.btnGuardar.Text = "Guardar";
+                this.btnGuardar.Text = "Guardar - F10";
 
                 this.btnCancelar.Enabled = false;
             }
             else if (!Digitar)
             {
                 this.btnGuardar.Enabled = true;
-                this.btnGuardar.Text = "Editar";
+                this.btnGuardar.Text = "Editar - F10";
 
                 this.btnCancelar.Enabled = true;
             }
@@ -190,7 +190,7 @@ namespace Presentacion
 
                         if (Respuesta.Equals("OK"))
                         {
-                            this.MensajeOk("Registro de Grupo de Cliente: " + this.TBGrupo.Text + " Eliminado Exitosamente");
+                            this.MensajeOk("Registro Eliminado Correctamente");
                         }
                         else
                         {
@@ -199,7 +199,6 @@ namespace Presentacion
 
                         //Botones Comunes
                         this.TBBuscar.Clear();
-                        this.Limpiar_Datos();
                     }
                 }
                 else
@@ -437,7 +436,10 @@ namespace Presentacion
         {
             try
             {
-                this.Eliminar_SQL();
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F4))
+                {
+                    this.Eliminar_SQL();
+                }
             }
             catch (Exception ex)
             {

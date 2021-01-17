@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -63,7 +64,6 @@
     <Compile Include="Archivo\Conexion_TipoDeCliente.cs" />
     <Compile Include="Gestion Humana\Conexion_Empleados.cs" />
     <Compile Include="Archivo\Conexion_Impuesto.cs" />
-    <Compile Include="Archivo\Conexion_Servicio.cs" />
     <Compile Include="Sistema\Conexion_Equipos.cs" />
     <Compile Include="Sistema\Conexion_Usuarios.cs" />
     <Compile Include="Conexiones_SQL\Conexion_SQLSeguridad.cs" />

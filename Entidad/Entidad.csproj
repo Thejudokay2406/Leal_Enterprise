@@ -61,7 +61,6 @@
     <Compile Include="Gestion Humana\Entidad_Empleados.cs" />
     <Compile Include="Sistema\Entidad_Equipos.cs" />
     <Compile Include="Archivo\Entidad_Impuesto.cs" />
-    <Compile Include="Archivo\Entidad_Servicio.cs" />
     <Compile Include="Archivo\Entidad_Sucurzal.cs" />
     <Compile Include="Sistema\Entidad_Usuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

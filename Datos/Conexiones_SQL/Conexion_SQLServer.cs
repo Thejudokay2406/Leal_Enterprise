@@ -5,11 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 
 using System.Data.SqlClient;
+using static System.Configuration.ConfigurationManager;
+using System.Configuration;
 
 namespace Datos
 {
     public class Conexion_SQLServer
     {
+        public static string preconex = ConnectionStrings["stringConexion"].ConnectionString;
+
         private string Base;
         private string Servidor;
         private string Usuario;
@@ -19,15 +23,24 @@ namespace Datos
 
         private Conexion_SQLServer()
         {
+            var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+
             this.Base = "Leal_Enterprise";
             this.Servidor = "(Local)";
             this.Usuario = "LealTecnologia";
             this.Contraseña = "TecnologiaLealSQL.XXX";
             this.Seguridad = true;
+
+            //this.Base = configFile.AppSettings.Settings["baseDatos"].Value;
+            //this.Servidor = configFile.AppSettings.Settings["servidor"].Value;
+            //this.Usuario = configFile.AppSettings.Settings["usuario"].Value;
+            //this.Contraseña = configFile.AppSettings.Settings["Password"].Value;
+            //this.Seguridad = true;
         }
 
         public SqlConnection Conexion()
         {
+            //MessageBox
             SqlConnection Cadena = new SqlConnection();
             try
             {
@@ -36,7 +49,6 @@ namespace Datos
                 {
                     Cadena.ConnectionString = Cadena.ConnectionString + "User Id=" + this.Usuario + "; Password=" + this.Contraseña;
                 }
-
             }
             catch (Exception ex)
             {
@@ -54,5 +66,6 @@ namespace Datos
             }
             return Con;
         }
+
     }
 }

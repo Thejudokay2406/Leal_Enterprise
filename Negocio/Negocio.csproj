@@ -60,7 +60,6 @@
     <Compile Include="Sistema\fTipoDeCliente.cs" />
     <Compile Include="Gestion Humana\fGestion_Empleados.cs" />
     <Compile Include="Archivo\fImpuesto.cs" />
-    <Compile Include="Archivo\fServicio.cs" />
     <Compile Include="Sistema\fEquipos.cs" />
     <Compile Include="Sistema\fUsuarios.cs" />
     <Compile Include="Archivo\fSucurzal.cs" />

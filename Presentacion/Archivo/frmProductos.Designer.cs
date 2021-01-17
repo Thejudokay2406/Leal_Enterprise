@@ -36,10 +36,6 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.TCPrincipal = new System.Windows.Forms.TabControl();
             this.TPDatosBasicos = new System.Windows.Forms.TabPage();
-            this.TBCodigo_Empaque = new System.Windows.Forms.TextBox();
-            this.TBCodigo_Tipo = new System.Windows.Forms.TextBox();
-            this.TBCodigo_Grupo = new System.Windows.Forms.TextBox();
-            this.TBCodigo_Marca = new System.Windows.Forms.TextBox();
             this.CHEmpaque = new System.Windows.Forms.CheckBox();
             this.label76 = new System.Windows.Forms.Label();
             this.CHFabricado = new System.Windows.Forms.CheckBox();
@@ -74,7 +70,6 @@
             this.TBDescripcion01 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.TBReferencia = new System.Windows.Forms.TextBox();
-            this.CBMarca = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.TBNombre = new System.Windows.Forms.TextBox();
@@ -195,7 +190,6 @@
             this.label39 = new System.Windows.Forms.Label();
             this.btnEliminar_Igualdad = new System.Windows.Forms.Button();
             this.TPImagen = new System.Windows.Forms.TabPage();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.PB_Imagen = new System.Windows.Forms.PictureBox();
             this.TPImpuesto = new System.Windows.Forms.TabPage();
             this.btnExaminar_Impuesto = new System.Windows.Forms.Button();
@@ -329,6 +323,7 @@
             this.TBBuscar = new System.Windows.Forms.TextBox();
             this.lblTotal = new System.Windows.Forms.Label();
             this.DGResultados = new System.Windows.Forms.DataGridView();
+            this.CBMarca = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.TCPrincipal.SuspendLayout();
             this.TPDatosBasicos.SuspendLayout();
@@ -343,7 +338,6 @@
             this.TPIgualdad.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGDetalle_Igualdad)).BeginInit();
             this.TPImagen.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Imagen)).BeginInit();
             this.TPImpuesto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGDetalle_Impuesto)).BeginInit();
@@ -452,10 +446,7 @@
             // 
             this.TPDatosBasicos.BackColor = System.Drawing.Color.White;
             this.TPDatosBasicos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TPDatosBasicos.Controls.Add(this.TBCodigo_Empaque);
-            this.TPDatosBasicos.Controls.Add(this.TBCodigo_Tipo);
-            this.TPDatosBasicos.Controls.Add(this.TBCodigo_Grupo);
-            this.TPDatosBasicos.Controls.Add(this.TBCodigo_Marca);
+            this.TPDatosBasicos.Controls.Add(this.CBMarca);
             this.TPDatosBasicos.Controls.Add(this.CHEmpaque);
             this.TPDatosBasicos.Controls.Add(this.label76);
             this.TPDatosBasicos.Controls.Add(this.CHFabricado);
@@ -490,7 +481,6 @@
             this.TPDatosBasicos.Controls.Add(this.TBDescripcion01);
             this.TPDatosBasicos.Controls.Add(this.label5);
             this.TPDatosBasicos.Controls.Add(this.TBReferencia);
-            this.TPDatosBasicos.Controls.Add(this.CBMarca);
             this.TPDatosBasicos.Controls.Add(this.label4);
             this.TPDatosBasicos.Controls.Add(this.label3);
             this.TPDatosBasicos.Controls.Add(this.TBNombre);
@@ -503,46 +493,6 @@
             this.TPDatosBasicos.Size = new System.Drawing.Size(574, 395);
             this.TPDatosBasicos.TabIndex = 0;
             this.TPDatosBasicos.Text = "Datos";
-            // 
-            // TBCodigo_Empaque
-            // 
-            this.TBCodigo_Empaque.Location = new System.Drawing.Point(91, 249);
-            this.TBCodigo_Empaque.Name = "TBCodigo_Empaque";
-            this.TBCodigo_Empaque.Size = new System.Drawing.Size(117, 21);
-            this.TBCodigo_Empaque.TabIndex = 198;
-            this.TBCodigo_Empaque.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TBCodigo_Empaque.Enter += new System.EventHandler(this.TBCodigo_Empaque_Enter);
-            this.TBCodigo_Empaque.Leave += new System.EventHandler(this.TBCodigo_Empaque_Leave);
-            // 
-            // TBCodigo_Tipo
-            // 
-            this.TBCodigo_Tipo.Location = new System.Drawing.Point(91, 222);
-            this.TBCodigo_Tipo.Name = "TBCodigo_Tipo";
-            this.TBCodigo_Tipo.Size = new System.Drawing.Size(117, 21);
-            this.TBCodigo_Tipo.TabIndex = 197;
-            this.TBCodigo_Tipo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TBCodigo_Tipo.Enter += new System.EventHandler(this.TBCodigo_Tipo_Enter);
-            this.TBCodigo_Tipo.Leave += new System.EventHandler(this.TBCodigo_Tipo_Leave);
-            // 
-            // TBCodigo_Grupo
-            // 
-            this.TBCodigo_Grupo.Location = new System.Drawing.Point(91, 195);
-            this.TBCodigo_Grupo.Name = "TBCodigo_Grupo";
-            this.TBCodigo_Grupo.Size = new System.Drawing.Size(117, 21);
-            this.TBCodigo_Grupo.TabIndex = 196;
-            this.TBCodigo_Grupo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TBCodigo_Grupo.Enter += new System.EventHandler(this.TBCodigo_Grupo_Enter);
-            this.TBCodigo_Grupo.Leave += new System.EventHandler(this.TBCodigo_Grupo_Leave);
-            // 
-            // TBCodigo_Marca
-            // 
-            this.TBCodigo_Marca.Location = new System.Drawing.Point(91, 168);
-            this.TBCodigo_Marca.Name = "TBCodigo_Marca";
-            this.TBCodigo_Marca.Size = new System.Drawing.Size(117, 21);
-            this.TBCodigo_Marca.TabIndex = 195;
-            this.TBCodigo_Marca.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TBCodigo_Marca.Enter += new System.EventHandler(this.TBCodigo_Marca_Enter);
-            this.TBCodigo_Marca.Leave += new System.EventHandler(this.TBCodigo_Marca_Leave);
             // 
             // CHEmpaque
             // 
@@ -797,12 +747,11 @@
             this.CBEmpaque.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBEmpaque.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBEmpaque.FormattingEnabled = true;
-            this.CBEmpaque.Location = new System.Drawing.Point(214, 249);
+            this.CBEmpaque.Location = new System.Drawing.Point(91, 249);
             this.CBEmpaque.Name = "CBEmpaque";
-            this.CBEmpaque.Size = new System.Drawing.Size(352, 21);
+            this.CBEmpaque.Size = new System.Drawing.Size(475, 21);
             this.CBEmpaque.Sorted = true;
             this.CBEmpaque.TabIndex = 37;
-            this.CBEmpaque.SelectedIndexChanged += new System.EventHandler(this.CBEmpaque_SelectedIndexChanged);
             // 
             // label22
             // 
@@ -838,12 +787,11 @@
             this.CBGrupo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBGrupo.FormattingEnabled = true;
-            this.CBGrupo.Location = new System.Drawing.Point(214, 195);
+            this.CBGrupo.Location = new System.Drawing.Point(91, 195);
             this.CBGrupo.Name = "CBGrupo";
-            this.CBGrupo.Size = new System.Drawing.Size(352, 21);
+            this.CBGrupo.Size = new System.Drawing.Size(475, 21);
             this.CBGrupo.Sorted = true;
             this.CBGrupo.TabIndex = 25;
-            this.CBGrupo.SelectedIndexChanged += new System.EventHandler(this.CBGrupo_SelectedIndexChanged);
             // 
             // label13
             // 
@@ -860,12 +808,11 @@
             this.CBTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBTipo.FormattingEnabled = true;
-            this.CBTipo.Location = new System.Drawing.Point(214, 222);
+            this.CBTipo.Location = new System.Drawing.Point(91, 222);
             this.CBTipo.Name = "CBTipo";
-            this.CBTipo.Size = new System.Drawing.Size(352, 21);
+            this.CBTipo.Size = new System.Drawing.Size(475, 21);
             this.CBTipo.Sorted = true;
             this.CBTipo.TabIndex = 20;
-            this.CBTipo.SelectedIndexChanged += new System.EventHandler(this.CBTipo_SelectedIndexChanged);
             // 
             // label10
             // 
@@ -904,19 +851,6 @@
             this.TBReferencia.Enter += new System.EventHandler(this.TBReferencia_Enter);
             this.TBReferencia.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBReferencia_KeyUp);
             this.TBReferencia.Leave += new System.EventHandler(this.TBReferencia_Leave);
-            // 
-            // CBMarca
-            // 
-            this.CBMarca.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CBMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CBMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBMarca.FormattingEnabled = true;
-            this.CBMarca.Location = new System.Drawing.Point(214, 168);
-            this.CBMarca.Name = "CBMarca";
-            this.CBMarca.Size = new System.Drawing.Size(352, 21);
-            this.CBMarca.Sorted = true;
-            this.CBMarca.TabIndex = 6;
-            this.CBMarca.SelectedIndexChanged += new System.EventHandler(this.CBMarca_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -2341,7 +2275,7 @@
             // TPImagen
             // 
             this.TPImagen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TPImagen.Controls.Add(this.groupBox3);
+            this.TPImagen.Controls.Add(this.PB_Imagen);
             this.TPImagen.Location = new System.Drawing.Point(4, 44);
             this.TPImagen.Name = "TPImagen";
             this.TPImagen.Padding = new System.Windows.Forms.Padding(3);
@@ -2350,24 +2284,14 @@
             this.TPImagen.Text = "Imagen";
             this.TPImagen.UseVisualStyleBackColor = true;
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.PB_Imagen);
-            this.groupBox3.Location = new System.Drawing.Point(7, 6);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(429, 383);
-            this.groupBox3.TabIndex = 37;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Imagen del Producto";
-            // 
             // PB_Imagen
             // 
             this.PB_Imagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PB_Imagen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PB_Imagen.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PB_Imagen.Location = new System.Drawing.Point(6, 20);
+            this.PB_Imagen.Location = new System.Drawing.Point(6, 6);
             this.PB_Imagen.Name = "PB_Imagen";
-            this.PB_Imagen.Size = new System.Drawing.Size(417, 357);
+            this.PB_Imagen.Size = new System.Drawing.Size(560, 381);
             this.PB_Imagen.TabIndex = 0;
             this.PB_Imagen.TabStop = false;
             this.PB_Imagen.Click += new System.EventHandler(this.PB_Imagen_Click);
@@ -3857,6 +3781,18 @@
             this.DGResultados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGResultados_CellDoubleClick);
             this.DGResultados.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DGResultados_KeyPress);
             // 
+            // CBMarca
+            // 
+            this.CBMarca.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CBMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBMarca.FormattingEnabled = true;
+            this.CBMarca.Location = new System.Drawing.Point(91, 168);
+            this.CBMarca.Name = "CBMarca";
+            this.CBMarca.Size = new System.Drawing.Size(475, 21);
+            this.CBMarca.Sorted = true;
+            this.CBMarca.TabIndex = 195;
+            // 
             // frmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -3897,7 +3833,6 @@
             this.TPIgualdad.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGDetalle_Igualdad)).EndInit();
             this.TPImagen.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PB_Imagen)).EndInit();
             this.TPImpuesto.ResumeLayout(false);
             this.TPImpuesto.PerformLayout();
@@ -3939,7 +3874,6 @@
         private System.Windows.Forms.TextBox TBDescripcion01;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox TBReferencia;
-        private System.Windows.Forms.ComboBox CBMarca;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox TBNombre;
@@ -3985,7 +3919,6 @@
         private System.Windows.Forms.TextBox TBIdimpuesto;
         private System.Windows.Forms.TextBox TBIdproveedor;
         private System.Windows.Forms.TabPage TPImagen;
-        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.PictureBox PB_Imagen;
         private System.Windows.Forms.CheckBox CHOfertable;
         private System.Windows.Forms.Label label41;
@@ -4206,10 +4139,6 @@
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox TBCodigo_Empaque;
-        private System.Windows.Forms.TextBox TBCodigo_Tipo;
-        private System.Windows.Forms.TextBox TBCodigo_Grupo;
-        private System.Windows.Forms.TextBox TBCodigo_Marca;
         private System.Windows.Forms.Label label91;
         private System.Windows.Forms.Label label90;
         private System.Windows.Forms.Label label89;
@@ -4224,5 +4153,6 @@
         private System.Windows.Forms.TextBox textBox17;
         private System.Windows.Forms.TextBox textBox20;
         private System.Windows.Forms.TextBox TBmultiplicador_Impuesto;
+        private System.Windows.Forms.ComboBox CBMarca;
     }
 }

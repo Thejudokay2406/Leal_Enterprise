@@ -168,15 +168,6 @@ namespace Presentacion
             this.TBComision_Valor.Enabled = false;
             this.TBComision_Valor.BackColor = Color.FromArgb(72, 209, 204);
 
-            this.TBCodigo_Marca.ReadOnly = false;
-            this.TBCodigo_Marca.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBCodigo_Grupo.ReadOnly = false;
-            this.TBCodigo_Grupo.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBCodigo_Tipo.ReadOnly = false;
-            this.TBCodigo_Tipo.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBCodigo_Empaque.ReadOnly = false;
-            this.TBCodigo_Empaque.BackColor = Color.FromArgb(3, 155, 229);
-
             //Panel Compuesto
             this.TBCompuesto.ReadOnly = false;
             this.TBCompuesto.BackColor = Color.FromArgb(3, 155, 229);
@@ -548,7 +539,7 @@ namespace Presentacion
         {
             try
             {
-                this.CBEmpaque.DataSource = fEmpaque.Lista();
+                this.CBEmpaque.DataSource = fEmpaque.Lista(3);
                 this.CBEmpaque.ValueMember = "Codigo";
                 this.CBEmpaque.DisplayMember = "Empaque";
 
@@ -556,15 +547,15 @@ namespace Presentacion
                 //this.CBBodega.ValueMember = "Codigo";
                 //this.CBBodega.DisplayMember = "Bodega";
 
-                this.CBGrupo.DataSource = fGrupoDeProducto.Lista();
+                this.CBGrupo.DataSource = fGrupoDeProducto.Lista(3);
                 this.CBGrupo.ValueMember = "Codigo";
                 this.CBGrupo.DisplayMember = "Grupo";
 
-                this.CBMarca.DataSource = fMarca.Lista();
+                this.CBMarca.DataSource = fMarca.Lista(3);
                 this.CBMarca.ValueMember = "Codigo";
                 this.CBMarca.DisplayMember = "Marca";
 
-                this.CBTipo.DataSource = fTipoDeProducto.Lista();
+                this.CBTipo.DataSource = fTipoDeProducto.Lista(3);
                 this.CBTipo.ValueMember = "Codigo";
                 this.CBTipo.DisplayMember = "Tipo";
 
@@ -1049,7 +1040,6 @@ namespace Presentacion
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
-
 
         public void setImpuesto(string idimpuesto, string impuesto, string valor, string descripcion)
         {
@@ -9949,102 +9939,6 @@ namespace Presentacion
             tb.Text = string.Format("{0:N}", numero);
         }
 
-        private void CBMarca_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (CBMarca.SelectedIndex == 0)
-            {
-                this.TBCodigo_Marca.Enabled = true;
-                this.TBCodigo_Marca.BackColor = Color.FromArgb(3, 155, 229);
-            }
-            else
-            {
-                this.TBCodigo_Marca.Enabled = false;
-                this.TBCodigo_Marca.BackColor = Color.FromArgb(72, 209, 204);
-            }
-        }
-
-        private void CBTipo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (CBTipo.SelectedIndex == 0)
-            {
-                this.TBCodigo_Tipo.Enabled = true;
-                this.TBCodigo_Tipo.BackColor = Color.FromArgb(3, 155, 229);
-            }
-            else
-            {
-                this.TBCodigo_Tipo.Enabled = false;
-                this.TBCodigo_Tipo.BackColor = Color.FromArgb(72, 209, 204);
-            }
-        }
-
-        private void CBEmpaque_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (CBEmpaque.SelectedIndex == 0)
-            {
-                this.TBCodigo_Empaque.Enabled = true;
-                this.TBCodigo_Empaque.BackColor = Color.FromArgb(3, 155, 229);
-            }
-            else
-            {
-                this.TBCodigo_Empaque.Enabled = false;
-                this.TBCodigo_Empaque.BackColor = Color.FromArgb(72, 209, 204);
-            }
-        }
-
-        private void TBCodigo_Marca_Enter(object sender, EventArgs e)
-        {
-            this.TBCodigo_Marca.BackColor = Color.Azure;
-        }
-
-        private void TBCodigo_Grupo_Enter(object sender, EventArgs e)
-        {
-            this.TBCodigo_Grupo.BackColor = Color.Azure;
-        }
-
-        private void TBCodigo_Tipo_Enter(object sender, EventArgs e)
-        {
-            this.TBCodigo_Tipo.BackColor = Color.Azure;
-        }
-
-        private void TBCodigo_Empaque_Enter(object sender, EventArgs e)
-        {
-            this.TBCodigo_Empaque.BackColor = Color.Azure;
-        }
-
-        private void TBCodigo_Marca_Leave(object sender, EventArgs e)
-        {
-            this.TBCodigo_Marca.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBCodigo_Grupo_Leave(object sender, EventArgs e)
-        {
-            this.TBCodigo_Grupo.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBCodigo_Tipo_Leave(object sender, EventArgs e)
-        {
-            this.TBCodigo_Tipo.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBCodigo_Empaque_Leave(object sender, EventArgs e)
-        {
-            this.TBCodigo_Empaque.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void CBGrupo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (CBGrupo.SelectedIndex == 0)
-            {
-                this.TBCodigo_Grupo.Enabled = true;
-                this.TBCodigo_Grupo.BackColor = Color.FromArgb(3, 155, 229);
-            }
-            else
-            {
-                this.TBCodigo_Grupo.Enabled = false;
-                this.TBCodigo_Grupo.BackColor = Color.FromArgb(72, 209, 204);
-            }
-        }
-
         private void TBCompraMinima_Cliente_Enter(object sender, EventArgs e)
         {
             this.TBCompraMinima_Cliente.BackColor = Color.Azure;
@@ -10489,10 +10383,10 @@ namespace Presentacion
             else
             {
                 this.TBComision_Porcentaje.Enabled = false;
-                this.TBComision_Porcentaje.BackColor = Color.FromArgb(72, 209, 204);
+                this.TBComision_Porcentaje.BackColor = Color.FromArgb(245, 245, 245);
 
                 this.TBComision_Valor.Enabled = false;
-                this.TBComision_Valor.BackColor = Color.FromArgb(72, 209, 204);
+                this.TBComision_Valor.BackColor = Color.FromArgb(245, 245, 245);
 
                 this.TBComision_Valor.Text = "0";
                 this.TBComision_Porcentaje.Text = "0";

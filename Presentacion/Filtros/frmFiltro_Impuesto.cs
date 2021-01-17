@@ -14,6 +14,7 @@ namespace Presentacion
 {
     public partial class frmFiltro_Impuesto : Form
     {
+        
         public frmFiltro_Impuesto()
         {
             InitializeComponent();
@@ -75,12 +76,15 @@ namespace Presentacion
 
                 frmProductos frmPro = frmProductos.GetInstancia();
 
-                idimpuesto = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
-                impuesto = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
-                valor = this.DGFiltro_Resultados.CurrentRow.Cells[2].Value.ToString();
-                descripcion = this.DGFiltro_Resultados.CurrentRow.Cells[3].Value.ToString();
-                frmPro.setImpuesto(idimpuesto, impuesto, valor, descripcion);
-                this.Hide();
+                if (frmPro.Examinar)
+                {
+                    idimpuesto = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
+                    impuesto = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
+                    valor = this.DGFiltro_Resultados.CurrentRow.Cells[2].Value.ToString();
+                    descripcion = this.DGFiltro_Resultados.CurrentRow.Cells[3].Value.ToString();
+                    frmPro.setImpuesto(idimpuesto, impuesto, valor, descripcion);
+                    this.Hide();
+                }                
             }
             catch (Exception ex)
             {
