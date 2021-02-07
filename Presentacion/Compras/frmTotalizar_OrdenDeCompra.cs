@@ -41,19 +41,19 @@ namespace Presentacion
         {
             //
             this.TBValorCotizado.Enabled = false;
-            this.TBValorCotizado.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBValorCotizado.BackColor = Color.FromArgb(245, 245, 245);
             this.TBDescuento_Porcentaje.Enabled = false;
-            this.TBDescuento_Porcentaje.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBDescuento_Porcentaje.BackColor = Color.FromArgb(245, 245, 245);
             this.TBDescuento_Cotizado.Enabled = false;
-            this.TBDescuento_Cotizado.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBDescuento_Cotizado.BackColor = Color.FromArgb(245, 245, 245);
             this.TBValorFinal_Cotizado.Enabled = false;
-            this.TBValorFinal_Cotizado.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBValorFinal_Cotizado.BackColor = Color.FromArgb(245, 245, 245);
             this.TBImpuesto_Cotizado.Enabled = false;
-            this.TBImpuesto_Cotizado.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBImpuesto_Cotizado.BackColor = Color.FromArgb(245, 245, 245);
             this.TBTipoDePago_Cotizado.Enabled = false;
-            this.TBTipoDePago_Cotizado.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBTipoDePago_Cotizado.BackColor = Color.FromArgb(245, 245, 245);
             this.TBEnvio_Cotizado.Enabled = false;
-            this.TBEnvio_Cotizado.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBEnvio_Cotizado.BackColor = Color.FromArgb(245, 245, 245);
 
             //
             this.TBTipodepago.ReadOnly = false;

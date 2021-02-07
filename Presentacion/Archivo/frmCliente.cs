@@ -165,9 +165,9 @@ namespace Presentacion
 
             //Datos Financieros
             this.TBFin_CodigoBanco.Enabled = false;
-            this.TBFin_CodigoBanco.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBFin_CodigoBanco.BackColor = Color.FromArgb(245, 245, 245);
             this.TBFin_Banco.Enabled = false;
-            this.TBFin_Banco.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBFin_Banco.BackColor = Color.FromArgb(245, 245, 245);
             this.TBFin_NumCuenta.ReadOnly = false;
             this.TBFin_NumCuenta.BackColor = Color.FromArgb(3, 155, 229);
 
@@ -189,11 +189,11 @@ namespace Presentacion
             this.TBFac_Cliente.ReadOnly = false;
             this.TBFac_Cliente.BackColor = Color.FromArgb(3, 155, 229);
             this.TBFac_Asesor.Enabled = false;
-            this.TBFac_Asesor.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBFac_Asesor.BackColor = Color.FromArgb(245, 245, 245);
             this.TBFac_DocumentoCliente.ReadOnly = false;
             this.TBFac_DocumentoCliente.BackColor = Color.FromArgb(3, 155, 229);
             this.TBFac_CodigoAsesor.Enabled = false;
-            this.TBFac_CodigoAsesor.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBFac_CodigoAsesor.BackColor = Color.FromArgb(245, 245, 245);
             this.TBFac_Movil.ReadOnly = false;
             this.TBFac_Movil.BackColor = Color.FromArgb(3, 155, 229);
             this.TBFac_Correo.ReadOnly = false;
@@ -2355,19 +2355,19 @@ namespace Presentacion
 
                     //
                     this.TBFac_Cliente.Enabled = false;
-                    this.TBFac_Cliente.BackColor = Color.FromArgb(72, 209, 204);
+                    this.TBFac_Cliente.BackColor = Color.FromArgb(245, 245, 245);
                     this.TBFac_DocumentoCliente.Enabled = false;
-                    this.TBFac_DocumentoCliente.BackColor = Color.FromArgb(72, 209, 204);
+                    this.TBFac_DocumentoCliente.BackColor = Color.FromArgb(245, 245, 245);
                     this.TBFac_Movil.Enabled = false;
-                    this.TBFac_Movil.BackColor = Color.FromArgb(72, 209, 204);
+                    this.TBFac_Movil.BackColor = Color.FromArgb(245, 245, 245);
                     this.TBFac_Pais.Enabled = false;
-                    this.TBFac_Pais.BackColor = Color.FromArgb(72, 209, 204);
+                    this.TBFac_Pais.BackColor = Color.FromArgb(245, 245, 245);
                     this.TBFac_Ciudad.Enabled = false;
-                    this.TBFac_Ciudad.BackColor = Color.FromArgb(72, 209, 204);
+                    this.TBFac_Ciudad.BackColor = Color.FromArgb(245, 245, 245);
                     this.TBFac_Departamento.Enabled = false;
-                    this.TBFac_Departamento.BackColor = Color.FromArgb(72, 209, 204);
+                    this.TBFac_Departamento.BackColor = Color.FromArgb(245, 245, 245);
                     this.TBFac_Correo.Enabled = false;
-                    this.TBFac_Correo.BackColor = Color.FromArgb(72, 209, 204);
+                    this.TBFac_Correo.BackColor = Color.FromArgb(245, 245, 245);
 
                     //********************************* CAMPOS NUMERICOS VACIOS ********************************* 
                     if (TBDat_Telefono.Text == String.Empty)

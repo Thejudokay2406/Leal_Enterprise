@@ -710,7 +710,7 @@ namespace Presentacion
                         {
                             if (Convert.ToString(Fila["Idbanco"]) == TBIdbanco.Text)
                             {
-                                this.MensajeError("El Banco que Desea Agregar ya se Encuentra en la Lista");
+                                this.MensajeError("El Banco Que Desea Agregar ya se Encuentra en la Lista");
                             }
                         }
                         if (agregar)
@@ -766,7 +766,7 @@ namespace Presentacion
                         {
                             if (Convert.ToString(Fila["Idbanco"]) == TBIdbanco.Text)
                             {
-                                this.MensajeError("El Banco que Desea Agregar ya se Encuentra en la Lista");
+                                this.MensajeError("El Banco Que Desea Agregar ya se Encuentra en la Lista");
                             }
                         }
 
@@ -2883,7 +2883,7 @@ namespace Presentacion
                         {
                             if (Convert.ToString(Fila["Idbanco"]) == TBIdbanco.Text)
                             {
-                                this.MensajeError("El Banco que Desea Agregar ya se Encuentra en la Lista");
+                                this.MensajeError("El Banco Que Desea Agregar ya se Encuentra en la Lista");
                             }
                         }
                         if (agregar)
@@ -2939,7 +2939,7 @@ namespace Presentacion
                         {
                             if (Convert.ToString(Fila["Idbanco"]) == TBIdbanco.Text)
                             {
-                                this.MensajeError("El Banco que Desea Agregar ya se Encuentra en la Lista");
+                                this.MensajeError("El Banco Que Desea Agregar ya se Encuentra en la Lista");
                             }
                         }
 

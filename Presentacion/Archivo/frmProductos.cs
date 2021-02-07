@@ -33,8 +33,8 @@ namespace Presentacion
         private bool Digitar = true;
         public bool Filtro = true;
         public bool Examinar = true;
-        public bool Examinar_Exterior = false;
-        public bool Examinar_Proveedor = false;
+        public bool Examinar_Exterior = true;
+        public bool Examinar_Proveedor = true;
 
         //Variables para Eliminar y ejecutar los procedimientos Internos en los paneles
         //Ubicacion, Lote, Proveedor ETC donde se realizan multiplex registros
@@ -46,6 +46,8 @@ namespace Presentacion
         private bool Eliminar_CodigoDeBarra = false;
 
         //Variable para Agregar los Detalles a la Base de Datos
+        private DataTable DtDetalle_Compuesto;
+        private DataTable DtDetalle_Exterior;
         private DataTable DtDetalle_Lote;
         private DataTable DtDetalle_Impuesto;
         private DataTable DtDetalle_Igualdad;
@@ -100,9 +102,6 @@ namespace Presentacion
         //Panel - Valor de Fabricacion
         private string Fabrica_Material01, Fabrica_Material02, Fabrica_Material03, Fabrica_OtroMaterial, Fabrica_ManoDeObra, Fabrica_Materiales, Fabrica_Envio, Fabrica_Almacenamiento, Fabrica_Maquinaria, Fabrica_Herramientas, Fabrica_CostoGeneral = "";
 
-        //Panel - Cantidades
-        private string VenMin_Cliente, VenMax_Cliente, VenMin_Mayorista, VenMax_Mayorista, ComMin_Cliente, ComMax_Cliente, ComMin_Mayorista, ComMax_Mayorista = "";
-
         //Panel - Imagen
         private string Imagen = "";
 
@@ -122,8 +121,6 @@ namespace Presentacion
 
             //Inicio de Texbox y Combobox por default
             this.TBNombre.Select();
-
-            this.TBComision_Valor.Text = "0";
             this.TBComision_Porcentaje.Text = "0";
 
             //Ocultacion de Texboxt
@@ -132,15 +129,21 @@ namespace Presentacion
             this.TBIdproveedor.Visible = false;
             //this.TBIdproducto_AutoSQL.Visible = false;
             this.TBIdigualdad_Producto.Visible = false;
-                        
+
             //Panel - Cantidades - Otros Datos
             this.CBUnidad.SelectedIndex = 0;
 
             //
-            this.btnExaminar_Impuesto.Enabled = false;
+            //this.btnExaminar_Impuesto.Enabled = false;
 
             //
             this.PB_Imagen.Image = Properties.Resources.Logo_Leal_Enterprise;
+
+            //
+            //SE OCULTAN LOS PANELES DEL TABCONTROL
+            TCPrincipal.TabPages.Remove(TPImpuesto);
+            TCPrincipal.TabPages.Remove(TPFabricacion);
+            TCPrincipal.TabPages.Remove(TPRetencion);
         }
 
         private void Habilitar()
@@ -164,15 +167,13 @@ namespace Presentacion
             this.TBPresentacion.ReadOnly = false;
             this.TBPresentacion.BackColor = Color.FromArgb(3, 155, 229);
             this.TBComision_Porcentaje.Enabled = false;
-            this.TBComision_Porcentaje.BackColor = Color.FromArgb(72, 209, 204);
-            this.TBComision_Valor.Enabled = false;
-            this.TBComision_Valor.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBComision_Porcentaje.BackColor = Color.FromArgb(245, 245, 245);
 
             //Panel Compuesto
             this.TBCompuesto.ReadOnly = false;
             this.TBCompuesto.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBCompuesto_Descrip.ReadOnly = false;
-            this.TBCompuesto_Descrip.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBComp_Descripcion.ReadOnly = false;
+            this.TBComp_Descripcion.BackColor = Color.FromArgb(3, 155, 229);
 
             //Panel - Valores
             this.TBValor_CompraPromedio.ReadOnly = false;
@@ -190,22 +191,22 @@ namespace Presentacion
             this.TBValor_Mayorista.BackColor = Color.FromArgb(3, 155, 229);
 
             this.TBValor_PorVenta01.Enabled = false;
-            this.TBValor_PorVenta01.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBValor_PorVenta01.BackColor = Color.FromArgb(245, 245, 245);
             this.TBValor_PorVenta02.Enabled = false;
-            this.TBValor_PorVenta02.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBValor_PorVenta02.BackColor = Color.FromArgb(245, 245, 245);
             this.TBValor_PorVenta03.Enabled = false;
-            this.TBValor_PorVenta03.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBValor_PorVenta03.BackColor = Color.FromArgb(245, 245, 245);
             this.TBValor_PorMayorista.Enabled = false;
-            this.TBValor_PorMayorista.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBValor_PorMayorista.BackColor = Color.FromArgb(245, 245, 245);
 
             this.TBValor_ImpVenta01.Enabled = false;
-            this.TBValor_ImpVenta01.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBValor_ImpVenta01.BackColor = Color.FromArgb(245, 245, 245);
             this.TBValor_ImpVenta02.Enabled = false;
-            this.TBValor_ImpVenta02.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBValor_ImpVenta02.BackColor = Color.FromArgb(245, 245, 245);
             this.TBValor_ImpVenta03.Enabled = false;
-            this.TBValor_ImpVenta03.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBValor_ImpVenta03.BackColor = Color.FromArgb(245, 245, 245);
             this.TBValor_ImpMayorista.Enabled = false;
-            this.TBValor_ImpMayorista.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBValor_ImpMayorista.BackColor = Color.FromArgb(245, 245, 245);
 
             this.TBValor_Unidad.ReadOnly = false;
             this.TBValor_Unidad.BackColor = Color.FromArgb(3, 155, 229);
@@ -217,41 +218,24 @@ namespace Presentacion
             this.TBValor_Unidad03.BackColor = Color.FromArgb(3, 155, 229);
 
             this.TBValor_PorUnidad01.Enabled = false;
-            this.TBValor_PorUnidad01.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBValor_PorUnidad01.BackColor = Color.FromArgb(245, 245, 245);
             this.TBValor_PorUnidad02.Enabled = false;
-            this.TBValor_PorUnidad02.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBValor_PorUnidad02.BackColor = Color.FromArgb(245, 245, 245);
             this.TBValor_PorUnidad03.Enabled = false;
-            this.TBValor_PorUnidad03.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBValor_PorUnidad03.BackColor = Color.FromArgb(245, 245, 245);
 
             this.TBValor_ImpUnidad01.Enabled = false;
-            this.TBValor_ImpUnidad01.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBValor_ImpUnidad01.BackColor = Color.FromArgb(245, 245, 245);
             this.TBValor_ImpUnidad02.Enabled = false;
-            this.TBValor_ImpUnidad02.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBValor_ImpUnidad02.BackColor = Color.FromArgb(245, 245, 245);
             this.TBValor_ImpUnidad03.Enabled = false;
-            this.TBValor_ImpUnidad03.BackColor = Color.FromArgb(72, 209, 204);
-
-            // Panel Cantidades
-            this.TBVentaMaxima_Mayorista.ReadOnly = false;
-            this.TBVentaMaxima_Mayorista.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBVentaMinima_Mayorista.ReadOnly = false;
-            this.TBVentaMinima_Mayorista.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBVentaMinina_Cliente.ReadOnly = false;
-            this.TBVentaMinina_Cliente.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBVentaMaxima_Cliente.ReadOnly = false;
-            this.TBVentaMaxima_Cliente.BackColor = Color.FromArgb(3, 155, 229);
-
-            this.TBCompraMinima_Cliente.ReadOnly = false;
-            this.TBCompraMinima_Cliente.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBCompraMaxima_Cliente.ReadOnly = false;
-            this.TBCompraMaxima_Cliente.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBCompraMinima_Mayorista.ReadOnly = false;
-            this.TBCompraMinima_Mayorista.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBCompraMaxima_Mayorista.ReadOnly = false;
-            this.TBCompraMaxima_Mayorista.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBValor_ImpUnidad03.BackColor = Color.FromArgb(245, 245, 245);
 
             //Panel - Exterior
+            this.TBExt_ProveedorDocum.Enabled = false;
+            this.TBExt_ProveedorDocum.BackColor = Color.FromArgb(245, 245, 245);
             this.TBExterior_Proveedor.Enabled = false;
-            this.TBExterior_Proveedor.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBExterior_Proveedor.BackColor = Color.FromArgb(245, 245, 245);
             this.TBExterior_Aduana.ReadOnly = false;
             this.TBExterior_Aduana.BackColor = Color.FromArgb(3, 155, 229);
             this.TBExterior_Comision.ReadOnly = false;
@@ -284,12 +268,12 @@ namespace Presentacion
             this.TBExteriorMon_Seguridad.BackColor = Color.FromArgb(3, 155, 229);
 
             //Panel - Fabricacion
-            this.TBFabri_Material01.ReadOnly = false;
-            this.TBFabri_Material01.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBFabri_Material02.ReadOnly = false;
-            this.TBFabri_Material02.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBFabri_Material03.ReadOnly = false;
-            this.TBFabri_Material03.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBFabri_Principal.ReadOnly = false;
+            this.TBFabri_Principal.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBFabri_Secundario.ReadOnly = false;
+            this.TBFabri_Secundario.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBFabri_Terciario.ReadOnly = false;
+            this.TBFabri_Terciario.BackColor = Color.FromArgb(3, 155, 229);
             this.TBFabri_OtroMaterial.ReadOnly = false;
             this.TBFabri_OtroMaterial.BackColor = Color.FromArgb(3, 155, 229);
             this.TBFabri_ManoDeObra.ReadOnly = false;
@@ -302,18 +286,18 @@ namespace Presentacion
             this.TBFabri_Almacenamiento.BackColor = Color.FromArgb(3, 155, 229);
             this.TBFabri_Maquinaria.ReadOnly = false;
             this.TBFabri_Maquinaria.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBFabri_Manual.ReadOnly = false;
-            this.TBFabri_Manual.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBFabri_HerramientaManual.ReadOnly = false;
+            this.TBFabri_HerramientaManual.BackColor = Color.FromArgb(3, 155, 229);
             this.TBFabri_TotalFabricacion.Enabled = false;
-            this.TBFabri_TotalFabricacion.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBFabri_TotalFabricacion.BackColor = Color.FromArgb(245, 245, 245);
 
             //Panel - Igualdad
             this.TBIgualdad_Codigo.Enabled = false;
-            this.TBIgualdad_Codigo.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBIgualdad_Codigo.BackColor = Color.FromArgb(245, 245, 245);
             this.TBIgualdad_Producto.ReadOnly = false;
-            this.TBIgualdad_Producto.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBIgualdad_Producto.BackColor = Color.FromArgb(245, 245, 245);
             this.TBIgualdad_Marca.ReadOnly = false;
-            this.TBIgualdad_Marca.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBIgualdad_Marca.BackColor = Color.FromArgb(245, 245, 245);
 
             //Panel - Codigo de Barra
             this.TBCodigodeBarra.ReadOnly = false;
@@ -329,11 +313,11 @@ namespace Presentacion
 
             //Panel - Impuestos
             this.TBImpuesto.Enabled = false;
-            this.TBImpuesto.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBImpuesto.BackColor = Color.FromArgb(245, 245, 245);
             this.TBValor_Impuesto.Enabled = false;
-            this.TBValor_Impuesto.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBValor_Impuesto.BackColor = Color.FromArgb(245, 245, 245);
             this.TBDescripcion_Impuesto.Enabled = false;
-            this.TBDescripcion_Impuesto.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBDescripcion_Impuesto.BackColor = Color.FromArgb(245, 245, 245);
 
             //Panel - Lote
             this.TBLotedeingreso.ReadOnly = false;
@@ -349,9 +333,9 @@ namespace Presentacion
 
             //Panel - Proveedor
             this.TBProveedor.Enabled = false;
-            this.TBProveedor.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBProveedor.BackColor = Color.FromArgb(245, 245, 245);
             this.TBProveedor_Documento.Enabled = false;
-            this.TBProveedor_Documento.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBProveedor_Documento.BackColor = Color.FromArgb(245, 245, 245);
 
             //Panel de Consulta General
             this.TBBuscar.BackColor = Color.FromArgb(3, 155, 229);
@@ -366,7 +350,6 @@ namespace Presentacion
             this.TBReferencia.Clear();
             this.TBPresentacion.Clear();
             this.TBComision_Porcentaje.Enabled = false;
-            this.TBComision_Valor.Enabled = false;
 
             this.CBMarca.SelectedIndex = 0;
             this.CBGrupo.SelectedIndex = 0;
@@ -387,7 +370,7 @@ namespace Presentacion
 
             //Panel Compuesto
             this.TBCompuesto.Clear();
-            this.TBCompuesto_Descrip.Clear();
+            this.TBComp_Descripcion.Clear();
 
             //Panel Proveedor
             this.TBProveedor.Clear();
@@ -425,18 +408,8 @@ namespace Presentacion
             this.TBValor_ImpUnidad02.Clear();
             this.TBValor_ImpUnidad03.Clear();
 
-            // Panel Cantidades
-            this.TBVentaMaxima_Mayorista.Clear();
-            this.TBVentaMinima_Mayorista.Clear();
-            this.TBVentaMinina_Cliente.Clear();
-            this.TBVentaMaxima_Cliente.Clear();
-
-            this.TBCompraMinima_Cliente.Clear();
-            this.TBCompraMaxima_Cliente.Clear();
-            this.TBCompraMinima_Mayorista.Clear();
-            this.TBCompraMaxima_Mayorista.Clear();
-
             //Panel Exterior
+            this.TBExt_ProveedorDocum.Clear();
             this.TBExterior_Proveedor.Clear();
             this.TBExterior_Aduana.Clear();
             this.TBExterior_Comision.Clear();
@@ -456,16 +429,16 @@ namespace Presentacion
             this.TBExteriorMon_Seguridad.Clear();
 
             //Panel Fabricacion
-            this.TBFabri_Material01.Clear();
-            this.TBFabri_Material02.Clear();
-            this.TBFabri_Material03.Clear();
+            this.TBFabri_Principal.Clear();
+            this.TBFabri_Secundario.Clear();
+            this.TBFabri_Terciario.Clear();
             this.TBFabri_OtroMaterial.Clear();
             this.TBFabri_ManoDeObra.Clear();
             this.TBFabri_Materiales.Clear();
             this.TBFabri_Envio.Clear();
             this.TBFabri_Almacenamiento.Clear();
             this.TBFabri_Maquinaria.Clear();
-            this.TBFabri_Manual.Clear();
+            this.TBFabri_HerramientaManual.Clear();
             this.TBFabri_TotalFabricacion.Clear();
 
             //Panel Igualdad
@@ -566,6 +539,18 @@ namespace Presentacion
             }
         }
 
+        private void Actualizar_DetCompuesto()
+        {
+            this.DGDetalle_Compuesto.DataSource = fProducto_Inventario.Lista_Compuesto(1, Convert.ToInt32(TBIdproducto.Text));
+            this.lblTotal_Compuesto.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Compuesto.Rows.Count);
+        }
+
+        private void Actualizar_DetExterior()
+        {
+            this.DGDetalle_Exterior.DataSource = fProducto_Inventario.Lista_Exterior(1, Convert.ToInt32(TBIdproducto.Text));
+            this.lblTotal_Exterior.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Exterior.Rows.Count);
+        }
+
         private void Actualizar_DetCodigoDeBarra()
         {
             this.DGDetalle_CodigoDeBarra.DataSource = fProducto_Inventario.Lista_CodigoDeBarra(1, Convert.ToInt32(TBIdproducto.Text));
@@ -608,7 +593,7 @@ namespace Presentacion
             this.TBProveedor.Text = proveedor;
             this.TBProveedor_Documento.Text = documento;
         }
-        
+
         public void setProveedor_Exterior(string idproveedor, string proveedor, string documento)
         {
             this.TBIdproveedor.Text = idproveedor;
@@ -735,15 +720,39 @@ namespace Presentacion
         {
             try
             {
-                //Panel Ubicacion
-                this.DtDetalle_Ubicacion = new DataTable();
-                this.DtDetalle_Ubicacion.Columns.Add("Idproducto", System.Type.GetType("System.Int32"));
-                this.DtDetalle_Ubicacion.Columns.Add("Idbodega", System.Type.GetType("System.Int32"));
-                this.DtDetalle_Ubicacion.Columns.Add("Ubicacion", System.Type.GetType("System.String"));
-                this.DtDetalle_Ubicacion.Columns.Add("Estante", System.Type.GetType("System.String"));
-                this.DtDetalle_Ubicacion.Columns.Add("Nivel", System.Type.GetType("System.String"));
+                //Panel Compuesto
+                this.DtDetalle_Compuesto = new DataTable();
+                this.DtDetalle_Compuesto.Columns.Add("Idproducto", System.Type.GetType("System.Int32"));
+                this.DtDetalle_Compuesto.Columns.Add("Compuesto", System.Type.GetType("System.String"));
+                this.DtDetalle_Compuesto.Columns.Add("Descripción", System.Type.GetType("System.String"));
+                this.DtDetalle_Compuesto.Columns.Add("Unidad", System.Type.GetType("System.String"));
+                this.DtDetalle_Compuesto.Columns.Add("Medida", System.Type.GetType("System.String"));
                 //Captura de los Datos en las Tablas
-                this.DGDetalles_Ubicacion.DataSource = DtDetalle_Ubicacion;
+                this.DGDetalle_Compuesto.DataSource = this.DtDetalle_Compuesto;
+
+                //Panel Exterior
+                this.DtDetalle_Exterior = new DataTable();
+                this.DtDetalle_Exterior.Columns.Add("Idproducto", System.Type.GetType("System.Int32"));
+                this.DtDetalle_Exterior.Columns.Add("Idproveedor", System.Type.GetType("System.Int32"));
+                this.DtDetalle_Exterior.Columns.Add("Proveedor", System.Type.GetType("System.String"));
+                this.DtDetalle_Exterior.Columns.Add("Documento", System.Type.GetType("System.String"));
+                this.DtDetalle_Exterior.Columns.Add("Aduana", System.Type.GetType("System.String"));
+                this.DtDetalle_Exterior.Columns.Add("Comisión", System.Type.GetType("System.String"));
+                this.DtDetalle_Exterior.Columns.Add("Documentación", System.Type.GetType("System.String"));
+                this.DtDetalle_Exterior.Columns.Add("Adicional", System.Type.GetType("System.String"));
+                this.DtDetalle_Exterior.Columns.Add("Exportación", System.Type.GetType("System.String"));
+                this.DtDetalle_Exterior.Columns.Add("Importación", System.Type.GetType("System.String"));
+                this.DtDetalle_Exterior.Columns.Add("Seguridad", System.Type.GetType("System.String"));
+
+                this.DtDetalle_Exterior.Columns.Add("Mon. Aduana", System.Type.GetType("System.String"));
+                this.DtDetalle_Exterior.Columns.Add("Mon. Comisión", System.Type.GetType("System.String"));
+                this.DtDetalle_Exterior.Columns.Add("Mon. Documentación", System.Type.GetType("System.String"));
+                this.DtDetalle_Exterior.Columns.Add("Mon. Adicional", System.Type.GetType("System.String"));
+                this.DtDetalle_Exterior.Columns.Add("Mon. Exportación", System.Type.GetType("System.String"));
+                this.DtDetalle_Exterior.Columns.Add("Mon. Importación", System.Type.GetType("System.String"));
+                this.DtDetalle_Exterior.Columns.Add("Mon. Seguridad", System.Type.GetType("System.String"));
+                //Captura de los Datos en las Tablas
+                this.DGDetalle_Exterior.DataSource = this.DtDetalle_Exterior;
 
                 //Panel Lote
                 this.DtDetalle_Lote = new DataTable();
@@ -759,7 +768,7 @@ namespace Presentacion
                 //Panel Codigo de Barra
                 this.DtDetalle_CodigoDeBarra = new DataTable();
                 this.DtDetalle_CodigoDeBarra.Columns.Add("Idproducto", System.Type.GetType("System.Int32"));
-                this.DtDetalle_CodigoDeBarra.Columns.Add("Codigo de Barra", System.Type.GetType("System.String"));
+                this.DtDetalle_CodigoDeBarra.Columns.Add("Código de Barra", System.Type.GetType("System.String"));
                 //Captura de los Datos en las Tablas
                 this.DGDetalle_CodigoDeBarra.DataSource = this.DtDetalle_CodigoDeBarra;
 
@@ -785,11 +794,21 @@ namespace Presentacion
                 //Panel Igualdad
                 this.DtDetalle_Igualdad = new DataTable();
                 this.DtDetalle_Igualdad.Columns.Add("Idproducto", System.Type.GetType("System.Int32"));
-                this.DtDetalle_Igualdad.Columns.Add("Codigo", System.Type.GetType("System.String"));
+                this.DtDetalle_Igualdad.Columns.Add("Código", System.Type.GetType("System.String"));
                 this.DtDetalle_Igualdad.Columns.Add("Producto", System.Type.GetType("System.String"));
                 this.DtDetalle_Igualdad.Columns.Add("Marca", System.Type.GetType("System.String"));
                 //Captura de los Datos en las Tablas
                 this.DGDetalle_Igualdad.DataSource = this.DtDetalle_Igualdad;
+
+                //Panel Ubicacion
+                this.DtDetalle_Ubicacion = new DataTable();
+                this.DtDetalle_Ubicacion.Columns.Add("Idproducto", System.Type.GetType("System.Int32"));
+                this.DtDetalle_Ubicacion.Columns.Add("Idbodega", System.Type.GetType("System.Int32"));
+                this.DtDetalle_Ubicacion.Columns.Add("Ubicación", System.Type.GetType("System.String"));
+                this.DtDetalle_Ubicacion.Columns.Add("Estante", System.Type.GetType("System.String"));
+                this.DtDetalle_Ubicacion.Columns.Add("Nivel", System.Type.GetType("System.String"));
+                //Captura de los Datos en las Tablas
+                this.DGDetalles_Ubicacion.DataSource = DtDetalle_Ubicacion;
 
 
                 //Medidas de las Columnas - Codigo de Barra
@@ -883,6 +902,7 @@ namespace Presentacion
                 this.DGDetalles_Lotes.Columns[0].Visible = false;
                 this.DGDetalle_Igualdad.Columns[0].Visible = false;
                 this.DGDetalle_CodigoDeBarra.Columns[0].Visible = false;
+                this.DGDetalle_Compuesto.Columns[0].Visible = false;
 
                 this.DGDetalle_Impuesto.Columns[0].Visible = false;
                 this.DGDetalle_Impuesto.Columns[1].Visible = false;
@@ -892,6 +912,25 @@ namespace Presentacion
 
                 this.DGDetalles_Ubicacion.Columns[0].Visible = false;
                 this.DGDetalles_Ubicacion.Columns[1].Visible = false;
+
+                this.DGDetalle_Exterior.Columns[0].Visible = false;
+                this.DGDetalle_Exterior.Columns[1].Visible = false;
+                this.DGDetalle_Exterior.Columns[4].Visible = false;
+                this.DGDetalle_Exterior.Columns[5].Visible = false;
+                this.DGDetalle_Exterior.Columns[6].Visible = false;
+                this.DGDetalle_Exterior.Columns[7].Visible = false;
+                this.DGDetalle_Exterior.Columns[8].Visible = false;
+                this.DGDetalle_Exterior.Columns[9].Visible = false;
+                this.DGDetalle_Exterior.Columns[10].Visible = false;
+                this.DGDetalle_Exterior.Columns[11].Visible = false;
+                this.DGDetalle_Exterior.Columns[12].Visible = false;
+                this.DGDetalle_Exterior.Columns[13].Visible = false;
+                this.DGDetalle_Exterior.Columns[14].Visible = false;
+                this.DGDetalle_Exterior.Columns[15].Visible = false;
+                this.DGDetalle_Exterior.Columns[16].Visible = false;
+                this.DGDetalle_Exterior.Columns[17].Visible = false;
+
+
             }
             catch (Exception ex)
             {
@@ -967,7 +1006,7 @@ namespace Presentacion
 
                             //Primero se Calcula el Valor Base
                             Base01 = Valor01 / Divisor;
-                            this.textBox6.Text = Base01.ToString("C");
+                            this.TBValorBase_Inicial01.Text = Base01.ToString("C");
 
                             //Despues se Calcula el Valor del Impuesto
                             Impuesto01 = Base01 * Multiplicador;
@@ -997,11 +1036,11 @@ namespace Presentacion
 
                         //Primero se Calcula el Valor Base
                         Base01 = Valor01 / Divisor;
-                        this.textBox6.Text = Base01.ToString("C");
+                        this.TBValorBase_Inicial01.Text = Base01.ToString("C");
                     }
                 }
 
-                
+
 
                 //else
                 //{
@@ -1107,41 +1146,48 @@ namespace Presentacion
                         rptaDatosBasicos = fProducto_Inventario.Guardar_DatosBasicos
 
                             (
-                                 //Datos Auxiliares
-                                 Convert.ToInt32(this.CBMarca.SelectedValue), Convert.ToInt32(this.CBEmpaque.SelectedValue), Convert.ToInt32(this.CBGrupo.SelectedValue), Convert.ToInt32(this.CBTipo.SelectedValue),
-
-                                 //Panel Datos Basicos
-                                 this.TBCodigo.Text, this.TBNombre.Text, this.TBReferencia.Text, this.TBDescripcion01.Text, this.TBPresentacion.Text,
-                                 this.CBUnidad.Text, this.TBComision_Valor.Text, Convert.ToInt32(this.TBComision_Porcentaje.Text),
-
-                                 Convert.ToInt32(Checkbox_Vencimiento), Convert.ToInt32(Checkbox_Impuesto), Convert.ToInt32(Checkbox_Importado),
-                                 Convert.ToInt32(Checkbox_Exportado), Convert.ToInt32(Checkbox_Ofertable), Convert.ToInt32(Checkbox_Comision),
-
-                                 //Panel de Valores
-                                 this.TBValor_CompraPromedio.Text, this.TBValor_CompraFinal.Text, this.TBValor_Venta01.Text, this.TBValor_Venta02.Text, this.TBValor_Mayorista.Text,
-                                 this.TBFabri_ManoDeObra.Text, this.TBFabri_Materiales.Text, this.TBExterior_Exportacion.Text, this.TBExterior_Importacion.Text,
-                                 this.TBExterior_Seguridad.Text, this.TBExteriorMon_Comision.Text,
-
-                                 //Panel Cantidades
-                                 this.TBVentaMinina_Cliente.Text, this.TBVentaMaxima_Cliente.Text, this.TBVentaMinima_Mayorista.Text, this.TBVentaMaxima_Mayorista.Text, this.TBCompraMinima_Cliente.Text, this.TBCompraMaxima_Cliente.Text, this.TBCompraMinima_Mayorista.Text, this.TBCompraMaxima_Mayorista.Text,
-
-                                 //Tabla de Detalles - Lote, Impuesto, Igualdad, Proveedor, Ubicacion, Codigo de Barra
-                                 this.DtDetalle_Lote, this.DtDetalle_Impuesto, this.DtDetalle_Igualdad, this.DtDetalle_Proveedor, this.DtDetalle_Ubicacion, this.DtDetalle_CodigoDeBarra,
-
-                                 //Panel de Imagen
-                                 Imagen_Producto,
-
-                                 //Variables Para Confirmar el Insertar en la Transaccion en SQL
-                                 //Donde esten las Validaciones IF NOT
-                                 1, 1, 1, 1, 1, 1,
+                                 //Datos Auxiliares y Llaves Primarias
+                                 1, Convert.ToInt32(this.CBMarca.SelectedValue), Convert.ToInt32(this.CBGrupo.SelectedValue), Convert.ToInt32(this.CBTipo.SelectedValue), Convert.ToInt32(this.CBEmpaque.SelectedValue),
 
                                  //Variables para Ordenar Si se Ejecutan o No las Transacciones en SQL
                                  //Si los Datagriview estan vacios seran Iguales a 0 Si Tienen Datos Seran Iguales a 1
-                                 Convert.ToInt32(Tran_Ubicacion), Convert.ToInt32(Tran_Igualdad), Convert.ToInt32(Tran_Lote), Convert.ToInt32(Tran_CodBarra),
-                                 Convert.ToInt32(Tran_Proveedor), Convert.ToInt32(Tran_Impuesto),
+                                 Convert.ToInt32(Tran_Ubicacion), Convert.ToInt32(Tran_Igualdad), Convert.ToInt32(Tran_Impuesto), Convert.ToInt32(Tran_Proveedor), Convert.ToInt32(Tran_CodBarra), Convert.ToInt32(Tran_Lote), Convert.ToInt32(Tran_Exterior), Convert.ToInt32(Tran_Compuesto),
 
-                                //Si es igual a 1 se registraran los datos en la base de datos
-                                1
+                                 //Panel Datos Basicos
+                                 this.TBCodigo.Text, this.TBNombre.Text, this.TBReferencia.Text, this.TBDescripcion01.Text, this.TBPresentacion.Text, Convert.ToInt64(this.TBComision_Porcentaje.Text), Convert.ToInt32(Checkbox_Vencimiento), Convert.ToInt32(Checkbox_Impuesto), Convert.ToInt32(Checkbox_Importado), Convert.ToInt32(Checkbox_Exportado), Convert.ToInt32(Checkbox_Ofertable), Convert.ToInt32(Checkbox_Comision), Convert.ToInt32(Checkbox_Empaque), Convert.ToInt32(Checkbox_Balanza), Convert.ToInt32(Checkbox_Retencion),
+
+                                 //Panel de Valores - Datos Basicos
+                                 Convert.ToDouble(this.TBValor_CompraPromedio.Text), Convert.ToDouble(this.TBValor_CompraFinal.Text), Convert.ToDouble(this.TBValor_Venta01.Text), Convert.ToDouble(this.TBValor_Venta02.Text), Convert.ToDouble(this.TBValor_Venta03.Text), Convert.ToDouble(this.TBValor_Mayorista.Text),
+
+                                 //Panel de Valores - Porcentajes
+                                 Convert.ToDouble(this.TBValor_PorVenta01.Text), Convert.ToDouble(this.TBValor_PorVenta02.Text), Convert.ToDouble(this.TBValor_PorVenta03.Text), Convert.ToDouble(this.TBValor_PorMayorista.Text),
+
+                                 ////Panel de Valores - Valor Base
+                                 Convert.ToDouble(this.TBValorBase_Inicial01.Text), Convert.ToDouble(this.TBValorBase_Inicial02.Text), Convert.ToDouble(this.TBValorBase_Inicial03.Text), Convert.ToDouble(this.TBValorBase_InicialMayorista.Text),
+
+                                 ////Panel de Valores - Impuesto
+                                 Convert.ToDouble(this.TBValor_ImpVenta01.Text), Convert.ToDouble(this.TBValor_ImpVenta02.Text), Convert.ToDouble(this.TBValor_ImpVenta03.Text), Convert.ToDouble(this.TBValor_ImpMayorista.Text),
+
+                                 ////Panel de Valores - Unidades
+                                 this.CBUnidad.Text, this.TBValor_Unidad.Text, Convert.ToDouble(this.TBValor_Unidad01.Text), Convert.ToDouble(this.TBValor_Unidad02.Text), Convert.ToDouble(this.TBValor_Unidad03.Text),
+
+                                 ////Panel de Valores - Porcentaje Unidad
+                                 Convert.ToDouble(this.TBValor_PorUnidad01.Text), Convert.ToDouble(this.TBValor_PorUnidad02.Text), Convert.ToDouble(this.TBValor_PorUnidad03.Text),
+
+                                 ////Panel de Valores - Valor Unidades
+                                 Convert.ToDouble(this.TBUndBase_Inicial01.Text), Convert.ToDouble(this.TBUndBase_Inicial02.Text), Convert.ToDouble(this.TBUndBase_Inicial03.Text),
+
+                                 ////Panel de Valores - Impuestos
+                                 Convert.ToDouble(this.TBValor_ImpUnidad01.Text), Convert.ToDouble(this.TBValor_ImpUnidad02.Text), Convert.ToDouble(this.TBValor_ImpUnidad01.Text),
+
+                                 //Panel - Fabricacion
+                                 Convert.ToDouble(this.TBFabri_Principal.Text), Convert.ToDouble(this.TBFabri_Secundario.Text), Convert.ToDouble(this.TBFabri_Terciario.Text), Convert.ToDouble(this.TBFabri_OtroMaterial.Text), Convert.ToDouble(this.TBFabri_ManoDeObra.Text), Convert.ToDouble(this.TBFabri_Materiales.Text), Convert.ToDouble(this.TBFabri_Envio.Text), Convert.ToDouble(this.TBFabri_Almacenamiento.Text), Convert.ToDouble(this.TBFabri_Maquinaria.Text), Convert.ToDouble(this.TBFabri_HerramientaManual.Text), Convert.ToDouble(this.TBFabri_TotalFabricacion.Text),
+
+                                 //Tabla de Detalles - Lote, Impuesto, Igualdad, Proveedor, Ubicacion, Codigo de Barra - Detalles de Productos
+                                 this.DtDetalle_Lote, this.DtDetalle_Impuesto, this.DtDetalle_Igualdad, this.DtDetalle_Proveedor, this.DtDetalle_Ubicacion, this.DtDetalle_CodigoDeBarra, this.DtDetalle_Exterior, this.DtDetalle_Compuesto,
+
+                                 //Panel de Imagen
+                                 Imagen_Producto
                             );
                     }
 
@@ -1150,32 +1196,47 @@ namespace Presentacion
                         rptaDatosBasicos = fProducto_Inventario.Editar_DatosBasicos
 
                             (
-                                //Llave Primaria
-                                Convert.ToInt32(this.TBIdproducto.Text),
+                                 //Datos Auxiliares y Llaves Primarias
+                                 2, Convert.ToInt32(TBIdproducto.Text), Convert.ToInt32(this.CBMarca.SelectedValue), Convert.ToInt32(this.CBGrupo.SelectedValue), Convert.ToInt32(this.CBTipo.SelectedValue), Convert.ToInt32(this.CBEmpaque.SelectedValue),
 
-                                //Datos Auxiliares
-                                Convert.ToInt32(this.CBMarca.SelectedValue), Convert.ToInt32(this.CBEmpaque.SelectedValue), Convert.ToInt32(this.CBGrupo.SelectedValue), Convert.ToInt32(this.CBTipo.SelectedValue),
+                                 //Variables para Ordenar Si se Ejecutan o No las Transacciones en SQL
+                                 //Si los Datagriview estan vacios seran Iguales a 0 Si Tienen Datos Seran Iguales a 1
+                                 Convert.ToInt32(Tran_Ubicacion), Convert.ToInt32(Tran_Igualdad), Convert.ToInt32(Tran_Impuesto), Convert.ToInt32(Tran_Proveedor), Convert.ToInt32(Tran_CodBarra), Convert.ToInt32(Tran_Lote), Convert.ToInt32(Tran_Exterior), Convert.ToInt32(Tran_Compuesto),
 
-                                //Panel Datos Basicos
-                                this.TBCodigo.Text, this.TBNombre.Text, this.TBReferencia.Text, this.TBDescripcion01.Text, this.TBPresentacion.Text,
-                                this.CBUnidad.Text, this.TBComision_Valor.Text, Convert.ToInt32(this.TBComision_Porcentaje.Text),
+                                 //Panel Datos Basicos
+                                 this.TBCodigo.Text, this.TBNombre.Text, this.TBReferencia.Text, this.TBDescripcion01.Text, this.TBPresentacion.Text, Convert.ToInt64(this.TBComision_Porcentaje.Text),
 
-                                Convert.ToInt32(Checkbox_Vencimiento), Convert.ToInt32(Checkbox_Impuesto), Convert.ToInt32(Checkbox_Importado),
-                                Convert.ToInt32(Checkbox_Exportado), Convert.ToInt32(Checkbox_Ofertable), Convert.ToInt32(Checkbox_Comision),
+                                 Convert.ToInt32(Checkbox_Vencimiento), Convert.ToInt32(Checkbox_Impuesto), Convert.ToInt32(Checkbox_Importado), Convert.ToInt32(Checkbox_Exportado), Convert.ToInt32(Checkbox_Ofertable), Convert.ToInt32(Checkbox_Comision), Convert.ToInt32(Checkbox_Empaque), Convert.ToInt32(Checkbox_Balanza), Convert.ToInt32(Checkbox_Retencion),
 
-                                //Panel de Valores
-                                this.TBValor_CompraPromedio.Text, this.TBValor_CompraFinal.Text, this.TBValor_Venta01.Text, this.TBValor_Venta02.Text, this.TBValor_Mayorista.Text,
-                                this.TBFabri_ManoDeObra.Text, this.TBFabri_Materiales.Text, this.TBExterior_Exportacion.Text, this.TBExterior_Importacion.Text,
-                                this.TBExterior_Seguridad.Text, this.TBExteriorMon_Comision.Text,
+                                 //Panel de Valores - Datos Basicos
+                                 Convert.ToDouble(this.TBValor_CompraPromedio.Text), Convert.ToDouble(this.TBValor_CompraFinal.Text), Convert.ToDouble(this.TBValor_Venta01.Text), Convert.ToDouble(this.TBValor_Venta02.Text), Convert.ToDouble(this.TBValor_Venta03.Text), Convert.ToDouble(this.TBValor_Mayorista.Text),
 
-                                //Panel Cantidades
-                                this.TBVentaMinina_Cliente.Text, this.TBVentaMaxima_Cliente.Text, this.TBVentaMinima_Mayorista.Text, this.TBVentaMaxima_Mayorista.Text, this.TBCompraMinima_Cliente.Text, this.TBCompraMaxima_Cliente.Text, this.TBCompraMinima_Mayorista.Text, this.TBCompraMaxima_Mayorista.Text,
+                                 //Panel de Valores - Porcentajes
+                                 Convert.ToDouble(this.TBValor_PorVenta01.Text), Convert.ToDouble(this.TBValor_PorVenta02.Text), Convert.ToDouble(this.TBValor_PorVenta03.Text), Convert.ToDouble(this.TBValor_PorMayorista.Text),
+
+                                 ////Panel de Valores - Valor Base
+                                 Convert.ToDouble(this.TBValorBase_Inicial01.Text), Convert.ToDouble(this.TBValorBase_Inicial02.Text), Convert.ToDouble(this.TBValorBase_Inicial03.Text), Convert.ToDouble(this.TBValorBase_InicialMayorista.Text),
+
+                                 ////Panel de Valores - Impuesto
+                                 Convert.ToDouble(this.TBValor_ImpVenta01.Text), Convert.ToDouble(this.TBValor_ImpVenta02.Text), Convert.ToDouble(this.TBValor_ImpVenta03.Text), Convert.ToDouble(this.TBValor_ImpMayorista.Text),
+
+                                 ////Panel de Valores - Unidades
+                                 this.CBUnidad.Text, this.TBValor_Unidad.Text, Convert.ToDouble(this.TBValor_Unidad01.Text), Convert.ToDouble(this.TBValor_Unidad02.Text), Convert.ToDouble(this.TBValor_Unidad03.Text),
+
+                                 ////Panel de Valores - Porcentaje Unidad
+                                 Convert.ToDouble(this.TBValor_PorUnidad01.Text), Convert.ToDouble(this.TBValor_PorUnidad02.Text), Convert.ToDouble(this.TBValor_PorUnidad03.Text),
+
+                                 ////Panel de Valores - Valor Unidades
+                                 Convert.ToDouble(this.TBUndBase_Inicial01.Text), Convert.ToDouble(this.TBUndBase_Inicial02.Text), Convert.ToDouble(this.TBUndBase_Inicial03.Text),
+
+                                 ////Panel de Valores - Impuestos
+                                 Convert.ToDouble(this.TBValor_ImpUnidad01.Text), Convert.ToDouble(this.TBValor_ImpUnidad02.Text), Convert.ToDouble(this.TBValor_ImpUnidad01.Text),
+
+                                 //Panel - Fabricacion
+                                 Convert.ToDouble(this.TBFabri_Principal.Text), Convert.ToDouble(this.TBFabri_Secundario.Text), Convert.ToDouble(this.TBFabri_Terciario.Text), Convert.ToDouble(this.TBFabri_OtroMaterial.Text), Convert.ToDouble(this.TBFabri_ManoDeObra.Text), Convert.ToDouble(this.TBFabri_Materiales.Text), Convert.ToDouble(this.TBFabri_Envio.Text), Convert.ToDouble(this.TBFabri_Almacenamiento.Text), Convert.ToDouble(this.TBFabri_Maquinaria.Text), Convert.ToDouble(this.TBFabri_HerramientaManual.Text), Convert.ToDouble(this.TBFabri_TotalFabricacion.Text),
 
                                 //Panel de Imagen
-                                Imagen_Producto,
-
-                                //Si es igual a 2 se editaran los datos en la base de datos
-                                2
+                                Imagen_Producto
                             );
                     }
 
@@ -1499,7 +1560,7 @@ namespace Presentacion
                         {
                             if (Convert.ToString(Fila["Codigo de Barra"]) == TBCodigodeBarra.Text)
                             {
-                                this.MensajeError("El Codigo de Barra que desea agregar ya se encuentra en la lista");
+                                this.MensajeError("El Codigo de Barra Que Desea Agregar ya se Encuentra en la Lista");
                             }
                         }
                         if (agregar)
@@ -1529,7 +1590,7 @@ namespace Presentacion
                         {
                             if (Convert.ToString(Fila["Codigo de Barra"]) == TBCodigodeBarra.Text)
                             {
-                                this.MensajeError("El Codigo de Barra que desea agregar ya se encuentra en la lista");
+                                this.MensajeError("El Codigo de Barra Que Desea Agregar ya se Encuentra en la Lista");
                             }
                         }
 
@@ -1540,11 +1601,11 @@ namespace Presentacion
                             rptaDatosBasicos = fProducto_Inventario.Guardar_CodigoDeBarra
 
                             (
-                                 //Datos Basicos
-                                 Convert.ToInt32(this.TBIdproducto.Text), this.TBCodigodeBarra.Text,
-
                                 //Datos Auxiliares
-                                3
+                                1,
+
+                                //Datos Basicos
+                                Convert.ToInt32(this.TBIdproducto.Text), this.TBCodigodeBarra.Text
                             );
 
                             if (rptaDatosBasicos.Equals("OK"))
@@ -1720,18 +1781,6 @@ namespace Presentacion
             this.TBValor_Venta02.Text = TBValor_Venta01.Text;
         }
 
-        private void TBCantidadMininaCliente_Enter(object sender, EventArgs e)
-        {
-            //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
-            this.TBVentaMinina_Cliente.BackColor = Color.Azure;
-        }
-
-        private void TBCantidadMaximaCliente_Enter(object sender, EventArgs e)
-        {
-            //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
-            this.TBVentaMaxima_Cliente.BackColor = Color.Azure;
-        }
-
         //******************** FOCUS ENTER UBICACION ********************
         private void TBUbicacion_Enter(object sender, EventArgs e)
         {
@@ -1756,12 +1805,6 @@ namespace Presentacion
             this.TBValor_CompraPromedio.BackColor = Color.Azure;
         }
 
-        private void TBValorParaComision_Enter(object sender, EventArgs e)
-        {
-            //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
-            this.TBComision_Valor.BackColor = Color.Azure;
-        }
-
         private void TBValordecompra_Enter(object sender, EventArgs e)
         {
             //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
@@ -1772,18 +1815,6 @@ namespace Presentacion
         {
             //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
             this.TBValor_Mayorista.BackColor = Color.Azure;
-        }
-
-        private void TBMinimoMayorista_Enter(object sender, EventArgs e)
-        {
-            //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
-            this.TBVentaMinima_Mayorista.BackColor = Color.Azure;
-        }
-
-        private void TBMaximoMayorista_Enter(object sender, EventArgs e)
-        {
-            //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
-            this.TBVentaMaxima_Mayorista.BackColor = Color.Azure;
         }
 
         //******************** FOCUS LEAVE DATOS BASICOS ********************
@@ -2602,174 +2633,6 @@ namespace Presentacion
             }
         }
 
-        private void TBCantidadMininaCliente_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
-                {
-                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
-
-                    this.TBVentaMaxima_Cliente.Select();
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
-                {
-                    //
-                    this.Digitar = true;
-                    this.TBIdproducto.Text = "0";
-
-                    this.Botones();
-                    this.Limpiar_Datos();
-                    this.Diseño_TablasGenerales();
-
-                    this.TBBuscar.Clear();
-
-                    //Se Limpian las Filas y Columnas de la tabla
-                    this.DGResultados.DataSource = null;
-                    this.lblTotal.Text = "Datos Registrados: 0";
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
-                {
-                    //Al precionar las teclas F10 se realizara el registro en la base de datos
-                    //Y se realizara las validaciones en el sistema
-
-                    if (Digitar)
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            if (Guardar == "1")
-                            {
-                                //Llamada de Clase
-                                this.Guardar_SQL();
-                            }
-                            else
-                            {
-                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
-                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
-                                this.Digitar = false;
-                                this.Limpiar_Datos();
-                            }
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBVentaMinina_Cliente.Select();
-                        }
-                    }
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los Campos Consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            //Llamada de Clase
-                            this.Digitar = false;
-                            this.Guardar_SQL();
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBVentaMinina_Cliente.Select();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        private void TBCantidadMaximaCliente_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
-                {
-                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
-
-                    this.TBVentaMinima_Mayorista.Select();
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
-                {
-                    //
-                    this.Digitar = true;
-                    this.TBIdproducto.Text = "0";
-
-                    this.Botones();
-                    this.Limpiar_Datos();
-                    this.Diseño_TablasGenerales();
-
-                    this.TBBuscar.Clear();
-
-                    //Se Limpian las Filas y Columnas de la tabla
-                    this.DGResultados.DataSource = null;
-                    this.lblTotal.Text = "Datos Registrados: 0";
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
-                {
-                    //Al precionar las teclas F10 se realizara el registro en la base de datos
-                    //Y se realizara las validaciones en el sistema
-
-                    if (Digitar)
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            if (Guardar == "1")
-                            {
-                                //Llamada de Clase
-                                this.Guardar_SQL();
-                            }
-                            else
-                            {
-                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
-                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
-                                this.Digitar = false;
-                                this.Limpiar_Datos();
-                            }
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBVentaMaxima_Cliente.Select();
-                        }
-                    }
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los Campos Consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            //Llamada de Clase
-                            this.Digitar = false;
-                            this.Guardar_SQL();
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBVentaMaxima_Cliente.Select();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
         private void TBOtrosGastos_KeyUp(object sender, KeyEventArgs e)
         {
             try
@@ -3287,11 +3150,13 @@ namespace Presentacion
         {
             if (this.CHImpuesto.Checked)
             {
-                this.btnExaminar_Impuesto.Enabled = true;
+                //this.btnExaminar_Impuesto.Enabled = true;
+                TCPrincipal.TabPages.Add(TPImpuesto);
             }
             else
             {
-                this.btnExaminar_Impuesto.Enabled = false;
+                //this.btnExaminar_Impuesto.Enabled = false;
+                TCPrincipal.TabPages.Remove(TPImpuesto);
             }
         }
 
@@ -3370,19 +3235,24 @@ namespace Presentacion
                         this.MensajeError("Por favor Especifique el Producto o Servicio de Igualdad que desea Agregar");
                         this.TBIgualdad_Producto.Select();
                     }
+                    else if (this.TBIgualdad_Codigo.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Producto o Servicio de Igualdad que desea Agregar");
+                        this.TBIgualdad_Codigo.Select();
+                    }
                     else
                     {
                         bool agregar = true;
                         foreach (DataRow Fila in DtDetalle_Igualdad.Rows)
                         {
-                            if (Convert.ToString(Fila["Codigo"]) == TBIdigualdad_Producto.Text)
+                            if (Convert.ToString(Fila[1]) == TBIdigualdad_Producto.Text)
                             {
-                                this.MensajeError("El producto o servicio que desea agregar ya se encuentra en la lista");
+                                this.MensajeError("El Producto o Servicio Que Desea Agregar ya se Encuentra en la Lista");
                                 this.TBIdigualdad_Producto.Clear();
                             }
-                            else if (Convert.ToString(Fila["Producto"]) == TBIdigualdad_Producto.Text)
+                            else if (Convert.ToString(Fila[2]) == TBIdigualdad_Producto.Text)
                             {
-                                this.MensajeError("El producto o servicio que desea agregar ya se encuentra en la lista");
+                                this.MensajeError("El Producto o Servicio Que Desea Agregar ya se Encuentra en la Lista");
                                 this.TBIdigualdad_Producto.Clear();
                             }
                         }
@@ -3414,12 +3284,12 @@ namespace Presentacion
                         {
                             if (Convert.ToString(Fila["Codigo"]) == TBIgualdad_Producto.Text)
                             {
-                                this.MensajeError("El producto o servicio que desea agregar ya se encuentra en la lista");
+                                this.MensajeError("El producto o servicio Que Desea Agregar ya se Encuentra en la Lista");
                                 this.TBIgualdad_Producto.Clear();
                             }
                             else if (Convert.ToString(Fila["Producto"]) == TBIgualdad_Producto.Text)
                             {
-                                this.MensajeError("El producto o servicio que desea agregar ya se encuentra en la lista");
+                                this.MensajeError("El producto o servicio Que Desea Agregar ya se Encuentra en la Lista");
                                 this.TBIgualdad_Producto.Clear();
                             }
                         }
@@ -3440,10 +3310,11 @@ namespace Presentacion
                                 rptaDatosBasicos = fProducto_Inventario.Guardar_Igualdad
 
                                 (
-                                     //Datos Basicos
-                                     Convert.ToInt32(this.TBIdproducto.Text), this.TBCodigo.Text, this.TBIgualdad_Producto.Text, this.TBIgualdad_Marca.Text,
                                     //Datos Auxiliares
-                                    5
+                                    1,
+
+                                    //Datos Basicos
+                                    Convert.ToInt32(this.TBIdproducto.Text), this.TBCodigo.Text, this.TBIgualdad_Producto.Text, this.TBIgualdad_Marca.Text
                                 );
 
                                 if (rptaDatosBasicos.Equals("OK"))
@@ -3500,9 +3371,9 @@ namespace Presentacion
                         bool agregar = true;
                         foreach (DataRow Fila in DtDetalle_Impuesto.Rows)
                         {
-                            if (Convert.ToString(Fila["idimpuesto"]) == TBIdimpuesto.Text)
+                            if (Convert.ToString(Fila[1]) == TBIdimpuesto.Text)
                             {
-                                this.MensajeError("El Impuesto que desea agregar ya se encuentra en la lista");
+                                this.MensajeError("El Impuesto Que Desea Agregar ya se Encuentra en la Lista");
                                 this.TBIdimpuesto.Clear();
                                 this.TBImpuesto.Clear();
                                 this.TBValor_Impuesto.Clear();
@@ -3548,7 +3419,7 @@ namespace Presentacion
                         {
                             if (Convert.ToString(Fila["idimpuesto"]) == TBIdimpuesto.Text)
                             {
-                                this.MensajeError("El Impuesto que desea agregar ya se encuentra en la lista");
+                                this.MensajeError("El Impuesto Que Desea Agregar ya se Encuentra en la Lista");
                                 this.TBIdimpuesto.Clear();
                                 this.TBImpuesto.Clear();
                                 this.TBValor_Impuesto.Clear();
@@ -3563,10 +3434,11 @@ namespace Presentacion
                             rptaDatosBasicos = fProducto_Inventario.Guardar_Impuesto
 
                             (
-                                 //Datos Basicos
-                                 Convert.ToInt32(this.TBIdproducto.Text), Convert.ToInt32(TBIdimpuesto.Text), this.TBImpuesto.Text, this.TBValor_Impuesto.Text, this.TBDescripcion_Impuesto.Text,
                                 //Datos Auxiliares
-                                2
+                                2,
+
+                                //Datos Basicos
+                                Convert.ToInt32(this.TBIdproducto.Text), Convert.ToInt32(TBIdimpuesto.Text), this.TBImpuesto.Text, this.TBValor_Impuesto.Text, this.TBDescripcion_Impuesto.Text
                             );
 
                             if (rptaDatosBasicos.Equals("OK"))
@@ -3608,12 +3480,12 @@ namespace Presentacion
                 {
                     if (this.TBProveedor.Text == String.Empty)
                     {
-                        this.MensajeError("Por favor Especifique el Proveedor que desea Agregar");
+                        this.MensajeError("Por Favor Especifique el Proveedor Que Desea Agregar");
                         this.TBProveedor.Select();
                     }
                     else if (this.TBProveedor_Documento.Text == String.Empty)
                     {
-                        this.MensajeError("Por favor Especifique el Documento del Proveedor que Desea Agregar");
+                        this.MensajeError("Por favor Especifique el Numero de Documento del Proveedor que Desea Agregar");
                         this.TBProveedor_Documento.Select();
                     }
 
@@ -3622,13 +3494,9 @@ namespace Presentacion
                         bool agregar = true;
                         foreach (DataRow Fila in DtDetalle_Proveedor.Rows)
                         {
-                            if (Convert.ToString(Fila["Codigo"]) == TBIgualdad_Producto.Text)
+                            if (Convert.ToString(Fila[1]) == TBIdproveedor.Text)
                             {
-                                this.MensajeError("El producto o servicio que desea agregar ya se encuentra en la lista");
-                            }
-                            else if (Convert.ToString(Fila["Producto"]) == TBIgualdad_Producto.Text)
-                            {
-                                this.MensajeError("El producto o servicio que desea agregar ya se encuentra en la lista");
+                                this.MensajeError("El Proveedor Que Desea Agregar ya se Encuentra en la Lista");
                             }
                         }
                         if (agregar)
@@ -3642,6 +3510,7 @@ namespace Presentacion
                         }
 
                         //
+                        this.TBIdproveedor.Clear();
                         this.TBProveedor.Clear();
                         this.TBProveedor_Documento.Clear();
                     }
@@ -3654,12 +3523,12 @@ namespace Presentacion
 
                     if (this.TBProveedor.Text == String.Empty)
                     {
-                        this.MensajeError("Por favor Especifique el Nombre del Proveedor que Desea Agregar");
+                        this.MensajeError("Por Favor Especifique el Proveedor Que Desea Agregar");
                         this.TBProveedor.Select();
                     }
                     else if (this.TBProveedor_Documento.Text == String.Empty)
                     {
-                        this.MensajeError("Por favor Especifique el Documento del Proveedor que Desea Agregar");
+                        this.MensajeError("Por favor Especifique el Numero de Documento del Proveedor que Desea Agregar");
                         this.TBProveedor_Documento.Select();
                     }
 
@@ -3667,15 +3536,10 @@ namespace Presentacion
                     {
                         foreach (DataRow Fila in DtDetalle_Proveedor.Rows)
                         {
-                            if (Convert.ToString(Fila["Idproveedor"]) == TBIdproveedor.Text)
+                            if (Convert.ToString(Fila[1]) == TBIdproveedor.Text)
                             {
-                                this.MensajeError("El Proveedor que desea agregar ya se encuentra en la lista");
-                                this.TBProveedor.Clear();
-                                this.TBProveedor_Documento.Clear();
-                            }
-                            else if (Convert.ToString(Fila["Idproveedor"]) == TBIdproveedor.Text)
-                            {
-                                this.MensajeError("El Proveedor que desea agregar ya se encuentra en la lista");
+                                this.MensajeError("El Proveedor Que Desea Agregar ya se Encuentra en la Lista");
+                                this.TBIdproveedor.Clear();
                                 this.TBProveedor.Clear();
                                 this.TBProveedor_Documento.Clear();
                             }
@@ -3688,11 +3552,11 @@ namespace Presentacion
                             rptaDatosBasicos = fProducto_Inventario.Guardar_Proveedor
 
                                 (
-                                     //Datos Basicos
-                                     Convert.ToInt32(this.TBIdproducto.Text), Convert.ToInt32(this.TBIdproveedor.Text), this.TBProveedor.Text, this.TBProveedor_Documento.Text,
-
                                     //Datos Auxiliares
-                                    4
+                                    4,
+
+                                    //Datos Basicos
+                                    Convert.ToInt32(this.TBIdproducto.Text), Convert.ToInt32(this.TBIdproveedor.Text), this.TBProveedor.Text, this.TBProveedor_Documento.Text
                                 );
 
                             if (rptaDatosBasicos.Equals("OK"))
@@ -3719,7 +3583,6 @@ namespace Presentacion
                         this.Actualizar_DetProveedor();
                     }
                 }
-
             }
             catch (Exception ex)
             {
@@ -3758,9 +3621,9 @@ namespace Presentacion
                         bool agregar = true;
                         foreach (DataRow Fila in DtDetalle_Lote.Rows)
                         {
-                            if (Convert.ToString(Fila["Lote"]) == TBLotedeingreso.Text)
+                            if (Convert.ToString(Fila[1]) == TBLotedeingreso.Text)
                             {
-                                this.MensajeError("El Nº de Lote que desea agregar ya se encuentra en la lista");
+                                this.MensajeError("El Nº de Lote Que Desea Agregar ya se Encuentra en la Lista");
                             }
                         }
                         if (agregar)
@@ -3780,6 +3643,7 @@ namespace Presentacion
                         this.TBValor_Lote.Clear();
                         this.TBLote_Venta.Clear();
                         this.TBLote_Cantidad.Clear();
+                        this.TBLote_Actual.Clear();
                     }
                 }
                 else
@@ -3808,9 +3672,9 @@ namespace Presentacion
                     {
                         foreach (DataRow Fila in DtDetalle_Lote.Rows)
                         {
-                            if (Convert.ToString(Fila["Lote"]) == TBLotedeingreso.Text)
+                            if (Convert.ToString(Fila[1]) == TBLotedeingreso.Text)
                             {
-                                this.MensajeError("El Nº de Lote que desea agregar ya se encuentra en la lista");
+                                this.MensajeError("El Nº de Lote Que Desea Agregar ya se Encuentra en la Lista");
                                 this.TBLotedeingreso.Select();
                             }
                         }
@@ -3824,11 +3688,11 @@ namespace Presentacion
                             rptaDatosBasicos = fProducto_Inventario.Guardar_Lote
 
                                 (
-                                     //Datos Basicos
-                                     Convert.ToInt32(this.TBIdproducto.Text), this.TBLotedeingreso.Text, this.TBValor_Lote.Text, this.TBLote_Venta.Text, this.TBLote_Cantidad.Text, this.DTLote_Vencimiento.Value,
-
                                     //Datos Auxiliares
-                                    6
+                                    6,
+
+                                    //Datos Basicos
+                                    Convert.ToInt32(this.TBIdproducto.Text), this.TBLotedeingreso.Text, this.TBValor_Lote.Text, this.TBLote_Venta.Text, this.TBLote_Cantidad.Text, this.DTLote_Vencimiento.Value
                                 );
 
                             if (rptaDatosBasicos.Equals("OK"))
@@ -3846,6 +3710,7 @@ namespace Presentacion
                             this.TBValor_Lote.Clear();
                             this.TBLote_Venta.Clear();
                             this.TBLote_Cantidad.Clear();
+                            this.TBLote_Actual.Clear();
                         }
                         else
                         {
@@ -5132,14 +4997,14 @@ namespace Presentacion
             {
                 //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
-                if (CHManejaComision.Checked)
-                {
-                    this.TBComision_Valor.Select();
-                }
-                else
-                {
-                    this.TBNombre.Select();
-                }
+                //if (CHManejaComision.Checked)
+                //{
+                //    this.TBComision_Valor.Select();
+                //}
+                //else
+                //{
+                //    this.TBNombre.Select();
+                //}
             }
         }
 
@@ -5148,851 +5013,9 @@ namespace Presentacion
             this.TBComision_Porcentaje.BackColor = Color.Azure;
         }
 
-        private void TBComision_Valor_Enter(object sender, EventArgs e)
-        {
-            this.TBComision_Valor.BackColor = Color.Azure;
-        }
-
         private void TBComision_Porcentaje_Leave(object sender, EventArgs e)
         {
             this.TBComision_Porcentaje.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBComision_Valor_Leave(object sender, EventArgs e)
-        {
-            this.TBComision_Valor.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBVentaMinina_Cliente_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            //Para obligar a que sólo se introduzcan números
-            if (Char.IsDigit(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-
-            //permitir teclas de control como retroceso
-            else if (Char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                //el resto de teclas pulsadas se desactivan
-                e.Handled = true;
-            }
-        }
-
-        private void TBVentaMaxima_Cliente_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            //Para obligar a que sólo se introduzcan números
-            if (Char.IsDigit(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-
-            //permitir teclas de control como retroceso
-            else if (Char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                //el resto de teclas pulsadas se desactivan
-                e.Handled = true;
-            }
-        }
-
-        private void TBVentaMinima_Mayorista_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            //Para obligar a que sólo se introduzcan números
-            if (Char.IsDigit(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-
-            //permitir teclas de control como retroceso
-            else if (Char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                //el resto de teclas pulsadas se desactivan
-                e.Handled = true;
-            }
-        }
-
-        private void TBVentaMaxima_Mayorista_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            //Para obligar a que sólo se introduzcan números
-            if (Char.IsDigit(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-
-            //permitir teclas de control como retroceso
-            else if (Char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                //el resto de teclas pulsadas se desactivan
-                e.Handled = true;
-            }
-        }
-
-        private void TBCompraMinima_Cliente_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            //Para obligar a que sólo se introduzcan números
-            if (Char.IsDigit(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-
-            //permitir teclas de control como retroceso
-            else if (Char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                //el resto de teclas pulsadas se desactivan
-                e.Handled = true;
-            }
-        }
-
-        private void TBCompraMaxima_Cliente_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            //Para obligar a que sólo se introduzcan números
-            if (Char.IsDigit(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-
-            //permitir teclas de control como retroceso
-            else if (Char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                //el resto de teclas pulsadas se desactivan
-                e.Handled = true;
-            }
-        }
-
-        private void TBCompraMinima_Mayorista_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            //Para obligar a que sólo se introduzcan números
-            if (Char.IsDigit(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-
-            //permitir teclas de control como retroceso
-            else if (Char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                //el resto de teclas pulsadas se desactivan
-                e.Handled = true;
-            }
-        }
-
-        private void TBCompraMaxima_Mayorista_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            //Para obligar a que sólo se introduzcan números
-            if (Char.IsDigit(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-
-            //permitir teclas de control como retroceso
-            else if (Char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                //el resto de teclas pulsadas se desactivan
-                e.Handled = true;
-            }
-        }
-
-        private void TBVentaMinina_Cliente_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
-                {
-                    this.TBVentaMaxima_Cliente.Select();
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
-                {
-                    //
-                    this.Digitar = true;
-                    this.TBIdproducto.Text = "0";
-
-                    this.Botones();
-                    this.Limpiar_Datos();
-                    this.Diseño_TablasGenerales();
-
-                    this.TBBuscar.Clear();
-
-                    //Se Limpian las Filas y Columnas de la tabla
-                    this.DGResultados.DataSource = null;
-                    this.lblTotal.Text = "Datos Registrados: 0";
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
-                {
-                    //Al precionar las teclas F10 se realizara el registro en la base de datos
-                    //Y se realizara las validaciones en el sistema
-
-                    if (Digitar)
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            if (Guardar == "1")
-                            {
-                                //Llamada de Clase
-                                this.Guardar_SQL();
-                            }
-                            else
-                            {
-                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
-                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
-                                this.Digitar = false;
-                                this.Limpiar_Datos();
-                            }
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBVentaMinina_Cliente.Select();
-                        }
-                    }
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los Campos Consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            //Llamada de Clase
-                            this.Digitar = false;
-                            this.Guardar_SQL();
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBVentaMinina_Cliente.Select();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        private void TBVentaMaxima_Cliente_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
-                {
-                    this.TBVentaMinima_Mayorista.Select();
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
-                {
-                    //
-                    this.Digitar = true;
-                    this.TBIdproducto.Text = "0";
-
-                    this.Botones();
-                    this.Limpiar_Datos();
-                    this.Diseño_TablasGenerales();
-
-                    this.TBBuscar.Clear();
-
-                    //Se Limpian las Filas y Columnas de la tabla
-                    this.DGResultados.DataSource = null;
-                    this.lblTotal.Text = "Datos Registrados: 0";
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
-                {
-                    //Al precionar las teclas F10 se realizara el registro en la base de datos
-                    //Y se realizara las validaciones en el sistema
-
-                    if (Digitar)
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            if (Guardar == "1")
-                            {
-                                //Llamada de Clase
-                                this.Guardar_SQL();
-                            }
-                            else
-                            {
-                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
-                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
-                                this.Digitar = false;
-                                this.Limpiar_Datos();
-                            }
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBVentaMaxima_Cliente.Select();
-                        }
-                    }
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los Campos Consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            //Llamada de Clase
-                            this.Digitar = false;
-                            this.Guardar_SQL();
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBVentaMaxima_Cliente.Select();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        private void TBVentaMinima_Mayorista_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
-                {
-                    this.TBVentaMaxima_Mayorista.Select();
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
-                {
-                    //
-                    this.Digitar = true;
-                    this.TBIdproducto.Text = "0";
-
-                    this.Botones();
-                    this.Limpiar_Datos();
-                    this.Diseño_TablasGenerales();
-
-                    this.TBBuscar.Clear();
-
-                    //Se Limpian las Filas y Columnas de la tabla
-                    this.DGResultados.DataSource = null;
-                    this.lblTotal.Text = "Datos Registrados: 0";
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
-                {
-                    //Al precionar las teclas F10 se realizara el registro en la base de datos
-                    //Y se realizara las validaciones en el sistema
-
-                    if (Digitar)
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            if (Guardar == "1")
-                            {
-                                //Llamada de Clase
-                                this.Guardar_SQL();
-                            }
-                            else
-                            {
-                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
-                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
-                                this.Digitar = false;
-                                this.Limpiar_Datos();
-                            }
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBVentaMinima_Mayorista.Select();
-                        }
-                    }
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los Campos Consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            //Llamada de Clase
-                            this.Digitar = false;
-                            this.Guardar_SQL();
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBVentaMinima_Mayorista.Select();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        private void TBVentaMaxima_Mayorista_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
-                {
-                    this.TBCompraMinima_Cliente.Select();
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
-                {
-                    //
-                    this.Digitar = true;
-                    this.TBIdproducto.Text = "0";
-
-                    this.Botones();
-                    this.Limpiar_Datos();
-                    this.Diseño_TablasGenerales();
-
-                    this.TBBuscar.Clear();
-
-                    //Se Limpian las Filas y Columnas de la tabla
-                    this.DGResultados.DataSource = null;
-                    this.lblTotal.Text = "Datos Registrados: 0";
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
-                {
-                    //Al precionar las teclas F10 se realizara el registro en la base de datos
-                    //Y se realizara las validaciones en el sistema
-
-                    if (Digitar)
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            if (Guardar == "1")
-                            {
-                                //Llamada de Clase
-                                this.Guardar_SQL();
-                            }
-                            else
-                            {
-                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
-                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
-                                this.Digitar = false;
-                                this.Limpiar_Datos();
-                            }
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBVentaMaxima_Mayorista.Select();
-                        }
-                    }
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los Campos Consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            //Llamada de Clase
-                            this.Digitar = false;
-                            this.Guardar_SQL();
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBVentaMaxima_Mayorista.Select();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        private void TBCompraMinima_Cliente_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
-                {
-                    this.TBCompraMaxima_Cliente.Select();
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
-                {
-                    //
-                    this.Digitar = true;
-                    this.TBIdproducto.Text = "0";
-
-                    this.Botones();
-                    this.Limpiar_Datos();
-                    this.Diseño_TablasGenerales();
-
-                    this.TBBuscar.Clear();
-
-                    //Se Limpian las Filas y Columnas de la tabla
-                    this.DGResultados.DataSource = null;
-                    this.lblTotal.Text = "Datos Registrados: 0";
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
-                {
-                    //Al precionar las teclas F10 se realizara el registro en la base de datos
-                    //Y se realizara las validaciones en el sistema
-
-                    if (Digitar)
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            if (Guardar == "1")
-                            {
-                                //Llamada de Clase
-                                this.Guardar_SQL();
-                            }
-                            else
-                            {
-                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
-                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
-                                this.Digitar = false;
-                                this.Limpiar_Datos();
-                            }
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCompraMinima_Cliente.Select();
-                        }
-                    }
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los Campos Consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            //Llamada de Clase
-                            this.Digitar = false;
-                            this.Guardar_SQL();
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCompraMinima_Cliente.Select();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        private void TBCompraMaxima_Cliente_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
-                {
-                    this.TBCompraMinima_Mayorista.Select();
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
-                {
-                    //
-                    this.Digitar = true;
-                    this.TBIdproducto.Text = "0";
-
-                    this.Botones();
-                    this.Limpiar_Datos();
-                    this.Diseño_TablasGenerales();
-
-                    this.TBBuscar.Clear();
-
-                    //Se Limpian las Filas y Columnas de la tabla
-                    this.DGResultados.DataSource = null;
-                    this.lblTotal.Text = "Datos Registrados: 0";
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
-                {
-                    //Al precionar las teclas F10 se realizara el registro en la base de datos
-                    //Y se realizara las validaciones en el sistema
-
-                    if (Digitar)
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            if (Guardar == "1")
-                            {
-                                //Llamada de Clase
-                                this.Guardar_SQL();
-                            }
-                            else
-                            {
-                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
-                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
-                                this.Digitar = false;
-                                this.Limpiar_Datos();
-                            }
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCompraMaxima_Cliente.Select();
-                        }
-                    }
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los Campos Consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            //Llamada de Clase
-                            this.Digitar = false;
-                            this.Guardar_SQL();
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCompraMaxima_Cliente.Select();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        private void TBCompraMinima_Mayorista_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
-                {
-                    this.TBCompraMaxima_Mayorista.Select();
-                }
-
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
-                {
-                    //
-                    this.Digitar = true;
-                    this.TBIdproducto.Text = "0";
-
-                    this.Botones();
-                    this.Limpiar_Datos();
-                    this.Diseño_TablasGenerales();
-
-                    this.TBBuscar.Clear();
-
-                    //Se Limpian las Filas y Columnas de la tabla
-                    this.DGResultados.DataSource = null;
-                    this.lblTotal.Text = "Datos Registrados: 0";
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
-                {
-                    //Al precionar las teclas F10 se realizara el registro en la base de datos
-                    //Y se realizara las validaciones en el sistema
-
-                    if (Digitar)
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            if (Guardar == "1")
-                            {
-                                //Llamada de Clase
-                                this.Guardar_SQL();
-                            }
-                            else
-                            {
-                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
-                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
-                                this.Digitar = false;
-                                this.Limpiar_Datos();
-                            }
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCompraMinima_Mayorista.Select();
-                        }
-                    }
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los Campos Consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            //Llamada de Clase
-                            this.Digitar = false;
-                            this.Guardar_SQL();
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCompraMinima_Mayorista.Select();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        private void TBCompraMaxima_Mayorista_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
-                {
-                    this.TBVentaMinina_Cliente.Select();
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
-                {
-                    //
-                    this.Digitar = true;
-                    this.TBIdproducto.Text = "0";
-
-                    this.Botones();
-                    this.Limpiar_Datos();
-                    this.Diseño_TablasGenerales();
-
-                    this.TBBuscar.Clear();
-
-                    //Se Limpian las Filas y Columnas de la tabla
-                    this.DGResultados.DataSource = null;
-                    this.lblTotal.Text = "Datos Registrados: 0";
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
-                {
-                    //Al precionar las teclas F10 se realizara el registro en la base de datos
-                    //Y se realizara las validaciones en el sistema
-
-                    if (Digitar)
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            if (Guardar == "1")
-                            {
-                                //Llamada de Clase
-                                this.Guardar_SQL();
-                            }
-                            else
-                            {
-                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
-                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
-                                this.Digitar = false;
-                                this.Limpiar_Datos();
-                            }
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCompraMaxima_Mayorista.Select();
-                        }
-                    }
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los Campos Consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            //Llamada de Clase
-                            this.Digitar = false;
-                            this.Guardar_SQL();
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCompraMaxima_Mayorista.Select();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        private void TBVentaMinina_Cliente_Enter(object sender, EventArgs e)
-        {
-            this.TBVentaMinina_Cliente.BackColor = Color.Azure;
-        }
-
-        private void TBVentaMaxima_Cliente_Enter(object sender, EventArgs e)
-        {
-            this.TBVentaMaxima_Cliente.BackColor = Color.Azure;
-        }
-
-        private void TBVentaMinima_Mayorista_Enter(object sender, EventArgs e)
-        {
-            this.TBVentaMinima_Mayorista.BackColor = Color.Azure;
         }
 
         //*********** PANEL COMPUESTO - EVENTO ENTER *********** 
@@ -6005,7 +5028,7 @@ namespace Presentacion
         private void TBCompuesto_Descrip_Enter(object sender, EventArgs e)
         {
             //Se evalua si el campo de texto esta vacio y se espeicifca si es obligatorio en la base de datos
-            this.TBCompuesto_Descrip.BackColor = Color.Azure;
+            this.TBComp_Descripcion.BackColor = Color.Azure;
         }
 
         //*********** PANEL EXTERIOR - EVENTO ENTER *********** 
@@ -6097,19 +5120,19 @@ namespace Presentacion
         private void TBFabri_Material01_Enter(object sender, EventArgs e)
         {
             //Se evalua si el campo de texto esta vacio y se espeicifca si es obligatorio en la base de datos
-            this.TBFabri_Material01.BackColor = Color.Azure;
+            this.TBFabri_Principal.BackColor = Color.Azure;
         }
 
         private void TBFabri_Material02_Enter(object sender, EventArgs e)
         {
             //Se evalua si el campo de texto esta vacio y se espeicifca si es obligatorio en la base de datos
-            this.TBFabri_Material02.BackColor = Color.Azure;
+            this.TBFabri_Secundario.BackColor = Color.Azure;
         }
 
         private void TBFabri_Material03_Enter(object sender, EventArgs e)
         {
             //Se evalua si el campo de texto esta vacio y se espeicifca si es obligatorio en la base de datos
-            this.TBFabri_Material03.BackColor = Color.Azure;
+            this.TBFabri_Terciario.BackColor = Color.Azure;
         }
 
         private void TBFabri_OtroMaterial_Enter(object sender, EventArgs e)
@@ -6151,7 +5174,7 @@ namespace Presentacion
         private void TBFabri_Manual_Enter(object sender, EventArgs e)
         {
             //Se evalua si el campo de texto esta vacio y se espeicifca si es obligatorio en la base de datos
-            this.TBFabri_Manual.BackColor = Color.Azure;
+            this.TBFabri_HerramientaManual.BackColor = Color.Azure;
         }
 
         private void TBFabri_TotalFabricacion_Enter(object sender, EventArgs e)
@@ -6200,7 +5223,7 @@ namespace Presentacion
 
         private void TBCompuesto_Descrip_Leave(object sender, EventArgs e)
         {
-            this.TBCompuesto_Descrip.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBComp_Descripcion.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBExterior_Aduana_Leave(object sender, EventArgs e)
@@ -6612,7 +5635,7 @@ namespace Presentacion
         private void TBFabri_Material01_Leave(object sender, EventArgs e)
         {
             //Color de texboxt cuando este posee el FOCUS Activado
-            this.TBFabri_Material01.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBFabri_Principal.BackColor = Color.FromArgb(3, 155, 229);
 
             // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
             TextBox tb = (TextBox)sender;
@@ -6641,7 +5664,7 @@ namespace Presentacion
         private void TBFabri_Material02_Leave(object sender, EventArgs e)
         {
             //Color de texboxt cuando este posee el FOCUS Activado
-            this.TBFabri_Material02.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBFabri_Secundario.BackColor = Color.FromArgb(3, 155, 229);
 
             // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
             TextBox tb = (TextBox)sender;
@@ -6670,7 +5693,7 @@ namespace Presentacion
         private void TBFabri_Material03_Leave(object sender, EventArgs e)
         {
             //Color de texboxt cuando este posee el FOCUS Activado
-            this.TBFabri_Material03.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBFabri_Terciario.BackColor = Color.FromArgb(3, 155, 229);
 
             // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
             TextBox tb = (TextBox)sender;
@@ -6873,7 +5896,7 @@ namespace Presentacion
         private void TBFabri_Manual_Leave(object sender, EventArgs e)
         {
             //Color de texboxt cuando este posee el FOCUS Activado
-            this.TBFabri_Manual.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBFabri_HerramientaManual.BackColor = Color.FromArgb(3, 155, 229);
 
             // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
             TextBox tb = (TextBox)sender;
@@ -7376,7 +6399,7 @@ namespace Presentacion
                 {
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
-                    this.TBCompuesto_Descrip.Select();
+                    this.TBComp_Descripcion.Select();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
@@ -7508,7 +6531,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCompuesto_Descrip.Select();
+                            this.TBComp_Descripcion.Select();
                         }
                     }
                     else
@@ -7525,7 +6548,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCompuesto_Descrip.Select();
+                            this.TBComp_Descripcion.Select();
                         }
                     }
                 }
@@ -8714,7 +7737,6 @@ namespace Presentacion
 
         private void btnExaminar_Exterior_Click(object sender, EventArgs e)
         {
-            this.Examinar_Exterior = true;
             frmFiltro_Proveedor frmFiltro_Proveedor = new frmFiltro_Proveedor();
             frmFiltro_Proveedor.ShowDialog();
         }
@@ -9056,7 +8078,7 @@ namespace Presentacion
                 {
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
-                    this.TBFabri_Material02.Select();
+                    this.TBFabri_Secundario.Select();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
@@ -9141,7 +8163,7 @@ namespace Presentacion
                 {
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
-                    this.TBFabri_Material03.Select();
+                    this.TBFabri_Terciario.Select();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
@@ -9275,7 +8297,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBFabri_Material03.Select();
+                            this.TBFabri_Terciario.Select();
                         }
                     }
                     else
@@ -9292,7 +8314,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBFabri_Material03.Select();
+                            this.TBFabri_Terciario.Select();
                         }
                     }
                 }
@@ -9661,7 +8683,7 @@ namespace Presentacion
                 {
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
-                    this.TBFabri_Manual.Select();
+                    this.TBFabri_HerramientaManual.Select();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
@@ -9746,7 +8768,7 @@ namespace Presentacion
                 {
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
-                    this.TBFabri_Material01.Select();
+                    this.TBFabri_Principal.Select();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
@@ -9795,7 +8817,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBFabri_Manual.Select();
+                            this.TBFabri_HerramientaManual.Select();
                         }
                     }
                     else
@@ -9812,7 +8834,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBFabri_Manual.Select();
+                            this.TBFabri_HerramientaManual.Select();
                         }
                     }
                 }
@@ -9908,9 +8930,528 @@ namespace Presentacion
             }
         }
 
-        private void TBVentaMaxima_Mayorista_Enter(object sender, EventArgs e)
+        private void btnAgregar_Compuesto_Click(object sender, EventArgs e)
         {
-            this.TBVentaMaxima_Mayorista.BackColor = Color.Azure;
+            try
+            {
+                if (Digitar)
+                {
+                    if (this.TBCompuesto.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Compuesto del Producto");
+                        this.TBCompuesto.Select();
+                    }
+                    else if (this.CBComp_Medida.SelectedIndex == 0)
+                    {
+                        this.MensajeError("Por favor Seleccione la Unidad de Medida del Componente que Desea Agregar");
+                    }
+                    else if (this.TBComp_Medida.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique la Medida de la Unidad");
+                        this.TBComp_Medida.Select();
+                    }
+                    else
+                    {
+                        bool agregar = true;
+                        foreach (DataRow Fila in DtDetalle_Compuesto.Rows)
+                        {
+                            if (Convert.ToString(Fila[1]) == TBCompuesto.Text)
+                            {
+                                this.MensajeError("El Compuesto Que Desea Agregar ya se Encuentra en la Lista");
+                            }
+                        }
+                        if (agregar)
+                        {
+                            DataRow fila = this.DtDetalle_Proveedor.NewRow();
+                            fila["Idproducto"] = Convert.ToInt32(this.TBIdproducto_AutoSQL.Text);
+                            fila["Compuesto"] = this.TBCompuesto.Text;
+                            fila["Descripción"] = this.TBComp_Descripcion.Text;
+                            fila["Unidad"] = this.CBComp_Medida.Text;
+                            fila["Medida"] = this.TBComp_Medida.Text;
+                            this.DtDetalle_Compuesto.Rows.Add(fila);
+                        }
+
+                        //
+                        this.TBCompuesto.Clear();
+                        this.TBComp_Descripcion.Clear();
+                        this.CBComp_Medida.SelectedItem = 0;
+                        this.TBComp_Medida.Clear();
+                    }
+                }
+                else
+                {
+                    string rptaDatosBasicos = "";
+
+                    // <<<<<<------ Panel Datos Basicos ------>>>>>
+
+                    if (this.TBCompuesto.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Compuesto del Producto");
+                        this.TBCompuesto.Select();
+                    }
+                    else if (this.CBComp_Medida.SelectedIndex == 0)
+                    {
+                        this.MensajeError("Por favor Seleccione la Unidad de Medida del Componente que Desea Agregar");
+                    }
+                    else if (this.TBComp_Medida.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique la Medida de la Unidad");
+                        this.TBComp_Medida.Select();
+                    }
+
+                    else
+                    {
+                        bool agregar = true;
+                        foreach (DataRow Fila in DtDetalle_Compuesto.Rows)
+                        {
+                            if (Convert.ToString(Fila["Compuesto"]) == TBIgualdad_Producto.Text)
+                            {
+                                this.MensajeError("El Compuesto Que Desea Agregar ya se Encuentra en la Lista");
+                            }
+                        }
+
+                        DialogResult result = MessageBox.Show("¿Desea Añadir el Proveedor a la Lista del Producto?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            rptaDatosBasicos = fProducto_Inventario.Guardar_Compuesto
+
+                                (
+                                    //Datos Auxiliares
+                                    1,
+
+                                    //Datos Basicos
+                                    Convert.ToInt32(this.TBIdproducto.Text), this.TBCompuesto.Text, this.TBComp_Descripcion.Text, this.CBComp_Medida.Text, this.TBComp_Medida.Text
+                                );
+
+                            if (rptaDatosBasicos.Equals("OK"))
+                            {
+                                this.MensajeOk("El Compuesto: " + this.TBNombre.Text + " del Producto: " + TBNombre.Text + " con Codigo: " + this.TBCodigo.Text + " A Sido Registrado Exitosamente");
+                            }
+
+                            else
+                            {
+                                this.MensajeError(rptaDatosBasicos);
+                            }
+
+                            //
+                            this.TBIdcompuesto.Clear();
+                            this.TBCompuesto.Clear();
+                            this.TBComp_Descripcion.Clear();
+                            this.CBComp_Medida.SelectedItem = 0;
+                            this.TBComp_Medida.Clear();
+                        }
+                        else
+                        {
+                            this.TBCompuesto.Select();
+                        }
+
+                        //
+                        this.Actualizar_DetCompuesto();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void btnModificar_Compuesto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string rptaDatosBasicos = "";
+
+                //rptaDatosBasicos = fProducto_Compuesto.Editar_Ubicacion
+
+                //            (
+                //                 //Datos Auxiliares
+                //                 Convert.ToInt32(this.TBIdproducto.Text),
+
+                //                 //Panel Datos Basicos
+                //                 this.TBUbicacion.Text, this.TBEstante.Text, this.TBNivel.Text,
+
+                //                //Si es igual a 1 se registraran los datos en la base de datos
+                //                2
+                //            );
+
+                if (rptaDatosBasicos.Equals("OK"))
+                {
+                    if (this.Digitar)
+                    {
+                        this.MensajeOk("Los Datos del Compuesto del Producto: “" + this.TBNombre.Text + "” han Sido Actualizado Exitosamente");
+                    }
+
+                    //SE LIMPIAN LOS CAMPOS DE TEXTO
+                    //
+                    this.TBCompuesto.Clear();
+                    this.TBComp_Descripcion.Clear();
+                    this.CBComp_Medida.SelectedItem = 0;
+                    this.TBComp_Medida.Clear();
+
+                    //this.Actualizar_DetCompuesto();
+                }
+
+                else
+                {
+                    this.MensajeError(rptaDatosBasicos);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void btnEliminar_Compuesto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //if (Eliminar_c)
+                //{
+                //    if (Eliminar == "1")
+                //    {
+                //        DialogResult Opcion;
+                //        string Respuesta = "";
+                //        int Idcompuesto;
+
+                //        Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                //        if (Opcion == DialogResult.OK)
+                //        {
+                //            if (DGDetalles_Ubicacion.SelectedRows.Count > 0)
+                //            {
+                //                Idcompuesto = Convert.ToInt32(DGDetalles_Ubicacion.CurrentRow.Cells["Idcompuesto"].Value.ToString());
+                //                Respuesta = Negocio.fProducto_Compuesto.Eliminar_Compuesto(Idproducto, 6);
+                //            }
+
+                //            if (Respuesta.Equals("OK"))
+                //            {
+                //                this.MensajeOk("Compuesto Eliminado Correctamente");
+                //            }
+                //            else
+                //            {
+                //                this.MensajeError(Respuesta);
+                //            }
+                //        }
+
+                //        //
+                //        this.Actualizar_DetCompuesto();
+                //    }
+                //    else
+                //    {
+                //        MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise - Solicitud Rechazada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                //    }
+                //}
+                //else
+                //{
+                //    int Fila = this.DGDetalle_Compuesto.CurrentCell.RowIndex;
+                //    DataRow row = this.DtDetalle_Compuesto.Rows[Fila];
+
+                //    //Se remueve la fila
+                //    this.DtDetalle_Compuesto.Rows.Remove(row);
+                //}
+            }
+            catch (Exception ex)
+            {
+                MensajeError("Por Favor Seleccione el Compuesto que Desea Remover del Registo");
+            }
+        }
+
+        private void btnAgregar_Exterior_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Digitar)
+                {
+                    if (this.TBExt_ProveedorDocum.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Documento del Proveedor");
+                    }
+                    else if (this.TBExterior_Proveedor.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Nombre del Proveedor");
+                    }
+                    else
+                    {
+                        bool agregar = true;
+                        foreach (DataRow Fila in DtDetalle_Exterior.Rows)
+                        {
+                            if (Convert.ToString(Fila[1]) == TBCompuesto.Text)
+                            {
+                                this.MensajeError("El Proveedor que Desea Agregar ya se Encuentra en la Lista");
+                            }
+                        }
+                        if (agregar)
+                        {
+                            DataRow fila = this.DtDetalle_Exterior.NewRow();
+                            fila["Idproducto"] = Convert.ToInt32(this.TBIdproducto_AutoSQL.Text);
+                            fila["Idproveedor"] = Convert.ToInt32(this.TBIdproveedor.Text);
+                            fila["Proveedor"] = this.TBExterior_Proveedor.Text;
+                            fila["Documento"] = this.TBExt_ProveedorDocum.Text;
+                            fila["Aduana"] = this.TBExterior_Aduana.Text;
+                            fila["Comisión"] = this.TBExterior_Comision.Text;
+                            fila["Documentación"] = this.TBExterior_Documento.Text;
+                            fila["Adicional"] = this.TBExterior_Adicional.Text;
+                            fila["Exportación"] = this.TBExterior_Exportacion.Text;
+                            fila["Importación"] = this.TBExterior_Importacion.Text;
+                            fila["Seguridad"] = this.TBExterior_Seguridad.Text;
+
+                            fila["Mon. Aduana"] = this.TBExteriorMon_Aduana.Text;
+                            fila["Mon. Comisión"] = this.TBExteriorMon_Comision.Text;
+                            fila["Mon. Documentación"] = this.TBExteriorMon_Documento.Text;
+                            fila["Mon. Adicional"] = this.TBExteriorMon_Adicional.Text;
+                            fila["Mon. Exportación"] = this.TBExteriorMon_Exportacion.Text;
+                            fila["Mon. Importación"] = this.TBExteriorMon_Importacion.Text;
+                            fila["Mon. Seguridad"] = this.TBExteriorMon_Seguridad.Text;
+                            this.DtDetalle_Exterior.Rows.Add(fila);
+                        }
+
+                        //
+                        this.TBExt_ProveedorDocum.Clear();
+                        this.TBExterior_Proveedor.Clear();
+                        this.TBExterior_Aduana.Clear();
+                        this.TBExterior_Comision.Clear();
+                        this.TBExterior_Documento.Clear();
+                        this.TBExterior_Adicional.Clear();
+                        this.TBExterior_Exportacion.Clear();
+                        this.TBExterior_Importacion.Clear();
+                        this.TBExterior_Seguridad.Clear();
+
+                        //
+                        this.TBExteriorMon_Aduana.Clear();
+                        this.TBExteriorMon_Comision.Clear();
+                        this.TBExteriorMon_Documento.Clear();
+                        this.TBExteriorMon_Adicional.Clear();
+                        this.TBExteriorMon_Exportacion.Clear();
+                        this.TBExteriorMon_Importacion.Clear();
+                        this.TBExteriorMon_Seguridad.Clear();
+                    }
+                }
+                else
+                {
+                    string rptaDatosBasicos = "";
+
+                    // <<<<<<------ Panel Datos Basicos ------>>>>>
+
+                    if (this.TBExt_ProveedorDocum.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Documento del Proveedor");
+                    }
+                    else if (this.TBExterior_Proveedor.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Nombre del Proveedor");
+                    }
+
+                    else
+                    {
+                        bool agregar = true;
+                        foreach (DataRow Fila in DtDetalle_Exterior.Rows)
+                        {
+                            if (Convert.ToString(Fila[1]) == TBIgualdad_Producto.Text)
+                            {
+                                this.MensajeError("El Proveedor que Desea Agregar ya se Encuentra en la Lista");
+                            }
+                        }
+
+                        DialogResult result = MessageBox.Show("¿Desea Añadir el Proveedor a la Lista de Exportación/Importación?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            rptaDatosBasicos = fProducto_Inventario.Guardar_Exterior
+
+                                (
+
+                                    //Datos Auxiliares
+                                    1,
+                                    //Datos Basicos
+                                    Convert.ToInt32(this.TBIdproducto.Text), Convert.ToDouble(this.TBExterior_Aduana), Convert.ToDouble(this.TBExterior_Comision), Convert.ToDouble(this.TBExterior_Documento), Convert.ToDouble(this.TBExterior_Adicional), Convert.ToDouble(this.TBExterior_Exportacion), Convert.ToDouble(this.TBExterior_Importacion), Convert.ToDouble(this.TBExterior_Seguridad), Convert.ToDouble(this.TBExteriorMon_Aduana), Convert.ToDouble(this.TBExteriorMon_Comision), Convert.ToDouble(this.TBExteriorMon_Documento), Convert.ToDouble(this.TBExteriorMon_Adicional), Convert.ToDouble(this.TBExteriorMon_Exportacion), Convert.ToDouble(this.TBExteriorMon_Importacion), Convert.ToDouble(this.TBExteriorMon_Seguridad)
+                                );
+
+                            if (rptaDatosBasicos.Equals("OK"))
+                            {
+                                this.MensajeOk("Los Datos de Exportación/Importacion del Producto: " + TBNombre.Text + " con Codigo: " + this.TBCodigo.Text + " han Sido Agregados Exitosamente");
+                            }
+
+                            else
+                            {
+                                this.MensajeError(rptaDatosBasicos);
+                            }
+
+                            //
+                            this.TBIdproveedor_Exterior.Clear();
+                            this.TBExt_ProveedorDocum.Clear();
+                            this.TBExterior_Proveedor.Clear();
+                            this.TBExterior_Aduana.Clear();
+                            this.TBExterior_Comision.Clear();
+                            this.TBExterior_Documento.Clear();
+                            this.TBExterior_Adicional.Clear();
+                            this.TBExterior_Exportacion.Clear();
+                            this.TBExterior_Importacion.Clear();
+                            this.TBExterior_Seguridad.Clear();
+
+                            //
+                            this.TBExteriorMon_Aduana.Clear();
+                            this.TBExteriorMon_Comision.Clear();
+                            this.TBExteriorMon_Documento.Clear();
+                            this.TBExteriorMon_Adicional.Clear();
+                            this.TBExteriorMon_Exportacion.Clear();
+                            this.TBExteriorMon_Importacion.Clear();
+                            this.TBExteriorMon_Seguridad.Clear();
+                        }
+                        else
+                        {
+                            this.TBCompuesto.Select();
+                        }
+
+                        //
+                        this.Actualizar_DetExterior();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void btnModificar_Exterior_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string rptaDatosBasicos = "";
+
+                //rptaDatosBasicos = fProducto_Exterior.Editar_Exterior
+
+                //            (
+                //                 //Datos Auxiliares
+                //                 Convert.ToInt32(this.TBIdproducto.Text),
+
+                //                 //Panel Datos Basicos
+                //                 this.TBUbicacion.Text, this.TBEstante.Text, this.TBNivel.Text,
+
+                //                //Si es igual a 1 se registraran los datos en la base de datos
+                //                2
+                //            );
+
+                if (rptaDatosBasicos.Equals("OK"))
+                {
+                    if (this.Digitar)
+                    {
+                        this.MensajeOk("Los Datos de Valores en el Exterior del Producto: “" + this.TBNombre.Text + "” han Sido Actualizado Exitosamente");
+                    }
+
+                    //SE LIMPIAN LOS CAMPOS DE TEXTO
+                    //
+                    this.TBCompuesto.Clear();
+                    this.TBComp_Descripcion.Clear();
+                    this.CBComp_Medida.SelectedItem = 0;
+                    this.TBComp_Medida.Clear();
+
+                    //this.Actualizar_DetExterior();
+                }
+
+                else
+                {
+                    this.MensajeError(rptaDatosBasicos);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void btnEliminar_Exterior_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //if (Eliminar_Exterior)
+                //{
+                //    if (Eliminar == "1")
+                //    {
+                //        DialogResult Opcion;
+                //        string Respuesta = "";
+                //        int Idexterior;
+
+                //        Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                //        if (Opcion == DialogResult.OK)
+                //        {
+                //            if (DGDetalle_Exterior.SelectedRows.Count > 0)
+                //            {
+                //                Idexterior = Convert.ToInt32(DGDetalle_Exterior.CurrentRow.Cells["Idexterior"].Value.ToString());
+                //                Respuesta = Negocio.fProducto_Exterior.Eliminar_Exterior(Idexterior, 6);
+                //            }
+
+                //            if (Respuesta.Equals("OK"))
+                //            {
+                //                this.MensajeOk("Compuesto Eliminado Correctamente");
+                //            }
+                //            else
+                //            {
+                //                this.MensajeError(Respuesta);
+                //            }
+                //        }
+
+                //        //
+                //        this.Actualizar_DetExterior();
+                //    }
+                //    else
+                //    {
+                //        MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise - Solicitud Rechazada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                //    }
+                //}
+                //else
+                //{
+                //    int Fila = this.DGDetalle_Exterior.CurrentCell.RowIndex;
+                //    DataRow row = this.DtDetalle_Exterior.Rows[Fila];
+
+                //    //Se remueve la fila
+                //    this.DtDetalle_Exterior.Rows.Remove(row);
+                //}
+            }
+            catch (Exception ex)
+            {
+                MensajeError("Por Favor Seleccione el Registro que Desea Remover del Registo");
+            }
+        }
+
+        private void btnExaminar_Stock_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void CHFabricado_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CHFabricado.Checked)
+            {
+                TCPrincipal.TabPages.Add(TPFabricacion);
+            }
+            else
+            {
+                TCPrincipal.TabPages.Remove(TPFabricacion);
+            }
+        }
+
+        private void CHRetencion_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CHRetencion.Checked)
+            {
+                TCPrincipal.TabPages.Add(TPRetencion);
+            }
+            else
+            {
+                TCPrincipal.TabPages.Remove(TPRetencion);
+            }
         }
 
         private void TBValor_ImpVenta01_Leave(object sender, EventArgs e)
@@ -9939,66 +9480,6 @@ namespace Presentacion
             tb.Text = string.Format("{0:N}", numero);
         }
 
-        private void TBCompraMinima_Cliente_Enter(object sender, EventArgs e)
-        {
-            this.TBCompraMinima_Cliente.BackColor = Color.Azure;
-        }
-
-        private void TBCompraMaxima_Cliente_Enter(object sender, EventArgs e)
-        {
-            this.TBCompraMaxima_Cliente.BackColor = Color.Azure;
-        }
-
-        private void TBCompraMinima_Mayorista_Enter(object sender, EventArgs e)
-        {
-            this.TBCompraMinima_Mayorista.BackColor = Color.Azure;
-        }
-
-        private void TBCompraMaxima_Mayorista_Enter(object sender, EventArgs e)
-        {
-            this.TBCompraMaxima_Mayorista.BackColor = Color.Azure;
-        }
-
-        private void TBVentaMinina_Cliente_Leave(object sender, EventArgs e)
-        {
-            this.TBVentaMinina_Cliente.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBVentaMaxima_Cliente_Leave(object sender, EventArgs e)
-        {
-            this.TBVentaMaxima_Cliente.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBVentaMinima_Mayorista_Leave(object sender, EventArgs e)
-        {
-            this.TBVentaMinima_Mayorista.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBVentaMaxima_Mayorista_Leave(object sender, EventArgs e)
-        {
-            this.TBVentaMaxima_Mayorista.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBCompraMinima_Cliente_Leave(object sender, EventArgs e)
-        {
-            this.TBCompraMinima_Cliente.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBCompraMaxima_Cliente_Leave(object sender, EventArgs e)
-        {
-            this.TBCompraMaxima_Cliente.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBCompraMinima_Mayorista_Leave(object sender, EventArgs e)
-        {
-            this.TBCompraMinima_Mayorista.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBCompraMaxima_Mayorista_Leave(object sender, EventArgs e)
-        {
-            this.TBCompraMaxima_Mayorista.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
         private void TBIdproveedor_TextChanged(object sender, EventArgs e)
         {
 
@@ -10006,7 +9487,6 @@ namespace Presentacion
 
         private void btnExaminar_Proveedor_Click(object sender, EventArgs e)
         {
-            this.Examinar_Proveedor = true;
             frmFiltro_Proveedor frmFiltro_Proveedor = new frmFiltro_Proveedor();
             frmFiltro_Proveedor.ShowDialog();
         }
@@ -10065,21 +9545,18 @@ namespace Presentacion
                 rptaDatosBasicos = fProducto_Inventario.Editar_Ubicacion
 
                             (
-                                 //Datos Auxiliares
-                                 Convert.ToInt32(this.TBIdproducto.Text),
+                                 //Datos Auxiliares y Llave Primaria
+                                 2, Convert.ToInt32(this.TBIdproducto.Text),
 
                                  //Panel Datos Basicos
-                                 this.TBUbicacion.Text, this.TBEstante.Text, this.TBNivel.Text,
-
-                                //Si es igual a 1 se registraran los datos en la base de datos
-                                2
+                                 Convert.ToInt32(TBIdubicacion.Text), Convert.ToInt32(this.TBIdbodega.Text), this.TBUbicacion.Text, this.TBEstante.Text, this.TBNivel.Text
                             );
 
                 if (rptaDatosBasicos.Equals("OK"))
                 {
                     if (this.Digitar)
                     {
-                        this.MensajeOk("La Ubicacion del Producto: “" + this.TBNombre.Text + "” a Sido Actualizada Exitosamente");
+                        this.MensajeOk("La Ubicación del Producto: “" + this.TBNombre.Text + "” a Sido Actualizada Exitosamente");
                     }
 
                     //SE LIMPIAN LOS CAMPOS DE TEXTO
@@ -10106,7 +9583,41 @@ namespace Presentacion
         {
             try
             {
+                //string rptaDatosBasicos = "";
 
+                //rptaDatosBasicos = fProducto_Inventario.Editar_CodigoDeBarra
+
+                //            (
+                //                 //Datos Auxiliares
+                //                 Convert.ToInt32(this.TBIdproducto.Text),
+
+                //                 //Panel Datos Basicos
+                //                 this.TBUbicacion.Text, this.TBEstante.Text, this.TBNivel.Text,
+
+                //                //Si es igual a 1 se registraran los datos en la base de datos
+                //                2
+                //            );
+
+                //if (rptaDatosBasicos.Equals("OK"))
+                //{
+                //    if (this.Digitar)
+                //    {
+                //        this.MensajeOk("La Ubicacion del Producto: “" + this.TBNombre.Text + "” a Sido Actualizada Exitosamente");
+                //    }
+
+                //    //SE LIMPIAN LOS CAMPOS DE TEXTO
+                //    //this.CBBodega.SelectedIndex = 0;
+                //    this.TBUbicacion.Clear();
+                //    this.TBEstante.Clear();
+                //    this.TBNivel.Clear();
+
+                //    this.Actualizar_DetCodigoDeBarra();
+                //}
+
+                //else
+                //{
+                //    this.MensajeError(rptaDatosBasicos);
+                //}
             }
             catch (Exception ex)
             {
@@ -10118,7 +9629,41 @@ namespace Presentacion
         {
             try
             {
+                //string rptaDatosBasicos = "";
 
+                //rptaDatosBasicos = fProducto_Inventario.Editar_Lote
+
+                //            (
+                //                 //Datos Auxiliares
+                //                 Convert.ToInt32(this.TBIdproducto.Text),
+
+                //                 //Panel Datos Basicos
+                //                 this.TBUbicacion.Text, this.TBEstante.Text, this.TBNivel.Text,
+
+                //                //Si es igual a 1 se registraran los datos en la base de datos
+                //                2
+                //            );
+
+                //if (rptaDatosBasicos.Equals("OK"))
+                //{
+                //    if (this.Digitar)
+                //    {
+                //        this.MensajeOk("La Ubicacion del Producto: “" + this.TBNombre.Text + "” a Sido Actualizada Exitosamente");
+                //    }
+
+                //    //SE LIMPIAN LOS CAMPOS DE TEXTO
+                //    //this.CBBodega.SelectedIndex = 0;
+                //    this.TBUbicacion.Clear();
+                //    this.TBEstante.Clear();
+                //    this.TBNivel.Clear();
+
+                //    this.Actualizar_DetLote();
+                //}
+
+                //else
+                //{
+                //    this.MensajeError(rptaDatosBasicos);
+                //}
             }
             catch (Exception ex)
             {
@@ -10153,11 +9698,6 @@ namespace Presentacion
                 e.Handled = true;
                 return;
             }
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
         }
 
         private void CBUnidad_SelectedIndexChanged(object sender, EventArgs e)
@@ -10373,32 +9913,17 @@ namespace Presentacion
             {
                 this.TBComision_Porcentaje.Enabled = true;
                 this.TBComision_Porcentaje.BackColor = Color.FromArgb(3, 155, 229);
-
-                this.TBComision_Valor.Enabled = true;
-                this.TBComision_Valor.BackColor = Color.FromArgb(3, 155, 229);
-
-                this.TBComision_Valor.Text = "0";
                 this.TBComision_Porcentaje.Text = "0";
             }
             else
             {
                 this.TBComision_Porcentaje.Enabled = false;
                 this.TBComision_Porcentaje.BackColor = Color.FromArgb(245, 245, 245);
-
-                this.TBComision_Valor.Enabled = false;
-                this.TBComision_Valor.BackColor = Color.FromArgb(245, 245, 245);
-
-                this.TBComision_Valor.Text = "0";
                 this.TBComision_Porcentaje.Text = "0";
             }
         }
 
         private void TBValorGeneral_Lote_KeyUp(object sender, KeyEventArgs e)
-        {
-
-        }
-
-        private void TBMinimoMayorista_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -10569,15 +10094,15 @@ namespace Presentacion
             {
                 if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
-                    if (CHManejaComision.Checked)
-                    {
-                        //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
-                        this.TBComision_Valor.Select();
-                    }
-                    else
-                    {
-                        this.TBVentaMinina_Cliente.Select();
-                    }
+                    //if (CHManejaComision.Checked)
+                    //{
+                    //    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
+                    //    this.TBComision_Valor.Select();
+                    //}
+                    //else
+                    //{
+                    //    this.TBVentaMinina_Cliente.Select();
+                    //}
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
@@ -10651,311 +10176,6 @@ namespace Presentacion
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
-        }
-
-        private void TBValorParaComision_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
-                {
-                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
-
-                    this.TBVentaMinina_Cliente.Select();
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
-                {
-                    //
-                    this.Digitar = true;
-                    this.TBIdproducto.Text = "0";
-
-                    this.Botones();
-                    this.Limpiar_Datos();
-                    this.Diseño_TablasGenerales();
-
-                    this.TBBuscar.Clear();
-
-                    //Se Limpian las Filas y Columnas de la tabla
-                    this.DGResultados.DataSource = null;
-                    this.lblTotal.Text = "Datos Registrados: 0";
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
-                {
-                    //Al precionar las teclas F10 se realizara el registro en la base de datos
-                    //Y se realizara las validaciones en el sistema
-
-                    if (Digitar)
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            if (Guardar == "1")
-                            {
-                                //Llamada de Clase
-                                this.Guardar_SQL();
-                            }
-                            else
-                            {
-                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
-                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
-                                this.Digitar = false;
-                                this.Limpiar_Datos();
-                            }
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBComision_Valor.Select();
-                        }
-                    }
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los Campos Consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            //Llamada de Clase
-                            this.Digitar = false;
-                            this.Guardar_SQL();
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBComision_Valor.Select();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        private void TBMinimoMayorista_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
-                {
-                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
-
-                    this.TBVentaMaxima_Mayorista.Select();
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
-                {
-                    //
-                    this.Digitar = true;
-                    this.TBIdproducto.Text = "0";
-
-                    this.Botones();
-                    this.Limpiar_Datos();
-                    this.Diseño_TablasGenerales();
-
-                    this.TBBuscar.Clear();
-
-                    //Se Limpian las Filas y Columnas de la tabla
-                    this.DGResultados.DataSource = null;
-                    this.lblTotal.Text = "Datos Registrados: 0";
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
-                {
-                    //Al precionar las teclas F10 se realizara el registro en la base de datos
-                    //Y se realizara las validaciones en el sistema
-
-                    if (Digitar)
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            if (Guardar == "1")
-                            {
-                                //Llamada de Clase
-                                this.Guardar_SQL();
-                            }
-                            else
-                            {
-                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
-                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
-                                this.Digitar = false;
-                                this.Limpiar_Datos();
-                            }
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBVentaMinima_Mayorista.Select();
-                        }
-                    }
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los Campos Consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            //Llamada de Clase
-                            this.Digitar = false;
-                            this.Guardar_SQL();
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBVentaMinima_Mayorista.Select();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        private void TBMaximoMayorista_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
-                {
-                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
-
-                    this.TBValor_CompraPromedio.Select();
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
-                {
-                    //
-                    this.Digitar = true;
-                    this.TBIdproducto.Text = "0";
-
-                    this.Botones();
-                    this.Limpiar_Datos();
-                    this.Diseño_TablasGenerales();
-
-                    this.TBBuscar.Clear();
-
-                    //Se Limpian las Filas y Columnas de la tabla
-                    this.DGResultados.DataSource = null;
-                    this.lblTotal.Text = "Datos Registrados: 0";
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
-                {
-                    //Al precionar las teclas F10 se realizara el registro en la base de datos
-                    //Y se realizara las validaciones en el sistema
-
-                    if (Digitar)
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            if (Guardar == "1")
-                            {
-                                //Llamada de Clase
-                                this.Guardar_SQL();
-                            }
-                            else
-                            {
-                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
-                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
-                                this.Digitar = false;
-                                this.Limpiar_Datos();
-                            }
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBVentaMaxima_Mayorista.Select();
-                        }
-                    }
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los Campos Consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            //Llamada de Clase
-                            this.Digitar = false;
-                            this.Guardar_SQL();
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBVentaMaxima_Mayorista.Select();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        private void TBValorParaComision_Leave(object sender, EventArgs e)
-        {
-            //Color de texboxt cuando este posee el FOCUS Activado
-            this.TBComision_Valor.BackColor = Color.FromArgb(3, 155, 229);
-
-            // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
-            TextBox tb = (TextBox)sender;
-
-            // Primero verificamos si el valor se puede convertir a Decimal.
-            double numero = default(double);
-            bool bln = double.TryParse(tb.Text, out numero);
-
-            if ((!(bln)))
-            {
-                // No es un valor decimal válido; limpiamos el control.
-                //tb.Clear();
-                return;
-            }
-
-            // En la propiedad Tag guardamos el valor con todos los decimales.
-            //
-            tb.Tag = numero;
-
-            // Y acto seguido formateamos el valor
-            // a monetario con dos decimales.
-            //
-            tb.Text = string.Format("{0:N2}", numero);
-        }
-
-        private void TBCantidadMininaCliente_Leave(object sender, EventArgs e)
-        {
-            //Color de texboxt cuando este posee el FOCUS Activado
-            this.TBVentaMinina_Cliente.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBCantidadMaximaCliente_Leave(object sender, EventArgs e)
-        {
-            //Color de texboxt cuando este posee el FOCUS Activado
-            this.TBVentaMaxima_Cliente.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBMinimoMayorista_Leave(object sender, EventArgs e)
-        {
-            //Color de texboxt cuando este posee el FOCUS Activado
-            this.TBVentaMinima_Mayorista.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBMaximoMayorista_Leave(object sender, EventArgs e)
-        {
-            //Color de texboxt cuando este posee el FOCUS Activado
-            this.TBVentaMaxima_Mayorista.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBCodigodeBarra_KeyUp(object sender, KeyEventArgs e)
@@ -11259,15 +10479,15 @@ namespace Presentacion
                     //Valor_Seguro = Datos.Rows[0][27].ToString();
                     //Valor_Otros = Datos.Rows[0][28].ToString();
 
-                    //
-                    VenMin_Cliente = Datos.Rows[0][29].ToString();
-                    VenMax_Cliente = Datos.Rows[0][30].ToString();
-                    VenMin_Mayorista = Datos.Rows[0][31].ToString();
-                    VenMax_Mayorista = Datos.Rows[0][32].ToString();
-                    ComMin_Cliente = Datos.Rows[0][33].ToString();
-                    ComMax_Cliente = Datos.Rows[0][34].ToString();
-                    ComMin_Mayorista = Datos.Rows[0][35].ToString();
-                    ComMax_Mayorista = Datos.Rows[0][36].ToString();
+                    ////
+                    //VenMin_Cliente = Datos.Rows[0][29].ToString();
+                    //VenMax_Cliente = Datos.Rows[0][30].ToString();
+                    //VenMin_Mayorista = Datos.Rows[0][31].ToString();
+                    //VenMax_Mayorista = Datos.Rows[0][32].ToString();
+                    //ComMin_Cliente = Datos.Rows[0][33].ToString();
+                    //ComMax_Cliente = Datos.Rows[0][34].ToString();
+                    //ComMin_Mayorista = Datos.Rows[0][35].ToString();
+                    //ComMax_Mayorista = Datos.Rows[0][36].ToString();
 
                     //
                     //Imagen = Datos.Rows[0][38].ToString();
@@ -11315,16 +10535,6 @@ namespace Presentacion
                     //this.TBCostos_Imprtacion.Text = Valor_Importacion;
                     //this.TBCostos_Seguridad.Text = Valor_Seguro;
                     //this.TBCostos_Adicional.Text = Valor_Otros;
-
-                    //
-                    this.TBVentaMinina_Cliente.Text = VenMin_Cliente;
-                    this.TBVentaMinima_Mayorista.Text = VenMin_Mayorista;
-                    this.TBVentaMaxima_Cliente.Text = VenMax_Cliente;
-                    this.TBVentaMaxima_Mayorista.Text = VenMax_Mayorista;
-                    this.TBCompraMinima_Mayorista.Text = ComMin_Mayorista;
-                    this.TBCompraMaxima_Mayorista.Text = ComMax_Mayorista;
-                    this.TBCompraMinima_Cliente.Text = ComMin_Cliente;
-                    this.TBCompraMaxima_Cliente.Text = ComMax_Cliente;
 
                     //Panel - Imagen
                     //this.PB_Imagen.Image = Imagen;

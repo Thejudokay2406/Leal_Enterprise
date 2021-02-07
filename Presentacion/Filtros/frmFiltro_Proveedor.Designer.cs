@@ -43,9 +43,10 @@
             this.groupBox1.Controls.Add(this.lblTotal);
             this.groupBox1.Controls.Add(this.TBBuscar);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(11, 11);
+            this.groupBox1.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(12, 11);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(611, 321);
+            this.groupBox1.Size = new System.Drawing.Size(610, 321);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Consulta de Proveedores - Leal Enterprise";
@@ -57,11 +58,11 @@
             this.DGFiltro_Resultados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DGFiltro_Resultados.BackgroundColor = System.Drawing.Color.White;
             this.DGFiltro_Resultados.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.DGFiltro_Resultados.Location = new System.Drawing.Point(6, 62);
+            this.DGFiltro_Resultados.Location = new System.Drawing.Point(6, 48);
             this.DGFiltro_Resultados.Name = "DGFiltro_Resultados";
             this.DGFiltro_Resultados.ReadOnly = true;
             this.DGFiltro_Resultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGFiltro_Resultados.Size = new System.Drawing.Size(599, 253);
+            this.DGFiltro_Resultados.Size = new System.Drawing.Size(599, 239);
             this.DGFiltro_Resultados.TabIndex = 3;
             this.DGFiltro_Resultados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGFiltro_Resultados_CellDoubleClick);
             this.DGFiltro_Resultados.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DGFiltro_Resultados_KeyPress);
@@ -69,17 +70,17 @@
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(6, 44);
+            this.lblTotal.Location = new System.Drawing.Point(6, 296);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(111, 15);
+            this.lblTotal.Size = new System.Drawing.Size(113, 17);
             this.lblTotal.TabIndex = 2;
             this.lblTotal.Text = "Datos Registrados:";
             // 
             // TBBuscar
             // 
-            this.TBBuscar.Location = new System.Drawing.Point(140, 20);
+            this.TBBuscar.Location = new System.Drawing.Point(143, 20);
             this.TBBuscar.Name = "TBBuscar";
-            this.TBBuscar.Size = new System.Drawing.Size(465, 21);
+            this.TBBuscar.Size = new System.Drawing.Size(461, 22);
             this.TBBuscar.TabIndex = 1;
             this.TBBuscar.TextChanged += new System.EventHandler(this.TBBuscar_TextChanged);
             // 
@@ -88,7 +89,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 15);
+            this.label1.Size = new System.Drawing.Size(131, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Proveedor a Consultar";
             // 

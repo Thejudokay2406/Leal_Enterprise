@@ -69,42 +69,42 @@ namespace Presentacion
             this.TBCodigo.ReadOnly = false;
             this.TBCodigo.BackColor = Color.FromArgb(3, 155, 229);
             this.TBProveedor.Enabled = false;
-            this.TBProveedor.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBProveedor.BackColor = Color.FromArgb(245, 245, 245);
             this.TBCodigo_Proveedor.ReadOnly = false;
             this.TBCodigo_Proveedor.BackColor = Color.FromArgb(3, 155, 229);
             this.TBOrdendecompra.Enabled = false;
-            this.TBOrdendecompra.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBOrdendecompra.BackColor = Color.FromArgb(245, 245, 245);
             this.TBProducto.Enabled = false;
-            this.TBProducto.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBProducto.BackColor = Color.FromArgb(245, 245, 245);
             this.TBCodigo_Producto.ReadOnly = false;
             this.TBCodigo_Producto.BackColor = Color.FromArgb(3, 155, 229);
 
             //Texboxt de Datos - Parte Inferior del Formulario
             this.TBCompraPromedio.Enabled = false;
-            this.TBCompraPromedio.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBCompraPromedio.BackColor = Color.FromArgb(245, 245, 245);
 
             this.TBCompraFinal.Enabled = false;
-            this.TBCompraFinal.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBCompraFinal.BackColor = Color.FromArgb(245, 245, 245);
             this.TBValorVenta_SinImpuesto.Enabled = false;
-            this.TBValorVenta_SinImpuesto.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBValorVenta_SinImpuesto.BackColor = Color.FromArgb(245, 245, 245);
             this.TBValorVenta.Enabled = false;
-            this.TBValorVenta.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBValorVenta.BackColor = Color.FromArgb(245, 245, 245);
             this.TBVentaMayorista.Enabled = false;
-            this.TBVentaMayorista.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBVentaMayorista.BackColor = Color.FromArgb(245, 245, 245);
 
             //
             this.TBUbicacion.Enabled = false;
-            this.TBUbicacion.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBUbicacion.BackColor = Color.FromArgb(245, 245, 245);
             this.TBMarca.Enabled = false;
-            this.TBMarca.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBMarca.BackColor = Color.FromArgb(245, 245, 245);
             this.TBEstante.Enabled = false;
-            this.TBEstante.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBEstante.BackColor = Color.FromArgb(245, 245, 245);
             this.TBNivel.Enabled = false;
-            this.TBNivel.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBNivel.BackColor = Color.FromArgb(245, 245, 245);
             this.TBUnidad.Enabled = false;
-            this.TBUnidad.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBUnidad.BackColor = Color.FromArgb(245, 245, 245);
             this.TBUnidad_Valor.Enabled = false;
-            this.TBUnidad_Valor.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBUnidad_Valor.BackColor = Color.FromArgb(245, 245, 245);
             this.TBUnidad_Valor.ForeColor = Color.FromArgb(255, 255, 255);
 
             //

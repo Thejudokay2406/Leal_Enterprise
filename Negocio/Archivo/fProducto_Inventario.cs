@@ -18,6 +18,18 @@ namespace Negocio
             return Datos.Lista();
         }
 
+        public static DataTable Lista_Compuesto(int auto, int idproducto)
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            return Datos.Lista_Compuesto(auto, idproducto);
+        }
+
+        public static DataTable Lista_Exterior(int auto, int idproducto)
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            return Datos.Lista_Exterior(auto, idproducto);
+        }
+
         public static DataTable Lista_CodigoDeBarra(int auto, int idproducto)
         {
             Conexion_Producto Datos = new Conexion_Producto();
@@ -104,444 +116,578 @@ namespace Negocio
 
         public static string Guardar_DatosBasicos
             (
+                //Llaves Auxiliares Datos Basicos
+                int Auto, int Idmarca, int Idgrupo, int Idtipo, int Idempaque,
+
+                //Datos para Ejecutar las Transacciones en SQL
+                int Tran_Ubicacion, int Tran_Igualdad, int Tran_Impuesto, int Tran_Proveedor, int Tran_CodBarra, int Tran_Lote, int Tran_Compuesto, int Tran_Exterior,
+
                 //Datos Basicos
-                int idmarca, int idempaque, int idgrupo, int idtipo, string codigo, string producto, string referencia, string descripcion,
-                string presentacion, string unidad, string comision, int comision_porcentaje, int manejavencimiento, int manejaimpuesto,
-                int importado, int exportado, int ofertable, int manejacomision,
+                string Codigo, string Producto, string Referencia, string Descripcion, string Presentacion, Int64 Comision, int ManejaVencimiento, int ManejaImpuesto, int Importado, int Exportado, int Ofertable, int ManejaComision, int ManejaEmpaque, int ManejaBalanza, int ManejaRetencion,
 
                 //Valores
-                string compra_promedio, string Compra_final, string Venta_excento, string venta_noexcento, string venta_mayorista,
-                string fabricacion, string materiales, string exportacion, string importacion, string seguro, string gastos,
+                double Compra_Promedio, double Compra_Final, double Venta01, double Venta02, double Venta03, double Mayorista, double Venta01_Porcentaje, double Venta02_Porcentaje, double Venta03_Porcentaje, double Mayorista_Porcentaje, double Venta01_BaseInicial, double Venta02_BaseInicial, double Venta03_BaseInicial, double Mayorista_BaseInicial, double Venta01_Impuesto, double Venta02_Impuesto, double Venta03_Impuesto, double Mayorista_Impuesto,
 
-                //Cantidades
-                string venta_minimacliente, string venta_maximacliente, string venta_minimamayorista, string venta_maximamayorista,
-                string compra_minimacliente, string compra_maximacliente, string compra_minimamayorista, string compra_maximamayorista,
+                string Unidad, string Unidad_Detalle, double Unidad01, double Unidad02, double Unidad03, double Unidad01_Porcentaje, double Unidad02_Porcentaje, double Unidad03_Porcentaje, double Unidad01_BaseInicial, double Unidad02_BaseInicial, double Unidad03_BaseInicial, double Unidad01_Impuesto, double Unidad02_Impuesto, double Unidad03_Impuesto,
 
-                //Panel Lote
-                DataTable detalle_lote,
+                //Panel - Fabricacion
+                double Material_Principal, double Material_Secundario, double Material_Terciario, double Material_OtroMaterial, double ManoDeObra, double Materiales, double Envio, double Almacenamiento, double Maquinaria, double Herramientas_Manuales, double CostoFabricacion,
 
-                //Panel Impuestos
-                DataTable detalle_impuesto,
+                //Detalles de Productos
+                DataTable Detalle_Lote, DataTable Detalle_Impuesto, DataTable Detalle_Igualdad, DataTable Detalle_Proveedor, DataTable Detalle_Ubicacion, DataTable Detalle_CodigoDeBarra, DataTable Detalle_Exterior, DataTable Detalle_Compuesto,
 
-                //Panel Igualdad
-                DataTable detalle_igualdad,
-
-                //Panel Proveedor
-                DataTable detalle_proveedor,
-
-                //Ubicacion[]
-                DataTable detalle_ubicacion,
-
-                //Panel Codigo de Barra
-                DataTable detalle_codigodebarra,
-
-                //Panel Imagen
-                Byte[] imagen,
-
-                //Datos Auxiliares
-                int lote_autosql, int codbarra_autosql, int igualdad_autosql, int impuesto_autosql, int ubicacion_autosql, int proveedor_autosql,
-
-                //SE VALIDA SI SE REALIZA O NO LA VALIDACION
-                int tran_ubicacion, int tran_igualdad, int tran_impuesto, int tran_proveedor, int tran_codBarra, int tran_lote,
-
-                //Variables
-                int auto
+                //Panel de Imagenes
+                byte[] Imagen
             )
         {
             Conexion_Producto Datos = new Conexion_Producto();
             Entidad_Productos Obj = new Entidad_Productos();
 
-            //Datos Auxiliares y Llaves Primaria
-            Obj.Idmarca = idmarca;
-            Obj.Idempaque = idempaque;
-            Obj.Idgrupo = idgrupo;
-            Obj.Idtipo = idtipo;
-            //Obj.Producto_AutoSQL = producto_autosql;
+            //Llaves Auxiliares Datos Basicos
+            Obj.Auto = Auto;
+            Obj.Idmarca = Idmarca;
+            Obj.Idgrupo = Idgrupo;
+            Obj.Idtipo = Idtipo;
+            Obj.Idempaque = Idempaque;
 
             //Datos Basicos
-            Obj.Codigo = codigo;
-            Obj.Producto = producto;
-            Obj.Referencia = referencia;
-            Obj.Descripcion = descripcion;
-            Obj.Presentacion = presentacion;
-            Obj.Unidad = unidad;
-            Obj.Comision = comision;
-            Obj.Comision_Porcentaje = comision_porcentaje;
+            Obj.Codigo = Codigo;
+            Obj.Producto = Producto;
+            Obj.Referencia = Referencia;
+            Obj.Descripcion = Descripcion;
+            Obj.Presentacion = Presentacion;
+            Obj.Comision = Comision;
 
-            Obj.ManejaVencimiento = manejavencimiento;
-            Obj.ManejaImpuesto = manejaimpuesto;
-            Obj.Importado = importado;
-            Obj.Exportado = exportado;
-            Obj.Ofertable = ofertable;
-            Obj.ManejaComision = manejacomision;
+            Obj.ManejaVencimiento = ManejaVencimiento;
+            Obj.ManejaImpuesto = ManejaImpuesto;
+            Obj.Importado = Importado;
+            Obj.Exportado = Exportado;
+            Obj.Ofertable = Ofertable;
+            Obj.ManejaComision = ManejaComision;
+            Obj.ManejaEmpaque = ManejaEmpaque;
+            Obj.ManejaBalanza = ManejaBalanza;
+            Obj.ManejaRetencion = ManejaRetencion;
 
             //Valores
-            Obj.Compra_Promedio = compra_promedio;
-            Obj.Compra_Final = Compra_final;
-            Obj.Venta_Excento = Venta_excento;
-            Obj.Venta_NoExcento = venta_noexcento;
-            Obj.Venta_Mayorista = venta_mayorista;
-            Obj.Fabricacion = fabricacion;
-            Obj.Materiales = materiales;
-            Obj.Exportacion = exportacion;
-            Obj.Importacion = importacion;
-            Obj.Seguro = seguro;
-            Obj.Gastos = gastos;
+            Obj.Compra_Promedio = Compra_Promedio;
+            Obj.Compra_Final = Compra_Final;
+            Obj.Venta01 = Venta01;
+            Obj.Venta02 = Venta02;
+            Obj.Venta03 = Venta03;
+            Obj.Mayorista = Mayorista;
+            Obj.Venta01_Porcentaje = Venta01_Porcentaje;
+            Obj.Venta02_Porcentaje = Venta02_Porcentaje;
+            Obj.Venta03_Porcentaje = Venta03_Porcentaje;
+            Obj.Mayorista_Porcentaje = Mayorista_Porcentaje;
+            Obj.Venta01_BaseInicial = Venta01_BaseInicial;
+            Obj.Venta02_BaseInicial = Venta02_BaseInicial;
+            Obj.Venta03_BaseInicial = Venta03_BaseInicial;
+            Obj.Mayorista_BaseInicial = Mayorista_BaseInicial;
+            Obj.Venta01_Impuesto = Venta01_Impuesto;
+            Obj.Venta02_Impuesto = Venta02_Impuesto;
+            Obj.Venta03_Impuesto = Venta03_Impuesto;
+            Obj.Mayorista_Impuesto = Mayorista_Impuesto;
 
-            //Cantidades
-            Obj.Venta_MinimaCliente = venta_minimacliente;
-            Obj.Venta_MaximaCliente = venta_maximacliente;
-            Obj.Venta_MinimaMayorista = venta_minimamayorista;
-            Obj.Venta_MaximaMayorista = venta_maximamayorista;
-            Obj.Compra_MinimaCliente = compra_minimacliente;
-            Obj.Compra_MaximaCliente = compra_maximacliente;
-            Obj.Compra_MinimaMayorista = compra_minimamayorista;
-            Obj.Compra_MaximaMayorista = compra_maximamayorista;
+            Obj.Unidad = Unidad;
+            Obj.Unidad_Detalle = Unidad_Detalle;
+            Obj.Unidad01 = Unidad01;
+            Obj.Unidad02 = Unidad02;
+            Obj.Unidad03 = Unidad03;
+            Obj.Unidad01_Porcentaje = Unidad01_Porcentaje;
+            Obj.Unidad02_Porcentaje = Unidad02_Porcentaje;
+            Obj.Unidad03_Porcentaje = Unidad03_Porcentaje;
+            Obj.Unidad01_BaseInicial = Unidad01_BaseInicial;
+            Obj.Unidad02_BaseInicial = Unidad02_BaseInicial;
+            Obj.Unidad03_BaseInicial = Unidad03_BaseInicial;
+            Obj.Unidad01_Impuesto = Unidad01_Impuesto;
+            Obj.Unidad02_Impuesto = Unidad02_Impuesto;
+            Obj.Unidad03_Impuesto = Unidad03_Impuesto;
 
-            //Panel Lote
-            Obj.Detalle_Lote = detalle_lote;
+            //Panel - Fabricacion
+            Obj.Material_Principal = Material_Principal;
+            Obj.Material_Secundario = Material_Secundario;
+            Obj.Material_Terciario = Material_Terciario;
+            Obj.Material_OtroMaterial = Material_OtroMaterial;
+            Obj.ManoDeObra = ManoDeObra;
+            Obj.Materiales = Materiales;
+            Obj.Envio = Envio;
+            Obj.Almacenamiento = Almacenamiento;
+            Obj.Maquinaria = Maquinaria;
+            Obj.Herramientas_Manuales = Herramientas_Manuales;
+            Obj.CostoFabricacion = CostoFabricacion;
 
-            //Panel Impuestos
-            Obj.Detalle_Impuesto = detalle_impuesto;
+            //Detalles de Productos
+            Obj.Detalle_Lote = Detalle_Lote;
+            Obj.Detalle_Impuesto = Detalle_Impuesto;
+            Obj.Detalle_Igualdad = Detalle_Igualdad;
+            Obj.Detalle_Proveedor = Detalle_Proveedor;
+            Obj.Detalle_Ubicacion = Detalle_Ubicacion;
+            Obj.Detalle_CodigoDeBarra = Detalle_CodigoDeBarra;
+            Obj.Detalle_Exterior = Detalle_Exterior;
+            Obj.Detalle_Compuesto = Detalle_Compuesto;
 
-            //Panel Igualdad
-            Obj.Detalle_Igualdad = detalle_igualdad;
+            //Panel de Imagenes
+            Obj.Imagen = Imagen;
 
-            //Panel Proveedor
-            Obj.Detalle_Proveedor = detalle_proveedor;
-
-            //Ubicacion[]
-            Obj.Detalle_Ubicacion = detalle_ubicacion;
-
-            //Panel Codigo de Barra
-            Obj.Detalle_CodigoDeBarra = detalle_codigodebarra;
-
-            //Panel Imagen
-            Obj.Imagen = imagen;
-
-            //Datos Auxiliares
-            Obj.Auto = auto;
-
-            Obj.Tran_Ubicacion = tran_ubicacion;
-            Obj.Tran_Igualdad = tran_igualdad;
-            Obj.Tran_Impuesto = tran_impuesto;
-            Obj.Tran_Proveedor = tran_proveedor;
-            Obj.Tran_CodBarra = tran_codBarra;
-            Obj.Tran_Lote = tran_lote;
-
-            Obj.Lote_AutoSQL = lote_autosql;
-            Obj.CodBarra_AutoSQL = codbarra_autosql;
-            Obj.Igualdad_AutoSQL = igualdad_autosql;
-            Obj.Impuesto_AutoSQL = impuesto_autosql;
-            Obj.Ubicacion_AutoSQL = ubicacion_autosql;
-            Obj.Proveedor_AutoSQL = proveedor_autosql;
+            //Datos para Ejecutar las Transacciones en SQL
+            Obj.Tran_Ubicacion = Tran_Ubicacion;
+            Obj.Tran_Igualdad = Tran_Igualdad;
+            Obj.Tran_Impuesto = Tran_Impuesto;
+            Obj.Tran_Proveedor = Tran_Proveedor;
+            Obj.Tran_CodBarra = Tran_CodBarra;
+            Obj.Tran_Lote = Tran_Lote;
+            Obj.Tran_Compuesto = Tran_Compuesto;
+            Obj.Tran_Exterior = Tran_Exterior;
 
             return Datos.Guardar_DatosBasicos(Obj);
         }
 
         public static string Editar_DatosBasicos
             (
-                //Llave Primaria
-                int idproducto,
+                //Llaves Auxiliares Datos Basicos
+                int Auto, int Idproducto, int Idmarca, int Idgrupo, int Idtipo, int Idempaque,
+
+                //Datos para Ejecutar las Transacciones en SQL
+                int Tran_Ubicacion, int Tran_Igualdad, int Tran_Impuesto, int Tran_Proveedor, int Tran_CodBarra, int Tran_Lote, int Tran_Compuesto, int Tran_Exterior,
 
                 //Datos Basicos
-                int idmarca, int idempaque, int idgrupo, int idtipo, string codigo, string producto, string referencia, string descripcion,
-                string presentacion, string unidad, string comision, int comision_porcentaje, int manejavencimiento, int manejaimpuesto,
-                int importado, int exportado, int ofertable, int manejacomision,
+                string Codigo, string Producto, string Referencia, string Descripcion, string Presentacion, Int64 Comision, int ManejaVencimiento, int ManejaImpuesto, int Importado, int Exportado, int Ofertable, int ManejaComision, int ManejaEmpaque, int ManejaBalanza, int ManejaRetencion,
 
                 //Valores
-                string compra_promedio, string Compra_final, string Venta_excento, string venta_noexcento, string venta_mayorista,
-                string fabricacion, string materiales, string exportacion, string importacion, string seguro, string gastos,
+                double Compra_Promedio, double Compra_Final, double Venta01, double Venta02, double Venta03, double Mayorista, double Venta01_Porcentaje, double Venta02_Porcentaje, double Venta03_Porcentaje, double Mayorista_Porcentaje, double Venta01_BaseInicial, double Venta02_BaseInicial, double Venta03_BaseInicial, double Mayorista_BaseInicial, double Venta01_Impuesto, double Venta02_Impuesto, double Venta03_Impuesto, double Mayorista_Impuesto,
 
-                //Cantidades
-                string venta_minimacliente, string venta_maximacliente, string venta_minimamayorista, string venta_maximamayorista,
-                string compra_minimacliente, string compra_maximacliente, string compra_minimamayorista, string compra_maximamayorista,
+                string Unidad, string Unidad_Detalle, double Unidad01, double Unidad02, double Unidad03, double Unidad01_Porcentaje, double Unidad02_Porcentaje, double Unidad03_Porcentaje, double Unidad01_BaseInicial, double Unidad02_BaseInicial, double Unidad03_BaseInicial, double Unidad01_Impuesto, double Unidad02_Impuesto, double Unidad03_Impuesto,
 
-                //Panel Imagen
-                Byte[] imagen,
+                //Panel - Fabricacion
+                double Material_Principal, double Material_Secundario, double Material_Terciario, double Material_OtroMaterial, double ManoDeObra, double Materiales, double Envio, double Almacenamiento, double Maquinaria, double Herramientas_Manuales, double CostoFabricacion,
 
-                //Variables
-                int auto
+                //Panel de Imagenes
+                byte[] Imagen
             )
         {
             Conexion_Producto Datos = new Conexion_Producto();
             Entidad_Productos Obj = new Entidad_Productos();
 
-            //Datos Auxiliares y Llaves Primaria
-            Obj.Idproducto = idproducto;
-            Obj.Idmarca = idmarca;
-            Obj.Idempaque = idempaque;
-            Obj.Idgrupo = idgrupo;
-            Obj.Idtipo = idtipo;
-            //Obj.Producto_AutoSQL = producto_autosql;
+            //Llaves Auxiliares Datos Basicos
+            Obj.Auto = Auto;
+            Obj.Idproducto = Idproducto;
+            Obj.Idmarca = Idmarca;
+            Obj.Idgrupo = Idgrupo;
+            Obj.Idtipo = Idtipo;
+            Obj.Idempaque = Idempaque;
 
             //Datos Basicos
-            Obj.Codigo = codigo;
-            Obj.Producto = producto;
-            Obj.Referencia = referencia;
-            Obj.Descripcion = descripcion;
-            Obj.Presentacion = presentacion;
-            Obj.Unidad = unidad;
-            Obj.Comision = comision;
-            Obj.Comision_Porcentaje = comision_porcentaje;
+            Obj.Codigo = Codigo;
+            Obj.Producto = Producto;
+            Obj.Referencia = Referencia;
+            Obj.Descripcion = Descripcion;
+            Obj.Presentacion = Presentacion;
+            Obj.Comision = Comision;
 
-            Obj.ManejaVencimiento = manejavencimiento;
-            Obj.ManejaImpuesto = manejaimpuesto;
-            Obj.Importado = importado;
-            Obj.Exportado = exportado;
-            Obj.Ofertable = ofertable;
-            Obj.ManejaComision = manejacomision;
+            Obj.ManejaVencimiento = ManejaVencimiento;
+            Obj.ManejaImpuesto = ManejaImpuesto;
+            Obj.Importado = Importado;
+            Obj.Exportado = Exportado;
+            Obj.Ofertable = Ofertable;
+            Obj.ManejaComision = ManejaComision;
+            Obj.ManejaEmpaque = ManejaEmpaque;
+            Obj.ManejaBalanza = ManejaBalanza;
+            Obj.ManejaRetencion = ManejaRetencion;
 
             //Valores
-            Obj.Compra_Promedio = compra_promedio;
-            Obj.Compra_Final = Compra_final;
-            Obj.Venta_Excento = Venta_excento;
-            Obj.Venta_NoExcento = venta_noexcento;
-            Obj.Venta_Mayorista = venta_mayorista;
-            Obj.Fabricacion = fabricacion;
-            Obj.Materiales = materiales;
-            Obj.Exportacion = exportacion;
-            Obj.Importacion = importacion;
-            Obj.Seguro = seguro;
-            Obj.Gastos = gastos;
+            Obj.Compra_Promedio = Compra_Promedio;
+            Obj.Compra_Final = Compra_Final;
+            Obj.Venta01 = Venta01;
+            Obj.Venta02 = Venta02;
+            Obj.Venta03 = Venta03;
+            Obj.Mayorista = Mayorista;
+            Obj.Venta01_Porcentaje = Venta01_Porcentaje;
+            Obj.Venta02_Porcentaje = Venta02_Porcentaje;
+            Obj.Venta03_Porcentaje = Venta03_Porcentaje;
+            Obj.Mayorista_Porcentaje = Mayorista_Porcentaje;
+            Obj.Venta01_BaseInicial = Venta01_BaseInicial;
+            Obj.Venta02_BaseInicial = Venta02_BaseInicial;
+            Obj.Venta03_BaseInicial = Venta03_BaseInicial;
+            Obj.Mayorista_BaseInicial = Mayorista_BaseInicial;
+            Obj.Venta01_Impuesto = Venta01_Impuesto;
+            Obj.Venta02_Impuesto = Venta02_Impuesto;
+            Obj.Venta03_Impuesto = Venta03_Impuesto;
+            Obj.Mayorista_Impuesto = Mayorista_Impuesto;
 
-            //Cantidades
-            Obj.Venta_MinimaCliente = venta_minimacliente;
-            Obj.Venta_MaximaCliente = venta_maximacliente;
-            Obj.Venta_MinimaMayorista = venta_minimamayorista;
-            Obj.Venta_MaximaMayorista = venta_maximamayorista;
-            Obj.Compra_MinimaCliente = compra_minimacliente;
-            Obj.Compra_MaximaCliente = compra_maximacliente;
-            Obj.Compra_MinimaMayorista = compra_minimamayorista;
-            Obj.Compra_MaximaMayorista = compra_maximamayorista;
+            Obj.Unidad = Unidad;
+            Obj.Unidad_Detalle = Unidad_Detalle;
+            Obj.Unidad01 = Unidad01;
+            Obj.Unidad02 = Unidad02;
+            Obj.Unidad03 = Unidad03;
+            Obj.Unidad01_Porcentaje = Unidad01_Porcentaje;
+            Obj.Unidad02_Porcentaje = Unidad02_Porcentaje;
+            Obj.Unidad03_Porcentaje = Unidad03_Porcentaje;
+            Obj.Unidad01_BaseInicial = Unidad01_BaseInicial;
+            Obj.Unidad02_BaseInicial = Unidad02_BaseInicial;
+            Obj.Unidad03_BaseInicial = Unidad03_BaseInicial;
+            Obj.Unidad01_Impuesto = Unidad01_Impuesto;
+            Obj.Unidad02_Impuesto = Unidad02_Impuesto;
+            Obj.Unidad03_Impuesto = Unidad03_Impuesto;
 
-            //Panel Imagen
-            Obj.Imagen = imagen;
+            //Panel - Fabricacion
+            Obj.Material_Principal = Material_Principal;
+            Obj.Material_Secundario = Material_Secundario;
+            Obj.Material_Terciario = Material_Terciario;
+            Obj.Material_OtroMaterial = Material_OtroMaterial;
+            Obj.ManoDeObra = ManoDeObra;
+            Obj.Materiales = Materiales;
+            Obj.Envio = Envio;
+            Obj.Almacenamiento = Almacenamiento;
+            Obj.Maquinaria = Maquinaria;
+            Obj.Herramientas_Manuales = Herramientas_Manuales;
+            Obj.CostoFabricacion = CostoFabricacion;
 
-            //Datos Auxiliares
-            Obj.Auto = auto;
+            //Panel de Imagenes
+            Obj.Imagen = Imagen;
 
             return Datos.Editar_DatosBasicos(Obj);
         }
 
         //************************************** SE PROCEDE A EDITAR LOS MULTIPLEX DETALLES COMO UBICACION, LOTE, PROVEEDOR ETC **************************************
 
-        public static string Editar_Lote
-            (
-
-                //Panel Lote
-                DataTable detalle_lote,
-
-                //Datos Auxiliares
-                int auto
-            )
-        {
-            Conexion_Producto Datos = new Conexion_Producto();
-            Entidad_Productos Obj = new Entidad_Productos();
-
-            //Panel Lote
-            Obj.Detalle_Lote = detalle_lote;
-
-            //Datos Auxiliares
-            Obj.Auto = auto;
-
-            return Datos.Editar_Lote(Obj);
-        }
-
-        public static string Guardar_Ubicacion
-            (
-                //Ubicacion[]
-                int idproducto, int idbodega, string ubicacion, string estante, string nivel,
-
-                //Datos Auxiliares
-                int autodet_ubicacion
-            )
-        {
-            Conexion_Producto Datos = new Conexion_Producto();
-            Entidad_Productos Obj = new Entidad_Productos();
-
-            //Ubicacion[]
-            Obj.Idproducto = idproducto;
-            Obj.Idbodega = idbodega;
-            Obj.Ubicacion = ubicacion;
-            Obj.Estante = estante;
-            Obj.Nivel = nivel;
-
-            //Datos Auxiliares
-            Obj.AutoDet_Ubicacion = autodet_ubicacion;
-
-            return Datos.Guardar_Ubicacion(Obj);
-        }
-
-        public static string Guardar_Impuesto
-            (
-                //Ubicacion[]
-                int idproducto, int idimpuesto, string impuesto, string valor, string descripcion,
-
-                //Datos Auxiliares
-                int autodet_impuesto
-            )
-        {
-            Conexion_Producto Datos = new Conexion_Producto();
-            Entidad_Productos Obj = new Entidad_Productos();
-
-            //Ubicacion[]
-            Obj.Idproducto = idproducto;
-            Obj.Idimpueto = idimpuesto;
-            Obj.Impuesto = impuesto;
-            Obj.Impuesto_Descripcion = descripcion;
-            Obj.Impuesto_Valor = valor;
-
-            //Datos Auxiliares
-            Obj.AutoDet_Impuesto = autodet_impuesto;
-
-            return Datos.Guardar_Impuestos(Obj);
-        }
-
-
-        public static string Guardar_Igualdad
-            (
-                //Ubicacion[]
-                int idproducto, string codigo, string producto, string marca,
-
-                //Datos Auxiliares
-                int autodet_igualdad
-            )
-        {
-            Conexion_Producto Datos = new Conexion_Producto();
-            Entidad_Productos Obj = new Entidad_Productos();
-
-            //Ubicacion[]
-            Obj.Idproducto = idproducto;
-            Obj.Igualdad_Codigo = codigo;
-            Obj.Igualdad_Producto = producto;
-            Obj.Igualdad_Marca = marca;
-
-            //Datos Auxiliares
-            Obj.AutoDet_Igualdad = autodet_igualdad;
-
-            return Datos.Guardar_Igualdad(Obj);
-        }
-
-        public static string Guardar_Proveedor
-            (
-                //Ubicacion[]
-                int idproducto, int idproveedor, string proveedor, string documento,
-
-                //Datos Auxiliares
-                int autodet_proveedor
-            )
-        {
-            Conexion_Producto Datos = new Conexion_Producto();
-            Entidad_Productos Obj = new Entidad_Productos();
-
-            //Ubicacion[]
-            Obj.Idproducto = idproducto;
-            Obj.Idproveedor = idproveedor;
-            Obj.Proveedor = proveedor;
-            Obj.Proveedor_Documento = documento;
-
-            //Datos Auxiliares
-            Obj.AutoDet_Proveedor = autodet_proveedor;
-
-            return Datos.Guardar_Proveedor(Obj);
-        }
-
-        public static string Guardar_Lote
-            (
-                //Ubicacion[]
-                int idproducto, string lote, string compra, string venta, string cantidad, DateTime fecha,
-
-                //Datos Auxiliares
-                int autodet_lote
-            )
-        {
-            Conexion_Producto Datos = new Conexion_Producto();
-            Entidad_Productos Obj = new Entidad_Productos();
-
-            //Ubicacion[]
-            Obj.Idproducto = idproducto;
-            Obj.Lote = lote;
-            Obj.Lote_Compra = compra;
-            Obj.Lote_Venta = venta;
-            Obj.Lote_Cantidad = cantidad;
-            Obj.Lote_Fecha = fecha;
-
-            //Datos Auxiliares
-            Obj.AutoDet_Lote = autodet_lote;
-
-            return Datos.Guardar_Lote(Obj);
-        }
-
-        public static string Guardar_CodigoDeBarra
-            (
-                //Ubicacion[]
-                int idproducto, string codigodebarra,
-
-                //Datos Auxiliares
-                int autodet_codigodebarra
-            )
-        {
-            Conexion_Producto Datos = new Conexion_Producto();
-            Entidad_Productos Obj = new Entidad_Productos();
-
-            //Ubicacion[]
-            Obj.Idproducto = idproducto;
-            Obj.CodigoDeBarra = codigodebarra;
-
-            //Datos Auxiliares
-            Obj.AutoDet_Codigodebarra = autodet_codigodebarra;
-
-            return Datos.Guardar_CodigoDeBarra(Obj);
-        }
-
         public static string Editar_CodigoDeBarra
             (
-
-                //Panel Codigo de Barra
-                DataTable detalle_codigodebarra,
-
-                //Datos Auxiliares
-                int auto
+                //Panel - Codigo de Barra
+                int Auto, int Idproducto, int Idcodigodebarra, string Codigodebarra
             )
         {
             Conexion_Producto Datos = new Conexion_Producto();
             Entidad_Productos Obj = new Entidad_Productos();
 
-            //Panel Codigo de Barra
-            Obj.Detalle_CodigoDeBarra = detalle_codigodebarra;
-
-            //Datos Auxiliares
-            Obj.Auto = auto;
+            //Panel - Codigo de Barra
+            Obj.CodBarra_AutoSQL = Auto;
+            Obj.Idproducto = Idproducto;
+            Obj.Idcodigodebarra = Idcodigodebarra;
+            Obj.Codigodebarra = Codigodebarra;
 
             return Datos.Editar_CodigoDeBarra(Obj);
         }
 
+        public static string Editar_Compuesto
+            (
+                //Panel Compuesto
+                int Auto, int Idproducto, int Idcompuesto, string Compuesto, string Compuesto_Descripcion, string Compuesto_Medida, string Compuesto_MedodaDescripcion
+            )
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            Entidad_Productos Obj = new Entidad_Productos();
+
+            //Panel Compuesto
+            Obj.Compuesto_AutoSQL = Auto;
+            Obj.Idproducto = Idproducto;
+            Obj.Idcompuesto = Idcompuesto;
+            Obj.Compuesto = Compuesto;
+            Obj.Compuesto_Descripcion = Compuesto_Descripcion;
+            Obj.Compuesto_Medida = Compuesto_Medida;
+            Obj.Compuesto_MedodaDescripcion = Compuesto_MedodaDescripcion;
+
+            return Datos.Editar_Compuesto(Obj);
+        }
+
+        public static string Editar_Exterior
+            (
+                //Panel - Exterior
+                int Auto, int Idproducto, int Idexterior, double Ext_Aduana, double Ext_Comision, double Ext_Documento, double Ext_Adicional, double Ext_Exportacion, double Ext_Importacion, double Ext_Seguridad, double Ext_Aduana_Moneda, double Ext_Comision_Moneda, double Ext_Documento_Moneda, double Ext_Adicional_Moneda, double Ext_Exportacion_Moneda, double Ext_Importacion_Moneda, double Ext_Seguridad_Moneda
+            )
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            Entidad_Productos Obj = new Entidad_Productos();
+
+            //Panel - Exterior
+            Obj.Exterior_AutoSQL = Auto;
+            Obj.Idproducto = Idproducto;
+            Obj.Idexterior = Idexterior;
+            Obj.Ext_Aduana = Ext_Aduana;
+            Obj.Ext_Comision = Ext_Comision;
+            Obj.Ext_Documento = Ext_Documento;
+            Obj.Ext_Adicional = Ext_Adicional;
+            Obj.Ext_Exportacion = Ext_Exportacion;
+            Obj.Ext_Importacion = Ext_Importacion;
+            Obj.Ext_Seguridad = Ext_Seguridad;
+            Obj.Ext_Aduana_Moneda = Ext_Aduana_Moneda;
+            Obj.Ext_Comision_Moneda = Ext_Comision_Moneda;
+            Obj.Ext_Documento_Moneda = Ext_Documento_Moneda;
+            Obj.Ext_Adicional_Moneda = Ext_Adicional_Moneda;
+            Obj.Ext_Exportacion_Moneda = Ext_Exportacion_Moneda;
+            Obj.Ext_Importacion_Moneda = Ext_Importacion_Moneda;
+            Obj.Ext_Seguridad_Moneda = Ext_Seguridad_Moneda;
+
+            return Datos.Editar_Exterior(Obj);
+        }
+
+        public static string Editar_Igualdad
+            (
+                //Panel Igualdad
+                int Auto, int Idproducto, int Idigualdad, string Igualdad_Codigo, string Igualdad_Producto, string Igualdad_Marca
+            )
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            Entidad_Productos Obj = new Entidad_Productos();
+
+            //Panel Igualdad
+            Obj.Igualdad_AutoSQL = Auto;
+            Obj.Idproducto = Idproducto;
+            Obj.Idigualdad = Idigualdad;
+            Obj.Igualdad_Codigo = Igualdad_Codigo;
+            Obj.Igualdad_Producto = Igualdad_Producto;
+            Obj.Igualdad_Marca = Igualdad_Marca;
+
+            return Datos.Editar_Igualdad(Obj);
+        }
+
+        public static string Editar_Impuesto
+            (
+                //Panel Impuesto
+                int Auto, int Idproducto, int Idimpuesto, string Impuesto, string Impuesto_Descripcion, string Impuesto_Valor
+            )
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            Entidad_Productos Obj = new Entidad_Productos();
+
+            //Panel Impuesto
+            Obj.Impuesto_AutoSQL = Auto;
+            Obj.Idproducto = Idproducto;
+            Obj.Idimpuesto = Idimpuesto;
+            Obj.Impuesto = Impuesto;
+            Obj.Impuesto_Descripcion = Impuesto_Descripcion;
+            Obj.Impuesto_Valor = Impuesto_Valor;
+
+            return Datos.Editar_Impuesto(Obj);
+        }
+
+        public static string Editar_Lote
+            (
+                //Panel Lotes
+                int Auto, int Idproducto, int Idlote, string Lote, string Lote_Compra, string Lote_Venta, string Lote_Cantidad, DateTime Lote_Fecha
+            )
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            Entidad_Productos Obj = new Entidad_Productos();
+
+            //Panel Lotes
+            Obj.Lote_AutoSQL = Auto;
+            Obj.Idproducto = Idproducto;
+            Obj.Idlote = Idlote;
+            Obj.Lote = Lote;
+            Obj.Lote_Compra = Lote_Compra;
+            Obj.Lote_Venta = Lote_Venta;
+            Obj.Lote_Cantidad = Lote_Cantidad;
+            Obj.Lote_Fecha = Lote_Fecha;
+
+            return Datos.Editar_Lote(Obj);
+        }
+
+        public static string Editar_Proveedor
+            (
+                //Panel Proveedor
+                int Auto, int Idproducto, int Idproveedor, string Proveedor, string Proveedor_Documento
+            )
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            Entidad_Productos Obj = new Entidad_Productos();
+
+            //Panel Proveedor
+            Obj.Proveedor_AutoSQL = Auto;
+            Obj.Idproducto = Idproducto;
+            Obj.Idproveedor = Idproveedor;
+            Obj.Proveedor = Proveedor;
+            Obj.Proveedor_Documento = Proveedor_Documento;
+
+            return Datos.Editar_Proveedor(Obj);
+        }
+
         public static string Editar_Ubicacion
             (
-                //
-                int idproducto,
-
-                //Panel Codigo de Barra
-                string ubicacion, string estante, string nivel,
-
-                //Datos Auxiliares
-                int auto
+                //Panel Ubicacion
+                int Auto, int Idproducto, int Idubicacion, int Idbodega, string Ubicacion, string Estante, string Nivel
             )
         {
             Conexion_Producto Datos = new Conexion_Producto();
             Entidad_Productos Obj = new Entidad_Productos();
 
             //Panel Ubicacion
-            Obj.Idproducto = idproducto;
-            Obj.Ubicacion = ubicacion;
-            Obj.Estante = estante;
-            Obj.Nivel= nivel;
-
-            //Datos Auxiliares
-            Obj.AutoDet_Ubicacion = auto;
+            Obj.Ubicacion_AutoSQL = Auto;
+            Obj.Idproducto = Idproducto;
+            Obj.Idubicacion = Idubicacion;
+            Obj.Idbodega = Idbodega;
+            Obj.Ubicacion = Ubicacion;
+            Obj.Estante = Estante;
+            Obj.Nivel = Nivel;
 
             return Datos.Editar_Ubicacion(Obj);
+        }
+
+        //************************************** SE PROCEDE AGREGAR LOS REGISTROS ADICIONALES DE LOS DETALLES COMO UBICACION, LOTE, PROVEEDOR ETC **************************************
+
+        public static string Guardar_CodigoDeBarra
+            (
+                //Panel - Codigo de Barra
+                int Auto, int Idproducto, string Codigodebarra
+            )
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            Entidad_Productos Obj = new Entidad_Productos();
+
+            //Panel - Codigo de Barra
+            Obj.CodBarra_AutoSQL = Auto;
+            Obj.Idproducto = Idproducto;
+            Obj.Codigodebarra = Codigodebarra;
+
+            return Datos.Guardar_CodigoDeBarra(Obj);
+        }
+
+        public static string Guardar_Compuesto
+            (
+                //Panel Compuesto
+                int Auto, int Idproducto, string Compuesto, string Compuesto_Descripcion, string Compuesto_Medida, string Compuesto_MedodaDescripcion
+            )
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            Entidad_Productos Obj = new Entidad_Productos();
+
+            //Panel Compuesto
+            Obj.Compuesto_AutoSQL = Auto;
+            Obj.Idproducto = Idproducto;
+            Obj.Compuesto = Compuesto;
+            Obj.Compuesto_Descripcion = Compuesto_Descripcion;
+            Obj.Compuesto_Medida = Compuesto_Medida;
+            Obj.Compuesto_MedodaDescripcion = Compuesto_MedodaDescripcion;
+
+            return Datos.Guardar_Compuesto(Obj);
+        }
+
+        public static string Guardar_Exterior
+            (
+                //Panel - Exterior
+                int Auto, int Idproducto, double Ext_Aduana, double Ext_Comision, double Ext_Documento, double Ext_Adicional, double Ext_Exportacion, double Ext_Importacion, double Ext_Seguridad, double Ext_Aduana_Moneda, double Ext_Comision_Moneda, double Ext_Documento_Moneda, double Ext_Adicional_Moneda, double Ext_Exportacion_Moneda, double Ext_Importacion_Moneda, double Ext_Seguridad_Moneda
+            )
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            Entidad_Productos Obj = new Entidad_Productos();
+
+            //Panel - Exterior
+            Obj.Impuesto_AutoSQL = Auto;
+            Obj.Idproducto = Idproducto;
+            Obj.Ext_Aduana = Ext_Aduana;
+            Obj.Ext_Comision = Ext_Comision;
+            Obj.Ext_Documento = Ext_Documento;
+            Obj.Ext_Adicional = Ext_Adicional;
+            Obj.Ext_Exportacion = Ext_Exportacion;
+            Obj.Ext_Importacion = Ext_Importacion;
+            Obj.Ext_Seguridad = Ext_Seguridad;
+            Obj.Ext_Aduana_Moneda = Ext_Aduana_Moneda;
+            Obj.Ext_Comision_Moneda = Ext_Comision_Moneda;
+            Obj.Ext_Documento_Moneda = Ext_Documento_Moneda;
+            Obj.Ext_Adicional_Moneda = Ext_Adicional_Moneda;
+            Obj.Ext_Exportacion_Moneda = Ext_Exportacion_Moneda;
+            Obj.Ext_Importacion_Moneda = Ext_Importacion_Moneda;
+            Obj.Ext_Seguridad_Moneda = Ext_Seguridad_Moneda;
+
+            return Datos.Guardar_Exterior(Obj);
+        }
+
+        public static string Guardar_Igualdad
+            (
+                //Panel Igualdad
+                int Auto ,int Idproducto, string Igualdad_Codigo, string Igualdad_Producto, string Igualdad_Marca
+            )
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            Entidad_Productos Obj = new Entidad_Productos();
+
+            //Panel Igualdad
+            Obj.Igualdad_AutoSQL = Auto;
+            Obj.Idproducto = Idproducto;
+            Obj.Igualdad_Codigo = Igualdad_Codigo;
+            Obj.Igualdad_Producto = Igualdad_Producto;
+            Obj.Igualdad_Marca = Igualdad_Marca;
+
+            return Datos.Guardar_Igualdad(Obj);
+        }
+
+        public static string Guardar_Impuesto
+            (
+                //Panel Impuesto
+                int Auto, int Idproducto, int Idimpuesto, string Impuesto, string Impuesto_Descripcion, string Impuesto_Valor
+            )
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            Entidad_Productos Obj = new Entidad_Productos();
+
+            //Panel Impuesto
+            Obj.Impuesto_AutoSQL = Auto;
+            Obj.Idproducto = Idproducto;
+            Obj.Idimpuesto = Idimpuesto;
+            Obj.Impuesto = Impuesto;
+            Obj.Impuesto_Descripcion = Impuesto_Descripcion;
+            Obj.Impuesto_Valor = Impuesto_Valor;
+
+            return Datos.Guardar_Impuestos(Obj);
+        }
+
+        public static string Guardar_Lote
+            (
+                //Panel Lotes
+                int Auto, int Idproducto, string Lote, string Lote_Compra, string Lote_Venta, string Lote_Cantidad, DateTime Lote_Fecha
+            )
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            Entidad_Productos Obj = new Entidad_Productos();
+
+            //Panel Lotes
+            Obj.Lote_AutoSQL = Auto;
+            Obj.Idproducto = Idproducto;
+            Obj.Lote = Lote;
+            Obj.Lote_Compra = Lote_Compra;
+            Obj.Lote_Venta = Lote_Venta;
+            Obj.Lote_Cantidad = Lote_Cantidad;
+            Obj.Lote_Fecha = Lote_Fecha;
+
+            return Datos.Guardar_Lote(Obj);
+        }
+
+        public static string Guardar_Proveedor
+            (
+                //Panel Proveedor
+                int Auto, int Idproducto, int Idproveedor, string Proveedor, string Proveedor_Documento
+            )
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            Entidad_Productos Obj = new Entidad_Productos();
+
+            //Panel Proveedor
+            Obj.Proveedor_AutoSQL = Auto;
+            Obj.Idproducto = Idproducto;
+            Obj.Idproveedor = Idproveedor;
+            Obj.Proveedor = Proveedor;
+            Obj.Proveedor_Documento = Proveedor_Documento;
+
+            return Datos.Guardar_Proveedor(Obj);
+        }
+
+        public static string Guardar_Ubicacion
+            (
+                //Panel Ubicacion
+                int Auto, int Idproducto, int Idbodega, string Ubicacion, string Estante, string Nivel
+            )
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            Entidad_Productos Obj = new Entidad_Productos();
+
+            //Panel Ubicacion
+            Obj.Ubicacion_AutoSQL = Auto;
+            Obj.Idproducto = Idproducto;
+            Obj.Idbodega = Idbodega;
+            Obj.Ubicacion = Ubicacion;
+            Obj.Estante = Estante;
+            Obj.Nivel = Nivel;
+
+            return Datos.Guardar_Ubicacion(Obj);
         }
 
         public static string Eliminar(int Idproducto, int Auto)

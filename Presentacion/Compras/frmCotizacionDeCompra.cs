@@ -89,19 +89,19 @@ namespace Presentacion
             this.TBCodigo_Bodega.ForeColor = Color.FromArgb(255, 255, 255);
             this.TBCodigo_Bodega.Text = Campo;
             this.TBCodigo_Almacen.Enabled = false;
-            this.TBCodigo_Almacen.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBCodigo_Almacen.BackColor = Color.FromArgb(245, 245, 245);
 
             //
             this.TBOrdendecompra.Enabled = false;
-            this.TBOrdendecompra.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBOrdendecompra.BackColor = Color.FromArgb(245, 245, 245);
             this.TBBodega.Enabled = false;
-            this.TBBodega.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBBodega.BackColor = Color.FromArgb(245, 245, 245);
             this.TBProveedor.Enabled = false;
-            this.TBProveedor.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBProveedor.BackColor = Color.FromArgb(245, 245, 245);
             this.TBProducto.Enabled = false;
-            this.TBProducto.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBProducto.BackColor = Color.FromArgb(245, 245, 245);
             this.TBAlmacen.Enabled = false;
-            this.TBAlmacen.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBAlmacen.BackColor = Color.FromArgb(245, 245, 245);
             this.TBCreditoEnMora.ReadOnly = false;
             this.TBCreditoEnMora.BackColor = Color.FromArgb(3, 155, 229);
             this.TBCreditoDisponible.ReadOnly = false;

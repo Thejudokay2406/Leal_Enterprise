@@ -57,11 +57,11 @@ namespace Presentacion
             this.TBCodigo_Proveedor.ReadOnly = false;
             this.TBCodigo_Proveedor.BackColor = Color.FromArgb(3, 155, 229);
             this.TBProveedor.Enabled = false;
-            this.TBProveedor.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBProveedor.BackColor = Color.FromArgb(245, 245, 245);
             this.TBCodigo_Bodega.ReadOnly = false;
             this.TBCodigo_Bodega.BackColor = Color.FromArgb(3, 155, 229);
             this.TBBodega.Enabled = false;
-            this.TBBodega.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBBodega.BackColor = Color.FromArgb(245, 245, 245);
             this.TBCodigo_Producto.ReadOnly = false;
             this.TBCodigo_Producto.BackColor = Color.FromArgb(3, 155, 229);
             this.CBMoneda.Enabled = true;

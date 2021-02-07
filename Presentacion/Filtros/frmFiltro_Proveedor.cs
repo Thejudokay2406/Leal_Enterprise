@@ -78,47 +78,45 @@ namespace Presentacion
 
                 if (frmPro.Examinar_Exterior)
                 {
-                    idproveedor = this.DGFiltro_Resultados.CurrentRow.Cells["Codigo"].Value.ToString();
-                    proveedor = this.DGFiltro_Resultados.CurrentRow.Cells["Proveedor"].Value.ToString();
-                    documento = this.DGFiltro_Resultados.CurrentRow.Cells["Documento"].Value.ToString();
+                    idproveedor = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
+                    proveedor = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
+                    documento = this.DGFiltro_Resultados.CurrentRow.Cells[2].Value.ToString();
                     frmPro.setProveedor_Exterior(idproveedor, proveedor, documento);
-                    frmPro.Examinar_Exterior = false;
                     this.Hide();
                 }
                 
                 if (frmPro.Examinar_Proveedor)
                 {
-                    idproveedor = this.DGFiltro_Resultados.CurrentRow.Cells["Codigo"].Value.ToString();
-                    proveedor = this.DGFiltro_Resultados.CurrentRow.Cells["Proveedor"].Value.ToString();
-                    documento = this.DGFiltro_Resultados.CurrentRow.Cells["Documento"].Value.ToString();
+                    idproveedor = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
+                    proveedor = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
+                    documento = this.DGFiltro_Resultados.CurrentRow.Cells[2].Value.ToString();
                     frmPro.setProveedor(idproveedor, proveedor, documento);
-                    frmPro.Examinar_Proveedor = false;
                     this.Hide();
                 }
 
                 if (frmInv.Examinar)
                 {   
-                    idproveedor = this.DGFiltro_Resultados.CurrentRow.Cells["Codigo"].Value.ToString();
-                    proveedor = this.DGFiltro_Resultados.CurrentRow.Cells["Proveedor"].Value.ToString();
-                    documento = this.DGFiltro_Resultados.CurrentRow.Cells["Documento"].Value.ToString();
+                    idproveedor = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
+                    proveedor = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
+                    documento = this.DGFiltro_Resultados.CurrentRow.Cells[2].Value.ToString();
                     frmInv.setProveedor(idproveedor, proveedor, documento);
                     this.Hide();
                 }
 
                 if (frmCot.Examinar)
                 {
-                    idproveedor = this.DGFiltro_Resultados.CurrentRow.Cells["Codigo"].Value.ToString();
-                    proveedor = this.DGFiltro_Resultados.CurrentRow.Cells["Proveedor"].Value.ToString();
-                    documento = this.DGFiltro_Resultados.CurrentRow.Cells["Documento"].Value.ToString();
+                    idproveedor = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
+                    proveedor = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
+                    documento = this.DGFiltro_Resultados.CurrentRow.Cells[2].Value.ToString();
                     frmCot.setProveedor(idproveedor, proveedor, documento);
                     this.Hide();
                 }
 
                 if (frmOCom.Examinar)
                 {
-                    idproveedor = this.DGFiltro_Resultados.CurrentRow.Cells["Codigo"].Value.ToString();
-                    proveedor = this.DGFiltro_Resultados.CurrentRow.Cells["Proveedor"].Value.ToString();
-                    documento = this.DGFiltro_Resultados.CurrentRow.Cells["Documento"].Value.ToString();
+                    idproveedor = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
+                    proveedor = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
+                    documento = this.DGFiltro_Resultados.CurrentRow.Cells[2].Value.ToString();
                     frmOCom.setProveedor(idproveedor, proveedor, documento);
                     this.Hide();
                 }

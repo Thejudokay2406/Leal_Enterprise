@@ -100,28 +100,28 @@ namespace Presentacion
 
             //
             //this.TBCotizacion.Enabled = false;
-            //this.TBCotizacion.BackColor = Color.FromArgb(72, 209, 204);
+            //this.TBCotizacion.BackColor = Color.FromArgb(245, 245, 245);
             this.TBBodega.Enabled = false;
-            this.TBBodega.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBBodega.BackColor = Color.FromArgb(245, 245, 245);
             this.TBProveedor.Enabled = false;
-            this.TBProveedor.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBProveedor.BackColor = Color.FromArgb(245, 245, 245);
             this.TBProducto.Enabled = false;
-            this.TBProducto.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBProducto.BackColor = Color.FromArgb(245, 245, 245);
 
             //Texboxt de Datos - Parte Inferior del Formulario
 
             this.TBMarca.Enabled = false;
-            this.TBMarca.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBMarca.BackColor = Color.FromArgb(245, 245, 245);
             this.TBStock.Enabled = false;
-            this.TBStock.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBStock.BackColor = Color.FromArgb(245, 245, 245);
             this.TBGrupo.Enabled = false;
-            this.TBGrupo.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBGrupo.BackColor = Color.FromArgb(245, 245, 245);
             this.TBValorPromedio.Enabled = false;
-            this.TBValorPromedio.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBValorPromedio.BackColor = Color.FromArgb(245, 245, 245);
             this.TBValorCompra.Enabled = false;
-            this.TBValorCompra.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBValorCompra.BackColor = Color.FromArgb(245, 245, 245);
             this.TBValorVenta.Enabled = false;
-            this.TBValorVenta.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBValorVenta.BackColor = Color.FromArgb(245, 245, 245);
 
             //
             this.TBValorCotizado.Enabled = false;

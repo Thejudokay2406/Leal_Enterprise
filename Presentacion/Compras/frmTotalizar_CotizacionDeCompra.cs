@@ -42,21 +42,21 @@ namespace Presentacion
         {
             //
             this.TBSubTotal.Enabled = false;
-            this.TBSubTotal.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBSubTotal.BackColor = Color.FromArgb(245, 245, 245);
             this.TBDescuento.Enabled = false;
-            this.TBDescuento.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBDescuento.BackColor = Color.FromArgb(245, 245, 245);
             this.TBDescuento_Porcentaje.Enabled = false;
-            this.TBDescuento_Porcentaje.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBDescuento_Porcentaje.BackColor = Color.FromArgb(245, 245, 245);
             this.TBImpuesto_Valor.Enabled = false;
-            this.TBImpuesto_Valor.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBImpuesto_Valor.BackColor = Color.FromArgb(245, 245, 245);
             this.TBValorGeneral.Enabled = false;
-            this.TBValorGeneral.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBValorGeneral.BackColor = Color.FromArgb(245, 245, 245);
 
             //
             this.TBCreditoMora.Enabled = false;
-            this.TBCreditoMora.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBCreditoMora.BackColor = Color.FromArgb(245, 245, 245);
             this.TBCreditoDisponible.Enabled = false;
-            this.TBCreditoDisponible.BackColor = Color.FromArgb(72, 209, 204);
+            this.TBCreditoDisponible.BackColor = Color.FromArgb(245, 245, 245);
 
             //
             this.TBValorDeEnvio.ReadOnly = false;
