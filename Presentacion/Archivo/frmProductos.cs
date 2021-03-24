@@ -44,6 +44,7 @@ namespace Presentacion
         private bool Eliminar_Ubicacion = false;
         private bool Eliminar_Proveedor = false;
         private bool Eliminar_CodigoDeBarra = false;
+        private bool Eliminar_Compuesto = false;
 
         //Variable para Agregar los Detalles a la Base de Datos
         private DataTable DtDetalle_Compuesto;
@@ -999,14 +1000,14 @@ namespace Presentacion
                             this.TBmultiplicador_Impuesto.Text = "0." + TBValor_PorVenta01.Text;
 
                             //Se procede a calcular el IVA o Impuestos
-                            Valor01 = Convert.ToDouble(TBValor_Venta01.Text);
+                            Valor01 = Convert.ToDouble(TBValorBase_Inicial01.Text);
                             Divisor = Convert.ToDouble(TBDivisor_Impuesto.Text);
                             Multiplicador = Convert.ToDouble(TBmultiplicador_Impuesto.Text);
                             //Porcentaje01 = Convert.ToDouble(this.TBValor_PorVenta01.Text);
 
                             //Primero se Calcula el Valor Base
                             Base01 = Valor01 / Divisor;
-                            this.TBValorBase_Inicial01.Text = Base01.ToString("C");
+                            this.TBValor_Venta01.Text = Base01.ToString("C");
 
                             //Despues se Calcula el Valor del Impuesto
                             Impuesto01 = Base01 * Multiplicador;
@@ -1118,7 +1119,7 @@ namespace Presentacion
                 }
                 else if (this.TBCodigo.Text == Campo)
                 {
-                    MensajeError("Ingrese el Codigo del Producto");
+                    MensajeError("Ingrese el Código del Producto");
                 }
                 else if (this.CBGrupo.SelectedIndex == 0)
                 {
@@ -1549,7 +1550,7 @@ namespace Presentacion
                 {
                     if (this.TBCodigodeBarra.Text == String.Empty)
                     {
-                        this.MensajeError("Por favor Especifique el Codigo de Barra que desea agregar");
+                        this.MensajeError("Por favor Especifique el Código de Barra que desea agregar");
                         this.TBCodigodeBarra.Select();
                     }
 
@@ -1558,17 +1559,20 @@ namespace Presentacion
                         bool agregar = true;
                         foreach (DataRow Fila in DtDetalle_CodigoDeBarra.Rows)
                         {
-                            if (Convert.ToString(Fila["Codigo de Barra"]) == TBCodigodeBarra.Text)
+                            if (Convert.ToString(Fila["Código de Barra"]) == TBCodigodeBarra.Text)
                             {
-                                this.MensajeError("El Codigo de Barra Que Desea Agregar ya se Encuentra en la Lista");
+                                this.MensajeError("El Código de Barra Que Desea Agregar ya se Encuentra en la Lista");
                             }
                         }
                         if (agregar)
                         {
                             DataRow fila = this.DtDetalle_CodigoDeBarra.NewRow();
                             fila["Idproducto"] = Convert.ToInt32(this.TBIdproducto_AutoSQL.Text);
-                            fila["Codigo de Barra"] = this.TBCodigodeBarra.Text;
+                            fila["Código de Barra"] = this.TBCodigodeBarra.Text;
                             this.DtDetalle_CodigoDeBarra.Rows.Add(fila);
+
+                            //
+                            this.lblTotal_Codigodebarra.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_CodigoDeBarra.Rows.Count);
                         }
 
                         //
@@ -1581,20 +1585,20 @@ namespace Presentacion
 
                     if (this.TBCodigodeBarra.Text == String.Empty)
                     {
-                        this.MensajeError("Por favor Especifique el Codigo de Barra que desea agregar");
+                        this.MensajeError("Por favor Especifique el Código de Barra que desea agregar");
                         this.TBCodigodeBarra.Select();
                     }
                     else
                     {
                         foreach (DataRow Fila in DtDetalle_CodigoDeBarra.Rows)
                         {
-                            if (Convert.ToString(Fila["Codigo de Barra"]) == TBCodigodeBarra.Text)
+                            if (Convert.ToString(Fila["Código de Barra"]) == TBCodigodeBarra.Text)
                             {
-                                this.MensajeError("El Codigo de Barra Que Desea Agregar ya se Encuentra en la Lista");
+                                this.MensajeError("El Código de Barra Que Desea Agregar ya se Encuentra en la Lista");
                             }
                         }
 
-                        DialogResult result = MessageBox.Show("¿Desea Añadir el Codigo de Barra a la Lista?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                        DialogResult result = MessageBox.Show("¿Desea Añadir el Código de Barra a la Lista?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
                         if (result == DialogResult.Yes)
                         {
@@ -1610,7 +1614,7 @@ namespace Presentacion
 
                             if (rptaDatosBasicos.Equals("OK"))
                             {
-                                this.MensajeOk("El Codigo de Barra: " + TBCodigodeBarra.Text + " del Producto: " + this.TBNombre.Text + " a Sido Agregado Exitosamente");
+                                this.MensajeOk("El Código de Barra: " + TBCodigodeBarra.Text + " del Producto: " + this.TBNombre.Text + " a Sido Agregado Exitosamente");
                             }
 
                             else
@@ -1682,11 +1686,12 @@ namespace Presentacion
 
                     //Se remueve la fila
                     this.DtDetalle_CodigoDeBarra.Rows.Remove(row);
+                    this.lblTotal_Codigodebarra.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_CodigoDeBarra.Rows.Count);
                 }
             }
             catch (Exception ex)
             {
-                MensajeError("Por favor seleccione el Codigo de Barra que desea Remover del registo");
+                MensajeError("Por favor seleccione el Código de Barra que desea Remover del registo");
             }
         }
 
@@ -6229,6 +6234,7 @@ namespace Presentacion
 
         private void TBFabri_Material01_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //SOLO SE PERMITEN INTRODUCIR NUMEROS
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
                 e.Handled = true;
@@ -6238,6 +6244,7 @@ namespace Presentacion
 
         private void TBFabri_Material02_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //SOLO SE PERMITEN INTRODUCIR NUMEROS
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
                 e.Handled = true;
@@ -6247,6 +6254,7 @@ namespace Presentacion
 
         private void TBFabri_Material03_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //SOLO SE PERMITEN INTRODUCIR NUMEROS
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
                 e.Handled = true;
@@ -6256,6 +6264,7 @@ namespace Presentacion
 
         private void TBFabri_OtroMaterial_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //SOLO SE PERMITEN INTRODUCIR NUMEROS
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
                 e.Handled = true;
@@ -6265,6 +6274,7 @@ namespace Presentacion
 
         private void TBFabri_ManoDeObra_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //SOLO SE PERMITEN INTRODUCIR NUMEROS
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
                 e.Handled = true;
@@ -6274,6 +6284,7 @@ namespace Presentacion
 
         private void TBFabri_Materiales_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //SOLO SE PERMITEN INTRODUCIR NUMEROS
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
                 e.Handled = true;
@@ -6283,6 +6294,7 @@ namespace Presentacion
 
         private void TBFabri_Envio_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //SOLO SE PERMITEN INTRODUCIR NUMEROS
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
                 e.Handled = true;
@@ -6292,6 +6304,7 @@ namespace Presentacion
 
         private void TBFabri_Almacenamiento_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //SOLO SE PERMITEN INTRODUCIR NUMEROS
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
                 e.Handled = true;
@@ -6301,6 +6314,7 @@ namespace Presentacion
 
         private void TBFabri_Maquinaria_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //SOLO SE PERMITEN INTRODUCIR NUMEROS
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
                 e.Handled = true;
@@ -6310,6 +6324,7 @@ namespace Presentacion
 
         private void TBFabri_Manual_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //SOLO SE PERMITEN INTRODUCIR NUMEROS
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
                 e.Handled = true;
@@ -6319,6 +6334,7 @@ namespace Presentacion
 
         private void TBFabri_TotalFabricacion_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //SOLO SE PERMITEN INTRODUCIR NUMEROS
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
                 e.Handled = true;
@@ -8500,9 +8516,170 @@ namespace Presentacion
             }
         }
 
-        private void TBFabri_Envio_TextChanged(object sender, EventArgs e)
+        private void TBValorBase_Inicial01_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void TBValorBase_Inicial02_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TBValorBase_Inicial03_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TBValorBase_InicialMayorista_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TBValorBase_Inicial01_Leave(object sender, EventArgs e)
+        {
+            //Color de texboxt cuando este posee el FOCUS Activado
+            this.TBValorBase_Inicial01.BackColor = Color.FromArgb(3, 155, 229);
+
+            if (TBValorBase_Inicial01.Text != string.Empty)
+            {
+                this.Calculo_Impuesto();
+            }
+
+            // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
+            TextBox tb = (TextBox)sender;
+
+            // Primero verificamos si el valor se puede convertir a Decimal.
+            double numero = default(double);
+            bool bln = double.TryParse(tb.Text, out numero);
+
+            if ((!(bln)))
+            {
+                // No es un valor decimal válido; limpiamos el control.
+                //tb.Clear();
+                return;
+            }
+
+            // En la propiedad Tag guardamos el valor con todos los decimales.
+            //
+            tb.Tag = numero;
+
+            // Y acto seguido formateamos el valor
+            // a monetario con dos decimales.
+            //
+            tb.Text = string.Format("{0:N2}", numero);
+        }
+
+        private void TBValorBase_Inicial02_Leave(object sender, EventArgs e)
+        {
+            //Color de texboxt cuando este posee el FOCUS Activado
+            this.TBValorBase_Inicial02.BackColor = Color.FromArgb(3, 155, 229);
+
+            if (TBValorBase_Inicial02.Text != string.Empty)
+            {
+                this.Calculo_Impuesto();
+            }
+
+            // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
+            TextBox tb = (TextBox)sender;
+
+            // Primero verificamos si el valor se puede convertir a Decimal.
+            double numero = default(double);
+            bool bln = double.TryParse(tb.Text, out numero);
+
+            if ((!(bln)))
+            {
+                // No es un valor decimal válido; limpiamos el control.
+                //tb.Clear();
+                return;
+            }
+
+            // En la propiedad Tag guardamos el valor con todos los decimales.
+            //
+            tb.Tag = numero;
+
+            // Y acto seguido formateamos el valor
+            // a monetario con dos decimales.
+            //
+            tb.Text = string.Format("{0:N2}", numero);
+        }
+
+        private void TBValorBase_Inicial03_Leave(object sender, EventArgs e)
+        {
+            //Color de texboxt cuando este posee el FOCUS Activado
+            this.TBValorBase_Inicial03.BackColor = Color.FromArgb(3, 155, 229);
+
+            if (TBValorBase_Inicial03.Text != string.Empty)
+            {
+                this.Calculo_Impuesto();
+            }
+
+            // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
+            TextBox tb = (TextBox)sender;
+
+            // Primero verificamos si el valor se puede convertir a Decimal.
+            double numero = default(double);
+            bool bln = double.TryParse(tb.Text, out numero);
+
+            if ((!(bln)))
+            {
+                // No es un valor decimal válido; limpiamos el control.
+                //tb.Clear();
+                return;
+            }
+
+            // En la propiedad Tag guardamos el valor con todos los decimales.
+            //
+            tb.Tag = numero;
+
+            // Y acto seguido formateamos el valor
+            // a monetario con dos decimales.
+            //
+            tb.Text = string.Format("{0:N2}", numero);
+        }
+
+        private void TBValorBase_InicialMayorista_Leave(object sender, EventArgs e)
+        {
+            //Color de texboxt cuando este posee el FOCUS Activado
+            this.TBValorBase_InicialMayorista.BackColor = Color.FromArgb(3, 155, 229);
+
+            if (TBValorBase_InicialMayorista.Text != string.Empty)
+            {
+                this.Calculo_Impuesto();
+            }
+
+            // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
+            TextBox tb = (TextBox)sender;
+
+            // Primero verificamos si el valor se puede convertir a Decimal.
+            double numero = default(double);
+            bool bln = double.TryParse(tb.Text, out numero);
+
+            if ((!(bln)))
+            {
+                // No es un valor decimal válido; limpiamos el control.
+                //tb.Clear();
+                return;
+            }
+
+            // En la propiedad Tag guardamos el valor con todos los decimales.
+            //
+            tb.Tag = numero;
+
+            // Y acto seguido formateamos el valor
+            // a monetario con dos decimales.
+            //
+            tb.Text = string.Format("{0:N2}", numero);
+        }
+
+        private void TBCodigodeBarra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //SOLO SE PERMITEN INTRODUCIR NUMEROS
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+                return;
+            }
         }
 
         private void TBFabri_Envio_KeyUp(object sender, KeyEventArgs e)
@@ -8962,7 +9139,7 @@ namespace Presentacion
                         }
                         if (agregar)
                         {
-                            DataRow fila = this.DtDetalle_Proveedor.NewRow();
+                            DataRow fila = this.DtDetalle_Compuesto.NewRow();
                             fila["Idproducto"] = Convert.ToInt32(this.TBIdproducto_AutoSQL.Text);
                             fila["Compuesto"] = this.TBCompuesto.Text;
                             fila["Descripción"] = this.TBComp_Descripcion.Text;
@@ -9108,50 +9285,50 @@ namespace Presentacion
         {
             try
             {
-                //if (Eliminar_c)
-                //{
-                //    if (Eliminar == "1")
-                //    {
-                //        DialogResult Opcion;
-                //        string Respuesta = "";
-                //        int Idcompuesto;
+                if (Eliminar_Compuesto)
+                {
+                    if (Eliminar == "1")
+                    {
+                        DialogResult Opcion;
+                        string Respuesta = "";
+                        int Idcompuesto;
 
-                //        Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                        Opcion = MessageBox.Show("Desea Eliminar el Registro Seleccionado", "Leal Enterprise", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
-                //        if (Opcion == DialogResult.OK)
-                //        {
-                //            if (DGDetalles_Ubicacion.SelectedRows.Count > 0)
-                //            {
-                //                Idcompuesto = Convert.ToInt32(DGDetalles_Ubicacion.CurrentRow.Cells["Idcompuesto"].Value.ToString());
-                //                Respuesta = Negocio.fProducto_Compuesto.Eliminar_Compuesto(Idproducto, 6);
-                //            }
+                        if (Opcion == DialogResult.OK)
+                        {
+                            if (DGDetalles_Ubicacion.SelectedRows.Count > 0)
+                            {
+                                Idcompuesto = Convert.ToInt32(DGDetalle_Compuesto.CurrentRow.Cells["Idcompuesto"].Value.ToString());
+                                //Respuesta = Negocio.fProducto_Inventario.Eliminar_Compuesto(Idproducto, 6);
+                            }
 
-                //            if (Respuesta.Equals("OK"))
-                //            {
-                //                this.MensajeOk("Compuesto Eliminado Correctamente");
-                //            }
-                //            else
-                //            {
-                //                this.MensajeError(Respuesta);
-                //            }
-                //        }
+                            if (Respuesta.Equals("OK"))
+                            {
+                                this.MensajeOk("Compuesto Eliminado Correctamente");
+                            }
+                            else
+                            {
+                                this.MensajeError(Respuesta);
+                            }
+                        }
 
-                //        //
-                //        this.Actualizar_DetCompuesto();
-                //    }
-                //    else
-                //    {
-                //        MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise - Solicitud Rechazada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                //    }
-                //}
-                //else
-                //{
-                //    int Fila = this.DGDetalle_Compuesto.CurrentCell.RowIndex;
-                //    DataRow row = this.DtDetalle_Compuesto.Rows[Fila];
+                        //
+                        this.Actualizar_DetCompuesto();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Acceso Denegado Para Realizar Eliminaciones en el Sistema", "Leal Enterprise - Solicitud Rechazada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+                else
+                {
+                    int Fila = this.DGDetalle_Compuesto.CurrentCell.RowIndex;
+                    DataRow row = this.DtDetalle_Compuesto.Rows[Fila];
 
-                //    //Se remueve la fila
-                //    this.DtDetalle_Compuesto.Rows.Remove(row);
-                //}
+                    //Se remueve la fila
+                    this.DtDetalle_Compuesto.Rows.Remove(row);
+                }
             }
             catch (Exception ex)
             {
@@ -9885,6 +10062,7 @@ namespace Presentacion
 
         private void TBCompraPromedio_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //SOLO SE PERMITEN INTRODUCIR NUMEROS
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
                 e.Handled = true;
@@ -10186,7 +10364,7 @@ namespace Presentacion
                 {
                     if (TBCodigodeBarra.Text == string.Empty)
                     {
-                        MensajeError("Por favor digite el Codigo de Barra que desea registrar");
+                        MensajeError("Por favor digite el Código de Barra que desea registrar");
                         this.TBCodigodeBarra.Focus();
                     }
                 }

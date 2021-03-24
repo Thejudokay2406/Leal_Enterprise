@@ -696,6 +696,12 @@ namespace Negocio
             return Datos.Eliminar(Idproducto, Auto);
         }
 
+        public static string Eliminar_Compuesto(int Idproducto, int Iddetalle, int Auto)
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            return Datos.Eliminar_Compuesto(Idproducto, Iddetalle, Auto);
+        }
+
         public static string Eliminar_CodigoDeBara(int Idproducto, int Iddetalle, int Auto)
         {
             Conexion_Producto Datos = new Conexion_Producto();

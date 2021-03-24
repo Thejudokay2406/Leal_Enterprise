@@ -5,14 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 using System.Data.SqlClient;
-using static System.Configuration.ConfigurationManager;
-using System.Configuration;
+//using System.Configuration;
+//using static System.Configuration.ConfigurationManager;
 
 namespace Datos
 {
     public class Conexion_SQLServer
     {
-        public static string preconex = ConnectionStrings["stringConexion"].ConnectionString;
+        //public static string preconex = ConnectionStrings["stringConexion"].ConnectionString;
 
         private string Base;
         private string Servidor;
@@ -23,7 +23,7 @@ namespace Datos
 
         private Conexion_SQLServer()
         {
-            var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            //var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
 
             this.Base = "Leal_Enterprise";
             this.Servidor = "(Local)";
