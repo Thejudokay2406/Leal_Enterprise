@@ -12,7 +12,7 @@ namespace Datos
 {
     public class Conexion_GrupoDeCliente
     {
-        public DataTable Lista()
+        public DataTable Lista(int Auto)
         {
             SqlDataReader Resultado;
             DataTable Tabla = new DataTable();
@@ -22,6 +22,9 @@ namespace Datos
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
                 SqlCommand Comando = new SqlCommand("Cliente.LI_Grupo", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
+
+                Comando.Parameters.Add("@Consulta", SqlDbType.Int).Value = Auto;
+
                 SqlCon.Open();
                 Resultado = Comando.ExecuteReader();
                 Tabla.Load(Resultado);

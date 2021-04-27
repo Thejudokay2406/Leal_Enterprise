@@ -207,6 +207,7 @@
             this.DGFiltro_General.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGFiltro_General.Size = new System.Drawing.Size(490, 252);
             this.DGFiltro_General.TabIndex = 9;
+            this.DGFiltro_General.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGFiltro_General_CellDoubleClick);
             // 
             // label9
             // 

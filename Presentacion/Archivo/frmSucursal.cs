@@ -12,7 +12,7 @@ using Negocio;
 
 namespace Presentacion
 {
-    public partial class frmSucurzal : Form
+    public partial class frmSucursal : Form
     {
         // Variable con la cual se define si el procecimiento 
         // A realizar es Editar, Guardar, Buscar,Eliminar
@@ -31,12 +31,12 @@ namespace Presentacion
         //Panel Datos Basicos
         public string Idsucurzal, Sucurzal, Nit, Descripcion, Gerente, Pais, Ciudad, Direccion = "";
         
-        public frmSucurzal()
+        public frmSucursal()
         {
             InitializeComponent();
         }
 
-        private void frmSucurzal_Load(object sender, EventArgs e)
+        private void frmSucursal_Load(object sender, EventArgs e)
         {
             //Inicio de Clase y Botones
             this.Botones();
@@ -82,10 +82,14 @@ namespace Presentacion
         {
             //Panel - Datos Basicos
             this.TBSucurzal.Clear();
+            this.TBSucurzal.Text = Campo;
+            this.TBSucurzal.ForeColor = Color.FromArgb(255, 255, 255);
             this.TBNit.Clear();
-            this.TBNit.Text = Campo;        
+            this.TBNit.Text = Campo;
+            this.TBNit.ForeColor = Color.FromArgb(255, 255, 255);
             this.TBGerente.Clear();
             this.TBGerente.Text = Campo;
+            this.TBGerente.ForeColor = Color.FromArgb(255, 255, 255);
             this.TBDescripcion.Clear();
             this.TBPais.Clear();
             this.TBCiudad.Clear();
@@ -226,6 +230,7 @@ namespace Presentacion
 
                         //Botones Comunes
                         this.TBBuscar.Clear();
+                        this.TBBuscar.Focus();
                     }
                 }
                 else
@@ -268,6 +273,8 @@ namespace Presentacion
                         MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Guardar Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                         //Llamada de Clase
+                        this.Digitar = true;
+                        this.Botones();
                         this.Limpiar_Datos();
                     }
                 }
@@ -284,6 +291,8 @@ namespace Presentacion
                         MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Editar Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                         //Llamada de Clase
+                        this.Digitar = true;
+                        this.Botones();
                         this.Limpiar_Datos();
                     }
                 }
@@ -298,6 +307,7 @@ namespace Presentacion
         {
             try
             {
+                //Llamada de Clase
                 this.Digitar = true;
                 this.Botones();
                 this.Limpiar_Datos();
@@ -340,7 +350,7 @@ namespace Presentacion
                     if (TBBuscar.Text != "")
                     {
                         this.DGResultados.DataSource = fSucurzal.Buscar(this.TBBuscar.Text, 1);
-                        //this.DGResultadoss.Columns[1].Visible = false;
+                        this.DGResultados.Columns[0].Visible = false;
 
                         lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGResultados.Rows.Count);
 
@@ -425,7 +435,6 @@ namespace Presentacion
             {
                 //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
                 this.TBNit.BackColor = Color.Azure;
-                this.TBNit.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 
@@ -447,7 +456,6 @@ namespace Presentacion
             {
                 //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
                 this.TBGerente.BackColor = Color.Azure;
-                this.TBGerente.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 
@@ -480,7 +488,8 @@ namespace Presentacion
 
             else
             {
-                TBSucurzal.BackColor = Color.FromArgb(3, 155, 229);
+                this.TBSucurzal.BackColor = Color.FromArgb(3, 155, 229);
+                this.TBSucurzal.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 
@@ -497,7 +506,7 @@ namespace Presentacion
             else
             {
                 this.TBNit.BackColor = Color.FromArgb(3, 155, 229);
-                this.TBNit.ForeColor = Color.FromArgb(255, 255, 255);
+                this.TBNit.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 
@@ -518,7 +527,8 @@ namespace Presentacion
 
             else
             {
-                TBGerente.BackColor = Color.FromArgb(3, 155, 229);
+                this.TBGerente.BackColor = Color.FromArgb(3, 155, 229);
+                this.TBGerente.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 

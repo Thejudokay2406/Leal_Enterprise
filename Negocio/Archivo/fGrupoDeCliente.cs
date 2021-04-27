@@ -12,10 +12,10 @@ namespace Negocio
 {
     public class fGrupoDeCliente
     {
-        public static DataTable Lista()
+        public static DataTable Lista(int auto)
         {
             Conexion_GrupoDeCliente Datos = new Conexion_GrupoDeCliente();
-            return Datos.Lista();
+            return Datos.Lista(auto);
         }
 
         public static DataTable Buscar(string Filtro, int auto)

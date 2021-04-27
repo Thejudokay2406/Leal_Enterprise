@@ -43,7 +43,7 @@ namespace Presentacion
                 if (TBBuscar.Text != "")
                 {
                     this.DGFiltro_Resultados.DataSource = fBanco.Buscar(this.TBBuscar.Text, 1);
-                    //this.DGResultados.Columns[1].Visible = false;
+                    this.DGFiltro_Resultados.Columns[0].Visible = false;
 
                     lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGFiltro_Resultados.Rows.Count);
                 }
@@ -116,6 +116,45 @@ namespace Presentacion
                     this.DGFiltro_Resultados.Enabled = false;
                     this.lblTotal.Text = "Datos Registrados: 0";
 
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                try
+                {
+                    frmBanco_Contacto frmBanCon = frmBanco_Contacto.GetInstancia();
+                    frmProveedor frmPro = frmProveedor.GetInstancia();
+                    string idbanco, banco, documento;
+
+                    if (frmPro.Examinar)
+                    {
+                        idbanco = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
+                        banco = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
+                        documento = this.DGFiltro_Resultados.CurrentRow.Cells[2].Value.ToString();
+                        frmPro.setBanco(idbanco, documento, banco);
+                        this.Hide();
+                    }
+
+                    if (frmBanCon.Examinar)
+                    {
+                        idbanco = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
+                        banco = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
+                        documento = this.DGFiltro_Resultados.CurrentRow.Cells[2].Value.ToString();
+                        frmBanCon.setBanco(idbanco, documento, banco);
+                        this.Hide();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message + ex.StackTrace);
                 }
             }
             catch (Exception ex)

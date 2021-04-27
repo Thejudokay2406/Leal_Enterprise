@@ -92,7 +92,7 @@ namespace Negocio
                 int auto, int idtipo, int idgrupo,
 
                 //Datos Basicos
-                string codigo, string cliente, Int64 documento, Int64 telefonoprin, Int64 movilprin, Int64 telefonoaux, Int64 movilaux,
+                string cliente, Int64 documento, Int64 telefonoprin, Int64 movilprin, Int64 telefonoaux, Int64 movilaux,
                 string correo, string pais, string ciudad, string departamento, string paginaweb, string direccion, string observacion,
 
                 //Panel Facturacion
@@ -128,7 +128,6 @@ namespace Negocio
             Obj.Idgrupo = idgrupo;
 
             //Datos Basicos
-            Obj.Dat_Codigo = codigo;
             Obj.Dat_Cliente = cliente;
             Obj.Dat_Documento = documento;
             Obj.Dat_Telefono = telefonoprin;
@@ -333,7 +332,7 @@ namespace Negocio
                 int auto, int idcliente, int idtipo, int idgrupo,
 
                 //Datos Basicos
-                string codigo, string cliente, Int64 documento, Int64 telefonoprin, Int64 movilprin, Int64 telefonoaux, Int64 movilaux,
+                string cliente, Int64 documento, Int64 telefonoprin, Int64 movilprin, Int64 telefonoaux, Int64 movilaux,
                 string correo, string pais, string ciudad, string departamento, string paginaweb, string direccion, string observacion
             )
         {
@@ -347,7 +346,6 @@ namespace Negocio
             Obj.Idgrupo = idgrupo;
 
             //Datos Basicos
-            Obj.Dat_Codigo = codigo;
             Obj.Dat_Cliente = cliente;
             Obj.Dat_Documento = documento;
             Obj.Dat_Telefono = telefonoprin;

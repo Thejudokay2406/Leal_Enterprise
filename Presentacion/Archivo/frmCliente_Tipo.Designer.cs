@@ -1,6 +1,6 @@
 ﻿namespace Presentacion
 {
-    partial class frmTipo_Cliente
+    partial class frmCliente_Tipo
     {
         /// <summary>
         /// Required designer variable.
@@ -299,7 +299,7 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Registro de Tipo de Cliente - Leal Enterprise";
             // 
-            // frmTipo_Cliente
+            // frmCliente_Tipo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -309,10 +309,10 @@
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaximizeBox = false;
-            this.Name = "frmTipo_Cliente";
+            this.Name = "frmCliente_Tipo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Archivo - Tipo de Cliente";
-            this.Load += new System.EventHandler(this.frmTipo_Cliente_Load);
+            this.Load += new System.EventHandler(this.frmCliente_Tipo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGResultados)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();

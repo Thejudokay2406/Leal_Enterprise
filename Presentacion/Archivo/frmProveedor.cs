@@ -45,17 +45,13 @@ namespace Presentacion
         private DataTable DtDetalle_Banco;
         private DataTable DtDetalle_Envio;
 
-        //********** Variables para AutoComplementar Combobox segun la Consulta en SQL ******************************
-
-        private string Sucurzal_SQL = "";
-
         //Variable para Metodo SQL Guardar, Eliminar, Editar, Consultar
         public string Guardar, Editar, Consultar, Eliminar, Imprimir = "";
 
         //********** Parametros para AutoCompletar los Texboxt **********************************
 
         //Panel Datos Basicos
-        public string Idproveedor, Idsucurzal, Tipo, Proveedor, Documento, Representante, Telefono, Movil, Correo, Pais, Ciudad, Nacionalidad, FechaDeInicio = "";
+        public string Idproveedor, Tipo, Proveedor, Documento, Representante, Telefono, Movil, Correo, Pais, Ciudad, Nacionalidad, FechaDeInicio = "";
 
         //********** Variables para la Validacion de las Transacciones en SQL **************************************************
 
@@ -73,7 +69,6 @@ namespace Presentacion
             //Inicio de Clase y Botones
             this.Botones();
             this.Habilitar();
-            this.Combobox_Sucurzal();
             this.AutoIncrementable_SQL();
             this.Diseño_TablasGenerales();
 
@@ -149,7 +144,6 @@ namespace Presentacion
             //Panel - Datos Basicos
             this.TBIdproveedor.Clear();
             this.CBTipo.SelectedIndex = 0;
-            this.CBSucurzal.SelectedIndex = 0;
             this.TBNombre.Clear();
             this.TBNombre.Text = Campo;
             this.TBNombre.ForeColor = Color.FromArgb(255, 255, 255);
@@ -307,21 +301,6 @@ namespace Presentacion
             }
         }
 
-
-        private void Combobox_Sucurzal()
-        {
-            try
-            {
-                this.CBSucurzal.DataSource = fSucurzal.Lista(3);
-                this.CBSucurzal.ValueMember = "Codigo";
-                this.CBSucurzal.DisplayMember = "Sucursal";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
         public void setBanco(string idbanco, string documento, string banco)
         {
             this.TBIdbanco.Text = idbanco;
@@ -451,11 +430,6 @@ namespace Presentacion
                 {
                     MensajeError("Seleccione el Tipo de Proveedor");
                 }
-                else if (this.CBSucurzal.SelectedIndex == 0)
-                {
-                    MensajeError("Seleccione la Sucurzal a la Cual Pertenece el Proveedor");
-                }
-
                 else
                 {
 
@@ -468,7 +442,7 @@ namespace Presentacion
                             (
 
                                 //Datos Auxiliares y llave primaria
-                                1, Convert.ToInt32(this.CBSucurzal.SelectedValue),
+                                1,
 
                                 //Panel Datos Basicos
                                 this.CBTipo.Text, this.TBNombre.Text, this.TBDocumento.Text, this.TBRepresentante.Text, this.TBPais.Text, this.TBCiudad.Text, this.TBNacionalidad.Text, this.TBTelefono.Text, this.TBMovil.Text, this.TBCorreo.Text, this.DTFechadeinicio.Value,
@@ -495,7 +469,7 @@ namespace Presentacion
 
                             (
                                  //Datos Auxiliares y llave primaria
-                                 2, Convert.ToInt32(this.TBIdproveedor.Text), Convert.ToInt32(this.CBSucurzal.SelectedValue),
+                                 2, Convert.ToInt32(this.TBIdproveedor.Text),
 
                                 //Panel Datos Basicos
                                 this.CBTipo.Text, this.TBNombre.Text, this.TBDocumento.Text, this.TBRepresentante.Text, this.TBPais.Text,
@@ -1016,7 +990,7 @@ namespace Presentacion
                     if (TBBuscar.Text != "")
                     {
                         this.DGResultados.DataSource = fProveedor.Buscar(this.TBBuscar.Text, 1);
-                        //this.DGResultados.Columns[1].Visible = false;
+                        this.DGResultados.Columns[0].Visible = false;
 
                         lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGResultados.Rows.Count);
 
@@ -1080,7 +1054,6 @@ namespace Presentacion
                         Movil = Datos.Rows[0][8].ToString();
                         Correo = Datos.Rows[0][9].ToString();
                         FechaDeInicio = Datos.Rows[0][10].ToString();
-                        Idsucurzal = Datos.Rows[0][11].ToString();
 
                         //SE PROCEDE A LLENAR LOS CAMPOS DE TEXTO SEGUN LA CONSULTA REALIZADA
 
@@ -1095,9 +1068,6 @@ namespace Presentacion
                         this.TBMovil.Text = Movil;
                         this.TBCorreo.Text = Correo;
                         this.DTFechadeinicio.Text = FechaDeInicio;
-
-                        this.Sucurzal_SQL = Idsucurzal;
-                        this.CBSucurzal.SelectedValue = Sucurzal_SQL;
 
                         //************************************************************************************************************************
                         //Se realizan las consultas para llenar los DataGriview donde se mostrarian los MultiPlex Registros.

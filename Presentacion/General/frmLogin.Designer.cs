@@ -84,7 +84,7 @@
             this.TBLealIngenieria.Name = "TBLealIngenieria";
             this.TBLealIngenieria.Size = new System.Drawing.Size(329, 20);
             this.TBLealIngenieria.TabIndex = 16;
-            this.TBLealIngenieria.Text = "Desarrollado por Leal Ingenieria";
+            this.TBLealIngenieria.Text = "Desarrollado por G&Q Enterprise Group";
             this.TBLealIngenieria.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // TBInicioDeSesion

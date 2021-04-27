@@ -28,11 +28,6 @@ namespace Presentacion
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void frmFiltro_Producto_Load(object sender, EventArgs e)
         {
             //Inicio de Clase y Botones
@@ -43,6 +38,15 @@ namespace Presentacion
 
             //Ocultacion de Texboxt
             this.TBIdproducto.Visible = false;
+
+            //SE EVALUA EL TIPO DE FILTRO A REALIZAR YA SEA DE IGUALDAD O GENERAL
+            frmProducto frmPro = new frmProducto();
+
+            if (frmPro.Filtro_Igualdad)
+            {
+                tabControl1.SelectedIndex = 1;
+                this.TBBuscar_Igualdad.Focus();
+            }
         }
 
         //Mensaje de confirmacion

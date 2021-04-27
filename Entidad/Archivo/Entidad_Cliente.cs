@@ -24,7 +24,6 @@ namespace Entidad
         private int _Idcontacto;
 
         //Datos Basicos
-        private string _Dat_Codigo;
         private string _Dat_Cliente;
         private Int64 _Dat_Documento;
         private Int64 _Dat_Telefono;
@@ -140,7 +139,6 @@ namespace Entidad
         public int Iddespacho { get => _Iddespacho; set => _Iddespacho = value; }
         public int Idfinanciera { get => _Idfinanciera; set => _Idfinanciera = value; }
         public int Idcontacto { get => _Idcontacto; set => _Idcontacto = value; }
-        public string Dat_Codigo { get => _Dat_Codigo; set => _Dat_Codigo = value; }
         public string Dat_Cliente { get => _Dat_Cliente; set => _Dat_Cliente = value; }
         public long Dat_Documento { get => _Dat_Documento; set => _Dat_Documento = value; }
         public long Dat_Telefono { get => _Dat_Telefono; set => _Dat_Telefono = value; }

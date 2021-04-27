@@ -68,7 +68,7 @@ namespace Presentacion
         {
             try
             {
-                frmProductos frmPro = frmProductos.GetInstancia();
+                frmProducto frmPro = frmProducto.GetInstancia();
                 frmOrdenDeCompra frmOCom = frmOrdenDeCompra.GetInstancia();
                 frmInventario_Ingreso frmInv = frmInventario_Ingreso.GetInstancia();
                 frmCotizacionDeCompra frmCot = frmCotizacionDeCompra.GetInstancia();

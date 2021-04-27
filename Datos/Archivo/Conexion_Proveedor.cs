@@ -252,7 +252,6 @@ namespace Datos
                 Comando.Parameters.Add("@Tran_Banco", SqlDbType.Int).Value = Obj.Tran_Banco;
 
                 //Panel Datos Basicos
-                Comando.Parameters.Add("@Idsucurzal", SqlDbType.Int).Value = Obj.Idsucurzal;
                 Comando.Parameters.Add("@Tipo", SqlDbType.VarChar).Value = Obj.Tipo;
                 Comando.Parameters.Add("@Nombre", SqlDbType.VarChar).Value = Obj.Nombre;
                 Comando.Parameters.Add("@Documento", SqlDbType.VarChar).Value = Obj.Documento;
@@ -273,6 +272,7 @@ namespace Datos
 
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() != 1 ? "OK" : "Error al Actualizar el Registro";
+
                 //if (Comando.ExecuteNonQuery() == 1)
                 //{
                 //    this.MensajeOk("OK");
@@ -399,7 +399,6 @@ namespace Datos
                 
                 //Panel Datos Basicos
                 Comando.Parameters.Add("@Idproveedor", SqlDbType.Int).Value = Obj.Idproveedor;
-                Comando.Parameters.Add("@Idsucurzal", SqlDbType.Int).Value = Obj.Idsucurzal;
                 Comando.Parameters.Add("@Tipo", SqlDbType.VarChar).Value = Obj.Tipo;
                 Comando.Parameters.Add("@Nombre", SqlDbType.VarChar).Value = Obj.Nombre;
                 Comando.Parameters.Add("@Documento", SqlDbType.VarChar).Value = Obj.Documento;

@@ -34,15 +34,15 @@ namespace Presentacion
         //Variable para Captura el Empleado Logueado
         public int Idempleado;
 
-        //********** Variables para AutoComplementar Combobox y Chexboxt segun la Consulta en SQL ******************************************************************************
+        //********** Variables para AutoComplementar Combobox, Codigo_AutoIncrementable y Chexboxt segun la Consulta en SQL *************************
 
-        private string Departamento_SQL, Contrato_SQL, Sucurzal_SQL = "";
+        private string Departamento_SQL, Contrato_SQL, Sucurzal_SQL, Operacion, AutoIncrementable = "";
 
-        //********** Variable para Metodo SQL Guardar, Eliminar, Editar, Consultar *********************************************************************************************
+        //********** Variable para Metodo SQL Guardar, Eliminar, Editar, Consultar ****************************************
 
         public string Guardar, Editar, Consultar, Eliminar, Imprimir = "";
 
-        //********** Parametros para AutoCompletar los Texboxt *****************************************************************************************************************
+        //********** Parametros para AutoCompletar los Texboxt ************************************************************
 
         //Llaves Primarias
         private string Idcontrato, Idsucurzal, Iddepartamento,
@@ -67,6 +67,7 @@ namespace Presentacion
             this.Botones();
             this.Habilitar();
             this.AutoCompletar_Combobox();
+            this.Auto_CodigoSQL();
 
             //Focus a Texboxt y Combobox
             this.TBEmpleado.Select();
@@ -78,8 +79,8 @@ namespace Presentacion
         private void Habilitar()
         {
             //Panel - Datos Basicos
-            this.TBCodigo.ReadOnly = false;
-            this.TBCodigo.BackColor = Color.FromArgb(3, 155, 229);
+            //this.TBCodigo.ReadOnly = false;
+            //this.TBCodigo.BackColor = Color.FromArgb(3, 155, 229);
             this.TBEmpleado.ReadOnly = false;
             this.TBEmpleado.BackColor = Color.FromArgb(3, 155, 229);
             this.TBEmpleado.ForeColor = Color.FromArgb(255, 255, 255);
@@ -135,7 +136,7 @@ namespace Presentacion
         {
             //Panel - Datos Basicos
             this.TBIdempleado.Clear();
-            this.TBCodigo.Clear();
+            //this.TBCodigo.Clear();
             this.TBEmpleado.Clear();
             this.TBEmpleado.Text = Campo;
             this.TBEmpleado.ForeColor = Color.FromArgb(255, 255, 255);
@@ -175,14 +176,52 @@ namespace Presentacion
             if (Digitar)
             {
                 this.btnGuardar.Enabled = true;
-                this.btnGuardar.Text = "Guardar";
+                this.btnGuardar.Text = "Guardar - F10";
+
+                this.btnEliminar.Enabled = false;
                 this.btnCancelar.Enabled = false;
             }
             else if (!Digitar)
             {
                 this.btnGuardar.Enabled = true;
-                this.btnGuardar.Text = "Editar";
+                this.btnGuardar.Text = "Editar - F10";
+
+                this.btnEliminar.Enabled = false;
                 this.btnCancelar.Enabled = true;
+            }
+        }
+
+        private void Auto_CodigoSQL()
+        {
+            try
+            {
+                DataTable Datos = Negocio.fGestion_Empleados.AutoIncrementable(Convert.ToInt32(0));
+                //Evaluamos si  existen los Datos
+                if (Datos.Rows.Count == 0)
+                {
+                    //MessageBox.Show("Niveles de Seguridad no Cumplidos", "Leal Enterprise - Acceso Denegado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.TBCodigo.Enabled = true;
+                }
+                else
+                {
+                    Operacion = Datos.Rows[0][0].ToString();
+                    AutoIncrementable = Datos.Rows[0][1].ToString();
+
+                    if (Operacion == "A")
+                    {
+                        this.TBCodigo.Enabled = false;
+                        this.TBCodigo.Text = AutoIncrementable;
+                    }
+                    else
+                    {
+                        this.TBCodigo.Enabled = true;
+                        this.TBCodigo.BackColor = Color.FromArgb(3, 155, 229);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
 
@@ -281,6 +320,7 @@ namespace Presentacion
                     this.Digitar = true;
                     this.Botones();
                     this.Limpiar_Datos();
+                    this.Auto_CodigoSQL();
                 }
 
             }
@@ -339,7 +379,8 @@ namespace Presentacion
                         MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Editar Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                         //Llamada de Clase
-                        this.Digitar = false;
+                        this.Digitar = true;
+                        this.Botones();
                         this.Limpiar_Datos();
                     }
                 }

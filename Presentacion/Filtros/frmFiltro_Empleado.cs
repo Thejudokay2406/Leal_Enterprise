@@ -137,5 +137,28 @@ namespace Presentacion
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
+
+        private void DGFiltro_General_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                frmCliente frmCli = frmCliente.GetInstancia();
+                string idbanco, asesor, documento;
+
+                if (frmCli.Examinar)
+                {
+                    idbanco = this.DGFiltro_General.CurrentRow.Cells[0].Value.ToString();
+                    asesor = this.DGFiltro_General.CurrentRow.Cells[1].Value.ToString();
+                    documento = this.DGFiltro_General.CurrentRow.Cells[2].Value.ToString();
+                    frmCli.setEmpleado(idbanco, documento, asesor);
+                    this.Hide();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

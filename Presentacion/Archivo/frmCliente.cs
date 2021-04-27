@@ -31,6 +31,8 @@ namespace Presentacion
         // A realizar es Editar, Guardar, Buscar,Eliminar
         private bool Digitar = true;
         public bool Filtro = true;
+        public bool Examinar = true;
+
         private string Campo = "Campo Obligatorio";
 
         //Variables para Eliminar y ejecutar los procedimientos Internos en los paneles
@@ -65,7 +67,7 @@ namespace Presentacion
         // ******************************************* Parametros para AutoCompletar los Texboxt *********************************************************
 
         //Panel Datos Basicos
-        private string Idcliente, Idtipo, Idgrupo, Codigo, Cliente, Documento, Telefono, Movil, TelefonoAux, MovilAux, Correo, Pais, Ciudad, Departamento, Web, Direccion, Observacion, Efectivo, Credito, Debito, Contado = "";
+        private string Idcliente, Idtipo, Idgrupo, Cliente, Documento, Telefono, Movil, TelefonoAux, MovilAux, Correo, Pais, Ciudad, Departamento, Web, Direccion, Observacion, Efectivo, Credito, Debito, Contado = "";
         public frmCliente()
         {
             InitializeComponent();
@@ -106,10 +108,6 @@ namespace Presentacion
             this.CBGrupo.Enabled = true;
             this.CBGrupo.BackColor = Color.FromArgb(3, 155, 229);
 
-            this.TBDat_Codigo.ReadOnly = false;
-            this.TBDat_Codigo.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBDat_Codigo.ForeColor = Color.FromArgb(255, 255, 255);
-            this.TBDat_Codigo.Text = Campo;
             this.TBDat_Nombre.ReadOnly = false;
             this.TBDat_Nombre.BackColor = Color.FromArgb(3, 155, 229);
             this.TBDat_Nombre.ForeColor = Color.FromArgb(255, 255, 255);
@@ -230,9 +228,6 @@ namespace Presentacion
             //Panel - Datos Basicos
             this.CBTipo.SelectedIndex = 0;
             this.CBGrupo.SelectedIndex = 0;
-            this.TBDat_Codigo.Clear();
-            this.TBDat_Codigo.Text = Campo;
-            this.TBDat_Codigo.ForeColor = Color.FromArgb(255, 255, 255);
             this.TBDat_Nombre.Clear();
             this.TBDat_Nombre.Text = Campo;
             this.TBDat_Nombre.ForeColor = Color.FromArgb(255, 255, 255);
@@ -313,7 +308,6 @@ namespace Presentacion
 
             //Se realiza el FOCUS al panel y campo de texto iniciales
             this.TCPrincipal.SelectedIndex = 0;
-            this.TBDat_Codigo.Select();
 
             //SE PROCEDE A LIMPIAR LAS TABLAS DE LOS MULTIPLEX PANELES
             this.Diseño_TablasGenerales();
@@ -353,12 +347,12 @@ namespace Presentacion
         {
             try
             {
-                this.CBTipo.DataSource = fTipoDeCliente.Lista();
-                this.CBTipo.ValueMember = "Codigo";
+                this.CBTipo.DataSource = fTipoDeCliente.Lista(Convert.ToInt32(0));
+                this.CBTipo.ValueMember = "Código";
                 this.CBTipo.DisplayMember = "Tipo";
 
-                this.CBGrupo.DataSource = fGrupoDeCliente.Lista();
-                this.CBGrupo.ValueMember = "Codigo";
+                this.CBGrupo.DataSource = fGrupoDeCliente.Lista(Convert.ToInt32(0));
+                this.CBGrupo.ValueMember = "Código";
                 this.CBGrupo.DisplayMember = "Grupo";
             }
             catch (Exception ex)
@@ -645,10 +639,6 @@ namespace Presentacion
                 {
                     MensajeError("Ingrese el numero del Documento del Cliente");
                 }
-                else if (this.TBDat_Codigo.Text == Campo)
-                {
-                    MensajeError("Ingrese el Codigo del Cliente");
-                }
                 else if (this.CBTipo.SelectedIndex == 0)
                 {
                     MensajeError("Seleccione el Tipo de Cliente");
@@ -667,7 +657,7 @@ namespace Presentacion
                                 Convert.ToInt32(1), Convert.ToInt32(this.CBTipo.SelectedValue), Convert.ToInt32(this.CBGrupo.SelectedValue),
 
                                 //Panel Datos Basicos
-                                this.TBDat_Codigo.Text, this.TBDat_Nombre.Text, Convert.ToInt64(this.TBDat_Documento.Text), Convert.ToInt64(this.TBDat_Telefono.Text), Convert.ToInt64(this.TBDat_Movil.Text), Convert.ToInt64(this.TBDat_TelefonoAux.Text), Convert.ToInt64(this.TBDat_MovilAux.Text), this.TBDat_Correo.Text, this.TBDat_Pais.Text, this.TBDat_Ciudad.Text, this.TBDat_Departamento.Text, this.TBDat_PaginaWeb.Text, this.TBDat_Direccion.Text, this.TBDat_Observacion.Text,
+                                this.TBDat_Nombre.Text, Convert.ToInt64(this.TBDat_Documento.Text), Convert.ToInt64(this.TBDat_Telefono.Text), Convert.ToInt64(this.TBDat_Movil.Text), Convert.ToInt64(this.TBDat_TelefonoAux.Text), Convert.ToInt64(this.TBDat_MovilAux.Text), this.TBDat_Correo.Text, this.TBDat_Pais.Text, this.TBDat_Ciudad.Text, this.TBDat_Departamento.Text, this.TBDat_PaginaWeb.Text, this.TBDat_Direccion.Text, this.TBDat_Observacion.Text,
 
                                 //Tabla de Detalles - Facturacion, Credito, Despacho, Datos Financieros, Contacto
                                 this.DtDetalle_Facturacion, this.DtDetalle_Credito, this.DtDetalle_Despacho, this.DtDetalle_Financiera, this.DtDetalle_Contacto,
@@ -2196,7 +2186,7 @@ namespace Presentacion
                     //Idcliente = Datos.Rows[0][0].ToString();
                     Idtipo = Datos.Rows[0][1].ToString();
                     Idgrupo = Datos.Rows[0][2].ToString();
-                    Codigo = Datos.Rows[0][3].ToString();
+                    //Codigo = Datos.Rows[0][3].ToString();
                     Documento = Datos.Rows[0][4].ToString();
                     Telefono = Datos.Rows[0][5].ToString();
                     Movil = Datos.Rows[0][6].ToString();
@@ -2218,7 +2208,6 @@ namespace Presentacion
 
                     //Panel Datos Basicos
                     //this.TBIdcliente.Text = Idcliente;
-                    this.TBDat_Codigo.Text = Codigo;
                     this.TBDat_Nombre.Text = Cliente;
                     this.TBDat_Documento.Text = Documento;
                     this.TBDat_Telefono.Text = Telefono;
@@ -2430,22 +2419,6 @@ namespace Presentacion
             {
                 this.TBDat_Nombre.BackColor = Color.Azure;
                 this.TBDat_Nombre.ForeColor = Color.FromArgb(0, 0, 0);
-            }
-        }
-
-        private void TBDat_Codigo_Enter(object sender, EventArgs e)
-        {
-            //Se evalua si el campo de texto esta vacio y se espeicifca que es obligatorio en la base de datos
-            if (TBDat_Codigo.Text == Campo)
-            {
-                this.TBDat_Codigo.BackColor = Color.Azure;
-                this.TBDat_Codigo.ForeColor = Color.FromArgb(0, 0, 0);
-                this.TBDat_Codigo.Clear();
-            }
-            else
-            {
-                this.TBDat_Codigo.BackColor = Color.Azure;
-                this.TBDat_Codigo.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 
@@ -2729,22 +2702,6 @@ namespace Presentacion
 
         //********************** PANEL DATOS BASICOS - LEAVE *********************************************
 
-        private void TBDat_Codigo_Leave(object sender, EventArgs e)
-        {
-            if (TBDat_Codigo.Text == string.Empty)
-            {
-                //Color de texboxt cuando este posee el FOCUS Activado
-                this.TBDat_Codigo.BackColor = Color.FromArgb(3, 155, 229);
-                this.TBDat_Codigo.Text = Campo;
-                this.TBDat_Codigo.ForeColor = Color.FromArgb(255, 255, 255);
-            }
-
-            else
-            {
-                this.TBDat_Codigo.BackColor = Color.FromArgb(3, 155, 229);
-            }
-        }
-
         private void TBDat_Nombre_Leave(object sender, EventArgs e)
         {
             if (TBDat_Nombre.Text == string.Empty)
@@ -2997,74 +2954,6 @@ namespace Presentacion
         }
 
         //********************** PANEL DATOS BASICOS - SALTO DE LINEA *********************************************
-
-        private void TBDat_Codigo_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
-                {
-                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
-
-                    this.TBDat_Nombre.Select();
-                }
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
-                {
-                    //Al precionar las teclas F10 se realizara el registro en la base de datos
-                    //Y se realizara las validaciones en el sistema
-
-                    if (Digitar)
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo,  MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            if (Guardar == "1")
-                            {
-                                //Llamada de Clase
-                                this.Guardar_SQL();
-                            }
-                            else
-                            {
-                                                            MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
-                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
-
-                                this.Limpiar_Datos();
-                            }
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBDat_Codigo.Select();
-                        }
-                    }
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los Campos Consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            //Llamada de Clase
-                            this.Digitar = false;
-                            this.Guardar_SQL();
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBDat_Codigo.Select();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
 
         private void TBDat_Nombre_KeyUp(object sender, KeyEventArgs e)
         {

@@ -57,7 +57,7 @@ namespace Negocio
         public static string Guardar_DatosBasicos
             (
                 //Datos Auxiliares y Llaves Primaria
-                int auto, int idsucurzal,
+                int auto,
 
                 string tipo, string nombre, string documento, string representante, string pais, string ciudad, string nacionalidad, string telefono, string movil, string correo,
                 DateTime fechadeinicio,
@@ -79,7 +79,6 @@ namespace Negocio
             Entidad_Proveedor Obj = new Entidad_Proveedor();
 
             //Datos Basicos
-            Obj.Idsucurzal = idsucurzal;
             Obj.Tipo = tipo;
             Obj.Nombre = nombre;
             Obj.Documento = documento;
@@ -166,7 +165,7 @@ namespace Negocio
         public static string Editar_DatosBasicos
             (
                 //Datos Auxiliares y Llaves Primaria
-                int auto, int idproveedor, int idscurzal,
+                int auto, int idproveedor,
 
                 string tipo, string nombre, string documento, string representante, string pais,
                 string ciudad, string nacionalidad, string telefono, string movil, string correo,
@@ -180,7 +179,6 @@ namespace Negocio
             Obj.Auto = auto;
 
             //Datos Basicos
-            Obj.Idsucurzal = idscurzal;
             Obj.Idproveedor = idproveedor;
             Obj.Tipo = tipo;
             Obj.Nombre = nombre;

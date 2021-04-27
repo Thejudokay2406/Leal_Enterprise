@@ -12,7 +12,7 @@ using Negocio;
 
 namespace Presentacion
 {
-    public partial class frmTipo_Cliente : Form
+    public partial class frmCliente_Tipo : Form
     {
         // Variable con la cual se define si el procecimiento 
         // A realizar es Editar, Guardar, Buscar,Eliminar
@@ -26,12 +26,12 @@ namespace Presentacion
         //Variable para Autocomplementar los campos de texto
         private string Tipo, Descripcion, Observacion = "";
 
-        public frmTipo_Cliente()
+        public frmCliente_Tipo()
         {
             InitializeComponent();
         }
 
-        private void frmTipo_Cliente_Load(object sender, EventArgs e)
+        private void frmCliente_Tipo_Load(object sender, EventArgs e)
         {
             //Inicio de Clase y Botones
             this.Botones();

@@ -12,6 +12,12 @@ namespace Negocio
 {
     public class fGestion_Empleados
     {
+        public static DataTable AutoIncrementable(int auto)
+        {
+            Conexion_Empleados Datos = new Conexion_Empleados();
+            return Datos.AutoIncrementable(auto);
+        }
+
         public static DataTable Lista()
         {
             Conexion_Empleados Datos = new Conexion_Empleados();

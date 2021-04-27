@@ -181,11 +181,11 @@
     <Compile Include="Filtros\frmFiltro_Impuesto.Designer.cs">
       <DependentUpon>frmFiltro_Impuesto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Archivo\frmGrupoCliente.cs">
+    <Compile Include="Archivo\frmCliente_Grupo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Archivo\frmGrupoCliente.Designer.cs">
-      <DependentUpon>frmGrupoCliente.cs</DependentUpon>
+    <Compile Include="Archivo\frmCliente_Grupo.Designer.cs">
+      <DependentUpon>frmCliente_Grupo.cs</DependentUpon>
     </Compile>
     <Compile Include="Filtros\frmFiltro_Empleado.cs">
       <SubType>Form</SubType>
@@ -289,17 +289,17 @@
     <Compile Include="Archivo\frmEmpaque.Designer.cs">
       <DependentUpon>frmEmpaque.cs</DependentUpon>
     </Compile>
-    <Compile Include="Archivo\frmTipo_Producto.cs">
+    <Compile Include="Archivo\frmProducto_Tipo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Archivo\frmTipo_Producto.Designer.cs">
-      <DependentUpon>frmTipo_Producto.cs</DependentUpon>
+    <Compile Include="Archivo\frmProducto_Tipo.Designer.cs">
+      <DependentUpon>frmProducto_Tipo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Archivo\frmGrupoProductos.cs">
+    <Compile Include="Archivo\frmProducto_Grupo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Archivo\frmGrupoProductos.Designer.cs">
-      <DependentUpon>frmGrupoProductos.cs</DependentUpon>
+    <Compile Include="Archivo\frmProducto_Grupo.Designer.cs">
+      <DependentUpon>frmProducto_Grupo.cs</DependentUpon>
     </Compile>
     <Compile Include="General\frmLogin.cs">
       <SubType>Form</SubType>
@@ -319,23 +319,23 @@
     <Compile Include="Archivo\frmMarca.Designer.cs">
       <DependentUpon>frmMarca.cs</DependentUpon>
     </Compile>
-    <Compile Include="Archivo\frmTipo_Cliente.cs">
+    <Compile Include="Archivo\frmCliente_Tipo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Archivo\frmTipo_Cliente.Designer.cs">
-      <DependentUpon>frmTipo_Cliente.cs</DependentUpon>
+    <Compile Include="Archivo\frmCliente_Tipo.Designer.cs">
+      <DependentUpon>frmCliente_Tipo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Archivo\frmProductos.cs">
+    <Compile Include="Archivo\frmProducto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Archivo\frmProductos.Designer.cs">
-      <DependentUpon>frmProductos.cs</DependentUpon>
+    <Compile Include="Archivo\frmProducto.Designer.cs">
+      <DependentUpon>frmProducto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Archivo\frmSucurzal.cs">
+    <Compile Include="Archivo\frmSucursal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Archivo\frmSucurzal.Designer.cs">
-      <DependentUpon>frmSucurzal.cs</DependentUpon>
+    <Compile Include="Archivo\frmSucursal.Designer.cs">
+      <DependentUpon>frmSucursal.cs</DependentUpon>
     </Compile>
     <Compile Include="Gestion Humana\frmDepartamento.cs">
       <SubType>Form</SubType>
@@ -371,8 +371,8 @@
     <EmbeddedResource Include="Archivo\frmBodega.resx">
       <DependentUpon>frmBodega.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Archivo\frmGrupoCliente.resx">
-      <DependentUpon>frmGrupoCliente.cs</DependentUpon>
+    <EmbeddedResource Include="Archivo\frmCliente_Grupo.resx">
+      <DependentUpon>frmCliente_Grupo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Archivo\frmImpuesto.resx">
       <DependentUpon>frmImpuesto.cs</DependentUpon>
@@ -468,11 +468,11 @@
     <EmbeddedResource Include="Archivo\frmEmpaque.resx">
       <DependentUpon>frmEmpaque.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Archivo\frmTipo_Producto.resx">
-      <DependentUpon>frmTipo_Producto.cs</DependentUpon>
+    <EmbeddedResource Include="Archivo\frmProducto_Tipo.resx">
+      <DependentUpon>frmProducto_Tipo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Archivo\frmGrupoProductos.resx">
-      <DependentUpon>frmGrupoProductos.cs</DependentUpon>
+    <EmbeddedResource Include="Archivo\frmProducto_Grupo.resx">
+      <DependentUpon>frmProducto_Grupo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="General\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -483,14 +483,14 @@
     <EmbeddedResource Include="Archivo\frmMarca.resx">
       <DependentUpon>frmMarca.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Archivo\frmTipo_Cliente.resx">
-      <DependentUpon>frmTipo_Cliente.cs</DependentUpon>
+    <EmbeddedResource Include="Archivo\frmCliente_Tipo.resx">
+      <DependentUpon>frmCliente_Tipo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Archivo\frmProductos.resx">
-      <DependentUpon>frmProductos.cs</DependentUpon>
+    <EmbeddedResource Include="Archivo\frmProducto.resx">
+      <DependentUpon>frmProducto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Archivo\frmSucurzal.resx">
-      <DependentUpon>frmSucurzal.cs</DependentUpon>
+    <EmbeddedResource Include="Archivo\frmSucursal.resx">
+      <DependentUpon>frmSucursal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion Humana\frmDepartamento.resx">
       <DependentUpon>frmDepartamento.cs</DependentUpon>

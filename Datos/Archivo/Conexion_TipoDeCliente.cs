@@ -12,7 +12,7 @@ namespace Datos
 {
     public class Conexion_TipoDeCliente
     {
-        public DataTable Lista()
+        public DataTable Lista(int Auto)
         {
             SqlDataReader Resultado;
             DataTable Tabla = new DataTable();
@@ -20,8 +20,11 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.TipoDeCliente", SqlCon);
+                SqlCommand Comando = new SqlCommand("Cliente.LI_Tipo", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
+
+                Comando.Parameters.Add("@Consulta", SqlDbType.Int).Value = Auto;
+
                 SqlCon.Open();
                 Resultado = Comando.ExecuteReader();
                 Tabla.Load(Resultado);
@@ -48,7 +51,7 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.TipoDeCliente", SqlCon);
+                SqlCommand Comando = new SqlCommand("Cliente.LI_Tipo", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Auto;

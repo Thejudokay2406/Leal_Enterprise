@@ -88,6 +88,7 @@
             this.groupBox1.Controls.Add(this.btnGuardar);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.TBValor);
+            this.groupBox1.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(342, 291);
@@ -102,7 +103,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TBServicio.Location = new System.Drawing.Point(156, 155);
             this.TBServicio.Name = "TBServicio";
-            this.TBServicio.Size = new System.Drawing.Size(179, 21);
+            this.TBServicio.Size = new System.Drawing.Size(179, 22);
             this.TBServicio.TabIndex = 25;
             this.TBServicio.Enter += new System.EventHandler(this.TBServicio_Enter);
             this.TBServicio.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBServicio_KeyUp);
@@ -116,7 +117,7 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(6, 158);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(143, 15);
+            this.label11.Size = new System.Drawing.Size(143, 17);
             this.label11.TabIndex = 24;
             this.label11.Text = "Valor Minimo de Servicio";
             // 
@@ -127,7 +128,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TBVenta.Location = new System.Drawing.Point(156, 128);
             this.TBVenta.Name = "TBVenta";
-            this.TBVenta.Size = new System.Drawing.Size(179, 21);
+            this.TBVenta.Size = new System.Drawing.Size(179, 22);
             this.TBVenta.TabIndex = 23;
             this.TBVenta.Enter += new System.EventHandler(this.TBVenta_Enter);
             this.TBVenta.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBVenta_KeyUp);
@@ -141,7 +142,7 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(6, 131);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(131, 15);
+            this.label10.Size = new System.Drawing.Size(132, 17);
             this.label10.TabIndex = 22;
             this.label10.Text = "Valor Minimo de Venta";
             // 
@@ -152,7 +153,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TBCompra.Location = new System.Drawing.Point(156, 101);
             this.TBCompra.Name = "TBCompra";
-            this.TBCompra.Size = new System.Drawing.Size(179, 21);
+            this.TBCompra.Size = new System.Drawing.Size(179, 22);
             this.TBCompra.TabIndex = 21;
             this.TBCompra.Enter += new System.EventHandler(this.TBCompra_Enter);
             this.TBCompra.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCompra_KeyUp);
@@ -166,7 +167,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(6, 104);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(144, 15);
+            this.label9.Size = new System.Drawing.Size(144, 17);
             this.label9.TabIndex = 20;
             this.label9.Text = "Valor Minimo de Compra";
             // 
@@ -178,7 +179,7 @@
             this.CHServicio.AutoSize = true;
             this.CHServicio.Location = new System.Drawing.Point(132, 232);
             this.CHServicio.Name = "CHServicio";
-            this.CHServicio.Size = new System.Drawing.Size(63, 19);
+            this.CHServicio.Size = new System.Drawing.Size(61, 21);
             this.CHServicio.TabIndex = 19;
             this.CHServicio.Text = "Si - No";
             this.CHServicio.UseVisualStyleBackColor = true;
@@ -191,7 +192,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(6, 233);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(120, 15);
+            this.label8.Size = new System.Drawing.Size(122, 17);
             this.label8.TabIndex = 18;
             this.label8.Text = "Aplica para Servicios";
             // 
@@ -203,7 +204,7 @@
             this.CHVenta.AutoSize = true;
             this.CHVenta.Location = new System.Drawing.Point(132, 207);
             this.CHVenta.Name = "CHVenta";
-            this.CHVenta.Size = new System.Drawing.Size(63, 19);
+            this.CHVenta.Size = new System.Drawing.Size(61, 21);
             this.CHVenta.TabIndex = 17;
             this.CHVenta.Text = "Si - No";
             this.CHVenta.UseVisualStyleBackColor = true;
@@ -216,7 +217,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(6, 208);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(108, 15);
+            this.label7.Size = new System.Drawing.Size(111, 17);
             this.label7.TabIndex = 16;
             this.label7.Text = "Aplica para Ventas";
             // 
@@ -228,7 +229,7 @@
             this.CHCompra.AutoSize = true;
             this.CHCompra.Location = new System.Drawing.Point(132, 182);
             this.CHCompra.Name = "CHCompra";
-            this.CHCompra.Size = new System.Drawing.Size(63, 19);
+            this.CHCompra.Size = new System.Drawing.Size(61, 21);
             this.CHCompra.TabIndex = 15;
             this.CHCompra.Text = "Si - No";
             this.CHCompra.UseVisualStyleBackColor = true;
@@ -241,7 +242,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(6, 183);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(121, 15);
+            this.label6.Size = new System.Drawing.Size(123, 17);
             this.label6.TabIndex = 14;
             this.label6.Text = "Aplica para Compras";
             // 
@@ -252,7 +253,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TBIdimpuesto.Location = new System.Drawing.Point(249, 228);
             this.TBIdimpuesto.Name = "TBIdimpuesto";
-            this.TBIdimpuesto.Size = new System.Drawing.Size(40, 21);
+            this.TBIdimpuesto.Size = new System.Drawing.Size(40, 22);
             this.TBIdimpuesto.TabIndex = 11;
             this.TBIdimpuesto.TextChanged += new System.EventHandler(this.TBIdimpuesto_TextChanged);
             // 
@@ -263,7 +264,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TBImpuesto.Location = new System.Drawing.Point(85, 20);
             this.TBImpuesto.Name = "TBImpuesto";
-            this.TBImpuesto.Size = new System.Drawing.Size(250, 21);
+            this.TBImpuesto.Size = new System.Drawing.Size(250, 22);
             this.TBImpuesto.TabIndex = 2;
             this.TBImpuesto.Enter += new System.EventHandler(this.TBImpuesto_Enter);
             this.TBImpuesto.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBImpuesto_KeyUp);
@@ -276,7 +277,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TBDescripcion.Location = new System.Drawing.Point(85, 74);
             this.TBDescripcion.Name = "TBDescripcion";
-            this.TBDescripcion.Size = new System.Drawing.Size(250, 21);
+            this.TBDescripcion.Size = new System.Drawing.Size(250, 22);
             this.TBDescripcion.TabIndex = 5;
             this.TBDescripcion.Enter += new System.EventHandler(this.TBDescripcion_Enter);
             this.TBDescripcion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBDescripcion_KeyUp);
@@ -292,7 +293,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Image = global::Presentacion.Botones.btnCancelar;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(222, 255);
+            this.btnCancelar.Location = new System.Drawing.Point(216, 255);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(120, 30);
             this.btnCancelar.TabIndex = 8;
@@ -309,7 +310,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 15);
+            this.label1.Size = new System.Drawing.Size(60, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Impuesto";
             // 
@@ -321,7 +322,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 77);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 15);
+            this.label3.Size = new System.Drawing.Size(73, 17);
             this.label3.TabIndex = 4;
             this.label3.Text = "Descripcion";
             // 
@@ -352,7 +353,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 50);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 15);
+            this.label2.Size = new System.Drawing.Size(36, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Valor";
             // 
@@ -363,7 +364,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TBValor.Location = new System.Drawing.Point(85, 47);
             this.TBValor.Name = "TBValor";
-            this.TBValor.Size = new System.Drawing.Size(250, 21);
+            this.TBValor.Size = new System.Drawing.Size(250, 22);
             this.TBValor.TabIndex = 3;
             this.TBValor.Enter += new System.EventHandler(this.TBValor_Enter);
             this.TBValor.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBValor_KeyUp);
@@ -437,7 +438,7 @@
             this.lblTotal.AutoSize = true;
             this.lblTotal.Location = new System.Drawing.Point(6, 264);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(31, 15);
+            this.lblTotal.Size = new System.Drawing.Size(26, 17);
             this.lblTotal.TabIndex = 2;
             this.lblTotal.Text = "------";
             // 
@@ -448,7 +449,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TBBuscar.Location = new System.Drawing.Point(135, 17);
             this.TBBuscar.Name = "TBBuscar";
-            this.TBBuscar.Size = new System.Drawing.Size(375, 21);
+            this.TBBuscar.Size = new System.Drawing.Size(375, 22);
             this.TBBuscar.TabIndex = 1;
             this.TBBuscar.TextChanged += new System.EventHandler(this.TBBuscar_TextChanged);
             // 
@@ -460,7 +461,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(6, 20);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(123, 15);
+            this.label4.Size = new System.Drawing.Size(126, 17);
             this.label4.TabIndex = 0;
             this.label4.Text = "Impuesto a Consultar";
             // 
@@ -475,6 +476,7 @@
             this.groupBox2.Controls.Add(this.TBBuscar);
             this.groupBox2.Controls.Add(this.btnEliminar);
             this.groupBox2.Controls.Add(this.btnImprimir);
+            this.groupBox2.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(360, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(516, 291);

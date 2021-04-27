@@ -451,7 +451,6 @@ namespace Datos
                 Comando.Parameters.Add("@Tran_Facturacion", SqlDbType.Int).Value = Obj.Tran_Facturacion;
                 Comando.Parameters.Add("@Tran_Financiera", SqlDbType.Int).Value = Obj.Tran_Financiera;
 
-                Comando.Parameters.Add("@Codigo", SqlDbType.VarChar).Value = Obj.Dat_Codigo;
                 Comando.Parameters.Add("@Nombre", SqlDbType.VarChar).Value = Obj.Dat_Cliente;
                 Comando.Parameters.Add("@Documento", SqlDbType.BigInt).Value = Obj.Dat_Documento;
                 Comando.Parameters.Add("@Telefono01", SqlDbType.BigInt).Value = Obj.Dat_Telefono;
@@ -721,7 +720,6 @@ namespace Datos
                 Comando.Parameters.Add("@Idgrupo", SqlDbType.Int).Value = Obj.Idgrupo;
                 Comando.Parameters.Add("@Idtipo", SqlDbType.Int).Value = Obj.Idtipo;
 
-                Comando.Parameters.Add("@Codigo", SqlDbType.VarChar).Value = Obj.Dat_Codigo;
                 Comando.Parameters.Add("@Nombre", SqlDbType.VarChar).Value = Obj.Dat_Cliente;
                 Comando.Parameters.Add("@Documento", SqlDbType.VarChar).Value = Obj.Dat_Documento;
                 Comando.Parameters.Add("@Telefono01", SqlDbType.VarChar).Value = Obj.Dat_Telefono;

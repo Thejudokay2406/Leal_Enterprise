@@ -1,6 +1,6 @@
 ﻿namespace Presentacion
 {
-    partial class frmGrupoCliente
+    partial class frmCliente_Grupo
     {
         /// <summary>
         /// Required designer variable.
@@ -258,7 +258,7 @@
             this.lblTotal.TabIndex = 1;
             this.lblTotal.Text = "------";
             // 
-            // frmGrupoCliente
+            // frmCliente_Grupo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -268,11 +268,11 @@
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaximizeBox = false;
-            this.Name = "frmGrupoCliente";
+            this.Name = "frmCliente_Grupo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Archivo - Grupo de Cliente";
-            this.Activated += new System.EventHandler(this.frmGrupoCliente_Activated);
-            this.Load += new System.EventHandler(this.frmGrupoCliente_Load);
+            this.Activated += new System.EventHandler(this.frmCliente_Grupo_Activated);
+            this.Load += new System.EventHandler(this.frmCliente_Grupo_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

@@ -1,6 +1,6 @@
 ﻿namespace Presentacion
 {
-    partial class frmTipo_Producto
+    partial class frmProducto_Tipo
     {
         /// <summary>
         /// Required designer variable.
@@ -294,7 +294,7 @@
             this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGuardar.Image = global::Presentacion.Botones.btnGuardar;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(6, 208);
+            this.btnGuardar.Location = new System.Drawing.Point(9, 208);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(120, 30);
             this.btnGuardar.TabIndex = 0;
@@ -303,7 +303,7 @@
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // frmTipo_Producto
+            // frmProducto_Tipo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -315,10 +315,10 @@
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaximizeBox = false;
-            this.Name = "frmTipo_Producto";
+            this.Name = "frmProducto_Tipo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Archivo - Tipo de Producto";
-            this.Load += new System.EventHandler(this.frmTipo_Producto_Load);
+            this.Load += new System.EventHandler(this.frmProducto_Tipo_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGResultados)).EndInit();

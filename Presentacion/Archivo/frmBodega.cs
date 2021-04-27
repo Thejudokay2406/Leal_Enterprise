@@ -102,6 +102,8 @@ namespace Presentacion
             this.TBIdbodega.Clear();
             this.CBSucurzal.SelectedIndex = 0;
             this.TBBodega.Clear();
+            this.TBBodega.Text = Campo;
+            this.TBBodega.ForeColor = Color.FromArgb(255, 255, 255);
             this.TBDocumento.Clear();
             this.TBDescripcion.Clear();
             this.TBDescripcion.Text = Campo;
@@ -579,7 +581,6 @@ namespace Presentacion
             {
                 //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
                 this.TBDescripcion.BackColor = Color.Azure;
-                this.TBDescripcion.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 
@@ -596,7 +597,6 @@ namespace Presentacion
             {
                 //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
                 this.TBDirector.BackColor = Color.Azure;
-                this.TBDirector.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 
@@ -639,6 +639,7 @@ namespace Presentacion
             else
             {
                 this.TBBodega.BackColor = Color.FromArgb(3, 155, 229);
+                this.TBBodega.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 
@@ -655,6 +656,7 @@ namespace Presentacion
             else
             {
                 this.TBDescripcion.BackColor = Color.FromArgb(3, 155, 229);
+                this.TBDescripcion.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 
@@ -671,6 +673,7 @@ namespace Presentacion
             else
             {
                 this.TBDirector.BackColor = Color.FromArgb(3, 155, 229);
+                this.TBDirector.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 

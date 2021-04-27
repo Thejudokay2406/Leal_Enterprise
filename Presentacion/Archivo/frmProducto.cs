@@ -14,16 +14,16 @@ using Negocio;
 
 namespace Presentacion
 {
-    public partial class frmProductos : Form
+    public partial class frmProducto : Form
     {
         //Instancia para el Filtro de los productos 
-        private static frmProductos _Instancia;
+        private static frmProducto _Instancia;
 
-        public static frmProductos GetInstancia()
+        public static frmProducto GetInstancia()
         {
             if (_Instancia == null)
             {
-                _Instancia = new frmProductos();
+                _Instancia = new frmProducto();
             }
             return _Instancia;
         }
@@ -35,6 +35,7 @@ namespace Presentacion
         public bool Examinar = true;
         public bool Examinar_Exterior = true;
         public bool Examinar_Proveedor = true;
+        public bool Filtro_Igualdad = true;
 
         //Variables para Eliminar y ejecutar los procedimientos Internos en los paneles
         //Ubicacion, Lote, Proveedor ETC donde se realizan multiplex registros
@@ -106,12 +107,12 @@ namespace Presentacion
         //Panel - Imagen
         private string Imagen = "";
 
-        public frmProductos()
+        public frmProducto()
         {
             InitializeComponent();
         }
 
-        private void frmProductos_Load(object sender, EventArgs e)
+        private void frmProducto_Load(object sender, EventArgs e)
         {
             //Inicio de Clase y Botones
             this.Botones();
@@ -295,9 +296,9 @@ namespace Presentacion
             //Panel - Igualdad
             this.TBIgualdad_Codigo.Enabled = false;
             this.TBIgualdad_Codigo.BackColor = Color.FromArgb(245, 245, 245);
-            this.TBIgualdad_Producto.ReadOnly = false;
+            this.TBIgualdad_Producto.Enabled = false;
             this.TBIgualdad_Producto.BackColor = Color.FromArgb(245, 245, 245);
-            this.TBIgualdad_Marca.ReadOnly = false;
+            this.TBIgualdad_Marca.Enabled = false;
             this.TBIgualdad_Marca.BackColor = Color.FromArgb(245, 245, 245);
 
             //Panel - Codigo de Barra
@@ -10495,7 +10496,7 @@ namespace Presentacion
             this.TBCodigodeBarra.BackColor = Color.FromArgb(3, 155, 229);
         }
 
-        private void frmProductos_FormClosing(object sender, FormClosingEventArgs e)
+        private void frmProducto_FormClosing(object sender, FormClosingEventArgs e)
         {
             _Instancia = null;
         }

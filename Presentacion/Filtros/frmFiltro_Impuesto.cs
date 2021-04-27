@@ -74,7 +74,7 @@ namespace Presentacion
             {
                 string idimpuesto, impuesto, valor, descripcion;
 
-                frmProductos frmPro = frmProductos.GetInstancia();
+                frmProducto frmPro = frmProducto.GetInstancia();
 
                 if (frmPro.Examinar)
                 {
@@ -110,7 +110,7 @@ namespace Presentacion
                 {
                     string idimpuesto, impuesto, valor, descripcion;
 
-                    frmProductos frmPro = frmProductos.GetInstancia();
+                    frmProducto frmPro = frmProducto.GetInstancia();
 
                     idimpuesto = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
                     impuesto = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
@@ -134,7 +134,7 @@ namespace Presentacion
                 {
                     string idimpuesto, impuesto, valor, descripcion;
 
-                    frmProductos frmPro = frmProductos.GetInstancia();
+                    frmProducto frmPro = frmProducto.GetInstancia();
 
                     idimpuesto = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
                     impuesto = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();

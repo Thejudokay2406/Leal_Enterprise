@@ -41,8 +41,6 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.TCPrincipal = new System.Windows.Forms.TabControl();
             this.TPDatosBasicos = new System.Windows.Forms.TabPage();
-            this.CBSucurzal = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.DTFechadeinicio = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
             this.TBCorreo = new System.Windows.Forms.TextBox();
@@ -256,8 +254,6 @@
             // 
             // TPDatosBasicos
             // 
-            this.TPDatosBasicos.Controls.Add(this.CBSucurzal);
-            this.TPDatosBasicos.Controls.Add(this.label11);
             this.TPDatosBasicos.Controls.Add(this.DTFechadeinicio);
             this.TPDatosBasicos.Controls.Add(this.label13);
             this.TPDatosBasicos.Controls.Add(this.TBCorreo);
@@ -288,31 +284,9 @@
             this.TPDatosBasicos.Text = "Datos Basicos";
             this.TPDatosBasicos.UseVisualStyleBackColor = true;
             // 
-            // CBSucurzal
-            // 
-            this.CBSucurzal.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CBSucurzal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CBSucurzal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBSucurzal.FormattingEnabled = true;
-            this.CBSucurzal.Location = new System.Drawing.Point(309, 6);
-            this.CBSucurzal.Name = "CBSucurzal";
-            this.CBSucurzal.Size = new System.Drawing.Size(228, 21);
-            this.CBSucurzal.Sorted = true;
-            this.CBSucurzal.TabIndex = 23;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(249, 7);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(54, 17);
-            this.label11.TabIndex = 22;
-            this.label11.Text = "Sucurzal";
-            // 
             // DTFechadeinicio
             // 
-            this.DTFechadeinicio.Location = new System.Drawing.Point(103, 285);
+            this.DTFechadeinicio.Location = new System.Drawing.Point(103, 287);
             this.DTFechadeinicio.Name = "DTFechadeinicio";
             this.DTFechadeinicio.Size = new System.Drawing.Size(250, 22);
             this.DTFechadeinicio.TabIndex = 21;
@@ -321,7 +295,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(6, 288);
+            this.label13.Location = new System.Drawing.Point(6, 287);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(91, 17);
             this.label13.TabIndex = 20;
@@ -330,7 +304,7 @@
             // TBCorreo
             // 
             this.TBCorreo.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBCorreo.Location = new System.Drawing.Point(103, 257);
+            this.TBCorreo.Location = new System.Drawing.Point(103, 259);
             this.TBCorreo.Name = "TBCorreo";
             this.TBCorreo.Size = new System.Drawing.Size(434, 22);
             this.TBCorreo.TabIndex = 19;
@@ -342,7 +316,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(7, 230);
+            this.label10.Location = new System.Drawing.Point(6, 234);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(37, 17);
             this.label10.TabIndex = 18;
@@ -352,7 +326,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(7, 201);
+            this.label9.Location = new System.Drawing.Point(6, 206);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(56, 17);
             this.label9.TabIndex = 17;
@@ -362,7 +336,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(7, 258);
+            this.label8.Location = new System.Drawing.Point(6, 262);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(45, 17);
             this.label8.TabIndex = 16;
@@ -372,7 +346,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(7, 174);
+            this.label7.Location = new System.Drawing.Point(6, 178);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(80, 17);
             this.label7.TabIndex = 15;
@@ -382,7 +356,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(7, 147);
+            this.label6.Location = new System.Drawing.Point(6, 150);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(47, 17);
             this.label6.TabIndex = 14;
@@ -392,7 +366,7 @@
             // 
             this.CBTipo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CBTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CBTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBTipo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBTipo.FormattingEnabled = true;
             this.CBTipo.Items.AddRange(new object[] {
             "-",
@@ -401,7 +375,7 @@
             "Natural"});
             this.CBTipo.Location = new System.Drawing.Point(103, 6);
             this.CBTipo.Name = "CBTipo";
-            this.CBTipo.Size = new System.Drawing.Size(140, 21);
+            this.CBTipo.Size = new System.Drawing.Size(200, 22);
             this.CBTipo.Sorted = true;
             this.CBTipo.TabIndex = 13;
             this.CBTipo.SelectedIndexChanged += new System.EventHandler(this.CBTipo_SelectedIndexChanged);
@@ -409,7 +383,7 @@
             // TBMovil
             // 
             this.TBMovil.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBMovil.Location = new System.Drawing.Point(103, 229);
+            this.TBMovil.Location = new System.Drawing.Point(103, 231);
             this.TBMovil.Name = "TBMovil";
             this.TBMovil.Size = new System.Drawing.Size(434, 22);
             this.TBMovil.TabIndex = 12;
@@ -420,7 +394,7 @@
             // TBTelefono
             // 
             this.TBTelefono.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBTelefono.Location = new System.Drawing.Point(103, 201);
+            this.TBTelefono.Location = new System.Drawing.Point(103, 203);
             this.TBTelefono.Name = "TBTelefono";
             this.TBTelefono.Size = new System.Drawing.Size(434, 22);
             this.TBTelefono.TabIndex = 11;
@@ -431,7 +405,7 @@
             // TBNacionalidad
             // 
             this.TBNacionalidad.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBNacionalidad.Location = new System.Drawing.Point(103, 173);
+            this.TBNacionalidad.Location = new System.Drawing.Point(103, 175);
             this.TBNacionalidad.Name = "TBNacionalidad";
             this.TBNacionalidad.Size = new System.Drawing.Size(434, 22);
             this.TBNacionalidad.TabIndex = 10;
@@ -442,7 +416,7 @@
             // TBCiudad
             // 
             this.TBCiudad.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBCiudad.Location = new System.Drawing.Point(103, 145);
+            this.TBCiudad.Location = new System.Drawing.Point(103, 147);
             this.TBCiudad.Name = "TBCiudad";
             this.TBCiudad.Size = new System.Drawing.Size(434, 22);
             this.TBCiudad.TabIndex = 9;
@@ -453,7 +427,7 @@
             // TBPais
             // 
             this.TBPais.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBPais.Location = new System.Drawing.Point(103, 117);
+            this.TBPais.Location = new System.Drawing.Point(103, 119);
             this.TBPais.Name = "TBPais";
             this.TBPais.Size = new System.Drawing.Size(434, 22);
             this.TBPais.TabIndex = 8;
@@ -464,7 +438,7 @@
             // TBRepresentante
             // 
             this.TBRepresentante.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBRepresentante.Location = new System.Drawing.Point(103, 89);
+            this.TBRepresentante.Location = new System.Drawing.Point(103, 91);
             this.TBRepresentante.Name = "TBRepresentante";
             this.TBRepresentante.Size = new System.Drawing.Size(434, 22);
             this.TBRepresentante.TabIndex = 7;
@@ -475,7 +449,7 @@
             // TBDocumento
             // 
             this.TBDocumento.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBDocumento.Location = new System.Drawing.Point(103, 61);
+            this.TBDocumento.Location = new System.Drawing.Point(103, 63);
             this.TBDocumento.Name = "TBDocumento";
             this.TBDocumento.Size = new System.Drawing.Size(434, 22);
             this.TBDocumento.TabIndex = 6;
@@ -486,7 +460,7 @@
             // TBNombre
             // 
             this.TBNombre.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBNombre.Location = new System.Drawing.Point(103, 33);
+            this.TBNombre.Location = new System.Drawing.Point(103, 35);
             this.TBNombre.Name = "TBNombre";
             this.TBNombre.Size = new System.Drawing.Size(434, 22);
             this.TBNombre.TabIndex = 5;
@@ -498,7 +472,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(7, 119);
+            this.label5.Location = new System.Drawing.Point(6, 122);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(32, 17);
             this.label5.TabIndex = 4;
@@ -508,7 +482,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(7, 91);
+            this.label4.Location = new System.Drawing.Point(6, 94);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 17);
             this.label4.TabIndex = 3;
@@ -518,7 +492,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(7, 63);
+            this.label3.Location = new System.Drawing.Point(6, 66);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 17);
             this.label3.TabIndex = 2;
@@ -528,7 +502,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(7, 35);
+            this.label2.Location = new System.Drawing.Point(6, 38);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 17);
             this.label2.TabIndex = 1;
@@ -865,7 +839,7 @@
             // 
             this.CBTipoDeCuenta.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CBTipoDeCuenta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CBTipoDeCuenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBTipoDeCuenta.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBTipoDeCuenta.FormattingEnabled = true;
             this.CBTipoDeCuenta.Items.AddRange(new object[] {
             "-",
@@ -874,7 +848,7 @@
             "Nomina"});
             this.CBTipoDeCuenta.Location = new System.Drawing.Point(81, 34);
             this.CBTipoDeCuenta.Name = "CBTipoDeCuenta";
-            this.CBTipoDeCuenta.Size = new System.Drawing.Size(146, 21);
+            this.CBTipoDeCuenta.Size = new System.Drawing.Size(146, 22);
             this.CBTipoDeCuenta.TabIndex = 25;
             // 
             // TBCuenta01
@@ -890,7 +864,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(6, 33);
+            this.label21.Location = new System.Drawing.Point(6, 37);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(69, 17);
             this.label21.TabIndex = 22;
@@ -1076,7 +1050,6 @@
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.TextBox TBEnv_Telefono;
         private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnModificar_Envio;
         private System.Windows.Forms.Label lblTotal_Envio;
         private System.Windows.Forms.Button btnEliminar_Envio;
@@ -1088,7 +1061,6 @@
         private System.Windows.Forms.Button btnModificar_Bancos;
         private System.Windows.Forms.Button btnEliminar_Banco;
         private System.Windows.Forms.Button btnAgregar_Bancos;
-        private System.Windows.Forms.ComboBox CBSucurzal;
         private System.Windows.Forms.TextBox TBBanco_Documento;
         private System.Windows.Forms.TextBox TBBanco;
         private System.Windows.Forms.Button btnExaminar;

@@ -1,6 +1,6 @@
 ﻿namespace Presentacion
 {
-    partial class frmSucurzal
+    partial class frmSucursal
     {
         /// <summary>
         /// Required designer variable.
@@ -418,7 +418,7 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Consulta de Sucurzales Registradas - Leal Enterprise";
             // 
-            // frmSucurzal
+            // frmSucursal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -430,10 +430,10 @@
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaximizeBox = false;
-            this.Name = "frmSucurzal";
+            this.Name = "frmSucursal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Archivo - Sucurzal";
-            this.Load += new System.EventHandler(this.frmSucurzal_Load);
+            this.Load += new System.EventHandler(this.frmSucursal_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGResultados)).EndInit();
