@@ -207,10 +207,21 @@ namespace Presentacion
                     Operacion = Datos.Rows[0][0].ToString();
                     AutoIncrementable = Datos.Rows[0][1].ToString();
 
+                    int Valor = 10;
+
                     if (Operacion == "A")
                     {
-                        this.TBCodigo.Enabled = false;
-                        this.TBCodigo.Text = AutoIncrementable;
+                        if (Convert.ToInt32(AutoIncrementable) < Valor)
+                        {
+                            this.TBCodigo.Enabled = false;
+                            this.TBCodigo.Text = "00" + AutoIncrementable;
+                        }
+                        else
+                        {
+                            this.TBCodigo.Enabled = false;
+                            this.TBCodigo.Text = "0" + AutoIncrementable;
+                        }
+                        
                     }
                     else
                     {

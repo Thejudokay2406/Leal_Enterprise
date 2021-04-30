@@ -43,6 +43,7 @@ namespace Datos
                 }
             }
         }
+
         public DataTable Lista()
         {
             SqlDataReader Resultado;

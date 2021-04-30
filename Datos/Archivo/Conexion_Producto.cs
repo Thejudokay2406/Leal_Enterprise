@@ -12,6 +12,38 @@ namespace Datos
 {
     public class Conexion_Producto
     {
+        public DataTable AutoIncrementable(int Auto)
+        {
+            SqlDataReader Resultado;
+            DataTable Tabla = new DataTable();
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
+                SqlCommand Comando = new SqlCommand("Productos.LI_DatosBasicos", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
+
+                Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Auto;
+                //Comando.Parameters.Add("@Filtro", SqlDbType.VarChar).Value = Valor;
+
+                SqlCon.Open();
+                Resultado = Comando.ExecuteReader();
+                Tabla.Load(Resultado);
+                return Tabla;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open)
+                {
+                    SqlCon.Close();
+                }
+            }
+        }
+
         public DataTable Lista()
         {
             SqlDataReader Resultado;
@@ -264,38 +296,6 @@ namespace Datos
             }
         }
 
-        public DataTable Lista_Lote(int Auto, int idproducto)
-        {
-            SqlDataReader Resultado;
-            DataTable Tabla = new DataTable();
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Productos.Detalles_Adicional", SqlCon);
-                Comando.CommandType = CommandType.StoredProcedure;
-
-                Comando.Parameters.Add("@Filtro_Lote", SqlDbType.Int).Value = Auto;
-                Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = idproducto;
-
-                SqlCon.Open();
-                Resultado = Comando.ExecuteReader();
-                Tabla.Load(Resultado);
-                return Tabla;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                if (SqlCon.State == ConnectionState.Open)
-                {
-                    SqlCon.Close();
-                }
-            }
-        }
-
         public DataTable Buscar(string Valor, int Auto)
         {
             SqlDataReader Resultado;
@@ -424,38 +424,6 @@ namespace Datos
             }
         }
 
-        public DataTable Buscar_Lote(int auto_lote, int Valor)
-        {
-            SqlDataReader Resultado;
-            DataTable Tabla = new DataTable();
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.Producto", SqlCon);
-                Comando.CommandType = CommandType.StoredProcedure;
-
-                Comando.Parameters.Add("@Auto_Lote", SqlDbType.Int).Value = auto_lote;
-                Comando.Parameters.Add("@Det_Lote", SqlDbType.Int).Value = Valor;
-
-                SqlCon.Open();
-                Resultado = Comando.ExecuteReader();
-                Tabla.Load(Resultado);
-                return Tabla;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                if (SqlCon.State == ConnectionState.Open)
-                {
-                    SqlCon.Close();
-                }
-            }
-        }
-
         public DataTable Buscar_Ubicacion(int auto_ubicacion, int Valor)
         {
             SqlDataReader Resultado;
@@ -564,7 +532,6 @@ namespace Datos
                 //Datos Auxiliares
                 Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Obj.Auto;
                 
-                Comando.Parameters.Add("@Lote_AutoSQL", SqlDbType.Int).Value = Obj.Lote_AutoSQL;
                 Comando.Parameters.Add("@CodBarra_AutoSQL", SqlDbType.Int).Value = Obj.CodBarra_AutoSQL;
                 Comando.Parameters.Add("@Igualdad_AutoSQL", SqlDbType.Int).Value = Obj.Igualdad_AutoSQL;
                 Comando.Parameters.Add("@Impuesto_AutoSQL", SqlDbType.Int).Value = Obj.Impuesto_AutoSQL;
@@ -579,7 +546,6 @@ namespace Datos
                 Comando.Parameters.Add("@Tran_Impuesto", SqlDbType.Int).Value = Obj.Tran_Impuesto;
                 Comando.Parameters.Add("@Tran_Proveedor", SqlDbType.Int).Value = Obj.Tran_Proveedor;
                 Comando.Parameters.Add("@Tran_CodBarra", SqlDbType.Int).Value = Obj.Tran_CodBarra;
-                Comando.Parameters.Add("@Tran_Lote", SqlDbType.Int).Value = Obj.Tran_Lote;
                 Comando.Parameters.Add("@Tran_Compuesto", SqlDbType.Int).Value = Obj.Tran_Compuesto;
                 Comando.Parameters.Add("@Tran_Exterior", SqlDbType.Int).Value = Obj.Tran_Exterior;
 
@@ -592,6 +558,7 @@ namespace Datos
                 Comando.Parameters.Add("@Importado", SqlDbType.Int).Value = Obj.Importado;
                 Comando.Parameters.Add("@Exportado", SqlDbType.Int).Value = Obj.Exportado;
                 Comando.Parameters.Add("@Ofertable", SqlDbType.Int).Value = Obj.Ofertable;
+                Comando.Parameters.Add("@Fabricado", SqlDbType.Int).Value = Obj.Fabricado;
                 Comando.Parameters.Add("@ManComision", SqlDbType.Int).Value = Obj.ManejaComision;
                 Comando.Parameters.Add("@ManEmpaque", SqlDbType.Int).Value = Obj.ManejaEmpaque;
                 Comando.Parameters.Add("@ManBalanza", SqlDbType.Int).Value = Obj.ManejaBalanza;
@@ -629,15 +596,6 @@ namespace Datos
                 Comando.Parameters.Add("@ImpVen04", SqlDbType.VarChar).Value = Obj.Mayorista_Impuesto;
                 Comando.Parameters.Add("@Unidad", SqlDbType.VarChar).Value = Obj.Unidad;
                 Comando.Parameters.Add("@Und_Det", SqlDbType.VarChar).Value = Obj.Unidad_Detalle;
-                Comando.Parameters.Add("@Unidad01", SqlDbType.VarChar).Value = Obj.Unidad01;
-                Comando.Parameters.Add("@PorUnidad01", SqlDbType.VarChar).Value = Obj.Unidad01_Porcentaje;
-                Comando.Parameters.Add("@ImpUnidad01", SqlDbType.VarChar).Value = Obj.Unidad01_Impuesto;
-                Comando.Parameters.Add("@Unidad02", SqlDbType.VarChar).Value = Obj.Unidad02;
-                Comando.Parameters.Add("@PorUnidad02", SqlDbType.VarChar).Value = Obj.Unidad02_Porcentaje;
-                Comando.Parameters.Add("@ImpUnidad02", SqlDbType.VarChar).Value = Obj.Unidad02_Impuesto;
-                Comando.Parameters.Add("@Unidad03", SqlDbType.VarChar).Value = Obj.Unidad03;
-                Comando.Parameters.Add("@PorUnidad03", SqlDbType.VarChar).Value = Obj.Unidad03_Porcentaje;
-                Comando.Parameters.Add("@ImpUnidad03", SqlDbType.VarChar).Value = Obj.Unidad03_Impuesto;
 
                 //Panel Ubicaciones -- Campos Obligatorios
                 Comando.Parameters.Add("@Det_Ubicacion", SqlDbType.Structured).Value = Obj.Detalle_Ubicacion;
@@ -663,9 +621,6 @@ namespace Datos
 
                 //Panel Igualdad -- Campos NO Obligatorios
                 Comando.Parameters.Add("@Det_Igualdad", SqlDbType.Structured).Value = Obj.Detalle_Igualdad;
-
-                //Panel Lotes -- Campos NO Obligatorios
-                Comando.Parameters.Add("@Det_Lotes", SqlDbType.Structured).Value = Obj.Detalle_Lote;
 
                 //Panel Codigo de Barra -- Campos Obligatorios
                 Comando.Parameters.Add("@Det_CodigoBarra", SqlDbType.Structured).Value = Obj.Detalle_CodigoDeBarra;
@@ -716,6 +671,7 @@ namespace Datos
                 Comando.Parameters.Add("@Importado", SqlDbType.Int).Value = Obj.Importado;
                 Comando.Parameters.Add("@Exportado", SqlDbType.Int).Value = Obj.Exportado;
                 Comando.Parameters.Add("@Ofertable", SqlDbType.Int).Value = Obj.Ofertable;
+                Comando.Parameters.Add("@Fabricado", SqlDbType.Int).Value = Obj.Fabricado;
                 Comando.Parameters.Add("@ManComision", SqlDbType.Int).Value = Obj.ManejaComision;
                 Comando.Parameters.Add("@ManEmpaque", SqlDbType.Int).Value = Obj.ManejaEmpaque;
                 Comando.Parameters.Add("@ManBalanza", SqlDbType.Int).Value = Obj.ManejaBalanza;
@@ -753,15 +709,6 @@ namespace Datos
                 Comando.Parameters.Add("@ImpVen04", SqlDbType.VarChar).Value = Obj.Mayorista_Impuesto;
                 Comando.Parameters.Add("@Unidad", SqlDbType.VarChar).Value = Obj.Unidad;
                 Comando.Parameters.Add("@Und_Det", SqlDbType.VarChar).Value = Obj.Unidad_Detalle;
-                Comando.Parameters.Add("@Unidad01", SqlDbType.VarChar).Value = Obj.Unidad01;
-                Comando.Parameters.Add("@PorUnidad01", SqlDbType.VarChar).Value = Obj.Unidad01_Porcentaje;
-                Comando.Parameters.Add("@ImpUnidad01", SqlDbType.VarChar).Value = Obj.Unidad01_Impuesto;
-                Comando.Parameters.Add("@Unidad02", SqlDbType.VarChar).Value = Obj.Unidad02;
-                Comando.Parameters.Add("@PorUnidad02", SqlDbType.VarChar).Value = Obj.Unidad02_Porcentaje;
-                Comando.Parameters.Add("@ImpUnidad02", SqlDbType.VarChar).Value = Obj.Unidad02_Impuesto;
-                Comando.Parameters.Add("@Unidad03", SqlDbType.VarChar).Value = Obj.Unidad03;
-                Comando.Parameters.Add("@PorUnidad03", SqlDbType.VarChar).Value = Obj.Unidad03_Porcentaje;
-                Comando.Parameters.Add("@ImpUnidad03", SqlDbType.VarChar).Value = Obj.Unidad03_Impuesto;
 
                 ////Panel Cantidades -- Campos NO Obligatorios
                 //Comando.Parameters.Add("@VeMinClie", SqlDbType.VarChar).Value = Obj.Venta_MinimaCliente;
@@ -848,44 +795,6 @@ namespace Datos
                 Comando.Parameters.Add("@Idproveedor", SqlDbType.Int).Value = Obj.Idproveedor;
                 Comando.Parameters.Add("@Proveedor", SqlDbType.VarChar).Value = Obj.Proveedor;
                 Comando.Parameters.Add("@Documento", SqlDbType.VarChar).Value = Obj.Proveedor_Documento;
-
-                SqlCon.Open();
-                Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Realizar el Registro";
-            }
-            catch (Exception ex)
-            {
-                Rpta = ex.Message;
-            }
-            finally
-            {
-                if (SqlCon.State == ConnectionState.Open)
-                {
-                    SqlCon.Close();
-                }
-            }
-            return Rpta;
-        }
-
-        public string Guardar_Lote(Entidad_Productos Obj)
-        {
-            string Rpta = "";
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Productos.Detalles_Adicional", SqlCon);
-                Comando.CommandType = CommandType.StoredProcedure;
-
-                //Datos Auxiliares
-                Comando.Parameters.Add("@Auto_Lote", SqlDbType.Int).Value = Obj.AutoDet_Lote;
-
-                //Panel Ubicaciones -- Campos Obligatorios
-                Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = Obj.Idproducto;
-                Comando.Parameters.Add("@Lote", SqlDbType.VarChar).Value = Obj.Lote;
-                Comando.Parameters.Add("@Lote_Compra", SqlDbType.VarChar).Value = Obj.Lote_Compra;
-                Comando.Parameters.Add("@Lote_Venta", SqlDbType.VarChar).Value = Obj.Lote_Venta;
-                Comando.Parameters.Add("@Lote_Cantidad", SqlDbType.VarChar).Value = Obj.Lote_Cantidad;
-                Comando.Parameters.Add("@Lote_Fecha", SqlDbType.DateTime).Value = Obj.Lote_Fecha;
 
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Realizar el Registro";
@@ -1295,40 +1204,6 @@ namespace Datos
             return Rpta;
         }
 
-        public string Editar_Lote(Entidad_Productos Obj)
-        {
-            string Rpta = "";
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Productos.LI_DatosBasicos", SqlCon);
-                Comando.CommandType = CommandType.StoredProcedure;
-
-                //Datos Auxiliares
-                Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Obj.Auto;
-                Comando.Parameters.Add("@Lote_SQL", SqlDbType.Int).Value = Obj.Lote_SQL;
-
-                //Panel Ubicaciones -- Campos Obligatorios
-                Comando.Parameters.Add("@Det_Lote", SqlDbType.Structured).Value = Obj.Detalle_Lote;
-
-                SqlCon.Open();
-                Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Actualizar el Registro";
-            }
-            catch (Exception ex)
-            {
-                Rpta = ex.Message;
-            }
-            finally
-            {
-                if (SqlCon.State == ConnectionState.Open)
-                {
-                    SqlCon.Close();
-                }
-            }
-            return Rpta;
-        }
-
         public string Editar_CodigoDeBarra(Entidad_Productos Obj)
         {
             string Rpta = "";
@@ -1536,38 +1411,6 @@ namespace Datos
                 Comando.Parameters.Add("@Eliminar", SqlDbType.Int).Value = Auto;
                 Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = Idproducto;
                 Comando.Parameters.Add("@IdCodBarra", SqlDbType.Int).Value = Iddetalle;
-
-                SqlCon.Open();
-                Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Eliminar el Registro";
-            }
-            catch (Exception ex)
-            {
-                Rpta = ex.Message;
-            }
-            finally
-            {
-                if (SqlCon.State == ConnectionState.Open)
-                {
-                    SqlCon.Close();
-                }
-            }
-            return Rpta;
-        }
-
-        public string Eliminar_Lote(int Idproducto, int Iddetalle, int Auto)
-        {
-            string Rpta = "";
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Productos.Detalles_Adicional", SqlCon);
-                Comando.CommandType = CommandType.StoredProcedure;
-
-                //Panel Datos Basicos
-                Comando.Parameters.Add("@Eliminar", SqlDbType.Int).Value = Auto;
-                Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = Idproducto;
-                Comando.Parameters.Add("@IdLote", SqlDbType.Int).Value = Iddetalle;
 
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Eliminar el Registro";

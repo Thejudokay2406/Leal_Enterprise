@@ -626,6 +626,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icono_Leal_Enterprise.ico" />
+    <None Include="Resources\btnLogin_Usuario.png" />
+    <None Include="Resources\btnLogin_Contraseña.png" />
     <None Include="Resources\btnLimpiar.png" />
     <None Include="Resources\Empleados - Datos de Domicilio Empresa.jpg" />
     <None Include="Resources\Empleados - Datos de Domicilio.jpg" />

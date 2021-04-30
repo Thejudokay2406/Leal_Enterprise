@@ -100,36 +100,22 @@
             this.TPExterior = new System.Windows.Forms.TabPage();
             this.TBIdexterior = new System.Windows.Forms.TextBox();
             this.TBIdproveedor_Exterior = new System.Windows.Forms.TextBox();
-            this.label91 = new System.Windows.Forms.Label();
-            this.label90 = new System.Windows.Forms.Label();
-            this.label89 = new System.Windows.Forms.Label();
-            this.label88 = new System.Windows.Forms.Label();
-            this.label87 = new System.Windows.Forms.Label();
-            this.label86 = new System.Windows.Forms.Label();
-            this.label72 = new System.Windows.Forms.Label();
             this.TBExt_ProveedorDocum = new System.Windows.Forms.TextBox();
-            this.TBExteriorMon_Seguridad = new System.Windows.Forms.TextBox();
-            this.TBExteriorMon_Importacion = new System.Windows.Forms.TextBox();
-            this.TBExteriorMon_Exportacion = new System.Windows.Forms.TextBox();
             this.btnModificar_Exterior = new System.Windows.Forms.Button();
             this.lblTotal_Exterior = new System.Windows.Forms.Label();
             this.btnEliminar_Exterior = new System.Windows.Forms.Button();
             this.btnAgregar_Exterior = new System.Windows.Forms.Button();
             this.TBExterior_Adicional = new System.Windows.Forms.TextBox();
-            this.TBExteriorMon_Adicional = new System.Windows.Forms.TextBox();
             this.TBExterior_Documento = new System.Windows.Forms.TextBox();
             this.DGDetalle_Exterior = new System.Windows.Forms.DataGridView();
             this.TBExterior_Comision = new System.Windows.Forms.TextBox();
             this.label68 = new System.Windows.Forms.Label();
-            this.TBExteriorMon_Documento = new System.Windows.Forms.TextBox();
-            this.TBExteriorMon_Aduana = new System.Windows.Forms.TextBox();
             this.label71 = new System.Windows.Forms.Label();
             this.TBExterior_Aduana = new System.Windows.Forms.TextBox();
             this.label70 = new System.Windows.Forms.Label();
             this.TBExterior_Proveedor = new System.Windows.Forms.TextBox();
             this.label69 = new System.Windows.Forms.Label();
             this.btnExaminar_Exterior = new System.Windows.Forms.Button();
-            this.TBExteriorMon_Comision = new System.Windows.Forms.TextBox();
             this.label59 = new System.Windows.Forms.Label();
             this.TBExterior_Seguridad = new System.Windows.Forms.TextBox();
             this.label58 = new System.Windows.Forms.Label();
@@ -186,24 +172,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.btnAgregar_Impuesto = new System.Windows.Forms.Button();
             this.btnEliminar_Impuesto = new System.Windows.Forms.Button();
-            this.TPLote = new System.Windows.Forms.TabPage();
-            this.label16 = new System.Windows.Forms.Label();
-            this.TBLote_Actual = new System.Windows.Forms.TextBox();
-            this.btnModificar_Lote = new System.Windows.Forms.Button();
-            this.TBLote_Venta = new System.Windows.Forms.TextBox();
-            this.label50 = new System.Windows.Forms.Label();
-            this.TBLote_Cantidad = new System.Windows.Forms.TextBox();
-            this.label42 = new System.Windows.Forms.Label();
-            this.DTLote_Vencimiento = new System.Windows.Forms.DateTimePicker();
-            this.label34 = new System.Windows.Forms.Label();
-            this.DGDetalles_Lotes = new System.Windows.Forms.DataGridView();
-            this.lblTotal_Lotes = new System.Windows.Forms.Label();
-            this.TBValor_Lote = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.TBLotedeingreso = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.btnEliminar_Lote = new System.Windows.Forms.Button();
-            this.btnAgregar_Lote = new System.Windows.Forms.Button();
             this.TPProveedor = new System.Windows.Forms.TabPage();
             this.TBProveedor_Documento = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
@@ -227,7 +195,6 @@
             this.TBIdubicacion = new System.Windows.Forms.TextBox();
             this.btnExaminar_Ubicacion = new System.Windows.Forms.Button();
             this.textBox17 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
             this.btnModificar_Ubicacion = new System.Windows.Forms.Button();
             this.lblTotal_Ubicacion = new System.Windows.Forms.Label();
             this.DGDetalles_Ubicacion = new System.Windows.Forms.DataGridView();
@@ -241,39 +208,22 @@
             this.btnEliminar_Ubicacion = new System.Windows.Forms.Button();
             this.btnAgregar_Ubicacion = new System.Windows.Forms.Button();
             this.TPValores = new System.Windows.Forms.TabPage();
-            this.TBValor_ImpUnidad03 = new System.Windows.Forms.TextBox();
-            this.textBox38 = new System.Windows.Forms.TextBox();
-            this.TBValor_ImpUnidad02 = new System.Windows.Forms.TextBox();
-            this.TBValor_ImpUnidad01 = new System.Windows.Forms.TextBox();
+            this.TBValor03 = new System.Windows.Forms.TextBox();
+            this.TBValor02 = new System.Windows.Forms.TextBox();
+            this.TBValor01 = new System.Windows.Forms.TextBox();
             this.TBValor_ImpVenta03 = new System.Windows.Forms.TextBox();
             this.TBValor_ImpMayorista = new System.Windows.Forms.TextBox();
             this.TBValor_ImpVenta02 = new System.Windows.Forms.TextBox();
             this.TBValor_ImpVenta01 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox24 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.TBmultiplicador_Impuesto = new System.Windows.Forms.TextBox();
-            this.TBUndBase_Inicial03 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.TBUndBase_Inicial02 = new System.Windows.Forms.TextBox();
-            this.TBUndBase_Inicial01 = new System.Windows.Forms.TextBox();
             this.TBValorBase_Inicial03 = new System.Windows.Forms.TextBox();
             this.TBValorBase_InicialMayorista = new System.Windows.Forms.TextBox();
             this.TBValorBase_Inicial02 = new System.Windows.Forms.TextBox();
             this.TBValorBase_Inicial01 = new System.Windows.Forms.TextBox();
             this.TBDivisor_Impuesto = new System.Windows.Forms.TextBox();
-            this.textBox22 = new System.Windows.Forms.TextBox();
-            this.TBValor_PorUnidad03 = new System.Windows.Forms.TextBox();
-            this.label77 = new System.Windows.Forms.Label();
-            this.TBValor_Unidad03 = new System.Windows.Forms.TextBox();
-            this.TBValor_PorUnidad02 = new System.Windows.Forms.TextBox();
-            this.TBValor_PorUnidad01 = new System.Windows.Forms.TextBox();
-            this.label78 = new System.Windows.Forms.Label();
-            this.TBValor_Unidad01 = new System.Windows.Forms.TextBox();
-            this.TBValor_Unidad02 = new System.Windows.Forms.TextBox();
-            this.label79 = new System.Windows.Forms.Label();
-            this.textBox35 = new System.Windows.Forms.TextBox();
             this.CBUnidad = new System.Windows.Forms.ComboBox();
             this.label27 = new System.Windows.Forms.Label();
             this.label75 = new System.Windows.Forms.Label();
@@ -323,8 +273,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.PB_Imagen)).BeginInit();
             this.TPImpuesto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGDetalle_Impuesto)).BeginInit();
-            this.TPLote.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGDetalles_Lotes)).BeginInit();
             this.TPProveedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGDetalle_Proveedor)).BeginInit();
             this.TPStockDisponible.SuspendLayout();
@@ -404,7 +352,6 @@
             this.TCPrincipal.Controls.Add(this.TPIgualdad);
             this.TCPrincipal.Controls.Add(this.TPImagen);
             this.TCPrincipal.Controls.Add(this.TPImpuesto);
-            this.TCPrincipal.Controls.Add(this.TPLote);
             this.TCPrincipal.Controls.Add(this.TPProveedor);
             this.TCPrincipal.Controls.Add(this.TPRetencion);
             this.TCPrincipal.Controls.Add(this.TPStockDisponible);
@@ -586,7 +533,7 @@
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(60, 17);
             this.label48.TabIndex = 154;
-            this.label48.Text = "Comision";
+            this.label48.Text = "Comisión";
             // 
             // CHManejaComision
             // 
@@ -886,7 +833,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Codigo";
+            this.label1.Text = "Código";
             // 
             // TPCodigosdeBarra
             // 
@@ -941,7 +888,7 @@
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(97, 17);
             this.label35.TabIndex = 16;
-            this.label35.Text = "Codigo de Barra";
+            this.label35.Text = "Código de Barra";
             // 
             // lblTotal_Codigodebarra
             // 
@@ -1193,36 +1140,22 @@
             this.TPExterior.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TPExterior.Controls.Add(this.TBIdexterior);
             this.TPExterior.Controls.Add(this.TBIdproveedor_Exterior);
-            this.TPExterior.Controls.Add(this.label91);
-            this.TPExterior.Controls.Add(this.label90);
-            this.TPExterior.Controls.Add(this.label89);
-            this.TPExterior.Controls.Add(this.label88);
-            this.TPExterior.Controls.Add(this.label87);
-            this.TPExterior.Controls.Add(this.label86);
-            this.TPExterior.Controls.Add(this.label72);
             this.TPExterior.Controls.Add(this.TBExt_ProveedorDocum);
-            this.TPExterior.Controls.Add(this.TBExteriorMon_Seguridad);
-            this.TPExterior.Controls.Add(this.TBExteriorMon_Importacion);
-            this.TPExterior.Controls.Add(this.TBExteriorMon_Exportacion);
             this.TPExterior.Controls.Add(this.btnModificar_Exterior);
             this.TPExterior.Controls.Add(this.lblTotal_Exterior);
             this.TPExterior.Controls.Add(this.btnEliminar_Exterior);
             this.TPExterior.Controls.Add(this.btnAgregar_Exterior);
             this.TPExterior.Controls.Add(this.TBExterior_Adicional);
-            this.TPExterior.Controls.Add(this.TBExteriorMon_Adicional);
             this.TPExterior.Controls.Add(this.TBExterior_Documento);
             this.TPExterior.Controls.Add(this.DGDetalle_Exterior);
             this.TPExterior.Controls.Add(this.TBExterior_Comision);
             this.TPExterior.Controls.Add(this.label68);
-            this.TPExterior.Controls.Add(this.TBExteriorMon_Documento);
-            this.TPExterior.Controls.Add(this.TBExteriorMon_Aduana);
             this.TPExterior.Controls.Add(this.label71);
             this.TPExterior.Controls.Add(this.TBExterior_Aduana);
             this.TPExterior.Controls.Add(this.label70);
             this.TPExterior.Controls.Add(this.TBExterior_Proveedor);
             this.TPExterior.Controls.Add(this.label69);
             this.TPExterior.Controls.Add(this.btnExaminar_Exterior);
-            this.TPExterior.Controls.Add(this.TBExteriorMon_Comision);
             this.TPExterior.Controls.Add(this.label59);
             this.TPExterior.Controls.Add(this.TBExterior_Seguridad);
             this.TPExterior.Controls.Add(this.label58);
@@ -1252,112 +1185,13 @@
             this.TBIdproveedor_Exterior.Size = new System.Drawing.Size(27, 22);
             this.TBIdproveedor_Exterior.TabIndex = 8;
             // 
-            // label91
-            // 
-            this.label91.AutoSize = true;
-            this.label91.Location = new System.Drawing.Point(296, 198);
-            this.label91.Name = "label91";
-            this.label91.Size = new System.Drawing.Size(111, 17);
-            this.label91.TabIndex = 178;
-            this.label91.Text = "Moneda Extranjera";
-            // 
-            // label90
-            // 
-            this.label90.AutoSize = true;
-            this.label90.Location = new System.Drawing.Point(296, 171);
-            this.label90.Name = "label90";
-            this.label90.Size = new System.Drawing.Size(111, 17);
-            this.label90.TabIndex = 177;
-            this.label90.Text = "Moneda Extranjera";
-            // 
-            // label89
-            // 
-            this.label89.AutoSize = true;
-            this.label89.Location = new System.Drawing.Point(296, 144);
-            this.label89.Name = "label89";
-            this.label89.Size = new System.Drawing.Size(111, 17);
-            this.label89.TabIndex = 176;
-            this.label89.Text = "Moneda Extranjera";
-            // 
-            // label88
-            // 
-            this.label88.AutoSize = true;
-            this.label88.Location = new System.Drawing.Point(296, 117);
-            this.label88.Name = "label88";
-            this.label88.Size = new System.Drawing.Size(111, 17);
-            this.label88.TabIndex = 175;
-            this.label88.Text = "Moneda Extranjera";
-            // 
-            // label87
-            // 
-            this.label87.AutoSize = true;
-            this.label87.Location = new System.Drawing.Point(296, 90);
-            this.label87.Name = "label87";
-            this.label87.Size = new System.Drawing.Size(111, 17);
-            this.label87.TabIndex = 174;
-            this.label87.Text = "Moneda Extranjera";
-            // 
-            // label86
-            // 
-            this.label86.AutoSize = true;
-            this.label86.Location = new System.Drawing.Point(296, 63);
-            this.label86.Name = "label86";
-            this.label86.Size = new System.Drawing.Size(111, 17);
-            this.label86.TabIndex = 173;
-            this.label86.Text = "Moneda Extranjera";
-            // 
-            // label72
-            // 
-            this.label72.AutoSize = true;
-            this.label72.Location = new System.Drawing.Point(296, 36);
-            this.label72.Name = "label72";
-            this.label72.Size = new System.Drawing.Size(111, 17);
-            this.label72.TabIndex = 172;
-            this.label72.Text = "Moneda Extranjera";
-            // 
             // TBExt_ProveedorDocum
             // 
-            this.TBExt_ProveedorDocum.Location = new System.Drawing.Point(75, 6);
+            this.TBExt_ProveedorDocum.Location = new System.Drawing.Point(77, 6);
             this.TBExt_ProveedorDocum.Name = "TBExt_ProveedorDocum";
-            this.TBExt_ProveedorDocum.Size = new System.Drawing.Size(148, 22);
+            this.TBExt_ProveedorDocum.Size = new System.Drawing.Size(146, 22);
             this.TBExt_ProveedorDocum.TabIndex = 171;
             this.TBExt_ProveedorDocum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // TBExteriorMon_Seguridad
-            // 
-            this.TBExteriorMon_Seguridad.Location = new System.Drawing.Point(421, 195);
-            this.TBExteriorMon_Seguridad.Name = "TBExteriorMon_Seguridad";
-            this.TBExteriorMon_Seguridad.Size = new System.Drawing.Size(145, 22);
-            this.TBExteriorMon_Seguridad.TabIndex = 170;
-            this.TBExteriorMon_Seguridad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TBExteriorMon_Seguridad.Enter += new System.EventHandler(this.TBExteriorMon_Seguridad_Enter);
-            this.TBExteriorMon_Seguridad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBExteriorMon_Seguridad_KeyPress);
-            this.TBExteriorMon_Seguridad.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBExteriorMon_Seguridad_KeyUp);
-            this.TBExteriorMon_Seguridad.Leave += new System.EventHandler(this.TBExteriorMon_Seguridad_Leave);
-            // 
-            // TBExteriorMon_Importacion
-            // 
-            this.TBExteriorMon_Importacion.Location = new System.Drawing.Point(421, 168);
-            this.TBExteriorMon_Importacion.Name = "TBExteriorMon_Importacion";
-            this.TBExteriorMon_Importacion.Size = new System.Drawing.Size(145, 22);
-            this.TBExteriorMon_Importacion.TabIndex = 169;
-            this.TBExteriorMon_Importacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TBExteriorMon_Importacion.Enter += new System.EventHandler(this.TBExteriorMon_Importacion_Enter);
-            this.TBExteriorMon_Importacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBExteriorMon_Importacion_KeyPress);
-            this.TBExteriorMon_Importacion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBExteriorMon_Importacion_KeyUp);
-            this.TBExteriorMon_Importacion.Leave += new System.EventHandler(this.TBExteriorMon_Importacion_Leave);
-            // 
-            // TBExteriorMon_Exportacion
-            // 
-            this.TBExteriorMon_Exportacion.Location = new System.Drawing.Point(421, 141);
-            this.TBExteriorMon_Exportacion.Name = "TBExteriorMon_Exportacion";
-            this.TBExteriorMon_Exportacion.Size = new System.Drawing.Size(145, 22);
-            this.TBExteriorMon_Exportacion.TabIndex = 168;
-            this.TBExteriorMon_Exportacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TBExteriorMon_Exportacion.Enter += new System.EventHandler(this.TBExteriorMon_Exportacion_Enter);
-            this.TBExteriorMon_Exportacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBExteriorMon_Exportacion_KeyPress);
-            this.TBExteriorMon_Exportacion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBExteriorMon_Exportacion_KeyUp);
-            this.TBExteriorMon_Exportacion.Leave += new System.EventHandler(this.TBExteriorMon_Exportacion_Leave);
             // 
             // btnModificar_Exterior
             // 
@@ -1421,7 +1255,7 @@
             // 
             // TBExterior_Adicional
             // 
-            this.TBExterior_Adicional.Location = new System.Drawing.Point(138, 114);
+            this.TBExterior_Adicional.Location = new System.Drawing.Point(421, 62);
             this.TBExterior_Adicional.Name = "TBExterior_Adicional";
             this.TBExterior_Adicional.Size = new System.Drawing.Size(145, 22);
             this.TBExterior_Adicional.TabIndex = 163;
@@ -1431,21 +1265,9 @@
             this.TBExterior_Adicional.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBExterior_Adicional_KeyUp);
             this.TBExterior_Adicional.Leave += new System.EventHandler(this.TBExterior_Adicional_Leave);
             // 
-            // TBExteriorMon_Adicional
-            // 
-            this.TBExteriorMon_Adicional.Location = new System.Drawing.Point(421, 114);
-            this.TBExteriorMon_Adicional.Name = "TBExteriorMon_Adicional";
-            this.TBExteriorMon_Adicional.Size = new System.Drawing.Size(145, 22);
-            this.TBExteriorMon_Adicional.TabIndex = 162;
-            this.TBExteriorMon_Adicional.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TBExteriorMon_Adicional.Enter += new System.EventHandler(this.TBExteriorMon_Adicional_Enter);
-            this.TBExteriorMon_Adicional.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBExteriorMon_Adicional_KeyPress);
-            this.TBExteriorMon_Adicional.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBExteriorMon_Adicional_KeyUp);
-            this.TBExteriorMon_Adicional.Leave += new System.EventHandler(this.TBExteriorMon_Adicional_Leave);
-            // 
             // TBExterior_Documento
             // 
-            this.TBExterior_Documento.Location = new System.Drawing.Point(138, 87);
+            this.TBExterior_Documento.Location = new System.Drawing.Point(138, 61);
             this.TBExterior_Documento.Name = "TBExterior_Documento";
             this.TBExterior_Documento.Size = new System.Drawing.Size(145, 22);
             this.TBExterior_Documento.TabIndex = 161;
@@ -1463,16 +1285,16 @@
             this.DGDetalle_Exterior.BackgroundColor = System.Drawing.Color.White;
             this.DGDetalle_Exterior.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGDetalle_Exterior.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.DGDetalle_Exterior.Location = new System.Drawing.Point(6, 222);
+            this.DGDetalle_Exterior.Location = new System.Drawing.Point(6, 145);
             this.DGDetalle_Exterior.Name = "DGDetalle_Exterior";
             this.DGDetalle_Exterior.ReadOnly = true;
             this.DGDetalle_Exterior.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGDetalle_Exterior.Size = new System.Drawing.Size(560, 125);
+            this.DGDetalle_Exterior.Size = new System.Drawing.Size(560, 202);
             this.DGDetalle_Exterior.TabIndex = 160;
             // 
             // TBExterior_Comision
             // 
-            this.TBExterior_Comision.Location = new System.Drawing.Point(138, 60);
+            this.TBExterior_Comision.Location = new System.Drawing.Point(421, 34);
             this.TBExterior_Comision.Name = "TBExterior_Comision";
             this.TBExterior_Comision.Size = new System.Drawing.Size(145, 22);
             this.TBExterior_Comision.TabIndex = 159;
@@ -1485,40 +1307,16 @@
             // label68
             // 
             this.label68.AutoSize = true;
-            this.label68.Location = new System.Drawing.Point(6, 90);
+            this.label68.Location = new System.Drawing.Point(6, 64);
             this.label68.Name = "label68";
             this.label68.Size = new System.Drawing.Size(127, 17);
             this.label68.TabIndex = 158;
             this.label68.Text = "Gastos en Document.";
             // 
-            // TBExteriorMon_Documento
-            // 
-            this.TBExteriorMon_Documento.Location = new System.Drawing.Point(421, 87);
-            this.TBExteriorMon_Documento.Name = "TBExteriorMon_Documento";
-            this.TBExteriorMon_Documento.Size = new System.Drawing.Size(145, 22);
-            this.TBExteriorMon_Documento.TabIndex = 157;
-            this.TBExteriorMon_Documento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TBExteriorMon_Documento.Enter += new System.EventHandler(this.TBExteriorMon_Documento_Enter);
-            this.TBExteriorMon_Documento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBExteriorMon_Documento_KeyPress);
-            this.TBExteriorMon_Documento.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBExteriorMon_Documento_KeyUp);
-            this.TBExteriorMon_Documento.Leave += new System.EventHandler(this.TBExteriorMon_Documento_Leave);
-            // 
-            // TBExteriorMon_Aduana
-            // 
-            this.TBExteriorMon_Aduana.Location = new System.Drawing.Point(421, 33);
-            this.TBExteriorMon_Aduana.Name = "TBExteriorMon_Aduana";
-            this.TBExteriorMon_Aduana.Size = new System.Drawing.Size(145, 22);
-            this.TBExteriorMon_Aduana.TabIndex = 155;
-            this.TBExteriorMon_Aduana.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TBExteriorMon_Aduana.Enter += new System.EventHandler(this.TBExteriorMon_Aduana_Enter);
-            this.TBExteriorMon_Aduana.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBExteriorMon_Aduana_KeyPress);
-            this.TBExteriorMon_Aduana.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBExteriorMon_Aduana_KeyUp);
-            this.TBExteriorMon_Aduana.Leave += new System.EventHandler(this.TBExteriorMon_Aduana_Leave);
-            // 
             // label71
             // 
             this.label71.AutoSize = true;
-            this.label71.Location = new System.Drawing.Point(6, 63);
+            this.label71.Location = new System.Drawing.Point(289, 37);
             this.label71.Name = "label71";
             this.label71.Size = new System.Drawing.Size(118, 17);
             this.label71.TabIndex = 154;
@@ -1526,7 +1324,7 @@
             // 
             // TBExterior_Aduana
             // 
-            this.TBExterior_Aduana.Location = new System.Drawing.Point(138, 33);
+            this.TBExterior_Aduana.Location = new System.Drawing.Point(138, 34);
             this.TBExterior_Aduana.Name = "TBExterior_Aduana";
             this.TBExterior_Aduana.Size = new System.Drawing.Size(145, 22);
             this.TBExterior_Aduana.TabIndex = 153;
@@ -1539,7 +1337,7 @@
             // label70
             // 
             this.label70.AutoSize = true;
-            this.label70.Location = new System.Drawing.Point(6, 36);
+            this.label70.Location = new System.Drawing.Point(6, 37);
             this.label70.Name = "label70";
             this.label70.Size = new System.Drawing.Size(115, 17);
             this.label70.TabIndex = 152;
@@ -1576,22 +1374,10 @@
             this.btnExaminar_Exterior.UseVisualStyleBackColor = true;
             this.btnExaminar_Exterior.Click += new System.EventHandler(this.btnExaminar_Exterior_Click);
             // 
-            // TBExteriorMon_Comision
-            // 
-            this.TBExteriorMon_Comision.Location = new System.Drawing.Point(421, 60);
-            this.TBExteriorMon_Comision.Name = "TBExteriorMon_Comision";
-            this.TBExteriorMon_Comision.Size = new System.Drawing.Size(145, 22);
-            this.TBExteriorMon_Comision.TabIndex = 146;
-            this.TBExteriorMon_Comision.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TBExteriorMon_Comision.Enter += new System.EventHandler(this.TBExteriorMon_Comision_Enter);
-            this.TBExteriorMon_Comision.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBExteriorMon_Comision_KeyPress);
-            this.TBExteriorMon_Comision.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBExteriorMon_Comision_KeyUp);
-            this.TBExteriorMon_Comision.Leave += new System.EventHandler(this.TBExteriorMon_Comision_Leave);
-            // 
             // label59
             // 
             this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(6, 117);
+            this.label59.Location = new System.Drawing.Point(289, 64);
             this.label59.Name = "label59";
             this.label59.Size = new System.Drawing.Size(113, 17);
             this.label59.TabIndex = 145;
@@ -1599,7 +1385,7 @@
             // 
             // TBExterior_Seguridad
             // 
-            this.TBExterior_Seguridad.Location = new System.Drawing.Point(138, 195);
+            this.TBExterior_Seguridad.Location = new System.Drawing.Point(138, 117);
             this.TBExterior_Seguridad.Name = "TBExterior_Seguridad";
             this.TBExterior_Seguridad.Size = new System.Drawing.Size(145, 22);
             this.TBExterior_Seguridad.TabIndex = 144;
@@ -1612,7 +1398,7 @@
             // label58
             // 
             this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(6, 198);
+            this.label58.Location = new System.Drawing.Point(6, 120);
             this.label58.Name = "label58";
             this.label58.Size = new System.Drawing.Size(116, 17);
             this.label58.TabIndex = 143;
@@ -1620,7 +1406,7 @@
             // 
             // TBExterior_Importacion
             // 
-            this.TBExterior_Importacion.Location = new System.Drawing.Point(138, 168);
+            this.TBExterior_Importacion.Location = new System.Drawing.Point(421, 90);
             this.TBExterior_Importacion.Name = "TBExterior_Importacion";
             this.TBExterior_Importacion.Size = new System.Drawing.Size(145, 22);
             this.TBExterior_Importacion.TabIndex = 142;
@@ -1633,7 +1419,7 @@
             // label57
             // 
             this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(6, 171);
+            this.label57.Location = new System.Drawing.Point(289, 92);
             this.label57.Name = "label57";
             this.label57.Size = new System.Drawing.Size(126, 17);
             this.label57.TabIndex = 141;
@@ -1641,7 +1427,7 @@
             // 
             // TBExterior_Exportacion
             // 
-            this.TBExterior_Exportacion.Location = new System.Drawing.Point(138, 141);
+            this.TBExterior_Exportacion.Location = new System.Drawing.Point(138, 89);
             this.TBExterior_Exportacion.Name = "TBExterior_Exportacion";
             this.TBExterior_Exportacion.Size = new System.Drawing.Size(145, 22);
             this.TBExterior_Exportacion.TabIndex = 140;
@@ -1654,7 +1440,7 @@
             // label56
             // 
             this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(6, 144);
+            this.label56.Location = new System.Drawing.Point(6, 92);
             this.label56.Name = "label56";
             this.label56.Size = new System.Drawing.Size(124, 17);
             this.label56.TabIndex = 139;
@@ -2132,7 +1918,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(73, 17);
             this.label11.TabIndex = 158;
-            this.label11.Text = "Descripcion";
+            this.label11.Text = "Descripción";
             // 
             // label9
             // 
@@ -2231,222 +2017,6 @@
             this.btnEliminar_Impuesto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminar_Impuesto.UseVisualStyleBackColor = true;
             this.btnEliminar_Impuesto.Click += new System.EventHandler(this.btnEliminar_Impuesto_Click);
-            // 
-            // TPLote
-            // 
-            this.TPLote.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TPLote.Controls.Add(this.label16);
-            this.TPLote.Controls.Add(this.TBLote_Actual);
-            this.TPLote.Controls.Add(this.btnModificar_Lote);
-            this.TPLote.Controls.Add(this.TBLote_Venta);
-            this.TPLote.Controls.Add(this.label50);
-            this.TPLote.Controls.Add(this.TBLote_Cantidad);
-            this.TPLote.Controls.Add(this.label42);
-            this.TPLote.Controls.Add(this.DTLote_Vencimiento);
-            this.TPLote.Controls.Add(this.label34);
-            this.TPLote.Controls.Add(this.DGDetalles_Lotes);
-            this.TPLote.Controls.Add(this.lblTotal_Lotes);
-            this.TPLote.Controls.Add(this.TBValor_Lote);
-            this.TPLote.Controls.Add(this.label7);
-            this.TPLote.Controls.Add(this.TBLotedeingreso);
-            this.TPLote.Controls.Add(this.label12);
-            this.TPLote.Controls.Add(this.btnEliminar_Lote);
-            this.TPLote.Controls.Add(this.btnAgregar_Lote);
-            this.TPLote.Location = new System.Drawing.Point(4, 48);
-            this.TPLote.Name = "TPLote";
-            this.TPLote.Padding = new System.Windows.Forms.Padding(3);
-            this.TPLote.Size = new System.Drawing.Size(574, 391);
-            this.TPLote.TabIndex = 11;
-            this.TPLote.Text = "Lote";
-            this.TPLote.UseVisualStyleBackColor = true;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(302, 90);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(77, 17);
-            this.label16.TabIndex = 69;
-            this.label16.Text = "Stock Actual";
-            // 
-            // TBLote_Actual
-            // 
-            this.TBLote_Actual.Location = new System.Drawing.Point(391, 87);
-            this.TBLote_Actual.Name = "TBLote_Actual";
-            this.TBLote_Actual.Size = new System.Drawing.Size(175, 22);
-            this.TBLote_Actual.TabIndex = 68;
-            // 
-            // btnModificar_Lote
-            // 
-            this.btnModificar_Lote.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnModificar_Lote.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnModificar_Lote.FlatAppearance.BorderSize = 0;
-            this.btnModificar_Lote.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar_Lote.Image = global::Presentacion.Botones.btnEditar;
-            this.btnModificar_Lote.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar_Lote.Location = new System.Drawing.Point(320, 353);
-            this.btnModificar_Lote.Name = "btnModificar_Lote";
-            this.btnModificar_Lote.Size = new System.Drawing.Size(120, 30);
-            this.btnModificar_Lote.TabIndex = 67;
-            this.btnModificar_Lote.Text = "Modificar - F8";
-            this.btnModificar_Lote.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnModificar_Lote.UseVisualStyleBackColor = true;
-            this.btnModificar_Lote.Click += new System.EventHandler(this.btnModificar_Lote_Click);
-            // 
-            // TBLote_Venta
-            // 
-            this.TBLote_Venta.Location = new System.Drawing.Point(111, 60);
-            this.TBLote_Venta.Name = "TBLote_Venta";
-            this.TBLote_Venta.Size = new System.Drawing.Size(455, 22);
-            this.TBLote_Venta.TabIndex = 66;
-            this.TBLote_Venta.Enter += new System.EventHandler(this.TBLote_Venta_Enter);
-            this.TBLote_Venta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBLote_Venta_KeyPress);
-            this.TBLote_Venta.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBLote_Venta_KeyUp);
-            this.TBLote_Venta.Leave += new System.EventHandler(this.TBLote_Venta_Leave);
-            // 
-            // label50
-            // 
-            this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(6, 63);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(88, 17);
-            this.label50.TabIndex = 65;
-            this.label50.Text = "Valor de Venta";
-            // 
-            // TBLote_Cantidad
-            // 
-            this.TBLote_Cantidad.Location = new System.Drawing.Point(111, 87);
-            this.TBLote_Cantidad.Name = "TBLote_Cantidad";
-            this.TBLote_Cantidad.Size = new System.Drawing.Size(175, 22);
-            this.TBLote_Cantidad.TabIndex = 61;
-            this.TBLote_Cantidad.Enter += new System.EventHandler(this.TBLote_Stock_Enter);
-            this.TBLote_Cantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBLote_Stock_KeyPress);
-            this.TBLote_Cantidad.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBLote_Stock_KeyUp);
-            this.TBLote_Cantidad.Leave += new System.EventHandler(this.TBLote_Stock_Leave);
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(6, 90);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(100, 17);
-            this.label42.TabIndex = 60;
-            this.label42.Text = "Stock de Ingreso";
-            // 
-            // DTLote_Vencimiento
-            // 
-            this.DTLote_Vencimiento.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.DTLote_Vencimiento.Location = new System.Drawing.Point(178, 114);
-            this.DTLote_Vencimiento.Name = "DTLote_Vencimiento";
-            this.DTLote_Vencimiento.Size = new System.Drawing.Size(256, 22);
-            this.DTLote_Vencimiento.TabIndex = 58;
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(6, 114);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(168, 17);
-            this.label34.TabIndex = 57;
-            this.label34.Text = "Fecha Limite de Vencimiento";
-            // 
-            // DGDetalles_Lotes
-            // 
-            this.DGDetalles_Lotes.AllowUserToAddRows = false;
-            this.DGDetalles_Lotes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.DGDetalles_Lotes.BackgroundColor = System.Drawing.Color.White;
-            this.DGDetalles_Lotes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGDetalles_Lotes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.DGDetalles_Lotes.Location = new System.Drawing.Point(6, 141);
-            this.DGDetalles_Lotes.Name = "DGDetalles_Lotes";
-            this.DGDetalles_Lotes.ReadOnly = true;
-            this.DGDetalles_Lotes.RowHeadersVisible = false;
-            this.DGDetalles_Lotes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGDetalles_Lotes.Size = new System.Drawing.Size(560, 206);
-            this.DGDetalles_Lotes.TabIndex = 56;
-            // 
-            // lblTotal_Lotes
-            // 
-            this.lblTotal_Lotes.AutoSize = true;
-            this.lblTotal_Lotes.Location = new System.Drawing.Point(6, 363);
-            this.lblTotal_Lotes.Name = "lblTotal_Lotes";
-            this.lblTotal_Lotes.Size = new System.Drawing.Size(124, 17);
-            this.lblTotal_Lotes.TabIndex = 51;
-            this.lblTotal_Lotes.Text = "Datos Registrados: 0";
-            // 
-            // TBValor_Lote
-            // 
-            this.TBValor_Lote.Location = new System.Drawing.Point(111, 33);
-            this.TBValor_Lote.Name = "TBValor_Lote";
-            this.TBValor_Lote.Size = new System.Drawing.Size(455, 22);
-            this.TBValor_Lote.TabIndex = 47;
-            this.TBValor_Lote.Enter += new System.EventHandler(this.TBValor_Lote_Enter);
-            this.TBValor_Lote.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBValor_Lote_KeyPress);
-            this.TBValor_Lote.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBValor_Lote_KeyUp);
-            this.TBValor_Lote.Leave += new System.EventHandler(this.TBValor_Lote_Leave);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 36);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(100, 17);
-            this.label7.TabIndex = 46;
-            this.label7.Text = "Valor de Compra";
-            // 
-            // TBLotedeingreso
-            // 
-            this.TBLotedeingreso.Location = new System.Drawing.Point(111, 6);
-            this.TBLotedeingreso.Name = "TBLotedeingreso";
-            this.TBLotedeingreso.Size = new System.Drawing.Size(455, 22);
-            this.TBLotedeingreso.TabIndex = 44;
-            this.TBLotedeingreso.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TBLotedeingreso.Enter += new System.EventHandler(this.TBLotedeingreso_Enter);
-            this.TBLotedeingreso.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBLotedeingreso_KeyUp);
-            this.TBLotedeingreso.Leave += new System.EventHandler(this.TBLotedeingreso_Leave);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 9);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(81, 17);
-            this.label12.TabIndex = 45;
-            this.label12.Text = "Lote - Nº Lote";
-            // 
-            // btnEliminar_Lote
-            // 
-            this.btnEliminar_Lote.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar_Lote.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnEliminar_Lote.FlatAppearance.BorderSize = 0;
-            this.btnEliminar_Lote.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar_Lote.Image = global::Presentacion.Botones.btnEliminar;
-            this.btnEliminar_Lote.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar_Lote.Location = new System.Drawing.Point(446, 353);
-            this.btnEliminar_Lote.Name = "btnEliminar_Lote";
-            this.btnEliminar_Lote.Size = new System.Drawing.Size(120, 30);
-            this.btnEliminar_Lote.TabIndex = 63;
-            this.btnEliminar_Lote.Text = "Eliminar - F4";
-            this.btnEliminar_Lote.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminar_Lote.UseVisualStyleBackColor = true;
-            this.btnEliminar_Lote.Click += new System.EventHandler(this.btnEliminar_Lote_Click);
-            // 
-            // btnAgregar_Lote
-            // 
-            this.btnAgregar_Lote.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregar_Lote.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnAgregar_Lote.FlatAppearance.BorderSize = 0;
-            this.btnAgregar_Lote.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar_Lote.Image = global::Presentacion.Botones.btnAgregar;
-            this.btnAgregar_Lote.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar_Lote.Location = new System.Drawing.Point(194, 353);
-            this.btnAgregar_Lote.Name = "btnAgregar_Lote";
-            this.btnAgregar_Lote.Size = new System.Drawing.Size(120, 30);
-            this.btnAgregar_Lote.TabIndex = 62;
-            this.btnAgregar_Lote.Text = "Agregar - F3";
-            this.btnAgregar_Lote.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAgregar_Lote.UseVisualStyleBackColor = true;
-            this.btnAgregar_Lote.Click += new System.EventHandler(this.btnAgregar_Lote_Click);
             // 
             // TPProveedor
             // 
@@ -2660,7 +2230,7 @@
             // label80
             // 
             this.label80.AutoSize = true;
-            this.label80.Location = new System.Drawing.Point(6, 7);
+            this.label80.Location = new System.Drawing.Point(6, 8);
             this.label80.Name = "label80";
             this.label80.Size = new System.Drawing.Size(51, 17);
             this.label80.TabIndex = 36;
@@ -2674,7 +2244,6 @@
             this.TPUbicacion.Controls.Add(this.TBIdubicacion);
             this.TPUbicacion.Controls.Add(this.btnExaminar_Ubicacion);
             this.TPUbicacion.Controls.Add(this.textBox17);
-            this.TPUbicacion.Controls.Add(this.textBox16);
             this.TPUbicacion.Controls.Add(this.btnModificar_Ubicacion);
             this.TPUbicacion.Controls.Add(this.lblTotal_Ubicacion);
             this.TPUbicacion.Controls.Add(this.DGDetalles_Ubicacion);
@@ -2696,9 +2265,9 @@
             // 
             // TBIdbodega
             // 
-            this.TBIdbodega.Location = new System.Drawing.Point(159, 360);
+            this.TBIdbodega.Location = new System.Drawing.Point(77, 6);
             this.TBIdbodega.Name = "TBIdbodega";
-            this.TBIdbodega.Size = new System.Drawing.Size(27, 22);
+            this.TBIdbodega.Size = new System.Drawing.Size(150, 22);
             this.TBIdbodega.TabIndex = 135;
             // 
             // TBIdubicacion
@@ -2727,13 +2296,6 @@
             this.textBox17.Name = "textBox17";
             this.textBox17.Size = new System.Drawing.Size(302, 22);
             this.textBox17.TabIndex = 61;
-            // 
-            // textBox16
-            // 
-            this.textBox16.Location = new System.Drawing.Point(77, 6);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(150, 22);
-            this.textBox16.TabIndex = 60;
             // 
             // btnModificar_Ubicacion
             // 
@@ -2843,7 +2405,7 @@
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(65, 17);
             this.label18.TabIndex = 0;
-            this.label18.Text = "Ubicacion ";
+            this.label18.Text = "Ubicación ";
             // 
             // btnEliminar_Ubicacion
             // 
@@ -2883,39 +2445,22 @@
             // 
             this.TPValores.BackColor = System.Drawing.Color.White;
             this.TPValores.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TPValores.Controls.Add(this.TBValor_ImpUnidad03);
-            this.TPValores.Controls.Add(this.textBox38);
-            this.TPValores.Controls.Add(this.TBValor_ImpUnidad02);
-            this.TPValores.Controls.Add(this.TBValor_ImpUnidad01);
+            this.TPValores.Controls.Add(this.TBValor03);
+            this.TPValores.Controls.Add(this.TBValor02);
+            this.TPValores.Controls.Add(this.TBValor01);
             this.TPValores.Controls.Add(this.TBValor_ImpVenta03);
             this.TPValores.Controls.Add(this.TBValor_ImpMayorista);
             this.TPValores.Controls.Add(this.TBValor_ImpVenta02);
             this.TPValores.Controls.Add(this.TBValor_ImpVenta01);
             this.TPValores.Controls.Add(this.textBox3);
             this.TPValores.Controls.Add(this.textBox24);
-            this.TPValores.Controls.Add(this.textBox2);
             this.TPValores.Controls.Add(this.textBox1);
             this.TPValores.Controls.Add(this.TBmultiplicador_Impuesto);
-            this.TPValores.Controls.Add(this.TBUndBase_Inicial03);
-            this.TPValores.Controls.Add(this.textBox8);
-            this.TPValores.Controls.Add(this.TBUndBase_Inicial02);
-            this.TPValores.Controls.Add(this.TBUndBase_Inicial01);
             this.TPValores.Controls.Add(this.TBValorBase_Inicial03);
             this.TPValores.Controls.Add(this.TBValorBase_InicialMayorista);
             this.TPValores.Controls.Add(this.TBValorBase_Inicial02);
             this.TPValores.Controls.Add(this.TBValorBase_Inicial01);
             this.TPValores.Controls.Add(this.TBDivisor_Impuesto);
-            this.TPValores.Controls.Add(this.textBox22);
-            this.TPValores.Controls.Add(this.TBValor_PorUnidad03);
-            this.TPValores.Controls.Add(this.label77);
-            this.TPValores.Controls.Add(this.TBValor_Unidad03);
-            this.TPValores.Controls.Add(this.TBValor_PorUnidad02);
-            this.TPValores.Controls.Add(this.TBValor_PorUnidad01);
-            this.TPValores.Controls.Add(this.label78);
-            this.TPValores.Controls.Add(this.TBValor_Unidad01);
-            this.TPValores.Controls.Add(this.TBValor_Unidad02);
-            this.TPValores.Controls.Add(this.label79);
-            this.TPValores.Controls.Add(this.textBox35);
             this.TPValores.Controls.Add(this.CBUnidad);
             this.TPValores.Controls.Add(this.label27);
             this.TPValores.Controls.Add(this.label75);
@@ -2944,40 +2489,27 @@
             this.TPValores.TabIndex = 3;
             this.TPValores.Text = "Valor - Precios";
             // 
-            // TBValor_ImpUnidad03
+            // TBValor03
             // 
-            this.TBValor_ImpUnidad03.Location = new System.Drawing.Point(312, 354);
-            this.TBValor_ImpUnidad03.Name = "TBValor_ImpUnidad03";
-            this.TBValor_ImpUnidad03.Size = new System.Drawing.Size(125, 22);
-            this.TBValor_ImpUnidad03.TabIndex = 241;
-            this.TBValor_ImpUnidad03.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBValor03.Location = new System.Drawing.Point(335, 356);
+            this.TBValor03.Name = "TBValor03";
+            this.TBValor03.Size = new System.Drawing.Size(100, 22);
+            this.TBValor03.TabIndex = 240;
             // 
-            // textBox38
+            // TBValor02
             // 
-            this.textBox38.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox38.Location = new System.Drawing.Point(312, 274);
-            this.textBox38.Multiline = true;
-            this.textBox38.Name = "textBox38";
-            this.textBox38.Size = new System.Drawing.Size(125, 20);
-            this.textBox38.TabIndex = 240;
-            this.textBox38.Text = "Valor de Impuesto";
-            this.textBox38.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBValor02.Location = new System.Drawing.Point(335, 328);
+            this.TBValor02.Name = "TBValor02";
+            this.TBValor02.Size = new System.Drawing.Size(100, 22);
+            this.TBValor02.TabIndex = 239;
             // 
-            // TBValor_ImpUnidad02
+            // TBValor01
             // 
-            this.TBValor_ImpUnidad02.Location = new System.Drawing.Point(312, 327);
-            this.TBValor_ImpUnidad02.Name = "TBValor_ImpUnidad02";
-            this.TBValor_ImpUnidad02.Size = new System.Drawing.Size(125, 22);
-            this.TBValor_ImpUnidad02.TabIndex = 239;
-            this.TBValor_ImpUnidad02.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // TBValor_ImpUnidad01
-            // 
-            this.TBValor_ImpUnidad01.Location = new System.Drawing.Point(312, 300);
-            this.TBValor_ImpUnidad01.Name = "TBValor_ImpUnidad01";
-            this.TBValor_ImpUnidad01.Size = new System.Drawing.Size(125, 22);
-            this.TBValor_ImpUnidad01.TabIndex = 238;
-            this.TBValor_ImpUnidad01.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBValor01.Location = new System.Drawing.Point(335, 300);
+            this.TBValor01.Name = "TBValor01";
+            this.TBValor01.Size = new System.Drawing.Size(100, 22);
+            this.TBValor01.TabIndex = 238;
+            this.TBValor01.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // TBValor_ImpVenta03
             // 
@@ -3033,17 +2565,6 @@
             this.textBox24.Text = "Valor Final";
             this.textBox24.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox2
-            // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Location = new System.Drawing.Point(121, 274);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(142, 20);
-            this.textBox2.TabIndex = 222;
-            this.textBox2.Text = "Valor Base Inicial";
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // textBox1
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -3057,45 +2578,10 @@
             // 
             // TBmultiplicador_Impuesto
             // 
-            this.TBmultiplicador_Impuesto.Location = new System.Drawing.Point(51, 83);
+            this.TBmultiplicador_Impuesto.Location = new System.Drawing.Point(166, 248);
             this.TBmultiplicador_Impuesto.Name = "TBmultiplicador_Impuesto";
             this.TBmultiplicador_Impuesto.Size = new System.Drawing.Size(38, 22);
             this.TBmultiplicador_Impuesto.TabIndex = 220;
-            // 
-            // TBUndBase_Inicial03
-            // 
-            this.TBUndBase_Inicial03.Location = new System.Drawing.Point(122, 354);
-            this.TBUndBase_Inicial03.Name = "TBUndBase_Inicial03";
-            this.TBUndBase_Inicial03.Size = new System.Drawing.Size(141, 22);
-            this.TBUndBase_Inicial03.TabIndex = 219;
-            this.TBUndBase_Inicial03.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox8
-            // 
-            this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox8.Location = new System.Drawing.Point(443, 274);
-            this.textBox8.Multiline = true;
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(126, 20);
-            this.textBox8.TabIndex = 218;
-            this.textBox8.Text = "Valor Base Inicial";
-            this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // TBUndBase_Inicial02
-            // 
-            this.TBUndBase_Inicial02.Location = new System.Drawing.Point(121, 327);
-            this.TBUndBase_Inicial02.Name = "TBUndBase_Inicial02";
-            this.TBUndBase_Inicial02.Size = new System.Drawing.Size(141, 22);
-            this.TBUndBase_Inicial02.TabIndex = 217;
-            this.TBUndBase_Inicial02.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // TBUndBase_Inicial01
-            // 
-            this.TBUndBase_Inicial01.Location = new System.Drawing.Point(122, 300);
-            this.TBUndBase_Inicial01.Name = "TBUndBase_Inicial01";
-            this.TBUndBase_Inicial01.Size = new System.Drawing.Size(141, 22);
-            this.TBUndBase_Inicial01.TabIndex = 216;
-            this.TBUndBase_Inicial01.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // TBValorBase_Inicial03
             // 
@@ -3105,6 +2591,8 @@
             this.TBValorBase_Inicial03.TabIndex = 215;
             this.TBValorBase_Inicial03.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TBValorBase_Inicial03.Enter += new System.EventHandler(this.TBValorBase_Inicial03_Enter);
+            this.TBValorBase_Inicial03.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBValorBase_Inicial03_KeyPress);
+            this.TBValorBase_Inicial03.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBValorBase_Inicial03_KeyUp);
             this.TBValorBase_Inicial03.Leave += new System.EventHandler(this.TBValorBase_Inicial03_Leave);
             // 
             // TBValorBase_InicialMayorista
@@ -3115,6 +2603,8 @@
             this.TBValorBase_InicialMayorista.TabIndex = 213;
             this.TBValorBase_InicialMayorista.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TBValorBase_InicialMayorista.Enter += new System.EventHandler(this.TBValorBase_InicialMayorista_Enter);
+            this.TBValorBase_InicialMayorista.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBValorBase_InicialMayorista_KeyPress);
+            this.TBValorBase_InicialMayorista.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBValorBase_InicialMayorista_KeyUp);
             this.TBValorBase_InicialMayorista.Leave += new System.EventHandler(this.TBValorBase_InicialMayorista_Leave);
             // 
             // TBValorBase_Inicial02
@@ -3125,6 +2615,8 @@
             this.TBValorBase_Inicial02.TabIndex = 212;
             this.TBValorBase_Inicial02.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TBValorBase_Inicial02.Enter += new System.EventHandler(this.TBValorBase_Inicial02_Enter);
+            this.TBValorBase_Inicial02.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBValorBase_Inicial02_KeyPress);
+            this.TBValorBase_Inicial02.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBValorBase_Inicial02_KeyUp);
             this.TBValorBase_Inicial02.Leave += new System.EventHandler(this.TBValorBase_Inicial02_Leave);
             // 
             // TBValorBase_Inicial01
@@ -3135,121 +2627,16 @@
             this.TBValorBase_Inicial01.TabIndex = 211;
             this.TBValorBase_Inicial01.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TBValorBase_Inicial01.Enter += new System.EventHandler(this.TBValorBase_Inicial01_Enter);
+            this.TBValorBase_Inicial01.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBValorBase_Inicial01_KeyPress);
+            this.TBValorBase_Inicial01.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBValorBase_Inicial01_KeyUp);
             this.TBValorBase_Inicial01.Leave += new System.EventHandler(this.TBValorBase_Inicial01_Leave);
             // 
             // TBDivisor_Impuesto
             // 
-            this.TBDivisor_Impuesto.Location = new System.Drawing.Point(7, 83);
+            this.TBDivisor_Impuesto.Location = new System.Drawing.Point(122, 248);
             this.TBDivisor_Impuesto.Name = "TBDivisor_Impuesto";
             this.TBDivisor_Impuesto.Size = new System.Drawing.Size(38, 22);
             this.TBDivisor_Impuesto.TabIndex = 210;
-            // 
-            // textBox22
-            // 
-            this.textBox22.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox22.Location = new System.Drawing.Point(269, 274);
-            this.textBox22.Multiline = true;
-            this.textBox22.Name = "textBox22";
-            this.textBox22.Size = new System.Drawing.Size(37, 20);
-            this.textBox22.TabIndex = 209;
-            this.textBox22.Text = "Porc.";
-            this.textBox22.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // TBValor_PorUnidad03
-            // 
-            this.TBValor_PorUnidad03.Location = new System.Drawing.Point(269, 354);
-            this.TBValor_PorUnidad03.Name = "TBValor_PorUnidad03";
-            this.TBValor_PorUnidad03.Size = new System.Drawing.Size(37, 22);
-            this.TBValor_PorUnidad03.TabIndex = 208;
-            this.TBValor_PorUnidad03.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label77
-            // 
-            this.label77.AutoSize = true;
-            this.label77.Location = new System.Drawing.Point(4, 356);
-            this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(114, 17);
-            this.label77.TabIndex = 206;
-            this.label77.Text = "Valor de Unidad 03";
-            // 
-            // TBValor_Unidad03
-            // 
-            this.TBValor_Unidad03.Location = new System.Drawing.Point(443, 354);
-            this.TBValor_Unidad03.Name = "TBValor_Unidad03";
-            this.TBValor_Unidad03.Size = new System.Drawing.Size(126, 22);
-            this.TBValor_Unidad03.TabIndex = 205;
-            this.TBValor_Unidad03.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TBValor_Unidad03.Enter += new System.EventHandler(this.TBValor_Unidad03_Enter);
-            this.TBValor_Unidad03.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBValor_Unidad03_KeyPress);
-            this.TBValor_Unidad03.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBValor_Unidad03_KeyUp);
-            this.TBValor_Unidad03.Leave += new System.EventHandler(this.TBValor_Unidad03_Leave);
-            // 
-            // TBValor_PorUnidad02
-            // 
-            this.TBValor_PorUnidad02.Location = new System.Drawing.Point(269, 327);
-            this.TBValor_PorUnidad02.Name = "TBValor_PorUnidad02";
-            this.TBValor_PorUnidad02.Size = new System.Drawing.Size(37, 22);
-            this.TBValor_PorUnidad02.TabIndex = 203;
-            this.TBValor_PorUnidad02.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // TBValor_PorUnidad01
-            // 
-            this.TBValor_PorUnidad01.Location = new System.Drawing.Point(269, 300);
-            this.TBValor_PorUnidad01.Name = "TBValor_PorUnidad01";
-            this.TBValor_PorUnidad01.Size = new System.Drawing.Size(37, 22);
-            this.TBValor_PorUnidad01.TabIndex = 201;
-            this.TBValor_PorUnidad01.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label78
-            // 
-            this.label78.AutoSize = true;
-            this.label78.Location = new System.Drawing.Point(4, 329);
-            this.label78.Name = "label78";
-            this.label78.Size = new System.Drawing.Size(114, 17);
-            this.label78.TabIndex = 199;
-            this.label78.Text = "Valor de Unidad 02";
-            // 
-            // TBValor_Unidad01
-            // 
-            this.TBValor_Unidad01.Location = new System.Drawing.Point(443, 300);
-            this.TBValor_Unidad01.Name = "TBValor_Unidad01";
-            this.TBValor_Unidad01.Size = new System.Drawing.Size(126, 22);
-            this.TBValor_Unidad01.TabIndex = 198;
-            this.TBValor_Unidad01.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TBValor_Unidad01.Enter += new System.EventHandler(this.TBValor_Unidad01_Enter);
-            this.TBValor_Unidad01.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBValor_Unidad01_KeyPress);
-            this.TBValor_Unidad01.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBValor_Unidad01_KeyUp);
-            this.TBValor_Unidad01.Leave += new System.EventHandler(this.TBValor_Unidad01_Leave);
-            // 
-            // TBValor_Unidad02
-            // 
-            this.TBValor_Unidad02.Location = new System.Drawing.Point(443, 327);
-            this.TBValor_Unidad02.Name = "TBValor_Unidad02";
-            this.TBValor_Unidad02.Size = new System.Drawing.Size(126, 22);
-            this.TBValor_Unidad02.TabIndex = 197;
-            this.TBValor_Unidad02.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TBValor_Unidad02.Enter += new System.EventHandler(this.TBValor_Unidad02_Enter);
-            this.TBValor_Unidad02.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBValor_Unidad02_KeyPress);
-            this.TBValor_Unidad02.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBValor_Unidad02_KeyUp);
-            this.TBValor_Unidad02.Leave += new System.EventHandler(this.TBValor_Unidad02_Leave);
-            // 
-            // label79
-            // 
-            this.label79.AutoSize = true;
-            this.label79.Location = new System.Drawing.Point(4, 302);
-            this.label79.Name = "label79";
-            this.label79.Size = new System.Drawing.Size(114, 17);
-            this.label79.TabIndex = 196;
-            this.label79.Text = "Valor de Unidad 01";
-            // 
-            // textBox35
-            // 
-            this.textBox35.Location = new System.Drawing.Point(3, 220);
-            this.textBox35.Name = "textBox35";
-            this.textBox35.Size = new System.Drawing.Size(565, 22);
-            this.textBox35.TabIndex = 195;
-            this.textBox35.Text = "Detalle de Unidades - Productos";
-            this.textBox35.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // CBUnidad
             // 
@@ -3270,7 +2657,7 @@
             "MTS",
             "TON",
             "UNI"});
-            this.CBUnidad.Location = new System.Drawing.Point(122, 247);
+            this.CBUnidad.Location = new System.Drawing.Point(122, 221);
             this.CBUnidad.Name = "CBUnidad";
             this.CBUnidad.Size = new System.Drawing.Size(89, 21);
             this.CBUnidad.Sorted = true;
@@ -3280,7 +2667,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(3, 250);
+            this.label27.Location = new System.Drawing.Point(4, 224);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(108, 17);
             this.label27.TabIndex = 193;
@@ -3289,7 +2676,7 @@
             // label75
             // 
             this.label75.AutoSize = true;
-            this.label75.Location = new System.Drawing.Point(217, 250);
+            this.label75.Location = new System.Drawing.Point(217, 224);
             this.label75.Name = "label75";
             this.label75.Size = new System.Drawing.Size(90, 17);
             this.label75.TabIndex = 191;
@@ -3362,7 +2749,7 @@
             // 
             // TBValor_Unidad
             // 
-            this.TBValor_Unidad.Location = new System.Drawing.Point(312, 247);
+            this.TBValor_Unidad.Location = new System.Drawing.Point(313, 221);
             this.TBValor_Unidad.Name = "TBValor_Unidad";
             this.TBValor_Unidad.Size = new System.Drawing.Size(128, 22);
             this.TBValor_Unidad.TabIndex = 172;
@@ -3464,7 +2851,7 @@
             this.TBValor_Venta02.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TBValor_Venta02.Enter += new System.EventHandler(this.TBValor_Venta02_Enter);
             this.TBValor_Venta02.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBValorVenta_KeyPress);
-            this.TBValor_Venta02.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBValorVenta_KeyUp);
+            this.TBValor_Venta02.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBValor_Venta02_KeyUp);
             this.TBValor_Venta02.Leave += new System.EventHandler(this.TBValorVenta_Leave);
             // 
             // label26
@@ -3654,9 +3041,6 @@
             this.TPImpuesto.ResumeLayout(false);
             this.TPImpuesto.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGDetalle_Impuesto)).EndInit();
-            this.TPLote.ResumeLayout(false);
-            this.TPLote.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGDetalles_Lotes)).EndInit();
             this.TPProveedor.ResumeLayout(false);
             this.TPProveedor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGDetalle_Proveedor)).EndInit();
@@ -3722,12 +3106,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.CheckBox CHVencimiento;
         private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.TabPage TPLote;
-        private System.Windows.Forms.TextBox TBValor_Lote;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox TBLotedeingreso;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label lblTotal_Lotes;
         private System.Windows.Forms.TabPage TPCodigosdeBarra;
         private System.Windows.Forms.Label lblTotal_Codigodebarra;
         private System.Windows.Forms.DataGridView DGDetalle_CodigoDeBarra;
@@ -3739,7 +3117,6 @@
         private System.Windows.Forms.PictureBox PB_Imagen;
         private System.Windows.Forms.CheckBox CHOfertable;
         private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.DataGridView DGDetalles_Lotes;
         private System.Windows.Forms.Button btnEliminar_Ubicacion;
         private System.Windows.Forms.Button btnAgregar_Ubicacion;
         private System.Windows.Forms.Label lblTotal_Ubicacion;
@@ -3747,16 +3124,12 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.TextBox TBValor_Venta01;
-        private System.Windows.Forms.Label label34;
         private System.Windows.Forms.TextBox TBCodigodeBarra;
         private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.DateTimePicker DTLote_Vencimiento;
         private System.Windows.Forms.TextBox TBValor_Mayorista;
         private System.Windows.Forms.TextBox TBValor_CompraPromedio;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.TextBox TBLote_Cantidad;
-        private System.Windows.Forms.Label label42;
         private System.Windows.Forms.CheckBox CHManejaComision;
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.Panel panel2;
@@ -3775,8 +3148,6 @@
         private System.Windows.Forms.TextBox TBComision_Porcentaje;
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.TabPage TPIgualdad;
-        private System.Windows.Forms.Button btnEliminar_Lote;
-        private System.Windows.Forms.Button btnAgregar_Lote;
         private System.Windows.Forms.Button btnExaminar_Igualdad;
         private System.Windows.Forms.Label lblTotal_Igualdad;
         private System.Windows.Forms.Button btnEliminar_Igualdad;
@@ -3784,8 +3155,6 @@
         private System.Windows.Forms.Button btnAgregar_Proveedor;
         private System.Windows.Forms.Button btnAgregar_Impuesto;
         private System.Windows.Forms.Button btnAgregar_Igualdad;
-        private System.Windows.Forms.TextBox TBLote_Venta;
-        private System.Windows.Forms.Label label50;
         public System.Windows.Forms.TextBox TBUbicacion;
         public System.Windows.Forms.TextBox TBCodigo;
         public System.Windows.Forms.TextBox TBIdproducto;
@@ -3805,7 +3174,6 @@
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.TextBox TBIdigualdad_Producto;
         private System.Windows.Forms.Button btnModificar_Ubicacion;
-        private System.Windows.Forms.Button btnModificar_Lote;
         private System.Windows.Forms.Button btnModificar_CodigoDeBarra;
         private System.Windows.Forms.TextBox TBIdproducto_AutoSQL;
         private System.Windows.Forms.CheckBox CHBalanza;
@@ -3821,7 +3189,6 @@
         private System.Windows.Forms.TextBox TBFabri_ManoDeObra;
         private System.Windows.Forms.Label label54;
         private System.Windows.Forms.TabPage TPExterior;
-        private System.Windows.Forms.TextBox TBExteriorMon_Comision;
         private System.Windows.Forms.Label label59;
         private System.Windows.Forms.TextBox TBExterior_Seguridad;
         private System.Windows.Forms.Label label58;
@@ -3854,18 +3221,12 @@
         private System.Windows.Forms.Button btnExaminar_Exterior;
         private System.Windows.Forms.TextBox TBExterior_Aduana;
         private System.Windows.Forms.Label label70;
-        private System.Windows.Forms.TextBox TBExteriorMon_Documento;
-        private System.Windows.Forms.TextBox TBExteriorMon_Aduana;
         private System.Windows.Forms.Label label71;
         private System.Windows.Forms.TextBox TBExterior_Comision;
         private System.Windows.Forms.Label label68;
         private System.Windows.Forms.DataGridView DGDetalle_Exterior;
         private System.Windows.Forms.TextBox TBExterior_Documento;
         private System.Windows.Forms.TextBox TBExterior_Adicional;
-        private System.Windows.Forms.TextBox TBExteriorMon_Adicional;
-        private System.Windows.Forms.TextBox TBExteriorMon_Seguridad;
-        private System.Windows.Forms.TextBox TBExteriorMon_Importacion;
-        private System.Windows.Forms.TextBox TBExteriorMon_Exportacion;
         private System.Windows.Forms.Button btnModificar_Exterior;
         private System.Windows.Forms.Label lblTotal_Exterior;
         private System.Windows.Forms.Button btnEliminar_Exterior;
@@ -3883,17 +3244,6 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.CheckBox CHEmpaque;
         private System.Windows.Forms.Label label76;
-        private System.Windows.Forms.TextBox textBox35;
-        private System.Windows.Forms.TextBox textBox22;
-        private System.Windows.Forms.TextBox TBValor_PorUnidad03;
-        private System.Windows.Forms.Label label77;
-        private System.Windows.Forms.TextBox TBValor_Unidad03;
-        private System.Windows.Forms.TextBox TBValor_PorUnidad02;
-        private System.Windows.Forms.TextBox TBValor_PorUnidad01;
-        private System.Windows.Forms.Label label78;
-        private System.Windows.Forms.TextBox TBValor_Unidad01;
-        private System.Windows.Forms.TextBox TBValor_Unidad02;
-        private System.Windows.Forms.Label label79;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Label label80;
         private System.Windows.Forms.Label label81;
@@ -3908,7 +3258,6 @@
         private System.Windows.Forms.Label label83;
         private System.Windows.Forms.ComboBox CBComp_Medida;
         private System.Windows.Forms.Label label85;
-        private System.Windows.Forms.TextBox TBLote_Actual;
         private System.Windows.Forms.TextBox TBIdproveedor_Exterior;
         private System.Windows.Forms.TextBox TBIntervalo;
         private System.Windows.Forms.TextBox TBDivisor_Impuesto;
@@ -3916,19 +3265,7 @@
         private System.Windows.Forms.TextBox TBValorBase_InicialMayorista;
         private System.Windows.Forms.TextBox TBValorBase_Inicial02;
         private System.Windows.Forms.TextBox TBValorBase_Inicial01;
-        private System.Windows.Forms.TextBox TBUndBase_Inicial03;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox TBUndBase_Inicial02;
-        private System.Windows.Forms.TextBox TBUndBase_Inicial01;
-        private System.Windows.Forms.Label label91;
-        private System.Windows.Forms.Label label90;
-        private System.Windows.Forms.Label label89;
-        private System.Windows.Forms.Label label88;
-        private System.Windows.Forms.Label label87;
-        private System.Windows.Forms.Label label86;
-        private System.Windows.Forms.Label label72;
         private System.Windows.Forms.TextBox TBExt_ProveedorDocum;
-        private System.Windows.Forms.TextBox textBox16;
         private System.Windows.Forms.TextBox textBox18;
         private System.Windows.Forms.TextBox textBox19;
         private System.Windows.Forms.TextBox textBox17;
@@ -3936,13 +3273,11 @@
         private System.Windows.Forms.TextBox TBmultiplicador_Impuesto;
         private System.Windows.Forms.ComboBox CBMarca;
         private System.Windows.Forms.Button btnExaminar_Stock;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button btnExaminar_Ubicacion;
         private System.Windows.Forms.TextBox TBIdcompuesto;
         private System.Windows.Forms.TextBox TBIdubicacion;
         private System.Windows.Forms.TextBox TBIdbodega;
         private System.Windows.Forms.TextBox TBIdexterior;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox24;
         private System.Windows.Forms.TextBox TBValor_ImpVenta03;
@@ -3950,9 +3285,8 @@
         private System.Windows.Forms.TextBox TBValor_ImpVenta02;
         private System.Windows.Forms.TextBox TBValor_ImpVenta01;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox TBValor_ImpUnidad03;
-        private System.Windows.Forms.TextBox textBox38;
-        private System.Windows.Forms.TextBox TBValor_ImpUnidad02;
-        private System.Windows.Forms.TextBox TBValor_ImpUnidad01;
+        private System.Windows.Forms.TextBox TBValor01;
+        private System.Windows.Forms.TextBox TBValor02;
+        private System.Windows.Forms.TextBox TBValor03;
     }
 }

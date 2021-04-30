@@ -12,6 +12,18 @@ namespace Negocio
 {
     public class fProducto_Inventario
     {
+        public static DataTable AutoComplementar_SQL(int auto)
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            return Datos.AutoComplementar_SQL(auto);
+        }
+
+        public static DataTable AutoIncrementable(int auto)
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            return Datos.AutoIncrementable(auto);
+        }
+
         public static DataTable Lista()
         {
             Conexion_Producto Datos = new Conexion_Producto();
@@ -46,12 +58,6 @@ namespace Negocio
         {
             Conexion_Producto Datos = new Conexion_Producto();
             return Datos.Lista_Impuesto(auto, idproducto);
-        }
-
-        public static DataTable Lista_Lote(int auto, int idproducto)
-        {
-            Conexion_Producto Datos = new Conexion_Producto();
-            return Datos.Lista_Lote(auto, idproducto);
         }
 
         public static DataTable Lista_Proveedor(int auto, int idproducto)
@@ -90,12 +96,6 @@ namespace Negocio
             return Datos.Buscar_Proveedor(Auto_Proveedor, Filtro);
         }
 
-        public static DataTable Buscar_Lote(int Auto_Lote, int Filtro)
-        {
-            Conexion_Producto Datos = new Conexion_Producto();
-            return Datos.Buscar_Lote(Auto_Lote, Filtro);
-        }
-
         public static DataTable Buscar_Ubicacion(int Auto_Ubicacion, int Filtro)
         {
             Conexion_Producto Datos = new Conexion_Producto();
@@ -108,33 +108,27 @@ namespace Negocio
             return Datos.Buscar_CodigoDeBarra(Auto_CodigoDeBarra, Filtro);
         }
 
-        public static DataTable AutoComplementar_SQL(int auto)
-        {
-            Conexion_Producto Datos = new Conexion_Producto();
-            return Datos.AutoComplementar_SQL(auto);
-        }
-
         public static string Guardar_DatosBasicos
             (
                 //Llaves Auxiliares Datos Basicos
                 int Auto, int Idmarca, int Idgrupo, int Idtipo, int Idempaque,
 
                 //Datos para Ejecutar las Transacciones en SQL
-                int Tran_Ubicacion, int Tran_Igualdad, int Tran_Impuesto, int Tran_Proveedor, int Tran_CodBarra, int Tran_Lote, int Tran_Compuesto, int Tran_Exterior,
+                int Tran_Ubicacion, int Tran_Igualdad, int Tran_Impuesto, int Tran_Proveedor, int Tran_CodBarra, int Tran_Compuesto, int Tran_Exterior,
 
                 //Datos Basicos
-                string Codigo, string Producto, string Referencia, string Descripcion, string Presentacion, Int64 Comision, int ManejaVencimiento, int ManejaImpuesto, int Importado, int Exportado, int Ofertable, int ManejaComision, int ManejaEmpaque, int ManejaBalanza, int ManejaRetencion,
+                string Codigo, string Producto, string Referencia, string Descripcion, string Presentacion, Int64 Comision, int ManejaVencimiento, int ManejaImpuesto, int Importado, int Exportado, int Ofertable, int Fabricado, int ManejaComision, int ManejaEmpaque, int ManejaBalanza, int ManejaRetencion,
 
                 //Valores
                 double Compra_Promedio, double Compra_Final, double Venta01, double Venta02, double Venta03, double Mayorista, double Venta01_Porcentaje, double Venta02_Porcentaje, double Venta03_Porcentaje, double Mayorista_Porcentaje, double Venta01_BaseInicial, double Venta02_BaseInicial, double Venta03_BaseInicial, double Mayorista_BaseInicial, double Venta01_Impuesto, double Venta02_Impuesto, double Venta03_Impuesto, double Mayorista_Impuesto,
 
-                string Unidad, string Unidad_Detalle, double Unidad01, double Unidad02, double Unidad03, double Unidad01_Porcentaje, double Unidad02_Porcentaje, double Unidad03_Porcentaje, double Unidad01_BaseInicial, double Unidad02_BaseInicial, double Unidad03_BaseInicial, double Unidad01_Impuesto, double Unidad02_Impuesto, double Unidad03_Impuesto,
+                string Unidad, string Unidad_Detalle, 
 
                 //Panel - Fabricacion
                 double Material_Principal, double Material_Secundario, double Material_Terciario, double Material_OtroMaterial, double ManoDeObra, double Materiales, double Envio, double Almacenamiento, double Maquinaria, double Herramientas_Manuales, double CostoFabricacion,
 
                 //Detalles de Productos
-                DataTable Detalle_Lote, DataTable Detalle_Impuesto, DataTable Detalle_Igualdad, DataTable Detalle_Proveedor, DataTable Detalle_Ubicacion, DataTable Detalle_CodigoDeBarra, DataTable Detalle_Exterior, DataTable Detalle_Compuesto,
+                DataTable Detalle_Impuesto, DataTable Detalle_Igualdad, DataTable Detalle_Proveedor, DataTable Detalle_Ubicacion, DataTable Detalle_CodigoDeBarra, DataTable Detalle_Exterior, DataTable Detalle_Compuesto,
 
                 //Panel de Imagenes
                 byte[] Imagen
@@ -163,6 +157,7 @@ namespace Negocio
             Obj.Importado = Importado;
             Obj.Exportado = Exportado;
             Obj.Ofertable = Ofertable;
+            Obj.Fabricado = Fabricado;
             Obj.ManejaComision = ManejaComision;
             Obj.ManejaEmpaque = ManejaEmpaque;
             Obj.ManejaBalanza = ManejaBalanza;
@@ -190,19 +185,7 @@ namespace Negocio
 
             Obj.Unidad = Unidad;
             Obj.Unidad_Detalle = Unidad_Detalle;
-            Obj.Unidad01 = Unidad01;
-            Obj.Unidad02 = Unidad02;
-            Obj.Unidad03 = Unidad03;
-            Obj.Unidad01_Porcentaje = Unidad01_Porcentaje;
-            Obj.Unidad02_Porcentaje = Unidad02_Porcentaje;
-            Obj.Unidad03_Porcentaje = Unidad03_Porcentaje;
-            Obj.Unidad01_BaseInicial = Unidad01_BaseInicial;
-            Obj.Unidad02_BaseInicial = Unidad02_BaseInicial;
-            Obj.Unidad03_BaseInicial = Unidad03_BaseInicial;
-            Obj.Unidad01_Impuesto = Unidad01_Impuesto;
-            Obj.Unidad02_Impuesto = Unidad02_Impuesto;
-            Obj.Unidad03_Impuesto = Unidad03_Impuesto;
-
+           
             //Panel - Fabricacion
             Obj.Material_Principal = Material_Principal;
             Obj.Material_Secundario = Material_Secundario;
@@ -217,7 +200,6 @@ namespace Negocio
             Obj.CostoFabricacion = CostoFabricacion;
 
             //Detalles de Productos
-            Obj.Detalle_Lote = Detalle_Lote;
             Obj.Detalle_Impuesto = Detalle_Impuesto;
             Obj.Detalle_Igualdad = Detalle_Igualdad;
             Obj.Detalle_Proveedor = Detalle_Proveedor;
@@ -235,7 +217,6 @@ namespace Negocio
             Obj.Tran_Impuesto = Tran_Impuesto;
             Obj.Tran_Proveedor = Tran_Proveedor;
             Obj.Tran_CodBarra = Tran_CodBarra;
-            Obj.Tran_Lote = Tran_Lote;
             Obj.Tran_Compuesto = Tran_Compuesto;
             Obj.Tran_Exterior = Tran_Exterior;
 
@@ -248,18 +229,21 @@ namespace Negocio
                 int Auto, int Idproducto, int Idmarca, int Idgrupo, int Idtipo, int Idempaque,
 
                 //Datos para Ejecutar las Transacciones en SQL
-                int Tran_Ubicacion, int Tran_Igualdad, int Tran_Impuesto, int Tran_Proveedor, int Tran_CodBarra, int Tran_Lote, int Tran_Compuesto, int Tran_Exterior,
+                int Tran_Ubicacion, int Tran_Igualdad, int Tran_Impuesto, int Tran_Proveedor, int Tran_CodBarra, int Tran_Compuesto, int Tran_Exterior,
 
                 //Datos Basicos
-                string Codigo, string Producto, string Referencia, string Descripcion, string Presentacion, Int64 Comision, int ManejaVencimiento, int ManejaImpuesto, int Importado, int Exportado, int Ofertable, int ManejaComision, int ManejaEmpaque, int ManejaBalanza, int ManejaRetencion,
+                string Codigo, string Producto, string Referencia, string Descripcion, string Presentacion, Int64 Comision, int ManejaVencimiento, int ManejaImpuesto, int Importado, int Exportado, int Ofertable, int Fabricado, int ManejaComision, int ManejaEmpaque, int ManejaBalanza, int ManejaRetencion,
 
                 //Valores
                 double Compra_Promedio, double Compra_Final, double Venta01, double Venta02, double Venta03, double Mayorista, double Venta01_Porcentaje, double Venta02_Porcentaje, double Venta03_Porcentaje, double Mayorista_Porcentaje, double Venta01_BaseInicial, double Venta02_BaseInicial, double Venta03_BaseInicial, double Mayorista_BaseInicial, double Venta01_Impuesto, double Venta02_Impuesto, double Venta03_Impuesto, double Mayorista_Impuesto,
 
-                string Unidad, string Unidad_Detalle, double Unidad01, double Unidad02, double Unidad03, double Unidad01_Porcentaje, double Unidad02_Porcentaje, double Unidad03_Porcentaje, double Unidad01_BaseInicial, double Unidad02_BaseInicial, double Unidad03_BaseInicial, double Unidad01_Impuesto, double Unidad02_Impuesto, double Unidad03_Impuesto,
+                string Unidad, string Unidad_Detalle,
 
                 //Panel - Fabricacion
                 double Material_Principal, double Material_Secundario, double Material_Terciario, double Material_OtroMaterial, double ManoDeObra, double Materiales, double Envio, double Almacenamiento, double Maquinaria, double Herramientas_Manuales, double CostoFabricacion,
+
+                //Detalles de Productos
+                DataTable Detalle_Impuesto, DataTable Detalle_Igualdad, DataTable Detalle_Proveedor, DataTable Detalle_Ubicacion, DataTable Detalle_CodigoDeBarra, DataTable Detalle_Exterior, DataTable Detalle_Compuesto,
 
                 //Panel de Imagenes
                 byte[] Imagen
@@ -316,19 +300,7 @@ namespace Negocio
 
             Obj.Unidad = Unidad;
             Obj.Unidad_Detalle = Unidad_Detalle;
-            Obj.Unidad01 = Unidad01;
-            Obj.Unidad02 = Unidad02;
-            Obj.Unidad03 = Unidad03;
-            Obj.Unidad01_Porcentaje = Unidad01_Porcentaje;
-            Obj.Unidad02_Porcentaje = Unidad02_Porcentaje;
-            Obj.Unidad03_Porcentaje = Unidad03_Porcentaje;
-            Obj.Unidad01_BaseInicial = Unidad01_BaseInicial;
-            Obj.Unidad02_BaseInicial = Unidad02_BaseInicial;
-            Obj.Unidad03_BaseInicial = Unidad03_BaseInicial;
-            Obj.Unidad01_Impuesto = Unidad01_Impuesto;
-            Obj.Unidad02_Impuesto = Unidad02_Impuesto;
-            Obj.Unidad03_Impuesto = Unidad03_Impuesto;
-
+            
             //Panel - Fabricacion
             Obj.Material_Principal = Material_Principal;
             Obj.Material_Secundario = Material_Secundario;
@@ -392,7 +364,7 @@ namespace Negocio
         public static string Editar_Exterior
             (
                 //Panel - Exterior
-                int Auto, int Idproducto, int Idexterior, double Ext_Aduana, double Ext_Comision, double Ext_Documento, double Ext_Adicional, double Ext_Exportacion, double Ext_Importacion, double Ext_Seguridad, double Ext_Aduana_Moneda, double Ext_Comision_Moneda, double Ext_Documento_Moneda, double Ext_Adicional_Moneda, double Ext_Exportacion_Moneda, double Ext_Importacion_Moneda, double Ext_Seguridad_Moneda
+                int Auto, int Idproducto, int Idexterior, double Ext_Aduana, double Ext_Comision, double Ext_Documento, double Ext_Adicional, double Ext_Exportacion, double Ext_Importacion, double Ext_Seguridad
             )
         {
             Conexion_Producto Datos = new Conexion_Producto();
@@ -409,13 +381,6 @@ namespace Negocio
             Obj.Ext_Exportacion = Ext_Exportacion;
             Obj.Ext_Importacion = Ext_Importacion;
             Obj.Ext_Seguridad = Ext_Seguridad;
-            Obj.Ext_Aduana_Moneda = Ext_Aduana_Moneda;
-            Obj.Ext_Comision_Moneda = Ext_Comision_Moneda;
-            Obj.Ext_Documento_Moneda = Ext_Documento_Moneda;
-            Obj.Ext_Adicional_Moneda = Ext_Adicional_Moneda;
-            Obj.Ext_Exportacion_Moneda = Ext_Exportacion_Moneda;
-            Obj.Ext_Importacion_Moneda = Ext_Importacion_Moneda;
-            Obj.Ext_Seguridad_Moneda = Ext_Seguridad_Moneda;
 
             return Datos.Editar_Exterior(Obj);
         }
@@ -460,28 +425,6 @@ namespace Negocio
             return Datos.Editar_Impuesto(Obj);
         }
 
-        public static string Editar_Lote
-            (
-                //Panel Lotes
-                int Auto, int Idproducto, int Idlote, string Lote, string Lote_Compra, string Lote_Venta, string Lote_Cantidad, DateTime Lote_Fecha
-            )
-        {
-            Conexion_Producto Datos = new Conexion_Producto();
-            Entidad_Productos Obj = new Entidad_Productos();
-
-            //Panel Lotes
-            Obj.Lote_AutoSQL = Auto;
-            Obj.Idproducto = Idproducto;
-            Obj.Idlote = Idlote;
-            Obj.Lote = Lote;
-            Obj.Lote_Compra = Lote_Compra;
-            Obj.Lote_Venta = Lote_Venta;
-            Obj.Lote_Cantidad = Lote_Cantidad;
-            Obj.Lote_Fecha = Lote_Fecha;
-
-            return Datos.Editar_Lote(Obj);
-        }
-
         public static string Editar_Proveedor
             (
                 //Panel Proveedor
@@ -522,7 +465,7 @@ namespace Negocio
             return Datos.Editar_Ubicacion(Obj);
         }
 
-        //************************************** SE PROCEDE AGREGAR LOS REGISTROS ADICIONALES DE LOS DETALLES COMO UBICACION, LOTE, PROVEEDOR ETC **************************************
+        //*********** SE PROCEDE AGREGAR LOS REGISTROS ADICIONALES DE LOS DETALLES COMO UBICACION, LOTE, PROVEEDOR ETC **************************************
 
         public static string Guardar_CodigoDeBarra
             (
@@ -564,7 +507,7 @@ namespace Negocio
         public static string Guardar_Exterior
             (
                 //Panel - Exterior
-                int Auto, int Idproducto, double Ext_Aduana, double Ext_Comision, double Ext_Documento, double Ext_Adicional, double Ext_Exportacion, double Ext_Importacion, double Ext_Seguridad, double Ext_Aduana_Moneda, double Ext_Comision_Moneda, double Ext_Documento_Moneda, double Ext_Adicional_Moneda, double Ext_Exportacion_Moneda, double Ext_Importacion_Moneda, double Ext_Seguridad_Moneda
+                int Auto, int Idproducto, double Ext_Aduana, double Ext_Comision, double Ext_Documento, double Ext_Adicional, double Ext_Exportacion, double Ext_Importacion, double Ext_Seguridad
             )
         {
             Conexion_Producto Datos = new Conexion_Producto();
@@ -580,13 +523,6 @@ namespace Negocio
             Obj.Ext_Exportacion = Ext_Exportacion;
             Obj.Ext_Importacion = Ext_Importacion;
             Obj.Ext_Seguridad = Ext_Seguridad;
-            Obj.Ext_Aduana_Moneda = Ext_Aduana_Moneda;
-            Obj.Ext_Comision_Moneda = Ext_Comision_Moneda;
-            Obj.Ext_Documento_Moneda = Ext_Documento_Moneda;
-            Obj.Ext_Adicional_Moneda = Ext_Adicional_Moneda;
-            Obj.Ext_Exportacion_Moneda = Ext_Exportacion_Moneda;
-            Obj.Ext_Importacion_Moneda = Ext_Importacion_Moneda;
-            Obj.Ext_Seguridad_Moneda = Ext_Seguridad_Moneda;
 
             return Datos.Guardar_Exterior(Obj);
         }
@@ -628,27 +564,6 @@ namespace Negocio
             Obj.Impuesto_Valor = Impuesto_Valor;
 
             return Datos.Guardar_Impuestos(Obj);
-        }
-
-        public static string Guardar_Lote
-            (
-                //Panel Lotes
-                int Auto, int Idproducto, string Lote, string Lote_Compra, string Lote_Venta, string Lote_Cantidad, DateTime Lote_Fecha
-            )
-        {
-            Conexion_Producto Datos = new Conexion_Producto();
-            Entidad_Productos Obj = new Entidad_Productos();
-
-            //Panel Lotes
-            Obj.Lote_AutoSQL = Auto;
-            Obj.Idproducto = Idproducto;
-            Obj.Lote = Lote;
-            Obj.Lote_Compra = Lote_Compra;
-            Obj.Lote_Venta = Lote_Venta;
-            Obj.Lote_Cantidad = Lote_Cantidad;
-            Obj.Lote_Fecha = Lote_Fecha;
-
-            return Datos.Guardar_Lote(Obj);
         }
 
         public static string Guardar_Proveedor
@@ -712,12 +627,6 @@ namespace Negocio
         {
             Conexion_Producto Datos = new Conexion_Producto();
             return Datos.Eliminar_Igualdad(Idproducto, Iddetalle, Auto);
-        }
-
-        public static string Eliminar_Lote(int Idproducto, int Iddetalle, int Auto)
-        {
-            Conexion_Producto Datos = new Conexion_Producto();
-            return Datos.Eliminar_Lote(Idproducto, Iddetalle, Auto);
         }
 
         public static string Eliminar_Proveedor(int Idproducto, int Iddetalle, int Auto)

@@ -28,7 +28,6 @@ namespace Entidad
         //Llaves Auxiliares de los Detalles
         private int _Ubicacion_SQL;
         private int _Proveedor_SQL;
-        private int _Lote_SQL;
         private int _Codigodebarra_SQL;
         private int _Igualdad_SQL;
         private int _Compuesto_SQL;
@@ -38,7 +37,6 @@ namespace Entidad
         //Datos Auxiliares para Editar los Detalles
         private int _AutoDet_Ubicacion;
         private int _AutoDet_Proveedor;
-        private int _AutoDet_Lote;
         private int _AutoDet_Codigodebarra;
         private int _AutoDet_Igualdad;
         private int _AutoDet_Compuesto;
@@ -58,6 +56,7 @@ namespace Entidad
         private int _Importado;
         private int _Exportado;
         private int _Ofertable;
+        private int _Fabricado;
         private int _ManejaComision;
         private int _ManejaEmpaque;
         private int _ManejaBalanza;
@@ -89,19 +88,7 @@ namespace Entidad
 
         private string _Unidad;
         private string _Unidad_Detalle;
-        private double _Unidad01;
-        private double _Unidad02;
-        private double _Unidad03;
-        private double _Unidad01_Porcentaje;
-        private double _Unidad02_Porcentaje;
-        private double _Unidad03_Porcentaje;
-        private double _Unidad01_BaseInicial;
-        private double _Unidad02_BaseInicial;
-        private double _Unidad03_BaseInicial;
-        private double _Unidad01_Impuesto;
-        private double _Unidad02_Impuesto;
-        private double _Unidad03_Impuesto;
-
+        
         //Panel - Fabricacion
         private double _Material_Principal;
         private double _Material_Secundario;
@@ -124,13 +111,6 @@ namespace Entidad
         private double _Ext_Exportacion;
         private double _Ext_Importacion;
         private double _Ext_Seguridad;
-        private double _Ext_Aduana_Moneda;
-        private double _Ext_Comision_Moneda;
-        private double _Ext_Documento_Moneda;
-        private double _Ext_Adicional_Moneda;
-        private double _Ext_Exportacion_Moneda;
-        private double _Ext_Importacion_Moneda;
-        private double _Ext_Seguridad_Moneda;
 
         //Panel Compuesto
         private string _Compuesto;
@@ -139,7 +119,6 @@ namespace Entidad
         private string _Compuesto_MedodaDescripcion;
 
         //Detalles de Productos
-        private DataTable _Detalle_Lote;
         private DataTable _Detalle_Impuesto;
         private DataTable _Detalle_Igualdad;
         private DataTable _Detalle_Proveedor;
@@ -165,14 +144,6 @@ namespace Entidad
         private string _Igualdad_Producto;
         private string _Igualdad_Marca;
 
-        //Panel Lotes
-        private int _Idlote;
-        private string _Lote;
-        private string _Lote_Compra;
-        private string _Lote_Venta;
-        private string _Lote_Cantidad;
-        private DateTime _Lote_Fecha;
-
         //Panel Proveedor
         private int _Idproveedor;
         private string _Proveedor;
@@ -191,7 +162,6 @@ namespace Entidad
         private int _Impuesto_AutoSQL;
         private int _Proveedor_AutoSQL;
         private int _CodBarra_AutoSQL;
-        private int _Lote_AutoSQL;
         private int _Exterior_AutoSQL;
         private int _Compuesto_AutoSQL;
 
@@ -201,7 +171,6 @@ namespace Entidad
         private int _Tran_Impuesto;
         private int _Tran_Proveedor;
         private int _Tran_CodBarra;
-        private int _Tran_Lote;
         private int _Tran_Compuesto;
         private int _Tran_Exterior;
 
@@ -211,7 +180,6 @@ namespace Entidad
         private int _Auto_Impuesto;
         private int _Auto_Proveedor;
         private int _Auto_CodBarra;
-        private int _Auto_Lote;
         private int _Auto_Compuesto;
         private int _Auto_Exterior;
 
@@ -220,7 +188,6 @@ namespace Entidad
         private int _Det_Impuesto;
         private int _Det_Proveedor;
         private int _Det_CodBarra;
-        private int _Det_Lote;
         private int _Det_Compuesto;
         private int _Det_Exterior;
 
@@ -237,7 +204,6 @@ namespace Entidad
         public int Idempaque { get => _Idempaque; set => _Idempaque = value; }
         public int Ubicacion_SQL { get => _Ubicacion_SQL; set => _Ubicacion_SQL = value; }
         public int Proveedor_SQL { get => _Proveedor_SQL; set => _Proveedor_SQL = value; }
-        public int Lote_SQL { get => _Lote_SQL; set => _Lote_SQL = value; }
         public int Codigodebarra_SQL { get => _Codigodebarra_SQL; set => _Codigodebarra_SQL = value; }
         public int Igualdad_SQL { get => _Igualdad_SQL; set => _Igualdad_SQL = value; }
         public int Compuesto_SQL { get => _Compuesto_SQL; set => _Compuesto_SQL = value; }
@@ -245,7 +211,6 @@ namespace Entidad
         public int Impuesto_SQL { get => _Impuesto_SQL; set => _Impuesto_SQL = value; }
         public int AutoDet_Ubicacion { get => _AutoDet_Ubicacion; set => _AutoDet_Ubicacion = value; }
         public int AutoDet_Proveedor { get => _AutoDet_Proveedor; set => _AutoDet_Proveedor = value; }
-        public int AutoDet_Lote { get => _AutoDet_Lote; set => _AutoDet_Lote = value; }
         public int AutoDet_Codigodebarra { get => _AutoDet_Codigodebarra; set => _AutoDet_Codigodebarra = value; }
         public int AutoDet_Igualdad { get => _AutoDet_Igualdad; set => _AutoDet_Igualdad = value; }
         public int AutoDet_Compuesto { get => _AutoDet_Compuesto; set => _AutoDet_Compuesto = value; }
@@ -289,18 +254,6 @@ namespace Entidad
         public double Mayorista_Impuesto { get => _Mayorista_Impuesto; set => _Mayorista_Impuesto = value; }
         public string Unidad { get => _Unidad; set => _Unidad = value; }
         public string Unidad_Detalle { get => _Unidad_Detalle; set => _Unidad_Detalle = value; }
-        public double Unidad01 { get => _Unidad01; set => _Unidad01 = value; }
-        public double Unidad02 { get => _Unidad02; set => _Unidad02 = value; }
-        public double Unidad03 { get => _Unidad03; set => _Unidad03 = value; }
-        public double Unidad01_Porcentaje { get => _Unidad01_Porcentaje; set => _Unidad01_Porcentaje = value; }
-        public double Unidad02_Porcentaje { get => _Unidad02_Porcentaje; set => _Unidad02_Porcentaje = value; }
-        public double Unidad03_Porcentaje { get => _Unidad03_Porcentaje; set => _Unidad03_Porcentaje = value; }
-        public double Unidad01_BaseInicial { get => _Unidad01_BaseInicial; set => _Unidad01_BaseInicial = value; }
-        public double Unidad02_BaseInicial { get => _Unidad02_BaseInicial; set => _Unidad02_BaseInicial = value; }
-        public double Unidad03_BaseInicial { get => _Unidad03_BaseInicial; set => _Unidad03_BaseInicial = value; }
-        public double Unidad01_Impuesto { get => _Unidad01_Impuesto; set => _Unidad01_Impuesto = value; }
-        public double Unidad02_Impuesto { get => _Unidad02_Impuesto; set => _Unidad02_Impuesto = value; }
-        public double Unidad03_Impuesto { get => _Unidad03_Impuesto; set => _Unidad03_Impuesto = value; }
         public double Material_Principal { get => _Material_Principal; set => _Material_Principal = value; }
         public double Material_Secundario { get => _Material_Secundario; set => _Material_Secundario = value; }
         public double Material_Terciario { get => _Material_Terciario; set => _Material_Terciario = value; }
@@ -320,18 +273,10 @@ namespace Entidad
         public double Ext_Exportacion { get => _Ext_Exportacion; set => _Ext_Exportacion = value; }
         public double Ext_Importacion { get => _Ext_Importacion; set => _Ext_Importacion = value; }
         public double Ext_Seguridad { get => _Ext_Seguridad; set => _Ext_Seguridad = value; }
-        public double Ext_Aduana_Moneda { get => _Ext_Aduana_Moneda; set => _Ext_Aduana_Moneda = value; }
-        public double Ext_Comision_Moneda { get => _Ext_Comision_Moneda; set => _Ext_Comision_Moneda = value; }
-        public double Ext_Documento_Moneda { get => _Ext_Documento_Moneda; set => _Ext_Documento_Moneda = value; }
-        public double Ext_Adicional_Moneda { get => _Ext_Adicional_Moneda; set => _Ext_Adicional_Moneda = value; }
-        public double Ext_Exportacion_Moneda { get => _Ext_Exportacion_Moneda; set => _Ext_Exportacion_Moneda = value; }
-        public double Ext_Importacion_Moneda { get => _Ext_Importacion_Moneda; set => _Ext_Importacion_Moneda = value; }
-        public double Ext_Seguridad_Moneda { get => _Ext_Seguridad_Moneda; set => _Ext_Seguridad_Moneda = value; }
         public string Compuesto { get => _Compuesto; set => _Compuesto = value; }
         public string Compuesto_Descripcion { get => _Compuesto_Descripcion; set => _Compuesto_Descripcion = value; }
         public string Compuesto_Medida { get => _Compuesto_Medida; set => _Compuesto_Medida = value; }
         public string Compuesto_MedodaDescripcion { get => _Compuesto_MedodaDescripcion; set => _Compuesto_MedodaDescripcion = value; }
-        public DataTable Detalle_Lote { get => _Detalle_Lote; set => _Detalle_Lote = value; }
         public DataTable Detalle_Impuesto { get => _Detalle_Impuesto; set => _Detalle_Impuesto = value; }
         public DataTable Detalle_Igualdad { get => _Detalle_Igualdad; set => _Detalle_Igualdad = value; }
         public DataTable Detalle_Proveedor { get => _Detalle_Proveedor; set => _Detalle_Proveedor = value; }
@@ -350,12 +295,6 @@ namespace Entidad
         public string Igualdad_Codigo { get => _Igualdad_Codigo; set => _Igualdad_Codigo = value; }
         public string Igualdad_Producto { get => _Igualdad_Producto; set => _Igualdad_Producto = value; }
         public string Igualdad_Marca { get => _Igualdad_Marca; set => _Igualdad_Marca = value; }
-        public int Idlote { get => _Idlote; set => _Idlote = value; }
-        public string Lote { get => _Lote; set => _Lote = value; }
-        public string Lote_Compra { get => _Lote_Compra; set => _Lote_Compra = value; }
-        public string Lote_Venta { get => _Lote_Venta; set => _Lote_Venta = value; }
-        public string Lote_Cantidad { get => _Lote_Cantidad; set => _Lote_Cantidad = value; }
-        public DateTime Lote_Fecha { get => _Lote_Fecha; set => _Lote_Fecha = value; }
         public int Idproveedor { get => _Idproveedor; set => _Idproveedor = value; }
         public string Proveedor { get => _Proveedor; set => _Proveedor = value; }
         public string Proveedor_Documento { get => _Proveedor_Documento; set => _Proveedor_Documento = value; }
@@ -366,7 +305,6 @@ namespace Entidad
         public int Impuesto_AutoSQL { get => _Impuesto_AutoSQL; set => _Impuesto_AutoSQL = value; }
         public int Proveedor_AutoSQL { get => _Proveedor_AutoSQL; set => _Proveedor_AutoSQL = value; }
         public int CodBarra_AutoSQL { get => _CodBarra_AutoSQL; set => _CodBarra_AutoSQL = value; }
-        public int Lote_AutoSQL { get => _Lote_AutoSQL; set => _Lote_AutoSQL = value; }
         public int Exterior_AutoSQL { get => _Exterior_AutoSQL; set => _Exterior_AutoSQL = value; }
         public int Compuesto_AutoSQL { get => _Compuesto_AutoSQL; set => _Compuesto_AutoSQL = value; }
         public int Tran_Ubicacion { get => _Tran_Ubicacion; set => _Tran_Ubicacion = value; }
@@ -374,7 +312,6 @@ namespace Entidad
         public int Tran_Impuesto { get => _Tran_Impuesto; set => _Tran_Impuesto = value; }
         public int Tran_Proveedor { get => _Tran_Proveedor; set => _Tran_Proveedor = value; }
         public int Tran_CodBarra { get => _Tran_CodBarra; set => _Tran_CodBarra = value; }
-        public int Tran_Lote { get => _Tran_Lote; set => _Tran_Lote = value; }
         public int Tran_Compuesto { get => _Tran_Compuesto; set => _Tran_Compuesto = value; }
         public int Tran_Exterior { get => _Tran_Exterior; set => _Tran_Exterior = value; }
         public int Auto_Ubicacion { get => _Auto_Ubicacion; set => _Auto_Ubicacion = value; }
@@ -382,7 +319,6 @@ namespace Entidad
         public int Auto_Impuesto { get => _Auto_Impuesto; set => _Auto_Impuesto = value; }
         public int Auto_Proveedor { get => _Auto_Proveedor; set => _Auto_Proveedor = value; }
         public int Auto_CodBarra { get => _Auto_CodBarra; set => _Auto_CodBarra = value; }
-        public int Auto_Lote { get => _Auto_Lote; set => _Auto_Lote = value; }
         public int Auto_Compuesto { get => _Auto_Compuesto; set => _Auto_Compuesto = value; }
         public int Auto_Exterior { get => _Auto_Exterior; set => _Auto_Exterior = value; }
         public int Det_Ubicacion { get => _Det_Ubicacion; set => _Det_Ubicacion = value; }
@@ -390,7 +326,6 @@ namespace Entidad
         public int Det_Impuesto { get => _Det_Impuesto; set => _Det_Impuesto = value; }
         public int Det_Proveedor { get => _Det_Proveedor; set => _Det_Proveedor = value; }
         public int Det_CodBarra { get => _Det_CodBarra; set => _Det_CodBarra = value; }
-        public int Det_Lote { get => _Det_Lote; set => _Det_Lote = value; }
         public int Det_Compuesto { get => _Det_Compuesto; set => _Det_Compuesto = value; }
         public int Det_Exterior { get => _Det_Exterior; set => _Det_Exterior = value; }
         public int Auto { get => _Auto; set => _Auto = value; }
@@ -401,5 +336,6 @@ namespace Entidad
         public int Idcompuesto { get => _Idcompuesto; set => _Idcompuesto = value; }
         public int Idigualdad { get => _Idigualdad; set => _Idigualdad = value; }
         public int Idubicacion { get => _Idubicacion; set => _Idubicacion = value; }
+        public int Fabricado { get => _Fabricado; set => _Fabricado = value; }
     }
 }

@@ -121,17 +121,17 @@
   <data name="btnCancelar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\btnCancelar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btnPrecios" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\btnPrecios.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="btnEditar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\btnEditar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btnLogin_Contraseña" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\btnLogin_Contraseña.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="btnEliminar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\btnEliminar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btnExaminar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\btnExaminar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnPrecios" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\btnPrecios.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="btnAgregar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\btnAgregar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -144,5 +144,11 @@
   </data>
   <data name="btnLimpiar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\btnLimpiar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btnExaminar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\btnExaminar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btnLogin_Usuario" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\btnLogin_Usuario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
