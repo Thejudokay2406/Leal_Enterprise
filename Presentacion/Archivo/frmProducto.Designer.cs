@@ -257,6 +257,12 @@
             this.TBBuscar = new System.Windows.Forms.TextBox();
             this.lblTotal = new System.Windows.Forms.Label();
             this.DGResultados = new System.Windows.Forms.DataGridView();
+            this.TBImpuesto03 = new System.Windows.Forms.TextBox();
+            this.TBImpuesto02 = new System.Windows.Forms.TextBox();
+            this.TBImpuesto01 = new System.Windows.Forms.TextBox();
+            this.TBBase03 = new System.Windows.Forms.TextBox();
+            this.TBBase02 = new System.Windows.Forms.TextBox();
+            this.TBBase01 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.TCPrincipal.SuspendLayout();
             this.TPDatosBasicos.SuspendLayout();
@@ -987,6 +993,8 @@
             this.TBComp_Medida.Name = "TBComp_Medida";
             this.TBComp_Medida.Size = new System.Drawing.Size(328, 22);
             this.TBComp_Medida.TabIndex = 10;
+            this.TBComp_Medida.Enter += new System.EventHandler(this.TBComp_Medida_Enter);
+            this.TBComp_Medida.Leave += new System.EventHandler(this.TBComp_Medida_Leave);
             // 
             // CBComp_Medida
             // 
@@ -2445,6 +2453,12 @@
             // 
             this.TPValores.BackColor = System.Drawing.Color.White;
             this.TPValores.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TPValores.Controls.Add(this.TBBase03);
+            this.TPValores.Controls.Add(this.TBBase02);
+            this.TPValores.Controls.Add(this.TBBase01);
+            this.TPValores.Controls.Add(this.TBImpuesto03);
+            this.TPValores.Controls.Add(this.TBImpuesto02);
+            this.TPValores.Controls.Add(this.TBImpuesto01);
             this.TPValores.Controls.Add(this.TBValor03);
             this.TPValores.Controls.Add(this.TBValor02);
             this.TPValores.Controls.Add(this.TBValor01);
@@ -2491,21 +2505,21 @@
             // 
             // TBValor03
             // 
-            this.TBValor03.Location = new System.Drawing.Point(335, 356);
+            this.TBValor03.Location = new System.Drawing.Point(453, 304);
             this.TBValor03.Name = "TBValor03";
             this.TBValor03.Size = new System.Drawing.Size(100, 22);
             this.TBValor03.TabIndex = 240;
             // 
             // TBValor02
             // 
-            this.TBValor02.Location = new System.Drawing.Point(335, 328);
+            this.TBValor02.Location = new System.Drawing.Point(453, 276);
             this.TBValor02.Name = "TBValor02";
             this.TBValor02.Size = new System.Drawing.Size(100, 22);
             this.TBValor02.TabIndex = 239;
             // 
             // TBValor01
             // 
-            this.TBValor01.Location = new System.Drawing.Point(335, 300);
+            this.TBValor01.Location = new System.Drawing.Point(453, 248);
             this.TBValor01.Name = "TBValor01";
             this.TBValor01.Size = new System.Drawing.Size(100, 22);
             this.TBValor01.TabIndex = 238;
@@ -2546,6 +2560,7 @@
             // textBox3
             // 
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox3.Cursor = System.Windows.Forms.Cursors.Default;
             this.textBox3.Location = new System.Drawing.Point(312, 86);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
@@ -2557,6 +2572,7 @@
             // textBox24
             // 
             this.textBox24.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox24.Cursor = System.Windows.Forms.Cursors.Default;
             this.textBox24.Location = new System.Drawing.Point(443, 86);
             this.textBox24.Multiline = true;
             this.textBox24.Name = "textBox24";
@@ -2568,6 +2584,7 @@
             // textBox1
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Cursor = System.Windows.Forms.Cursors.Default;
             this.textBox1.Location = new System.Drawing.Point(122, 86);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
@@ -2578,7 +2595,7 @@
             // 
             // TBmultiplicador_Impuesto
             // 
-            this.TBmultiplicador_Impuesto.Location = new System.Drawing.Point(166, 248);
+            this.TBmultiplicador_Impuesto.Location = new System.Drawing.Point(51, 249);
             this.TBmultiplicador_Impuesto.Name = "TBmultiplicador_Impuesto";
             this.TBmultiplicador_Impuesto.Size = new System.Drawing.Size(38, 22);
             this.TBmultiplicador_Impuesto.TabIndex = 220;
@@ -2633,7 +2650,7 @@
             // 
             // TBDivisor_Impuesto
             // 
-            this.TBDivisor_Impuesto.Location = new System.Drawing.Point(122, 248);
+            this.TBDivisor_Impuesto.Location = new System.Drawing.Point(7, 249);
             this.TBDivisor_Impuesto.Name = "TBDivisor_Impuesto";
             this.TBDivisor_Impuesto.Size = new System.Drawing.Size(38, 22);
             this.TBDivisor_Impuesto.TabIndex = 210;
@@ -2685,6 +2702,7 @@
             // textBox34
             // 
             this.textBox34.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox34.Cursor = System.Windows.Forms.Cursors.Default;
             this.textBox34.Location = new System.Drawing.Point(269, 86);
             this.textBox34.Multiline = true;
             this.textBox34.Name = "textBox34";
@@ -2999,6 +3017,48 @@
             this.DGResultados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGResultados_CellDoubleClick);
             this.DGResultados.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DGResultados_KeyPress);
             // 
+            // TBImpuesto03
+            // 
+            this.TBImpuesto03.Location = new System.Drawing.Point(312, 305);
+            this.TBImpuesto03.Name = "TBImpuesto03";
+            this.TBImpuesto03.Size = new System.Drawing.Size(100, 22);
+            this.TBImpuesto03.TabIndex = 243;
+            // 
+            // TBImpuesto02
+            // 
+            this.TBImpuesto02.Location = new System.Drawing.Point(312, 277);
+            this.TBImpuesto02.Name = "TBImpuesto02";
+            this.TBImpuesto02.Size = new System.Drawing.Size(100, 22);
+            this.TBImpuesto02.TabIndex = 242;
+            // 
+            // TBImpuesto01
+            // 
+            this.TBImpuesto01.Location = new System.Drawing.Point(312, 249);
+            this.TBImpuesto01.Name = "TBImpuesto01";
+            this.TBImpuesto01.Size = new System.Drawing.Size(100, 22);
+            this.TBImpuesto01.TabIndex = 241;
+            // 
+            // TBBase03
+            // 
+            this.TBBase03.Location = new System.Drawing.Point(122, 304);
+            this.TBBase03.Name = "TBBase03";
+            this.TBBase03.Size = new System.Drawing.Size(100, 22);
+            this.TBBase03.TabIndex = 246;
+            // 
+            // TBBase02
+            // 
+            this.TBBase02.Location = new System.Drawing.Point(122, 276);
+            this.TBBase02.Name = "TBBase02";
+            this.TBBase02.Size = new System.Drawing.Size(100, 22);
+            this.TBBase02.TabIndex = 245;
+            // 
+            // TBBase01
+            // 
+            this.TBBase01.Location = new System.Drawing.Point(122, 248);
+            this.TBBase01.Name = "TBBase01";
+            this.TBBase01.Size = new System.Drawing.Size(100, 22);
+            this.TBBase01.TabIndex = 244;
+            // 
             // frmProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -3288,5 +3348,11 @@
         private System.Windows.Forms.TextBox TBValor01;
         private System.Windows.Forms.TextBox TBValor02;
         private System.Windows.Forms.TextBox TBValor03;
+        private System.Windows.Forms.TextBox TBBase03;
+        private System.Windows.Forms.TextBox TBBase02;
+        private System.Windows.Forms.TextBox TBBase01;
+        private System.Windows.Forms.TextBox TBImpuesto03;
+        private System.Windows.Forms.TextBox TBImpuesto02;
+        private System.Windows.Forms.TextBox TBImpuesto01;
     }
 }

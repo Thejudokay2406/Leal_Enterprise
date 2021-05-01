@@ -178,8 +178,18 @@ namespace Presentacion
             this.TBComp_Descripcion.BackColor = Color.FromArgb(3, 155, 229);
             this.TBComp_Medida.ReadOnly = false;
             this.TBComp_Medida.BackColor = Color.FromArgb(3, 155, 229);
+            
 
             //Panel - Valores
+            this.textBox1.Enabled = false;
+            this.textBox1.BackColor = Color.FromArgb(255, 255, 255);
+            this.textBox34.Enabled = false;
+            this.textBox34.BackColor = Color.FromArgb(255, 255, 255);
+            this.textBox3.Enabled = false;
+            this.textBox3.BackColor = Color.FromArgb(255, 255, 255);
+            this.textBox24.Enabled = false;
+            this.textBox24.BackColor = Color.FromArgb(255, 255, 255);
+
             this.TBValor_CompraPromedio.ReadOnly = false;
             this.TBValor_CompraPromedio.BackColor = Color.FromArgb(3, 155, 229);
             this.TBValor_CompraFinal.ReadOnly = false;
@@ -282,6 +292,12 @@ namespace Presentacion
             this.TBCodigodeBarra.BackColor = Color.FromArgb(3, 155, 229);
 
             //Panel - Ubicacion
+            this.TBIdbodega.Enabled = false;
+            this.TBIdbodega.BackColor = Color.FromArgb(245, 245, 245);
+            this.textBox17.Enabled = false;
+            this.textBox17.BackColor = Color.FromArgb(245, 245, 245);
+
+
             this.TBUbicacion.ReadOnly = false;
             this.TBUbicacion.BackColor = Color.FromArgb(3, 155, 229);
             this.TBEstante.ReadOnly = false;
@@ -302,6 +318,12 @@ namespace Presentacion
             this.TBProveedor.BackColor = Color.FromArgb(245, 245, 245);
             this.TBProveedor_Documento.Enabled = false;
             this.TBProveedor_Documento.BackColor = Color.FromArgb(245, 245, 245);
+
+            //Panel - Stock
+            this.textBox19.Enabled = false;
+            this.textBox19.BackColor = Color.FromArgb(245, 245, 245);
+            this.textBox18.Enabled = false;
+            this.textBox18.BackColor = Color.FromArgb(245, 245, 245);
 
             //Panel de Consulta General
             this.TBBuscar.BackColor = Color.FromArgb(3, 155, 229);
@@ -919,7 +941,7 @@ namespace Presentacion
                             //Se procede a calcular el IVA o Impuestos
                             Valor01 = Convert.ToDouble(TBValor_Venta01.Text);
                             Valor02 = Convert.ToDouble(TBValor01.Text);
-                            //Valor03 = Convert.ToDouble(TBValor_Venta03.Text);
+                            Valor03 = Convert.ToDouble(TBValor_Venta03.Text);
                             Divisor = Convert.ToDouble(TBDivisor_Impuesto.Text);
                             Multiplicador = Convert.ToDouble(TBmultiplicador_Impuesto.Text);
                             //Porcentaje01 = Convert.ToDouble(this.TBValor_PorVenta01.Text);
@@ -927,46 +949,46 @@ namespace Presentacion
                             //Primero se Calcula el Valor Base
                             Base01 = Valor01 / Divisor;
                             Base02 = Valor02 / Divisor;
-                            //Base03 = Valor03 / Divisor;
+                            Base03 = Valor03 / Divisor;
                             this.TBValorBase_Inicial01.Text = Base01.ToString("C");
                             this.TBValorBase_Inicial02.Text = Base02.ToString("C");
-                            //this.TBValorBase_Inicial03.Text = Base03.ToString("C");
+                            this.TBValorBase_Inicial03.Text = Base03.ToString("C");
 
                             //Despues se Calcula el Valor del Impuesto
                             Impuesto01 = Base01 * Multiplicador;
                             Impuesto02 = Base02 * Multiplicador;
-                            //Impuesto03 = Base03 * Multiplicador;
+                            Impuesto03 = Base03 * Multiplicador;
                             this.TBValor_ImpVenta01.Text = Impuesto01.ToString("C");
                             this.TBValor_ImpVenta02.Text = Impuesto02.ToString("C");
-                            //this.TBValor_ImpVenta03.Text = Impuesto03.ToString("C");
+                            this.TBValor_ImpVenta03.Text = Impuesto03.ToString("C");
                         }
                     }
                 }
-                else
-                {
-                    foreach (DataGridViewRow row in DGDetalle_Impuesto.Rows)
-                    {
-                        if (row.Cells[3].Value != null)
-                            Impuesto_SQL += (Int32)row.Cells[3].Value;
+                //else
+                //{
+                //    foreach (DataGridViewRow row in DGDetalle_Impuesto.Rows)
+                //    {
+                //        if (row.Cells[3].Value != null)
+                //            Impuesto_SQL += (Int32)row.Cells[3].Value;
 
-                        //Se procede a calcular el IVA o Impuestos
+                //        //Se procede a calcular el IVA o Impuestos
 
-                        this.TBValor_PorVenta01.Text = Impuesto_SQL.ToString();
-                        this.TBValor_PorVenta02.Text = Impuesto_SQL.ToString();
-                        this.TBValor_PorVenta03.Text = Impuesto_SQL.ToString();
+                //        this.TBValor_PorVenta01.Text = Impuesto_SQL.ToString();
+                //        this.TBValor_PorVenta02.Text = Impuesto_SQL.ToString();
+                //        this.TBValor_PorVenta03.Text = Impuesto_SQL.ToString();
 
-                        this.TBDivisor_Impuesto.Text = "1," + TBValor_PorVenta01.Text;
+                //        this.TBDivisor_Impuesto.Text = "1," + TBValor_PorVenta01.Text;
 
-                        //Se procede a calcular el IVA o Impuestos
-                        Valor01 = Convert.ToDouble(TBValor_Venta01.Text);
-                        Divisor = Convert.ToDouble(TBDivisor_Impuesto.Text);
-                        Porcentaje01 = Convert.ToDouble(this.TBValor_PorVenta01.Text);
+                //        //Se procede a calcular el IVA o Impuestos
+                //        Valor01 = Convert.ToDouble(TBValor_Venta01.Text);
+                //        Divisor = Convert.ToDouble(TBDivisor_Impuesto.Text);
+                //        Porcentaje01 = Convert.ToDouble(this.TBValor_PorVenta01.Text);
 
-                        //Primero se Calcula el Valor Base
-                        Base01 = Valor01 / Divisor;
-                        this.TBValorBase_Inicial01.Text = Base01.ToString("C");
-                    }
-                }
+                //        //Primero se Calcula el Valor Base
+                //        Base01 = Valor01 / Divisor;
+                //        this.TBValorBase_Inicial01.Text = Base01.ToString("C");
+                //    }
+                //}
 
 
 
@@ -1691,8 +1713,6 @@ namespace Presentacion
             //Se evalua si el campo de texto esta vacio y se espeicifca si es obligatorio en la base de datos
             this.TBValor_Venta02.BackColor = Color.Azure;
 
-            this.TBValor02.Text = TBValor_Venta02.Text;
-
             //********************* PROCESO PARA FORMATEAR EL TEXBOXT Y PASAR DE FORMATO MONEDA A FORMATO NATURAL O LIMPIO (SIN NINGUN FORMATO)
 
             // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
@@ -2328,7 +2348,6 @@ namespace Presentacion
                 {
                     //SE IGUALAN LOS TEXTOS DE LOS TEXBOXT SIGUIENTES
                     this.TBValor01.Text = TBValor_Venta01.Text;
-                    this.TBValor_Venta02.Text = TBValor_Venta01.Text;
 
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
                     this.TBValor_Venta02.Select();
@@ -2417,9 +2436,16 @@ namespace Presentacion
             {
                 if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
-                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
-
-                    this.TBValor_Venta01.Select();
+                    if (CHImpuesto.Checked)
+                    {
+                        //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
+                        this.TBValor_Venta01.Select();
+                    }
+                    else
+                    {
+                        //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
+                        this.TBValorBase_Inicial01.Select();
+                    }
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
@@ -4219,8 +4245,6 @@ namespace Presentacion
         {
             //Se evalua si el campo de texto esta vacio y se espeicifca si es obligatorio en la base de datos
             this.TBValor_Venta03.BackColor = Color.Azure;
-
-            this.TBValor03.Text = TBValor_Venta03.Text;
 
             //********************* PROCESO PARA FORMATEAR EL TEXBOXT Y PASAR DE FORMATO MONEDA A FORMATO NATURAL O LIMPIO (SIN NINGUN FORMATO)
 
@@ -6746,7 +6770,6 @@ namespace Presentacion
                 {
                     //SE IGUALAN LOS TEXTOS DE LOS TEXBOXT SIGUIENTES
                     this.TBValor02.Text = TBValor_Venta02.Text;
-                    this.TBValor_Venta02.Text = TBValor_Venta02.Text;
 
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
                     this.TBValor_Venta03.Select();
@@ -6823,6 +6846,17 @@ namespace Presentacion
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
+        }
+
+        private void TBComp_Medida_Enter(object sender, EventArgs e)
+        {
+            //Se evalua si el campo de texto esta vacio y se espeicifca si es obligatorio en la base de datos
+            this.TBComp_Medida.BackColor = Color.Azure;
+        }
+
+        private void TBComp_Medida_Leave(object sender, EventArgs e)
+        {
+            this.TBComp_Medida.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBValorBase_InicialMayorista_KeyUp(object sender, KeyEventArgs e)
