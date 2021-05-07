@@ -207,12 +207,16 @@ namespace Presentacion
             //
             this.TBValor_Venta01.Enabled = false;
             this.TBValor_Venta01.BackColor = Color.FromArgb(245, 245, 245);
+            //this.TBValor_Venta01.Text = "0";
             this.TBValor_Venta02.Enabled = false;
             this.TBValor_Venta02.BackColor = Color.FromArgb(245, 245, 245);
+            //this.TBValor_Venta02.Text = "0";
             this.TBValor_Venta03.Enabled = false;
             this.TBValor_Venta03.BackColor = Color.FromArgb(245, 245, 245);
+            //this.TBValor_Venta03.Text = "0";
             this.TBValor_Mayorista.Enabled = false;
             this.TBValor_Mayorista.BackColor = Color.FromArgb(245, 245, 245);
+            //this.TBValor_Mayorista.Text = "0";
 
             this.TBValor_PorVenta01.Enabled = false;
             this.TBValor_PorVenta01.BackColor = Color.FromArgb(245, 245, 245);
@@ -292,10 +296,10 @@ namespace Presentacion
             this.TBCodigodeBarra.BackColor = Color.FromArgb(3, 155, 229);
 
             //Panel - Ubicacion
-            this.TBIdbodega.Enabled = false;
-            this.TBIdbodega.BackColor = Color.FromArgb(245, 245, 245);
-            this.textBox17.Enabled = false;
-            this.textBox17.BackColor = Color.FromArgb(245, 245, 245);
+            this.TBIdbodega_Ubicacion.Enabled = false;
+            this.TBIdbodega_Ubicacion.BackColor = Color.FromArgb(245, 245, 245);
+            this.TBBodega_Ubicacion.Enabled = false;
+            this.TBBodega_Ubicacion.BackColor = Color.FromArgb(245, 245, 245);
 
 
             this.TBUbicacion.ReadOnly = false;
@@ -318,12 +322,6 @@ namespace Presentacion
             this.TBProveedor.BackColor = Color.FromArgb(245, 245, 245);
             this.TBProveedor_Documento.Enabled = false;
             this.TBProveedor_Documento.BackColor = Color.FromArgb(245, 245, 245);
-
-            //Panel - Stock
-            this.textBox19.Enabled = false;
-            this.textBox19.BackColor = Color.FromArgb(245, 245, 245);
-            this.textBox18.Enabled = false;
-            this.textBox18.BackColor = Color.FromArgb(245, 245, 245);
 
             //Panel de Consulta General
             this.TBBuscar.BackColor = Color.FromArgb(3, 155, 229);
@@ -539,6 +537,12 @@ namespace Presentacion
         {
             this.DGDetalles_Ubicacion.DataSource = fProducto_Inventario.Lista_Ubicacion(6, Convert.ToInt32(TBIdproducto.Text)); ;
             this.lblTotal_Ubicacion.Text = "Datos Registrados: " + Convert.ToString(DGDetalles_Ubicacion.Rows.Count);
+        }
+
+        public void setUbicacion(string idbodega, string bodega)
+        {
+            this.TBIdbodega_Ubicacion.Text = idbodega;
+            this.TBBodega_Ubicacion.Text = bodega;
         }
 
         public void setProveedor(string idproveedor, string proveedor, string documento)
@@ -907,128 +911,74 @@ namespace Presentacion
             }
         }
 
-        private void Calculo_Impuesto()
-        {
-            try
-            {
-                int Impuesto_SQL = 0;
-                double Valor01, Valor02, Valor03, Porcentaje01, Porcentaje02, Porcentaje03, Operacion, Divisor, Multiplicador, Impuesto01, Impuesto02, Impuesto03;
-                double Base01, Base02, Base03;
+        //private void Calculo_Impuesto()
+        //{
+        //    try
+        //    {
+        //        int Impuesto_SQL = 0;
+        //        double Valor01, Valor02, Valor03, Porcentaje01, Porcentaje02, Porcentaje03, Operacion, Mayorista, Divisor, Multiplicador, Impuesto01, Impuesto02, Impuesto03, Impuesto_Mayorista;
+        //        double Base01, Base02, Base03, Base_Mayorista;
 
 
-                if (CHImpuesto.Checked)
-                {
-                    if (DGDetalle_Impuesto.Rows.Count == 0)
-                    {
-                        MensajeError("Por Favor Especifique el Impuesto del Producto");
-                    }
-                    else
-                    {
-                        foreach (DataGridViewRow row in DGDetalle_Impuesto.Rows)
-                        {
-                            if (row.Cells[3].Value != null)
-                                Impuesto_SQL += (Int32)row.Cells[3].Value;
+        //        if (CHImpuesto.Checked)
+        //        {
+        //            if (DGDetalle_Impuesto.Rows.Count == 0)
+        //            {
+        //                MensajeError("Por Favor Especifique el Impuesto del Producto");
+        //            }
+        //            else
+        //            {
+        //                foreach (DataGridViewRow row in DGDetalle_Impuesto.Rows)
+        //                {
+        //                    if (row.Cells[3].Value != null)
+        //                        Impuesto_SQL += (Int32)row.Cells[3].Value;
 
-                            //Se procede a calcular el IVA o Impuestos
+        //                    //Se procede a calcular el IVA o Impuestos
 
-                            this.TBValor_PorVenta01.Text = Impuesto_SQL.ToString();
-                            this.TBValor_PorVenta02.Text = Impuesto_SQL.ToString();
-                            this.TBValor_PorVenta03.Text = Impuesto_SQL.ToString();
+        //                    this.TBValor_PorVenta01.Text = Impuesto_SQL.ToString();
+        //                    this.TBValor_PorVenta02.Text = Impuesto_SQL.ToString();
+        //                    this.TBValor_PorVenta03.Text = Impuesto_SQL.ToString();
+        //                    this.TBValor_PorMayorista.Text = Impuesto_SQL.ToString();
 
-                            this.TBDivisor_Impuesto.Text = "1." + TBValor_PorVenta01.Text;
-                            this.TBmultiplicador_Impuesto.Text = "0." + TBValor_PorVenta01.Text;
+        //                    this.TBDivisor_Impuesto.Text = "1." + TBValor_PorVenta01.Text;
+        //                    this.TBmultiplicador_Impuesto.Text = "0." + TBValor_PorVenta01.Text;
 
-                            //Se procede a calcular el IVA o Impuestos
-                            Valor01 = Convert.ToDouble(TBValor_Venta01.Text);
-                            Valor02 = Convert.ToDouble(TBValor01.Text);
-                            Valor03 = Convert.ToDouble(TBValor_Venta03.Text);
-                            Divisor = Convert.ToDouble(TBDivisor_Impuesto.Text);
-                            Multiplicador = Convert.ToDouble(TBmultiplicador_Impuesto.Text);
-                            //Porcentaje01 = Convert.ToDouble(this.TBValor_PorVenta01.Text);
+        //                    //Se procede a calcular el IVA o Impuestos
+        //                    Valor01 = Convert.ToDouble(TBValor_Venta01.Text);
+        //                    Valor02 = Convert.ToDouble(TBValor_Venta02.Text);
+        //                    Valor03 = Convert.ToDouble(TBValor_Venta03.Text);
+        //                    Mayorista = Convert.ToDouble(TBValor_Mayorista.Text);
+        //                    Divisor = Convert.ToDouble(TBDivisor_Impuesto.Text);
+        //                    Multiplicador = Convert.ToDouble(TBmultiplicador_Impuesto.Text);
 
-                            //Primero se Calcula el Valor Base
-                            Base01 = Valor01 / Divisor;
-                            Base02 = Valor02 / Divisor;
-                            Base03 = Valor03 / Divisor;
-                            this.TBValorBase_Inicial01.Text = Base01.ToString("C");
-                            this.TBValorBase_Inicial02.Text = Base02.ToString("C");
-                            this.TBValorBase_Inicial03.Text = Base03.ToString("C");
+        //                    //Primero se Calcula el Valor Base
+        //                    Base01 = Valor01 / Divisor;
+        //                    Base02 = Valor02 / Divisor;
+        //                    Base03 = Valor03 / Divisor;
+        //                    Base_Mayorista = Mayorista / Divisor;
+        //                    this.TBValorBase_Inicial01.Text = Base01.ToString("N2");
+        //                    this.TBValorBase_Inicial02.Text = Base02.ToString("N2");
+        //                    this.TBValorBase_Inicial03.Text = Base03.ToString("N2");
+        //                    this.TBValor_Mayorista.Text = Mayorista.ToString("N2");
 
-                            //Despues se Calcula el Valor del Impuesto
-                            Impuesto01 = Base01 * Multiplicador;
-                            Impuesto02 = Base02 * Multiplicador;
-                            Impuesto03 = Base03 * Multiplicador;
-                            this.TBValor_ImpVenta01.Text = Impuesto01.ToString("C");
-                            this.TBValor_ImpVenta02.Text = Impuesto02.ToString("C");
-                            this.TBValor_ImpVenta03.Text = Impuesto03.ToString("C");
-                        }
-                    }
-                }
-                //else
-                //{
-                //    foreach (DataGridViewRow row in DGDetalle_Impuesto.Rows)
-                //    {
-                //        if (row.Cells[3].Value != null)
-                //            Impuesto_SQL += (Int32)row.Cells[3].Value;
-
-                //        //Se procede a calcular el IVA o Impuestos
-
-                //        this.TBValor_PorVenta01.Text = Impuesto_SQL.ToString();
-                //        this.TBValor_PorVenta02.Text = Impuesto_SQL.ToString();
-                //        this.TBValor_PorVenta03.Text = Impuesto_SQL.ToString();
-
-                //        this.TBDivisor_Impuesto.Text = "1," + TBValor_PorVenta01.Text;
-
-                //        //Se procede a calcular el IVA o Impuestos
-                //        Valor01 = Convert.ToDouble(TBValor_Venta01.Text);
-                //        Divisor = Convert.ToDouble(TBDivisor_Impuesto.Text);
-                //        Porcentaje01 = Convert.ToDouble(this.TBValor_PorVenta01.Text);
-
-                //        //Primero se Calcula el Valor Base
-                //        Base01 = Valor01 / Divisor;
-                //        this.TBValorBase_Inicial01.Text = Base01.ToString("C");
-                //    }
-                //}
-
-
-
-                //else
-                //{
-                //    this.TBValor_PorVenta01.Text = Impuesto_SQL.ToString();
-                //    this.TBValor_PorVenta02.Text = Impuesto_SQL.ToString();
-                //    this.TBValor_PorVenta03.Text = Impuesto_SQL.ToString();
-                //}
-
-                ////Se procede a calcular el IVA o Impuestos
-                //Valor01 = Convert.ToDouble(TBValor_Venta01.Text);
-                //Divisor = Convert.ToDouble(TBDivisor_Impuesto.Text);
-                //Porcentaje01 = Convert.ToDouble(this.TBValor_PorVenta01.Text);
-
-                ////Total01 = (Valor01 / Intervalo) / 100;
-                //Total01 = (Valor01 / Divisor);
-
-                //this.TBValor_ImpVenta01.Text = Total01.ToString("C");
-
-                //////Se procede a calcular el IVA o Impuestos
-                ////Intervalo = Convert.ToDouble(TBIntervalo.Text);
-
-
-                ////Operacion = Valor01 / Intervalo;
-                ////Total = Valor01 - Operacion;
-
-                ////this.TBValor_ImpVenta01.Text = Total.ToString();
-                //////this.textBox1.Text = string.Format("{0:C2}", Operacion);
-                ////this.textBox1.Text = Total.ToString("C");
-                //////this.textBox1.Text = string.Format("###,###,###,00", Operacion);
-
-
-                //MessageBox.Show(suma.ToString());
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
+        //                    //Despues se Calcula el Valor del Impuesto
+        //                    Impuesto01 = Base01 * Multiplicador;
+        //                    Impuesto02 = Base02 * Multiplicador;
+        //                    Impuesto03 = Base03 * Multiplicador;
+        //                    Impuesto_Mayorista = Mayorista * Multiplicador;
+        //                    this.TBValor_ImpVenta01.Text = Impuesto01.ToString("N2");
+        //                    this.TBValor_ImpVenta02.Text = Impuesto02.ToString("N2");
+        //                    this.TBValor_ImpVenta03.Text = Impuesto03.ToString("N2");
+        //                    this.TBValor_Mayorista.Text = Impuesto_Mayorista.ToString("N2");
+        //                }
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message + ex.StackTrace);
+        //    }
+        //}
 
         public void setImpuesto(string idimpuesto, string impuesto, string valor, string descripcion)
         {
@@ -1348,7 +1298,7 @@ namespace Presentacion
 
                         DataRow fila = this.DtDetalle_Ubicacion.NewRow();
                         fila["Idproducto"] = Convert.ToInt32(this.TBIdproducto_AutoSQL.Text);
-                        fila["Idbodega"] = Convert.ToInt32(this.TBIdbodega.Text);
+                        fila["Idbodega"] = Convert.ToInt32(this.TBIdbodega_Ubicacion.Text);
                         fila["Ubicación"] = this.TBUbicacion.Text;
                         fila["Estante"] = this.TBEstante.Text;
                         fila["Nivel"] = this.TBNivel.Text;
@@ -1358,6 +1308,8 @@ namespace Presentacion
 
                         //
                         //this.CBBodega.SelectedIndex = 0;
+                        this.TBIdbodega_Ubicacion.Clear();
+                        this.TBBodega_Ubicacion.Clear();
                         this.TBUbicacion.Clear();
                         this.TBEstante.Clear();
                         this.TBNivel.Clear();
@@ -1470,6 +1422,8 @@ namespace Presentacion
 
                     //Se remueve la fila
                     this.DtDetalle_Ubicacion.Rows.Remove(row);
+
+                    this.lblTotal_Ubicacion.Text = "Datos Registrados: " + Convert.ToString(DGDetalles_Ubicacion.Rows.Count);
                 }
             }
             catch (Exception ex)
@@ -1710,9 +1664,6 @@ namespace Presentacion
 
         private void TBValor_Venta02_Enter(object sender, EventArgs e)
         {
-            //Se evalua si el campo de texto esta vacio y se espeicifca si es obligatorio en la base de datos
-            this.TBValor_Venta02.BackColor = Color.Azure;
-
             //********************* PROCESO PARA FORMATEAR EL TEXBOXT Y PASAR DE FORMATO MONEDA A FORMATO NATURAL O LIMPIO (SIN NINGUN FORMATO)
 
             // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
@@ -1737,6 +1688,20 @@ namespace Presentacion
             // a monetario con dos decimales.
             //
             tb.Text = string.Format("{0:#}", numero);
+
+            //Se evalua si el campo de texto esta vacio y se espeicifca que es obligatorio en la base de datos
+            if (TBValor_Venta02.Text == "0")
+            {
+                this.TBValor_Venta02.BackColor = Color.Azure;
+                this.TBValor_Venta02.ForeColor = Color.FromArgb(0, 0, 0);
+                this.TBValor_Venta02.Clear();
+            }
+            else
+            {
+                //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
+                this.TBValor_Venta02.BackColor = Color.Azure;
+                this.TBValor_Venta02.ForeColor = Color.FromArgb(0, 0, 0);
+            }
         }
 
         //******************** FOCUS ENTER UBICACION ********************
@@ -1771,8 +1736,44 @@ namespace Presentacion
 
         private void TBVentaMayorista_Enter(object sender, EventArgs e)
         {
-            //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
-            this.TBValor_Mayorista.BackColor = Color.Azure;
+            //Se evalua si el campo de texto esta vacio y se espeicifca que es obligatorio en la base de datos
+            if (TBValor_Mayorista.Text == "0")
+            {
+                this.TBValor_Mayorista.BackColor = Color.Azure;
+                this.TBValor_Mayorista.ForeColor = Color.FromArgb(0, 0, 0);
+                this.TBValor_Mayorista.Clear();
+            }
+            else
+            {
+                //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
+                this.TBValor_Mayorista.BackColor = Color.Azure;
+                this.TBValor_Mayorista.ForeColor = Color.FromArgb(0, 0, 0);
+            }
+
+            //********************* PROCESO PARA FORMATEAR EL TEXBOXT Y PASAR DE FORMATO MONEDA A FORMATO NATURAL O LIMPIO (SIN NINGUN FORMATO)
+
+            // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
+            TextBox tb = (TextBox)sender;
+
+            // Primero verificamos si el valor se puede convertir a Decimal.
+            double numero = default(double);
+            bool bln = double.TryParse(tb.Text, out numero);
+
+            if ((!(bln)))
+            {
+                // No es un valor decimal válido; limpiamos el control.
+                //tb.Clear();
+                return;
+            }
+
+            // En la propiedad Tag guardamos el valor con todos los decimales.
+            //
+            tb.Tag = numero;
+
+            // Y acto seguido formateamos el valor
+            // a monetario con dos decimales.
+            //
+            tb.Text = string.Format("{0:#}", numero);
         }
 
         //******************** FOCUS LEAVE DATOS BASICOS ********************
@@ -2346,14 +2347,11 @@ namespace Presentacion
             {
                 if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
-                    //SE IGUALAN LOS TEXTOS DE LOS TEXBOXT SIGUIENTES
-                    this.TBValor01.Text = TBValor_Venta01.Text;
-
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
                     this.TBValor_Venta02.Select();
 
-                    
-                    //this.TBValor_Venta03.Text = TBValor_Venta02.Text;
+                    //SE IGUALAN LOS TEXTOS DE LOS TEXBOXT SIGUIENTES
+                    this.TBValor01.Text = TBValor_Venta01.Text;
 
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
@@ -3224,6 +3222,8 @@ namespace Presentacion
                             fila["Proveedor"] = this.TBProveedor.Text;
                             fila["Documento"] = this.TBProveedor_Documento.Text;
                             this.DtDetalle_Proveedor.Rows.Add(fila);
+
+                            this.lblTotal_Proveedor.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Proveedor.Rows.Count);
                         }
 
                         //
@@ -4243,9 +4243,6 @@ namespace Presentacion
 
         private void TBValor_Venta03_Enter(object sender, EventArgs e)
         {
-            //Se evalua si el campo de texto esta vacio y se espeicifca si es obligatorio en la base de datos
-            this.TBValor_Venta03.BackColor = Color.Azure;
-
             //********************* PROCESO PARA FORMATEAR EL TEXBOXT Y PASAR DE FORMATO MONEDA A FORMATO NATURAL O LIMPIO (SIN NINGUN FORMATO)
 
             // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
@@ -4270,6 +4267,20 @@ namespace Presentacion
             // a monetario con dos decimales.
             //
             tb.Text = string.Format("{0:#}", numero);
+
+            //Se evalua si el campo de texto esta vacio y se espeicifca que es obligatorio en la base de datos
+            if (TBValor_Venta03.Text == "0")
+            {
+                this.TBValor_Venta03.BackColor = Color.Azure;
+                this.TBValor_Venta03.ForeColor = Color.FromArgb(0, 0, 0);
+                this.TBValor_Venta03.Clear();
+            }
+            else
+            {
+                //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
+                this.TBValor_Venta03.BackColor = Color.Azure;
+                this.TBValor_Venta03.ForeColor = Color.FromArgb(0, 0, 0);
+            }
         }
 
         private void TBValor_Unidad_Enter(object sender, EventArgs e)
@@ -4813,12 +4824,54 @@ namespace Presentacion
 
         private void TBValor_Venta03_Leave(object sender, EventArgs e)
         {
-            //Color de texboxt cuando este posee el FOCUS Activado
-            this.TBValor_Venta03.BackColor = Color.FromArgb(3, 155, 229);
+            //**********************************************************************
 
-            if (TBValor_Venta03.Text != string.Empty)
+            if (TBValor_Venta03.Text == string.Empty)
             {
-                this.Calculo_Impuesto();
+                //Color de texboxt cuando este posee el FOCUS Activado
+                this.TBValor_Venta03.BackColor = Color.FromArgb(3, 155, 229);
+                this.TBValor_Venta03.Text = "0";
+                this.TBValor_Venta03.ForeColor = Color.FromArgb(255, 255, 255);
+            }
+            else
+            {
+                this.TBValor_Venta03.BackColor = Color.FromArgb(3, 155, 229);
+                //this.Calculo_Impuesto();
+
+
+                //
+                int Impuesto_SQL = 0;
+                double Valor01, Valor02, Valor03, Porcentaje01, Porcentaje02, Porcentaje03, Operacion, Mayorista, Divisor, Multiplicador, Impuesto01, Impuesto02, Impuesto03, Impuesto_Mayorista;
+                double Base01, Base02, Base03, Base_Mayorista;
+
+
+                foreach (DataGridViewRow row in DGDetalle_Impuesto.Rows)
+                {
+                    if (row.Cells[3].Value != null)
+                        Impuesto_SQL += (Int32)row.Cells[3].Value;
+
+                    //Se procede a calcular el IVA o Impuestos
+
+                    this.TBValor_PorVenta03.Text = Impuesto_SQL.ToString();
+
+                    this.TBDivisor_Impuesto.Text = "1." + TBValor_PorVenta03.Text;
+                    this.TBmultiplicador_Impuesto.Text = "0." + TBValor_PorVenta03.Text;
+
+                    //Se procede a calcular el IVA o Impuestos
+                    Valor03 = Convert.ToDouble(TBValor_Venta03.Text);
+                    Divisor = Convert.ToDouble(TBDivisor_Impuesto.Text);
+                    Multiplicador = Convert.ToDouble(TBmultiplicador_Impuesto.Text);
+
+                    //Primero se Calcula el Valor Base
+                    Base03 = Valor03 / Divisor;
+                    this.TBValorBase_Inicial03.Text = Base03.ToString("C");
+
+                    //Despues se Calcula el Valor del Impuesto
+                    Impuesto03 = Base03 * Multiplicador;
+                    this.TBValor_ImpVenta03.Text = Impuesto03.ToString("C");
+                }
+
+
             }
 
             // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
@@ -4843,6 +4896,8 @@ namespace Presentacion
             // a monetario con dos decimales.
             //
             tb.Text = string.Format("{0:N2}", numero);
+
+            
         }
 
         private void TBValor_ImpMayorista_Leave(object sender, EventArgs e)
@@ -6419,11 +6474,6 @@ namespace Presentacion
             //Color de texboxt cuando este posee el FOCUS Activado
             this.TBValorBase_Inicial01.BackColor = Color.FromArgb(3, 155, 229);
 
-            if (TBValorBase_Inicial01.Text != string.Empty)
-            {
-                this.Calculo_Impuesto();
-            }
-
             // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
             TextBox tb = (TextBox)sender;
 
@@ -6452,11 +6502,6 @@ namespace Presentacion
         {
             //Color de texboxt cuando este posee el FOCUS Activado
             this.TBValorBase_Inicial02.BackColor = Color.FromArgb(3, 155, 229);
-
-            if (TBValorBase_Inicial02.Text != string.Empty)
-            {
-                this.Calculo_Impuesto();
-            }
 
             // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
             TextBox tb = (TextBox)sender;
@@ -6859,6 +6904,12 @@ namespace Presentacion
             this.TBComp_Medida.BackColor = Color.FromArgb(3, 155, 229);
         }
 
+        private void btnExaminar_Ubicacion_Click(object sender, EventArgs e)
+        {
+            frmFiltro_Bodega frmFiltro_Bodega = new frmFiltro_Bodega();
+            frmFiltro_Bodega.ShowDialog();
+        }
+
         private void TBValorBase_InicialMayorista_KeyUp(object sender, KeyEventArgs e)
         {
             try
@@ -6988,11 +7039,6 @@ namespace Presentacion
             //Color de texboxt cuando este posee el FOCUS Activado
             this.TBValorBase_Inicial03.BackColor = Color.FromArgb(3, 155, 229);
 
-            if (TBValorBase_Inicial03.Text != string.Empty)
-            {
-                this.Calculo_Impuesto();
-            }
-
             // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
             TextBox tb = (TextBox)sender;
 
@@ -7021,11 +7067,6 @@ namespace Presentacion
         {
             //Color de texboxt cuando este posee el FOCUS Activado
             this.TBValorBase_InicialMayorista.BackColor = Color.FromArgb(3, 155, 229);
-
-            if (TBValorBase_InicialMayorista.Text != string.Empty)
-            {
-                this.Calculo_Impuesto();
-            }
 
             // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
             TextBox tb = (TextBox)sender;
@@ -7525,12 +7566,14 @@ namespace Presentacion
                             fila["Unidad"] = this.CBComp_Medida.Text;
                             fila["Medida"] = this.TBComp_Medida.Text;
                             this.DtDetalle_Compuesto.Rows.Add(fila);
+
+                            this.lblTotal_Compuesto.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Compuesto.Rows.Count);
                         }
 
                         //
                         this.TBCompuesto.Clear();
                         this.TBComp_Descripcion.Clear();
-                        this.CBComp_Medida.SelectedItem = 0;
+                        this.CBComp_Medida.SelectedIndex = 0;
                         this.TBComp_Medida.Clear();
                     }
                 }
@@ -7594,7 +7637,7 @@ namespace Presentacion
                             this.TBIdcompuesto.Clear();
                             this.TBCompuesto.Clear();
                             this.TBComp_Descripcion.Clear();
-                            this.CBComp_Medida.SelectedItem = 0;
+                            this.CBComp_Medida.SelectedIndex = 0;
                             this.TBComp_Medida.Clear();
                         }
                         else
@@ -7707,6 +7750,8 @@ namespace Presentacion
 
                     //Se remueve la fila
                     this.DtDetalle_Compuesto.Rows.Remove(row);
+
+                    this.lblTotal_Compuesto.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Compuesto.Rows.Count);
                 }
             }
             catch (Exception ex)
@@ -7952,7 +7997,8 @@ namespace Presentacion
         {
             try
             {
-
+                frmFiltro_Bodega frmFiltro_Bodega = new frmFiltro_Bodega();
+                frmFiltro_Bodega.ShowDialog();
             }
             catch (Exception ex)
             {
@@ -8051,14 +8097,17 @@ namespace Presentacion
         {
             try
             {
-                // Teniendo en cuenta que DataGridView1 es tu DataGridView.
-                DataGridViewRow fila = DGDetalles_Ubicacion.Rows[e.RowIndex];
+                if (!Digitar)
+                {
+                    // Teniendo en cuenta que DataGridView1 es tu DataGridView.
+                    DataGridViewRow fila = DGDetalles_Ubicacion.Rows[e.RowIndex];
 
-                //Pasamos los datos de la celda seleccionada a los texboxt correspondientes
-                //this.CBBodega.SelectedValue = Convert.ToString(fila.Cells["Idbodega"].Value);
-                this.TBUbicacion.Text = Convert.ToString(fila.Cells["Ubicacion"].Value);
-                this.TBEstante.Text = Convert.ToString(fila.Cells["Estante"].Value);
-                this.TBNivel.Text = Convert.ToString(fila.Cells["Nivel"].Value);
+                    //Pasamos los datos de la celda seleccionada a los texboxt correspondientes
+                    this.TBIdbodega_Ubicacion.Text = Convert.ToString(fila.Cells["Idbodega"].Value);
+                    this.TBUbicacion.Text = Convert.ToString(fila.Cells["Ubicación"].Value);
+                    this.TBEstante.Text = Convert.ToString(fila.Cells["Estante"].Value);
+                    this.TBNivel.Text = Convert.ToString(fila.Cells["Nivel"].Value);
+                }
             }
             catch (Exception ex)
             {
@@ -8079,7 +8128,7 @@ namespace Presentacion
                                  2, Convert.ToInt32(this.TBIdproducto.Text),
 
                                  //Panel Datos Basicos
-                                 Convert.ToInt32(TBIdubicacion.Text), Convert.ToInt32(this.TBIdbodega.Text), this.TBUbicacion.Text, this.TBEstante.Text, this.TBNivel.Text
+                                 Convert.ToInt32(TBIdubicacion.Text), Convert.ToInt32(this.TBIdbodega_Ubicacion.Text), this.TBUbicacion.Text, this.TBEstante.Text, this.TBNivel.Text
                             );
 
                 if (rptaDatosBasicos.Equals("OK"))
@@ -8091,6 +8140,7 @@ namespace Presentacion
 
                     //SE LIMPIAN LOS CAMPOS DE TEXTO
                     //this.CBBodega.SelectedIndex = 0;
+                    this.TBIdbodega_Ubicacion.Clear();
                     this.TBUbicacion.Clear();
                     this.TBEstante.Clear();
                     this.TBNivel.Clear();
@@ -8159,14 +8209,17 @@ namespace Presentacion
         {
             try
             {
-                // Teniendo en cuenta que DataGridView1 es tu DataGridView.
-                DataGridViewRow fila = DGDetalles_Ubicacion.Rows[e.RowIndex];
+                if (!Digitar)
+                {
+                    // Teniendo en cuenta que DataGridView1 es tu DataGridView.
+                    DataGridViewRow fila = DGDetalles_Ubicacion.Rows[e.RowIndex];
 
-                //Pasamos los datos de la celda seleccionada a los texboxt correspondientes
-                //this.CBBodega.SelectedValue = Convert.ToString(fila.Cells["Idbodega"].Value);
-                this.TBUbicacion.Text = Convert.ToString(fila.Cells["Ubicacion"].Value);
-                this.TBEstante.Text = Convert.ToString(fila.Cells["Estante"].Value);
-                this.TBNivel.Text = Convert.ToString(fila.Cells["Nivel"].Value);
+                    //Pasamos los datos de la celda seleccionada a los texboxt correspondientes
+                    //this.CBBodega.SelectedValue = Convert.ToString(fila.Cells["Idbodega"].Value);
+                    this.TBUbicacion.Text = Convert.ToString(fila.Cells["Ubicación"].Value);
+                    this.TBEstante.Text = Convert.ToString(fila.Cells["Estante"].Value);
+                    this.TBNivel.Text = Convert.ToString(fila.Cells["Nivel"].Value);
+                }
             }
             catch (Exception ex)
             {
@@ -8448,7 +8501,21 @@ namespace Presentacion
         private void TBVentaMayorista_Leave(object sender, EventArgs e)
         {
             //Color de texboxt cuando este posee el FOCUS Activado
-            this.TBValor_Mayorista.BackColor = Color.FromArgb(3, 155, 229);
+            if (TBValor_Mayorista.Text == string.Empty)
+            {
+                //Color de texboxt cuando este posee el FOCUS Activado
+                this.TBValor_Mayorista.BackColor = Color.FromArgb(3, 155, 229);
+                this.TBValor_Mayorista.Text = "0";
+                this.TBValor_Mayorista.ForeColor = Color.FromArgb(255, 255, 255);
+            }
+            else
+            {
+                this.TBValor_Mayorista.BackColor = Color.FromArgb(3, 155, 229);
+                //this.Calculo_Impuesto();
+
+
+
+            }
 
             // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
             TextBox tb = (TextBox)sender;
@@ -8471,7 +8538,14 @@ namespace Presentacion
             // Y acto seguido formateamos el valor
             // a monetario con dos decimales.
             //
-            tb.Text = string.Format("{0:N2}", numero);
+            if (TBValor_Mayorista.Text == "0")
+            {
+                tb.Text = string.Format("{0:#}", numero);
+            }
+            else
+            {
+                tb.Text = string.Format("{0:N2}", numero);
+            }
         }
 
         private void TBComision_Enter(object sender, EventArgs e)
@@ -8710,14 +8784,52 @@ namespace Presentacion
 
         private void TBValorVenta_Leave(object sender, EventArgs e)
         {
-            //Color de texboxt cuando este posee el FOCUS Activado
-            this.TBValor_Venta02.BackColor = Color.FromArgb(3, 155, 229);
-
-            if (TBValor_Venta02.Text != string.Empty)
+            if (TBValor_Venta02.Text == string.Empty)
             {
-                this.Calculo_Impuesto();
+                //Color de texboxt cuando este posee el FOCUS Activado
+                this.TBValor_Venta02.BackColor = Color.FromArgb(3, 155, 229);
+                this.TBValor_Venta02.Text = "0";
+                this.TBValor_Venta02.ForeColor = Color.FromArgb(255, 255, 255);
             }
+            else
+            {
+                this.TBValor_Venta02.BackColor = Color.FromArgb(3, 155, 229);
+                //this.Calculo_Impuesto();
 
+                //
+                int Impuesto_SQL = 0;
+                double Valor01, Valor02, Valor03, Porcentaje01, Porcentaje02, Porcentaje03, Operacion, Mayorista, Divisor, Multiplicador, Impuesto01, Impuesto02, Impuesto03, Impuesto_Mayorista;
+                double Base01, Base02, Base03, Base_Mayorista;
+
+
+                foreach (DataGridViewRow row in DGDetalle_Impuesto.Rows)
+                {
+                    if (row.Cells[3].Value != null)
+                        Impuesto_SQL += (Int32)row.Cells[3].Value;
+
+                    //Se procede a calcular el IVA o Impuestos
+
+                    this.TBValor_PorVenta02.Text = Impuesto_SQL.ToString();
+
+                    this.TBDivisor_Impuesto.Text = "1." + TBValor_PorVenta02.Text;
+                    this.TBmultiplicador_Impuesto.Text = "0." + TBValor_PorVenta02.Text;
+
+                    //Se procede a calcular el IVA o Impuestos
+                    Valor02 = Convert.ToDouble(TBValor_Venta02.Text);
+                    Divisor = Convert.ToDouble(TBDivisor_Impuesto.Text);
+                    Multiplicador = Convert.ToDouble(TBmultiplicador_Impuesto.Text);
+
+                    //Primero se Calcula el Valor Base
+                    Base02 = Valor02 / Divisor;
+                    this.TBValorBase_Inicial02.Text = Base02.ToString("C");
+
+                    //Despues se Calcula el Valor del Impuesto
+                    Impuesto02 = Base02 * Multiplicador;
+                    this.TBValor_ImpVenta02.Text = Impuesto02.ToString("C");
+                }
+
+
+            }
 
             // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
             TextBox tb = (TextBox)sender;
@@ -8760,8 +8872,8 @@ namespace Presentacion
 
         private void TBValor_Venta01_Enter(object sender, EventArgs e)
         {
-            //Se evalua si el campo de texto esta vacio y se espeicifca si es obligatorio en la base de datos
-            this.TBValor_Venta01.BackColor = Color.Azure;
+            this.TBValor_Venta01.SelectAll();
+
 
             //********************* PROCESO PARA FORMATEAR EL TEXBOXT Y PASAR DE FORMATO MONEDA A FORMATO NATURAL O LIMPIO (SIN NINGUN FORMATO)
 
@@ -8787,16 +8899,67 @@ namespace Presentacion
             // a monetario con dos decimales.
             //
             tb.Text = string.Format("{0:#}", numero);
+
+            //Se evalua si el campo de texto esta vacio y se espeicifca que es obligatorio en la base de datos
+            if (TBValor_Venta01.Text == "0")
+            {
+                this.TBValor_Venta01.BackColor = Color.Azure;
+                this.TBValor_Venta01.ForeColor = Color.FromArgb(0, 0, 0);
+                this.TBValor_Venta01.Clear();
+            }
+            else
+            {
+                //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
+                this.TBValor_Venta01.BackColor = Color.Azure;
+                this.TBValor_Venta01.ForeColor = Color.FromArgb(0, 0, 0);
+            }
         }
 
         private void TBValor_Venta01_Leave(object sender, EventArgs e)
         {
-            //Color de texboxt cuando este posee el FOCUS Activado
-            this.TBValor_Venta01.BackColor = Color.FromArgb(3, 155, 229);
-
-            if (TBValor_Venta01.Text != string.Empty)
+            if (TBValor_Venta01.Text == string.Empty)
             {
-                this.Calculo_Impuesto();
+                //Color de texboxt cuando este posee el FOCUS Activado
+                this.TBValor_Venta01.BackColor = Color.FromArgb(3, 155, 229);
+                this.TBValor_Venta01.Text = "0";
+                this.TBValor_Venta01.ForeColor = Color.FromArgb(255, 255, 255);
+            }
+            else
+            {
+                this.TBValor_Venta01.BackColor = Color.FromArgb(3, 155, 229);
+                //this.Calculo_Impuesto();
+
+                //
+                int Impuesto_SQL = 0;
+                double Valor01, Valor02, Valor03, Porcentaje01, Porcentaje02, Porcentaje03, Operacion, Mayorista, Divisor, Multiplicador, Impuesto01, Impuesto02, Impuesto03, Impuesto_Mayorista;
+                double Base01, Base02, Base03, Base_Mayorista;
+
+
+                foreach (DataGridViewRow row in DGDetalle_Impuesto.Rows)
+                {
+                    if (row.Cells[3].Value != null)
+                        Impuesto_SQL += (Int32)row.Cells[3].Value;
+
+                    //Se procede a calcular el IVA o Impuestos
+
+                    this.TBValor_PorVenta01.Text = Impuesto_SQL.ToString();
+
+                    this.TBDivisor_Impuesto.Text = "1." + TBValor_PorVenta01.Text;
+                    this.TBmultiplicador_Impuesto.Text = "0." + TBValor_PorVenta01.Text;
+
+                    //Se procede a calcular el IVA o Impuestos
+                    Valor01 = Convert.ToDouble(TBValor_Venta01.Text);
+                    Divisor = Convert.ToDouble(TBDivisor_Impuesto.Text);
+                    Multiplicador = Convert.ToDouble(TBmultiplicador_Impuesto.Text);
+
+                    //Primero se Calcula el Valor Base
+                    Base01 = Valor01 / Divisor;
+                    this.TBValorBase_Inicial01.Text = Base01.ToString("C");
+
+                    //Despues se Calcula el Valor del Impuesto
+                    Impuesto01 = Base01 * Multiplicador;
+                    this.TBValor_ImpVenta01.Text = Impuesto01.ToString("C");
+                }
             }
 
             //********************* PROCESO PARA FORMATEAR EL TEXBOXT A TIPO MONEDA
@@ -8822,7 +8985,14 @@ namespace Presentacion
             // Y acto seguido formateamos el valor
             // a monetario con dos decimales.
             //
-            tb.Text = string.Format("{0:N2}", numero);
+            if (TBValor_Venta01.Text == "0")
+            {
+                tb.Text = string.Format("{0:#}", numero);
+            }
+            else
+            {
+                tb.Text = string.Format("{0:N2}", numero);
+            }
         }
 
         //******************** FOCUS LEAVE UBICACION ********************

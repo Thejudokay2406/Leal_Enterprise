@@ -41,6 +41,8 @@ namespace Presentacion
             try
             {
                 frmOrdenDeCompra frmOComp = frmOrdenDeCompra.GetInstancia();
+                frmProducto frmProd = frmProducto.GetInstancia();
+                frmProducto frmProdStock = frmProducto.GetInstancia();
                 frmInventario_Ingreso frmInv = frmInventario_Ingreso.GetInstancia();
                 frmCotizacionDeCompra frmCComp = frmCotizacionDeCompra.GetInstancia();
                 
@@ -71,6 +73,14 @@ namespace Presentacion
                     bodega = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
                     documento = this.DGFiltro_Resultados.CurrentRow.Cells[2].Value.ToString();
                     frmOComp.setBodega(idbodega, bodega, documento);
+                    this.Hide();
+                }
+
+                if (frmProd.Filtro)
+                {
+                    idbodega = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
+                    bodega = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
+                    frmProd.setUbicacion(idbodega, bodega);
                     this.Hide();
                 }
             }
