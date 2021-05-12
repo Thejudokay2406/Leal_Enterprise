@@ -23,7 +23,7 @@ namespace Datos
                 SqlCommand Comando = new SqlCommand("Productos.LI_Grupo", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
-                Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Consulta", SqlDbType.Int).Value = Auto;
 
                 SqlCon.Open();
                 Resultado = Comando.ExecuteReader();

@@ -201,15 +201,6 @@
             this.btnEliminar_Ubicacion = new System.Windows.Forms.Button();
             this.btnAgregar_Ubicacion = new System.Windows.Forms.Button();
             this.TPValores = new System.Windows.Forms.TabPage();
-            this.TBBase03 = new System.Windows.Forms.TextBox();
-            this.TBBase02 = new System.Windows.Forms.TextBox();
-            this.TBBase01 = new System.Windows.Forms.TextBox();
-            this.TBImpuesto03 = new System.Windows.Forms.TextBox();
-            this.TBImpuesto02 = new System.Windows.Forms.TextBox();
-            this.TBImpuesto01 = new System.Windows.Forms.TextBox();
-            this.TBValor03 = new System.Windows.Forms.TextBox();
-            this.TBValor02 = new System.Windows.Forms.TextBox();
-            this.TBValor01 = new System.Windows.Forms.TextBox();
             this.TBValor_ImpVenta03 = new System.Windows.Forms.TextBox();
             this.TBValor_ImpMayorista = new System.Windows.Forms.TextBox();
             this.TBValor_ImpVenta02 = new System.Windows.Forms.TextBox();
@@ -1995,7 +1986,7 @@
             this.btnAgregar_Impuesto.Name = "btnAgregar_Impuesto";
             this.btnAgregar_Impuesto.Size = new System.Drawing.Size(120, 30);
             this.btnAgregar_Impuesto.TabIndex = 153;
-            this.btnAgregar_Impuesto.Text = "Agregar - F3";
+            this.btnAgregar_Impuesto.Text = "Agregar Imp.";
             this.btnAgregar_Impuesto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregar_Impuesto.UseVisualStyleBackColor = true;
             this.btnAgregar_Impuesto.Click += new System.EventHandler(this.btnAgregar_Impuesto_Click);
@@ -2366,15 +2357,6 @@
             // 
             this.TPValores.BackColor = System.Drawing.Color.White;
             this.TPValores.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TPValores.Controls.Add(this.TBBase03);
-            this.TPValores.Controls.Add(this.TBBase02);
-            this.TPValores.Controls.Add(this.TBBase01);
-            this.TPValores.Controls.Add(this.TBImpuesto03);
-            this.TPValores.Controls.Add(this.TBImpuesto02);
-            this.TPValores.Controls.Add(this.TBImpuesto01);
-            this.TPValores.Controls.Add(this.TBValor03);
-            this.TPValores.Controls.Add(this.TBValor02);
-            this.TPValores.Controls.Add(this.TBValor01);
             this.TPValores.Controls.Add(this.TBValor_ImpVenta03);
             this.TPValores.Controls.Add(this.TBValor_ImpMayorista);
             this.TPValores.Controls.Add(this.TBValor_ImpVenta02);
@@ -2415,70 +2397,6 @@
             this.TPValores.Size = new System.Drawing.Size(574, 391);
             this.TPValores.TabIndex = 3;
             this.TPValores.Text = "Valor - Precios";
-            // 
-            // TBBase03
-            // 
-            this.TBBase03.Location = new System.Drawing.Point(122, 304);
-            this.TBBase03.Name = "TBBase03";
-            this.TBBase03.Size = new System.Drawing.Size(100, 22);
-            this.TBBase03.TabIndex = 246;
-            // 
-            // TBBase02
-            // 
-            this.TBBase02.Location = new System.Drawing.Point(122, 276);
-            this.TBBase02.Name = "TBBase02";
-            this.TBBase02.Size = new System.Drawing.Size(100, 22);
-            this.TBBase02.TabIndex = 245;
-            // 
-            // TBBase01
-            // 
-            this.TBBase01.Location = new System.Drawing.Point(122, 248);
-            this.TBBase01.Name = "TBBase01";
-            this.TBBase01.Size = new System.Drawing.Size(100, 22);
-            this.TBBase01.TabIndex = 244;
-            // 
-            // TBImpuesto03
-            // 
-            this.TBImpuesto03.Location = new System.Drawing.Point(312, 305);
-            this.TBImpuesto03.Name = "TBImpuesto03";
-            this.TBImpuesto03.Size = new System.Drawing.Size(100, 22);
-            this.TBImpuesto03.TabIndex = 243;
-            // 
-            // TBImpuesto02
-            // 
-            this.TBImpuesto02.Location = new System.Drawing.Point(312, 277);
-            this.TBImpuesto02.Name = "TBImpuesto02";
-            this.TBImpuesto02.Size = new System.Drawing.Size(100, 22);
-            this.TBImpuesto02.TabIndex = 242;
-            // 
-            // TBImpuesto01
-            // 
-            this.TBImpuesto01.Location = new System.Drawing.Point(312, 249);
-            this.TBImpuesto01.Name = "TBImpuesto01";
-            this.TBImpuesto01.Size = new System.Drawing.Size(100, 22);
-            this.TBImpuesto01.TabIndex = 241;
-            // 
-            // TBValor03
-            // 
-            this.TBValor03.Location = new System.Drawing.Point(453, 304);
-            this.TBValor03.Name = "TBValor03";
-            this.TBValor03.Size = new System.Drawing.Size(100, 22);
-            this.TBValor03.TabIndex = 240;
-            // 
-            // TBValor02
-            // 
-            this.TBValor02.Location = new System.Drawing.Point(453, 276);
-            this.TBValor02.Name = "TBValor02";
-            this.TBValor02.Size = new System.Drawing.Size(100, 22);
-            this.TBValor02.TabIndex = 239;
-            // 
-            // TBValor01
-            // 
-            this.TBValor01.Location = new System.Drawing.Point(453, 248);
-            this.TBValor01.Name = "TBValor01";
-            this.TBValor01.Size = new System.Drawing.Size(100, 22);
-            this.TBValor01.TabIndex = 238;
-            this.TBValor01.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // TBValor_ImpVenta03
             // 
@@ -2825,7 +2743,7 @@
             this.TBValor_Venta02.Enter += new System.EventHandler(this.TBValor_Venta02_Enter);
             this.TBValor_Venta02.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBValorVenta_KeyPress);
             this.TBValor_Venta02.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBValor_Venta02_KeyUp);
-            this.TBValor_Venta02.Leave += new System.EventHandler(this.TBValorVenta_Leave);
+            this.TBValor_Venta02.Leave += new System.EventHandler(this.TBValor_Venta02_Leave);
             // 
             // label26
             // 
@@ -3248,14 +3166,5 @@
         private System.Windows.Forms.TextBox TBValor_ImpVenta02;
         private System.Windows.Forms.TextBox TBValor_ImpVenta01;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox TBValor01;
-        private System.Windows.Forms.TextBox TBValor02;
-        private System.Windows.Forms.TextBox TBValor03;
-        private System.Windows.Forms.TextBox TBBase03;
-        private System.Windows.Forms.TextBox TBBase02;
-        private System.Windows.Forms.TextBox TBBase01;
-        private System.Windows.Forms.TextBox TBImpuesto03;
-        private System.Windows.Forms.TextBox TBImpuesto02;
-        private System.Windows.Forms.TextBox TBImpuesto01;
     }
 }

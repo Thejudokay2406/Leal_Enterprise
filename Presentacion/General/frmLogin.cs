@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 
 using Negocio;
+//using Conexion_SQL;
 
 namespace Presentacion
 {
@@ -251,5 +252,12 @@ namespace Presentacion
         {
             this.TBUsuario.Focus();
         }
+
+        private void btnConfiguracion_Click(object sender, EventArgs e)
+        {
+            FConexion fc = new FConexion();
+            fc.ShowDialog();
+        }
     }
+
 }

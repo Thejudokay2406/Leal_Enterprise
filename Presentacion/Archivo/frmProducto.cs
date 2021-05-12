@@ -178,7 +178,7 @@ namespace Presentacion
             this.TBComp_Descripcion.BackColor = Color.FromArgb(3, 155, 229);
             this.TBComp_Medida.ReadOnly = false;
             this.TBComp_Medida.BackColor = Color.FromArgb(3, 155, 229);
-            
+
 
             //Panel - Valores
             this.textBox1.Enabled = false;
@@ -207,16 +207,12 @@ namespace Presentacion
             //
             this.TBValor_Venta01.Enabled = false;
             this.TBValor_Venta01.BackColor = Color.FromArgb(245, 245, 245);
-            //this.TBValor_Venta01.Text = "0";
             this.TBValor_Venta02.Enabled = false;
             this.TBValor_Venta02.BackColor = Color.FromArgb(245, 245, 245);
-            //this.TBValor_Venta02.Text = "0";
             this.TBValor_Venta03.Enabled = false;
             this.TBValor_Venta03.BackColor = Color.FromArgb(245, 245, 245);
-            //this.TBValor_Venta03.Text = "0";
             this.TBValor_Mayorista.Enabled = false;
             this.TBValor_Mayorista.BackColor = Color.FromArgb(245, 245, 245);
-            //this.TBValor_Mayorista.Text = "0";
 
             this.TBValor_PorVenta01.Enabled = false;
             this.TBValor_PorVenta01.BackColor = Color.FromArgb(245, 245, 245);
@@ -238,6 +234,31 @@ namespace Presentacion
 
             this.TBValor_Unidad.ReadOnly = false;
             this.TBValor_Unidad.BackColor = Color.FromArgb(3, 155, 229);
+
+            this.TBValorBase_Inicial01.Text = "0";
+            this.TBValorBase_Inicial02.Text = "0";
+            this.TBValorBase_Inicial03.Text = "0";
+            this.TBValorBase_InicialMayorista.Text = "0";
+
+            this.TBValor_Venta01.Text = "0";
+            this.TBValor_Venta02.Text = "0";
+            this.TBValor_Venta03.Text = "0";
+            this.TBValor_Mayorista.Text = "0";
+
+            this.TBValor_PorVenta01.Text = "0";
+            this.TBValor_PorVenta02.Text = "0";
+            this.TBValor_PorVenta03.Text = "0";
+            this.TBValor_PorMayorista.Text = "0";
+
+            this.TBValor_ImpVenta01.Text = "0";
+            this.TBValor_ImpVenta02.Text = "0";
+            this.TBValor_ImpVenta03.Text = "0";
+            this.TBValor_ImpMayorista.Text = "0";
+
+            this.TBValor_CompraPromedio.Text = "0";
+            this.TBValor_CompraFinal.Text = "0";
+
+            this.TBValor_Unidad.Text = "0";
 
             //Panel - Exterior
             this.TBExt_ProveedorDocum.Enabled = false;
@@ -283,6 +304,18 @@ namespace Presentacion
             this.TBFabri_TotalFabricacion.Enabled = false;
             this.TBFabri_TotalFabricacion.BackColor = Color.FromArgb(245, 245, 245);
 
+            this.TBFabri_Principal.Text = "0";
+            this.TBFabri_Secundario.Text = "0";
+            this.TBFabri_Terciario.Text = "0";
+            this.TBFabri_OtroMaterial.Text = "0";
+            this.TBFabri_ManoDeObra.Text = "0";
+            this.TBFabri_Materiales.Text = "0";
+            this.TBFabri_Envio.Text = "0";
+            this.TBFabri_Almacenamiento.Text = "0";
+            this.TBFabri_Maquinaria.Text = "0";
+            this.TBFabri_HerramientaManual.Text = "0";
+            this.TBFabri_TotalFabricacion.Text = "0";
+
             //Panel - Igualdad
             this.TBIgualdad_Codigo.Enabled = false;
             this.TBIgualdad_Codigo.BackColor = Color.FromArgb(245, 245, 245);
@@ -300,7 +333,6 @@ namespace Presentacion
             this.TBIdbodega_Ubicacion.BackColor = Color.FromArgb(245, 245, 245);
             this.TBBodega_Ubicacion.Enabled = false;
             this.TBBodega_Ubicacion.BackColor = Color.FromArgb(245, 245, 245);
-
 
             this.TBUbicacion.ReadOnly = false;
             this.TBUbicacion.BackColor = Color.FromArgb(3, 155, 229);
@@ -333,6 +365,7 @@ namespace Presentacion
             this.TBCodigo.Clear();
             this.TBNombre.Clear();
             this.TBDescripcion01.Clear();
+            this.TBDescripcion01.Text = Campo;
             this.TBReferencia.Clear();
             this.TBPresentacion.Clear();
             this.TBComision_Porcentaje.Enabled = false;
@@ -383,7 +416,33 @@ namespace Presentacion
             this.TBValor_ImpMayorista.Clear();
 
             this.TBValor_Unidad.Clear();
-            
+
+
+            this.TBValorBase_Inicial01.Text = "0";
+            this.TBValorBase_Inicial02.Text = "0";
+            this.TBValorBase_Inicial03.Text = "0";
+            this.TBValorBase_InicialMayorista.Text = "0";
+
+            this.TBValor_Venta01.Text = "0";
+            this.TBValor_Venta02.Text = "0";
+            this.TBValor_Venta03.Text = "0";
+            this.TBValor_Mayorista.Text = "0";
+
+            this.TBValor_PorVenta01.Text = "0";
+            this.TBValor_PorVenta02.Text = "0";
+            this.TBValor_PorVenta03.Text = "0";
+            this.TBValor_PorMayorista.Text = "0";
+
+            this.TBValor_ImpVenta01.Text = "0";
+            this.TBValor_ImpVenta02.Text = "0";
+            this.TBValor_ImpVenta03.Text = "0";
+            this.TBValor_ImpMayorista.Text = "0";
+
+            this.TBValor_CompraPromedio.Text = "0";
+            this.TBValor_CompraFinal.Text = "0";
+
+            this.TBValor_Unidad.Text = "0";
+
             //Panel Exterior
             this.TBExt_ProveedorDocum.Clear();
             this.TBExterior_Proveedor.Clear();
@@ -407,6 +466,18 @@ namespace Presentacion
             this.TBFabri_Maquinaria.Clear();
             this.TBFabri_HerramientaManual.Clear();
             this.TBFabri_TotalFabricacion.Clear();
+
+            this.TBFabri_Principal.Text = "0";
+            this.TBFabri_Secundario.Text = "0";
+            this.TBFabri_Terciario.Text = "0";
+            this.TBFabri_OtroMaterial.Text = "0";
+            this.TBFabri_ManoDeObra.Text = "0";
+            this.TBFabri_Materiales.Text = "0";
+            this.TBFabri_Envio.Text = "0";
+            this.TBFabri_Almacenamiento.Text = "0";
+            this.TBFabri_Maquinaria.Text = "0";
+            this.TBFabri_HerramientaManual.Text = "0";
+            this.TBFabri_TotalFabricacion.Text = "0";
 
             //Panel Igualdad
             this.TBIgualdad_Codigo.Clear();
@@ -432,6 +503,8 @@ namespace Presentacion
             this.lblTotal_Impuesto.Text = "Datos Registrados: 0";
             this.lblTotal_Proveedor.Text = "Datos Registrados: 0";
             this.lblTotal_Ubicacion.Text = "Datos Registrados: 0";
+
+            this.Auto_CodigoSQL();
 
             this.PB_Imagen.Image = Properties.Resources.Logo_Leal_Enterprise;
 
@@ -479,7 +552,7 @@ namespace Presentacion
                 //this.CBBodega.DisplayMember = "Bodega";
 
                 this.CBGrupo.DataSource = fGrupoDeProducto.Lista(3);
-                this.CBGrupo.ValueMember = "Codigo";
+                this.CBGrupo.ValueMember = "Código";
                 this.CBGrupo.DisplayMember = "Grupo";
 
                 this.CBMarca.DataSource = fMarca.Lista(3);
@@ -591,6 +664,15 @@ namespace Presentacion
                 this.Checkbox_Importado = "0";
             }
 
+            if (CHBalanza.Checked)
+            {
+                this.Checkbox_Balanza = "1";
+            }
+            else
+            {
+                this.Checkbox_Balanza = "0";
+            }
+
             if (CHExportado.Checked)
             {
                 this.Checkbox_Exportado = "1";
@@ -618,6 +700,34 @@ namespace Presentacion
                 this.Checkbox_Comision = "0";
             }
 
+            if (CHEmpaque.Checked)
+            {
+                this.Checkbox_Empaque = "1";
+            }
+            else
+            {
+                this.Checkbox_Empaque = "0";
+            }
+
+            if (CHFabricado.Checked)
+            {
+                this.Checkbox_Fabricado = "1";
+            }
+            else
+            {
+                this.Checkbox_Fabricado = "0";
+            }
+
+
+            if (CHRetencion.Checked)
+            {
+                this.Checkbox_Retencion = "1";
+            }
+            else
+            {
+                this.Checkbox_Retencion = "0";
+            }
+
             //Validacion de Tablas o Detalles del Producto
             if (DGDetalles_Ubicacion.Rows.Count == 0)
             {
@@ -635,6 +745,24 @@ namespace Presentacion
             else
             {
                 this.Tran_CodBarra = "0";
+            }
+
+            if (DGDetalle_Compuesto.Rows.Count == 0)
+            {
+                this.Tran_Compuesto = "1";
+            }
+            else
+            {
+                this.Tran_Compuesto = "0";
+            }
+
+            if (DGDetalle_Exterior.Rows.Count == 0)
+            {
+                this.Tran_Exterior = "1";
+            }
+            else
+            {
+                this.Tran_Exterior = "0";
             }
 
             if (DGDetalle_Igualdad.Rows.Count == 0)
@@ -683,8 +811,6 @@ namespace Presentacion
                 this.DtDetalle_Exterior = new DataTable();
                 this.DtDetalle_Exterior.Columns.Add("Idproducto", System.Type.GetType("System.Int32"));
                 this.DtDetalle_Exterior.Columns.Add("Idproveedor", System.Type.GetType("System.Int32"));
-                this.DtDetalle_Exterior.Columns.Add("Proveedor", System.Type.GetType("System.String"));
-                this.DtDetalle_Exterior.Columns.Add("Documento", System.Type.GetType("System.String"));
                 this.DtDetalle_Exterior.Columns.Add("Aduana", System.Type.GetType("System.String"));
                 this.DtDetalle_Exterior.Columns.Add("Comisión", System.Type.GetType("System.String"));
                 this.DtDetalle_Exterior.Columns.Add("Documentación", System.Type.GetType("System.String"));
@@ -693,13 +819,6 @@ namespace Presentacion
                 this.DtDetalle_Exterior.Columns.Add("Importación", System.Type.GetType("System.String"));
                 this.DtDetalle_Exterior.Columns.Add("Seguridad", System.Type.GetType("System.String"));
 
-                this.DtDetalle_Exterior.Columns.Add("Mon. Aduana", System.Type.GetType("System.String"));
-                this.DtDetalle_Exterior.Columns.Add("Mon. Comisión", System.Type.GetType("System.String"));
-                this.DtDetalle_Exterior.Columns.Add("Mon. Documentación", System.Type.GetType("System.String"));
-                this.DtDetalle_Exterior.Columns.Add("Mon. Adicional", System.Type.GetType("System.String"));
-                this.DtDetalle_Exterior.Columns.Add("Mon. Exportación", System.Type.GetType("System.String"));
-                this.DtDetalle_Exterior.Columns.Add("Mon. Importación", System.Type.GetType("System.String"));
-                this.DtDetalle_Exterior.Columns.Add("Mon. Seguridad", System.Type.GetType("System.String"));
                 //Captura de los Datos en las Tablas
                 this.DGDetalle_Exterior.DataSource = this.DtDetalle_Exterior;
 
@@ -836,15 +955,6 @@ namespace Presentacion
                 this.DGDetalle_Exterior.Columns[6].Visible = false;
                 this.DGDetalle_Exterior.Columns[7].Visible = false;
                 this.DGDetalle_Exterior.Columns[8].Visible = false;
-                this.DGDetalle_Exterior.Columns[9].Visible = false;
-                this.DGDetalle_Exterior.Columns[10].Visible = false;
-                this.DGDetalle_Exterior.Columns[11].Visible = false;
-                this.DGDetalle_Exterior.Columns[12].Visible = false;
-                this.DGDetalle_Exterior.Columns[13].Visible = false;
-                this.DGDetalle_Exterior.Columns[14].Visible = false;
-                this.DGDetalle_Exterior.Columns[15].Visible = false;
-                this.DGDetalle_Exterior.Columns[16].Visible = false;
-                this.DGDetalle_Exterior.Columns[17].Visible = false;
 
 
             }
@@ -871,7 +981,7 @@ namespace Presentacion
                     if (Operacion == "A")
                     {
                         this.TBCodigo.Enabled = false;
-                        this.TBCodigo.Text = "Código Automático";
+                        this.TBCodigo.Text = "1";
                         this.TBCodigo.BackColor = Color.FromArgb(245, 245, 245);
                     }
                 }
@@ -910,75 +1020,6 @@ namespace Presentacion
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
-
-        //private void Calculo_Impuesto()
-        //{
-        //    try
-        //    {
-        //        int Impuesto_SQL = 0;
-        //        double Valor01, Valor02, Valor03, Porcentaje01, Porcentaje02, Porcentaje03, Operacion, Mayorista, Divisor, Multiplicador, Impuesto01, Impuesto02, Impuesto03, Impuesto_Mayorista;
-        //        double Base01, Base02, Base03, Base_Mayorista;
-
-
-        //        if (CHImpuesto.Checked)
-        //        {
-        //            if (DGDetalle_Impuesto.Rows.Count == 0)
-        //            {
-        //                MensajeError("Por Favor Especifique el Impuesto del Producto");
-        //            }
-        //            else
-        //            {
-        //                foreach (DataGridViewRow row in DGDetalle_Impuesto.Rows)
-        //                {
-        //                    if (row.Cells[3].Value != null)
-        //                        Impuesto_SQL += (Int32)row.Cells[3].Value;
-
-        //                    //Se procede a calcular el IVA o Impuestos
-
-        //                    this.TBValor_PorVenta01.Text = Impuesto_SQL.ToString();
-        //                    this.TBValor_PorVenta02.Text = Impuesto_SQL.ToString();
-        //                    this.TBValor_PorVenta03.Text = Impuesto_SQL.ToString();
-        //                    this.TBValor_PorMayorista.Text = Impuesto_SQL.ToString();
-
-        //                    this.TBDivisor_Impuesto.Text = "1." + TBValor_PorVenta01.Text;
-        //                    this.TBmultiplicador_Impuesto.Text = "0." + TBValor_PorVenta01.Text;
-
-        //                    //Se procede a calcular el IVA o Impuestos
-        //                    Valor01 = Convert.ToDouble(TBValor_Venta01.Text);
-        //                    Valor02 = Convert.ToDouble(TBValor_Venta02.Text);
-        //                    Valor03 = Convert.ToDouble(TBValor_Venta03.Text);
-        //                    Mayorista = Convert.ToDouble(TBValor_Mayorista.Text);
-        //                    Divisor = Convert.ToDouble(TBDivisor_Impuesto.Text);
-        //                    Multiplicador = Convert.ToDouble(TBmultiplicador_Impuesto.Text);
-
-        //                    //Primero se Calcula el Valor Base
-        //                    Base01 = Valor01 / Divisor;
-        //                    Base02 = Valor02 / Divisor;
-        //                    Base03 = Valor03 / Divisor;
-        //                    Base_Mayorista = Mayorista / Divisor;
-        //                    this.TBValorBase_Inicial01.Text = Base01.ToString("N2");
-        //                    this.TBValorBase_Inicial02.Text = Base02.ToString("N2");
-        //                    this.TBValorBase_Inicial03.Text = Base03.ToString("N2");
-        //                    this.TBValor_Mayorista.Text = Mayorista.ToString("N2");
-
-        //                    //Despues se Calcula el Valor del Impuesto
-        //                    Impuesto01 = Base01 * Multiplicador;
-        //                    Impuesto02 = Base02 * Multiplicador;
-        //                    Impuesto03 = Base03 * Multiplicador;
-        //                    Impuesto_Mayorista = Mayorista * Multiplicador;
-        //                    this.TBValor_ImpVenta01.Text = Impuesto01.ToString("N2");
-        //                    this.TBValor_ImpVenta02.Text = Impuesto02.ToString("N2");
-        //                    this.TBValor_ImpVenta03.Text = Impuesto03.ToString("N2");
-        //                    this.TBValor_Mayorista.Text = Impuesto_Mayorista.ToString("N2");
-        //                }
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message + ex.StackTrace);
-        //    }
-        //}
 
         public void setImpuesto(string idimpuesto, string impuesto, string valor, string descripcion)
         {
@@ -1051,11 +1092,11 @@ namespace Presentacion
 
                                  //Variables para Ordenar Si se Ejecutan o No las Transacciones en SQL
                                  //Si los Datagriview estan vacios seran Iguales a 0 Si Tienen Datos Seran Iguales a 1
-                                 Convert.ToInt32(Tran_Ubicacion), Convert.ToInt32(Tran_Igualdad), Convert.ToInt32(Tran_Impuesto), Convert.ToInt32(Tran_Proveedor), Convert.ToInt32(Tran_CodBarra), Convert.ToInt32(Tran_Exterior), Convert.ToInt32(Tran_Compuesto),
+                                 Convert.ToInt32(Tran_Ubicacion), Convert.ToInt32(Tran_Igualdad), Convert.ToInt32(Tran_Impuesto), Convert.ToInt32(Tran_Proveedor), Convert.ToInt32(Tran_CodBarra), Convert.ToInt32(Tran_Compuesto), Convert.ToInt32(Tran_Exterior),
 
                                  //Panel Datos Basicos
                                  this.TBCodigo.Text, this.TBNombre.Text, this.TBReferencia.Text, this.TBDescripcion01.Text, this.TBPresentacion.Text, Convert.ToInt64(this.TBComision_Porcentaje.Text),
-                                 
+
                                  Convert.ToInt32(Checkbox_Vencimiento), Convert.ToInt32(Checkbox_Impuesto), Convert.ToInt32(Checkbox_Importado), Convert.ToInt32(Checkbox_Exportado), Convert.ToInt32(Checkbox_Ofertable), Convert.ToInt32(Checkbox_Fabricado), Convert.ToInt32(Checkbox_Comision), Convert.ToInt32(Checkbox_Empaque), Convert.ToInt32(Checkbox_Balanza), Convert.ToInt32(Checkbox_Retencion),
 
                                  //Panel de Valores - Datos Basicos
@@ -1071,7 +1112,7 @@ namespace Presentacion
                                  Convert.ToDouble(this.TBValor_ImpVenta01.Text), Convert.ToDouble(this.TBValor_ImpVenta02.Text), Convert.ToDouble(this.TBValor_ImpVenta03.Text), Convert.ToDouble(this.TBValor_ImpMayorista.Text),
 
                                  ////Panel de Valores - Unidades
-                                 this.CBUnidad.Text, this.TBValor_Unidad.Text, 
+                                 this.CBUnidad.Text, this.TBValor_Unidad.Text,
 
                                  //Panel - Fabricacion
                                  Convert.ToDouble(this.TBFabri_Principal.Text), Convert.ToDouble(this.TBFabri_Secundario.Text), Convert.ToDouble(this.TBFabri_Terciario.Text), Convert.ToDouble(this.TBFabri_OtroMaterial.Text), Convert.ToDouble(this.TBFabri_ManoDeObra.Text), Convert.ToDouble(this.TBFabri_Materiales.Text), Convert.ToDouble(this.TBFabri_Envio.Text), Convert.ToDouble(this.TBFabri_Almacenamiento.Text), Convert.ToDouble(this.TBFabri_Maquinaria.Text), Convert.ToDouble(this.TBFabri_HerramientaManual.Text), Convert.ToDouble(this.TBFabri_TotalFabricacion.Text),
@@ -1114,7 +1155,7 @@ namespace Presentacion
                                  Convert.ToDouble(this.TBValor_ImpVenta01.Text), Convert.ToDouble(this.TBValor_ImpVenta02.Text), Convert.ToDouble(this.TBValor_ImpVenta03.Text), Convert.ToDouble(this.TBValor_ImpMayorista.Text),
 
                                  ////Panel de Valores - Unidades
-                                 this.CBUnidad.Text, this.TBValor_Unidad.Text, 
+                                 this.CBUnidad.Text, this.TBValor_Unidad.Text,
 
                                  //Panel - Fabricacion
                                  Convert.ToDouble(this.TBFabri_Principal.Text), Convert.ToDouble(this.TBFabri_Secundario.Text), Convert.ToDouble(this.TBFabri_Terciario.Text), Convert.ToDouble(this.TBFabri_OtroMaterial.Text), Convert.ToDouble(this.TBFabri_ManoDeObra.Text), Convert.ToDouble(this.TBFabri_Materiales.Text), Convert.ToDouble(this.TBFabri_Envio.Text), Convert.ToDouble(this.TBFabri_Almacenamiento.Text), Convert.ToDouble(this.TBFabri_Maquinaria.Text), Convert.ToDouble(this.TBFabri_HerramientaManual.Text), Convert.ToDouble(this.TBFabri_TotalFabricacion.Text),
@@ -2347,11 +2388,9 @@ namespace Presentacion
             {
                 if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
+
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
                     this.TBValor_Venta02.Select();
-
-                    //SE IGUALAN LOS TEXTOS DE LOS TEXBOXT SIGUIENTES
-                    this.TBValor01.Text = TBValor_Venta01.Text;
 
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
@@ -2867,7 +2906,30 @@ namespace Presentacion
             if (this.CHImpuesto.Checked)
             {
                 //this.btnExaminar_Impuesto.Enabled = true;
-                TCPrincipal.TabPages.Add(TPImpuesto);
+                this.TCPrincipal.TabPages.Add(TPImpuesto);
+
+
+                //Panel - Valores
+                this.TBValor_CompraPromedio.Clear();
+                this.TBValor_CompraFinal.Clear();
+
+                this.TBValor_Venta01.Clear();
+                this.TBValor_Venta02.Clear();
+                this.TBValor_Venta03.Clear();
+                this.TBValor_Mayorista.Clear();
+
+                this.TBValor_PorVenta01.Clear();
+                this.TBValor_PorVenta02.Clear();
+                this.TBValor_PorVenta03.Clear();
+                this.TBValor_PorMayorista.Clear();
+
+                this.TBValor_ImpVenta01.Clear();
+                this.TBValor_ImpVenta02.Clear();
+                this.TBValor_ImpVenta03.Clear();
+                this.TBValor_ImpMayorista.Clear();
+
+                this.TBValor_Unidad.Clear();
+
 
                 //
                 this.TBValorBase_Inicial01.Enabled = false;
@@ -2891,7 +2953,7 @@ namespace Presentacion
             }
             else
             {
-                TCPrincipal.TabPages.Remove(TPImpuesto);
+                this.TCPrincipal.TabPages.Remove(TPImpuesto);
 
                 this.TBValorBase_Inicial01.Enabled = true;
                 this.TBValorBase_Inicial01.BackColor = Color.FromArgb(3, 155, 229);
@@ -2911,6 +2973,14 @@ namespace Presentacion
                 this.TBValor_Venta03.BackColor = Color.FromArgb(245, 245, 245);
                 this.TBValor_Mayorista.Enabled = false;
                 this.TBValor_Mayorista.BackColor = Color.FromArgb(245, 245, 245);
+
+
+                //Panel - Valores
+                this.TBValor_CompraPromedio.Text = "0";
+                this.TBValor_CompraFinal.Text = "0";
+
+                this.TBValor_Unidad.Text = "0";
+
             }
         }
 
@@ -4824,8 +4894,6 @@ namespace Presentacion
 
         private void TBValor_Venta03_Leave(object sender, EventArgs e)
         {
-            //**********************************************************************
-
             if (TBValor_Venta03.Text == string.Empty)
             {
                 //Color de texboxt cuando este posee el FOCUS Activado
@@ -4836,13 +4904,11 @@ namespace Presentacion
             else
             {
                 this.TBValor_Venta03.BackColor = Color.FromArgb(3, 155, 229);
-                //this.Calculo_Impuesto();
-
 
                 //
                 int Impuesto_SQL = 0;
-                double Valor01, Valor02, Valor03, Porcentaje01, Porcentaje02, Porcentaje03, Operacion, Mayorista, Divisor, Multiplicador, Impuesto01, Impuesto02, Impuesto03, Impuesto_Mayorista;
-                double Base01, Base02, Base03, Base_Mayorista;
+                double Valor01, Porcentaje01, Operacion, Mayorista, Divisor, Multiplicador, Impuesto01, Impuesto_Mayorista;
+                double Base01, Base_Mayorista;
 
 
                 foreach (DataGridViewRow row in DGDetalle_Impuesto.Rows)
@@ -4858,46 +4924,43 @@ namespace Presentacion
                     this.TBmultiplicador_Impuesto.Text = "0." + TBValor_PorVenta03.Text;
 
                     //Se procede a calcular el IVA o Impuestos
-                    Valor03 = Convert.ToDouble(TBValor_Venta03.Text);
+                    Valor01 = Convert.ToDouble(TBValor_Venta03.Text);
                     Divisor = Convert.ToDouble(TBDivisor_Impuesto.Text);
                     Multiplicador = Convert.ToDouble(TBmultiplicador_Impuesto.Text);
 
                     //Primero se Calcula el Valor Base
-                    Base03 = Valor03 / Divisor;
-                    this.TBValorBase_Inicial03.Text = Base03.ToString("C");
+                    Base01 = Valor01 / Divisor;
+                    this.TBValorBase_Inicial03.Text = Base01.ToString("N");
 
                     //Despues se Calcula el Valor del Impuesto
-                    Impuesto03 = Base03 * Multiplicador;
-                    this.TBValor_ImpVenta03.Text = Impuesto03.ToString("C");
+                    Impuesto01 = Base01 * Multiplicador;
+                    this.TBValor_ImpVenta03.Text = Impuesto01.ToString("N");
+
                 }
 
+                // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
+                TextBox tb = (TextBox)sender;
 
+                // Primero verificamos si el valor se puede convertir a Decimal.
+                double numero = default(double);
+                bool bln = double.TryParse(tb.Text, out numero);
+
+                if ((!(bln)))
+                {
+                    // No es un valor decimal válido; limpiamos el control.
+                    //tb.Clear();
+                    return;
+                }
+
+                // En la propiedad Tag guardamos el valor con todos los decimales.
+                //
+                tb.Tag = numero;
+
+                // Y acto seguido formateamos el valor
+                // a monetario con dos decimales.
+                //
+                tb.Text = string.Format("{0:N2}", numero);
             }
-
-            // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
-            TextBox tb = (TextBox)sender;
-
-            // Primero verificamos si el valor se puede convertir a Decimal.
-            double numero = default(double);
-            bool bln = double.TryParse(tb.Text, out numero);
-
-            if ((!(bln)))
-            {
-                // No es un valor decimal válido; limpiamos el control.
-                //tb.Clear();
-                return;
-            }
-
-            // En la propiedad Tag guardamos el valor con todos los decimales.
-            //
-            tb.Tag = numero;
-
-            // Y acto seguido formateamos el valor
-            // a monetario con dos decimales.
-            //
-            tb.Text = string.Format("{0:N2}", numero);
-
-            
         }
 
         private void TBValor_ImpMayorista_Leave(object sender, EventArgs e)
@@ -5935,9 +5998,6 @@ namespace Presentacion
             {
                 if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
-                    //SE IGUALAN LOS TEXTOS DE LOS TEXBOXT SIGUIENTES
-                    this.TBValor03.Text = TBValor_Venta03.Text;
-
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
                     this.TBValor_Mayorista.Select();
                 }
@@ -6449,6 +6509,46 @@ namespace Presentacion
         {
             //Se evalua si el campo de texto esta vacio y se espeicifca si es obligatorio en la base de datos
             this.TBValorBase_Inicial01.BackColor = Color.Azure;
+
+            //********************* PROCESO PARA FORMATEAR EL TEXBOXT Y PASAR DE FORMATO MONEDA A FORMATO NATURAL O LIMPIO (SIN NINGUN FORMATO)
+
+            // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
+            TextBox tb = (TextBox)sender;
+
+            // Primero verificamos si el valor se puede convertir a Decimal.
+            double numero = default(double);
+            bool bln = double.TryParse(tb.Text, out numero);
+
+            if ((!(bln)))
+            {
+                // No es un valor decimal válido; limpiamos el control.
+                //tb.Clear();
+                return;
+            }
+
+            // En la propiedad Tag guardamos el valor con todos los decimales.
+            //
+            tb.Tag = numero;
+
+            // Y acto seguido formateamos el valor
+            // a monetario con dos decimales.
+            //
+            tb.Text = string.Format("{0:#}", numero);
+
+            //Se evalua si el campo de texto esta vacio y se espeicifca que es obligatorio en la base de datos
+            if (TBValorBase_Inicial01.Text == "0")
+            {
+                this.TBValorBase_Inicial01.BackColor = Color.Azure;
+                this.TBValorBase_Inicial01.ForeColor = Color.FromArgb(0, 0, 0);
+                this.TBValorBase_Inicial01.Clear();
+            }
+            else
+            {
+                //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
+                this.TBValorBase_Inicial01.BackColor = Color.Azure;
+                this.TBValorBase_Inicial01.ForeColor = Color.FromArgb(0, 0, 0);
+            }
+
         }
 
         private void TBValorBase_Inicial02_Enter(object sender, EventArgs e)
@@ -6474,6 +6574,11 @@ namespace Presentacion
             //Color de texboxt cuando este posee el FOCUS Activado
             this.TBValorBase_Inicial01.BackColor = Color.FromArgb(3, 155, 229);
 
+            //fFormato_Moneda fFormato_Moneda = new fFormato_Moneda();
+            //fFormato_Moneda.FormatoMoneda(TBValorBase_Inicial01);
+
+
+
             // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
             TextBox tb = (TextBox)sender;
 
@@ -6495,7 +6600,9 @@ namespace Presentacion
             // Y acto seguido formateamos el valor
             // a monetario con dos decimales.
             //
-            tb.Text = string.Format("{0:N2}", numero);
+            //tb.Text = string.Format("{0:N2}", numero);
+
+            tb.Text = string.Format("{0:#}", numero);
         }
 
         private void TBValorBase_Inicial02_Leave(object sender, EventArgs e)
@@ -6779,43 +6886,12 @@ namespace Presentacion
             }
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-            //********************* PROCESO PARA FORMATEAR EL TEXBOXT Y PASAR DE FORMATO MONEDA A FORMATO NATURAL O LIMPIO (SIN NINGUN FORMATO)
-
-            // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
-            TextBox tb = (TextBox)sender;
-
-            // Primero verificamos si el valor se puede convertir a Decimal.
-            double numero = default(double);
-            bool bln = double.TryParse(tb.Text, out numero);
-
-            if ((!(bln)))
-            {
-                // No es un valor decimal válido; limpiamos el control.
-                //tb.Clear();
-                return;
-            }
-
-            // En la propiedad Tag guardamos el valor con todos los decimales.
-            //
-            tb.Tag = numero;
-
-            // Y acto seguido formateamos el valor
-            // a monetario con dos decimales.
-            //
-            tb.Text = string.Format("{0:#}", numero);
-        }
-
         private void TBValor_Venta02_KeyUp(object sender, KeyEventArgs e)
         {
             try
             {
                 if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
-                    //SE IGUALAN LOS TEXTOS DE LOS TEXBOXT SIGUIENTES
-                    this.TBValor02.Text = TBValor_Venta02.Text;
-
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
                     this.TBValor_Venta03.Select();
                 }
@@ -6908,6 +6984,34 @@ namespace Presentacion
         {
             frmFiltro_Bodega frmFiltro_Bodega = new frmFiltro_Bodega();
             frmFiltro_Bodega.ShowDialog();
+        }
+
+        private void TBImpuesto03_TextChanged(object sender, EventArgs e)
+        {
+            // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
+            TextBox tb = (TextBox)sender;
+
+            // Primero verificamos si el valor se puede convertir a Decimal.
+            double numero = default(double);
+            bool bln = double.TryParse(tb.Text, out numero);
+
+            if ((!(bln)))
+            {
+                // No es un valor decimal válido; limpiamos el control.
+                //tb.Clear();
+                return;
+            }
+
+            // En la propiedad Tag guardamos el valor con todos los decimales.
+            //
+            tb.Tag = numero;
+
+            // Y acto seguido formateamos el valor
+            // a monetario con dos decimales.
+            //
+            tb.Text = string.Format("{0:#}", numero);
+            //TBImpuesto01.Text = string.Format("{0:#}", numero);
+            //tb.Text = string.Format("{0:N2}", numero);
         }
 
         private void TBValorBase_InicialMayorista_KeyUp(object sender, KeyEventArgs e)
@@ -8010,11 +8114,34 @@ namespace Presentacion
         {
             if (CHFabricado.Checked)
             {
-                TCPrincipal.TabPages.Add(TPFabricacion);
+                this.TCPrincipal.TabPages.Add(TPFabricacion);
+                this.TBFabri_Principal.Clear();
+                this.TBFabri_Secundario.Clear();
+                this.TBFabri_Terciario.Clear();
+                this.TBFabri_OtroMaterial.Clear();
+                this.TBFabri_ManoDeObra.Clear();
+                this.TBFabri_Materiales.Clear();
+                this.TBFabri_Envio.Clear();
+                this.TBFabri_Almacenamiento.Clear();
+                this.TBFabri_Maquinaria.Clear();
+                this.TBFabri_HerramientaManual.Clear();
+                this.TBFabri_TotalFabricacion.Clear();
             }
             else
             {
-                TCPrincipal.TabPages.Remove(TPFabricacion);
+                this.TCPrincipal.TabPages.Remove(TPFabricacion);
+
+                this.TBFabri_Principal.Text = "0";
+                this.TBFabri_Secundario.Text = "0";
+                this.TBFabri_Terciario.Text = "0";
+                this.TBFabri_OtroMaterial.Text = "0";
+                this.TBFabri_ManoDeObra.Text = "0";
+                this.TBFabri_Materiales.Text = "0";
+                this.TBFabri_Envio.Text = "0";
+                this.TBFabri_Almacenamiento.Text = "0";
+                this.TBFabri_Maquinaria.Text = "0";
+                this.TBFabri_HerramientaManual.Text = "0";
+                this.TBFabri_TotalFabricacion.Text = "0";
             }
         }
 
@@ -8500,7 +8627,6 @@ namespace Presentacion
 
         private void TBVentaMayorista_Leave(object sender, EventArgs e)
         {
-            //Color de texboxt cuando este posee el FOCUS Activado
             if (TBValor_Mayorista.Text == string.Empty)
             {
                 //Color de texboxt cuando este posee el FOCUS Activado
@@ -8511,10 +8637,38 @@ namespace Presentacion
             else
             {
                 this.TBValor_Mayorista.BackColor = Color.FromArgb(3, 155, 229);
-                //this.Calculo_Impuesto();
+
+                //
+                int Impuesto_SQL = 0;
+                double Operacion, Mayorista, Divisor, Multiplicador, Impuesto_Mayorista;
+                double Base_Mayorista;
 
 
+                foreach (DataGridViewRow row in DGDetalle_Impuesto.Rows)
+                {
+                    if (row.Cells[3].Value != null)
+                        Impuesto_SQL += (Int32)row.Cells[3].Value;
 
+                    //Se procede a calcular el IVA o Impuestos
+
+                    this.TBValor_PorMayorista.Text = Impuesto_SQL.ToString();
+
+                    this.TBDivisor_Impuesto.Text = "1." + TBValor_PorMayorista.Text;
+                    this.TBmultiplicador_Impuesto.Text = "0." + TBValor_PorMayorista.Text;
+
+                    //Se procede a calcular el IVA o Impuestos
+                    Mayorista = Convert.ToDouble(TBValor_Mayorista.Text);
+                    Divisor = Convert.ToDouble(TBDivisor_Impuesto.Text);
+                    Multiplicador = Convert.ToDouble(TBmultiplicador_Impuesto.Text);
+
+                    //Primero se Calcula el Valor Base
+                    Base_Mayorista = Mayorista / Divisor;
+                    this.TBValorBase_InicialMayorista.Text = Base_Mayorista.ToString("N0");
+
+                    //Despues se Calcula el Valor del Impuesto
+                    Impuesto_Mayorista = Base_Mayorista * Multiplicador;
+                    this.TBValor_ImpMayorista.Text = Impuesto_Mayorista.ToString("N0");
+                }
             }
 
             // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
@@ -8538,14 +8692,7 @@ namespace Presentacion
             // Y acto seguido formateamos el valor
             // a monetario con dos decimales.
             //
-            if (TBValor_Mayorista.Text == "0")
-            {
-                tb.Text = string.Format("{0:#}", numero);
-            }
-            else
-            {
-                tb.Text = string.Format("{0:N2}", numero);
-            }
+            tb.Text = string.Format("{0:N2}", numero);
         }
 
         private void TBComision_Enter(object sender, EventArgs e)
@@ -8566,6 +8713,7 @@ namespace Presentacion
             {
                 if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
+                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
                     this.TBValor_CompraPromedio.Select();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
@@ -8648,15 +8796,8 @@ namespace Presentacion
             {
                 if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
                 {
-                    //if (CHManejaComision.Checked)
-                    //{
-                    //    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
-                    //    this.TBComision_Valor.Select();
-                    //}
-                    //else
-                    //{
-                    //    this.TBVentaMinina_Cliente.Select();
-                    //}
+                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
+                    this.TBNombre.Select();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
@@ -8736,13 +8877,29 @@ namespace Presentacion
         {
             try
             {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
                 {
-                    if (TBCodigodeBarra.Text == string.Empty)
+                    bool agregar = true;
+                    foreach (DataRow Fila in DtDetalle_CodigoDeBarra.Rows)
                     {
-                        MensajeError("Por favor digite el Código de Barra que desea registrar");
-                        this.TBCodigodeBarra.Focus();
+                        if (Convert.ToString(Fila["Código de Barra"]) == TBCodigodeBarra.Text)
+                        {
+                            this.MensajeError("El Código de Barra Que Desea Agregar ya se Encuentra en la Lista");
+                        }
                     }
+                    if (agregar)
+                    {
+                        DataRow fila = this.DtDetalle_CodigoDeBarra.NewRow();
+                        fila["Idproducto"] = Convert.ToInt32(this.TBIdproducto_AutoSQL.Text);
+                        fila["Código de Barra"] = this.TBCodigodeBarra.Text;
+                        this.DtDetalle_CodigoDeBarra.Rows.Add(fila);
+
+                        //
+                        this.lblTotal_Codigodebarra.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_CodigoDeBarra.Rows.Count);
+                    }
+
+                    //
+                    this.TBCodigodeBarra.Clear();
                 }
             }
             catch (Exception ex)
@@ -8779,10 +8936,10 @@ namespace Presentacion
             // Y acto seguido formateamos el valor
             // a monetario con dos decimales.
             //
-            tb.Text = string.Format("{0:N2}", numero);
+            tb.Text = string.Format("{0:N}", numero);
         }
 
-        private void TBValorVenta_Leave(object sender, EventArgs e)
+        private void TBValor_Venta02_Leave(object sender, EventArgs e)
         {
             if (TBValor_Venta02.Text == string.Empty)
             {
@@ -8794,7 +8951,6 @@ namespace Presentacion
             else
             {
                 this.TBValor_Venta02.BackColor = Color.FromArgb(3, 155, 229);
-                //this.Calculo_Impuesto();
 
                 //
                 int Impuesto_SQL = 0;
@@ -8821,38 +8977,36 @@ namespace Presentacion
 
                     //Primero se Calcula el Valor Base
                     Base02 = Valor02 / Divisor;
-                    this.TBValorBase_Inicial02.Text = Base02.ToString("C");
+                    this.TBValorBase_Inicial02.Text = Base02.ToString("N");
 
                     //Despues se Calcula el Valor del Impuesto
-                    Impuesto02 = Base02 * Multiplicador;
-                    this.TBValor_ImpVenta02.Text = Impuesto02.ToString("C");
+                    Impuesto01 = Base02 * Multiplicador;
+                    this.TBValor_ImpVenta02.Text = Impuesto01.ToString("N");
+
                 }
 
+                // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
+                TextBox tb = (TextBox)sender;
 
+                // Primero verificamos si el valor se puede convertir a Decimal.
+                double numero = default(double);
+                bool bln = double.TryParse(tb.Text, out numero);
+
+                if ((!(bln)))
+                {
+                    // No es un valor decimal válido; limpiamos el control.
+                    //tb.Clear();
+                    return;
+                }
+
+                // En la propiedad Tag guardamos el valor con todos los decimales.
+                //
+                tb.Tag = numero;
+
+                // Y acto seguido formateamos el valor
+                // a monetario con dos decimales.
+                tb.Text = string.Format("{0:N}", numero);
             }
-
-            // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
-            TextBox tb = (TextBox)sender;
-
-            // Primero verificamos si el valor se puede convertir a Decimal.
-            double numero = default(double);
-            bool bln = double.TryParse(tb.Text, out numero);
-
-            if ((!(bln)))
-            {
-                // No es un valor decimal válido; limpiamos el control.
-                //tb.Clear();
-                return;
-            }
-
-            // En la propiedad Tag guardamos el valor con todos los decimales.
-            //
-            tb.Tag = numero;
-
-            // Y acto seguido formateamos el valor
-            // a monetario con dos decimales.
-            //
-            tb.Text = string.Format("{0:N2}", numero);
         }
 
         private void TBCodigodeBarra_Enter(object sender, EventArgs e)
@@ -8872,9 +9026,6 @@ namespace Presentacion
 
         private void TBValor_Venta01_Enter(object sender, EventArgs e)
         {
-            this.TBValor_Venta01.SelectAll();
-
-
             //********************* PROCESO PARA FORMATEAR EL TEXBOXT Y PASAR DE FORMATO MONEDA A FORMATO NATURAL O LIMPIO (SIN NINGUN FORMATO)
 
             // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
@@ -8927,12 +9078,11 @@ namespace Presentacion
             else
             {
                 this.TBValor_Venta01.BackColor = Color.FromArgb(3, 155, 229);
-                //this.Calculo_Impuesto();
 
                 //
                 int Impuesto_SQL = 0;
-                double Valor01, Valor02, Valor03, Porcentaje01, Porcentaje02, Porcentaje03, Operacion, Mayorista, Divisor, Multiplicador, Impuesto01, Impuesto02, Impuesto03, Impuesto_Mayorista;
-                double Base01, Base02, Base03, Base_Mayorista;
+                double Valor01, Porcentaje01, Operacion, Mayorista, Divisor, Multiplicador, Impuesto01, Impuesto_Mayorista;
+                double Base01, Base_Mayorista;
 
 
                 foreach (DataGridViewRow row in DGDetalle_Impuesto.Rows)
@@ -8954,44 +9104,35 @@ namespace Presentacion
 
                     //Primero se Calcula el Valor Base
                     Base01 = Valor01 / Divisor;
-                    this.TBValorBase_Inicial01.Text = Base01.ToString("C");
+                    this.TBValorBase_Inicial01.Text = Base01.ToString("N");
 
                     //Despues se Calcula el Valor del Impuesto
                     Impuesto01 = Base01 * Multiplicador;
-                    this.TBValor_ImpVenta01.Text = Impuesto01.ToString("C");
+                    this.TBValor_ImpVenta01.Text = Impuesto01.ToString("N");
                 }
-            }
 
-            //********************* PROCESO PARA FORMATEAR EL TEXBOXT A TIPO MONEDA
+                // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
+                TextBox tb = (TextBox)sender;
 
-            // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
-            TextBox tb = (TextBox)sender;
+                // Primero verificamos si el valor se puede convertir a Decimal.
+                double numero = default(double);
+                bool bln = double.TryParse(tb.Text, out numero);
 
-            // Primero verificamos si el valor se puede convertir a Decimal.
-            double numero = default(double);
-            bool bln = double.TryParse(tb.Text, out numero);
+                if ((!(bln)))
+                {
+                    // No es un valor decimal válido; limpiamos el control.
+                    //tb.Clear();
+                    return;
+                }
 
-            if ((!(bln)))
-            {
-                // No es un valor decimal válido; limpiamos el control.
-                //tb.Clear();
-                return;
-            }
+                // En la propiedad Tag guardamos el valor con todos los decimales.
+                //
+                tb.Tag = numero;
 
-            // En la propiedad Tag guardamos el valor con todos los decimales.
-            //
-            tb.Tag = numero;
-
-            // Y acto seguido formateamos el valor
-            // a monetario con dos decimales.
-            //
-            if (TBValor_Venta01.Text == "0")
-            {
-                tb.Text = string.Format("{0:#}", numero);
-            }
-            else
-            {
-                tb.Text = string.Format("{0:N2}", numero);
+                // Y acto seguido formateamos el valor
+                // a monetario con dos decimales.
+                //
+                tb.Text = string.Format("{0:N}", numero);
             }
         }
 

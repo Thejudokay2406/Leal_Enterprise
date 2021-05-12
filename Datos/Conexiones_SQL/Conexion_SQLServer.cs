@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.Configuration;
+using System.Data;
+
 using System.Data.SqlClient;
-//using System.Configuration;
-//using static System.Configuration.ConfigurationManager;
+using static System.Configuration.ConfigurationManager;
 
 namespace Datos
 {
@@ -38,9 +40,14 @@ namespace Datos
             //this.Seguridad = true;
         }
 
+        public static string preconex = ConnectionStrings["stringConexion"].ConnectionString;
+        //static SqlConnection conexion = new SqlConnection(preconex);
+
         public SqlConnection Conexion()
         {
             //MessageBox
+            //SqlConnection Cadena = new SqlConnection();
+
             SqlConnection Cadena = new SqlConnection();
             try
             {

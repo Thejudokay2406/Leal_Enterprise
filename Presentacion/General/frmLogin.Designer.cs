@@ -45,6 +45,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.TBUsuario = new System.Windows.Forms.TextBox();
+            this.btnConfiguracion = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -54,6 +55,7 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.btnConfiguracion);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.btnUsuario);
             this.groupBox1.Controls.Add(this.TBLealIngenieria);
@@ -297,6 +299,16 @@
             this.TBUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBUsuario_KeyPress);
             this.TBUsuario.Leave += new System.EventHandler(this.TBUsuario_Leave);
             // 
+            // btnConfiguracion
+            // 
+            this.btnConfiguracion.Location = new System.Drawing.Point(296, 192);
+            this.btnConfiguracion.Name = "btnConfiguracion";
+            this.btnConfiguracion.Size = new System.Drawing.Size(39, 23);
+            this.btnConfiguracion.TabIndex = 20;
+            this.btnConfiguracion.Text = "?";
+            this.btnConfiguracion.UseVisualStyleBackColor = true;
+            this.btnConfiguracion.Click += new System.EventHandler(this.btnConfiguracion_Click);
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -339,5 +351,6 @@
         private System.Windows.Forms.TextBox TBLealIngenieria;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnUsuario;
+        private System.Windows.Forms.Button btnConfiguracion;
     }
 }

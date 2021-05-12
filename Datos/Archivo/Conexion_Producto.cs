@@ -537,7 +537,7 @@ namespace Datos
                 Comando.Parameters.Add("@Impuesto_AutoSQL", SqlDbType.Int).Value = Obj.Impuesto_AutoSQL;
                 Comando.Parameters.Add("@Ubicacion_AutoSQL", SqlDbType.Int).Value = Obj.Ubicacion_AutoSQL;
                 Comando.Parameters.Add("@Proveedor_AutoSQL", SqlDbType.Int).Value = Obj.Proveedor_AutoSQL;
-                Comando.Parameters.Add("@Exteior_AutoSQL", SqlDbType.Int).Value = Obj.Exterior_AutoSQL;
+                Comando.Parameters.Add("@Exterior_AutoSQL", SqlDbType.Int).Value = Obj.Exterior_AutoSQL;
                 Comando.Parameters.Add("@Compuesto_AutoSQL", SqlDbType.Int).Value = Obj.Compuesto_AutoSQL;
 
                 //Variables Para Ejecutar Si o No Las Transacciones

@@ -109,6 +109,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Botones.resx</DependentUpon>
     </Compile>
+    <Compile Include="FConexion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FConexion.Designer.cs">
+      <DependentUpon>FConexion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Filtros\frmFiltro_Bodega.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -393,6 +399,9 @@
     <EmbeddedResource Include="Compras\frmFacturaDeCompra.resx">
       <DependentUpon>frmFacturaDeCompra.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FConexion.resx">
+      <DependentUpon>FConexion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Filtros\frmFiltro_Bodega.resx">
       <DependentUpon>frmFiltro_Bodega.cs</DependentUpon>
     </EmbeddedResource>
@@ -597,6 +606,10 @@
     <None Include="Resources\Ventas.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Conexion SQL\Conexion SQL.csproj">
+      <Project>{fb626b9d-ecdb-4b38-8250-e1b000d5d7e8}</Project>
+      <Name>Conexion SQL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Negocio\Negocio.csproj">
       <Project>{a7d5e2c3-46ef-4bbf-ab22-ba631316458b}</Project>
       <Name>Negocio</Name>
