@@ -184,7 +184,7 @@ namespace Presentacion
             {
                 if (TBBuscar_General.Text != "")
                 {
-                    this.DGFiltro_General.DataSource = fProducto_Inventario.Buscar(this.TBBuscar_General.Text, 1);
+                    this.DGFiltro_General.DataSource = fProducto_Inventario.Buscar(1, this.TBBuscar_General.Text);
                     this.DGFiltro_General.Columns[0].Visible = false;
                     
                     this.lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGFiltro_General.Rows.Count);
@@ -230,7 +230,7 @@ namespace Presentacion
         {
             try
             {
-                DataTable Datos = Negocio.fProducto_Inventario.Buscar(this.TBIdproducto.Text, 2);
+                DataTable Datos = Negocio.fProducto_Inventario.Buscar(2, this.TBIdproducto.Text);
                 //Evaluamos si  existen los Datos
                 if (Datos.Rows.Count == 0)
                 {

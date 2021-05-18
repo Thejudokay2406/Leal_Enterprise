@@ -85,7 +85,7 @@
             this.groupBox1.Size = new System.Drawing.Size(396, 248);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Leal Enterprise - Registro de Sucurzales";
+            this.groupBox1.Text = "Leal Enterprise - Registro de Sucursales";
             // 
             // TBNit
             // 
@@ -361,9 +361,9 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(7, 24);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(120, 17);
+            this.label9.Size = new System.Drawing.Size(121, 17);
             this.label9.TabIndex = 2;
-            this.label9.Text = "Sucurzal a Consultar";
+            this.label9.Text = "Sucursal a Consultar";
             // 
             // DGResultados
             // 
@@ -416,7 +416,7 @@
             this.groupBox2.Size = new System.Drawing.Size(513, 248);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Consulta de Sucurzales Registradas - Leal Enterprise";
+            this.groupBox2.Text = "Consulta de Sucursales Registradas - Leal Enterprise";
             // 
             // frmSucursal
             // 

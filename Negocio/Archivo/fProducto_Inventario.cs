@@ -72,10 +72,16 @@ namespace Negocio
             return Datos.Lista_Ubicacion(auto, idproducto);
         }
 
-        public static DataTable Buscar(string Filtro, int auto)
+        public static DataTable Buscar(int Auto, string Filtro)
         {
             Conexion_Producto Datos = new Conexion_Producto();
-            return Datos.Buscar(Filtro, auto);
+            return Datos.Buscar(Auto, Filtro);
+        }
+
+        public static DataTable Buscar_Compuesto(int Auto_Compuesto, int Filtro)
+        {
+            Conexion_Producto Datos = new Conexion_Producto();
+            return Datos.Buscar_Compuesto(Auto_Compuesto, Filtro);
         }
 
         public static DataTable Buscar_Igualdad(int Auto_Igualdad, int Filtro)
@@ -242,9 +248,6 @@ namespace Negocio
                 //Panel - Fabricacion
                 double Material_Principal, double Material_Secundario, double Material_Terciario, double Material_OtroMaterial, double ManoDeObra, double Materiales, double Envio, double Almacenamiento, double Maquinaria, double Herramientas_Manuales, double CostoFabricacion,
 
-                //Detalles de Productos
-                DataTable Detalle_Impuesto, DataTable Detalle_Igualdad, DataTable Detalle_Proveedor, DataTable Detalle_Ubicacion, DataTable Detalle_CodigoDeBarra, DataTable Detalle_Exterior, DataTable Detalle_Compuesto,
-
                 //Panel de Imagenes
                 byte[] Imagen
             )
@@ -343,7 +346,7 @@ namespace Negocio
         public static string Editar_Compuesto
             (
                 //Panel Compuesto
-                int Auto, int Idproducto, int Idcompuesto, string Compuesto, string Compuesto_Descripcion, string Compuesto_Medida, string Compuesto_MedodaDescripcion
+                int Auto, int Idproducto, int Idcompuesto, string Compuesto, string Compuesto_Descripcion, string Compuesto_Medida, string Compuesto_Unidad
             )
         {
             Conexion_Producto Datos = new Conexion_Producto();
@@ -356,7 +359,7 @@ namespace Negocio
             Obj.Compuesto = Compuesto;
             Obj.Compuesto_Descripcion = Compuesto_Descripcion;
             Obj.Compuesto_Medida = Compuesto_Medida;
-            Obj.Compuesto_MedodaDescripcion = Compuesto_MedodaDescripcion;
+            Obj.Compuesto_Unidad = Compuesto_Unidad;
 
             return Datos.Editar_Compuesto(Obj);
         }
@@ -470,14 +473,15 @@ namespace Negocio
         public static string Guardar_CodigoDeBarra
             (
                 //Panel - Codigo de Barra
-                int Auto, int Idproducto, string Codigodebarra
+                int CodBarra_AutoSQL, int Idproducto, string Codigodebarra
             )
         {
             Conexion_Producto Datos = new Conexion_Producto();
             Entidad_Productos Obj = new Entidad_Productos();
 
             //Panel - Codigo de Barra
-            Obj.CodBarra_AutoSQL = Auto;
+            Obj.CodBarra_AutoSQL = CodBarra_AutoSQL;
+
             Obj.Idproducto = Idproducto;
             Obj.Codigodebarra = Codigodebarra;
 
@@ -487,19 +491,19 @@ namespace Negocio
         public static string Guardar_Compuesto
             (
                 //Panel Compuesto
-                int Auto, int Idproducto, string Compuesto, string Compuesto_Descripcion, string Compuesto_Medida, string Compuesto_MedodaDescripcion
+                int Auto_Compuesto, int Idproducto, string Compuesto, string Descripcion, string Medida, string Unidad
             )
         {
             Conexion_Producto Datos = new Conexion_Producto();
             Entidad_Productos Obj = new Entidad_Productos();
 
             //Panel Compuesto
-            Obj.Compuesto_AutoSQL = Auto;
+            Obj.Auto_Compuesto = Auto_Compuesto;
             Obj.Idproducto = Idproducto;
             Obj.Compuesto = Compuesto;
-            Obj.Compuesto_Descripcion = Compuesto_Descripcion;
-            Obj.Compuesto_Medida = Compuesto_Medida;
-            Obj.Compuesto_MedodaDescripcion = Compuesto_MedodaDescripcion;
+            Obj.Compuesto_Descripcion = Descripcion;
+            Obj.Compuesto_Medida = Medida;
+            Obj.Compuesto_Unidad = Unidad;
 
             return Datos.Guardar_Compuesto(Obj);
         }
@@ -568,19 +572,22 @@ namespace Negocio
 
         public static string Guardar_Proveedor
             (
+                //
+                int Auto_Proveedor,
+
                 //Panel Proveedor
-                int Auto, int Idproducto, int Idproveedor, string Proveedor, string Proveedor_Documento
+                int Idproducto, int idproveedor, string proveedor, string documento
             )
         {
             Conexion_Producto Datos = new Conexion_Producto();
             Entidad_Productos Obj = new Entidad_Productos();
 
             //Panel Proveedor
-            Obj.Proveedor_AutoSQL = Auto;
+            Obj.Auto_Proveedor = Auto_Proveedor;
             Obj.Idproducto = Idproducto;
-            Obj.Idproveedor = Idproveedor;
-            Obj.Proveedor = Proveedor;
-            Obj.Proveedor_Documento = Proveedor_Documento;
+            Obj.Idproveedor = idproveedor;
+            Obj.Proveedor = proveedor;
+            Obj.Proveedor_Documento = documento;
 
             return Datos.Guardar_Proveedor(Obj);
         }
@@ -588,14 +595,14 @@ namespace Negocio
         public static string Guardar_Ubicacion
             (
                 //Panel Ubicacion
-                int Auto, int Idproducto, int Idbodega, string Ubicacion, string Estante, string Nivel
+                int Auto_Ubicacion, int Idproducto, int Idbodega, string Ubicacion, string Estante, string Nivel
             )
         {
             Conexion_Producto Datos = new Conexion_Producto();
             Entidad_Productos Obj = new Entidad_Productos();
 
             //Panel Ubicacion
-            Obj.Ubicacion_AutoSQL = Auto;
+            Obj.Auto_Ubicacion = Auto_Ubicacion;
             Obj.Idproducto = Idproducto;
             Obj.Idbodega = Idbodega;
             Obj.Ubicacion = Ubicacion;

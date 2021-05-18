@@ -104,7 +104,7 @@ namespace Datos
             }
         }
 
-        public DataTable Lista_Proveedor(int Auto, int idproducto)
+        public DataTable Lista_Proveedor(int Auto, int filt_proveedor)
         {
             SqlDataReader Resultado;
             DataTable Tabla = new DataTable();
@@ -112,11 +112,11 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Productos.Detalles_Adicional", SqlCon);
+                SqlCommand Comando = new SqlCommand("Productos.LI_DatosBasicos", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
-                Comando.Parameters.Add("@Filtro_Proveedor", SqlDbType.Int).Value = Auto;
-                Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = idproducto;
+                Comando.Parameters.Add("@Cons_Proveedor", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Filt_Proveedor", SqlDbType.Int).Value = filt_proveedor;
 
                 SqlCon.Open();
                 Resultado = Comando.ExecuteReader();
@@ -144,10 +144,10 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Productos.Detalles_Adicional", SqlCon);
+                SqlCommand Comando = new SqlCommand("Productos.LI_DatosBasicos", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
-                Comando.Parameters.Add("@Filtro_CodBarra", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Cons_CodigoDeBarra", SqlDbType.Int).Value = Auto;
                 Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = idproducto;
 
                 SqlCon.Open();
@@ -168,7 +168,7 @@ namespace Datos
             }
         }
 
-        public DataTable Lista_Compuesto(int Auto, int idproducto)
+        public DataTable Lista_Compuesto(int Auto, int Filt_Compuesto)
         {
             SqlDataReader Resultado;
             DataTable Tabla = new DataTable();
@@ -176,11 +176,11 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Productos.Detalles_Adicional", SqlCon);
+                SqlCommand Comando = new SqlCommand("Productos.LI_DatosBasicos", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
-                Comando.Parameters.Add("@Filtro_CodBarra", SqlDbType.Int).Value = Auto;
-                Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = idproducto;
+                Comando.Parameters.Add("@Cons_Compuesto", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Filt_Compuesto", SqlDbType.Int).Value = Filt_Compuesto;
 
                 SqlCon.Open();
                 Resultado = Comando.ExecuteReader();
@@ -296,7 +296,7 @@ namespace Datos
             }
         }
 
-        public DataTable Buscar(string Valor, int Auto)
+        public DataTable Buscar(int Auto, string Valor)
         {
             SqlDataReader Resultado;
             DataTable Tabla = new DataTable();
@@ -328,6 +328,38 @@ namespace Datos
             }
         }
 
+        public DataTable Buscar_Compuesto(int auto_compuestp, int Valor)
+        {
+            SqlDataReader Resultado;
+            DataTable Tabla = new DataTable();
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
+                SqlCommand Comando = new SqlCommand("Productos.LI_DatosBasicos", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
+
+                Comando.Parameters.Add("@Cons_Compuesto", SqlDbType.Int).Value = auto_compuestp;
+                Comando.Parameters.Add("@Filt_Compuesto", SqlDbType.Int).Value = Valor;
+
+                SqlCon.Open();
+                Resultado = Comando.ExecuteReader();
+                Tabla.Load(Resultado);
+                return Tabla;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open)
+                {
+                    SqlCon.Close();
+                }
+            }
+        }
+
         public DataTable Buscar_Igualdad(int auto_igualdad, int Valor)
         {
             SqlDataReader Resultado;
@@ -336,11 +368,11 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.Producto", SqlCon);
+                SqlCommand Comando = new SqlCommand("Productos.LI_DatosBasicos", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
-                Comando.Parameters.Add("@Auto_Igualdad", SqlDbType.Int).Value = auto_igualdad;
-                Comando.Parameters.Add("@Det_Igualdad", SqlDbType.Int).Value = Valor;
+                Comando.Parameters.Add("@Cons_Igualdad", SqlDbType.Int).Value = auto_igualdad;
+                Comando.Parameters.Add("@Filt_Igualdad", SqlDbType.Int).Value = Valor;
 
                 SqlCon.Open();
                 Resultado = Comando.ExecuteReader();
@@ -368,11 +400,11 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.Producto", SqlCon);
+                SqlCommand Comando = new SqlCommand("Productos.LI_DatosBasicos", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
-                Comando.Parameters.Add("@Auto_Impuesto", SqlDbType.Int).Value = auto_impuesto;
-                Comando.Parameters.Add("@Det_Impuesto", SqlDbType.Int).Value = Valor;
+                Comando.Parameters.Add("@Cons_Impuesto", SqlDbType.Int).Value = auto_impuesto;
+                Comando.Parameters.Add("@Filt_Impuesto", SqlDbType.Int).Value = Valor;
 
                 SqlCon.Open();
                 Resultado = Comando.ExecuteReader();
@@ -400,11 +432,11 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.Producto", SqlCon);
+                SqlCommand Comando = new SqlCommand("Productos.LI_DatosBasicos", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
-                Comando.Parameters.Add("@Auto_Proveedor", SqlDbType.Int).Value = auto_proveedor;
-                Comando.Parameters.Add("@Det_Proveedor", SqlDbType.Int).Value = Valor;
+                Comando.Parameters.Add("@Cons_Proveedor", SqlDbType.Int).Value = auto_proveedor;
+                Comando.Parameters.Add("@Filt_Proveedor", SqlDbType.Int).Value = Valor;
 
                 SqlCon.Open();
                 Resultado = Comando.ExecuteReader();
@@ -432,11 +464,11 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.Producto", SqlCon);
+                SqlCommand Comando = new SqlCommand("Productos.LI_DatosBasicos", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
-                Comando.Parameters.Add("@Auto_Ubicacion", SqlDbType.Int).Value = auto_ubicacion;
-                Comando.Parameters.Add("@Det_Ubicacion", SqlDbType.Int).Value = Valor;
+                Comando.Parameters.Add("@Cons_Ubicacion", SqlDbType.Int).Value = auto_ubicacion;
+                Comando.Parameters.Add("@Filt_Ubicacion", SqlDbType.Int).Value = Valor;
 
                 SqlCon.Open();
                 Resultado = Comando.ExecuteReader();
@@ -464,11 +496,11 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.Producto", SqlCon);
+                SqlCommand Comando = new SqlCommand("Productos.LI_DatosBasicos", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
-                Comando.Parameters.Add("@auto_codigodebarra", SqlDbType.Int).Value = auto_codigodebarra;
-                Comando.Parameters.Add("@Det_CodigoDeBarra", SqlDbType.Int).Value = Valor;
+                Comando.Parameters.Add("@Cons_CodigoDeBarra", SqlDbType.Int).Value = auto_codigodebarra;
+                Comando.Parameters.Add("@Filt_CodigoDeBarra", SqlDbType.Int).Value = Valor;
 
                 SqlCon.Open();
                 Resultado = Comando.ExecuteReader();
@@ -600,16 +632,6 @@ namespace Datos
                 //Panel Ubicaciones -- Campos Obligatorios
                 Comando.Parameters.Add("@Det_Ubicacion", SqlDbType.Structured).Value = Obj.Detalle_Ubicacion;
 
-                ////Panel Cantidades -- Campos NO Obligatorios
-                //Comando.Parameters.Add("@VeMinClie", SqlDbType.VarChar).Value = Obj.Venta_MinimaCliente;
-                //Comando.Parameters.Add("@VeMaxClie", SqlDbType.VarChar).Value = Obj.Venta_MaximaCliente;
-                //Comando.Parameters.Add("@VeMinMayo", SqlDbType.VarChar).Value = Obj.Venta_MinimaMayorista;
-                //Comando.Parameters.Add("@VeMaxMayo", SqlDbType.VarChar).Value = Obj.Venta_MaximaMayorista;
-                //Comando.Parameters.Add("@CoMinClie", SqlDbType.VarChar).Value = Obj.Compra_MinimaCliente;
-                //Comando.Parameters.Add("@CoMaxClie", SqlDbType.VarChar).Value = Obj.Compra_MaximaCliente;
-                //Comando.Parameters.Add("@CoMinMayo", SqlDbType.VarChar).Value = Obj.Compra_MinimaMayorista;
-                //Comando.Parameters.Add("@CoMaxMayo", SqlDbType.VarChar).Value = Obj.Compra_MaximaMayorista;
-
                 //Panel Compuesto -- Campos NO Obligatorios
                 Comando.Parameters.Add("@Det_Compuesto", SqlDbType.Structured).Value = Obj.Detalle_Compuesto;
 
@@ -710,16 +732,6 @@ namespace Datos
                 Comando.Parameters.Add("@Unidad", SqlDbType.VarChar).Value = Obj.Unidad;
                 Comando.Parameters.Add("@Und_Det", SqlDbType.VarChar).Value = Obj.Unidad_Detalle;
 
-                ////Panel Cantidades -- Campos NO Obligatorios
-                //Comando.Parameters.Add("@VeMinClie", SqlDbType.VarChar).Value = Obj.Venta_MinimaCliente;
-                //Comando.Parameters.Add("@VeMaxClie", SqlDbType.VarChar).Value = Obj.Venta_MaximaCliente;
-                //Comando.Parameters.Add("@VeMinMayo", SqlDbType.VarChar).Value = Obj.Venta_MinimaMayorista;
-                //Comando.Parameters.Add("@VeMaxMayo", SqlDbType.VarChar).Value = Obj.Venta_MaximaMayorista;
-                //Comando.Parameters.Add("@CoMinClie", SqlDbType.VarChar).Value = Obj.Compra_MinimaCliente;
-                //Comando.Parameters.Add("@CoMaxClie", SqlDbType.VarChar).Value = Obj.Compra_MaximaCliente;
-                //Comando.Parameters.Add("@CoMinMayo", SqlDbType.VarChar).Value = Obj.Compra_MinimaMayorista;
-                //Comando.Parameters.Add("@CoMaxMayo", SqlDbType.VarChar).Value = Obj.Compra_MaximaMayorista;
-
                 //Panel Imagenes -- Campos NO Obligatorios
                 Comando.Parameters.Add("@Imagen", SqlDbType.Image).Value = Obj.Imagen;
 
@@ -747,18 +759,18 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Productos.Detalles_Adicional", SqlCon);
+                SqlCommand Comando = new SqlCommand("Productos.LI_DatosBasicos", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Datos Auxiliares
-                Comando.Parameters.Add("@Auto_Ubicacion", SqlDbType.Int).Value = Obj.AutoDet_Ubicacion;
+                Comando.Parameters.Add("@Auto_Ubicacion", SqlDbType.Int).Value = Obj.Auto_Ubicacion;
 
                 //Panel Ubicaciones -- Campos Obligatorios
                 Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = Obj.Idproducto;
                 Comando.Parameters.Add("@Idbodega", SqlDbType.Int).Value = Obj.Idbodega;
-                Comando.Parameters.Add("@Ubicacion_Edi", SqlDbType.VarChar).Value = Obj.Ubicacion;
-                Comando.Parameters.Add("@Estante_Edi", SqlDbType.VarChar).Value = Obj.Estante;
-                Comando.Parameters.Add("@Nivel_Edi", SqlDbType.VarChar).Value = Obj.Nivel;             
+                Comando.Parameters.Add("@Ubicacion", SqlDbType.VarChar).Value = Obj.Ubicacion;
+                Comando.Parameters.Add("@Estante", SqlDbType.VarChar).Value = Obj.Estante;
+                Comando.Parameters.Add("@Nivel", SqlDbType.VarChar).Value = Obj.Nivel;
 
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Realizar el Registro";
@@ -784,17 +796,17 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Productos.Detalles_Adicional", SqlCon);
+                SqlCommand Comando = new SqlCommand("Productos.LI_DatosBasicos", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Datos Auxiliares
-                Comando.Parameters.Add("@Auto_Proveedor", SqlDbType.Int).Value = Obj.AutoDet_Ubicacion;
+                Comando.Parameters.Add("@Auto_Proveedor", SqlDbType.Int).Value = Obj.Auto_Proveedor;
 
-                //Panel Ubicaciones -- Campos Obligatorios
+                //Panel Proveedor -- Campos Obligatorios
                 Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = Obj.Idproducto;
                 Comando.Parameters.Add("@Idproveedor", SqlDbType.Int).Value = Obj.Idproveedor;
                 Comando.Parameters.Add("@Proveedor", SqlDbType.VarChar).Value = Obj.Proveedor;
-                Comando.Parameters.Add("@Documento", SqlDbType.VarChar).Value = Obj.Proveedor_Documento;
+                Comando.Parameters.Add("@Proveedor_Documento", SqlDbType.VarChar).Value = Obj.Proveedor_Documento;
 
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Realizar el Registro";
@@ -820,7 +832,7 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Productos.Detalles_Adicional", SqlCon);
+                SqlCommand Comando = new SqlCommand("Productos.LI_DatosBasicos", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Datos Auxiliares
@@ -857,7 +869,7 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Productos.Detalles_Adicional", SqlCon);
+                SqlCommand Comando = new SqlCommand("Productos.LI_DatosBasicos", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Datos Auxiliares
@@ -893,15 +905,18 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Productos.Detalles_Adicional", SqlCon);
+                SqlCommand Comando = new SqlCommand("Productos.LI_DatosBasicos", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Datos Auxiliares
-                Comando.Parameters.Add("@Auto_CodigoDeBarra", SqlDbType.Int).Value = Obj.AutoDet_Codigodebarra;
+                Comando.Parameters.Add("@Auto_Compuesto", SqlDbType.Int).Value = Obj.Auto_Compuesto;
 
                 //Panel Ubicaciones -- Campos Obligatorios
                 Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = Obj.Idproducto;
-                Comando.Parameters.Add("@CodigodeBarra", SqlDbType.VarChar).Value = Obj.CodigoDeBarra;
+                Comando.Parameters.Add("@Compuesto", SqlDbType.VarChar).Value = Obj.Compuesto;
+                Comando.Parameters.Add("@Compu_Descripcion", SqlDbType.VarChar).Value = Obj.Compuesto_Descripcion;
+                Comando.Parameters.Add("@Compu_Unidad", SqlDbType.VarChar).Value = Obj.Compuesto_Unidad;
+                Comando.Parameters.Add("@Compu_Medida", SqlDbType.VarChar).Value = Obj.Compuesto_Medida;
 
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Realizar el Registro";
@@ -927,15 +942,15 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Productos.Detalles_Adicional", SqlCon);
+                SqlCommand Comando = new SqlCommand("Productos.LI_DatosBasicos", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Datos Auxiliares
-                Comando.Parameters.Add("@Auto_CodigoDeBarra", SqlDbType.Int).Value = Obj.AutoDet_Codigodebarra;
+                Comando.Parameters.Add("@Auto_CodigoDeBarra", SqlDbType.Int).Value = Obj.Codigodebarra_SQL;
 
-                //Panel Ubicaciones -- Campos Obligatorios
+                //Panel Codigo De Barra -- Campos Obligatorios
                 Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = Obj.Idproducto;
-                Comando.Parameters.Add("@CodigodeBarra", SqlDbType.VarChar).Value = Obj.CodigoDeBarra;
+                Comando.Parameters.Add("@Cod_DeBarra", SqlDbType.VarChar).Value = Obj.Codigodebarra;
 
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Realizar el Registro";
@@ -965,11 +980,11 @@ namespace Datos
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Datos Auxiliares
-                Comando.Parameters.Add("@Auto_CodigoDeBarra", SqlDbType.Int).Value = Obj.AutoDet_Codigodebarra;
+                Comando.Parameters.Add("@Auto_Exterior", SqlDbType.Int).Value = Obj.Exterior_SQL;
 
-                //Panel Ubicaciones -- Campos Obligatorios
+                //Panel Codigo De Barra -- Campos Obligatorios
                 Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = Obj.Idproducto;
-                Comando.Parameters.Add("@CodigodeBarra", SqlDbType.VarChar).Value = Obj.CodigoDeBarra;
+                Comando.Parameters.Add("@Cod_DeBarra", SqlDbType.VarChar).Value = Obj.Codigodebarra;
 
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Realizar el Registro";

@@ -185,7 +185,6 @@
             this.TPRetencion = new System.Windows.Forms.TabPage();
             this.TPUbicacion = new System.Windows.Forms.TabPage();
             this.TBIdbodega_Ubicacion = new System.Windows.Forms.TextBox();
-            this.TBIdubicacion = new System.Windows.Forms.TextBox();
             this.btnExaminar_Ubicacion = new System.Windows.Forms.Button();
             this.TBBodega_Ubicacion = new System.Windows.Forms.TextBox();
             this.btnModificar_Ubicacion = new System.Windows.Forms.Button();
@@ -243,6 +242,7 @@
             this.TBIdproducto_AutoSQL = new System.Windows.Forms.TextBox();
             this.TBIdproducto = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.TBFiltro_Idproveedor = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.TBBuscar = new System.Windows.Forms.TextBox();
             this.lblTotal = new System.Windows.Forms.Label();
@@ -2081,7 +2081,6 @@
             this.DGDetalle_Proveedor.Location = new System.Drawing.Point(6, 60);
             this.DGDetalle_Proveedor.Name = "DGDetalle_Proveedor";
             this.DGDetalle_Proveedor.ReadOnly = true;
-            this.DGDetalle_Proveedor.RowHeadersVisible = false;
             this.DGDetalle_Proveedor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGDetalle_Proveedor.Size = new System.Drawing.Size(560, 287);
             this.DGDetalle_Proveedor.TabIndex = 134;
@@ -2151,7 +2150,6 @@
             this.TPUbicacion.BackColor = System.Drawing.Color.White;
             this.TPUbicacion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TPUbicacion.Controls.Add(this.TBIdbodega_Ubicacion);
-            this.TPUbicacion.Controls.Add(this.TBIdubicacion);
             this.TPUbicacion.Controls.Add(this.btnExaminar_Ubicacion);
             this.TPUbicacion.Controls.Add(this.TBBodega_Ubicacion);
             this.TPUbicacion.Controls.Add(this.btnModificar_Ubicacion);
@@ -2180,13 +2178,6 @@
             this.TBIdbodega_Ubicacion.Size = new System.Drawing.Size(150, 22);
             this.TBIdbodega_Ubicacion.TabIndex = 135;
             this.TBIdbodega_Ubicacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // TBIdubicacion
-            // 
-            this.TBIdubicacion.Location = new System.Drawing.Point(161, 356);
-            this.TBIdubicacion.Name = "TBIdubicacion";
-            this.TBIdubicacion.Size = new System.Drawing.Size(27, 22);
-            this.TBIdubicacion.TabIndex = 10;
             // 
             // btnExaminar_Ubicacion
             // 
@@ -2830,6 +2821,7 @@
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.TBFiltro_Idproveedor);
             this.groupBox2.Controls.Add(this.TBIdigualdad_Producto);
             this.groupBox2.Controls.Add(this.TBIdproveedor);
             this.groupBox2.Controls.Add(this.TBIdproducto_AutoSQL);
@@ -2844,6 +2836,14 @@
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Leal Enterprise - Consulta de Productos Registrados";
+            // 
+            // TBFiltro_Idproveedor
+            // 
+            this.TBFiltro_Idproveedor.Location = new System.Drawing.Point(341, 472);
+            this.TBFiltro_Idproveedor.Name = "TBFiltro_Idproveedor";
+            this.TBFiltro_Idproveedor.Size = new System.Drawing.Size(58, 21);
+            this.TBFiltro_Idproveedor.TabIndex = 16;
+            this.TBFiltro_Idproveedor.TextChanged += new System.EventHandler(this.TBFiltro_Idproveedor_TextChanged);
             // 
             // label14
             // 
@@ -3156,7 +3156,6 @@
         private System.Windows.Forms.ComboBox CBMarca;
         private System.Windows.Forms.Button btnExaminar_Ubicacion;
         private System.Windows.Forms.TextBox TBIdcompuesto;
-        private System.Windows.Forms.TextBox TBIdubicacion;
         private System.Windows.Forms.TextBox TBIdbodega_Ubicacion;
         private System.Windows.Forms.TextBox TBIdexterior;
         private System.Windows.Forms.TextBox textBox1;
@@ -3166,5 +3165,6 @@
         private System.Windows.Forms.TextBox TBValor_ImpVenta02;
         private System.Windows.Forms.TextBox TBValor_ImpVenta01;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox TBFiltro_Idproveedor;
     }
 }

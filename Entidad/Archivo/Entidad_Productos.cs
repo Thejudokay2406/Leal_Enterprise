@@ -16,7 +16,6 @@ namespace Entidad
         private int _Idcompuesto;
         private int _Idigualdad;
         private int _Idubicacion;
-        private int _;
 
         //Llaves Auxiliares Datos Basicos
         private int _Idmarca;
@@ -116,7 +115,7 @@ namespace Entidad
         private string _Compuesto;
         private string _Compuesto_Descripcion;
         private string _Compuesto_Medida;
-        private string _Compuesto_MedodaDescripcion;
+        private string _Compuesto_Unidad;
 
         //Detalles de Productos
         private DataTable _Detalle_Impuesto;
@@ -149,10 +148,6 @@ namespace Entidad
         private string _Proveedor;
         private string _Proveedor_Documento;
 
-        //Panel Codigo de Barra
-        private string _CodigoDeBarra;
-        private string _CodigoDeBarra_Codigo;
-
         //Panel de Imagenes
         private byte[] _Imagen;
 
@@ -179,7 +174,7 @@ namespace Entidad
         private int _Auto_Igualdad;
         private int _Auto_Impuesto;
         private int _Auto_Proveedor;
-        private int _Auto_CodBarra;
+        private int _Auto_CodigoDeBarra;
         private int _Auto_Compuesto;
         private int _Auto_Exterior;
 
@@ -233,7 +228,6 @@ namespace Entidad
         public int ManejaRetencion { get => _ManejaRetencion; set => _ManejaRetencion = value; }
         public int Idcodigodebarra { get => _Idcodigodebarra; set => _Idcodigodebarra = value; }
         public string Codigodebarra { get => _Codigodebarra; set => _Codigodebarra = value; }
-        public string CodigoDeBarra { get => _CodigoDeBarra; set => _CodigoDeBarra = value; }
         public double Compra_Promedio { get => _Compra_Promedio; set => _Compra_Promedio = value; }
         public double Compra_Final { get => _Compra_Final; set => _Compra_Final = value; }
         public double Venta01 { get => _Venta01; set => _Venta01 = value; }
@@ -276,7 +270,7 @@ namespace Entidad
         public string Compuesto { get => _Compuesto; set => _Compuesto = value; }
         public string Compuesto_Descripcion { get => _Compuesto_Descripcion; set => _Compuesto_Descripcion = value; }
         public string Compuesto_Medida { get => _Compuesto_Medida; set => _Compuesto_Medida = value; }
-        public string Compuesto_MedodaDescripcion { get => _Compuesto_MedodaDescripcion; set => _Compuesto_MedodaDescripcion = value; }
+        public string Compuesto_Unidad { get => _Compuesto_Unidad; set => _Compuesto_Unidad = value; }
         public DataTable Detalle_Impuesto { get => _Detalle_Impuesto; set => _Detalle_Impuesto = value; }
         public DataTable Detalle_Igualdad { get => _Detalle_Igualdad; set => _Detalle_Igualdad = value; }
         public DataTable Detalle_Proveedor { get => _Detalle_Proveedor; set => _Detalle_Proveedor = value; }
@@ -298,7 +292,6 @@ namespace Entidad
         public int Idproveedor { get => _Idproveedor; set => _Idproveedor = value; }
         public string Proveedor { get => _Proveedor; set => _Proveedor = value; }
         public string Proveedor_Documento { get => _Proveedor_Documento; set => _Proveedor_Documento = value; }
-        public string CodigoDeBarra_Codigo { get => _CodigoDeBarra_Codigo; set => _CodigoDeBarra_Codigo = value; }
         public byte[] Imagen { get => _Imagen; set => _Imagen = value; }
         public int Ubicacion_AutoSQL { get => _Ubicacion_AutoSQL; set => _Ubicacion_AutoSQL = value; }
         public int Igualdad_AutoSQL { get => _Igualdad_AutoSQL; set => _Igualdad_AutoSQL = value; }
@@ -318,7 +311,7 @@ namespace Entidad
         public int Auto_Igualdad { get => _Auto_Igualdad; set => _Auto_Igualdad = value; }
         public int Auto_Impuesto { get => _Auto_Impuesto; set => _Auto_Impuesto = value; }
         public int Auto_Proveedor { get => _Auto_Proveedor; set => _Auto_Proveedor = value; }
-        public int Auto_CodBarra { get => _Auto_CodBarra; set => _Auto_CodBarra = value; }
+        public int Auto_CodigoDeBarra { get => _Auto_CodigoDeBarra; set => _Auto_CodigoDeBarra = value; }
         public int Auto_Compuesto { get => _Auto_Compuesto; set => _Auto_Compuesto = value; }
         public int Auto_Exterior { get => _Auto_Exterior; set => _Auto_Exterior = value; }
         public int Det_Ubicacion { get => _Det_Ubicacion; set => _Det_Ubicacion = value; }

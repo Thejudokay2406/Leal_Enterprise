@@ -33,7 +33,6 @@ namespace Presentacion
         private bool Digitar = true;
         public bool Filtro = true;
         public bool Examinar = true;
-        public bool Examinar_Exterior = true;
         public bool Examinar_Proveedor = true;
         public bool Filtro_Igualdad = true;
 
@@ -602,8 +601,12 @@ namespace Presentacion
 
         private void Actualizar_DetProveedor()
         {
-            this.DGDetalle_Proveedor.DataSource = fProducto_Inventario.Lista_Proveedor(5, Convert.ToInt32(TBIdproducto.Text));
+            this.DGDetalle_Proveedor.DataSource = fProducto_Inventario.Lista_Proveedor(1, Convert.ToInt32(TBIdproducto.Text));
             this.lblTotal_Proveedor.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Proveedor.Rows.Count);
+
+            //
+            //this.DGDetalle_Proveedor.Columns[0].Visible = false;
+            //this.DGDetalle_Proveedor.Columns[1].Visible = false;
         }
 
         private void Actualizar_DetUbicacion()
@@ -619,13 +622,6 @@ namespace Presentacion
         }
 
         public void setProveedor(string idproveedor, string proveedor, string documento)
-        {
-            this.TBIdproveedor.Text = idproveedor;
-            this.TBProveedor.Text = proveedor;
-            this.TBProveedor_Documento.Text = documento;
-        }
-
-        public void setProveedor_Exterior(string idproveedor, string proveedor, string documento)
         {
             this.TBIdproveedor.Text = idproveedor;
             this.TBProveedor.Text = proveedor;
@@ -806,6 +802,7 @@ namespace Presentacion
                 this.DtDetalle_Compuesto.Columns.Add("Medida", System.Type.GetType("System.String"));
                 //Captura de los Datos en las Tablas
                 this.DGDetalle_Compuesto.DataSource = this.DtDetalle_Compuesto;
+                this.DGDetalle_Compuesto.AutoGenerateColumns = false;
 
                 //Panel Exterior
                 this.DtDetalle_Exterior = new DataTable();
@@ -832,11 +829,12 @@ namespace Presentacion
                 //Panel Proveedores
                 this.DtDetalle_Proveedor = new DataTable();
                 this.DtDetalle_Proveedor.Columns.Add("Idproducto", System.Type.GetType("System.Int32"));
-                this.DtDetalle_Proveedor.Columns.Add("Idproveedor", System.Type.GetType("System.Int32"));
+                this.DtDetalle_Proveedor.Columns.Add("Código", System.Type.GetType("System.Int32"));
                 this.DtDetalle_Proveedor.Columns.Add("Proveedor", System.Type.GetType("System.String"));
                 this.DtDetalle_Proveedor.Columns.Add("Documento", System.Type.GetType("System.String"));
                 //Captura de los Datos en las Tablas
                 this.DGDetalle_Proveedor.DataSource = this.DtDetalle_Proveedor;
+                this.DGDetalle_Proveedor.AutoGenerateColumns = false;
 
                 //Panel Impuesto
                 this.DtDetalle_Impuesto = new DataTable();
@@ -866,6 +864,7 @@ namespace Presentacion
                 this.DtDetalle_Ubicacion.Columns.Add("Nivel", System.Type.GetType("System.String"));
                 //Captura de los Datos en las Tablas
                 this.DGDetalles_Ubicacion.DataSource = DtDetalle_Ubicacion;
+                this.DGDetalles_Ubicacion.AutoGenerateColumns = false;
 
 
                 //Medidas de las Columnas - Codigo de Barra
@@ -895,7 +894,7 @@ namespace Presentacion
 
                 //Panel Proveedores
                 this.DGDetalle_Proveedor.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                this.DGDetalle_Proveedor.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                this.DGDetalle_Proveedor.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
                 //Panel Ubicaciones
                 this.DGDetalles_Ubicacion.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -943,10 +942,10 @@ namespace Presentacion
                 this.DGDetalle_Impuesto.Columns[1].Visible = false;
 
                 this.DGDetalle_Proveedor.Columns[0].Visible = false;
-                this.DGDetalle_Proveedor.Columns[1].Visible = false;
+                //this.DGDetalle_Proveedor.Columns[1].Visible = false;
 
-                this.DGDetalles_Ubicacion.Columns[0].Visible = false;
-                this.DGDetalles_Ubicacion.Columns[1].Visible = false;
+                //this.DGDetalles_Ubicacion.Columns[0].Visible = false;
+                //this.DGDetalles_Ubicacion.Columns[1].Visible = false;
 
                 this.DGDetalle_Exterior.Columns[0].Visible = false;
                 this.DGDetalle_Exterior.Columns[1].Visible = false;
@@ -1160,8 +1159,8 @@ namespace Presentacion
                                  //Panel - Fabricacion
                                  Convert.ToDouble(this.TBFabri_Principal.Text), Convert.ToDouble(this.TBFabri_Secundario.Text), Convert.ToDouble(this.TBFabri_Terciario.Text), Convert.ToDouble(this.TBFabri_OtroMaterial.Text), Convert.ToDouble(this.TBFabri_ManoDeObra.Text), Convert.ToDouble(this.TBFabri_Materiales.Text), Convert.ToDouble(this.TBFabri_Envio.Text), Convert.ToDouble(this.TBFabri_Almacenamiento.Text), Convert.ToDouble(this.TBFabri_Maquinaria.Text), Convert.ToDouble(this.TBFabri_HerramientaManual.Text), Convert.ToDouble(this.TBFabri_TotalFabricacion.Text),
 
-                                 //Tabla de Detalles - Lote, Impuesto, Igualdad, Proveedor, Ubicacion, Codigo de Barra - Detalles de Productos
-                                 this.DtDetalle_Impuesto, this.DtDetalle_Igualdad, this.DtDetalle_Proveedor, this.DtDetalle_Ubicacion, this.DtDetalle_CodigoDeBarra, this.DtDetalle_Exterior, this.DtDetalle_Compuesto,
+                                 ////Tabla de Detalles - Lote, Impuesto, Igualdad, Proveedor, Ubicacion, Codigo de Barra - Detalles de Productos
+                                 //this.DtDetalle_Impuesto, this.DtDetalle_Igualdad, this.DtDetalle_Proveedor, this.DtDetalle_Ubicacion, this.DtDetalle_CodigoDeBarra, this.DtDetalle_Exterior, this.DtDetalle_Compuesto,
 
                                  //Panel de Imagen
                                  Imagen_Producto
@@ -1354,6 +1353,8 @@ namespace Presentacion
                         this.TBUbicacion.Clear();
                         this.TBEstante.Clear();
                         this.TBNivel.Clear();
+
+                        this.TBUbicacion.Select();
                     }
                 }
                 else
@@ -1369,43 +1370,45 @@ namespace Presentacion
                     }
                     else
                     {
-                        //DialogResult result = MessageBox.Show("¿Desea Registrar la Ubicacion del Producto?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                        DialogResult result = MessageBox.Show("¿Desea Registrar la Ubicacion del Producto?", "Leal Enterprise", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
-                        //if (result == DialogResult.Yes)
-                        //{
-                        //    string rptaDatosBasicos = "";
-                        //    rptaDatosBasicos = fProducto_Inventario.Guardar_Ubicacion
+                        if (result == DialogResult.Yes)
+                        {
+                            string rptaDatosBasicos = "";
+                            rptaDatosBasicos = fProducto_Inventario.Guardar_Ubicacion
 
-                        //            (
-                        //                 //Datos Basicos
-                        //                 Convert.ToInt32(this.TBIdproducto.Text), Convert.ToInt32(this.CBBodega.SelectedValue), this.TBUbicacion.Text, this.TBEstante.Text, this.TBNivel.Text,
+                                    (
+                                        //Datos Auxiliares
+                                        Convert.ToInt32(1),
 
-                        //                //Datos Auxiliares
-                        //                1
-                        //            );
+                                         //Datos Basicos
+                                         Convert.ToInt32(this.TBIdproducto.Text), Convert.ToInt32(this.TBIdbodega_Ubicacion.Text), this.TBUbicacion.Text, this.TBEstante.Text, this.TBNivel.Text
+                                    );
 
-                        //    if (rptaDatosBasicos.Equals("OK"))
-                        //    {
-                        //        this.MensajeOk("La Ubicación del Producto: " + TBNombre.Text + " con Codigo: " + this.TBCodigo.Text + " a Sido Registrada Exitosamente");
-                        //    }
+                            if (rptaDatosBasicos.Equals("OK"))
+                            {
+                                this.MensajeOk("La Ubicación del Producto: " + TBNombre.Text + " con Código: " + this.TBCodigo.Text + " a Sido Registrada Exitosamente");
+                            }
 
-                        //    else
-                        //    {
-                        //        this.MensajeError(rptaDatosBasicos);
-                        //    }
+                            else
+                            {
+                                this.MensajeError(rptaDatosBasicos);
+                            }
 
-                        //    //
-                        //    //this.CBBodega.SelectedIndex = 0;
-                        //    this.TBUbicacion.Clear();
-                        //    this.TBEstante.Clear();
-                        //    this.TBNivel.Clear();
+                            //
+                            //this.CBBodega.SelectedIndex = 0;
+                            this.TBIdbodega_Ubicacion.Clear();
+                            this.TBBodega_Ubicacion.Clear();
+                            this.TBUbicacion.Clear();
+                            this.TBEstante.Clear();
+                            this.TBNivel.Clear();
 
-                        //    this.Actualizar_DetUbicacion();
-                        //}
-                        //else
-                        //{
-                        //    this.TBUbicacion.Select();
-                        //}
+                            this.Actualizar_DetUbicacion();
+                        }
+                        else
+                        {
+                            this.TBUbicacion.Select();
+                        }
                     }
                 }
             }
@@ -1545,7 +1548,7 @@ namespace Presentacion
 
                             if (rptaDatosBasicos.Equals("OK"))
                             {
-                                this.MensajeOk("El Código de Barra: " + TBCodigodeBarra.Text + " del Producto: " + this.TBNombre.Text + " a Sido Agregado Exitosamente");
+                                this.MensajeOk("El Código de Barra: " + this.TBCodigodeBarra.Text + " del Producto: " + this.TBNombre.Text + " a Sido Agregado Exitosamente");
                             }
 
                             else
@@ -1555,11 +1558,12 @@ namespace Presentacion
                         }
                         else
                         {
+                            this.TBCodigodeBarra.Clear();
                             this.TBCodigodeBarra.Select();
-                        }
 
-                        //
-                        this.Actualizar_DetCodigoDeBarra();
+                            //
+                            this.Actualizar_DetCodigoDeBarra();
+                        }
                     }
                 }
             }
@@ -3288,7 +3292,7 @@ namespace Presentacion
                         {
                             DataRow fila = this.DtDetalle_Proveedor.NewRow();
                             fila["Idproducto"] = Convert.ToInt32(this.TBIdproducto_AutoSQL.Text);
-                            fila["Idproveedor"] = Convert.ToInt32(this.TBIdproveedor.Text);
+                            fila["Código"] = Convert.ToInt32(this.TBIdproveedor.Text);
                             fila["Proveedor"] = this.TBProveedor.Text;
                             fila["Documento"] = this.TBProveedor_Documento.Text;
                             this.DtDetalle_Proveedor.Rows.Add(fila);
@@ -3340,15 +3344,15 @@ namespace Presentacion
 
                                 (
                                     //Datos Auxiliares
-                                    4,
+                                    1,
 
                                     //Datos Basicos
-                                    Convert.ToInt32(this.TBIdproducto.Text), Convert.ToInt32(this.TBIdproveedor.Text), this.TBProveedor.Text, this.TBProveedor_Documento.Text
+                                    Convert.ToInt32(TBIdproducto.Text), Convert.ToInt32(TBIdproveedor.Text), this.TBProveedor.Text, this.TBProveedor_Documento.Text
                                 );
 
                             if (rptaDatosBasicos.Equals("OK"))
                             {
-                                this.MensajeOk("El Proveedor: " + this.TBProveedor.Text + " del Producto: " + TBNombre.Text + " con Codigo: " + this.TBCodigo.Text + " A Sido Registrado Exitosamente");
+                                this.MensajeOk("El Proveedor: " + this.TBProveedor.Text + " del Producto: " + TBNombre.Text + " con Código: " + this.TBCodigo.Text + " A Sido Registrado Exitosamente");
                             }
 
                             else
@@ -3360,14 +3364,14 @@ namespace Presentacion
                             this.TBIdproveedor.Clear();
                             this.TBProveedor.Clear();
                             this.TBProveedor_Documento.Clear();
+
+                            //
+                            this.Actualizar_DetProveedor();
                         }
                         else
                         {
                             this.TBProveedor.Select();
                         }
-
-                        //
-                        this.Actualizar_DetProveedor();
                     }
                 }
             }
@@ -7014,6 +7018,19 @@ namespace Presentacion
             //tb.Text = string.Format("{0:N2}", numero);
         }
 
+        private void TBFiltro_Idproveedor_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                this.DGDetalle_Proveedor.DataSource = fProducto_Inventario.Buscar_Proveedor(1, Convert.ToInt32(this.TBIdproducto.Text));
+                this.lblTotal_Proveedor.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Proveedor.Rows.Count);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
         private void TBValorBase_InicialMayorista_KeyUp(object sender, KeyEventArgs e)
         {
             try
@@ -7724,12 +7741,12 @@ namespace Presentacion
                                     1,
 
                                     //Datos Basicos
-                                    Convert.ToInt32(this.TBIdproducto.Text), this.TBCompuesto.Text, this.TBComp_Descripcion.Text, this.CBComp_Medida.Text, this.TBComp_Medida.Text
+                                    Convert.ToInt32(this.TBIdproducto.Text), this.TBCompuesto.Text, this.TBComp_Descripcion.Text, this.CBComp_Medida.Text, this.CBUnidad.Text
                                 );
 
                             if (rptaDatosBasicos.Equals("OK"))
                             {
-                                this.MensajeOk("El Compuesto: " + this.TBNombre.Text + " del Producto: " + TBNombre.Text + " con Codigo: " + this.TBCodigo.Text + " A Sido Registrado Exitosamente");
+                                this.MensajeOk("El Compuesto: " + this.TBCompuesto.Text + " del Producto: " + TBNombre.Text + " con Código: " + this.TBCodigo.Text + " A Sido Registrado Exitosamente");
                             }
 
                             else
@@ -7743,14 +7760,14 @@ namespace Presentacion
                             this.TBComp_Descripcion.Clear();
                             this.CBComp_Medida.SelectedIndex = 0;
                             this.TBComp_Medida.Clear();
+
+                            //
+                            this.Actualizar_DetCompuesto();
                         }
                         else
                         {
                             this.TBCompuesto.Select();
                         }
-
-                        //
-                        this.Actualizar_DetCompuesto();
                     }
                 }
             }
@@ -8255,7 +8272,7 @@ namespace Presentacion
                                  2, Convert.ToInt32(this.TBIdproducto.Text),
 
                                  //Panel Datos Basicos
-                                 Convert.ToInt32(TBIdubicacion.Text), Convert.ToInt32(this.TBIdbodega_Ubicacion.Text), this.TBUbicacion.Text, this.TBEstante.Text, this.TBNivel.Text
+                                 Convert.ToInt32(TBIdbodega_Ubicacion.Text), Convert.ToInt32(this.TBIdbodega_Ubicacion.Text), this.TBUbicacion.Text, this.TBEstante.Text, this.TBNivel.Text
                             );
 
                 if (rptaDatosBasicos.Equals("OK"))
@@ -9172,7 +9189,7 @@ namespace Presentacion
                 {
                     if (TBBuscar.Text != "")
                     {
-                        this.DGResultados.DataSource = fProducto_Inventario.Buscar(this.TBBuscar.Text, 1);
+                        this.DGResultados.DataSource = fProducto_Inventario.Buscar(1,this.TBBuscar.Text);
                         //this.DGResultados.Columns[0].Visible = false;
 
                         this.lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGResultados.Rows.Count);
@@ -9206,7 +9223,7 @@ namespace Presentacion
         {
             try
             {
-                DataTable Datos = Negocio.fProducto_Inventario.Buscar(this.TBIdproducto.Text, 2);
+                DataTable Datos = Negocio.fProducto_Inventario.Buscar(2, this.TBIdproducto.Text);
                 //Evaluamos si  existen los Datos
                 if (Datos.Rows.Count == 0)
                 {
@@ -9370,9 +9387,13 @@ namespace Presentacion
                     //************************************************************************************************************************
                     //Se realizan las consultas para llenar los DataGriview donde se mostrarian los MultiPlex Registros.
 
+                    this.DGDetalle_Compuesto.DataSource = fProducto_Inventario.Buscar_Compuesto(1, Convert.ToInt32(this.TBIdproducto.Text));
+                    this.lblTotal_Compuesto.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Compuesto.Rows.Count);
+                    //this.DGDetalle_Compuesto.Columns["Idcompuesto"].Visible = false;
+
                     this.DGDetalles_Ubicacion.DataSource = fProducto_Inventario.Buscar_Ubicacion(1, Convert.ToInt32(this.TBIdproducto.Text));
                     this.lblTotal_Ubicacion.Text = "Datos Registrados: " + Convert.ToString(DGDetalles_Ubicacion.Rows.Count);
-                    this.DGDetalles_Ubicacion.Columns["Idubicacion"].Visible = false;
+                    //this.DGDetalles_Ubicacion.Columns["Idubicacion"].Visible = false;
 
                     this.DGDetalle_Igualdad.DataSource = fProducto_Inventario.Buscar_Igualdad(1, Convert.ToInt32(this.TBIdproducto.Text));
                     this.lblTotal_Igualdad.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Igualdad.Rows.Count);
@@ -9380,13 +9401,10 @@ namespace Presentacion
 
                     this.DGDetalle_Impuesto.DataSource = fProducto_Inventario.Buscar_Impuesto(1, Convert.ToInt32(this.TBIdproducto.Text));
                     this.lblTotal_Impuesto.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Impuesto.Rows.Count);
-                    this.DGDetalle_Impuesto.Columns[0].Visible = false;
-                    this.DGDetalle_Impuesto.Columns[1].Visible = false;
-                    this.DGDetalle_Impuesto.Columns["IdDet_impuesto"].Visible = false;
 
                     this.DGDetalle_Proveedor.DataSource = fProducto_Inventario.Buscar_Proveedor(1, Convert.ToInt32(this.TBIdproducto.Text));
                     this.lblTotal_Proveedor.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Proveedor.Rows.Count);
-                    this.DGDetalle_Proveedor.Columns["IdDet_Proveedor"].Visible = false;
+                    
 
                     this.DGDetalle_CodigoDeBarra.DataSource = fProducto_Inventario.Buscar_CodigoDeBarra(1, Convert.ToInt32(this.TBIdproducto.Text));
                     this.lblTotal_Codigodebarra.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_CodigoDeBarra.Rows.Count);

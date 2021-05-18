@@ -75,21 +75,12 @@ namespace Presentacion
 
                 //Variables para realizar los Filtro 
                 string idproveedor, proveedor, documento;
-
-                if (frmPro.Examinar_Exterior)
-                {
-                    idproveedor = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
-                    proveedor = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
-                    documento = this.DGFiltro_Resultados.CurrentRow.Cells[2].Value.ToString();
-                    frmPro.setProveedor_Exterior(idproveedor, proveedor, documento);
-                    this.Hide();
-                }
                 
                 if (frmPro.Examinar_Proveedor)
                 {
                     idproveedor = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
                     proveedor = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
-                    documento = this.DGFiltro_Resultados.CurrentRow.Cells[2].Value.ToString();
+                    documento = this.DGFiltro_Resultados.CurrentRow.Cells[3].Value.ToString();
                     frmPro.setProveedor(idproveedor, proveedor, documento);
                     this.Hide();
                 }
@@ -98,7 +89,7 @@ namespace Presentacion
                 {   
                     idproveedor = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
                     proveedor = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
-                    documento = this.DGFiltro_Resultados.CurrentRow.Cells[2].Value.ToString();
+                    documento = this.DGFiltro_Resultados.CurrentRow.Cells[3].Value.ToString();
                     frmInv.setProveedor(idproveedor, proveedor, documento);
                     this.Hide();
                 }
@@ -107,7 +98,7 @@ namespace Presentacion
                 {
                     idproveedor = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
                     proveedor = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
-                    documento = this.DGFiltro_Resultados.CurrentRow.Cells[2].Value.ToString();
+                    documento = this.DGFiltro_Resultados.CurrentRow.Cells[3].Value.ToString();
                     frmCot.setProveedor(idproveedor, proveedor, documento);
                     this.Hide();
                 }
@@ -116,7 +107,7 @@ namespace Presentacion
                 {
                     idproveedor = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
                     proveedor = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
-                    documento = this.DGFiltro_Resultados.CurrentRow.Cells[2].Value.ToString();
+                    documento = this.DGFiltro_Resultados.CurrentRow.Cells[3].Value.ToString();
                     frmOCom.setProveedor(idproveedor, proveedor, documento);
                     this.Hide();
                 }
