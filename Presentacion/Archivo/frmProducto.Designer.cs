@@ -60,7 +60,7 @@
             this.label51 = new System.Windows.Forms.Label();
             this.CHBalanza = new System.Windows.Forms.CheckBox();
             this.label44 = new System.Windows.Forms.Label();
-            this.TBComision_Porcentaje = new System.Windows.Forms.TextBox();
+            this.TBComision = new System.Windows.Forms.TextBox();
             this.label48 = new System.Windows.Forms.Label();
             this.CHManejaComision = new System.Windows.Forms.CheckBox();
             this.label49 = new System.Windows.Forms.Label();
@@ -153,11 +153,11 @@
             this.label63 = new System.Windows.Forms.Label();
             this.TBFabri_OtroMaterial = new System.Windows.Forms.TextBox();
             this.label62 = new System.Windows.Forms.Label();
-            this.TBFabri_Terciario = new System.Windows.Forms.TextBox();
+            this.TBFabri_MaterialTerciario = new System.Windows.Forms.TextBox();
             this.label61 = new System.Windows.Forms.Label();
-            this.TBFabri_Secundario = new System.Windows.Forms.TextBox();
+            this.TBFabri_MaterialSecundario = new System.Windows.Forms.TextBox();
             this.label60 = new System.Windows.Forms.Label();
-            this.TBFabri_Principal = new System.Windows.Forms.TextBox();
+            this.TBFabri_MaterialPrincipal = new System.Windows.Forms.TextBox();
             this.label53 = new System.Windows.Forms.Label();
             this.TBFabri_Materiales = new System.Windows.Forms.TextBox();
             this.label55 = new System.Windows.Forms.Label();
@@ -393,7 +393,7 @@
             this.TPDatosBasicos.Controls.Add(this.label51);
             this.TPDatosBasicos.Controls.Add(this.CHBalanza);
             this.TPDatosBasicos.Controls.Add(this.label44);
-            this.TPDatosBasicos.Controls.Add(this.TBComision_Porcentaje);
+            this.TPDatosBasicos.Controls.Add(this.TBComision);
             this.TPDatosBasicos.Controls.Add(this.label48);
             this.TPDatosBasicos.Controls.Add(this.CHManejaComision);
             this.TPDatosBasicos.Controls.Add(this.label49);
@@ -525,7 +525,6 @@
             this.TBDescripcion03.Name = "TBDescripcion03";
             this.TBDescripcion03.Size = new System.Drawing.Size(475, 22);
             this.TBDescripcion03.TabIndex = 205;
-            this.TBDescripcion03.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TBDescripcion03.Enter += new System.EventHandler(this.TBDescripcion03_Enter);
             this.TBDescripcion03.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBDescripcion03_KeyUp);
             this.TBDescripcion03.Leave += new System.EventHandler(this.TBDescripcion03_Leave);
@@ -587,7 +586,6 @@
             this.TBDescripcion02.Name = "TBDescripcion02";
             this.TBDescripcion02.Size = new System.Drawing.Size(475, 22);
             this.TBDescripcion02.TabIndex = 197;
-            this.TBDescripcion02.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TBDescripcion02.Enter += new System.EventHandler(this.TBDescripcion02_Enter);
             this.TBDescripcion02.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBDescripcion02_KeyUp);
             this.TBDescripcion02.Leave += new System.EventHandler(this.TBDescripcion02_Leave);
@@ -698,16 +696,16 @@
             this.label44.TabIndex = 157;
             this.label44.Text = "Utiliza Balanza";
             // 
-            // TBComision_Porcentaje
+            // TBComision
             // 
-            this.TBComision_Porcentaje.Location = new System.Drawing.Point(91, 199);
-            this.TBComision_Porcentaje.Name = "TBComision_Porcentaje";
-            this.TBComision_Porcentaje.Size = new System.Drawing.Size(183, 22);
-            this.TBComision_Porcentaje.TabIndex = 155;
-            this.TBComision_Porcentaje.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TBComision_Porcentaje.Enter += new System.EventHandler(this.TBComision_Porcentaje_Enter);
-            this.TBComision_Porcentaje.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBComision_Porcentaje_KeyUp);
-            this.TBComision_Porcentaje.Leave += new System.EventHandler(this.TBComision_Porcentaje_Leave);
+            this.TBComision.Location = new System.Drawing.Point(91, 199);
+            this.TBComision.Name = "TBComision";
+            this.TBComision.Size = new System.Drawing.Size(183, 22);
+            this.TBComision.TabIndex = 155;
+            this.TBComision.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBComision.Enter += new System.EventHandler(this.TBComision_Porcentaje_Enter);
+            this.TBComision.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBComision_Porcentaje_KeyUp);
+            this.TBComision.Leave += new System.EventHandler(this.TBComision_Porcentaje_Leave);
             // 
             // label48
             // 
@@ -1620,11 +1618,11 @@
             this.TPFabricacion.Controls.Add(this.label63);
             this.TPFabricacion.Controls.Add(this.TBFabri_OtroMaterial);
             this.TPFabricacion.Controls.Add(this.label62);
-            this.TPFabricacion.Controls.Add(this.TBFabri_Terciario);
+            this.TPFabricacion.Controls.Add(this.TBFabri_MaterialTerciario);
             this.TPFabricacion.Controls.Add(this.label61);
-            this.TPFabricacion.Controls.Add(this.TBFabri_Secundario);
+            this.TPFabricacion.Controls.Add(this.TBFabri_MaterialSecundario);
             this.TPFabricacion.Controls.Add(this.label60);
-            this.TPFabricacion.Controls.Add(this.TBFabri_Principal);
+            this.TPFabricacion.Controls.Add(this.TBFabri_MaterialPrincipal);
             this.TPFabricacion.Controls.Add(this.label53);
             this.TPFabricacion.Controls.Add(this.TBFabri_Materiales);
             this.TPFabricacion.Controls.Add(this.label55);
@@ -1806,17 +1804,17 @@
             this.label62.TabIndex = 141;
             this.label62.Text = "Costo de Otro Material";
             // 
-            // TBFabri_Terciario
+            // TBFabri_MaterialTerciario
             // 
-            this.TBFabri_Terciario.Location = new System.Drawing.Point(181, 60);
-            this.TBFabri_Terciario.Name = "TBFabri_Terciario";
-            this.TBFabri_Terciario.Size = new System.Drawing.Size(253, 22);
-            this.TBFabri_Terciario.TabIndex = 140;
-            this.TBFabri_Terciario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TBFabri_Terciario.Enter += new System.EventHandler(this.TBFabri_Material03_Enter);
-            this.TBFabri_Terciario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBFabri_Material03_KeyPress);
-            this.TBFabri_Terciario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBFabri_Material03_KeyUp);
-            this.TBFabri_Terciario.Leave += new System.EventHandler(this.TBFabri_Material03_Leave);
+            this.TBFabri_MaterialTerciario.Location = new System.Drawing.Point(181, 60);
+            this.TBFabri_MaterialTerciario.Name = "TBFabri_MaterialTerciario";
+            this.TBFabri_MaterialTerciario.Size = new System.Drawing.Size(253, 22);
+            this.TBFabri_MaterialTerciario.TabIndex = 140;
+            this.TBFabri_MaterialTerciario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBFabri_MaterialTerciario.Enter += new System.EventHandler(this.TBFabri_Material03_Enter);
+            this.TBFabri_MaterialTerciario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBFabri_Material03_KeyPress);
+            this.TBFabri_MaterialTerciario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBFabri_Material03_KeyUp);
+            this.TBFabri_MaterialTerciario.Leave += new System.EventHandler(this.TBFabri_Material03_Leave);
             // 
             // label61
             // 
@@ -1827,17 +1825,17 @@
             this.label61.TabIndex = 139;
             this.label61.Text = "Costo de Material Terciario";
             // 
-            // TBFabri_Secundario
+            // TBFabri_MaterialSecundario
             // 
-            this.TBFabri_Secundario.Location = new System.Drawing.Point(181, 33);
-            this.TBFabri_Secundario.Name = "TBFabri_Secundario";
-            this.TBFabri_Secundario.Size = new System.Drawing.Size(253, 22);
-            this.TBFabri_Secundario.TabIndex = 138;
-            this.TBFabri_Secundario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TBFabri_Secundario.Enter += new System.EventHandler(this.TBFabri_Material02_Enter);
-            this.TBFabri_Secundario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBFabri_Material02_KeyPress);
-            this.TBFabri_Secundario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBFabri_Material02_KeyUp);
-            this.TBFabri_Secundario.Leave += new System.EventHandler(this.TBFabri_Material02_Leave);
+            this.TBFabri_MaterialSecundario.Location = new System.Drawing.Point(181, 33);
+            this.TBFabri_MaterialSecundario.Name = "TBFabri_MaterialSecundario";
+            this.TBFabri_MaterialSecundario.Size = new System.Drawing.Size(253, 22);
+            this.TBFabri_MaterialSecundario.TabIndex = 138;
+            this.TBFabri_MaterialSecundario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBFabri_MaterialSecundario.Enter += new System.EventHandler(this.TBFabri_Material02_Enter);
+            this.TBFabri_MaterialSecundario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBFabri_Material02_KeyPress);
+            this.TBFabri_MaterialSecundario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBFabri_Material02_KeyUp);
+            this.TBFabri_MaterialSecundario.Leave += new System.EventHandler(this.TBFabri_Material02_Leave);
             // 
             // label60
             // 
@@ -1848,17 +1846,17 @@
             this.label60.TabIndex = 137;
             this.label60.Text = "Costo de Material Secundario";
             // 
-            // TBFabri_Principal
+            // TBFabri_MaterialPrincipal
             // 
-            this.TBFabri_Principal.Location = new System.Drawing.Point(181, 6);
-            this.TBFabri_Principal.Name = "TBFabri_Principal";
-            this.TBFabri_Principal.Size = new System.Drawing.Size(253, 22);
-            this.TBFabri_Principal.TabIndex = 136;
-            this.TBFabri_Principal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TBFabri_Principal.Enter += new System.EventHandler(this.TBFabri_Material01_Enter);
-            this.TBFabri_Principal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBFabri_Material01_KeyPress);
-            this.TBFabri_Principal.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBFabri_Material01_KeyUp);
-            this.TBFabri_Principal.Leave += new System.EventHandler(this.TBFabri_Material01_Leave);
+            this.TBFabri_MaterialPrincipal.Location = new System.Drawing.Point(181, 6);
+            this.TBFabri_MaterialPrincipal.Name = "TBFabri_MaterialPrincipal";
+            this.TBFabri_MaterialPrincipal.Size = new System.Drawing.Size(253, 22);
+            this.TBFabri_MaterialPrincipal.TabIndex = 136;
+            this.TBFabri_MaterialPrincipal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBFabri_MaterialPrincipal.Enter += new System.EventHandler(this.TBFabri_Material01_Enter);
+            this.TBFabri_MaterialPrincipal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBFabri_Material01_KeyPress);
+            this.TBFabri_MaterialPrincipal.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBFabri_Material01_KeyUp);
+            this.TBFabri_MaterialPrincipal.Leave += new System.EventHandler(this.TBFabri_Material01_Leave);
             // 
             // label53
             // 
@@ -3226,7 +3224,7 @@
         private System.Windows.Forms.Button btnEliminar_Impuesto;
         private System.Windows.Forms.DataGridView DGDetalle_Impuesto;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox TBComision_Porcentaje;
+        private System.Windows.Forms.TextBox TBComision;
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.TabPage TPIgualdad;
         private System.Windows.Forms.Button btnExaminar_Igualdad;
@@ -3277,11 +3275,11 @@
         private System.Windows.Forms.TextBox TBExterior_Exportacion;
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.TabPage TPCompuesto;
-        private System.Windows.Forms.TextBox TBFabri_Principal;
+        private System.Windows.Forms.TextBox TBFabri_MaterialPrincipal;
         private System.Windows.Forms.Label label53;
-        private System.Windows.Forms.TextBox TBFabri_Secundario;
+        private System.Windows.Forms.TextBox TBFabri_MaterialSecundario;
         private System.Windows.Forms.Label label60;
-        private System.Windows.Forms.TextBox TBFabri_Terciario;
+        private System.Windows.Forms.TextBox TBFabri_MaterialTerciario;
         private System.Windows.Forms.Label label61;
         private System.Windows.Forms.TextBox TBFabri_OtroMaterial;
         private System.Windows.Forms.Label label62;

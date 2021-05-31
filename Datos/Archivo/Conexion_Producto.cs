@@ -584,6 +584,7 @@ namespace Datos
 
                 //Panel Datos Basicos -- Campos Obligatorios
                 Comando.Parameters.Add("@Idmarca", SqlDbType.Int).Value = Obj.Idmarca;
+                Comando.Parameters.Add("@Area", SqlDbType.VarChar).Value = Obj.Area;
                 Comando.Parameters.Add("@Codigo", SqlDbType.VarChar).Value = Obj.Codigo;
                 Comando.Parameters.Add("@Nombre", SqlDbType.VarChar).Value = Obj.Producto;
                 Comando.Parameters.Add("@ManVenc", SqlDbType.Int).Value = Obj.ManejaVencimiento;
@@ -617,22 +618,23 @@ namespace Datos
                 Comando.Parameters.Add("@ComFinal", SqlDbType.VarChar).Value = Obj.Compra_Final;
 
                 //Panel Precios -- Campos NO Obligatorios
-                Comando.Parameters.Add("@Venta01", SqlDbType.VarChar).Value = Obj.Venta01;
-                Comando.Parameters.Add("@PorVenta01", SqlDbType.VarChar).Value = Obj.Venta01_Porcentaje;
                 Comando.Parameters.Add("@BaseVen01", SqlDbType.VarChar).Value = Obj.Venta01_BaseInicial;
-                Comando.Parameters.Add("@ImpVen01", SqlDbType.VarChar).Value = Obj.Venta01_Impuesto;
-                Comando.Parameters.Add("@Venta02", SqlDbType.VarChar).Value = Obj.Venta02;
-                Comando.Parameters.Add("@PorVenta02", SqlDbType.VarChar).Value = Obj.Venta02_Porcentaje;
                 Comando.Parameters.Add("@BaseVen02", SqlDbType.VarChar).Value = Obj.Venta02_BaseInicial;
-                Comando.Parameters.Add("@ImpVen02", SqlDbType.VarChar).Value = Obj.Venta02_Impuesto;
-                Comando.Parameters.Add("@Venta03", SqlDbType.VarChar).Value = Obj.Venta03;
-                Comando.Parameters.Add("@PorVenta03", SqlDbType.VarChar).Value = Obj.Venta03_Porcentaje;
                 Comando.Parameters.Add("@BaseVen03", SqlDbType.VarChar).Value = Obj.Venta03_BaseInicial;
+                Comando.Parameters.Add("@BaseMayorista", SqlDbType.VarChar).Value = Obj.Mayorista_BaseInicial;
+                Comando.Parameters.Add("@PorVenta01", SqlDbType.VarChar).Value = Obj.Venta01_Porcentaje;
+                Comando.Parameters.Add("@PorVenta02", SqlDbType.VarChar).Value = Obj.Venta02_Porcentaje;
+                Comando.Parameters.Add("@PorVenta03", SqlDbType.VarChar).Value = Obj.Venta03_Porcentaje;
+                Comando.Parameters.Add("@PorMayorista", SqlDbType.VarChar).Value = Obj.Mayorista_Porcentaje;
+                Comando.Parameters.Add("@ImpVen01", SqlDbType.VarChar).Value = Obj.Venta01_Impuesto;
+                Comando.Parameters.Add("@ImpVen02", SqlDbType.VarChar).Value = Obj.Venta02_Impuesto;
                 Comando.Parameters.Add("@ImpVen03", SqlDbType.VarChar).Value = Obj.Venta03_Impuesto;
-                Comando.Parameters.Add("@Mayor", SqlDbType.VarChar).Value = Obj.Mayorista;
-                Comando.Parameters.Add("@PorVenta04", SqlDbType.VarChar).Value = Obj.Mayorista_Impuesto;
-                Comando.Parameters.Add("@BaseVen04", SqlDbType.VarChar).Value = Obj.Mayorista_BaseInicial;
-                Comando.Parameters.Add("@ImpVen04", SqlDbType.VarChar).Value = Obj.Mayorista_Impuesto;
+                Comando.Parameters.Add("@ImpMayorista", SqlDbType.VarChar).Value = Obj.Mayorista_Impuesto;
+
+                Comando.Parameters.Add("@Venta01", SqlDbType.VarChar).Value = Obj.Venta01;
+                Comando.Parameters.Add("@Venta02", SqlDbType.VarChar).Value = Obj.Venta02;
+                Comando.Parameters.Add("@Venta03", SqlDbType.VarChar).Value = Obj.Venta03;
+                Comando.Parameters.Add("@Mayorista", SqlDbType.VarChar).Value = Obj.Mayorista;
                 Comando.Parameters.Add("@Unidad", SqlDbType.VarChar).Value = Obj.Unidad;
                 Comando.Parameters.Add("@Und_Det", SqlDbType.VarChar).Value = Obj.Unidad_Detalle;
 
@@ -710,6 +712,7 @@ namespace Datos
                 //Panel Datos Basicos -- Campos Obligatorios
                 Comando.Parameters.Add("@Idmarca", SqlDbType.Int).Value = Obj.Idmarca;
                 Comando.Parameters.Add("@Codigo", SqlDbType.VarChar).Value = Obj.Codigo;
+                Comando.Parameters.Add("@Area", SqlDbType.VarChar).Value = Obj.Area;
                 Comando.Parameters.Add("@Nombre", SqlDbType.VarChar).Value = Obj.Producto;
                 Comando.Parameters.Add("@ManVenc", SqlDbType.Int).Value = Obj.ManejaVencimiento;
                 Comando.Parameters.Add("@ManImpu", SqlDbType.Int).Value = Obj.ManejaImpuesto;
@@ -742,22 +745,23 @@ namespace Datos
                 Comando.Parameters.Add("@ComFinal", SqlDbType.VarChar).Value = Obj.Compra_Final;
 
                 //Panel Precios -- Campos NO Obligatorios
-                Comando.Parameters.Add("@Venta01", SqlDbType.VarChar).Value = Obj.Venta01;
-                Comando.Parameters.Add("@PorVenta01", SqlDbType.VarChar).Value = Obj.Venta01_Porcentaje;
                 Comando.Parameters.Add("@BaseVen01", SqlDbType.VarChar).Value = Obj.Venta01_BaseInicial;
-                Comando.Parameters.Add("@ImpVen01", SqlDbType.VarChar).Value = Obj.Venta01_Impuesto;
-                Comando.Parameters.Add("@Venta02", SqlDbType.VarChar).Value = Obj.Venta02;
-                Comando.Parameters.Add("@PorVenta02", SqlDbType.VarChar).Value = Obj.Venta02_Porcentaje;
                 Comando.Parameters.Add("@BaseVen02", SqlDbType.VarChar).Value = Obj.Venta02_BaseInicial;
-                Comando.Parameters.Add("@ImpVen02", SqlDbType.VarChar).Value = Obj.Venta02_Impuesto;
-                Comando.Parameters.Add("@Venta03", SqlDbType.VarChar).Value = Obj.Venta03;
-                Comando.Parameters.Add("@PorVenta03", SqlDbType.VarChar).Value = Obj.Venta03_Porcentaje;
                 Comando.Parameters.Add("@BaseVen03", SqlDbType.VarChar).Value = Obj.Venta03_BaseInicial;
+                Comando.Parameters.Add("@BaseMayorista", SqlDbType.VarChar).Value = Obj.Mayorista_BaseInicial;
+                Comando.Parameters.Add("@PorVenta01", SqlDbType.VarChar).Value = Obj.Venta01_Porcentaje;
+                Comando.Parameters.Add("@PorVenta02", SqlDbType.VarChar).Value = Obj.Venta02_Porcentaje;
+                Comando.Parameters.Add("@PorVenta03", SqlDbType.VarChar).Value = Obj.Venta03_Porcentaje;
+                Comando.Parameters.Add("@PorMayorista", SqlDbType.VarChar).Value = Obj.Mayorista_Porcentaje;
+                Comando.Parameters.Add("@ImpVen01", SqlDbType.VarChar).Value = Obj.Venta01_Impuesto;
+                Comando.Parameters.Add("@ImpVen02", SqlDbType.VarChar).Value = Obj.Venta02_Impuesto;
                 Comando.Parameters.Add("@ImpVen03", SqlDbType.VarChar).Value = Obj.Venta03_Impuesto;
-                Comando.Parameters.Add("@Mayor", SqlDbType.VarChar).Value = Obj.Mayorista;
-                Comando.Parameters.Add("@PorVenta04", SqlDbType.VarChar).Value = Obj.Mayorista_Impuesto;
-                Comando.Parameters.Add("@BaseVen04", SqlDbType.VarChar).Value = Obj.Mayorista_BaseInicial;
-                Comando.Parameters.Add("@ImpVen04", SqlDbType.VarChar).Value = Obj.Mayorista_Impuesto;
+                Comando.Parameters.Add("@ImpMayorista", SqlDbType.VarChar).Value = Obj.Mayorista_Impuesto;
+
+                Comando.Parameters.Add("@Venta01", SqlDbType.VarChar).Value = Obj.Venta01;
+                Comando.Parameters.Add("@Venta02", SqlDbType.VarChar).Value = Obj.Venta02;
+                Comando.Parameters.Add("@Venta03", SqlDbType.VarChar).Value = Obj.Venta03;
+                Comando.Parameters.Add("@Mayorista", SqlDbType.VarChar).Value = Obj.Mayorista;
                 Comando.Parameters.Add("@Unidad", SqlDbType.VarChar).Value = Obj.Unidad;
                 Comando.Parameters.Add("@Und_Det", SqlDbType.VarChar).Value = Obj.Unidad_Detalle;
 

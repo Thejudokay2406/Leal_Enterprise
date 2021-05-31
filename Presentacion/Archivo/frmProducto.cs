@@ -62,7 +62,7 @@ namespace Presentacion
         //********** Variables para la Validacion de los checkbox en el Pane Datos Basicos**************************************
 
         private string Checkbox_Vencimiento, Checkbox_Ofertable, Checkbox_Impuesto, Checkbox_Comision, Checkbox_Exportado, Checkbox_Importado = "";
-        private string Checkbox_Empaque, Checkbox_Fabricado, Checkbox_Balanza, Checkbox_Retencion,Checkbox_Compras, Checkbox_Ventas = "";
+        private string Checkbox_Empaque, Checkbox_Fabricado, Checkbox_Balanza, Checkbox_Retencion, Checkbox_Compras, Checkbox_Ventas = "";
 
         //********** Variables para la Validacion de las Transacciones en SQL **************************************************
 
@@ -79,26 +79,22 @@ namespace Presentacion
         //********** Parametros para AutoCompletar los Texboxt *****************************************************************
 
         //Panel Datos Basicos - Llaves Primarias
-        private string Idproducto, Idmarca, Idgrupo, Idtipo, Idempaque, Idbodega, Idproveedor, Idimpuesto = "";
+        private string Idproducto, Idmarca, Idgrupo, Idtipo, Idempaque = "";
 
         //Panel Datos Basicos
-        private string Codigo, Nombre, Referencia, Descripcion, Presentacion, Por_Comision, Val_Comision = "";
-        private string ManejaVencimiento, AplicaVentas, ManejaImpuesto, ManejaComision, UtilizaEmpaque, Fabricado, Importado, Exportado, AplicaOfertable, AplicaCompras, ManejaRetencion, UtilizaBalanza = "";
+        private string Codigo, Area, Nombre, Referencia, Descripcion, Descripcion02, Descripcion03, Presentacion, Comision, CompraMinima, CompraMaxima, VentaMinima, VentaMaxima = "";
 
-        //Panel - Compuesto
-        private string Compuesto, Compuesto_Descripcion, Compuesto_Medida = "";
+        private string AplicaVentas, AplicaOfertable, AplicaCompras, Fabricado, Importado, Exportado, ManejaImpuesto, ManejaVencimiento, UtilizaEmpaque, ManejaComision, ManejaRetencion, UtilizaBalanza = "";
+
+        //Panel - Fabricacion
+        private string MaterialPrincipal, MaterialSecundario, MaterialTerciario, OtroMaterial, ManoDeObra, Materiales, Envio, Almacenamiento, Maquinaria, Herramientas, Fabricacion, DiasFormal, DiasProrroga = "";
 
         //Panel - Valores y Precio
-        private string ValorCom_Promedio, ValorCom_Final, Valor_Venta01, Valor_Veenta02, Valor_Venta03, Valor_Mayorista = "";
+        private string ValorCom_Promedio, ValorCom_Final, Valor_Base01, Valor_Base02, Valor_Base03, Valor_BaseMayorista = "";
         private string Porc_Venta01, Porc_Venta02, Porc_Valor03, Porc_Mayorista = "";
-        private string ValorPorc_Valor01, ValorPorc_Valor02, ValorPorc_Valor03, ValorPorc_Mayorista = "";
+        private string Impuesto_Valor01, Impuesto_Valor02, Impuesto_Valor03, Impuesto_Mayorista = "";
 
-        private string Unidad, Unidad_Detallada, Valor_Unidad01, Valor_Unidad02, Valor_Unidad03 = "";
-        private string Porc_Unidad01, Porc_Unidad02, Porc_Unidad03 = "";
-        private string ValorPorc_Unidad01, ValorPorc_Unidad02, ValorPorc_Unidad03 = "";
-
-        //Panel - Valor de Fabricacion
-        private string Fabrica_Material01, Fabrica_Material02, Fabrica_Material03, Fabrica_OtroMaterial, Fabrica_ManoDeObra, Fabrica_Materiales, Fabrica_Envio, Fabrica_Almacenamiento, Fabrica_Maquinaria, Fabrica_Herramientas, Fabrica_CostoGeneral = "";
+        private string Unidad, Unidad_Detallada, Valor_Final01, Valor_Final02, Valor_Final03, ValorFinalMayorista = "";
 
         //Panel - Imagen
         private string Imagen = "";
@@ -120,7 +116,7 @@ namespace Presentacion
 
             //Inicio de Texbox y Combobox por default
             this.TBNombre.Select();
-            this.TBComision_Porcentaje.Text = "0";
+            this.TBComision.Text = "0";
 
             //Ocultacion de Texboxt
             this.TBIdproducto.Visible = false;
@@ -172,8 +168,8 @@ namespace Presentacion
             this.TBReferencia.BackColor = Color.FromArgb(3, 155, 229);
             this.TBPresentacion.ReadOnly = false;
             this.TBPresentacion.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBComision_Porcentaje.Enabled = false;
-            this.TBComision_Porcentaje.BackColor = Color.FromArgb(245, 245, 245);
+            this.TBComision.Enabled = false;
+            this.TBComision.BackColor = Color.FromArgb(245, 245, 245);
 
             this.TBCompraminima.ReadOnly = false;
             this.TBCompraminima.BackColor = Color.FromArgb(3, 155, 229);
@@ -290,12 +286,12 @@ namespace Presentacion
             this.TBExterior_Seguridad.BackColor = Color.FromArgb(3, 155, 229);
 
             //Panel - Fabricacion
-            this.TBFabri_Principal.ReadOnly = false;
-            this.TBFabri_Principal.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBFabri_Secundario.ReadOnly = false;
-            this.TBFabri_Secundario.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBFabri_Terciario.ReadOnly = false;
-            this.TBFabri_Terciario.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBFabri_MaterialPrincipal.ReadOnly = false;
+            this.TBFabri_MaterialPrincipal.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBFabri_MaterialSecundario.ReadOnly = false;
+            this.TBFabri_MaterialSecundario.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBFabri_MaterialTerciario.ReadOnly = false;
+            this.TBFabri_MaterialTerciario.BackColor = Color.FromArgb(3, 155, 229);
             this.TBFabri_OtroMaterial.ReadOnly = false;
             this.TBFabri_OtroMaterial.BackColor = Color.FromArgb(3, 155, 229);
             this.TBFabri_ManoDeObra.ReadOnly = false;
@@ -317,9 +313,9 @@ namespace Presentacion
             this.TBFabri_DiasProrroga.ReadOnly = false;
             this.TBFabri_DiasProrroga.BackColor = Color.FromArgb(3, 155, 229);
 
-            this.TBFabri_Principal.Text = "0";
-            this.TBFabri_Secundario.Text = "0";
-            this.TBFabri_Terciario.Text = "0";
+            this.TBFabri_MaterialPrincipal.Text = "0";
+            this.TBFabri_MaterialSecundario.Text = "0";
+            this.TBFabri_MaterialTerciario.Text = "0";
             this.TBFabri_OtroMaterial.Text = "0";
             this.TBFabri_ManoDeObra.Text = "0";
             this.TBFabri_Materiales.Text = "0";
@@ -379,15 +375,16 @@ namespace Presentacion
             //Panel - Datos Basicos
             this.TBCodigo.Clear();
             this.TBNombre.Clear();
-            this.TBDescripcion01.Clear();
             this.TBDescripcion01.Text = Campo;
+            this.TBDescripcion02.Clear();
+            this.TBDescripcion03.Clear();
             this.TBReferencia.Clear();
             this.TBPresentacion.Clear();
             this.TBVentaMinima.Clear();
             this.TBVentaMaxima.Clear();
             this.TBCompraminima.Clear();
             this.TBCompraMaxima.Clear();
-            this.TBComision_Porcentaje.Enabled = false;
+            this.TBComision.Enabled = false;
 
             this.CBMarca.SelectedIndex = 0;
             this.CBGrupo.SelectedIndex = 0;
@@ -476,9 +473,9 @@ namespace Presentacion
             this.TBExterior_Seguridad.Clear();
 
             //Panel Fabricacion
-            this.TBFabri_Principal.Clear();
-            this.TBFabri_Secundario.Clear();
-            this.TBFabri_Terciario.Clear();
+            this.TBFabri_MaterialPrincipal.Clear();
+            this.TBFabri_MaterialSecundario.Clear();
+            this.TBFabri_MaterialTerciario.Clear();
             this.TBFabri_OtroMaterial.Clear();
             this.TBFabri_ManoDeObra.Clear();
             this.TBFabri_Materiales.Clear();
@@ -488,9 +485,9 @@ namespace Presentacion
             this.TBFabri_HerramientaManual.Clear();
             this.TBFabri_TotalFabricacion.Clear();
 
-            this.TBFabri_Principal.Text = "0";
-            this.TBFabri_Secundario.Text = "0";
-            this.TBFabri_Terciario.Text = "0";
+            this.TBFabri_MaterialPrincipal.Text = "0";
+            this.TBFabri_MaterialSecundario.Text = "0";
+            this.TBFabri_MaterialTerciario.Text = "0";
             this.TBFabri_OtroMaterial.Text = "0";
             this.TBFabri_ManoDeObra.Text = "0";
             this.TBFabri_Materiales.Text = "0";
@@ -1105,22 +1102,22 @@ namespace Presentacion
                 {
                     MensajeError("Seleccione la Marca del Producto");
                 }
-                else if (this.TBCompraminima.Text == Campo)
+                else if (this.TBCompraminima.Text == String.Empty)
                 {
-                    MensajeError("Por Favor Ingrese la Cantidad de Compra Minima");
+                    MensajeError("Por Favor Ingrese la Cantidad de Compra Mínima");
                     this.TBCompraminima.Focus();
                 }
-                else if (this.TBCompraMaxima.Text == Campo)
+                else if (this.TBCompraMaxima.Text == String.Empty)
                 {
                     MensajeError("Por Favor Ingrese la Cantidad de Compra Maxima");
                     this.TBCompraMaxima.Focus();
                 }
-                else if (this.TBVentaMinima.Text == Campo)
+                else if (this.TBVentaMinima.Text == String.Empty)
                 {
-                    MensajeError("Por Favor Ingrese la Cantidad de Venta Minima");
+                    MensajeError("Por Favor Ingrese la Cantidad de Venta Mínima");
                     this.TBVentaMinima.Focus();
                 }
-                else if (this.TBVentaMaxima.Text == Campo)
+                else if (this.TBVentaMaxima.Text == String.Empty)
                 {
                     MensajeError("Por Favor Ingrese la Cantidad de Venta Maxima");
                     this.TBVentaMaxima.Focus();
@@ -1151,9 +1148,9 @@ namespace Presentacion
                                  Convert.ToInt32(Tran_Ubicacion), Convert.ToInt32(Tran_Igualdad), Convert.ToInt32(Tran_Impuesto), Convert.ToInt32(Tran_Proveedor), Convert.ToInt32(Tran_CodBarra), Convert.ToInt32(Tran_Compuesto), Convert.ToInt32(Tran_Exterior),
 
                                  //Panel Datos Basicos
-                                 this.CBArea.Text, this.TBCodigo.Text, this.TBNombre.Text, this.TBReferencia.Text, this.TBDescripcion01.Text, this.TBPresentacion.Text, Convert.ToInt64(this.TBComision_Porcentaje.Text),
+                                 this.CBArea.Text, this.TBCodigo.Text, this.TBNombre.Text, this.TBReferencia.Text, this.TBDescripcion01.Text, this.TBPresentacion.Text, Convert.ToInt64(this.TBComision.Text),
 
-                                 Convert.ToInt32(Checkbox_Vencimiento), Convert.ToInt32(Checkbox_Impuesto), Convert.ToInt32(Checkbox_Importado), Convert.ToInt32(Checkbox_Exportado), Convert.ToInt32(Checkbox_Ofertable), Convert.ToInt32(Checkbox_Fabricado), Convert.ToInt32(Checkbox_Comision), Convert.ToInt32(Checkbox_Empaque), Convert.ToInt32(Checkbox_Balanza), Convert.ToInt32(Checkbox_Retencion),Convert.ToInt64(TBCompraminima.Text), Convert.ToInt32(Checkbox_Compras), Convert.ToInt32(Checkbox_Ventas),Convert.ToInt64(TBCompraMaxima.Text), Convert.ToInt64(TBVentaMinima.Text), Convert.ToInt64(TBVentaMaxima.Text),
+                                 Convert.ToInt32(Checkbox_Vencimiento), Convert.ToInt32(Checkbox_Impuesto), Convert.ToInt32(Checkbox_Importado), Convert.ToInt32(Checkbox_Exportado), Convert.ToInt32(Checkbox_Ofertable), Convert.ToInt32(Checkbox_Fabricado), Convert.ToInt32(Checkbox_Comision), Convert.ToInt32(Checkbox_Empaque), Convert.ToInt32(Checkbox_Balanza), Convert.ToInt32(Checkbox_Retencion), Convert.ToInt64(TBCompraminima.Text), Convert.ToInt32(Checkbox_Compras), Convert.ToInt32(Checkbox_Ventas), Convert.ToInt64(TBCompraMaxima.Text), Convert.ToInt64(TBVentaMinima.Text), Convert.ToInt64(TBVentaMaxima.Text),
 
                                  //Panel de Valores - Datos Basicos
                                  Convert.ToDouble(this.TBValor_CompraPromedio.Text), Convert.ToDouble(this.TBValor_CompraFinal.Text), Convert.ToDouble(this.TBValor_Venta01.Text), Convert.ToDouble(this.TBValor_Venta02.Text), Convert.ToDouble(this.TBValor_Venta03.Text), Convert.ToDouble(this.TBValor_Mayorista.Text),
@@ -1171,7 +1168,7 @@ namespace Presentacion
                                  this.CBUnidad.Text, this.TBValor_Unidad.Text,
 
                                  //Panel - Fabricacion
-                                 Convert.ToDouble(this.TBFabri_Principal.Text), Convert.ToDouble(this.TBFabri_Secundario.Text), Convert.ToDouble(this.TBFabri_Terciario.Text), Convert.ToDouble(this.TBFabri_OtroMaterial.Text), Convert.ToDouble(this.TBFabri_ManoDeObra.Text), Convert.ToDouble(this.TBFabri_Materiales.Text), Convert.ToDouble(this.TBFabri_Envio.Text), Convert.ToDouble(this.TBFabri_Almacenamiento.Text), Convert.ToDouble(this.TBFabri_Maquinaria.Text), Convert.ToDouble(this.TBFabri_HerramientaManual.Text), Convert.ToDouble(this.TBFabri_TotalFabricacion.Text), Convert.ToInt64(this.TBFabri_DiasFormal.Text), Convert.ToInt64(this.TBFabri_DiasProrroga.Text),
+                                 Convert.ToDouble(this.TBFabri_MaterialPrincipal.Text), Convert.ToDouble(this.TBFabri_MaterialSecundario.Text), Convert.ToDouble(this.TBFabri_MaterialTerciario.Text), Convert.ToDouble(this.TBFabri_OtroMaterial.Text), Convert.ToDouble(this.TBFabri_ManoDeObra.Text), Convert.ToDouble(this.TBFabri_Materiales.Text), Convert.ToDouble(this.TBFabri_Envio.Text), Convert.ToDouble(this.TBFabri_Almacenamiento.Text), Convert.ToDouble(this.TBFabri_Maquinaria.Text), Convert.ToDouble(this.TBFabri_HerramientaManual.Text), Convert.ToDouble(this.TBFabri_TotalFabricacion.Text), Convert.ToInt64(this.TBFabri_DiasFormal.Text), Convert.ToInt64(this.TBFabri_DiasProrroga.Text),
 
                                  //Tabla de Detalles - Lote, Impuesto, Igualdad, Proveedor, Ubicacion, Codigo de Barra - Detalles de Productos
                                  this.DtDetalle_Impuesto, this.DtDetalle_Igualdad, this.DtDetalle_Proveedor, this.DtDetalle_Ubicacion, this.DtDetalle_CodigoDeBarra, this.DtDetalle_Exterior, this.DtDetalle_Compuesto,
@@ -1194,9 +1191,9 @@ namespace Presentacion
                                  Convert.ToInt32(Tran_Ubicacion), Convert.ToInt32(Tran_Igualdad), Convert.ToInt32(Tran_Impuesto), Convert.ToInt32(Tran_Proveedor), Convert.ToInt32(Tran_CodBarra), Convert.ToInt32(Tran_Compuesto), Convert.ToInt32(Tran_Exterior),
 
                                  //Panel Datos Basicos
-                                 this.CBArea.Text, this.TBCodigo.Text, this.TBNombre.Text, this.TBReferencia.Text, this.TBDescripcion01.Text, this.TBPresentacion.Text, Convert.ToInt64(this.TBComision_Porcentaje.Text),
+                                 this.CBArea.Text, this.TBCodigo.Text, this.TBNombre.Text, this.TBReferencia.Text, this.TBDescripcion01.Text, this.TBPresentacion.Text, Convert.ToInt64(this.TBComision.Text),
 
-                                 Convert.ToInt32(Checkbox_Vencimiento), Convert.ToInt32(Checkbox_Impuesto), Convert.ToInt32(Checkbox_Importado), Convert.ToInt32(Checkbox_Exportado), Convert.ToInt32(Checkbox_Ofertable), Convert.ToInt32(Checkbox_Fabricado), Convert.ToInt32(Checkbox_Comision), Convert.ToInt32(Checkbox_Empaque), Convert.ToInt32(Checkbox_Balanza), Convert.ToInt32(Checkbox_Retencion), Convert.ToInt32(Checkbox_Compras), Convert.ToInt32(Checkbox_Ventas),Convert.ToInt64(TBCompraminima.Text), Convert.ToInt64(TBCompraMaxima.Text), Convert.ToInt64(TBVentaMinima.Text), Convert.ToInt64(TBVentaMaxima.Text),
+                                 Convert.ToInt32(Checkbox_Vencimiento), Convert.ToInt32(Checkbox_Impuesto), Convert.ToInt32(Checkbox_Importado), Convert.ToInt32(Checkbox_Exportado), Convert.ToInt32(Checkbox_Ofertable), Convert.ToInt32(Checkbox_Fabricado), Convert.ToInt32(Checkbox_Comision), Convert.ToInt32(Checkbox_Empaque), Convert.ToInt32(Checkbox_Balanza), Convert.ToInt32(Checkbox_Retencion), Convert.ToInt32(Checkbox_Compras), Convert.ToInt32(Checkbox_Ventas), Convert.ToInt64(TBCompraminima.Text), Convert.ToInt64(TBCompraMaxima.Text), Convert.ToInt64(TBVentaMinima.Text), Convert.ToInt64(TBVentaMaxima.Text),
 
                                  //Panel de Valores - Datos Basicos
                                  Convert.ToDouble(this.TBValor_CompraPromedio.Text), Convert.ToDouble(this.TBValor_CompraFinal.Text), Convert.ToDouble(this.TBValor_Venta01.Text), Convert.ToDouble(this.TBValor_Venta02.Text), Convert.ToDouble(this.TBValor_Venta03.Text), Convert.ToDouble(this.TBValor_Mayorista.Text),
@@ -1214,7 +1211,7 @@ namespace Presentacion
                                  this.CBUnidad.Text, this.TBValor_Unidad.Text,
 
                                  //Panel - Fabricacion
-                                 Convert.ToDouble(this.TBFabri_Principal.Text), Convert.ToDouble(this.TBFabri_Secundario.Text), Convert.ToDouble(this.TBFabri_Terciario.Text), Convert.ToDouble(this.TBFabri_OtroMaterial.Text), Convert.ToDouble(this.TBFabri_ManoDeObra.Text), Convert.ToDouble(this.TBFabri_Materiales.Text), Convert.ToDouble(this.TBFabri_Envio.Text), Convert.ToDouble(this.TBFabri_Almacenamiento.Text), Convert.ToDouble(this.TBFabri_Maquinaria.Text), Convert.ToDouble(this.TBFabri_HerramientaManual.Text), Convert.ToDouble(this.TBFabri_TotalFabricacion.Text), Convert.ToInt64(this.TBFabri_DiasFormal.Text), Convert.ToInt64(this.TBFabri_DiasProrroga.Text),
+                                 Convert.ToDouble(this.TBFabri_MaterialPrincipal.Text), Convert.ToDouble(this.TBFabri_MaterialSecundario.Text), Convert.ToDouble(this.TBFabri_MaterialTerciario.Text), Convert.ToDouble(this.TBFabri_OtroMaterial.Text), Convert.ToDouble(this.TBFabri_ManoDeObra.Text), Convert.ToDouble(this.TBFabri_Materiales.Text), Convert.ToDouble(this.TBFabri_Envio.Text), Convert.ToDouble(this.TBFabri_Almacenamiento.Text), Convert.ToDouble(this.TBFabri_Maquinaria.Text), Convert.ToDouble(this.TBFabri_HerramientaManual.Text), Convert.ToDouble(this.TBFabri_TotalFabricacion.Text), Convert.ToInt64(this.TBFabri_DiasFormal.Text), Convert.ToInt64(this.TBFabri_DiasProrroga.Text),
 
                                  //Tabla de Detalles - Lote, Impuesto, Igualdad, Proveedor, Ubicacion, Codigo de Barra - Detalles de Productos
                                  this.DtDetalle_Impuesto, this.DtDetalle_Igualdad, this.DtDetalle_Proveedor, this.DtDetalle_Ubicacion, this.DtDetalle_CodigoDeBarra, this.DtDetalle_Exterior, this.DtDetalle_Compuesto,
@@ -2268,7 +2265,7 @@ namespace Presentacion
 
                     if (CHManejaComision.Checked)
                     {
-                        this.TBComision_Porcentaje.Select();
+                        this.TBComision.Select();
                     }
                     else
                     {
@@ -3026,6 +3023,21 @@ namespace Presentacion
                 this.TBValor_Venta03.BackColor = Color.FromArgb(245, 245, 245);
                 this.TBValor_Mayorista.Enabled = false;
                 this.TBValor_Mayorista.BackColor = Color.FromArgb(245, 245, 245);
+
+                this.TBValor_PorVenta01.Text = "0";
+                this.TBValor_PorVenta02.Text = "0";
+                this.TBValor_PorVenta03.Text = "0";
+                this.TBValor_PorMayorista.Text = "0";
+
+                this.TBValor_ImpVenta01.Text = "0";
+                this.TBValor_ImpVenta02.Text = "0";
+                this.TBValor_ImpVenta03.Text = "0";
+                this.TBValor_ImpMayorista.Text = "0";
+
+                this.TBValor_Venta01.Text = "0";
+                this.TBValor_Venta02.Text = "0";
+                this.TBValor_Venta03.Text = "0";
+                this.TBValor_Mayorista.Text = "0";
 
 
                 //Panel - Valores
@@ -4225,12 +4237,12 @@ namespace Presentacion
 
         private void TBComision_Porcentaje_Enter(object sender, EventArgs e)
         {
-            this.TBComision_Porcentaje.BackColor = Color.Azure;
+            this.TBComision.BackColor = Color.Azure;
         }
 
         private void TBComision_Porcentaje_Leave(object sender, EventArgs e)
         {
-            this.TBComision_Porcentaje.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBComision.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         //*********** PANEL COMPUESTO - EVENTO ENTER *********** 
@@ -4294,19 +4306,19 @@ namespace Presentacion
         private void TBFabri_Material01_Enter(object sender, EventArgs e)
         {
             //Se evalua si el campo de texto esta vacio y se espeicifca si es obligatorio en la base de datos
-            this.TBFabri_Principal.BackColor = Color.Azure;
+            this.TBFabri_MaterialPrincipal.BackColor = Color.Azure;
         }
 
         private void TBFabri_Material02_Enter(object sender, EventArgs e)
         {
             //Se evalua si el campo de texto esta vacio y se espeicifca si es obligatorio en la base de datos
-            this.TBFabri_Secundario.BackColor = Color.Azure;
+            this.TBFabri_MaterialSecundario.BackColor = Color.Azure;
         }
 
         private void TBFabri_Material03_Enter(object sender, EventArgs e)
         {
             //Se evalua si el campo de texto esta vacio y se espeicifca si es obligatorio en la base de datos
-            this.TBFabri_Terciario.BackColor = Color.Azure;
+            this.TBFabri_MaterialTerciario.BackColor = Color.Azure;
         }
 
         private void TBFabri_OtroMaterial_Enter(object sender, EventArgs e)
@@ -4622,7 +4634,7 @@ namespace Presentacion
         private void TBFabri_Material01_Leave(object sender, EventArgs e)
         {
             //Color de texboxt cuando este posee el FOCUS Activado
-            this.TBFabri_Principal.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBFabri_MaterialPrincipal.BackColor = Color.FromArgb(3, 155, 229);
 
             // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
             TextBox tb = (TextBox)sender;
@@ -4651,7 +4663,7 @@ namespace Presentacion
         private void TBFabri_Material02_Leave(object sender, EventArgs e)
         {
             //Color de texboxt cuando este posee el FOCUS Activado
-            this.TBFabri_Secundario.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBFabri_MaterialSecundario.BackColor = Color.FromArgb(3, 155, 229);
 
             // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
             TextBox tb = (TextBox)sender;
@@ -4680,7 +4692,7 @@ namespace Presentacion
         private void TBFabri_Material03_Leave(object sender, EventArgs e)
         {
             //Color de texboxt cuando este posee el FOCUS Activado
-            this.TBFabri_Terciario.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBFabri_MaterialTerciario.BackColor = Color.FromArgb(3, 155, 229);
 
             // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
             TextBox tb = (TextBox)sender;
@@ -6129,7 +6141,7 @@ namespace Presentacion
                 {
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
-                    this.TBFabri_Secundario.Select();
+                    this.TBFabri_MaterialSecundario.Select();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
@@ -6214,7 +6226,7 @@ namespace Presentacion
                 {
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
-                    this.TBFabri_Terciario.Select();
+                    this.TBFabri_MaterialTerciario.Select();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
@@ -6348,7 +6360,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBFabri_Terciario.Select();
+                            this.TBFabri_MaterialTerciario.Select();
                         }
                     }
                     else
@@ -6365,7 +6377,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBFabri_Terciario.Select();
+                            this.TBFabri_MaterialTerciario.Select();
                         }
                     }
                 }
@@ -7693,7 +7705,7 @@ namespace Presentacion
                 {
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
-                    this.TBFabri_Principal.Select();
+                    this.TBFabri_MaterialPrincipal.Select();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
@@ -8898,7 +8910,7 @@ namespace Presentacion
                     {
                         this.MensajeError("Por favor Especifique el Proveedor");
                     }
-                    
+
                     else
                     {
                         bool agregar = true;
@@ -8945,7 +8957,7 @@ namespace Presentacion
                     {
                         this.MensajeError("Por favor Especifique el Proveedor");
                     }
-                    
+
                     else
                     {
                         bool agregar = true;
@@ -9125,40 +9137,42 @@ namespace Presentacion
 
         private void CHFabricado_CheckedChanged(object sender, EventArgs e)
         {
-            if (CHFabricado.Checked)
+            if (Digitar)
             {
-                this.TCPrincipal.TabPages.Add(TPFabricacion);
-                this.TBFabri_Principal.Clear();
-                this.TBFabri_Secundario.Clear();
-                this.TBFabri_Terciario.Clear();
-                this.TBFabri_OtroMaterial.Clear();
-                this.TBFabri_ManoDeObra.Clear();
-                this.TBFabri_Materiales.Clear();
-                this.TBFabri_Envio.Clear();
-                this.TBFabri_Almacenamiento.Clear();
-                this.TBFabri_Maquinaria.Clear();
-                this.TBFabri_HerramientaManual.Clear();
-                this.TBFabri_TotalFabricacion.Clear();
-                this.TBFabri_DiasFormal.Clear();
-                this.TBFabri_DiasProrroga.Clear();
-            }
-            else
-            {
-                this.TCPrincipal.TabPages.Remove(TPFabricacion);
+                if (CHFabricado.Checked)
+                {
+                    this.TCPrincipal.TabPages.Add(TPFabricacion);
+                }
+                else
+                {
+                    this.TCPrincipal.TabPages.Remove(TPFabricacion);
 
-                this.TBFabri_Principal.Text = "0";
-                this.TBFabri_Secundario.Text = "0";
-                this.TBFabri_Terciario.Text = "0";
-                this.TBFabri_OtroMaterial.Text = "0";
-                this.TBFabri_ManoDeObra.Text = "0";
-                this.TBFabri_Materiales.Text = "0";
-                this.TBFabri_Envio.Text = "0";
-                this.TBFabri_Almacenamiento.Text = "0";
-                this.TBFabri_Maquinaria.Text = "0";
-                this.TBFabri_HerramientaManual.Text = "0";
-                this.TBFabri_TotalFabricacion.Text = "0";
-                this.TBFabri_DiasFormal.Text = "0";
-                this.TBFabri_DiasProrroga.Text = "0";
+                    this.TBFabri_MaterialPrincipal.Text = "0";
+                    this.TBFabri_MaterialSecundario.Text = "0";
+                    this.TBFabri_MaterialTerciario.Text = "0";
+                    this.TBFabri_OtroMaterial.Text = "0";
+                    this.TBFabri_ManoDeObra.Text = "0";
+                    this.TBFabri_Materiales.Text = "0";
+                    this.TBFabri_Envio.Text = "0";
+                    this.TBFabri_Almacenamiento.Text = "0";
+                    this.TBFabri_Maquinaria.Text = "0";
+                    this.TBFabri_HerramientaManual.Text = "0";
+                    this.TBFabri_TotalFabricacion.Text = "0";
+                    this.TBFabri_DiasFormal.Text = "0";
+                    this.TBFabri_DiasProrroga.Text = "0";
+                }
+            }
+
+            else if (!Digitar)
+            {
+                if (CHFabricado.Checked)
+                {
+                    this.TCPrincipal.TabPages.Add(TPFabricacion);
+                }
+                else
+                {
+                    this.TCPrincipal.TabPages.Remove(TPFabricacion);
+                }
             }
         }
 
@@ -9568,15 +9582,15 @@ namespace Presentacion
         {
             if (CHManejaComision.Checked)
             {
-                this.TBComision_Porcentaje.Enabled = true;
-                this.TBComision_Porcentaje.BackColor = Color.FromArgb(3, 155, 229);
-                this.TBComision_Porcentaje.Text = "0";
+                this.TBComision.Enabled = true;
+                this.TBComision.BackColor = Color.FromArgb(3, 155, 229);
+                this.TBComision.Text = "0";
             }
             else
             {
-                this.TBComision_Porcentaje.Enabled = false;
-                this.TBComision_Porcentaje.BackColor = Color.FromArgb(245, 245, 245);
-                this.TBComision_Porcentaje.Text = "0";
+                this.TBComision.Enabled = false;
+                this.TBComision.BackColor = Color.FromArgb(245, 245, 245);
+                this.TBComision.Text = "0";
             }
         }
 
@@ -9690,13 +9704,13 @@ namespace Presentacion
         private void TBComision_Enter(object sender, EventArgs e)
         {
             //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
-            this.TBComision_Porcentaje.BackColor = Color.Azure;
+            this.TBComision.BackColor = Color.Azure;
         }
 
         private void TBComision_Leave(object sender, EventArgs e)
         {
             //Color de texboxt cuando este posee el FOCUS Activado
-            this.TBComision_Porcentaje.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBComision.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBVentaMayorista_KeyUp(object sender, KeyEventArgs e)
@@ -9837,7 +9851,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBComision_Porcentaje.Select();
+                            this.TBComision.Select();
                         }
                     }
                     else
@@ -9854,7 +9868,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBComision_Porcentaje.Select();
+                            this.TBComision.Select();
                         }
                     }
                 }
@@ -10164,7 +10178,7 @@ namespace Presentacion
                 {
                     if (TBBuscar.Text != "")
                     {
-                        this.DGResultados.DataSource = fProducto_Inventario.Buscar(1,this.TBBuscar.Text);
+                        this.DGResultados.DataSource = fProducto_Inventario.Buscar(1, this.TBBuscar.Text);
                         //this.DGResultados.Columns[0].Visible = false;
 
                         this.lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGResultados.Rows.Count);
@@ -10210,7 +10224,9 @@ namespace Presentacion
                     {
                         //Captura de Valores en la Base de Datos
 
+
                         //Panel Datos Basicos - Llaves Primarias
+                        //Idproducto = Datos.Rows[0][0].ToString();
                         Idmarca = Datos.Rows[0][0].ToString();
                         Idgrupo = Datos.Rows[0][1].ToString();
                         Idtipo = Datos.Rows[0][2].ToString();
@@ -10218,45 +10234,71 @@ namespace Presentacion
 
                         //Panel Datos Basicos
                         Codigo = Datos.Rows[0][4].ToString();
-                        Nombre = Datos.Rows[0][5].ToString();
-                        Referencia = Datos.Rows[0][6].ToString();
-                        Descripcion = Datos.Rows[0][7].ToString();
-                        Presentacion = Datos.Rows[0][8].ToString();
-                        Por_Comision = Datos.Rows[0][9].ToString();
-                        Val_Comision = Datos.Rows[0][10].ToString();
-                        Unidad = Datos.Rows[0][11].ToString();
-                        ManejaVencimiento = Datos.Rows[0][12].ToString();
-                        ManejaImpuesto = Datos.Rows[0][13].ToString();
-                        Importado = Datos.Rows[0][14].ToString();
-                        Exportado = Datos.Rows[0][15].ToString();
-                        AplicaOfertable = Datos.Rows[0][16].ToString();
-                        ManejaComision = Datos.Rows[0][17].ToString();
+                        Area = Datos.Rows[0][5].ToString();
+                        Nombre = Datos.Rows[0][6].ToString();
+                        Referencia = Datos.Rows[0][7].ToString();
+                        Descripcion = Datos.Rows[0][8].ToString();
+                        Descripcion02 = Datos.Rows[0][9].ToString();
+                        Descripcion03 = Datos.Rows[0][10].ToString();
+                        Presentacion = Datos.Rows[0][11].ToString();
+                        Comision = Datos.Rows[0][12].ToString();
+                        CompraMinima = Datos.Rows[0][13].ToString();
+                        CompraMaxima = Datos.Rows[0][14].ToString();
+                        VentaMinima = Datos.Rows[0][15].ToString();
+                        VentaMaxima = Datos.Rows[0][16].ToString();
 
-                        //Panel - Valores
-                        //Valor_Promedio = Datos.Rows[0][18].ToString();
-                        //ValCom_Final = Datos.Rows[0][19].ToString();
-                        //Valor_Excento = Datos.Rows[0][20].ToString();
-                        //Valor_NoExcento = Datos.Rows[0][21].ToString();
-                        //Valor_Mayorista = Datos.Rows[0][22].ToString();
-                        //Valor_Fabricacion = Datos.Rows[0][23].ToString();
-                        //Valor_Materiales = Datos.Rows[0][24].ToString();
-                        //Valor_Exportacion = Datos.Rows[0][25].ToString();
-                        //Valor_Importacion = Datos.Rows[0][26].ToString();
-                        //Valor_Seguro = Datos.Rows[0][27].ToString();
-                        //Valor_Otros = Datos.Rows[0][28].ToString();
+                        AplicaVentas = Datos.Rows[0][17].ToString();
+                        AplicaOfertable = Datos.Rows[0][18].ToString();
+                        AplicaCompras = Datos.Rows[0][19].ToString();
+                        Fabricado = Datos.Rows[0][20].ToString();
+                        Importado = Datos.Rows[0][21].ToString();
+                        Exportado = Datos.Rows[0][22].ToString();
+                        ManejaImpuesto = Datos.Rows[0][23].ToString();
+                        ManejaVencimiento = Datos.Rows[0][24].ToString();
+                        UtilizaEmpaque = Datos.Rows[0][25].ToString();
+                        ManejaComision = Datos.Rows[0][26].ToString();
+                        ManejaRetencion = Datos.Rows[0][27].ToString();
+                        UtilizaBalanza = Datos.Rows[0][28].ToString();
 
-                        ////
-                        //VenMin_Cliente = Datos.Rows[0][29].ToString();
-                        //VenMax_Cliente = Datos.Rows[0][30].ToString();
-                        //VenMin_Mayorista = Datos.Rows[0][31].ToString();
-                        //VenMax_Mayorista = Datos.Rows[0][32].ToString();
-                        //ComMin_Cliente = Datos.Rows[0][33].ToString();
-                        //ComMax_Cliente = Datos.Rows[0][34].ToString();
-                        //ComMin_Mayorista = Datos.Rows[0][35].ToString();
-                        //ComMax_Mayorista = Datos.Rows[0][36].ToString();
+                        //Panel - Fabricacion
+                        MaterialPrincipal = Datos.Rows[0][29].ToString();
+                        MaterialSecundario = Datos.Rows[0][30].ToString();
+                        MaterialTerciario = Datos.Rows[0][31].ToString();
+                        OtroMaterial = Datos.Rows[0][32].ToString();
+                        ManoDeObra = Datos.Rows[0][33].ToString();
+                        Materiales = Datos.Rows[0][34].ToString();
+                        Envio = Datos.Rows[0][35].ToString();
+                        Almacenamiento = Datos.Rows[0][36].ToString();
+                        Maquinaria = Datos.Rows[0][37].ToString();
+                        Herramientas = Datos.Rows[0][38].ToString();
+                        Fabricacion = Datos.Rows[0][39].ToString();
+                        DiasFormal = Datos.Rows[0][40].ToString();
+                        DiasProrroga = Datos.Rows[0][41].ToString();
+
+                        //Panel - Valores y Precio
+                        ValorCom_Promedio = Datos.Rows[0][42].ToString();
+                        ValorCom_Final = Datos.Rows[0][43].ToString();
+                        Valor_Base01 = Datos.Rows[0][44].ToString();
+                        Valor_Base02 = Datos.Rows[0][45].ToString();
+                        Valor_Base03 = Datos.Rows[0][46].ToString();
+                        Valor_BaseMayorista = Datos.Rows[0][47].ToString();
+                        Porc_Venta01 = Datos.Rows[0][48].ToString();
+                        Porc_Venta02 = Datos.Rows[0][49].ToString();
+                        Porc_Valor03 = Datos.Rows[0][50].ToString();
+                        Porc_Mayorista = Datos.Rows[0][51].ToString();
+                        Impuesto_Valor01 = Datos.Rows[0][52].ToString();
+                        Impuesto_Valor02 = Datos.Rows[0][53].ToString();
+                        Impuesto_Valor03 = Datos.Rows[0][54].ToString();
+                        Impuesto_Mayorista = Datos.Rows[0][55].ToString();
+                        Valor_Final01 = Datos.Rows[0][56].ToString();
+                        Valor_Final02 = Datos.Rows[0][57].ToString();
+                        Valor_Final03 = Datos.Rows[0][58].ToString();
+                        ValorFinalMayorista = Datos.Rows[0][59].ToString();
+                        Unidad = Datos.Rows[0][60].ToString();
+                        Unidad_Detallada = Datos.Rows[0][61].ToString();
 
                         //
-                        //Imagen = Datos.Rows[0][38].ToString();
+                        Imagen = Datos.Rows[0][62].ToString();
 
                         //Se procede a completar los campos de texto segun las consulta
                         //Realizada anteriormente en la base de datos
@@ -10277,33 +10319,79 @@ namespace Presentacion
                         //this.CBBodega.SelectedValue = Bodega_SQL;
 
                         //Panel Datos Basicos
-                        this.TBCodigo.Text = Codigo;
-                        this.TBIdproveedor.Text = Idproveedor;
-                        this.TBIdimpuesto.Text = Idimpuesto;
+                        Idmarca = Datos.Rows[0][0].ToString();
+                        Idgrupo = Datos.Rows[0][1].ToString();
+                        Idtipo = Datos.Rows[0][0].ToString();
+                        Idempaque = Datos.Rows[0][0].ToString();
 
                         //Panel Datos Basicos
                         this.TBCodigo.Text = Codigo;
+                        this.CBArea.Text = Area;
                         this.TBNombre.Text = Nombre;
                         this.TBReferencia.Text = Referencia;
                         this.TBDescripcion01.Text = Descripcion;
+                        this.TBDescripcion02.Text = Descripcion02;
+                        this.TBDescripcion03.Text = Descripcion03;
                         this.TBPresentacion.Text = Presentacion;
+                        this.TBComision.Text = Comision;
+                        this.TBCompraminima.Text = CompraMinima;
+                        this.TBCompraMaxima.Text = CompraMaxima;
+                        this.TBVentaMinima.Text = VentaMinima;
+                        this.TBVentaMaxima.Text = VentaMaxima;
+
+                        //this.tb.Text=AplicaVentas;
+                        //this.tb.Text=AplicaOfertable;
+                        //this.tb.Text=AplicaCompras;
+                        //this.tb.Text = Fabricado;
+                        //this.tb.Text = Importado;
+                        //this.tb.Text = Exportado;
+                        //this.tb.Text = ManejaImpuesto;
+                        //this.tb.Text = ManejaVencimiento;
+                        //this.tb.Text = UtilizaEmpaque;
+                        //this.tb.Text = ManejaComision;
+                        //this.tb.Text = ManejaRetencion;
+                        //this.tb.Text = UtilizaBalanza;
+
+                        //Panel - Fabricacion
+                        this.TBFabri_MaterialPrincipal.Text = MaterialPrincipal;
+                        this.TBFabri_MaterialSecundario.Text = MaterialSecundario;
+                        this.TBFabri_MaterialTerciario.Text = MaterialTerciario;
+                        this.TBFabri_OtroMaterial.Text = OtroMaterial;
+                        this.TBFabri_ManoDeObra.Text = ManoDeObra;
+                        this.TBFabri_Materiales.Text = Materiales;
+                        this.TBFabri_Envio.Text = Envio;
+                        this.TBFabri_Almacenamiento.Text = Almacenamiento;
+                        this.TBFabri_Maquinaria.Text = Maquinaria;
+                        this.TBFabri_HerramientaManual.Text = Herramientas;
+                        this.TBFabri_TotalFabricacion.Text = Fabricacion;
+                        this.TBFabri_DiasFormal.Text = DiasFormal;
+                        this.TBFabri_DiasProrroga.Text = DiasProrroga;
+
+                        //Panel - Valores y Precio
+                        this.TBValor_CompraPromedio.Text = ValorCom_Promedio;
+                        this.TBValor_CompraFinal.Text = ValorCom_Final;
+                        this.TBValorBase_Inicial01.Text = Valor_Base01;
+                        this.TBValorBase_Inicial02.Text = Valor_Base02;
+                        this.TBValorBase_Inicial03.Text = Valor_Base03;
+                        this.TBValorBase_InicialMayorista.Text = Valor_BaseMayorista;
+                        this.TBValor_PorVenta01.Text = Porc_Venta01;
+                        this.TBValor_PorVenta02.Text = Porc_Venta02;
+                        this.TBValor_PorVenta03.Text = Porc_Valor03;
+                        this.TBValor_PorMayorista.Text = Porc_Mayorista;
+                        this.TBValor_ImpVenta01.Text = Impuesto_Valor01;
+                        this.TBValor_ImpVenta02.Text = Impuesto_Valor02;
+                        this.TBValor_ImpVenta03.Text = Impuesto_Valor03;
+                        this.TBValor_ImpMayorista.Text = Impuesto_Mayorista;
+                        this.TBValor_Venta01.Text = Valor_Final01;
+                        this.TBValor_Venta02.Text = Valor_Final02;
+                        this.TBValor_Venta03.Text = Valor_Final03;
+                        this.TBValor_Mayorista.Text = ValorFinalMayorista;
                         this.CBUnidad.Text = Unidad;
+                        this.TBValor_Unidad.Text = Unidad_Detallada;
 
-                        ////Panel - Valores
-                        //this.TBCompraPromedio.Text = Valor_Promedio;
-                        //this.TBCompraFinal.Text = ValCom_Final;
-                        //this.TBValorVenta_01.Text = Valor_Excento;
-                        //this.TBValorVenta_02.Text = Valor_NoExcento;
-                        //this.TBVentaMayorista.Text = Valor_Mayorista;
-                        //this.TBCosto_Fabricacion.Text = Valor_Fabricacion;
-                        //this.TBCostos_Materiales.Text = Valor_Materiales;
-                        //this.TBCostos_Exportacion.Text = Valor_Exportacion;
-                        //this.TBCostos_Imprtacion.Text = Valor_Importacion;
-                        //this.TBCostos_Seguridad.Text = Valor_Seguro;
-                        //this.TBCostos_Adicional.Text = Valor_Otros;
+                        //PANEL IMAGEN
+                        Imagen = Datos.Rows[0][38].ToString();
 
-                        //Panel - Imagen
-                        //this.PB_Imagen.Image = Imagen;
 
                         //Se proceden a Validar los Chexboxt si estan activos o no
 
