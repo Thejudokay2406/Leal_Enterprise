@@ -123,15 +123,15 @@ namespace Negocio
                 int Tran_Ubicacion, int Tran_Igualdad, int Tran_Impuesto, int Tran_Proveedor, int Tran_CodBarra, int Tran_Compuesto, int Tran_Exterior,
 
                 //Datos Basicos
-                string Codigo, string Producto, string Referencia, string Descripcion, string Presentacion, Int64 Comision, int ManejaVencimiento, int ManejaImpuesto, int Importado, int Exportado, int Ofertable, int Fabricado, int ManejaComision, int ManejaEmpaque, int ManejaBalanza, int ManejaRetencion,
+                string Area, string Codigo, string Producto, string Referencia, string Descripcion, string Presentacion, Int64 Comision, int ManejaVencimiento, int ManejaImpuesto, int Importado, int Exportado, int Ofertable, int Fabricado, int ManejaComision, int ManejaEmpaque, int ManejaBalanza, int ManejaRetencion, Int64 CompraMinima, Int64 CompraMaxima, Int64 VentaMinina, Int64 VentaMaxima,
 
                 //Valores
                 double Compra_Promedio, double Compra_Final, double Venta01, double Venta02, double Venta03, double Mayorista, double Venta01_Porcentaje, double Venta02_Porcentaje, double Venta03_Porcentaje, double Mayorista_Porcentaje, double Venta01_BaseInicial, double Venta02_BaseInicial, double Venta03_BaseInicial, double Mayorista_BaseInicial, double Venta01_Impuesto, double Venta02_Impuesto, double Venta03_Impuesto, double Mayorista_Impuesto,
 
-                string Unidad, string Unidad_Detalle, 
+                string Unidad, string Unidad_Detalle,
 
                 //Panel - Fabricacion
-                double Material_Principal, double Material_Secundario, double Material_Terciario, double Material_OtroMaterial, double ManoDeObra, double Materiales, double Envio, double Almacenamiento, double Maquinaria, double Herramientas_Manuales, double CostoFabricacion,
+                double Material_Principal, double Material_Secundario, double Material_Terciario, double Material_OtroMaterial, double ManoDeObra, double Materiales, double Envio, double Almacenamiento, double Maquinaria, double Herramientas_Manuales, double CostoFabricacion, Int64 DiasFormal, Int64 DiasProrroga,
 
                 //Detalles de Productos
                 DataTable Detalle_Impuesto, DataTable Detalle_Igualdad, DataTable Detalle_Proveedor, DataTable Detalle_Ubicacion, DataTable Detalle_CodigoDeBarra, DataTable Detalle_Exterior, DataTable Detalle_Compuesto,
@@ -152,11 +152,16 @@ namespace Negocio
 
             //Datos Basicos
             Obj.Codigo = Codigo;
+            Obj.Area = Area;
             Obj.Producto = Producto;
             Obj.Referencia = Referencia;
             Obj.Descripcion = Descripcion;
             Obj.Presentacion = Presentacion;
             Obj.Comision = Comision;
+            Obj.CompraMinima = CompraMinima;
+            Obj.CompraMaxima = CompraMaxima;
+            Obj.VentaMinima = VentaMinina;
+            Obj.VentaMaxima = VentaMaxima;
 
             Obj.ManejaVencimiento = ManejaVencimiento;
             Obj.ManejaImpuesto = ManejaImpuesto;
@@ -204,6 +209,8 @@ namespace Negocio
             Obj.Maquinaria = Maquinaria;
             Obj.Herramientas_Manuales = Herramientas_Manuales;
             Obj.CostoFabricacion = CostoFabricacion;
+            Obj.DiasFormal = DiasFormal;
+            Obj.DiasProrrogado = DiasProrroga;
 
             //Detalles de Productos
             Obj.Detalle_Impuesto = Detalle_Impuesto;
@@ -238,7 +245,7 @@ namespace Negocio
                 int Tran_Ubicacion, int Tran_Igualdad, int Tran_Impuesto, int Tran_Proveedor, int Tran_CodBarra, int Tran_Compuesto, int Tran_Exterior,
 
                 //Datos Basicos
-                string Codigo, string Producto, string Referencia, string Descripcion, string Presentacion, Int64 Comision, int ManejaVencimiento, int ManejaImpuesto, int Importado, int Exportado, int Ofertable, int Fabricado, int ManejaComision, int ManejaEmpaque, int ManejaBalanza, int ManejaRetencion,
+                string Area, string Codigo, string Producto, string Referencia, string Descripcion, string Presentacion, Int64 Comision, int ManejaVencimiento, int ManejaImpuesto, int Importado, int Exportado, int Ofertable, int Fabricado, int ManejaComision, int ManejaEmpaque, int ManejaBalanza, int ManejaRetencion, Int64 CompraMinima, Int64 CompraMaxima, Int64 VentaMinina, Int64 VentaMaxima,
 
                 //Valores
                 double Compra_Promedio, double Compra_Final, double Venta01, double Venta02, double Venta03, double Mayorista, double Venta01_Porcentaje, double Venta02_Porcentaje, double Venta03_Porcentaje, double Mayorista_Porcentaje, double Venta01_BaseInicial, double Venta02_BaseInicial, double Venta03_BaseInicial, double Mayorista_BaseInicial, double Venta01_Impuesto, double Venta02_Impuesto, double Venta03_Impuesto, double Mayorista_Impuesto,
@@ -246,7 +253,10 @@ namespace Negocio
                 string Unidad, string Unidad_Detalle,
 
                 //Panel - Fabricacion
-                double Material_Principal, double Material_Secundario, double Material_Terciario, double Material_OtroMaterial, double ManoDeObra, double Materiales, double Envio, double Almacenamiento, double Maquinaria, double Herramientas_Manuales, double CostoFabricacion,
+                double Material_Principal, double Material_Secundario, double Material_Terciario, double Material_OtroMaterial, double ManoDeObra, double Materiales, double Envio, double Almacenamiento, double Maquinaria, double Herramientas_Manuales, double CostoFabricacion, Int64 DiasFormal, Int64 DiasProrroga,
+
+                //Detalles de Productos
+                DataTable Detalle_Impuesto, DataTable Detalle_Igualdad, DataTable Detalle_Proveedor, DataTable Detalle_Ubicacion, DataTable Detalle_CodigoDeBarra, DataTable Detalle_Exterior, DataTable Detalle_Compuesto,
 
                 //Panel de Imagenes
                 byte[] Imagen
@@ -265,17 +275,23 @@ namespace Negocio
 
             //Datos Basicos
             Obj.Codigo = Codigo;
+            Obj.Area = Area;
             Obj.Producto = Producto;
             Obj.Referencia = Referencia;
             Obj.Descripcion = Descripcion;
             Obj.Presentacion = Presentacion;
             Obj.Comision = Comision;
+            Obj.CompraMinima = CompraMinima;
+            Obj.CompraMaxima = CompraMaxima;
+            Obj.VentaMinima = VentaMinina;
+            Obj.VentaMaxima = VentaMaxima;
 
             Obj.ManejaVencimiento = ManejaVencimiento;
             Obj.ManejaImpuesto = ManejaImpuesto;
             Obj.Importado = Importado;
             Obj.Exportado = Exportado;
             Obj.Ofertable = Ofertable;
+            Obj.Fabricado = Fabricado;
             Obj.ManejaComision = ManejaComision;
             Obj.ManejaEmpaque = ManejaEmpaque;
             Obj.ManejaBalanza = ManejaBalanza;
@@ -303,7 +319,7 @@ namespace Negocio
 
             Obj.Unidad = Unidad;
             Obj.Unidad_Detalle = Unidad_Detalle;
-            
+
             //Panel - Fabricacion
             Obj.Material_Principal = Material_Principal;
             Obj.Material_Secundario = Material_Secundario;
@@ -316,9 +332,29 @@ namespace Negocio
             Obj.Maquinaria = Maquinaria;
             Obj.Herramientas_Manuales = Herramientas_Manuales;
             Obj.CostoFabricacion = CostoFabricacion;
+            Obj.DiasFormal = DiasFormal;
+            Obj.DiasProrrogado = DiasProrroga;
+
+            //Detalles de Productos
+            Obj.Detalle_Impuesto = Detalle_Impuesto;
+            Obj.Detalle_Igualdad = Detalle_Igualdad;
+            Obj.Detalle_Proveedor = Detalle_Proveedor;
+            Obj.Detalle_Ubicacion = Detalle_Ubicacion;
+            Obj.Detalle_CodigoDeBarra = Detalle_CodigoDeBarra;
+            Obj.Detalle_Exterior = Detalle_Exterior;
+            Obj.Detalle_Compuesto = Detalle_Compuesto;
 
             //Panel de Imagenes
             Obj.Imagen = Imagen;
+
+            //Datos para Ejecutar las Transacciones en SQL
+            Obj.Tran_Ubicacion = Tran_Ubicacion;
+            Obj.Tran_Igualdad = Tran_Igualdad;
+            Obj.Tran_Impuesto = Tran_Impuesto;
+            Obj.Tran_Proveedor = Tran_Proveedor;
+            Obj.Tran_CodBarra = Tran_CodBarra;
+            Obj.Tran_Compuesto = Tran_Compuesto;
+            Obj.Tran_Exterior = Tran_Exterior;
 
             return Datos.Editar_DatosBasicos(Obj);
         }
@@ -450,7 +486,7 @@ namespace Negocio
         public static string Editar_Ubicacion
             (
                 //Panel Ubicacion
-                int Auto, int Idproducto, int Idubicacion, int Idbodega, string Ubicacion, string Estante, string Nivel
+                int Auto, int Idproducto, int Idubicacion, int Idbodega, string Bodega, string Ubicacion, string Estante, string Nivel
             )
         {
             Conexion_Producto Datos = new Conexion_Producto();
@@ -461,6 +497,7 @@ namespace Negocio
             Obj.Idproducto = Idproducto;
             Obj.Idubicacion = Idubicacion;
             Obj.Idbodega = Idbodega;
+            Obj.Bodega = Ubicacion;
             Obj.Ubicacion = Ubicacion;
             Obj.Estante = Estante;
             Obj.Nivel = Nivel;
@@ -473,14 +510,14 @@ namespace Negocio
         public static string Guardar_CodigoDeBarra
             (
                 //Panel - Codigo de Barra
-                int CodBarra_AutoSQL, int Idproducto, string Codigodebarra
+                int Auto_CodigoDeBarra, int Idproducto, string Codigodebarra
             )
         {
             Conexion_Producto Datos = new Conexion_Producto();
             Entidad_Productos Obj = new Entidad_Productos();
 
             //Panel - Codigo de Barra
-            Obj.CodBarra_AutoSQL = CodBarra_AutoSQL;
+            Obj.Auto_CodigoDeBarra = Auto_CodigoDeBarra;
 
             Obj.Idproducto = Idproducto;
             Obj.Codigodebarra = Codigodebarra;
@@ -511,15 +548,16 @@ namespace Negocio
         public static string Guardar_Exterior
             (
                 //Panel - Exterior
-                int Auto, int Idproducto, double Ext_Aduana, double Ext_Comision, double Ext_Documento, double Ext_Adicional, double Ext_Exportacion, double Ext_Importacion, double Ext_Seguridad
+                int Auto_Exterior, int Idproducto, int Idproveedor, double Ext_Aduana, double Ext_Comision, double Ext_Documento, double Ext_Adicional, double Ext_Exportacion, double Ext_Importacion, double Ext_Seguridad
             )
         {
             Conexion_Producto Datos = new Conexion_Producto();
             Entidad_Productos Obj = new Entidad_Productos();
 
             //Panel - Exterior
-            Obj.Impuesto_AutoSQL = Auto;
+            Obj.Auto_Exterior = Auto_Exterior;
             Obj.Idproducto = Idproducto;
+            Obj.Idproveedor = Idproveedor;
             Obj.Ext_Aduana = Ext_Aduana;
             Obj.Ext_Comision = Ext_Comision;
             Obj.Ext_Documento = Ext_Documento;
@@ -595,7 +633,7 @@ namespace Negocio
         public static string Guardar_Ubicacion
             (
                 //Panel Ubicacion
-                int Auto_Ubicacion, int Idproducto, int Idbodega, string Ubicacion, string Estante, string Nivel
+                int Auto_Ubicacion, int Idproducto, int Idbodega, string Bodega, string Ubicacion, string Estante, string Nivel
             )
         {
             Conexion_Producto Datos = new Conexion_Producto();
@@ -605,6 +643,7 @@ namespace Negocio
             Obj.Auto_Ubicacion = Auto_Ubicacion;
             Obj.Idproducto = Idproducto;
             Obj.Idbodega = Idbodega;
+            Obj.Bodega = Bodega;
             Obj.Ubicacion = Ubicacion;
             Obj.Estante = Estante;
             Obj.Nivel = Nivel;

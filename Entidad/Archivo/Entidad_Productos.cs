@@ -43,12 +43,17 @@ namespace Entidad
         private int _AutoDet_Impuesto;
 
         //Datos Basicos
+        private string _Area;
         private string _Codigo;
         private string _Producto;
         private string _Referencia;
         private string _Descripcion;
         private string _Presentacion;
         private Int64 _Comision;
+        private Int64 _CompraMinima;
+        private Int64 _CompraMaxima;
+        private Int64 _VentaMinima;
+        private Int64 _VentaMaxima;
 
         private int _ManejaVencimiento;
         private int _ManejaImpuesto;
@@ -101,6 +106,8 @@ namespace Entidad
         private double _Herramientas;
         private double _Herramientas_Manuales;
         private double _CostoFabricacion;
+        private Int64 _DiasFormal;
+        private Int64 _DiasProrrogado;
 
         //Panel - Exterior
         private double _Ext_Aduana;
@@ -128,6 +135,7 @@ namespace Entidad
 
         //Panel Ubicacion
         private int _Idbodega;
+        private string _Bodega;
         private string _Ubicacion;
         private string _Estante;
         private string _Nivel;
@@ -330,5 +338,13 @@ namespace Entidad
         public int Idigualdad { get => _Idigualdad; set => _Idigualdad = value; }
         public int Idubicacion { get => _Idubicacion; set => _Idubicacion = value; }
         public int Fabricado { get => _Fabricado; set => _Fabricado = value; }
+        public string Bodega { get => _Bodega; set => _Bodega = value; }
+        public string Area { get => _Area; set => _Area = value; }
+        public long CompraMinima { get => _CompraMinima; set => _CompraMinima = value; }
+        public long CompraMaxima { get => _CompraMaxima; set => _CompraMaxima = value; }
+        public long VentaMinima { get => _VentaMinima; set => _VentaMinima = value; }
+        public long VentaMaxima { get => _VentaMaxima; set => _VentaMaxima = value; }
+        public Int64 DiasFormal { get => _DiasFormal; set => _DiasFormal = value; }
+        public Int64 DiasProrrogado { get => _DiasProrrogado; set => _DiasProrrogado = value; }
     }
 }

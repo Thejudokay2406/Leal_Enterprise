@@ -12,6 +12,7 @@ namespace Datos
 {
     public class Conexion_Producto
     {
+
         public DataTable AutoIncrementable(int Auto)
         {
             SqlDataReader Resultado;
@@ -80,11 +81,11 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Productos.Detalles_Adicional", SqlCon);
+                SqlCommand Comando = new SqlCommand("Productos.LI_DatosBasicos", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
-                Comando.Parameters.Add("@Filtro_Ubicacion", SqlDbType.Int).Value = Auto;
-                Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = idproducto;
+                Comando.Parameters.Add("@Cons_Ubicacion", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Filt_Ubicacion", SqlDbType.Int).Value = idproducto;
 
                 SqlCon.Open();
                 Resultado = Comando.ExecuteReader();
@@ -584,6 +585,7 @@ namespace Datos
                 //Panel Datos Basicos -- Campos Obligatorios
                 Comando.Parameters.Add("@Idmarca", SqlDbType.Int).Value = Obj.Idmarca;
                 Comando.Parameters.Add("@Codigo", SqlDbType.VarChar).Value = Obj.Codigo;
+                Comando.Parameters.Add("@Area", SqlDbType.VarChar).Value = Obj.Area;
                 Comando.Parameters.Add("@Nombre", SqlDbType.VarChar).Value = Obj.Producto;
                 Comando.Parameters.Add("@ManVenc", SqlDbType.Int).Value = Obj.ManejaVencimiento;
                 Comando.Parameters.Add("@ManImpu", SqlDbType.Int).Value = Obj.ManejaImpuesto;
@@ -604,7 +606,11 @@ namespace Datos
                 Comando.Parameters.Add("@Referencia", SqlDbType.VarChar).Value = Obj.Referencia;
                 Comando.Parameters.Add("@Presentacion", SqlDbType.VarChar).Value = Obj.Presentacion;
                 Comando.Parameters.Add("@Comision", SqlDbType.BigInt).Value = Obj.Comision;
-                
+                Comando.Parameters.Add("@CompraMinima", SqlDbType.BigInt).Value = Obj.CompraMinima;
+                Comando.Parameters.Add("@CompraMaxima", SqlDbType.BigInt).Value = Obj.CompraMaxima;
+                Comando.Parameters.Add("@VentaMinima", SqlDbType.BigInt).Value = Obj.VentaMinima;
+                Comando.Parameters.Add("@VentaMaxima", SqlDbType.BigInt).Value = Obj.VentaMaxima;
+
                 //Panel Precios -- Campos Obligatorios
                 Comando.Parameters.Add("@ComProm", SqlDbType.VarChar).Value = Obj.Compra_Promedio;
                 Comando.Parameters.Add("@ComFinal", SqlDbType.VarChar).Value = Obj.Compra_Final;
@@ -628,6 +634,22 @@ namespace Datos
                 Comando.Parameters.Add("@ImpVen04", SqlDbType.VarChar).Value = Obj.Mayorista_Impuesto;
                 Comando.Parameters.Add("@Unidad", SqlDbType.VarChar).Value = Obj.Unidad;
                 Comando.Parameters.Add("@Und_Det", SqlDbType.VarChar).Value = Obj.Unidad_Detalle;
+
+                //Panel Fabricacion -- Campos Obligatorios
+                Comando.Parameters.Add("@Mat_Prin", SqlDbType.VarChar).Value = Obj.Material_Principal;
+                Comando.Parameters.Add("@Mat_Secun", SqlDbType.VarChar).Value = Obj.Material_Secundario;
+                Comando.Parameters.Add("@Mat_Terc", SqlDbType.VarChar).Value = Obj.Material_Terciario;
+                Comando.Parameters.Add("@Mat_Otro", SqlDbType.VarChar).Value = Obj.Material_OtroMaterial;
+                Comando.Parameters.Add("@Obra", SqlDbType.VarChar).Value = Obj.ManoDeObra;
+                Comando.Parameters.Add("@Material", SqlDbType.VarChar).Value = Obj.Materiales;
+                Comando.Parameters.Add("@Flete", SqlDbType.VarChar).Value = Obj.Envio;
+                Comando.Parameters.Add("@Almacen", SqlDbType.VarChar).Value = Obj.Almacenamiento;
+                Comando.Parameters.Add("@Maquina", SqlDbType.VarChar).Value = Obj.Maquinaria;
+                Comando.Parameters.Add("@Herram", SqlDbType.VarChar).Value = Obj.Herramientas;
+                Comando.Parameters.Add("@HeManual", SqlDbType.VarChar).Value = Obj.Herramientas_Manuales;
+                Comando.Parameters.Add("@CostoGene", SqlDbType.VarChar).Value = Obj.CostoFabricacion;
+                Comando.Parameters.Add("@DiasFormal", SqlDbType.BigInt).Value = Obj.DiasFormal;
+                Comando.Parameters.Add("@DiasProrrogado", SqlDbType.BigInt).Value = Obj.DiasProrrogado;
 
                 //Panel Ubicaciones -- Campos Obligatorios
                 Comando.Parameters.Add("@Det_Ubicacion", SqlDbType.Structured).Value = Obj.Detalle_Ubicacion;
@@ -768,6 +790,7 @@ namespace Datos
                 //Panel Ubicaciones -- Campos Obligatorios
                 Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = Obj.Idproducto;
                 Comando.Parameters.Add("@Idbodega", SqlDbType.Int).Value = Obj.Idbodega;
+                Comando.Parameters.Add("@Bodega", SqlDbType.VarChar).Value = Obj.Bodega;
                 Comando.Parameters.Add("@Ubicacion", SqlDbType.VarChar).Value = Obj.Ubicacion;
                 Comando.Parameters.Add("@Estante", SqlDbType.VarChar).Value = Obj.Estante;
                 Comando.Parameters.Add("@Nivel", SqlDbType.VarChar).Value = Obj.Nivel;
@@ -946,7 +969,7 @@ namespace Datos
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Datos Auxiliares
-                Comando.Parameters.Add("@Auto_CodigoDeBarra", SqlDbType.Int).Value = Obj.Codigodebarra_SQL;
+                Comando.Parameters.Add("@Auto_CodigoDeBarra", SqlDbType.Int).Value = Obj.Auto_CodigoDeBarra;
 
                 //Panel Codigo De Barra -- Campos Obligatorios
                 Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = Obj.Idproducto;
@@ -976,15 +999,22 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Productos.Detalles_Adicional", SqlCon);
+                SqlCommand Comando = new SqlCommand("Productos.LI_DatosBasicos", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Datos Auxiliares
-                Comando.Parameters.Add("@Auto_Exterior", SqlDbType.Int).Value = Obj.Exterior_SQL;
+                Comando.Parameters.Add("@Auto_Exterior", SqlDbType.Int).Value = Obj.Auto_Exterior;
 
                 //Panel Codigo De Barra -- Campos Obligatorios
                 Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = Obj.Idproducto;
-                Comando.Parameters.Add("@Cod_DeBarra", SqlDbType.VarChar).Value = Obj.Codigodebarra;
+                Comando.Parameters.Add("@Idproveedor", SqlDbType.Int).Value = Obj.Idproveedor;
+                Comando.Parameters.Add("@Aduana", SqlDbType.VarChar).Value = Obj.Ext_Aduana;
+                Comando.Parameters.Add("@Comision", SqlDbType.VarChar).Value = Obj.Ext_Comision;
+                Comando.Parameters.Add("@Documento", SqlDbType.VarChar).Value = Obj.Ext_Documento;
+                Comando.Parameters.Add("@Adicional", SqlDbType.VarChar).Value = Obj.Ext_Adicional;
+                Comando.Parameters.Add("@Exportacion", SqlDbType.VarChar).Value = Obj.Ext_Exportacion;
+                Comando.Parameters.Add("@Importacion", SqlDbType.VarChar).Value = Obj.Ext_Importacion;
+                Comando.Parameters.Add("@Seguridad", SqlDbType.VarChar).Value = Obj.Ext_Seguridad;
 
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Realizar el Registro";
@@ -1198,6 +1228,7 @@ namespace Datos
                 Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = Obj.Idproducto;
 
                 //Panel Ubicaciones -- Campos Obligatorios
+                Comando.Parameters.Add("@Bodega_Edi", SqlDbType.VarChar).Value = Obj.Bodega;
                 Comando.Parameters.Add("@Ubicacion_Edi", SqlDbType.VarChar).Value = Obj.Ubicacion;
                 Comando.Parameters.Add("@Estante_Edi", SqlDbType.VarChar).Value = Obj.Estante;
                 Comando.Parameters.Add("@Nivel_Edi", SqlDbType.VarChar).Value = Obj.Nivel;

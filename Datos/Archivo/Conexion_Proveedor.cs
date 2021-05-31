@@ -44,7 +44,7 @@ namespace Datos
             }
         }
 
-        public DataTable Lista()
+        public DataTable Lista(int Auto)
         {
             SqlDataReader Resultado;
             DataTable Tabla = new DataTable();
@@ -52,8 +52,11 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.Proveedor", SqlCon);
+                SqlCommand Comando = new SqlCommand("Proveedor.LI_DatosBasicos", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
+
+                Comando.Parameters.Add("@Consulta", SqlDbType.Int).Value = Auto;
+
                 SqlCon.Open();
                 Resultado = Comando.ExecuteReader();
                 Tabla.Load(Resultado);

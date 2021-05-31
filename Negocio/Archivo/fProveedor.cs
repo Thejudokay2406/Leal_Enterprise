@@ -18,10 +18,10 @@ namespace Negocio
             return Datos.AutoComplementar_SQL(auto);
         }
 
-        public static DataTable Lista()
+        public static DataTable Lista(int auto)
         {
             Conexion_Proveedor Datos = new Conexion_Proveedor();
-            return Datos.Lista();
+            return Datos.Lista(auto);
         }
 
         public static DataTable Lista_Banco(int auto, int idproveedor)
