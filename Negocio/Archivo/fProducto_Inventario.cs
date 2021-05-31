@@ -123,7 +123,7 @@ namespace Negocio
                 int Tran_Ubicacion, int Tran_Igualdad, int Tran_Impuesto, int Tran_Proveedor, int Tran_CodBarra, int Tran_Compuesto, int Tran_Exterior,
 
                 //Datos Basicos
-                string Area, string Codigo, string Producto, string Referencia, string Descripcion, string Presentacion, Int64 Comision, int ManejaVencimiento, int ManejaImpuesto, int Importado, int Exportado, int Ofertable, int Fabricado, int ManejaComision, int ManejaEmpaque, int ManejaBalanza, int ManejaRetencion, Int64 CompraMinima, Int64 CompraMaxima, Int64 VentaMinina, Int64 VentaMaxima,
+                string Area, string Codigo, string Producto, string Referencia, string Descripcion, string Presentacion, Int64 Comision, int ManejaVencimiento, int ManejaImpuesto, int Importado, int Exportado, int Ofertable, int Fabricado, int ManejaComision, int ManejaEmpaque, int ManejaBalanza, int ManejaRetencion, Int64 CompraMinima, int Compras, int Ventas, Int64 CompraMaxima, Int64 VentaMinina, Int64 VentaMaxima,
 
                 //Valores
                 double Compra_Promedio, double Compra_Final, double Venta01, double Venta02, double Venta03, double Mayorista, double Venta01_Porcentaje, double Venta02_Porcentaje, double Venta03_Porcentaje, double Mayorista_Porcentaje, double Venta01_BaseInicial, double Venta02_BaseInicial, double Venta03_BaseInicial, double Mayorista_BaseInicial, double Venta01_Impuesto, double Venta02_Impuesto, double Venta03_Impuesto, double Mayorista_Impuesto,
@@ -173,6 +173,8 @@ namespace Negocio
             Obj.ManejaEmpaque = ManejaEmpaque;
             Obj.ManejaBalanza = ManejaBalanza;
             Obj.ManejaRetencion = ManejaRetencion;
+            Obj.Compras = Compras;
+            Obj.Ventas = Ventas;
 
             //Valores
             Obj.Compra_Promedio = Compra_Promedio;
@@ -245,7 +247,7 @@ namespace Negocio
                 int Tran_Ubicacion, int Tran_Igualdad, int Tran_Impuesto, int Tran_Proveedor, int Tran_CodBarra, int Tran_Compuesto, int Tran_Exterior,
 
                 //Datos Basicos
-                string Area, string Codigo, string Producto, string Referencia, string Descripcion, string Presentacion, Int64 Comision, int ManejaVencimiento, int ManejaImpuesto, int Importado, int Exportado, int Ofertable, int Fabricado, int ManejaComision, int ManejaEmpaque, int ManejaBalanza, int ManejaRetencion, Int64 CompraMinima, Int64 CompraMaxima, Int64 VentaMinina, Int64 VentaMaxima,
+                string Area, string Codigo, string Producto, string Referencia, string Descripcion, string Presentacion, Int64 Comision, int ManejaVencimiento, int ManejaImpuesto, int Importado, int Exportado, int Ofertable, int Fabricado, int ManejaComision, int ManejaEmpaque, int ManejaBalanza, int ManejaRetencion, int Compras, int Ventas, Int64 CompraMinima, Int64 CompraMaxima, Int64 VentaMinina, Int64 VentaMaxima, 
 
                 //Valores
                 double Compra_Promedio, double Compra_Final, double Venta01, double Venta02, double Venta03, double Mayorista, double Venta01_Porcentaje, double Venta02_Porcentaje, double Venta03_Porcentaje, double Mayorista_Porcentaje, double Venta01_BaseInicial, double Venta02_BaseInicial, double Venta03_BaseInicial, double Mayorista_BaseInicial, double Venta01_Impuesto, double Venta02_Impuesto, double Venta03_Impuesto, double Mayorista_Impuesto,
@@ -296,6 +298,8 @@ namespace Negocio
             Obj.ManejaEmpaque = ManejaEmpaque;
             Obj.ManejaBalanza = ManejaBalanza;
             Obj.ManejaRetencion = ManejaRetencion;
+            Obj.Compras = Compras;
+            Obj.Ventas = Ventas;
 
             //Valores
             Obj.Compra_Promedio = Compra_Promedio;

@@ -46,9 +46,9 @@
             this.TBDescripcion03 = new System.Windows.Forms.TextBox();
             this.label34 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.CHCompras = new System.Windows.Forms.CheckBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.CHVentas = new System.Windows.Forms.CheckBox();
             this.TBDescripcion02 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.CBMarca = new System.Windows.Forms.ComboBox();
@@ -379,9 +379,9 @@
             this.TPDatosBasicos.Controls.Add(this.TBDescripcion03);
             this.TPDatosBasicos.Controls.Add(this.label34);
             this.TPDatosBasicos.Controls.Add(this.label17);
-            this.TPDatosBasicos.Controls.Add(this.checkBox3);
+            this.TPDatosBasicos.Controls.Add(this.CHCompras);
             this.TPDatosBasicos.Controls.Add(this.label16);
-            this.TPDatosBasicos.Controls.Add(this.checkBox2);
+            this.TPDatosBasicos.Controls.Add(this.CHVentas);
             this.TPDatosBasicos.Controls.Add(this.TBDescripcion02);
             this.TPDatosBasicos.Controls.Add(this.label7);
             this.TPDatosBasicos.Controls.Add(this.CBMarca);
@@ -470,7 +470,7 @@
             // 
             // TBCompraMaxima
             // 
-            this.TBCompraMaxima.Location = new System.Drawing.Point(406, 227);
+            this.TBCompraMaxima.Location = new System.Drawing.Point(489, 199);
             this.TBCompraMaxima.Name = "TBCompraMaxima";
             this.TBCompraMaxima.Size = new System.Drawing.Size(77, 22);
             this.TBCompraMaxima.TabIndex = 210;
@@ -490,7 +490,7 @@
             // 
             // TBVentaMinima
             // 
-            this.TBVentaMinima.Location = new System.Drawing.Point(489, 199);
+            this.TBVentaMinima.Location = new System.Drawing.Point(406, 227);
             this.TBVentaMinima.Name = "TBVentaMinima";
             this.TBVentaMinima.Size = new System.Drawing.Size(77, 22);
             this.TBVentaMinima.TabIndex = 208;
@@ -542,23 +542,23 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(197, 308);
+            this.label17.Location = new System.Drawing.Point(6, 354);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(95, 17);
             this.label17.TabIndex = 203;
             this.label17.Text = "Aplica Compras";
             // 
-            // checkBox3
+            // CHCompras
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox3.Location = new System.Drawing.Point(298, 307);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(58, 17);
-            this.checkBox3.TabIndex = 202;
-            this.checkBox3.Text = "Si - No";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.CHCompras.AutoSize = true;
+            this.CHCompras.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CHCompras.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CHCompras.Location = new System.Drawing.Point(133, 354);
+            this.CHCompras.Name = "CHCompras";
+            this.CHCompras.Size = new System.Drawing.Size(58, 17);
+            this.CHCompras.TabIndex = 202;
+            this.CHCompras.Text = "Si - No";
+            this.CHCompras.UseVisualStyleBackColor = true;
             // 
             // label16
             // 
@@ -569,17 +569,17 @@
             this.label16.TabIndex = 201;
             this.label16.Text = "Aplica Para Ventas";
             // 
-            // checkBox2
+            // CHVentas
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox2.Location = new System.Drawing.Point(133, 308);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(58, 17);
-            this.checkBox2.TabIndex = 200;
-            this.checkBox2.Text = "Si - No";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.CHVentas.AutoSize = true;
+            this.CHVentas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CHVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CHVentas.Location = new System.Drawing.Point(133, 308);
+            this.CHVentas.Name = "CHVentas";
+            this.CHVentas.Size = new System.Drawing.Size(58, 17);
+            this.CHVentas.TabIndex = 200;
+            this.CHVentas.Text = "Si - No";
+            this.CHVentas.UseVisualStyleBackColor = true;
             // 
             // TBDescripcion02
             // 
@@ -618,7 +618,7 @@
             this.CHEmpaque.AutoSize = true;
             this.CHEmpaque.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CHEmpaque.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHEmpaque.Location = new System.Drawing.Point(508, 307);
+            this.CHEmpaque.Location = new System.Drawing.Point(508, 309);
             this.CHEmpaque.Name = "CHEmpaque";
             this.CHEmpaque.Size = new System.Drawing.Size(58, 17);
             this.CHEmpaque.TabIndex = 194;
@@ -628,7 +628,7 @@
             // label76
             // 
             this.label76.AutoSize = true;
-            this.label76.Location = new System.Drawing.Point(362, 307);
+            this.label76.Location = new System.Drawing.Point(388, 308);
             this.label76.Name = "label76";
             this.label76.Size = new System.Drawing.Size(97, 17);
             this.label76.TabIndex = 193;
@@ -639,7 +639,7 @@
             this.CHFabricado.AutoSize = true;
             this.CHFabricado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CHFabricado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHFabricado.Location = new System.Drawing.Point(298, 330);
+            this.CHFabricado.Location = new System.Drawing.Point(133, 377);
             this.CHFabricado.Name = "CHFabricado";
             this.CHFabricado.Size = new System.Drawing.Size(58, 17);
             this.CHFabricado.TabIndex = 162;
@@ -650,7 +650,7 @@
             // label52
             // 
             this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(197, 331);
+            this.label52.Location = new System.Drawing.Point(8, 376);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(79, 17);
             this.label52.TabIndex = 161;
@@ -661,7 +661,7 @@
             this.CHRetencion.AutoSize = true;
             this.CHRetencion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CHRetencion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHRetencion.Location = new System.Drawing.Point(508, 354);
+            this.CHRetencion.Location = new System.Drawing.Point(508, 355);
             this.CHRetencion.Name = "CHRetencion";
             this.CHRetencion.Size = new System.Drawing.Size(58, 17);
             this.CHRetencion.TabIndex = 160;
@@ -671,7 +671,7 @@
             // label51
             // 
             this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(362, 352);
+            this.label51.Location = new System.Drawing.Point(388, 354);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(108, 17);
             this.label51.TabIndex = 159;
@@ -682,7 +682,7 @@
             this.CHBalanza.AutoSize = true;
             this.CHBalanza.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CHBalanza.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHBalanza.Location = new System.Drawing.Point(508, 377);
+            this.CHBalanza.Location = new System.Drawing.Point(508, 378);
             this.CHBalanza.Name = "CHBalanza";
             this.CHBalanza.Size = new System.Drawing.Size(58, 17);
             this.CHBalanza.TabIndex = 158;
@@ -692,7 +692,7 @@
             // label44
             // 
             this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(362, 377);
+            this.label44.Location = new System.Drawing.Point(388, 377);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(88, 17);
             this.label44.TabIndex = 157;
@@ -723,7 +723,7 @@
             this.CHManejaComision.AutoSize = true;
             this.CHManejaComision.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CHManejaComision.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHManejaComision.Location = new System.Drawing.Point(133, 331);
+            this.CHManejaComision.Location = new System.Drawing.Point(508, 332);
             this.CHManejaComision.Name = "CHManejaComision";
             this.CHManejaComision.Size = new System.Drawing.Size(58, 17);
             this.CHManejaComision.TabIndex = 153;
@@ -734,7 +734,7 @@
             // label49
             // 
             this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(6, 331);
+            this.label49.Location = new System.Drawing.Point(388, 331);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(104, 17);
             this.label49.TabIndex = 152;
@@ -745,7 +745,7 @@
             this.CHOfertable.AutoSize = true;
             this.CHOfertable.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CHOfertable.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHOfertable.Location = new System.Drawing.Point(508, 330);
+            this.CHOfertable.Location = new System.Drawing.Point(133, 331);
             this.CHOfertable.Name = "CHOfertable";
             this.CHOfertable.Size = new System.Drawing.Size(58, 17);
             this.CHOfertable.TabIndex = 145;
@@ -755,7 +755,7 @@
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(362, 329);
+            this.label41.Location = new System.Drawing.Point(6, 331);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(112, 17);
             this.label41.TabIndex = 144;
@@ -766,7 +766,7 @@
             this.CHExportado.AutoSize = true;
             this.CHExportado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CHExportado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHExportado.Location = new System.Drawing.Point(298, 377);
+            this.CHExportado.Location = new System.Drawing.Point(324, 331);
             this.CHExportado.Name = "CHExportado";
             this.CHExportado.Size = new System.Drawing.Size(58, 17);
             this.CHExportado.TabIndex = 143;
@@ -778,7 +778,7 @@
             this.CHImportado.AutoSize = true;
             this.CHImportado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CHImportado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHImportado.Location = new System.Drawing.Point(298, 354);
+            this.CHImportado.Location = new System.Drawing.Point(324, 308);
             this.CHImportado.Name = "CHImportado";
             this.CHImportado.Size = new System.Drawing.Size(58, 17);
             this.CHImportado.TabIndex = 142;
@@ -788,7 +788,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(197, 377);
+            this.label21.Location = new System.Drawing.Point(197, 330);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(79, 17);
             this.label21.TabIndex = 141;
@@ -797,7 +797,7 @@
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(197, 354);
+            this.label36.Location = new System.Drawing.Point(197, 307);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(81, 17);
             this.label36.TabIndex = 140;
@@ -808,7 +808,7 @@
             this.CHImpuesto.AutoSize = true;
             this.CHImpuesto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CHImpuesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHImpuesto.Location = new System.Drawing.Point(133, 377);
+            this.CHImpuesto.Location = new System.Drawing.Point(324, 354);
             this.CHImpuesto.Name = "CHImpuesto";
             this.CHImpuesto.Size = new System.Drawing.Size(58, 17);
             this.CHImpuesto.TabIndex = 135;
@@ -819,7 +819,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 377);
+            this.label8.Location = new System.Drawing.Point(197, 353);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(104, 17);
             this.label8.TabIndex = 134;
@@ -830,7 +830,7 @@
             this.CHVencimiento.AutoSize = true;
             this.CHVencimiento.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CHVencimiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHVencimiento.Location = new System.Drawing.Point(133, 354);
+            this.CHVencimiento.Location = new System.Drawing.Point(324, 377);
             this.CHVencimiento.Name = "CHVencimiento";
             this.CHVencimiento.Size = new System.Drawing.Size(58, 17);
             this.CHVencimiento.TabIndex = 133;
@@ -841,7 +841,7 @@
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(6, 354);
+            this.label37.Location = new System.Drawing.Point(197, 377);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(121, 17);
             this.label37.TabIndex = 132;
@@ -3016,9 +3016,9 @@
             // 
             // TBIdproducto
             // 
-            this.TBIdproducto.Location = new System.Drawing.Point(211, 474);
+            this.TBIdproducto.Location = new System.Drawing.Point(196, 474);
             this.TBIdproducto.Name = "TBIdproducto";
-            this.TBIdproducto.Size = new System.Drawing.Size(21, 21);
+            this.TBIdproducto.Size = new System.Drawing.Size(36, 21);
             this.TBIdproducto.TabIndex = 12;
             this.TBIdproducto.TextChanged += new System.EventHandler(this.TBIdproducto_TextChanged);
             // 
@@ -3356,9 +3356,9 @@
         private System.Windows.Forms.TextBox TBDescripcion02;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox CHCompras;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox CHVentas;
         private System.Windows.Forms.TextBox TBDescripcion03;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.TextBox TBVentaMinima;

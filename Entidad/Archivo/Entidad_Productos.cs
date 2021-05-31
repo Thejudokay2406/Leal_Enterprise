@@ -64,7 +64,9 @@ namespace Entidad
         private int _ManejaComision;
         private int _ManejaEmpaque;
         private int _ManejaBalanza;
-        private int _ManejaRetencion;
+        private int _ManejaRetencion; 
+        private int _Compras;
+        private int _Ventas;
 
         //Panel - Codigo de Barra
         private int _Idcodigodebarra;
@@ -346,5 +348,7 @@ namespace Entidad
         public long VentaMaxima { get => _VentaMaxima; set => _VentaMaxima = value; }
         public Int64 DiasFormal { get => _DiasFormal; set => _DiasFormal = value; }
         public Int64 DiasProrrogado { get => _DiasProrrogado; set => _DiasProrrogado = value; }
+        public int Compras { get => _Compras; set => _Compras = value; }
+        public int Ventas { get => _Ventas; set => _Ventas = value; }
     }
 }

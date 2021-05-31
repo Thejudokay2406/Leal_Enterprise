@@ -61,9 +61,8 @@ namespace Presentacion
 
         //********** Variables para la Validacion de los checkbox en el Pane Datos Basicos**************************************
 
-        private string Checkbox_Vencimiento, Checkbox_Ofertable, Checkbox_Impuesto = "";
-        private string Checkbox_Comision, Checkbox_Exportado, Checkbox_Importado = "";
-        private string Checkbox_Empaque, Checkbox_Fabricado, Checkbox_Balanza, Checkbox_Retencion = "";
+        private string Checkbox_Vencimiento, Checkbox_Ofertable, Checkbox_Impuesto, Checkbox_Comision, Checkbox_Exportado, Checkbox_Importado = "";
+        private string Checkbox_Empaque, Checkbox_Fabricado, Checkbox_Balanza, Checkbox_Retencion,Checkbox_Compras, Checkbox_Ventas = "";
 
         //********** Variables para la Validacion de las Transacciones en SQL **************************************************
 
@@ -84,7 +83,7 @@ namespace Presentacion
 
         //Panel Datos Basicos
         private string Codigo, Nombre, Referencia, Descripcion, Presentacion, Por_Comision, Val_Comision = "";
-        private string AplicaVencimiento, AplicaImpuesto, Importado, Exportado, Ofertable, AplicaComision = "";
+        private string ManejaVencimiento, AplicaVentas, ManejaImpuesto, ManejaComision, UtilizaEmpaque, Fabricado, Importado, Exportado, AplicaOfertable, AplicaCompras, ManejaRetencion, UtilizaBalanza = "";
 
         //Panel - Compuesto
         private string Compuesto, Compuesto_Descripcion, Compuesto_Medida = "";
@@ -407,6 +406,9 @@ namespace Presentacion
             this.CHRetencion.Checked = false;
             this.CHFabricado.Checked = false;
 
+            this.TBIdproducto.Clear();
+            this.TBBuscar.Clear();
+
             //Panel Compuesto
             this.TBCompuesto.Clear();
             this.TBComp_Descripcion.Clear();
@@ -652,6 +654,24 @@ namespace Presentacion
         {
             //Se valida el valor de los checbox que se encuentran en el panel de datos basicos
             //En el cual si este esta seleccionado su valor sera 1 y si no esta seleccionado este seria 0
+
+            if (CHCompras.Checked)
+            {
+                this.Checkbox_Compras = "1";
+            }
+            else
+            {
+                this.Checkbox_Compras = "0";
+            }
+
+            if (CHVentas.Checked)
+            {
+                this.Checkbox_Ventas = "1";
+            }
+            else
+            {
+                this.Checkbox_Ventas = "0";
+            }
 
             if (CHVencimiento.Checked)
             {
@@ -1133,7 +1153,7 @@ namespace Presentacion
                                  //Panel Datos Basicos
                                  this.CBArea.Text, this.TBCodigo.Text, this.TBNombre.Text, this.TBReferencia.Text, this.TBDescripcion01.Text, this.TBPresentacion.Text, Convert.ToInt64(this.TBComision_Porcentaje.Text),
 
-                                 Convert.ToInt32(Checkbox_Vencimiento), Convert.ToInt32(Checkbox_Impuesto), Convert.ToInt32(Checkbox_Importado), Convert.ToInt32(Checkbox_Exportado), Convert.ToInt32(Checkbox_Ofertable), Convert.ToInt32(Checkbox_Fabricado), Convert.ToInt32(Checkbox_Comision), Convert.ToInt32(Checkbox_Empaque), Convert.ToInt32(Checkbox_Balanza), Convert.ToInt32(Checkbox_Retencion), Convert.ToInt64(TBCompraminima.Text), Convert.ToInt64(TBCompraMaxima.Text), Convert.ToInt64(TBVentaMinima.Text), Convert.ToInt64(TBVentaMaxima.Text),
+                                 Convert.ToInt32(Checkbox_Vencimiento), Convert.ToInt32(Checkbox_Impuesto), Convert.ToInt32(Checkbox_Importado), Convert.ToInt32(Checkbox_Exportado), Convert.ToInt32(Checkbox_Ofertable), Convert.ToInt32(Checkbox_Fabricado), Convert.ToInt32(Checkbox_Comision), Convert.ToInt32(Checkbox_Empaque), Convert.ToInt32(Checkbox_Balanza), Convert.ToInt32(Checkbox_Retencion),Convert.ToInt64(TBCompraminima.Text), Convert.ToInt32(Checkbox_Compras), Convert.ToInt32(Checkbox_Ventas),Convert.ToInt64(TBCompraMaxima.Text), Convert.ToInt64(TBVentaMinima.Text), Convert.ToInt64(TBVentaMaxima.Text),
 
                                  //Panel de Valores - Datos Basicos
                                  Convert.ToDouble(this.TBValor_CompraPromedio.Text), Convert.ToDouble(this.TBValor_CompraFinal.Text), Convert.ToDouble(this.TBValor_Venta01.Text), Convert.ToDouble(this.TBValor_Venta02.Text), Convert.ToDouble(this.TBValor_Venta03.Text), Convert.ToDouble(this.TBValor_Mayorista.Text),
@@ -1176,7 +1196,7 @@ namespace Presentacion
                                  //Panel Datos Basicos
                                  this.CBArea.Text, this.TBCodigo.Text, this.TBNombre.Text, this.TBReferencia.Text, this.TBDescripcion01.Text, this.TBPresentacion.Text, Convert.ToInt64(this.TBComision_Porcentaje.Text),
 
-                                 Convert.ToInt32(Checkbox_Vencimiento), Convert.ToInt32(Checkbox_Impuesto), Convert.ToInt32(Checkbox_Importado), Convert.ToInt32(Checkbox_Exportado), Convert.ToInt32(Checkbox_Ofertable), Convert.ToInt32(Checkbox_Fabricado), Convert.ToInt32(Checkbox_Comision), Convert.ToInt32(Checkbox_Empaque), Convert.ToInt32(Checkbox_Balanza), Convert.ToInt32(Checkbox_Retencion), Convert.ToInt64(TBCompraminima.Text), Convert.ToInt64(TBCompraMaxima.Text), Convert.ToInt64(TBVentaMinima.Text), Convert.ToInt64(TBVentaMaxima.Text),
+                                 Convert.ToInt32(Checkbox_Vencimiento), Convert.ToInt32(Checkbox_Impuesto), Convert.ToInt32(Checkbox_Importado), Convert.ToInt32(Checkbox_Exportado), Convert.ToInt32(Checkbox_Ofertable), Convert.ToInt32(Checkbox_Fabricado), Convert.ToInt32(Checkbox_Comision), Convert.ToInt32(Checkbox_Empaque), Convert.ToInt32(Checkbox_Balanza), Convert.ToInt32(Checkbox_Retencion), Convert.ToInt32(Checkbox_Compras), Convert.ToInt32(Checkbox_Ventas),Convert.ToInt64(TBCompraminima.Text), Convert.ToInt64(TBCompraMaxima.Text), Convert.ToInt64(TBVentaMinima.Text), Convert.ToInt64(TBVentaMaxima.Text),
 
                                  //Panel de Valores - Datos Basicos
                                  Convert.ToDouble(this.TBValor_CompraPromedio.Text), Convert.ToDouble(this.TBValor_CompraFinal.Text), Convert.ToDouble(this.TBValor_Venta01.Text), Convert.ToDouble(this.TBValor_Venta02.Text), Convert.ToDouble(this.TBValor_Venta03.Text), Convert.ToDouble(this.TBValor_Mayorista.Text),
@@ -7102,30 +7122,338 @@ namespace Presentacion
 
         private void TBCompraminima_KeyUp(object sender, KeyEventArgs e)
         {
-            //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
+            try
+            {
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
+                {
+                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
-            this.TBVentaMinima.Select();
+                    this.TBCompraMaxima.Select();
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
+                {
+                    //
+                    this.Digitar = true;
+                    this.TBIdproducto.Text = "0";
+
+                    this.Botones();
+                    this.Limpiar_Datos();
+                    this.Diseño_TablasGenerales();
+
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
+                {
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
+                    //Y se realizara las validaciones en el sistema
+
+                    if (Digitar)
+                    {
+                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            if (Guardar == "1")
+                            {
+                                //Llamada de Clase
+                                this.Guardar_SQL();
+                            }
+                            else
+                            {
+                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
+                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
+                                this.Digitar = false;
+                                this.Limpiar_Datos();
+                            }
+                        }
+                        else
+                        {
+                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
+                            //Donde se realizo la operacion o combinacion de teclas
+                            this.TBCompraminima.Select();
+                        }
+                    }
+                    else
+                    {
+                        DialogResult result = MessageBox.Show("¿Desea Actualizar los Campos Consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            //Llamada de Clase
+                            this.Digitar = false;
+                            this.Guardar_SQL();
+                        }
+                        else
+                        {
+                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
+                            //Donde se realizo la operacion o combinacion de teclas
+                            this.TBCompraminima.Select();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
 
         private void TBVentaMinima_KeyUp(object sender, KeyEventArgs e)
         {
-            //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
+            try
+            {
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
+                {
+                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
-            this.TBCompraMaxima.Select();
+                    this.TBVentaMaxima.Select();
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
+                {
+                    //
+                    this.Digitar = true;
+                    this.TBIdproducto.Text = "0";
+
+                    this.Botones();
+                    this.Limpiar_Datos();
+                    this.Diseño_TablasGenerales();
+
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
+                {
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
+                    //Y se realizara las validaciones en el sistema
+
+                    if (Digitar)
+                    {
+                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            if (Guardar == "1")
+                            {
+                                //Llamada de Clase
+                                this.Guardar_SQL();
+                            }
+                            else
+                            {
+                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
+                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
+                                this.Digitar = false;
+                                this.Limpiar_Datos();
+                            }
+                        }
+                        else
+                        {
+                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
+                            //Donde se realizo la operacion o combinacion de teclas
+                            this.TBVentaMinima.Select();
+                        }
+                    }
+                    else
+                    {
+                        DialogResult result = MessageBox.Show("¿Desea Actualizar los Campos Consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            //Llamada de Clase
+                            this.Digitar = false;
+                            this.Guardar_SQL();
+                        }
+                        else
+                        {
+                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
+                            //Donde se realizo la operacion o combinacion de teclas
+                            this.TBVentaMinima.Select();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
 
         private void TBCompraMaxima_KeyUp(object sender, KeyEventArgs e)
         {
-            //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
+            try
+            {
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
+                {
+                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
-            this.TBVentaMaxima.Select();
+                    this.TBVentaMinima.Select();
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
+                {
+                    //
+                    this.Digitar = true;
+                    this.TBIdproducto.Text = "0";
+
+                    this.Botones();
+                    this.Limpiar_Datos();
+                    this.Diseño_TablasGenerales();
+
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
+                {
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
+                    //Y se realizara las validaciones en el sistema
+
+                    if (Digitar)
+                    {
+                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            if (Guardar == "1")
+                            {
+                                //Llamada de Clase
+                                this.Guardar_SQL();
+                            }
+                            else
+                            {
+                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
+                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
+                                this.Digitar = false;
+                                this.Limpiar_Datos();
+                            }
+                        }
+                        else
+                        {
+                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
+                            //Donde se realizo la operacion o combinacion de teclas
+                            this.TBCompraMaxima.Select();
+                        }
+                    }
+                    else
+                    {
+                        DialogResult result = MessageBox.Show("¿Desea Actualizar los Campos Consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            //Llamada de Clase
+                            this.Digitar = false;
+                            this.Guardar_SQL();
+                        }
+                        else
+                        {
+                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
+                            //Donde se realizo la operacion o combinacion de teclas
+                            this.TBCompraMaxima.Select();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
 
         private void TBVentaMaxima_KeyUp(object sender, KeyEventArgs e)
         {
-            //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
+            try
+            {
+                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
+                {
+                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
-            this.TBNombre.Select();
+                    this.TBNombre.Select();
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
+                {
+                    //
+                    this.Digitar = true;
+                    this.TBIdproducto.Text = "0";
+
+                    this.Botones();
+                    this.Limpiar_Datos();
+                    this.Diseño_TablasGenerales();
+
+                    this.TBBuscar.Clear();
+
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.DGResultados.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
+                {
+                    //Al precionar las teclas F10 se realizara el registro en la base de datos
+                    //Y se realizara las validaciones en el sistema
+
+                    if (Digitar)
+                    {
+                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            if (Guardar == "1")
+                            {
+                                //Llamada de Clase
+                                this.Guardar_SQL();
+                            }
+                            else
+                            {
+                                MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
+                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
+                                this.Digitar = false;
+                                this.Limpiar_Datos();
+                            }
+                        }
+                        else
+                        {
+                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
+                            //Donde se realizo la operacion o combinacion de teclas
+                            this.TBVentaMaxima.Select();
+                        }
+                    }
+                    else
+                    {
+                        DialogResult result = MessageBox.Show("¿Desea Actualizar los Campos Consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            //Llamada de Clase
+                            this.Digitar = false;
+                            this.Guardar_SQL();
+                        }
+                        else
+                        {
+                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
+                            //Donde se realizo la operacion o combinacion de teclas
+                            this.TBVentaMaxima.Select();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
 
         private void TBDescripcion02_KeyUp(object sender, KeyEventArgs e)
@@ -7625,58 +7953,12 @@ namespace Presentacion
         {
             //Color de texboxt cuando este posee el FOCUS Activado
             this.TBFabri_DiasFormal.BackColor = Color.FromArgb(3, 155, 229);
-
-            // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
-            TextBox tb = (TextBox)sender;
-
-            // Primero verificamos si el valor se puede convertir a Decimal.
-            double numero = default(double);
-            bool bln = double.TryParse(tb.Text, out numero);
-
-            if ((!(bln)))
-            {
-                // No es un valor decimal válido; limpiamos el control.
-                //tb.Clear();
-                return;
-            }
-
-            // En la propiedad Tag guardamos el valor con todos los decimales.
-            //
-            tb.Tag = numero;
-
-            // Y acto seguido formateamos el valor
-            // a monetario con dos decimales.
-            //
-            tb.Text = string.Format("{0:N2}", numero);
         }
 
         private void TBFabri_DiasProrroga_Leave(object sender, EventArgs e)
         {
             //Color de texboxt cuando este posee el FOCUS Activado
             this.TBFabri_DiasProrroga.BackColor = Color.FromArgb(3, 155, 229);
-
-            // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
-            TextBox tb = (TextBox)sender;
-
-            // Primero verificamos si el valor se puede convertir a Decimal.
-            double numero = default(double);
-            bool bln = double.TryParse(tb.Text, out numero);
-
-            if ((!(bln)))
-            {
-                // No es un valor decimal válido; limpiamos el control.
-                //tb.Clear();
-                return;
-            }
-
-            // En la propiedad Tag guardamos el valor con todos los decimales.
-            //
-            tb.Tag = numero;
-
-            // Y acto seguido formateamos el valor
-            // a monetario con dos decimales.
-            //
-            tb.Text = string.Format("{0:N2}", numero);
         }
 
         private void DGDetalle_Igualdad_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -9916,193 +10198,250 @@ namespace Presentacion
         {
             try
             {
-                DataTable Datos = Negocio.fProducto_Inventario.Buscar(2, this.TBIdproducto.Text);
-                //Evaluamos si  existen los Datos
-                if (Datos.Rows.Count == 0)
+                if (!Digitar)
                 {
-                    //MessageBox.Show("Actualmente no se encuentran registros en la Base de Datos", "Leal Enterprise - Consulta de Registro Invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    //Captura de Valores en la Base de Datos
-
-                    //Panel Datos Basicos - Llaves Primarias
-                    Idmarca = Datos.Rows[0][0].ToString();
-                    Idgrupo = Datos.Rows[0][1].ToString();
-                    Idtipo = Datos.Rows[0][2].ToString();
-                    Idempaque = Datos.Rows[0][3].ToString();
-
-                    //Panel Datos Basicos
-                    Codigo = Datos.Rows[0][4].ToString();
-                    Nombre = Datos.Rows[0][5].ToString();
-                    Referencia = Datos.Rows[0][6].ToString();
-                    Descripcion = Datos.Rows[0][7].ToString();
-                    Presentacion = Datos.Rows[0][8].ToString();
-                    Por_Comision = Datos.Rows[0][9].ToString();
-                    Val_Comision = Datos.Rows[0][10].ToString();
-                    Unidad = Datos.Rows[0][11].ToString();
-                    AplicaVencimiento = Datos.Rows[0][12].ToString();
-                    AplicaImpuesto = Datos.Rows[0][13].ToString();
-                    Importado = Datos.Rows[0][14].ToString();
-                    Exportado = Datos.Rows[0][15].ToString();
-                    Ofertable = Datos.Rows[0][16].ToString();
-                    AplicaComision = Datos.Rows[0][17].ToString();
-
-                    //Panel - Valores
-                    //Valor_Promedio = Datos.Rows[0][18].ToString();
-                    //ValCom_Final = Datos.Rows[0][19].ToString();
-                    //Valor_Excento = Datos.Rows[0][20].ToString();
-                    //Valor_NoExcento = Datos.Rows[0][21].ToString();
-                    //Valor_Mayorista = Datos.Rows[0][22].ToString();
-                    //Valor_Fabricacion = Datos.Rows[0][23].ToString();
-                    //Valor_Materiales = Datos.Rows[0][24].ToString();
-                    //Valor_Exportacion = Datos.Rows[0][25].ToString();
-                    //Valor_Importacion = Datos.Rows[0][26].ToString();
-                    //Valor_Seguro = Datos.Rows[0][27].ToString();
-                    //Valor_Otros = Datos.Rows[0][28].ToString();
-
-                    ////
-                    //VenMin_Cliente = Datos.Rows[0][29].ToString();
-                    //VenMax_Cliente = Datos.Rows[0][30].ToString();
-                    //VenMin_Mayorista = Datos.Rows[0][31].ToString();
-                    //VenMax_Mayorista = Datos.Rows[0][32].ToString();
-                    //ComMin_Cliente = Datos.Rows[0][33].ToString();
-                    //ComMax_Cliente = Datos.Rows[0][34].ToString();
-                    //ComMin_Mayorista = Datos.Rows[0][35].ToString();
-                    //ComMax_Mayorista = Datos.Rows[0][36].ToString();
-
-                    //
-                    //Imagen = Datos.Rows[0][38].ToString();
-
-                    //Se procede a completar los campos de texto segun las consulta
-                    //Realizada anteriormente en la base de datos
-
-                    this.Marca_SQL = Idmarca;
-                    this.CBMarca.SelectedValue = Marca_SQL;
-
-                    this.Grupo_SQL = Idgrupo;
-                    this.CBGrupo.SelectedValue = Grupo_SQL;
-
-                    this.Tipo_SQL = Idtipo;
-                    this.CBTipo.SelectedValue = Tipo_SQL;
-
-                    this.Empaque_SQL = Idempaque;
-                    this.CBEmpaque.SelectedValue = Empaque_SQL;
-
-                    //this.Bodega_SQL = Idbodega;
-                    //this.CBBodega.SelectedValue = Bodega_SQL;
-
-                    //Panel Datos Basicos
-                    this.TBCodigo.Text = Codigo;
-                    this.TBIdproveedor.Text = Idproveedor;
-                    this.TBIdimpuesto.Text = Idimpuesto;
-
-                    //Panel Datos Basicos
-                    this.TBCodigo.Text = Codigo;
-                    this.TBNombre.Text = Nombre;
-                    this.TBReferencia.Text = Referencia;
-                    this.TBDescripcion01.Text = Descripcion;
-                    this.TBPresentacion.Text = Presentacion;
-                    this.CBUnidad.Text = Unidad;
-
-                    ////Panel - Valores
-                    //this.TBCompraPromedio.Text = Valor_Promedio;
-                    //this.TBCompraFinal.Text = ValCom_Final;
-                    //this.TBValorVenta_01.Text = Valor_Excento;
-                    //this.TBValorVenta_02.Text = Valor_NoExcento;
-                    //this.TBVentaMayorista.Text = Valor_Mayorista;
-                    //this.TBCosto_Fabricacion.Text = Valor_Fabricacion;
-                    //this.TBCostos_Materiales.Text = Valor_Materiales;
-                    //this.TBCostos_Exportacion.Text = Valor_Exportacion;
-                    //this.TBCostos_Imprtacion.Text = Valor_Importacion;
-                    //this.TBCostos_Seguridad.Text = Valor_Seguro;
-                    //this.TBCostos_Adicional.Text = Valor_Otros;
-
-                    //Panel - Imagen
-                    //this.PB_Imagen.Image = Imagen;
-
-                    //Se proceden a Validar los Chexboxt si estan activos o no
-
-                    if (AplicaVencimiento == "0")
+                    DataTable Datos = Negocio.fProducto_Inventario.Buscar(2, this.TBIdproducto.Text);
+                    //Evaluamos si  existen los Datos
+                    if (Datos.Rows.Count == 0)
                     {
-                        this.CHVencimiento.Checked = false;
+                        //MessageBox.Show("Actualmente no se encuentran registros en la Base de Datos", "Leal Enterprise - Consulta de Registro Invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
-                        this.CHVencimiento.Checked = true;
+                        //Captura de Valores en la Base de Datos
+
+                        //Panel Datos Basicos - Llaves Primarias
+                        Idmarca = Datos.Rows[0][0].ToString();
+                        Idgrupo = Datos.Rows[0][1].ToString();
+                        Idtipo = Datos.Rows[0][2].ToString();
+                        Idempaque = Datos.Rows[0][3].ToString();
+
+                        //Panel Datos Basicos
+                        Codigo = Datos.Rows[0][4].ToString();
+                        Nombre = Datos.Rows[0][5].ToString();
+                        Referencia = Datos.Rows[0][6].ToString();
+                        Descripcion = Datos.Rows[0][7].ToString();
+                        Presentacion = Datos.Rows[0][8].ToString();
+                        Por_Comision = Datos.Rows[0][9].ToString();
+                        Val_Comision = Datos.Rows[0][10].ToString();
+                        Unidad = Datos.Rows[0][11].ToString();
+                        ManejaVencimiento = Datos.Rows[0][12].ToString();
+                        ManejaImpuesto = Datos.Rows[0][13].ToString();
+                        Importado = Datos.Rows[0][14].ToString();
+                        Exportado = Datos.Rows[0][15].ToString();
+                        AplicaOfertable = Datos.Rows[0][16].ToString();
+                        ManejaComision = Datos.Rows[0][17].ToString();
+
+                        //Panel - Valores
+                        //Valor_Promedio = Datos.Rows[0][18].ToString();
+                        //ValCom_Final = Datos.Rows[0][19].ToString();
+                        //Valor_Excento = Datos.Rows[0][20].ToString();
+                        //Valor_NoExcento = Datos.Rows[0][21].ToString();
+                        //Valor_Mayorista = Datos.Rows[0][22].ToString();
+                        //Valor_Fabricacion = Datos.Rows[0][23].ToString();
+                        //Valor_Materiales = Datos.Rows[0][24].ToString();
+                        //Valor_Exportacion = Datos.Rows[0][25].ToString();
+                        //Valor_Importacion = Datos.Rows[0][26].ToString();
+                        //Valor_Seguro = Datos.Rows[0][27].ToString();
+                        //Valor_Otros = Datos.Rows[0][28].ToString();
+
+                        ////
+                        //VenMin_Cliente = Datos.Rows[0][29].ToString();
+                        //VenMax_Cliente = Datos.Rows[0][30].ToString();
+                        //VenMin_Mayorista = Datos.Rows[0][31].ToString();
+                        //VenMax_Mayorista = Datos.Rows[0][32].ToString();
+                        //ComMin_Cliente = Datos.Rows[0][33].ToString();
+                        //ComMax_Cliente = Datos.Rows[0][34].ToString();
+                        //ComMin_Mayorista = Datos.Rows[0][35].ToString();
+                        //ComMax_Mayorista = Datos.Rows[0][36].ToString();
+
+                        //
+                        //Imagen = Datos.Rows[0][38].ToString();
+
+                        //Se procede a completar los campos de texto segun las consulta
+                        //Realizada anteriormente en la base de datos
+
+                        this.Marca_SQL = Idmarca;
+                        this.CBMarca.SelectedValue = Marca_SQL;
+
+                        this.Grupo_SQL = Idgrupo;
+                        this.CBGrupo.SelectedValue = Grupo_SQL;
+
+                        this.Tipo_SQL = Idtipo;
+                        this.CBTipo.SelectedValue = Tipo_SQL;
+
+                        this.Empaque_SQL = Idempaque;
+                        this.CBEmpaque.SelectedValue = Empaque_SQL;
+
+                        //this.Bodega_SQL = Idbodega;
+                        //this.CBBodega.SelectedValue = Bodega_SQL;
+
+                        //Panel Datos Basicos
+                        this.TBCodigo.Text = Codigo;
+                        this.TBIdproveedor.Text = Idproveedor;
+                        this.TBIdimpuesto.Text = Idimpuesto;
+
+                        //Panel Datos Basicos
+                        this.TBCodigo.Text = Codigo;
+                        this.TBNombre.Text = Nombre;
+                        this.TBReferencia.Text = Referencia;
+                        this.TBDescripcion01.Text = Descripcion;
+                        this.TBPresentacion.Text = Presentacion;
+                        this.CBUnidad.Text = Unidad;
+
+                        ////Panel - Valores
+                        //this.TBCompraPromedio.Text = Valor_Promedio;
+                        //this.TBCompraFinal.Text = ValCom_Final;
+                        //this.TBValorVenta_01.Text = Valor_Excento;
+                        //this.TBValorVenta_02.Text = Valor_NoExcento;
+                        //this.TBVentaMayorista.Text = Valor_Mayorista;
+                        //this.TBCosto_Fabricacion.Text = Valor_Fabricacion;
+                        //this.TBCostos_Materiales.Text = Valor_Materiales;
+                        //this.TBCostos_Exportacion.Text = Valor_Exportacion;
+                        //this.TBCostos_Imprtacion.Text = Valor_Importacion;
+                        //this.TBCostos_Seguridad.Text = Valor_Seguro;
+                        //this.TBCostos_Adicional.Text = Valor_Otros;
+
+                        //Panel - Imagen
+                        //this.PB_Imagen.Image = Imagen;
+
+                        //Se proceden a Validar los Chexboxt si estan activos o no
+
+                        if (AplicaVentas == "0")
+                        {
+                            this.CHVentas.Checked = false;
+                        }
+                        else
+                        {
+                            this.CHVentas.Checked = true;
+                        }
+
+                        if (AplicaOfertable == "0")
+                        {
+                            this.CHOfertable.Checked = false;
+                        }
+                        else
+                        {
+                            this.CHOfertable.Checked = true;
+                        }
+
+                        if (AplicaCompras == "0")
+                        {
+                            this.CHCompras.Checked = false;
+                        }
+                        else
+                        {
+                            this.CHCompras.Checked = true;
+                        }
+
+                        if (Fabricado == "0")
+                        {
+                            this.CHFabricado.Checked = false;
+                        }
+                        else
+                        {
+                            this.CHFabricado.Checked = true;
+                        }
+
+                        if (Importado == "0")
+                        {
+                            this.CHImportado.Checked = false;
+                        }
+                        else
+                        {
+                            this.CHImportado.Checked = true;
+                        }
+
+                        if (Exportado == "0")
+                        {
+                            this.CHExportado.Checked = false;
+                        }
+                        else
+                        {
+                            this.CHExportado.Checked = true;
+                        }
+
+                        if (ManejaImpuesto == "0")
+                        {
+                            this.CHImpuesto.Checked = false;
+                        }
+                        else
+                        {
+                            this.CHImpuesto.Checked = true;
+                        }
+
+                        if (ManejaVencimiento == "0")
+                        {
+                            this.CHVencimiento.Checked = false;
+                        }
+                        else
+                        {
+                            this.CHVencimiento.Checked = true;
+                        }
+
+                        if (UtilizaEmpaque == "0")
+                        {
+                            this.CHEmpaque.Checked = false;
+                        }
+                        else
+                        {
+                            this.CHEmpaque.Checked = true;
+                        }
+
+                        if (ManejaComision == "0")
+                        {
+                            this.CHManejaComision.Checked = false;
+                        }
+                        else
+                        {
+                            this.CHManejaComision.Checked = true;
+                        }
+
+                        if (ManejaRetencion == "0")
+                        {
+                            this.CHRetencion.Checked = false;
+                        }
+                        else
+                        {
+                            this.CHRetencion.Checked = true;
+                        }
+
+                        if (UtilizaBalanza == "0")
+                        {
+                            this.CHBalanza.Checked = false;
+                        }
+                        else
+                        {
+                            this.CHBalanza.Checked = true;
+                        }
+
+                        //************************************************************************************************************************
+                        //Se realizan las consultas para llenar los DataGriview donde se mostrarian los MultiPlex Registros.
+
+                        this.DGDetalle_Compuesto.DataSource = fProducto_Inventario.Buscar_Compuesto(1, Convert.ToInt32(this.TBIdproducto.Text));
+                        this.lblTotal_Compuesto.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Compuesto.Rows.Count);
+                        //this.DGDetalle_Compuesto.Columns["Idcompuesto"].Visible = false;
+
+                        this.DGDetalles_Ubicacion.DataSource = fProducto_Inventario.Buscar_Ubicacion(1, Convert.ToInt32(this.TBIdproducto.Text));
+                        this.lblTotal_Ubicacion.Text = "Datos Registrados: " + Convert.ToString(DGDetalles_Ubicacion.Rows.Count);
+                        //this.DGDetalles_Ubicacion.Columns["Idubicacion"].Visible = false;
+
+                        this.DGDetalle_Igualdad.DataSource = fProducto_Inventario.Buscar_Igualdad(1, Convert.ToInt32(this.TBIdproducto.Text));
+                        this.lblTotal_Igualdad.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Igualdad.Rows.Count);
+                        this.DGDetalle_Igualdad.Columns["Idigualdad"].Visible = false;
+
+                        this.DGDetalle_Impuesto.DataSource = fProducto_Inventario.Buscar_Impuesto(1, Convert.ToInt32(this.TBIdproducto.Text));
+                        this.lblTotal_Impuesto.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Impuesto.Rows.Count);
+
+                        this.DGDetalle_Proveedor.DataSource = fProducto_Inventario.Buscar_Proveedor(1, Convert.ToInt32(this.TBIdproducto.Text));
+                        this.lblTotal_Proveedor.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Proveedor.Rows.Count);
+
+
+                        this.DGDetalle_CodigoDeBarra.DataSource = fProducto_Inventario.Buscar_CodigoDeBarra(1, Convert.ToInt32(this.TBIdproducto.Text));
+                        this.lblTotal_Codigodebarra.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_CodigoDeBarra.Rows.Count);
+                        this.DGDetalle_CodigoDeBarra.Columns["IdCodBarra"].Visible = false;
+
                     }
-
-                    if (Importado == "0")
-                    {
-                        this.CHImportado.Checked = false;
-                    }
-                    else
-                    {
-                        this.CHImportado.Checked = true;
-                    }
-
-                    if (Exportado == "0")
-                    {
-                        this.CHExportado.Checked = false;
-                    }
-                    else
-                    {
-                        this.CHExportado.Checked = true;
-                    }
-
-                    if (AplicaImpuesto == "0")
-                    {
-                        this.CHImpuesto.Checked = false;
-                    }
-                    else
-                    {
-                        this.CHImpuesto.Checked = true;
-                    }
-
-                    if (Ofertable == "0")
-                    {
-                        this.CHOfertable.Checked = false;
-                    }
-                    else
-                    {
-                        this.CHOfertable.Checked = true;
-                    }
-
-                    if (AplicaComision == "0")
-                    {
-                        this.CHManejaComision.Checked = false;
-                    }
-                    else
-                    {
-                        this.CHManejaComision.Checked = true;
-                    }
-
-                    //************************************************************************************************************************
-                    //Se realizan las consultas para llenar los DataGriview donde se mostrarian los MultiPlex Registros.
-
-                    this.DGDetalle_Compuesto.DataSource = fProducto_Inventario.Buscar_Compuesto(1, Convert.ToInt32(this.TBIdproducto.Text));
-                    this.lblTotal_Compuesto.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Compuesto.Rows.Count);
-                    //this.DGDetalle_Compuesto.Columns["Idcompuesto"].Visible = false;
-
-                    this.DGDetalles_Ubicacion.DataSource = fProducto_Inventario.Buscar_Ubicacion(1, Convert.ToInt32(this.TBIdproducto.Text));
-                    this.lblTotal_Ubicacion.Text = "Datos Registrados: " + Convert.ToString(DGDetalles_Ubicacion.Rows.Count);
-                    //this.DGDetalles_Ubicacion.Columns["Idubicacion"].Visible = false;
-
-                    this.DGDetalle_Igualdad.DataSource = fProducto_Inventario.Buscar_Igualdad(1, Convert.ToInt32(this.TBIdproducto.Text));
-                    this.lblTotal_Igualdad.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Igualdad.Rows.Count);
-                    this.DGDetalle_Igualdad.Columns["Idigualdad"].Visible = false;
-
-                    this.DGDetalle_Impuesto.DataSource = fProducto_Inventario.Buscar_Impuesto(1, Convert.ToInt32(this.TBIdproducto.Text));
-                    this.lblTotal_Impuesto.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Impuesto.Rows.Count);
-
-                    this.DGDetalle_Proveedor.DataSource = fProducto_Inventario.Buscar_Proveedor(1, Convert.ToInt32(this.TBIdproducto.Text));
-                    this.lblTotal_Proveedor.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_Proveedor.Rows.Count);
-                    
-
-                    this.DGDetalle_CodigoDeBarra.DataSource = fProducto_Inventario.Buscar_CodigoDeBarra(1, Convert.ToInt32(this.TBIdproducto.Text));
-                    this.lblTotal_Codigodebarra.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_CodigoDeBarra.Rows.Count);
-                    this.DGDetalle_CodigoDeBarra.Columns["IdCodBarra"].Visible = false;
-
                 }
             }
             catch (Exception ex)
@@ -10126,6 +10465,11 @@ namespace Presentacion
             {
                 if (Editar == "1")
                 {
+                    //
+                    this.Digitar = false;
+                    this.Botones();
+                    this.TCPrincipal.SelectedIndex = 0;
+
                     this.TBIdproducto.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells[0].Value);
                     this.TBNombre.Select();
 
@@ -10136,11 +10480,6 @@ namespace Presentacion
                     this.Eliminar_Ubicacion = true;
                     this.Eliminar_Proveedor = true;
                     this.Eliminar_CodigoDeBarra = true;
-
-                    //
-                    this.Digitar = false;
-                    this.Botones();
-                    this.TCPrincipal.SelectedIndex = 0;
                 }
                 else
                 {
