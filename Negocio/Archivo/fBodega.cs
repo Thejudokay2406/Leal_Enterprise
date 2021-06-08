@@ -12,10 +12,10 @@ namespace Negocio
 {
     public class fBodega
     {
-        public static DataTable Lista()
+        public static DataTable Lista(int auto)
         {
             Conexion_Bodega Datos = new Conexion_Bodega();
-            return Datos.Lista();
+            return Datos.Lista(auto);
         }
 
         public static DataTable Buscar(string Filtro, int auto)

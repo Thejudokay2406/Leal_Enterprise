@@ -72,38 +72,6 @@ namespace Datos
             }
         }
 
-        public DataTable Lista_Credito(int Auto, int idcliente)
-        {
-            SqlDataReader Resultado;
-            DataTable Tabla = new DataTable();
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Cliente.Detalles_Adicional", SqlCon);
-                Comando.CommandType = CommandType.StoredProcedure;
-
-                Comando.Parameters.Add("@Filtro_Credito", SqlDbType.Int).Value = Auto;
-                Comando.Parameters.Add("@idcliente", SqlDbType.Int).Value = idcliente;
-
-                SqlCon.Open();
-                Resultado = Comando.ExecuteReader();
-                Tabla.Load(Resultado);
-                return Tabla;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                if (SqlCon.State == ConnectionState.Open)
-                {
-                    SqlCon.Close();
-                }
-            }
-        }
-
         public DataTable Lista_Despacho(int Auto, int idcliente)
         {
             SqlDataReader Resultado;
@@ -296,38 +264,6 @@ namespace Datos
             }
         }
 
-        public DataTable Buscar_Credito(int auto_Credito, int Filtro)
-        {
-            SqlDataReader Resultado;
-            DataTable Tabla = new DataTable();
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.Cliente", SqlCon);
-                Comando.CommandType = CommandType.StoredProcedure;
-
-                Comando.Parameters.Add("@Auto_Credito", SqlDbType.Int).Value = auto_Credito;
-                Comando.Parameters.Add("@Det_Credito", SqlDbType.Int).Value = Filtro;
-
-                SqlCon.Open();
-                Resultado = Comando.ExecuteReader();
-                Tabla.Load(Resultado);
-                return Tabla;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                if (SqlCon.State == ConnectionState.Open)
-                {
-                    SqlCon.Close();
-                }
-            }
-        }
-
         public DataTable Buscar_Contacto(int auto_Contacto, int Filtro)
         {
             SqlDataReader Resultado;
@@ -436,7 +372,6 @@ namespace Datos
                 //Datos Auxiliares y Llaves Primarias
                 Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Obj.Auto;
                 Comando.Parameters.Add("@Contacto_AutoSQL", SqlDbType.Int).Value = Obj.Contacto_AutoSQL;
-                Comando.Parameters.Add("@Credito_AutoSQL", SqlDbType.Int).Value = Obj.Credito_AutoSQL;
                 Comando.Parameters.Add("@Envio_AutoSQL", SqlDbType.Int).Value = Obj.Despacho_AutoSQL;
                 Comando.Parameters.Add("@Facturacion_AutoSQL", SqlDbType.Int).Value = Obj.Facturacion_AutoSQL;
                 Comando.Parameters.Add("@Financiera_AutoSQL", SqlDbType.Int).Value = Obj.Financiera_AutoSQL;
@@ -446,17 +381,16 @@ namespace Datos
 
                 //Variables Para Ejecutar Si o No Las Transacciones
                 Comando.Parameters.Add("@Tran_Contacto", SqlDbType.Int).Value = Obj.Tran_Contacto;
-                Comando.Parameters.Add("@Tran_Credito", SqlDbType.Int).Value = Obj.Tran_Credito;
                 Comando.Parameters.Add("@Tran_Envio", SqlDbType.Int).Value = Obj.Tran_Despacho;
                 Comando.Parameters.Add("@Tran_Facturacion", SqlDbType.Int).Value = Obj.Tran_Facturacion;
                 Comando.Parameters.Add("@Tran_Financiera", SqlDbType.Int).Value = Obj.Tran_Financiera;
 
                 Comando.Parameters.Add("@Nombre", SqlDbType.VarChar).Value = Obj.Dat_Cliente;
                 Comando.Parameters.Add("@Documento", SqlDbType.BigInt).Value = Obj.Dat_Documento;
-                Comando.Parameters.Add("@Telefono01", SqlDbType.BigInt).Value = Obj.Dat_Telefono;
-                Comando.Parameters.Add("@Telefono02", SqlDbType.BigInt).Value = Obj.Dat_TelefonoAux;
+                Comando.Parameters.Add("@Telefono01", SqlDbType.BigInt).Value = Obj.Dat_Telefono01;
+                Comando.Parameters.Add("@Telefono02", SqlDbType.BigInt).Value = Obj.Dat_Telefono02;
                 Comando.Parameters.Add("@Movil01", SqlDbType.BigInt).Value = Obj.Dat_Movil;
-                Comando.Parameters.Add("@Movil02", SqlDbType.BigInt).Value = Obj.Dat_MovilAux;
+                Comando.Parameters.Add("@Movil02", SqlDbType.BigInt).Value = Obj.Dat_Movil02;
                 Comando.Parameters.Add("@Correo", SqlDbType.VarChar).Value = Obj.Dat_Correo;
                 Comando.Parameters.Add("@Ciudad", SqlDbType.VarChar).Value = Obj.Dat_Ciudad;
                 Comando.Parameters.Add("@Pais", SqlDbType.VarChar).Value = Obj.Dat_Pais;
@@ -474,9 +408,6 @@ namespace Datos
 
                 //Panel Envio Despacho -- Campos NO Obligatorios
                 Comando.Parameters.Add("@Det_Envio", SqlDbType.Structured).Value = Obj.Det_Despacho;
-
-                //Panel Credito -- Campos NO Obligatorios
-                Comando.Parameters.Add("@Det_Credito", SqlDbType.Structured).Value = Obj.Det_Credito;
 
                 //Panel Financiera -- Campos Obligatorios
                 Comando.Parameters.Add("@Det_Financiera", SqlDbType.Structured).Value = Obj.Det_Financiera;
@@ -522,51 +453,8 @@ namespace Datos
                 Comando.Parameters.Add("@Cliente", SqlDbType.VarChar).Value = Obj.Fac_Cliente;
                 Comando.Parameters.Add("@DocCliente", SqlDbType.BigInt).Value = Obj.Fac_ClienteDoc;
                 Comando.Parameters.Add("@Movil", SqlDbType.BigInt).Value = Obj.Fac_Movil;
-                Comando.Parameters.Add("@Pais", SqlDbType.VarChar).Value = Obj.Fac_Pais;
                 Comando.Parameters.Add("@Ciudad", SqlDbType.VarChar).Value = Obj.Fac_Ciudad;
-                Comando.Parameters.Add("@Departamento", SqlDbType.VarChar).Value = Obj.Fac_Departamento;
                 Comando.Parameters.Add("@Correo", SqlDbType.VarChar).Value = Obj.Fac_Correo;
-
-                SqlCon.Open();
-                Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Realizar el Registro";
-            }
-            catch (Exception ex)
-            {
-                Rpta = ex.Message;
-            }
-            finally
-            {
-                if (SqlCon.State == ConnectionState.Open)
-                {
-                    SqlCon.Close();
-                }
-            }
-            return Rpta;
-        }
-
-        public string Guardar_Credito(Entidad_Cliente Obj)
-        {
-            string Rpta = "";
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Cliente.Detalles_Adicional", SqlCon);
-                Comando.CommandType = CommandType.StoredProcedure;
-
-                //Datos Auxiliares
-                Comando.Parameters.Add("@Auto_Credito", SqlDbType.Int).Value = Obj.AutoDet_Credito;
-
-                //Panel Ubicaciones -- Campos Obligatorios
-                Comando.Parameters.Add("@Idcliente", SqlDbType.Int).Value = Obj.Idcliente;
-                Comando.Parameters.Add("@Valor", SqlDbType.Money).Value = Obj.Cre_Valor;
-                Comando.Parameters.Add("@CuoMeses", SqlDbType.BigInt).Value = Obj.Cre_Cuotas;
-                Comando.Parameters.Add("@TasaMensual", SqlDbType.BigInt).Value = Obj.Cre_TasaMensual;
-                Comando.Parameters.Add("@TasaAnual", SqlDbType.BigInt).Value = Obj.Cre_TasaAnual;
-                Comando.Parameters.Add("@Solicitud", SqlDbType.DateTime).Value = Obj.Cre_Solicitud;
-                Comando.Parameters.Add("@Emision", SqlDbType.DateTime).Value = Obj.Cre_Emision;
-                Comando.Parameters.Add("@Prorroga", SqlDbType.BigInt).Value = Obj.Cre_Prorroga;
-                Comando.Parameters.Add("@Mora", SqlDbType.BigInt).Value = Obj.Cre_TasaMora;
 
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Realizar el Registro";
@@ -600,13 +488,8 @@ namespace Datos
 
                 //Panel Ubicaciones -- Campos Obligatorios
                 Comando.Parameters.Add("@Idcliente", SqlDbType.Int).Value = Obj.Idcliente;
-                Comando.Parameters.Add("@Sucurzal", SqlDbType.VarChar).Value = Obj.Des_Sucurzal;
-                Comando.Parameters.Add("@Pais", SqlDbType.VarChar).Value = Obj.Des_Pais;
                 Comando.Parameters.Add("@Ciudad", SqlDbType.VarChar).Value = Obj.Des_Ciudad;
-                Comando.Parameters.Add("@Departamento", SqlDbType.VarChar).Value = Obj.Des_Departamento;
                 Comando.Parameters.Add("@Receptor", SqlDbType.VarChar).Value = Obj.Des_Receptor;
-                Comando.Parameters.Add("@Barrio", SqlDbType.VarChar).Value = Obj.Des_Barrio;
-                Comando.Parameters.Add("@Apartamento", SqlDbType.VarChar).Value = Obj.Des_Apartamento;
                 Comando.Parameters.Add("@Movil", SqlDbType.BigInt).Value = Obj.Des_Movil;
                 Comando.Parameters.Add("@Direccion", SqlDbType.VarChar).Value = Obj.Des_Direccion;
                 Comando.Parameters.Add("@Observacion", SqlDbType.VarChar).Value = Obj.Des_Observacion;
@@ -682,7 +565,6 @@ namespace Datos
                 Comando.Parameters.Add("@Contacto", SqlDbType.VarChar).Value = Obj.Cont_Contacto;
                 Comando.Parameters.Add("@Ciudad", SqlDbType.VarChar).Value = Obj.Cont_Ciudad;
                 Comando.Parameters.Add("@Direccion", SqlDbType.VarChar).Value = Obj.Cont_Direccion;
-                Comando.Parameters.Add("@Telefono", SqlDbType.BigInt).Value = Obj.Cont_Telefono;
                 Comando.Parameters.Add("@Movil", SqlDbType.BigInt).Value = Obj.Cont_Movil;
                 Comando.Parameters.Add("@Correo", SqlDbType.VarChar).Value = Obj.Cont_Correo;
                 Comando.Parameters.Add("@Parentesco", SqlDbType.VarChar).Value = Obj.Cont_Parentesco;
@@ -722,10 +604,10 @@ namespace Datos
 
                 Comando.Parameters.Add("@Nombre", SqlDbType.VarChar).Value = Obj.Dat_Cliente;
                 Comando.Parameters.Add("@Documento", SqlDbType.VarChar).Value = Obj.Dat_Documento;
-                Comando.Parameters.Add("@Telefono01", SqlDbType.VarChar).Value = Obj.Dat_Telefono;
-                Comando.Parameters.Add("@Telefono02", SqlDbType.VarChar).Value = Obj.Dat_TelefonoAux;
+                Comando.Parameters.Add("@Telefono01", SqlDbType.VarChar).Value = Obj.Dat_Telefono01;
+                Comando.Parameters.Add("@Telefono02", SqlDbType.VarChar).Value = Obj.Dat_Telefono02;
                 Comando.Parameters.Add("@Movil01", SqlDbType.VarChar).Value = Obj.Dat_Movil;
-                Comando.Parameters.Add("@Movil02", SqlDbType.VarChar).Value = Obj.Dat_MovilAux;
+                Comando.Parameters.Add("@Movil02", SqlDbType.VarChar).Value = Obj.Dat_Movil02;
                 Comando.Parameters.Add("@Correo", SqlDbType.VarChar).Value = Obj.Dat_Correo;
                 Comando.Parameters.Add("@Ciudad", SqlDbType.VarChar).Value = Obj.Dat_Ciudad;
                 Comando.Parameters.Add("@Pais", SqlDbType.VarChar).Value = Obj.Dat_Pais;
@@ -777,52 +659,8 @@ namespace Datos
                 Comando.Parameters.Add("@Cliente", SqlDbType.VarChar).Value = Obj.Fac_Cliente;
                 Comando.Parameters.Add("@DocCliente", SqlDbType.VarChar).Value = Obj.Fac_ClienteDoc;
                 Comando.Parameters.Add("@Movil", SqlDbType.VarChar).Value = Obj.Fac_Movil;
-                Comando.Parameters.Add("@Pais", SqlDbType.VarChar).Value = Obj.Fac_Pais;
                 Comando.Parameters.Add("@Ciudad", SqlDbType.VarChar).Value = Obj.Fac_Ciudad;
-                Comando.Parameters.Add("@Departamento", SqlDbType.VarChar).Value = Obj.Fac_Departamento;
                 Comando.Parameters.Add("@Correo", SqlDbType.VarChar).Value = Obj.Fac_Correo;
-
-                SqlCon.Open();
-                Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Realizar el Registro";
-            }
-            catch (Exception ex)
-            {
-                Rpta = ex.Message;
-            }
-            finally
-            {
-                if (SqlCon.State == ConnectionState.Open)
-                {
-                    SqlCon.Close();
-                }
-            }
-            return Rpta;
-        }
-
-        public string Editar_Credito(Entidad_Cliente Obj)
-        {
-            string Rpta = "";
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Cliente.Detalles_Adicional", SqlCon);
-                Comando.CommandType = CommandType.StoredProcedure;
-
-                //Datos Auxiliares
-                Comando.Parameters.Add("@Idcliente", SqlDbType.Int).Value = Obj.Idcliente;
-                Comando.Parameters.Add("@Idcredito", SqlDbType.Int).Value = Obj.Idcredito;
-                Comando.Parameters.Add("@Auto_Credito", SqlDbType.Int).Value = Obj.AutoDet_Credito;
-
-                //Panel Ubicaciones -- Campos Obligatorios
-                Comando.Parameters.Add("@Valor", SqlDbType.Money).Value = Obj.Cre_Valor;
-                Comando.Parameters.Add("@CuoMeses", SqlDbType.Int).Value = Obj.Cre_Cuotas;
-                Comando.Parameters.Add("@TasaMensual", SqlDbType.Int).Value = Obj.Cre_TasaMensual;
-                Comando.Parameters.Add("@TasaAnual", SqlDbType.Int).Value = Obj.Cre_TasaAnual;
-                Comando.Parameters.Add("@Solicitud", SqlDbType.DateTime).Value = Obj.Cre_Solicitud;
-                Comando.Parameters.Add("@Emision", SqlDbType.DateTime).Value = Obj.Cre_Emision;
-                Comando.Parameters.Add("@Prorroga", SqlDbType.Int).Value = Obj.Cre_Prorroga;
-                Comando.Parameters.Add("@Mora", SqlDbType.Int).Value = Obj.Cre_TasaMora;
 
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Realizar el Registro";
@@ -857,13 +695,8 @@ namespace Datos
                 Comando.Parameters.Add("@Auto_Despacho", SqlDbType.Int).Value = Obj.AutoDet_Despacho;
 
                 //Panel Ubicaciones -- Campos Obligatorios
-                Comando.Parameters.Add("@Sucurzal", SqlDbType.VarChar).Value = Obj.Des_Sucurzal;
-                Comando.Parameters.Add("@Pais", SqlDbType.VarChar).Value = Obj.Des_Pais;
                 Comando.Parameters.Add("@Ciudad", SqlDbType.VarChar).Value = Obj.Des_Ciudad;
-                Comando.Parameters.Add("@Departamento", SqlDbType.VarChar).Value = Obj.Des_Departamento;
                 Comando.Parameters.Add("@Receptor", SqlDbType.VarChar).Value = Obj.Des_Receptor;
-                Comando.Parameters.Add("@Barrio", SqlDbType.VarChar).Value = Obj.Des_Barrio;
-                Comando.Parameters.Add("@Apartamento", SqlDbType.VarChar).Value = Obj.Des_Apartamento;
                 Comando.Parameters.Add("@Movil", SqlDbType.VarChar).Value = Obj.Des_Movil;
                 Comando.Parameters.Add("@Direccion", SqlDbType.VarChar).Value = Obj.Des_Direccion;
                 Comando.Parameters.Add("@Observacion", SqlDbType.VarChar).Value = Obj.Des_Observacion;
@@ -941,7 +774,6 @@ namespace Datos
                 Comando.Parameters.Add("@Contacto", SqlDbType.VarChar).Value = Obj.Cont_Contacto;
                 Comando.Parameters.Add("@Ciudad", SqlDbType.VarChar).Value = Obj.Cont_Ciudad;
                 Comando.Parameters.Add("@Direccion", SqlDbType.VarChar).Value = Obj.Cont_Direccion;
-                Comando.Parameters.Add("@Telefono", SqlDbType.VarChar).Value = Obj.Cont_Telefono;
                 Comando.Parameters.Add("@Movil", SqlDbType.Int).Value = Obj.Cont_Movil;
                 Comando.Parameters.Add("@Correo", SqlDbType.VarChar).Value = Obj.Cont_Correo;
                 Comando.Parameters.Add("@Parentesco", SqlDbType.VarChar).Value = Obj.Cont_Parentesco;
@@ -1041,38 +873,6 @@ namespace Datos
                 Comando.Parameters.Add("@Eliminar", SqlDbType.Int).Value = Auto;
                 Comando.Parameters.Add("@Idcliente", SqlDbType.Int).Value = Idcliente;
                 Comando.Parameters.Add("@Iddespacho", SqlDbType.Int).Value = Iddetalle;
-
-                SqlCon.Open();
-                Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Eliminar el Registro";
-            }
-            catch (Exception ex)
-            {
-                Rpta = ex.Message;
-            }
-            finally
-            {
-                if (SqlCon.State == ConnectionState.Open)
-                {
-                    SqlCon.Close();
-                }
-            }
-            return Rpta;
-        }
-
-        public string Eliminar_Credito(int Idcliente, int Iddetalle, int Auto)
-        {
-            string Rpta = "";
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Cliente.Detalles_Adicional", SqlCon);
-                Comando.CommandType = CommandType.StoredProcedure;
-
-                //Panel Datos Basicos
-                Comando.Parameters.Add("@Eliminar", SqlDbType.Int).Value = Auto;
-                Comando.Parameters.Add("@Idcliente", SqlDbType.Int).Value = Idcliente;
-                Comando.Parameters.Add("@Idcredito", SqlDbType.Int).Value = Iddetalle;
 
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Eliminar el Registro";

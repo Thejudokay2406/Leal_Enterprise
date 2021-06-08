@@ -169,6 +169,10 @@ namespace Presentacion
 
             //Se realiza el FOCUS al panel y campo de texto iniciales
             this.TBEmpleado.Select();
+
+            this.Auto_CodigoSQL();
+
+            this.PB_FotoEmpleado.Image = Properties.Resources.Logo_Leal_Enterprise;
         }
 
         private void Botones()
@@ -197,36 +201,19 @@ namespace Presentacion
             {
                 DataTable Datos = Negocio.fGestion_Empleados.AutoIncrementable(Convert.ToInt32(0));
                 //Evaluamos si  existen los Datos
-                if (Datos.Rows.Count == 0)
+                if (Datos.Rows.Count != 0)
                 {
                     //MessageBox.Show("Niveles de Seguridad no Cumplidos", "Leal Enterprise - Acceso Denegado", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    this.TBCodigo.Enabled = true;
-                }
-                else
-                {
+                    //this.TBCodigo.Enabled = true;
+
                     Operacion = Datos.Rows[0][0].ToString();
                     AutoIncrementable = Datos.Rows[0][1].ToString();
 
-                    int Valor = 10;
-
                     if (Operacion == "A")
                     {
-                        if (Convert.ToInt32(AutoIncrementable) < Valor)
-                        {
-                            this.TBCodigo.Enabled = false;
-                            this.TBCodigo.Text = "00" + AutoIncrementable;
-                        }
-                        else
-                        {
-                            this.TBCodigo.Enabled = false;
-                            this.TBCodigo.Text = "0" + AutoIncrementable;
-                        }
-                        
-                    }
-                    else
-                    {
-                        this.TBCodigo.Enabled = true;
-                        this.TBCodigo.BackColor = Color.FromArgb(3, 155, 229);
+                        this.TBCodigo.Enabled = false;
+                        this.TBCodigo.Text = "1";
+                        this.TBCodigo.BackColor = Color.FromArgb(245, 245, 245);
                     }
                 }
             }
@@ -235,6 +222,7 @@ namespace Presentacion
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
+
 
         private void AutoCompletar_Combobox()
         {
@@ -313,12 +301,12 @@ namespace Presentacion
                     {
                         if (this.Digitar)
                         {
-                            this.MensajeOk("El Empleado(a): " + this.TBEmpleado.Text + " a Sido Registrado(a)");
+                            this.MensajeOk("Procedimiento de Digitalización Exitoso - Leal Enterprise \n\n" + "El Empleado: “" + this.TBEmpleado.Text + "” a Sido Registrado.");
                         }
 
                         else
                         {
-                            this.MensajeOk("El Registro del Empleado(a): "+this.TBEmpleado.Text+" a Sido Actualizado(a)");
+                            this.MensajeOk("Procedimiento de Actualización Exitoso - Leal Enterprise \n\n" + "El Registro del Empleado(a): “" + this.TBEmpleado.Text + "” a Sido Modificado.");
                         }
                     }
 
@@ -331,7 +319,6 @@ namespace Presentacion
                     this.Digitar = true;
                     this.Botones();
                     this.Limpiar_Datos();
-                    this.Auto_CodigoSQL();
                 }
 
             }
@@ -743,17 +730,7 @@ namespace Presentacion
         private void TBBuscar_Enter(object sender, EventArgs e)
         {
             //Se evalua si el campo de texto esta vacio y se espeicifca que es obligatorio en la base de datos
-            if (TBBuscar.Text == Campo)
-            {
-                this.TBBuscar.BackColor = Color.Azure;
-                this.TBBuscar.ForeColor = Color.FromArgb(0, 0, 0);
-                this.TBBuscar.Clear();
-            }
-            else
-            {
-                //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
-                this.TBBuscar.BackColor = Color.Azure;
-            }
+            this.TBBuscar.BackColor = Color.Azure;
         }
 
         //**************************** FOCUS LEAVE - Datos Basicos *******************************

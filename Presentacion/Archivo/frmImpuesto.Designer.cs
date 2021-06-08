@@ -324,7 +324,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 17);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Descripcion";
+            this.label3.Text = "Descripción";
             // 
             // btnGuardar
             // 

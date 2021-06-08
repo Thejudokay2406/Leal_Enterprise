@@ -24,12 +24,6 @@ namespace Negocio
             return Datos.Lista_Contacto(auto, idcliente);
         }
 
-        public static DataTable Lista_Credito(int auto, int idcliente)
-        {
-            Conexion_Cliente Datos = new Conexion_Cliente();
-            return Datos.Lista_Credito(auto, idcliente);
-        }
-
         public static DataTable Lista_Despacho(int auto, int idcliente)
         {
             Conexion_Cliente Datos = new Conexion_Cliente();
@@ -59,16 +53,13 @@ namespace Negocio
             Conexion_Cliente Datos = new Conexion_Cliente();
             return Datos.Buscar_Contacto(Auto_Contacto, Filtro);
         }
-        public static DataTable Buscar_Credito(int Auto_Credito, int Filtro)
-        {
-            Conexion_Cliente Datos = new Conexion_Cliente();
-            return Datos.Buscar_Credito(Auto_Credito, Filtro);
-        }
+
         public static DataTable Buscar_Despacho(int Auto_Despacho, int Filtro)
         {
             Conexion_Cliente Datos = new Conexion_Cliente();
             return Datos.Buscar_Despacho(Auto_Despacho, Filtro);
         }
+
         public static DataTable Buscar_Facturacion(int Auto_Facturacion, int Filtro)
         {
             Conexion_Cliente Datos = new Conexion_Cliente();
@@ -92,14 +83,11 @@ namespace Negocio
                 int auto, int idtipo, int idgrupo,
 
                 //Datos Basicos
-                string cliente, Int64 documento, Int64 telefonoprin, Int64 movilprin, Int64 telefonoaux, Int64 movilaux,
+                string cliente, Int64 documento, Int64 telefono01, Int64 movil01, Int64 telefono02, Int64 movil02,
                 string correo, string pais, string ciudad, string departamento, string paginaweb, string direccion, string observacion,
 
                 //Panel Facturacion
                 DataTable detalle_facturacion,
-
-                //Panel Credito
-                DataTable detalle_credito,
 
                 //Panel Despacho
                 DataTable detalle_despacho,
@@ -111,10 +99,10 @@ namespace Negocio
                 DataTable detalle_contacto,
 
                 //Datos Auxiliares
-                int facturacion_autosql, int credito_autosql, int despacho_autosql, int financiera_autosql, int contacto_autosql,
+                int facturacion_autosql, int despacho_autosql, int financiera_autosql, int contacto_autosql,
 
                 //SI VALIDA SI SE REALIZA O NO LA VALIDACION
-                int tran_faturacion, int tran_credito, int tran_despacho, int tran_financiera, int tran_contacto,
+                int tran_faturacion, int tran_despacho, int tran_financiera, int tran_contacto,
 
                 //VARIABLES PARA LA VALIDACION DE LOS CHEBOXT DEL PANEL DATOS BASICOS
                 int efectivo, int debito, int credito, int contado
@@ -130,10 +118,10 @@ namespace Negocio
             //Datos Basicos
             Obj.Dat_Cliente = cliente;
             Obj.Dat_Documento = documento;
-            Obj.Dat_Telefono = telefonoprin;
-            Obj.Dat_Movil = movilprin;
-            Obj.Dat_TelefonoAux = telefonoaux;
-            Obj.Dat_MovilAux = movilaux;
+            Obj.Dat_Telefono01 = telefono01;
+            Obj.Dat_Movil = movil01;
+            Obj.Dat_Telefono02 = telefono02;
+            Obj.Dat_Movil02 = movil02;
             Obj.Dat_Correo = correo;
             Obj.Dat_Pais = pais;
             Obj.Dat_Ciudad = ciudad;
@@ -144,9 +132,6 @@ namespace Negocio
 
             //Panel Facturacion
             Obj.Det_Facturacion = detalle_facturacion;
-
-            //Panel Credito
-            Obj.Det_Credito = detalle_credito;
 
             //Panel Despacho
             Obj.Det_Despacho = detalle_despacho;
@@ -159,14 +144,12 @@ namespace Negocio
 
             //Datos Auxiliares
             Obj.Facturacion_AutoSQL = facturacion_autosql;
-            Obj.Credito_AutoSQL = credito_autosql;
             Obj.Despacho_AutoSQL = despacho_autosql;
             Obj.Financiera_AutoSQL = financiera_autosql;
             Obj.Contacto_AutoSQL = contacto_autosql;
 
             //SI VALIDA SI SE REALIZA O NO LA VALIDACION
             Obj.Tran_Facturacion = tran_faturacion;
-            Obj.Tran_Credito = tran_credito;
             Obj.Tran_Despacho = tran_despacho;
             Obj.Tran_Financiera = tran_financiera;
             Obj.Tran_Contacto = tran_contacto;
@@ -186,7 +169,7 @@ namespace Negocio
         public static string Guardar_Facturacion
             (
                 //Ubicacion[]
-                int idcliente, int idempleado, string Empleado, string Cod_Empleado, string Cliente, Int64 Doc_Cliente, Int64 Movil, string Pais, string Ciudad, string Departamento, string Correo,
+                int idcliente, int idempleado, string Empleado, string Cod_Empleado, string Cliente, Int64 Doc_Cliente, Int64 Movil, string Ciudad, string Correo,
 
                 //Datos Auxiliares
                 int autodet_facturacion
@@ -203,9 +186,7 @@ namespace Negocio
             Obj.Fac_Cliente = Cliente;
             Obj.Fac_ClienteDoc = Doc_Cliente;
             Obj.Fac_Movil = Movil;
-            Obj.Fac_Pais = Pais;
             Obj.Fac_Ciudad = Ciudad;
-            Obj.Fac_Departamento = Departamento;
             Obj.Fac_Correo = Correo;
 
             //Datos Auxiliares
@@ -214,39 +195,10 @@ namespace Negocio
             return Datos.Guardar_Facturacion(Obj);
         }
 
-        public static string Guardar_Credito
-            (
-                //Ubicacion[]
-                int Idcliente, decimal Valor, Int64 CuoMeses, Int64 TasaMensu, Int64 TasaAnual, DateTime Solicitud, DateTime Emision, Int64 Prorroga, Int64 Mora,
-
-                //Datos Auxiliares
-                int autodet_credito
-            )
-        {
-            Conexion_Cliente Datos = new Conexion_Cliente();
-            Entidad_Cliente Obj = new Entidad_Cliente();
-
-            //Ubicacion[]
-            Obj.Idcliente = Idcliente;
-            Obj.Cre_Valor = Valor;
-            Obj.Cre_Cuotas = CuoMeses;
-            Obj.Cre_TasaMensual = TasaMensu;
-            Obj.Cre_TasaAnual = TasaAnual;
-            Obj.Cre_Solicitud = Solicitud;
-            Obj.Cre_Emision = Emision;
-            Obj.Cre_Prorroga = Prorroga;
-            Obj.Cre_TasaMora = Mora;
-
-            //Datos Auxiliares
-            Obj.AutoDet_Credito = autodet_credito;
-
-            return Datos.Guardar_Credito(Obj);
-        }
-
         public static string Guardar_Despacho
             (
                 //Despacho[]
-                int Idcliente, string Sucurzal, string Pais, string Ciudad, string Departamento, string Receptor, string Barrio, string Apartamento, Int64 Movil, string Direccion, string Observacion,
+                int Idcliente, string Ciudad, string Receptor, Int64 Movil, string Direccion, string Observacion,
 
                 //Datos Auxiliares
                 int autodet_despacho
@@ -257,13 +209,8 @@ namespace Negocio
 
             //Despacho[]
             Obj.Idcliente = Idcliente;
-            Obj.Des_Sucurzal = Sucurzal;
-            Obj.Des_Pais = Pais;
             Obj.Des_Ciudad = Ciudad;
-            Obj.Des_Departamento = Departamento;
             Obj.Des_Receptor = Receptor;
-            Obj.Des_Barrio = Barrio;
-            Obj.Des_Apartamento = Apartamento;
             Obj.Des_Movil = Movil;
             Obj.Des_Direccion = Direccion;
             Obj.Des_Observacion = Observacion;
@@ -301,7 +248,7 @@ namespace Negocio
         public static string Guardar_Contacto
             (
                 //Ubicacion[]
-                int Idcliente, string Contacto, string Ciudad, string Direccion, Int64 Telefono, Int64 Movil, string Correo, string Parentesco,
+                int Idcliente, string Contacto, string Ciudad, string Direccion, Int64 Movil, string Correo, string Parentesco,
 
                 //Datos Auxiliares
                 int autodet_contacto
@@ -315,7 +262,6 @@ namespace Negocio
             Obj.Cont_Contacto = Contacto;
             Obj.Cont_Ciudad = Ciudad;
             Obj.Cont_Direccion = Direccion;
-            Obj.Cont_Telefono = Telefono;
             Obj.Cont_Movil = Movil;
             Obj.Cont_Correo = Correo;
             Obj.Cont_Parentesco = Parentesco;
@@ -332,7 +278,7 @@ namespace Negocio
                 int auto, int idcliente, int idtipo, int idgrupo,
 
                 //Datos Basicos
-                string cliente, Int64 documento, Int64 telefonoprin, Int64 movilprin, Int64 telefonoaux, Int64 movilaux,
+                string cliente, Int64 documento, Int64 telefono01, Int64 movil01, Int64 telefono02, Int64 movil02,
                 string correo, string pais, string ciudad, string departamento, string paginaweb, string direccion, string observacion
             )
         {
@@ -348,10 +294,10 @@ namespace Negocio
             //Datos Basicos
             Obj.Dat_Cliente = cliente;
             Obj.Dat_Documento = documento;
-            Obj.Dat_Telefono = telefonoprin;
-            Obj.Dat_Movil = movilprin;
-            Obj.Dat_TelefonoAux = telefonoaux;
-            Obj.Dat_MovilAux = movilaux;
+            Obj.Dat_Telefono01 = telefono01;
+            Obj.Dat_Movil = movil01;
+            Obj.Dat_Telefono02 = telefono02;
+            Obj.Dat_Movil02 = movil02;
             Obj.Dat_Correo = correo;
             Obj.Dat_Pais = pais;
             Obj.Dat_Ciudad = ciudad;
@@ -366,7 +312,7 @@ namespace Negocio
         public static string Editar_Facturacion
             (
                 //Facturacion[]
-                int idfacturacion, int idcliente, int idempleado, string Empleado, string Cod_Empleado, string Cliente, Int64 Doc_Cliente, Int64 Movil, string Pais, string Ciudad, string Departamento, string Correo,
+                int idfacturacion, int idcliente, int idempleado, string Empleado, string Cod_Empleado, string Cliente, Int64 Doc_Cliente, Int64 Movil, string Ciudad, string Correo,
 
                 //Datos Auxiliares
                 int autodet_facturacion
@@ -384,9 +330,7 @@ namespace Negocio
             Obj.Fac_Cliente = Cliente;
             Obj.Fac_ClienteDoc = Doc_Cliente;
             Obj.Fac_Movil = Movil;
-            Obj.Fac_Pais = Pais;
             Obj.Fac_Ciudad = Ciudad;
-            Obj.Fac_Departamento = Departamento;
             Obj.Fac_Correo = Correo;
 
             //Datos Auxiliares
@@ -395,40 +339,10 @@ namespace Negocio
             return Datos.Editar_Facturacion(Obj);
         }
 
-        public static string Editar_Credito
-            (
-                //Credito[]
-                int idcredito, int Idcliente, decimal Valor, Int64 CuoMeses, Int64 TasaMensu, Int64 TasaAnual, DateTime Solicitud, DateTime Emision, Int64 Prorroga, Int64 Mora,
-
-                //Datos Auxiliares
-                int autodet_credito
-            )
-        {
-            Conexion_Cliente Datos = new Conexion_Cliente();
-            Entidad_Cliente Obj = new Entidad_Cliente();
-
-            //Ubicacion[]
-            Obj.Idcredito = idcredito;
-            Obj.Idcliente = Idcliente;
-            Obj.Cre_Valor = Valor;
-            Obj.Cre_Cuotas = CuoMeses;
-            Obj.Cre_TasaMensual = TasaMensu;
-            Obj.Cre_TasaAnual = TasaAnual;
-            Obj.Cre_Solicitud = Solicitud;
-            Obj.Cre_Emision = Emision;
-            Obj.Cre_Prorroga = Prorroga;
-            Obj.Cre_TasaMora = Mora;
-
-            //Datos Auxiliares
-            Obj.AutoDet_Credito = autodet_credito;
-
-            return Datos.Editar_Credito(Obj);
-        }
-
         public static string Editar_Despacho
             (
                 //Despacho[]
-                int iddespacho, int Idcliente, string Sucurzal, string Pais, string Ciudad, string Departamento, string Receptor, string Barrio, string Apartamento, Int64 Movil, string Direccion, string Observacion,
+                int iddespacho, int Idcliente, string Ciudad, string Receptor, Int64 Movil, string Direccion, string Observacion,
 
                 //Datos Auxiliares
                 int autodet_despacho
@@ -440,13 +354,8 @@ namespace Negocio
             //Despacho[]
             Obj.Iddespacho = iddespacho;
             Obj.Idcliente = Idcliente;
-            Obj.Des_Sucurzal = Sucurzal;
-            Obj.Des_Pais = Pais;
             Obj.Des_Ciudad = Ciudad;
-            Obj.Des_Departamento = Departamento;
             Obj.Des_Receptor = Receptor;
-            Obj.Des_Barrio = Barrio;
-            Obj.Des_Apartamento = Apartamento;
             Obj.Des_Movil = Movil;
             Obj.Des_Direccion = Direccion;
             Obj.Des_Observacion = Observacion;
@@ -485,7 +394,7 @@ namespace Negocio
         public static string Editar_Contacto
             (
                 //Contacto[]
-                int idcontacto, int Idcliente, string Contacto, string Ciudad, string Direccion, Int64 Telefono, Int64 Movil, string Correo, string Parentesco,
+                int idcontacto, int Idcliente, string Contacto, string Ciudad, string Direccion, Int64 Movil, string Correo, string Parentesco,
 
                 //Datos Auxiliares
                 int autodet_contacto
@@ -500,7 +409,6 @@ namespace Negocio
             Obj.Cont_Contacto = Contacto;
             Obj.Cont_Ciudad = Ciudad;
             Obj.Cont_Direccion = Direccion;
-            Obj.Cont_Telefono = Telefono;
             Obj.Cont_Movil = Movil;
             Obj.Cont_Correo = Correo;
             Obj.Cont_Parentesco = Parentesco;
@@ -521,12 +429,6 @@ namespace Negocio
         {
             Conexion_Cliente Datos = new Conexion_Cliente();
             return Datos.Eliminar_Contacto(Idcliente, Iddetalle, Auto);
-        }
-
-        public static string Eliminar_Credito(int Idcliente, int Iddetalle, int Auto)
-        {
-            Conexion_Cliente Datos = new Conexion_Cliente();
-            return Datos.Eliminar_Credito(Idcliente, Iddetalle, Auto);
         }
 
         public static string Eliminar_Despacho(int Idcliente, int Iddetalle, int Auto)

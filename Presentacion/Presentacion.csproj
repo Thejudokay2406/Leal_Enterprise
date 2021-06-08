@@ -217,6 +217,12 @@
     <Compile Include="Filtros\frmFiltro_Banco.Designer.cs">
       <DependentUpon>frmFiltro_Banco.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCliente_SolicitudDeCredito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCliente_SolicitudDeCredito.Designer.cs">
+      <DependentUpon>frmCliente_SolicitudDeCredito.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sistema\frmCodigo_Archivo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -438,6 +444,9 @@
     <EmbeddedResource Include="Filtros\frmFiltro_Banco.resx">
       <DependentUpon>frmFiltro_Banco.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCliente_SolicitudDeCredito.resx">
+      <DependentUpon>frmCliente_SolicitudDeCredito.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sistema\frmCodigo_Archivo.resx">
       <DependentUpon>frmCodigo_Archivo.cs</DependentUpon>
     </EmbeddedResource>
@@ -628,7 +637,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="NewFolder1\" />
     <Folder Include="SQL Server\" />
   </ItemGroup>
   <ItemGroup>

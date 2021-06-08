@@ -102,15 +102,13 @@ namespace Presentacion
             this.TBIdbodega.Clear();
             this.CBSucurzal.SelectedIndex = 0;
             this.TBBodega.Clear();
-            this.TBBodega.Text = Campo;
-            this.TBBodega.ForeColor = Color.FromArgb(255, 255, 255);
             this.TBDocumento.Clear();
             this.TBDescripcion.Clear();
             this.TBDescripcion.Text = Campo;
-            this.TBDescripcion.ForeColor = Color.FromArgb(255, 255, 255);
+            //this.TBDescripcion.ForeColor = Color.FromArgb(255, 255, 255);
             this.TBDirector.Clear();
             this.TBDirector.Text = Campo;
-            this.TBDirector.ForeColor = Color.FromArgb(255, 255, 255);
+            //this.TBDirector.ForeColor = Color.FromArgb(255, 255, 255);
 
             this.TBCiudad.Clear();
             this.TBMovil01.Clear();
@@ -185,19 +183,19 @@ namespace Presentacion
 
                 if (this.TBBodega.Text == Campo)
                 {
-                    MensajeError("Ingrese el nombre de la Bodega a registrar");
+                    MensajeError("Ingrese el Nombre de la Bodega a Registrar");
                 }
                 else if (this.TBDescripcion.Text == Campo)
                 {
-                    MensajeError("Ingrese la descripcion de la bodega a registrar");
+                    MensajeError("Ingrese la Descripción de la Bodega a Registrar");
                 }
                 else if (this.TBDirector.Text == Campo)
                 {
-                    MensajeError("Ingrese el nombre del Director o Responsable de la bodega");
+                    MensajeError("Ingrese el Nombre del Director o Responsable de la bodega");
                 }
                 else if (this.CBSucurzal.SelectedIndex == 0)
                 {
-                    MensajeError("Seleccione la sucurzal a la cual pernecera la bodega");
+                    MensajeError("Seleccione la Sucursal a la Cual Pernecera la Bodega");
                 }
                 else
                 {
@@ -231,11 +229,11 @@ namespace Presentacion
                     {
                         if (this.Digitar)
                         {
-                            this.MensajeOk("La Bodega: “" + this.TBBodega.Text + "” a Sido Registrada Exitosamente");
+                            this.MensajeOk("Procedimiento de Digitalización Exitoso - Leal Enterprise \n\n" + "La Bodega: “" + this.TBBodega.Text + "” a Sido Registrada.");
                         }
                         else
                         {
-                            this.MensajeOk("Los Datos de Registro de la Bodega: “" + this.TBBodega.Text + "” han Sido Actualizados Exitosamente");
+                            this.MensajeOk("Procedimiento de Modificación Exitoso - Leal Enterprise \n\n" + "El Registro de la Bodega: “" + this.TBBodega.Text + "” a Sido Modificado.");
                         }
                     }
 
@@ -565,6 +563,7 @@ namespace Presentacion
             {
                 //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
                 this.TBBodega.BackColor = Color.Azure;
+                this.TBBodega.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 
@@ -581,6 +580,7 @@ namespace Presentacion
             {
                 //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
                 this.TBDescripcion.BackColor = Color.Azure;
+                this.TBDescripcion.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 
@@ -597,6 +597,7 @@ namespace Presentacion
             {
                 //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
                 this.TBDirector.BackColor = Color.Azure;
+                this.TBDirector.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 
@@ -635,11 +636,9 @@ namespace Presentacion
                 this.TBBodega.Text = Campo;
                 this.TBBodega.ForeColor = Color.FromArgb(255, 255, 255);
             }
-
             else
             {
                 this.TBBodega.BackColor = Color.FromArgb(3, 155, 229);
-                this.TBBodega.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 
@@ -652,11 +651,9 @@ namespace Presentacion
                 this.TBDescripcion.Text = Campo;
                 this.TBDescripcion.ForeColor = Color.FromArgb(255, 255, 255);
             }
-
             else
             {
                 this.TBDescripcion.BackColor = Color.FromArgb(3, 155, 229);
-                this.TBDescripcion.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 
@@ -669,11 +666,9 @@ namespace Presentacion
                 this.TBDirector.Text = Campo;
                 this.TBDirector.ForeColor = Color.FromArgb(255, 255, 255);
             }
-
             else
             {
                 this.TBDirector.BackColor = Color.FromArgb(3, 155, 229);
-                this.TBDirector.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
 

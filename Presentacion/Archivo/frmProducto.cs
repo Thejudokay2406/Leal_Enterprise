@@ -122,10 +122,12 @@ namespace Presentacion
             this.TBIdproducto.Visible = false;
             this.TBIdimpuesto.Visible = false;
             this.TBIdproveedor.Visible = false;
-            //this.TBIdproducto_AutoSQL.Visible = false;
+            this.TBIdproducto_AutoSQL.Visible = false;
             this.TBIdigualdad_Producto.Visible = false;
             this.TBDivisor_Impuesto.Visible = false;
             this.TBmultiplicador_Impuesto.Visible = false;
+            this.TBIdcompuesto.Visible = false;
+            this.TBIdexterior.Visible = false;
 
             //Panel - Cantidades - Otros Datos
             this.CBArea.SelectedIndex = 0;
@@ -386,13 +388,15 @@ namespace Presentacion
             this.TBCompraMaxima.Clear();
             this.TBComision.Enabled = false;
 
+            this.CBArea.SelectedIndex = 0;
             this.CBMarca.SelectedIndex = 0;
             this.CBGrupo.SelectedIndex = 0;
             this.CBEmpaque.SelectedIndex = 0;
             this.CBTipo.SelectedIndex = 0;
             this.CBUnidad.SelectedIndex = 0;
 
-            this.CHVencimiento.Checked = false;
+            this.CHCompras.Checked = false;
+            this.CHVentas.Checked = false;
             this.CHImpuesto.Checked = false;
             this.CHOfertable.Checked = false;
             this.CHImportado.Checked = false;
@@ -561,6 +565,10 @@ namespace Presentacion
         {
             try
             {
+                this.CBBodega.DataSource = fBodega.Lista(3);
+                this.CBBodega.ValueMember = "Código";
+                this.CBBodega.DisplayMember = "Bodega";
+
                 this.CBEmpaque.DataSource = fEmpaque.Lista(3);
                 this.CBEmpaque.ValueMember = "Codigo";
                 this.CBEmpaque.DisplayMember = "Empaque";
@@ -1225,12 +1233,12 @@ namespace Presentacion
                     {
                         if (this.Digitar)
                         {
-                            this.MensajeOk("El Producto: “" + this.TBNombre.Text + "” a Sido Registrado Exitosamente");
+                            this.MensajeOk("Procedimiento de Digitalización Exitoso - Leal Enterprise \n\n" + "El Producto: “" + this.TBNombre.Text + "” a Sido Registrado Exitosamente");
                         }
 
                         else
                         {
-                            this.MensajeOk("El Registro del Producto: “" + this.TBNombre.Text + "” a Sido Actualizado Exitosamente");
+                            this.MensajeOk("Procedimiento de Modificación Exitoso - Leal Enterprise \n\n" + "El Registro del Producto: “" + this.TBNombre.Text + "” a Sido Actualizado Exitosamente");
                         }
                     }
 
@@ -1316,6 +1324,14 @@ namespace Presentacion
                 //Se Limpian las Filas y Columnas de la tabla
                 this.DGResultados.DataSource = null;
                 this.lblTotal.Text = "Datos Registrados: 0";
+                this.lblTotal_Codigodebarra.Text = "Datos Registrados: 0";
+                this.lblTotal_Compuesto.Text = "Datos Registrados: 0";
+                this.lblTotal_Exterior.Text = "Datos Registrados: 0";
+                this.lblTotal_Igualdad.Text = "Datos Registrados: 0";
+                this.lblTotal_Impuesto.Text = "Datos Registrados: 0";
+                this.lblTotal_Proveedor.Text = "Datos Registrados: 0";
+                this.lblTotal_Stock.Text = "Datos Registrados: 0";
+                this.lblTotal_Ubicacion.Text = "Datos Registrados: 0";
             }
             catch (Exception ex)
             {
@@ -7677,6 +7693,39 @@ namespace Presentacion
             }
         }
 
+        private void btnDetalleProducto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Editar == "1")
+                {
+                    //
+                    this.Digitar = false;
+                    this.Botones();
+                    this.TCPrincipal.SelectedIndex = 0;
+
+                    this.TBIdproducto.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells[0].Value);
+                    this.TBNombre.Select();
+
+                    //
+                    //this.Digitar = false;
+                    this.Eliminar_Igualdad = true;
+                    this.Eliminar_Impuesto = true;
+                    this.Eliminar_Ubicacion = true;
+                    this.Eliminar_Proveedor = true;
+                    this.Eliminar_CodigoDeBarra = true;
+                }
+                else
+                {
+                    MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Actualizar Datos en el Sistema", "Leal Enterprise - 'Acceso Denegado' ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
         private void TBFabri_DiasFormal_KeyPress(object sender, KeyPressEventArgs e)
         {
             //SOLO SE PERMITEN INTRODUCIR NUMEROS
@@ -9580,17 +9629,32 @@ namespace Presentacion
 
         private void CBManejaComision_CheckedChanged(object sender, EventArgs e)
         {
-            if (CHManejaComision.Checked)
+            if (Digitar)
             {
-                this.TBComision.Enabled = true;
-                this.TBComision.BackColor = Color.FromArgb(3, 155, 229);
-                this.TBComision.Text = "0";
+                if (CHFabricado.Checked)
+                {
+                    this.TBComision.Enabled = true;
+                    this.TBComision.BackColor = Color.FromArgb(3, 155, 229);
+                    this.TBComision.Text = "0";
+                }
+                else
+                {
+                    this.TBComision.Enabled = false;
+                    this.TBComision.BackColor = Color.FromArgb(245, 245, 245);
+                    this.TBComision.Text = "0";
+                }
             }
-            else
+
+            else if (!Digitar)
             {
-                this.TBComision.Enabled = false;
-                this.TBComision.BackColor = Color.FromArgb(245, 245, 245);
-                this.TBComision.Text = "0";
+                if (TBComision.Text !="0")
+                {
+                    this.CHFabricado.Checked = true;
+                }
+                else
+                {
+                    this.CHFabricado.Checked = false;
+                }
             }
         }
 
@@ -10179,7 +10243,7 @@ namespace Presentacion
                     if (TBBuscar.Text != "")
                     {
                         this.DGResultados.DataSource = fProducto_Inventario.Buscar(1, this.TBBuscar.Text);
-                        //this.DGResultados.Columns[0].Visible = false;
+                        this.DGResultados.Columns[0].Visible = false;
 
                         this.lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGResultados.Rows.Count);
 
@@ -10216,11 +10280,7 @@ namespace Presentacion
                 {
                     DataTable Datos = Negocio.fProducto_Inventario.Buscar(2, this.TBIdproducto.Text);
                     //Evaluamos si  existen los Datos
-                    if (Datos.Rows.Count == 0)
-                    {
-                        //MessageBox.Show("Actualmente no se encuentran registros en la Base de Datos", "Leal Enterprise - Consulta de Registro Invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    else
+                    if (Datos.Rows.Count != 0)
                     {
                         //Captura de Valores en la Base de Datos
 
@@ -10530,6 +10590,7 @@ namespace Presentacion
                         this.DGDetalle_CodigoDeBarra.Columns["IdCodBarra"].Visible = false;
 
                     }
+
                 }
             }
             catch (Exception ex)
@@ -10572,42 +10633,6 @@ namespace Presentacion
                 else
                 {
                     MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Actualizar Datos en el Sistema", "Leal Enterprise - 'Acceso Denegado' ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        private void DGResultados_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            try
-            {
-                if (e.KeyChar == Convert.ToChar(Keys.Enter))
-                {
-                    if (Editar == "1")
-                    {
-                        this.TBIdproducto.Text = Convert.ToString(this.DGResultados.CurrentRow.Cells["ID"].Value);
-                        this.TBNombre.Select();
-
-                        //
-                        this.Digitar = false;
-                        this.Eliminar_Igualdad = true;
-                        this.Eliminar_Impuesto = true;
-                        this.Eliminar_Ubicacion = true;
-                        this.Eliminar_Proveedor = true;
-                        this.Eliminar_CodigoDeBarra = true;
-
-                        //
-                        this.Digitar = false;
-                        this.Botones();
-                        this.TCPrincipal.SelectedIndex = 0;
-                    }
-                    else
-                    {
-                        MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Actualizar Datos", "Leal Enterprise - 'Acceso Denegado' ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    }
                 }
             }
             catch (Exception ex)
