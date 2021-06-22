@@ -308,8 +308,8 @@ namespace Presentacion
             this.TBFabri_Maquinaria.BackColor = Color.FromArgb(3, 155, 229);
             this.TBFabri_HerramientaManual.ReadOnly = false;
             this.TBFabri_HerramientaManual.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBFabri_TotalFabricacion.ReadOnly = false;
-            this.TBFabri_TotalFabricacion.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBFabri_TotalFabricacion.Enabled = false;
+            this.TBFabri_TotalFabricacion.BackColor = Color.FromArgb(245, 245, 245);
             this.TBFabri_DiasFormal.ReadOnly = false;
             this.TBFabri_DiasFormal.BackColor = Color.FromArgb(3, 155, 229);
             this.TBFabri_DiasProrroga.ReadOnly = false;
@@ -653,6 +653,14 @@ namespace Presentacion
             this.TBIdproveedor.Text = idproveedor;
             this.TBProveedor.Text = proveedor;
             this.TBProveedor_Documento.Text = documento;
+        }
+
+        public void setImpuesto(string idimpuesto, string impuesto, string valor, string descripcion)
+        {
+            this.TBIdimpuesto.Text = idimpuesto;
+            this.TBImpuesto.Text = impuesto;
+            this.TBValor_Impuesto.Text = valor;
+            this.TBDescripcion_Impuesto.Text = descripcion;
         }
 
         private void Validaciones_SQL()
@@ -1059,12 +1067,34 @@ namespace Presentacion
             }
         }
 
-        public void setImpuesto(string idimpuesto, string impuesto, string valor, string descripcion)
+        private void Total_Fabricacion()
         {
-            this.TBIdimpuesto.Text = idimpuesto;
-            this.TBImpuesto.Text = impuesto;
-            this.TBValor_Impuesto.Text = valor;
-            this.TBDescripcion_Impuesto.Text = descripcion;
+            try
+            {
+                double Total = 0;
+                double materialprincipal, materialsecundario, materialterciario, otromaterial, manodeobra, materiales, envio, almacenamiento, maquinaria, herramientamanual = 0;
+
+                materialprincipal = Convert.ToDouble(TBFabri_MaterialPrincipal.Text);
+                materialsecundario = Convert.ToDouble(TBFabri_MaterialSecundario.Text);
+                materialterciario = Convert.ToDouble(TBFabri_MaterialTerciario.Text);
+                otromaterial = Convert.ToDouble(TBFabri_OtroMaterial.Text);
+                manodeobra = Convert.ToDouble(TBFabri_ManoDeObra.Text);
+                materiales = Convert.ToDouble(TBFabri_Materiales.Text);
+                envio = Convert.ToDouble(TBFabri_Envio.Text);
+                almacenamiento = Convert.ToDouble(TBFabri_Almacenamiento.Text);
+                maquinaria = Convert.ToDouble(TBFabri_Maquinaria.Text);
+                herramientamanual = Convert.ToDouble(TBFabri_HerramientaManual.Text);
+
+                Total = (materialprincipal + materialsecundario + materialterciario + otromaterial + manodeobra + materiales + envio + almacenamiento + maquinaria + herramientamanual);
+
+                //this.TBFabri_TotalFabricacion.Text = Convert.ToString(Total);
+
+                this.TBFabri_TotalFabricacion.Text = string.Format("{0:N2}", Total);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
 
         //Mensaje de confirmacion
@@ -4652,6 +4682,9 @@ namespace Presentacion
             //Color de texboxt cuando este posee el FOCUS Activado
             this.TBFabri_MaterialPrincipal.BackColor = Color.FromArgb(3, 155, 229);
 
+            //SE PROCEDE A CALCULAR EL TOTAL DEL VALOR DE FABRICACION
+            this.Total_Fabricacion();
+
             // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
             TextBox tb = (TextBox)sender;
 
@@ -4680,6 +4713,9 @@ namespace Presentacion
         {
             //Color de texboxt cuando este posee el FOCUS Activado
             this.TBFabri_MaterialSecundario.BackColor = Color.FromArgb(3, 155, 229);
+
+            //SE PROCEDE A CALCULAR EL TOTAL DEL VALOR DE FABRICACION
+            this.Total_Fabricacion();
 
             // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
             TextBox tb = (TextBox)sender;
@@ -4710,6 +4746,9 @@ namespace Presentacion
             //Color de texboxt cuando este posee el FOCUS Activado
             this.TBFabri_MaterialTerciario.BackColor = Color.FromArgb(3, 155, 229);
 
+            //SE PROCEDE A CALCULAR EL TOTAL DEL VALOR DE FABRICACION
+            this.Total_Fabricacion();
+
             // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
             TextBox tb = (TextBox)sender;
 
@@ -4738,6 +4777,9 @@ namespace Presentacion
         {
             //Color de texboxt cuando este posee el FOCUS Activado
             this.TBFabri_OtroMaterial.BackColor = Color.FromArgb(3, 155, 229);
+
+            //SE PROCEDE A CALCULAR EL TOTAL DEL VALOR DE FABRICACION
+            this.Total_Fabricacion();
 
             // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
             TextBox tb = (TextBox)sender;
@@ -4768,6 +4810,9 @@ namespace Presentacion
             //Color de texboxt cuando este posee el FOCUS Activado
             this.TBFabri_ManoDeObra.BackColor = Color.FromArgb(3, 155, 229);
 
+            //SE PROCEDE A CALCULAR EL TOTAL DEL VALOR DE FABRICACION
+            this.Total_Fabricacion();
+
             // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
             TextBox tb = (TextBox)sender;
 
@@ -4796,6 +4841,9 @@ namespace Presentacion
         {
             //Color de texboxt cuando este posee el FOCUS Activado
             this.TBFabri_Materiales.BackColor = Color.FromArgb(3, 155, 229);
+
+            //SE PROCEDE A CALCULAR EL TOTAL DEL VALOR DE FABRICACION
+            this.Total_Fabricacion();
 
             // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
             TextBox tb = (TextBox)sender;
@@ -4826,6 +4874,9 @@ namespace Presentacion
             //Color de texboxt cuando este posee el FOCUS Activado
             this.TBFabri_Envio.BackColor = Color.FromArgb(3, 155, 229);
 
+            //SE PROCEDE A CALCULAR EL TOTAL DEL VALOR DE FABRICACION
+            this.Total_Fabricacion();
+
             // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
             TextBox tb = (TextBox)sender;
 
@@ -4854,6 +4905,9 @@ namespace Presentacion
         {
             //Color de texboxt cuando este posee el FOCUS Activado
             this.TBFabri_Almacenamiento.BackColor = Color.FromArgb(3, 155, 229);
+
+            //SE PROCEDE A CALCULAR EL TOTAL DEL VALOR DE FABRICACION
+            this.Total_Fabricacion();
 
             // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
             TextBox tb = (TextBox)sender;
@@ -4884,6 +4938,9 @@ namespace Presentacion
             //Color de texboxt cuando este posee el FOCUS Activado
             this.TBFabri_Maquinaria.BackColor = Color.FromArgb(3, 155, 229);
 
+            //SE PROCEDE A CALCULAR EL TOTAL DEL VALOR DE FABRICACION
+            this.Total_Fabricacion();
+
             // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
             TextBox tb = (TextBox)sender;
 
@@ -4912,6 +4969,9 @@ namespace Presentacion
         {
             //Color de texboxt cuando este posee el FOCUS Activado
             this.TBFabri_HerramientaManual.BackColor = Color.FromArgb(3, 155, 229);
+
+            //SE PROCEDE A CALCULAR EL TOTAL DEL VALOR DE FABRICACION
+            this.Total_Fabricacion();
 
             // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
             TextBox tb = (TextBox)sender;
@@ -8554,7 +8614,7 @@ namespace Presentacion
                 {
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
-                    this.TBFabri_TotalFabricacion.Select();
+                    this.TBFabri_DiasFormal.Select();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F9))
                 {
@@ -10588,9 +10648,7 @@ namespace Presentacion
                         this.DGDetalle_CodigoDeBarra.DataSource = fProducto_Inventario.Buscar_CodigoDeBarra(1, Convert.ToInt32(this.TBIdproducto.Text));
                         this.lblTotal_Codigodebarra.Text = "Datos Registrados: " + Convert.ToString(DGDetalle_CodigoDeBarra.Rows.Count);
                         this.DGDetalle_CodigoDeBarra.Columns["IdCodBarra"].Visible = false;
-
                     }
-
                 }
             }
             catch (Exception ex)

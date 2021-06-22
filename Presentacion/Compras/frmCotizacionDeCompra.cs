@@ -43,6 +43,10 @@ namespace Presentacion
 
         public string Guardar, Editar, Consultar, Eliminar, Imprimir = "";
 
+        //********** Variable para AutoComplementar Los Campos de Texto **********************************************
+
+        private string Idproveedor, Idproducto, Idbodega, Codigo, Codigo_Proveedor, Codigo_Bodega, Codigo_Producto, Proveedor, Bodega, Producto = "";
+
         public frmCotizacionDeCompra()
         {
             InitializeComponent();
@@ -88,11 +92,9 @@ namespace Presentacion
             this.TBCodigo_Bodega.BackColor = Color.FromArgb(3, 155, 229);
             this.TBCodigo_Bodega.ForeColor = Color.FromArgb(255, 255, 255);
             this.TBCodigo_Bodega.Text = Campo;
-            this.TBCodigo_Almacen.Enabled = false;
-            this.TBCodigo_Almacen.BackColor = Color.FromArgb(245, 245, 245);
 
             //
-            this.TBOrdendecompra.Enabled = false;
+            this.TBOrdendecompra.ReadOnly = false;
             this.TBOrdendecompra.BackColor = Color.FromArgb(245, 245, 245);
             this.TBBodega.Enabled = false;
             this.TBBodega.BackColor = Color.FromArgb(245, 245, 245);
@@ -100,12 +102,6 @@ namespace Presentacion
             this.TBProveedor.BackColor = Color.FromArgb(245, 245, 245);
             this.TBProducto.Enabled = false;
             this.TBProducto.BackColor = Color.FromArgb(245, 245, 245);
-            this.TBAlmacen.Enabled = false;
-            this.TBAlmacen.BackColor = Color.FromArgb(245, 245, 245);
-            this.TBCreditoEnMora.ReadOnly = false;
-            this.TBCreditoEnMora.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBCreditoDisponible.ReadOnly = false;
-            this.TBCreditoDisponible.BackColor = Color.FromArgb(3, 155, 229);
 
             //Valores Finales
             this.TBSubTotal.Enabled = false;
@@ -117,6 +113,7 @@ namespace Presentacion
 
             //
             this.TBDescuento.Text = "0";
+            this.CBLista.Enabled = false;
         }
 
         private void Limpiar_Datos()
@@ -138,14 +135,10 @@ namespace Presentacion
                 this.TBCodigo_Producto.Text = Campo;
                 this.TBCodigo_Proveedor.Clear();
                 this.TBCodigo_Proveedor.Text = Campo;
-                this.TBCodigo_Almacen.Clear();
-                this.TBAlmacen.Clear();
                 this.TBBodega.Clear();
                 this.TBOrdendecompra.Clear();
                 this.TBProducto.Clear();
                 this.TBProveedor.Clear();
-                this.TBCreditoEnMora.Clear();
-                this.TBCreditoDisponible.Clear();
 
                 //
                 this.TBSubTotal.Clear();
@@ -158,6 +151,7 @@ namespace Presentacion
                 this.Digitar = true;
                 this.Botones();
                 this.Habilitar();
+                this.CrearTabla();
 
                 //Se realiza el FOCUS al panel y campo de texto iniciales
                 this.TBCodigo.Select();
@@ -170,7 +164,7 @@ namespace Presentacion
             {
                 //Se procede a habilitar los botones de operacion para realizar registros en el sistema
                 this.btnGuardar.Enabled = true;
-                this.btnGuardar.Text = "Guardar";
+                this.btnGuardar.Text = "Guardar - F10";
 
                 this.btnCancelar.Enabled = false;
                 this.btnImprimir.Enabled = false;
@@ -179,7 +173,7 @@ namespace Presentacion
             {
                 //Se procede a habilitar los botones de operacion para Editar registros en el sistema
                 this.btnGuardar.Enabled = true;
-                this.btnGuardar.Text = "Editar";
+                this.btnGuardar.Text = "Editar - F10";
 
                 this.btnCancelar.Enabled = true;
                 this.btnEliminar_Detalles.Enabled = true;
@@ -200,39 +194,6 @@ namespace Presentacion
             }
         }
 
-        private void Auto_CodigoAlmacen()
-        {
-            try
-            {
-                DataTable Datos = Negocio.fBodega.Buscar(this.TBCodigo_Bodega.Text.Trim(), 4);
-                if (Datos.Rows.Count <= 0)
-                {
-                    this.MensajeError("La Bodega que desea agregar no se encuentra registrada en su Base de Datos");
-                }
-                else
-                {
-                    //Captura de Valores en la Base de Datos
-
-                    this.TBIdbodega.Text = Datos.Rows[0][0].ToString();
-                    this.TBBodega.Text = Datos.Rows[0][1].ToString();
-                    this.TBCodigo_Almacen.Text = Datos.Rows[0][2].ToString();
-                    this.TBAlmacen.Text = Datos.Rows[0][3].ToString();
-                    this.TBCodigo_Almacen.Text = Datos.Rows[0][4].ToString();
-
-                    this.lblTotal_Detalles.Text = "Productos Agregados: " + Convert.ToString(DGDetalles.Rows.Count);
-
-                    //Se procede a limpiar los campos de texto utilizados para el Filtro
-
-                    this.TBCodigo_Producto.Clear();
-                    this.TBProducto.Clear();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
         private void CrearTabla()
         {
             try
@@ -240,34 +201,26 @@ namespace Presentacion
                 this.DGDetalles.DataSource = this.DtDetalle;
 
                 this.DtDetalle.Columns.Add("Idproducto", System.Type.GetType("System.Int32"));
-                this.DtDetalle.Columns.Add("Codigo", System.Type.GetType("System.String"));
+                this.DtDetalle.Columns.Add("Código", System.Type.GetType("System.String"));
                 this.DtDetalle.Columns.Add("Descripción", System.Type.GetType("System.String"));
                 this.DtDetalle.Columns.Add("Medida", System.Type.GetType("System.String"));
-                this.DtDetalle.Columns.Add("Cajas", System.Type.GetType("System.String"));
-                this.DtDetalle.Columns.Add("Unidad", System.Type.GetType("System.String"));
                 this.DtDetalle.Columns.Add("Cantidad", System.Type.GetType("System.String"));
                 this.DtDetalle.Columns.Add("V. Compra", System.Type.GetType("System.String"));
                 this.DtDetalle.Columns.Add("Total", System.Type.GetType("System.String"));
 
                 //Medidas de las Columnas
-                this.DGDetalles.Columns[0].Visible = false;
-                this.DGDetalles.Columns[1].Visible = false;
                 this.DGDetalles.Columns[0].HeaderText = "Idproducto";
-                this.DGDetalles.Columns[1].HeaderText = "Codigo";
+                this.DGDetalles.Columns[1].HeaderText = "Código";
                 this.DGDetalles.Columns[2].HeaderText = "Descripción";
                 this.DGDetalles.Columns[2].Width = 280;
                 this.DGDetalles.Columns[3].HeaderText = "Medida";
                 this.DGDetalles.Columns[3].Width = 60;
-                this.DGDetalles.Columns[4].HeaderText = "Cajas";
+                this.DGDetalles.Columns[4].HeaderText = "Cantidad";
                 this.DGDetalles.Columns[4].Width = 60;
-                this.DGDetalles.Columns[5].HeaderText = "Unidad";
-                this.DGDetalles.Columns[5].Width = 60;
-                this.DGDetalles.Columns[6].HeaderText = "Cantidad";
-                this.DGDetalles.Columns[6].Width = 60;
-                this.DGDetalles.Columns[7].HeaderText = "V. Compra";
-                this.DGDetalles.Columns[7].Width = 110;
-                this.DGDetalles.Columns[8].HeaderText = "Total";
-                this.DGDetalles.Columns[8].Width = 110;
+                this.DGDetalles.Columns[5].HeaderText = "V. Compra";
+                this.DGDetalles.Columns[5].Width = 110;
+                this.DGDetalles.Columns[6].HeaderText = "Total";
+                this.DGDetalles.Columns[6].Width = 110;
 
                 //Se Desabilita las columnas especificadas para evitar la edicion
                 //Del Campo por parte del Usuario
@@ -278,12 +231,10 @@ namespace Presentacion
                 this.DGDetalles.Columns[4].ReadOnly = false;
                 this.DGDetalles.Columns[5].ReadOnly = false;
                 this.DGDetalles.Columns[6].ReadOnly = true;
-                this.DGDetalles.Columns[7].ReadOnly = false;
-                this.DGDetalles.Columns[8].ReadOnly = true;
 
                 //Formato de Celdas
-                this.DGDetalles.Columns[7].DefaultCellStyle.Format = "##,##0.00";
-                this.DGDetalles.Columns[8].DefaultCellStyle.Format = "##,##0.00";
+                this.DGDetalles.Columns[5].DefaultCellStyle.Format = "##,##0.00";
+                this.DGDetalles.Columns[6].DefaultCellStyle.Format = "##,##0.00";
 
                 //Aliniacion de las Celdas de Cada Columna
                 this.DGDetalles.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -293,8 +244,6 @@ namespace Presentacion
                 this.DGDetalles.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 this.DGDetalles.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 this.DGDetalles.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                this.DGDetalles.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                this.DGDetalles.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
                 //Alineacion de los Encabezados de Cada Columna
                 this.DGDetalles.Columns[0].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -304,9 +253,10 @@ namespace Presentacion
                 this.DGDetalles.Columns[4].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 this.DGDetalles.Columns[5].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 this.DGDetalles.Columns[6].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                this.DGDetalles.Columns[7].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                this.DGDetalles.Columns[8].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
+                //OCULTACION DE COLUMNAS
+                this.DGDetalles.Columns[0].Visible = false;
+                //this.DGDetalles.Columns[1].Visible = false;
 
             }
             catch (Exception ex)
@@ -335,29 +285,6 @@ namespace Presentacion
             this.TBCodigo_Bodega.Text = documento;
         }
 
-        public void Auto_Texboxt()
-        {
-            try
-            {
-                //Variables Para Los Filtros
-                string subtotal, descuento, valorgeneral, creditomora, creditodisponible;
-                
-                //
-                frmTotalizar_CotizacionDeCompra form = frmTotalizar_CotizacionDeCompra.GetInstancia();
-                subtotal = this.TBSubTotal.Text;
-                descuento = this.TBDescuento.Text;
-                valorgeneral = this.TBValorFinal.Text;
-                creditomora = this.TBCreditoEnMora.Text;
-                creditodisponible = this.TBCreditoDisponible.Text;
-                form.setFiltro(subtotal, descuento, valorgeneral, creditomora, creditodisponible);
-                this.Hide();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
         public void Agregar_Detalle(int idproducto, string codigo, string nombre, string medida, string valor_compra)
         {
             try
@@ -366,8 +293,6 @@ namespace Presentacion
                 double Cantidad = 0;
                 double Valor_Compra = 0;
                 double Operacion = 0;
-                double Caja = 0;
-                double Unidad = 0;
 
                 bool Agregar = true;
                 foreach (DataRow FilaTemporal in DtDetalle.Rows)
@@ -385,11 +310,9 @@ namespace Presentacion
                 {
                     DataRow Fila = DtDetalle.NewRow();
                     Fila["Idproducto"] = idproducto;
-                    Fila["Codigo"] = codigo;
+                    Fila["Código"] = codigo;
                     Fila["Descripción"] = nombre;
                     Fila["Medida"] = medida;
-                    Fila["Cajas"] = Caja;
-                    Fila["Unidad"] = Unidad;
                     Fila["Cantidad"] = Cantidad;
                     Fila["V. Compra"] = valor_compra;
                     Fila["Total"] = Operacion;
@@ -418,11 +341,11 @@ namespace Presentacion
 
                 foreach (DataGridViewRow row in DGDetalles.Rows)
                 {
-                    SubTotal += Convert.ToDouble(row.Cells[7].Value);
+                    SubTotal += Convert.ToDouble(row.Cells[6].Value);
                 }
-                
+
                 //
-                this.TBSubTotal.Text= Convert.ToString(SubTotal);
+                this.TBSubTotal.Text = Convert.ToString(SubTotal);
 
                 Descuento = Convert.ToDouble(this.TBDescuento.Text);
                 Porcentaje = SubTotal * Descuento / 100;
@@ -431,6 +354,9 @@ namespace Presentacion
                 //Se les da Formato a los campo de texto en este caso con Miles y Dos Decimales
                 this.TBSubTotal.Text = Operacion.ToString("##,##0.00");
                 this.TBValorFinal.Text = Operacion.ToString("##,##0.00");
+
+                //
+                lblTotal_Detalles.Text = "Productos Agregados: " + Convert.ToString(DGDetalles.Rows.Count);
             }
             catch (Exception ex)
             {
@@ -449,7 +375,7 @@ namespace Presentacion
         {
             MessageBox.Show(mensaje, "Leal Enterprise - Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
-        
+
         public void Guardar_SQL()
         {
             try
@@ -483,18 +409,18 @@ namespace Presentacion
                         //Se establece la variable para poder utilizar los campos de texto del segundo formulario
                         frmTotalizar_CotizacionDeCompra frmTotCoti = frmTotalizar_CotizacionDeCompra.GetInstancia();
 
-                        rptaDatosBasicos = fCotizacion_Compra.Guardar_DatosBasicos
+                        //rptaDatosBasicos = fCotizacion_Compra.Guardar_DatosBasicos
 
-                            (
-                                 //Panel Datos Basicos
-                                 Convert.ToInt32(this.TBIdbodega.Text), Convert.ToInt32(this.TBIdproveedor.Text), Convert.ToInt32(this.CBTipodepago.SelectedValue),Idempleado, this.TBCodigo.Text, this.TBCodigo_Almacen.Text, this.TBAlmacen.Text,
+                        //    (
+                        //         //Panel Datos Basicos
+                        //         Convert.ToInt32(this.TBIdbodega.Text), Convert.ToInt32(this.TBIdproveedor.Text), Convert.ToInt32(this.CBTipodepago.SelectedValue),Idempleado, this.TBCodigo.Text, this.TBCodigo_Almacen.Text, this.TBAlmacen.Text,
 
-                                 //Formulario de Totalizacion
-                                 frmTotCoti.TBSubTotal.Text, frmTotCoti.TBDescuento_Porcentaje.Text, frmTotCoti.TBDescuento.Text, frmTotCoti.TBImpuesto_Valor.Text, frmTotCoti.TBValorGeneral.Text, frmTotCoti.TBCreditoMora.Text, frmTotCoti.TBCreditoDisponible.Text, frmTotCoti.TBValorDeEnvio.Text, frmTotCoti.TBTipoDePago.Text, frmTotCoti.TBDiasDeEntrega.Text, Convert.ToInt32(frmTotCoti.Vencimiento), frmTotCoti.dateTimePicker3.Value, DtDetalle,
+                        //         //Formulario de Totalizacion
+                        //         frmTotCoti.TBSubTotal.Text, frmTotCoti.TBDescuento_Porcentaje.Text, frmTotCoti.TBDescuento.Text, frmTotCoti.TBImpuesto_Valor.Text, frmTotCoti.TBValorGeneral.Text, frmTotCoti.TBCreditoMora.Text, frmTotCoti.TBCreditoDisponible.Text, frmTotCoti.TBValorDeEnvio.Text, frmTotCoti.TBTipoDePago.Text, frmTotCoti.TBDiasDeEntrega.Text, Convert.ToInt32(frmTotCoti.Vencimiento), frmTotCoti.dateTimePicker3.Value, DtDetalle,
 
-                                 //Datos Auxiliares
-                                 1
-                            );
+                        //         //Datos Auxiliares
+                        //         1
+                        //    );
                     }
 
                     //else
@@ -542,7 +468,7 @@ namespace Presentacion
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
-        
+
         private void TBBuscar_TextChanged(object sender, EventArgs e)
         {
             try
@@ -737,29 +663,28 @@ namespace Presentacion
             {
                 if (e.KeyChar == Convert.ToChar(Keys.Enter))
                 {
-                    DataTable Tabla = new DataTable();
-                    Tabla = fProducto_Inventario.Buscar(4, this.TBCodigo_Producto.Text.Trim());
-                    if (Tabla.Rows.Count <= 0)
+                    DataTable Datos = Negocio.fProveedor.Buscar(this.TBCodigo_Proveedor.Text, 4);
+                    //Evaluamos si  existen los Datos
+                    if (Datos.Rows.Count == 0)
                     {
-                        this.MensajeError("El producto el cual desea agregar no se encuentra registrado en su Base de Datos");
+                        MessageBox.Show(" El Proveedor que Desea Agregar no se Encuentra Registrado en su Base de Datos", "Leal Enterprise - 'Acceso Denegado' ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
+
                     else
                     {
-                        this.Agregar_Detalle
-                            (
-                                Convert.ToInt32(Tabla.Rows[0][0]),
-                                Convert.ToString(Tabla.Rows[0][1]),
-                                Convert.ToString(Tabla.Rows[0][2]),
-                                Convert.ToString(Tabla.Rows[0][3]),
-                                Convert.ToString(Tabla.Rows[0][4])
-                            );
+                        //Captura de Valores en la Base de Datos
 
-                        lblTotal_Detalles.Text = "Productos Agregados: " + Convert.ToString(DGDetalles.Rows.Count);
+                        Idproveedor = Datos.Rows[0][0].ToString();
+                        Proveedor = Datos.Rows[0][2].ToString();
+                        Codigo_Proveedor = Datos.Rows[0][3].ToString();
 
-                        //Se procede a limpiar los campos de texto utilizados para el Filtro
+                        //Se procede a completar los campos de texto segun las consulta
+                        //Realizada anteriormente en la base de datos
 
-                        this.TBCodigo_Proveedor.Clear();
-                        this.TBProveedor.Clear();
+                        //Panel Datos Basicos
+                        this.TBIdproveedor.Text = Idproveedor;
+                        this.TBCodigo_Proveedor.Text = Codigo_Proveedor;
+                        this.TBProveedor.Text = Proveedor;
                     }
                 }
             }
@@ -775,7 +700,29 @@ namespace Presentacion
             {
                 if (e.KeyChar == Convert.ToChar(Keys.Enter))
                 {
-                    this.Auto_CodigoAlmacen();
+                    DataTable Datos = Negocio.fBodega.Buscar(this.TBCodigo_Bodega.Text, 4);
+                    //Evaluamos si  existen los Datos
+                    if (Datos.Rows.Count == 0)
+                    {
+                        MessageBox.Show(" El Proveedor que Desea Agregar no se Encuentra Registrado en su Base de Datos", "Leal Enterprise - 'Acceso Denegado' ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+
+                    else
+                    {
+                        //Captura de Valores en la Base de Datos
+
+                        Idbodega = Datos.Rows[0][0].ToString();
+                        Bodega = Datos.Rows[0][1].ToString();
+                        Codigo_Bodega = Datos.Rows[0][2].ToString();
+
+                        //Se procede a completar los campos de texto segun las consulta
+                        //Realizada anteriormente en la base de datos
+
+                        //Panel Datos Basicos
+                        this.TBIdbodega.Text = Idbodega;
+                        this.TBCodigo_Bodega.Text = Codigo_Bodega;
+                        this.TBBodega.Text = Bodega;
+                    }
                 }
             }
             catch (Exception ex)
@@ -932,6 +879,47 @@ namespace Presentacion
             }
         }
 
+        private void CHProveedor_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (CHProveedor.Checked)
+                {
+                    this.CHBodega.Checked = false;
+                    this.CBLista.Enabled = true;
+
+                    this.CBLista.DataSource = fProveedor.Lista(3);
+                    this.CBLista.ValueMember = "Código";
+                    this.CBLista.DisplayMember = "Proveedor";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void CHBodega_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (CHBodega.Checked)
+                {
+                    this.CHProveedor.Checked = false;
+                    this.CBLista.Enabled = true;
+
+                    this.CBLista.DataSource = fBodega.Lista(3);
+                    this.CBLista.ValueMember = "Código";
+                    this.CBLista.DisplayMember = "Bodega";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         private void TBCodigo_Proveedor_Leave(object sender, EventArgs e)
         {
             if (TBCodigo_Proveedor.Text == string.Empty)
@@ -1005,7 +993,7 @@ namespace Presentacion
                 int cantidad = 0;
                 double precio_unit = 0;
                 double precio_total = 0;
-                
+
                 if (DGDetalles.Columns[e.ColumnIndex].Name == "Cantidad")
                 {
                     try
@@ -1062,18 +1050,6 @@ namespace Presentacion
                     //this.TBSubTotal.Text = Operacion.ToString("##,##0.00");
                     this.TBValorFinal.Text = Operacion.ToString("##,##0.00");
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                this.Auto_CodigoAlmacen();
             }
             catch (Exception ex)
             {

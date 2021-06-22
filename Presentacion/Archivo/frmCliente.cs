@@ -611,12 +611,12 @@ namespace Presentacion
                     {
                         if (this.Digitar)
                         {
-                            this.MensajeOk("El Cliente: “" + this.TBDat_Nombre.Text + "” a Sido Registrado(a) Exitosamente");
+                            this.MensajeOk("Procedimiento de Digitalización Exitoso - Leal Enterprise \n\n" + "El Cliente: “" + this.TBDat_Nombre.Text + "” a Sido Registrado(a) Exitosamente");
                         }
 
                         else
                         {
-                            this.MensajeOk("El Registro del Cliente: “" + this.TBDat_Nombre.Text + "” a Sido Actualizado(a) Exitosamente");
+                            this.MensajeOk("Procedimiento de Modificación Exitoso - Leal Enterprise \n\n" + "El Registro del Cliente: “" + this.TBDat_Nombre.Text + "” a Sido Actualizado Exitosamente");
                         }
                     }
 
@@ -667,6 +667,8 @@ namespace Presentacion
                         MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Guardar Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                         //Llamada de Clase
+                        this.Digitar = true;
+                        this.Botones();
                         this.Limpiar_Datos();
                     }
                 }
@@ -683,6 +685,8 @@ namespace Presentacion
                         MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Editar Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                         //Llamada de Clase
+                        this.Digitar = true;
+                        this.Botones();
                         this.Limpiar_Datos();
                     }
                 }
@@ -698,7 +702,6 @@ namespace Presentacion
             try
             {
                 this.Digitar = true;
-                this.TBIdcliente.Text = "0";
 
                 this.Botones();
                 this.Limpiar_Datos();
@@ -994,7 +997,7 @@ namespace Presentacion
                         DataRow fila = this.DtDetalle_Facturacion.NewRow();
                         fila["Idcliente"] = Convert.ToInt32(this.TBIdcliente_AutoSQL.Text);
                         fila["Idempleado"] = Convert.ToInt32(this.TBIdempleado.Text);
-                        fila["Codigo"] = this.TBFac_CodigoAsesor.Text;
+                        fila["Código"] = this.TBFac_CodigoAsesor.Text;
                         fila["Empleado"] = this.TBFac_Asesor.Text;
                         fila["Cliente"] = this.TBFac_Cliente.Text;
                         fila["Documento"] = Convert.ToInt64(this.TBFac_DocumentoCliente.Text);

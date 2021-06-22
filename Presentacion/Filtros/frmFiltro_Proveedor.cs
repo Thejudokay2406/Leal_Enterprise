@@ -24,6 +24,60 @@ namespace Presentacion
 
         }
 
+        private void Filtro_General()
+        {
+            try
+            {
+                frmProducto frmPro = frmProducto.GetInstancia();
+                frmOrdenDeCompra frmOCom = frmOrdenDeCompra.GetInstancia();
+                frmInventario_Ingreso frmInv = frmInventario_Ingreso.GetInstancia();
+                frmCotizacionDeCompra frmCot = frmCotizacionDeCompra.GetInstancia();
+
+                //Variables para realizar los Filtro 
+                string idproveedor, proveedor, documento;
+
+                if (frmPro.Examinar_Proveedor)
+                {
+                    idproveedor = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
+                    proveedor = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
+                    documento = this.DGFiltro_Resultados.CurrentRow.Cells[3].Value.ToString();
+                    frmPro.setProveedor(idproveedor, proveedor, documento);
+                    this.Hide();
+                }
+
+                if (frmInv.Examinar)
+                {
+                    idproveedor = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
+                    proveedor = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
+                    documento = this.DGFiltro_Resultados.CurrentRow.Cells[3].Value.ToString();
+                    frmInv.setProveedor(idproveedor, proveedor, documento);
+                    this.Hide();
+                }
+
+                if (frmCot.Examinar)
+                {
+                    idproveedor = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
+                    proveedor = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
+                    documento = this.DGFiltro_Resultados.CurrentRow.Cells[3].Value.ToString();
+                    frmCot.setProveedor(idproveedor, proveedor, documento);
+                    this.Hide();
+                }
+
+                if (frmOCom.Examinar)
+                {
+                    idproveedor = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
+                    proveedor = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
+                    documento = this.DGFiltro_Resultados.CurrentRow.Cells[3].Value.ToString();
+                    frmOCom.setProveedor(idproveedor, proveedor, documento);
+                    this.Hide();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
         //Mensaje de confirmacion
         private void MensajeOk(string mensaje)
         {
@@ -68,49 +122,7 @@ namespace Presentacion
         {
             try
             {
-                frmProducto frmPro = frmProducto.GetInstancia();
-                frmOrdenDeCompra frmOCom = frmOrdenDeCompra.GetInstancia();
-                frmInventario_Ingreso frmInv = frmInventario_Ingreso.GetInstancia();
-                frmCotizacionDeCompra frmCot = frmCotizacionDeCompra.GetInstancia();
-
-                //Variables para realizar los Filtro 
-                string idproveedor, proveedor, documento;
-                
-                if (frmPro.Examinar_Proveedor)
-                {
-                    idproveedor = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
-                    proveedor = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
-                    documento = this.DGFiltro_Resultados.CurrentRow.Cells[3].Value.ToString();
-                    frmPro.setProveedor(idproveedor, proveedor, documento);
-                    this.Hide();
-                }
-
-                if (frmInv.Examinar)
-                {   
-                    idproveedor = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
-                    proveedor = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
-                    documento = this.DGFiltro_Resultados.CurrentRow.Cells[3].Value.ToString();
-                    frmInv.setProveedor(idproveedor, proveedor, documento);
-                    this.Hide();
-                }
-
-                if (frmCot.Examinar)
-                {
-                    idproveedor = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
-                    proveedor = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
-                    documento = this.DGFiltro_Resultados.CurrentRow.Cells[3].Value.ToString();
-                    frmCot.setProveedor(idproveedor, proveedor, documento);
-                    this.Hide();
-                }
-
-                if (frmOCom.Examinar)
-                {
-                    idproveedor = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
-                    proveedor = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
-                    documento = this.DGFiltro_Resultados.CurrentRow.Cells[3].Value.ToString();
-                    frmOCom.setProveedor(idproveedor, proveedor, documento);
-                    this.Hide();
-                }
+                this.Filtro_General();
             }
             catch (Exception ex)
             {
@@ -120,7 +132,29 @@ namespace Presentacion
 
         private void DGFiltro_Resultados_KeyPress(object sender, KeyPressEventArgs e)
         {
+            try
+            {
+                if (e.KeyChar == Convert.ToChar(Keys.F3))
+                {
+                    this.Filtro_General();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
 
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Filtro_General();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
     }
 }

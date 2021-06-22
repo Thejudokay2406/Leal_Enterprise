@@ -34,19 +34,23 @@ namespace Presentacion
             //Inicio de Clase y Botones
             this.Habilitar();
 
-            //Focus a Texboxt y Combobox
-            this.TBBuscar_General.Select();
-
             //Ocultacion de Texboxt
             this.TBIdproducto.Visible = false;
 
             //SE EVALUA EL TIPO DE FILTRO A REALIZAR YA SEA DE IGUALDAD O GENERAL
             frmProducto frmPro = new frmProducto();
+            frmCotizacionDeCompra frmCotC = new frmCotizacionDeCompra();
 
             if (frmPro.Filtro_Igualdad)
             {
                 tabControl1.SelectedIndex = 1;
                 this.TBBuscar_Igualdad.Focus();
+            }
+
+            if (frmCotC.Filtro)
+            {
+                tabControl1.SelectedIndex = 0;
+                this.TBBuscar_General.Focus();
             }
         }
 

@@ -53,12 +53,6 @@ namespace Presentacion
             this.TBValorGeneral.BackColor = Color.FromArgb(245, 245, 245);
 
             //
-            this.TBCreditoMora.Enabled = false;
-            this.TBCreditoMora.BackColor = Color.FromArgb(245, 245, 245);
-            this.TBCreditoDisponible.Enabled = false;
-            this.TBCreditoDisponible.BackColor = Color.FromArgb(245, 245, 245);
-
-            //
             this.TBValorDeEnvio.ReadOnly = false;
             this.TBValorDeEnvio.BackColor = Color.FromArgb(3, 155, 229);
             this.TBTipoDePago.ReadOnly = false;
@@ -83,8 +77,8 @@ namespace Presentacion
                 this.TBValorGeneral.Text = frmCotiCompra.TBValorFinal.Text;
 
                 //
-                this.TBCreditoMora.Text = frmCotiCompra.TBCreditoEnMora.Text;
-                this.TBCreditoDisponible.Text = frmCotiCompra.TBCreditoDisponible.Text;
+                //this.TBCreditoMora.Text = frmCotiCompra.TBCreditoEnMora.Text;
+                //this.TBCreditoDisponible.Text = frmCotiCompra.TBCreditoDisponible.Text;
 
                 //
                 SubTotal = Convert.ToDouble(TBSubTotal.Text);
@@ -115,10 +109,6 @@ namespace Presentacion
             this.TBSubTotal.Text = subtotal;
             this.TBDescuento.Text = descuento;
             this.TBValorGeneral.Text = valorgeneral;
-
-            //
-            this.TBCreditoMora.Text = creditomora;
-            this.TBCreditoDisponible.Text = creditodisponible;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

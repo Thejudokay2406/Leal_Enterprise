@@ -354,7 +354,7 @@
             // 
             this.label70.AutoSize = true;
             this.label70.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label70.Location = new System.Drawing.Point(155, 350);
+            this.label70.Location = new System.Drawing.Point(146, 351);
             this.label70.Name = "label70";
             this.label70.Size = new System.Drawing.Size(12, 15);
             this.label70.TabIndex = 174;
@@ -364,7 +364,7 @@
             // 
             this.label69.AutoSize = true;
             this.label69.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label69.Location = new System.Drawing.Point(141, 328);
+            this.label69.Location = new System.Drawing.Point(146, 328);
             this.label69.Name = "label69";
             this.label69.Size = new System.Drawing.Size(27, 15);
             this.label69.TabIndex = 173;
@@ -384,7 +384,7 @@
             // 
             this.label67.AutoSize = true;
             this.label67.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label67.Location = new System.Drawing.Point(142, 283);
+            this.label67.Location = new System.Drawing.Point(146, 283);
             this.label67.Name = "label67";
             this.label67.Size = new System.Drawing.Size(27, 15);
             this.label67.TabIndex = 171;
@@ -1169,7 +1169,7 @@
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(37, 17);
             this.label12.TabIndex = 10;
-            this.label12.Text = "Movil";
+            this.label12.Text = "Móvil";
             // 
             // label15
             // 

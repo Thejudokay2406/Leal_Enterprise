@@ -1947,7 +1947,7 @@
             this.TBFabri_DiasProrroga.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBFabri_DiasProrroga.Location = new System.Drawing.Point(203, 333);
+            this.TBFabri_DiasProrroga.Location = new System.Drawing.Point(203, 306);
             this.TBFabri_DiasProrroga.Name = "TBFabri_DiasProrroga";
             this.TBFabri_DiasProrroga.Size = new System.Drawing.Size(231, 22);
             this.TBFabri_DiasProrroga.TabIndex = 156;
@@ -1963,7 +1963,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(6, 335);
+            this.label42.Location = new System.Drawing.Point(6, 308);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(182, 17);
             this.label42.TabIndex = 155;
@@ -1974,7 +1974,7 @@
             this.TBFabri_DiasFormal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBFabri_DiasFormal.Location = new System.Drawing.Point(203, 305);
+            this.TBFabri_DiasFormal.Location = new System.Drawing.Point(203, 278);
             this.TBFabri_DiasFormal.Name = "TBFabri_DiasFormal";
             this.TBFabri_DiasFormal.Size = new System.Drawing.Size(231, 22);
             this.TBFabri_DiasFormal.TabIndex = 154;
@@ -1990,7 +1990,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(6, 307);
+            this.label40.Location = new System.Drawing.Point(6, 280);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(159, 17);
             this.label40.TabIndex = 153;
@@ -2001,7 +2001,7 @@
             this.TBFabri_TotalFabricacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBFabri_TotalFabricacion.Location = new System.Drawing.Point(203, 277);
+            this.TBFabri_TotalFabricacion.Location = new System.Drawing.Point(203, 334);
             this.TBFabri_TotalFabricacion.Name = "TBFabri_TotalFabricacion";
             this.TBFabri_TotalFabricacion.Size = new System.Drawing.Size(231, 22);
             this.TBFabri_TotalFabricacion.TabIndex = 152;
@@ -2017,7 +2017,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label67.AutoSize = true;
-            this.label67.Location = new System.Drawing.Point(6, 279);
+            this.label67.Location = new System.Drawing.Point(6, 336);
             this.label67.Name = "label67";
             this.label67.Size = new System.Drawing.Size(170, 17);
             this.label67.TabIndex = 151;
