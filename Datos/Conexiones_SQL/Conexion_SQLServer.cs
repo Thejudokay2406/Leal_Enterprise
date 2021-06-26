@@ -28,7 +28,7 @@ namespace Datos
             //var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
 
             this.Base = "Leal_Enterprise";
-            this.Servidor = "(Local)";
+            this.Servidor = "(local)";
             this.Usuario = "LealTecnologia";
             this.Contraseña = "TecnologiaLealSQL.XXX";
             this.Seguridad = true;
@@ -40,17 +40,17 @@ namespace Datos
             //this.Seguridad = true;
         }
 
-        public static string preconex = ConnectionStrings["stringConexion"].ConnectionString;
-        //static SqlConnection conexion = new SqlConnection(preconex);
+
+        public static string Cn = Properties.Settings.Default.Conexion_General;
 
         public SqlConnection Conexion()
         {
-            //MessageBox
-            //SqlConnection Cadena = new SqlConnection();
-
             SqlConnection Cadena = new SqlConnection();
             try
             {
+
+
+
                 Cadena.ConnectionString = "Server=" + this.Servidor + "; Database=" + this.Base + ";";
                 if (this.Seguridad)
                 {

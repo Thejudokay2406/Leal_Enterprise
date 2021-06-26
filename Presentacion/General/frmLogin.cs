@@ -255,8 +255,8 @@ namespace Presentacion
 
         private void btnConfiguracion_Click(object sender, EventArgs e)
         {
-            FConexion fc = new FConexion();
-            fc.ShowDialog();
+            //FConexion fc = new FConexion();
+            //fc.ShowDialog();
         }
     }
 

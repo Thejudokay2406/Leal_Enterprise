@@ -10356,69 +10356,69 @@ namespace Presentacion
                         Codigo = Datos.Rows[0][4].ToString();
                         Area = Datos.Rows[0][5].ToString();
                         Nombre = Datos.Rows[0][6].ToString();
-                        Referencia = Datos.Rows[0][7].ToString();
-                        Descripcion = Datos.Rows[0][8].ToString();
-                        Descripcion02 = Datos.Rows[0][9].ToString();
-                        Descripcion03 = Datos.Rows[0][10].ToString();
-                        Presentacion = Datos.Rows[0][11].ToString();
-                        Comision = Datos.Rows[0][12].ToString();
-                        CompraMinima = Datos.Rows[0][13].ToString();
-                        CompraMaxima = Datos.Rows[0][14].ToString();
-                        VentaMinima = Datos.Rows[0][15].ToString();
-                        VentaMaxima = Datos.Rows[0][16].ToString();
+                        Referencia = Datos.Rows[0][8].ToString();
+                        Descripcion = Datos.Rows[0][9].ToString();
+                        Descripcion02 = Datos.Rows[0][10].ToString();
+                        Descripcion03 = Datos.Rows[0][11].ToString();
+                        Presentacion = Datos.Rows[0][12].ToString();
+                        Comision = Datos.Rows[0][13].ToString();
+                        CompraMinima = Datos.Rows[0][14].ToString();
+                        CompraMaxima = Datos.Rows[0][15].ToString();
+                        VentaMinima = Datos.Rows[0][16].ToString();
+                        VentaMaxima = Datos.Rows[0][17].ToString();
 
-                        AplicaVentas = Datos.Rows[0][17].ToString();
-                        AplicaOfertable = Datos.Rows[0][18].ToString();
-                        AplicaCompras = Datos.Rows[0][19].ToString();
-                        Fabricado = Datos.Rows[0][20].ToString();
-                        Importado = Datos.Rows[0][21].ToString();
-                        Exportado = Datos.Rows[0][22].ToString();
-                        ManejaImpuesto = Datos.Rows[0][23].ToString();
-                        ManejaVencimiento = Datos.Rows[0][24].ToString();
-                        UtilizaEmpaque = Datos.Rows[0][25].ToString();
-                        ManejaComision = Datos.Rows[0][26].ToString();
-                        ManejaRetencion = Datos.Rows[0][27].ToString();
-                        UtilizaBalanza = Datos.Rows[0][28].ToString();
+                        AplicaVentas = Datos.Rows[0][18].ToString();
+                        AplicaOfertable = Datos.Rows[0][19].ToString();
+                        AplicaCompras = Datos.Rows[0][20].ToString();
+                        Fabricado = Datos.Rows[0][21].ToString();
+                        Importado = Datos.Rows[0][22].ToString();
+                        Exportado = Datos.Rows[0][23].ToString();
+                        ManejaImpuesto = Datos.Rows[0][24].ToString();
+                        ManejaVencimiento = Datos.Rows[0][25].ToString();
+                        UtilizaEmpaque = Datos.Rows[0][26].ToString();
+                        ManejaComision = Datos.Rows[0][27].ToString();
+                        ManejaRetencion = Datos.Rows[0][28].ToString();
+                        UtilizaBalanza = Datos.Rows[0][29].ToString();
 
                         //Panel - Fabricacion
-                        MaterialPrincipal = Datos.Rows[0][29].ToString();
-                        MaterialSecundario = Datos.Rows[0][30].ToString();
-                        MaterialTerciario = Datos.Rows[0][31].ToString();
-                        OtroMaterial = Datos.Rows[0][32].ToString();
-                        ManoDeObra = Datos.Rows[0][33].ToString();
-                        Materiales = Datos.Rows[0][34].ToString();
-                        Envio = Datos.Rows[0][35].ToString();
-                        Almacenamiento = Datos.Rows[0][36].ToString();
-                        Maquinaria = Datos.Rows[0][37].ToString();
-                        Herramientas = Datos.Rows[0][38].ToString();
-                        Fabricacion = Datos.Rows[0][39].ToString();
-                        DiasFormal = Datos.Rows[0][40].ToString();
-                        DiasProrroga = Datos.Rows[0][41].ToString();
+                        MaterialPrincipal = Datos.Rows[0][30].ToString();
+                        MaterialSecundario = Datos.Rows[0][31].ToString();
+                        MaterialTerciario = Datos.Rows[0][32].ToString();
+                        OtroMaterial = Datos.Rows[0][33].ToString();
+                        ManoDeObra = Datos.Rows[0][34].ToString();
+                        Materiales = Datos.Rows[0][35].ToString();
+                        Envio = Datos.Rows[0][36].ToString();
+                        Almacenamiento = Datos.Rows[0][37].ToString();
+                        Maquinaria = Datos.Rows[0][38].ToString();
+                        Herramientas = Datos.Rows[0][39].ToString();
+                        Fabricacion = Datos.Rows[0][40].ToString();
+                        DiasFormal = Datos.Rows[0][41].ToString();
+                        DiasProrroga = Datos.Rows[0][42].ToString();
 
                         //Panel - Valores y Precio
-                        ValorCom_Promedio = Datos.Rows[0][42].ToString();
-                        ValorCom_Final = Datos.Rows[0][43].ToString();
-                        Valor_Base01 = Datos.Rows[0][44].ToString();
-                        Valor_Base02 = Datos.Rows[0][45].ToString();
-                        Valor_Base03 = Datos.Rows[0][46].ToString();
-                        Valor_BaseMayorista = Datos.Rows[0][47].ToString();
-                        Porc_Venta01 = Datos.Rows[0][48].ToString();
-                        Porc_Venta02 = Datos.Rows[0][49].ToString();
-                        Porc_Valor03 = Datos.Rows[0][50].ToString();
-                        Porc_Mayorista = Datos.Rows[0][51].ToString();
-                        Impuesto_Valor01 = Datos.Rows[0][52].ToString();
-                        Impuesto_Valor02 = Datos.Rows[0][53].ToString();
-                        Impuesto_Valor03 = Datos.Rows[0][54].ToString();
-                        Impuesto_Mayorista = Datos.Rows[0][55].ToString();
-                        Valor_Final01 = Datos.Rows[0][56].ToString();
-                        Valor_Final02 = Datos.Rows[0][57].ToString();
-                        Valor_Final03 = Datos.Rows[0][58].ToString();
-                        ValorFinalMayorista = Datos.Rows[0][59].ToString();
-                        Unidad = Datos.Rows[0][60].ToString();
-                        Unidad_Detallada = Datos.Rows[0][61].ToString();
+                        ValorCom_Promedio = Datos.Rows[0][43].ToString();
+                        ValorCom_Final = Datos.Rows[0][44].ToString();
+                        Valor_Base01 = Datos.Rows[0][45].ToString();
+                        Valor_Base02 = Datos.Rows[0][46].ToString();
+                        Valor_Base03 = Datos.Rows[0][47].ToString();
+                        Valor_BaseMayorista = Datos.Rows[0][48].ToString();
+                        Porc_Venta01 = Datos.Rows[0][49].ToString();
+                        Porc_Venta02 = Datos.Rows[0][50].ToString();
+                        Porc_Valor03 = Datos.Rows[0][51].ToString();
+                        Porc_Mayorista = Datos.Rows[0][52].ToString();
+                        Impuesto_Valor01 = Datos.Rows[0][53].ToString();
+                        Impuesto_Valor02 = Datos.Rows[0][54].ToString();
+                        Impuesto_Valor03 = Datos.Rows[0][55].ToString();
+                        Impuesto_Mayorista = Datos.Rows[0][56].ToString();
+                        Valor_Final01 = Datos.Rows[0][57].ToString();
+                        Valor_Final02 = Datos.Rows[0][58].ToString();
+                        Valor_Final03 = Datos.Rows[0][59].ToString();
+                        ValorFinalMayorista = Datos.Rows[0][60].ToString();
+                        Unidad = Datos.Rows[0][61].ToString();
+                        Unidad_Detallada = Datos.Rows[0][62].ToString();
 
                         //
-                        Imagen = Datos.Rows[0][62].ToString();
+                        Imagen = Datos.Rows[0][63].ToString();
 
                         //Se procede a completar los campos de texto segun las consulta
                         //Realizada anteriormente en la base de datos
@@ -10437,12 +10437,6 @@ namespace Presentacion
 
                         //this.Bodega_SQL = Idbodega;
                         //this.CBBodega.SelectedValue = Bodega_SQL;
-
-                        //Panel Datos Basicos
-                        Idmarca = Datos.Rows[0][0].ToString();
-                        Idgrupo = Datos.Rows[0][1].ToString();
-                        Idtipo = Datos.Rows[0][0].ToString();
-                        Idempaque = Datos.Rows[0][0].ToString();
 
                         //Panel Datos Basicos
                         this.TBCodigo.Text = Codigo;
@@ -10509,10 +10503,7 @@ namespace Presentacion
                         this.CBUnidad.Text = Unidad;
                         this.TBValor_Unidad.Text = Unidad_Detallada;
 
-                        //PANEL IMAGEN
-                        Imagen = Datos.Rows[0][38].ToString();
-
-
+                        
                         //Se proceden a Validar los Chexboxt si estan activos o no
 
                         if (AplicaVentas == "0")

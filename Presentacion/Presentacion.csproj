@@ -109,12 +109,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Botones.resx</DependentUpon>
     </Compile>
-    <Compile Include="FConexion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FConexion.Designer.cs">
-      <DependentUpon>FConexion.cs</DependentUpon>
-    </Compile>
     <Compile Include="Filtros\frmFiltro_Bodega.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +216,18 @@
     </Compile>
     <Compile Include="frmCliente_SolicitudDeCredito.Designer.cs">
       <DependentUpon>frmCliente_SolicitudDeCredito.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConfigurador_SQLServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConfigurador_SQLServer.Designer.cs">
+      <DependentUpon>frmConfigurador_SQLServer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Archivo\frmServicios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Archivo\frmServicios.Designer.cs">
+      <DependentUpon>frmServicios.cs</DependentUpon>
     </Compile>
     <Compile Include="Sistema\frmCodigo_Archivo.cs">
       <SubType>Form</SubType>
@@ -405,9 +411,6 @@
     <EmbeddedResource Include="Compras\frmFacturaDeCompra.resx">
       <DependentUpon>frmFacturaDeCompra.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FConexion.resx">
-      <DependentUpon>FConexion.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Filtros\frmFiltro_Bodega.resx">
       <DependentUpon>frmFiltro_Bodega.cs</DependentUpon>
     </EmbeddedResource>
@@ -446,6 +449,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCliente_SolicitudDeCredito.resx">
       <DependentUpon>frmCliente_SolicitudDeCredito.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConfigurador_SQLServer.resx">
+      <DependentUpon>frmConfigurador_SQLServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Archivo\frmServicios.resx">
+      <DependentUpon>frmServicios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sistema\frmCodigo_Archivo.resx">
       <DependentUpon>frmCodigo_Archivo.cs</DependentUpon>
@@ -615,10 +624,6 @@
     <None Include="Resources\Ventas.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Conexion SQL\Conexion SQL.csproj">
-      <Project>{fb626b9d-ecdb-4b38-8250-e1b000d5d7e8}</Project>
-      <Name>Conexion SQL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Negocio\Negocio.csproj">
       <Project>{a7d5e2c3-46ef-4bbf-ab22-ba631316458b}</Project>
       <Name>Negocio</Name>
