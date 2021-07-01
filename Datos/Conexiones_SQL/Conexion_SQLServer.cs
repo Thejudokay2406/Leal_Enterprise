@@ -1,61 +1,46 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using System.Configuration;
-using System.Data;
-
 using System.Data.SqlClient;
-using static System.Configuration.ConfigurationManager;
 
 namespace Datos
 {
     public class Conexion_SQLServer
     {
-        //public static string preconex = ConnectionStrings["stringConexion"].ConnectionString;
-
-        private string Base;
-        private string Servidor;
-        private string Usuario;
-        private string Contraseña;
+        private string _Base;
+        private string _Servidor;
+        private string _Usuario;
+        private string _Contraseña;
         private static Conexion_SQLServer Con = null;
         private bool Seguridad = true;
 
+        public string Base { get => _Base; set => _Base = value; }
+        public string Servidor { get => _Servidor; set => _Servidor = value; }
+        public string Usuario { get => _Usuario; set => _Usuario = value; }
+        public string Contraseña { get => _Contraseña; set => _Contraseña = value; }
+
         private Conexion_SQLServer()
         {
-            //var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-
-            this.Base = "Leal_Enterprise";
-            this.Servidor = "(local)";
-            this.Usuario = "LealTecnologia";
-            this.Contraseña = "TecnologiaLealSQL.XXX";
-            this.Seguridad = true;
-
-            //this.Base = configFile.AppSettings.Settings["baseDatos"].Value;
-            //this.Servidor = configFile.AppSettings.Settings["servidor"].Value;
-            //this.Usuario = configFile.AppSettings.Settings["usuario"].Value;
-            //this.Contraseña = configFile.AppSettings.Settings["Password"].Value;
+            //this.Base = "Leal_Enterprise";
+            //this.Servidor = "(local)";
+            //this.Usuario = "LealTecnologia";
+            //this.Contraseña = "TecnologiaLealSQL.XXX";
             //this.Seguridad = true;
         }
-
-
-        public static string Cn = Properties.Settings.Default.Conexion_General;
 
         public SqlConnection Conexion()
         {
             SqlConnection Cadena = new SqlConnection();
             try
             {
+                ////CONEXION FUNCIONAL
+                Cadena.ConnectionString = Properties.Settings.Default.Conexion_General;
 
 
-
-                Cadena.ConnectionString = "Server=" + this.Servidor + "; Database=" + this.Base + ";";
-                if (this.Seguridad)
-                {
-                    Cadena.ConnectionString = Cadena.ConnectionString + "User Id=" + this.Usuario + "; Password=" + this.Contraseña;
-                }
+                //Cadena.ConnectionString = "Server=" + Servidor + "; Database=" + Base + ";";
+                //if (this.Seguridad)
+                //{
+                //    Cadena.ConnectionString = Cadena.ConnectionString + "User Id=" + Usuario + "; Password=" + Contraseña;
+                //}
             }
             catch (Exception ex)
             {

@@ -114,10 +114,6 @@ namespace Presentacion
             this.AutoIncrementable_SQL();
             this.Auto_CodigoSQL();
 
-            //Inicio de Texbox y Combobox por default
-            this.TBNombre.Select();
-            this.TBComision.Text = "0";
-
             //Ocultacion de Texboxt
             this.TBIdproducto.Visible = false;
             this.TBIdimpuesto.Visible = false;
@@ -144,6 +140,15 @@ namespace Presentacion
             //SE OCULTAN LOS PANELES DEL TABCONTROL
             TCPrincipal.TabPages.Remove(TPImpuesto);
             TCPrincipal.TabPages.Remove(TPFabricacion);
+
+            //SE SELECCIONA EL FORMULARIO DE CONSULTA PRINCIPAL Y COMBOBOX DEL MISMI
+            TCFiltro.SelectedIndex =2;
+            this.CBFiltro_Agrupado.SelectedIndex = 0;
+            this.CBFiltro_General.SelectedIndex = 0;
+
+            //Inicio de Texbox y Combobox por default
+            this.TBNombre.Select();
+            this.TBComision.Text = "0";
         }
 
         private void Habilitar()
@@ -570,7 +575,7 @@ namespace Presentacion
                 this.CBBodega.DisplayMember = "Bodega";
 
                 this.CBEmpaque.DataSource = fEmpaque.Lista(3);
-                this.CBEmpaque.ValueMember = "Codigo";
+                this.CBEmpaque.ValueMember = "Código";
                 this.CBEmpaque.DisplayMember = "Empaque";
 
                 this.CBProveedor_Exterior.DataSource = fProveedor.Lista(3);
@@ -7745,6 +7750,114 @@ namespace Presentacion
                     this.TBComp_Descripcion.Text = Convert.ToString(fila.Cells["Descripción"].Value);
                     this.CBComp_Medida.Text = Convert.ToString(fila.Cells["Unidad"].Value);
                     this.TBComp_Medida.Text = Convert.ToString(fila.Cells["Medida"].Value);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void CBFiltro_General_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (CBFiltro_General.SelectedIndex == 0)
+                {
+                    //Se Limpian las Filas y Columnas de la tabla
+                    this.CBFiltro_Agrupado.DataSource = null;
+                    this.DGResultados_Filtro.DataSource = null;
+                    this.lblTotal.Text = "Datos Registrados: 0";
+
+                    this.CBFiltro_Agrupado.Enabled = false;
+                }
+                else if (CBFiltro_General.SelectedIndex == 1)
+                {
+                    this.CBFiltro_Agrupado.DataSource = fEmpaque.Lista(3);
+                    this.CBFiltro_Agrupado.ValueMember = "Código";
+                    this.CBFiltro_Agrupado.DisplayMember = "Empaque";
+
+                    //
+                    this.CBFiltro_Agrupado.Enabled = true;
+                }
+                else if (CBFiltro_General.SelectedIndex == 2)
+                {
+                    this.CBFiltro_Agrupado.DataSource = fGrupoDeProducto.Lista(3);
+                    this.CBFiltro_Agrupado.ValueMember = "Código";
+                    this.CBFiltro_Agrupado.DisplayMember = "Grupo";
+
+                    //
+                    this.CBFiltro_Agrupado.Enabled = true;
+                }
+                else if (CBFiltro_General.SelectedIndex == 3)
+                {
+                    this.CBFiltro_Agrupado.DataSource = fMarca.Lista(3);
+                    this.CBFiltro_Agrupado.ValueMember = "Código";
+                    this.CBFiltro_Agrupado.DisplayMember = "Marca";
+
+                    //
+                    this.CBFiltro_Agrupado.Enabled = true;
+                }
+                else if (CBFiltro_General.SelectedIndex == 4)
+                {
+                    this.CBFiltro_Agrupado.DataSource = fProveedor.Lista(3);
+                    this.CBFiltro_Agrupado.ValueMember = "Código";
+                    this.CBFiltro_Agrupado.DisplayMember = "Proveedor";
+
+                    //
+                    this.CBFiltro_Agrupado.Enabled = true;
+                }
+                else if (CBFiltro_General.SelectedIndex == 5)
+                {
+                    this.CBFiltro_Agrupado.DataSource = fTipoDeProducto.Lista(3);
+                    this.CBFiltro_Agrupado.ValueMember = "Código";
+                    this.CBFiltro_Agrupado.DisplayMember = "Tipo";
+
+                    //
+                    this.CBFiltro_Agrupado.Enabled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void CBFiltro_Agrupado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                //this.TBCBIdproducto.Text = CBFiltro_Agrupado.SelectedValue.ToString();
+
+                if (CBFiltro_General.SelectedIndex == 1)
+                {
+                    this.DGResultados_Filtro.DataSource = fEmpaque.Buscar(this.CBFiltro_Agrupado.SelectedValue.ToString(), 4);
+                    this.DGResultados_Filtro.Columns[0].Visible = false;
+                    this.lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGResultados_Filtro.Rows.Count);
+                }
+                else if (CBFiltro_General.SelectedIndex == 2)
+                {
+                    this.DGResultados_Filtro.DataSource = fGrupoDeProducto.Buscar(this.CBFiltro_Agrupado.SelectedValue.ToString(), 4);
+                    this.DGResultados_Filtro.Columns[0].Visible = false;
+                    this.lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGResultados_Filtro.Rows.Count);
+                }
+                else if (CBFiltro_General.SelectedIndex == 3)
+                {
+                    this.DGResultados_Filtro.DataSource = fMarca.Buscar(this.CBFiltro_Agrupado.SelectedValue.ToString(), 4);
+                    this.DGResultados_Filtro.Columns[0].Visible = false;
+                    this.lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGResultados_Filtro.Rows.Count);
+                }
+                else if (CBFiltro_General.SelectedIndex == 4)
+                {
+                    this.DGResultados_Filtro.DataSource = fProveedor.Buscar(this.CBFiltro_Agrupado.SelectedValue.ToString(), 5);
+                    this.DGResultados_Filtro.Columns[0].Visible = false;
+                    this.lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGResultados_Filtro.Rows.Count);
+                }
+                else if (CBFiltro_General.SelectedIndex == 5)
+                {
+                    this.DGResultados_Filtro.DataSource = fTipoDeProducto.Buscar(this.CBFiltro_Agrupado.SelectedValue.ToString(), 4);
+                    this.DGResultados_Filtro.Columns[0].Visible = false;
+                    this.lblTotal.Text = "Datos Registrados: " + Convert.ToString(DGResultados_Filtro.Rows.Count);
                 }
             }
             catch (Exception ex)

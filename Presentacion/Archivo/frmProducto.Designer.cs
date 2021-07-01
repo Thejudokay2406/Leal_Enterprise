@@ -262,11 +262,22 @@
             this.TBIdproducto_AutoSQL = new System.Windows.Forms.TextBox();
             this.TBIdproducto = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnDetalleProducto = new System.Windows.Forms.Button();
+            this.TCFiltro = new System.Windows.Forms.TabControl();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label14 = new System.Windows.Forms.Label();
-            this.TBBuscar = new System.Windows.Forms.TextBox();
-            this.lblTotal = new System.Windows.Forms.Label();
             this.DGResultados = new System.Windows.Forms.DataGridView();
+            this.TBBuscar = new System.Windows.Forms.TextBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.CBFiltro_Agrupado = new System.Windows.Forms.ComboBox();
+            this.CBFiltro_General = new System.Windows.Forms.ComboBox();
+            this.label45 = new System.Windows.Forms.Label();
+            this.DGResultados_Filtro = new System.Windows.Forms.DataGridView();
+            this.btnDetalleProducto = new System.Windows.Forms.Button();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.CBFiltro_Aplicables = new System.Windows.Forms.ComboBox();
+            this.label46 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.TCPrincipal.SuspendLayout();
             this.TPDatosBasicos.SuspendLayout();
@@ -291,7 +302,13 @@
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGDetalles_Stock)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.TCFiltro.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGResultados)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGResultados_Filtro)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -3697,7 +3714,7 @@
             this.TBIdigualdad_Producto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBIdigualdad_Producto.Location = new System.Drawing.Point(99, 499);
+            this.TBIdigualdad_Producto.Location = new System.Drawing.Point(274, 502);
             this.TBIdigualdad_Producto.Name = "TBIdigualdad_Producto";
             this.TBIdigualdad_Producto.Size = new System.Drawing.Size(53, 21);
             this.TBIdigualdad_Producto.TabIndex = 15;
@@ -3707,7 +3724,7 @@
             this.TBIdproducto_AutoSQL.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBIdproducto_AutoSQL.Location = new System.Drawing.Point(239, 499);
+            this.TBIdproducto_AutoSQL.Location = new System.Drawing.Point(414, 502);
             this.TBIdproducto_AutoSQL.Name = "TBIdproducto_AutoSQL";
             this.TBIdproducto_AutoSQL.Size = new System.Drawing.Size(58, 21);
             this.TBIdproducto_AutoSQL.TabIndex = 14;
@@ -3717,7 +3734,7 @@
             this.TBIdproducto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBIdproducto.Location = new System.Drawing.Point(197, 499);
+            this.TBIdproducto.Location = new System.Drawing.Point(372, 502);
             this.TBIdproducto.Name = "TBIdproducto";
             this.TBIdproducto.Size = new System.Drawing.Size(36, 21);
             this.TBIdproducto.TabIndex = 12;
@@ -3728,20 +3745,175 @@
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.TCFiltro);
             this.groupBox2.Controls.Add(this.btnDetalleProducto);
             this.groupBox2.Controls.Add(this.TBIdigualdad_Producto);
             this.groupBox2.Controls.Add(this.TBIdproducto_AutoSQL);
-            this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.TBIdproducto);
-            this.groupBox2.Controls.Add(this.TBBuscar);
             this.groupBox2.Controls.Add(this.lblTotal);
-            this.groupBox2.Controls.Add(this.DGResultados);
             this.groupBox2.Location = new System.Drawing.Point(612, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(627, 532);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Leal Enterprise - Consulta de Productos Registrados";
+            // 
+            // TCFiltro
+            // 
+            this.TCFiltro.Controls.Add(this.tabPage4);
+            this.TCFiltro.Controls.Add(this.tabPage3);
+            this.TCFiltro.Controls.Add(this.tabPage2);
+            this.TCFiltro.Location = new System.Drawing.Point(6, 20);
+            this.TCFiltro.Name = "TCFiltro";
+            this.TCFiltro.SelectedIndex = 0;
+            this.TCFiltro.Size = new System.Drawing.Size(615, 470);
+            this.TCFiltro.TabIndex = 170;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.label14);
+            this.tabPage2.Controls.Add(this.DGResultados);
+            this.tabPage2.Controls.Add(this.TBBuscar);
+            this.tabPage2.Location = new System.Drawing.Point(4, 24);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(607, 442);
+            this.tabPage2.TabIndex = 0;
+            this.tabPage2.Text = "Filtro General";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label14
+            // 
+            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(6, 9);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(121, 15);
+            this.label14.TabIndex = 11;
+            this.label14.Text = "Producto a Consultar";
+            // 
+            // DGResultados
+            // 
+            this.DGResultados.AllowUserToAddRows = false;
+            this.DGResultados.AllowUserToDeleteRows = false;
+            this.DGResultados.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DGResultados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DGResultados.BackgroundColor = System.Drawing.Color.White;
+            this.DGResultados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGResultados.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DGResultados.Location = new System.Drawing.Point(6, 35);
+            this.DGResultados.Name = "DGResultados";
+            this.DGResultados.ReadOnly = true;
+            this.DGResultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGResultados.Size = new System.Drawing.Size(595, 401);
+            this.DGResultados.TabIndex = 13;
+            this.DGResultados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGResultados_CellDoubleClick);
+            // 
+            // TBBuscar
+            // 
+            this.TBBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TBBuscar.Location = new System.Drawing.Point(133, 6);
+            this.TBBuscar.Name = "TBBuscar";
+            this.TBBuscar.Size = new System.Drawing.Size(468, 21);
+            this.TBBuscar.TabIndex = 12;
+            this.TBBuscar.TextChanged += new System.EventHandler(this.TBBuscar_TextChanged);
+            this.TBBuscar.Enter += new System.EventHandler(this.TBBuscar_Enter);
+            this.TBBuscar.Leave += new System.EventHandler(this.TBBuscar_Leave);
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.CBFiltro_Agrupado);
+            this.tabPage4.Controls.Add(this.CBFiltro_General);
+            this.tabPage4.Controls.Add(this.label45);
+            this.tabPage4.Controls.Add(this.DGResultados_Filtro);
+            this.tabPage4.Location = new System.Drawing.Point(4, 24);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(607, 442);
+            this.tabPage4.TabIndex = 2;
+            this.tabPage4.Text = "Filtro Agrupado";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // CBFiltro_Agrupado
+            // 
+            this.CBFiltro_Agrupado.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.CBFiltro_Agrupado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CBFiltro_Agrupado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBFiltro_Agrupado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBFiltro_Agrupado.FormattingEnabled = true;
+            this.CBFiltro_Agrupado.Items.AddRange(new object[] {
+            "-",
+            "Empaque",
+            "Grupo",
+            "Marca",
+            "Tipo - Clase"});
+            this.CBFiltro_Agrupado.Location = new System.Drawing.Point(216, 6);
+            this.CBFiltro_Agrupado.Name = "CBFiltro_Agrupado";
+            this.CBFiltro_Agrupado.Size = new System.Drawing.Size(385, 23);
+            this.CBFiltro_Agrupado.Sorted = true;
+            this.CBFiltro_Agrupado.TabIndex = 215;
+            this.CBFiltro_Agrupado.SelectedIndexChanged += new System.EventHandler(this.CBFiltro_Agrupado_SelectedIndexChanged);
+            // 
+            // CBFiltro_General
+            // 
+            this.CBFiltro_General.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.CBFiltro_General.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CBFiltro_General.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBFiltro_General.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBFiltro_General.FormattingEnabled = true;
+            this.CBFiltro_General.Items.AddRange(new object[] {
+            "-",
+            "Empaque",
+            "Grupo",
+            "Marca",
+            "Proveedor",
+            "Tipo - Clase"});
+            this.CBFiltro_General.Location = new System.Drawing.Point(104, 6);
+            this.CBFiltro_General.Name = "CBFiltro_General";
+            this.CBFiltro_General.Size = new System.Drawing.Size(106, 23);
+            this.CBFiltro_General.Sorted = true;
+            this.CBFiltro_General.TabIndex = 214;
+            this.CBFiltro_General.SelectedIndexChanged += new System.EventHandler(this.CBFiltro_General_SelectedIndexChanged);
+            // 
+            // label45
+            // 
+            this.label45.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(6, 9);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(90, 15);
+            this.label45.TabIndex = 11;
+            this.label45.Text = "Filtro Agrupado";
+            // 
+            // DGResultados_Filtro
+            // 
+            this.DGResultados_Filtro.AllowUserToAddRows = false;
+            this.DGResultados_Filtro.AllowUserToDeleteRows = false;
+            this.DGResultados_Filtro.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DGResultados_Filtro.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DGResultados_Filtro.BackgroundColor = System.Drawing.Color.White;
+            this.DGResultados_Filtro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGResultados_Filtro.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DGResultados_Filtro.Location = new System.Drawing.Point(6, 35);
+            this.DGResultados_Filtro.Name = "DGResultados_Filtro";
+            this.DGResultados_Filtro.ReadOnly = true;
+            this.DGResultados_Filtro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGResultados_Filtro.Size = new System.Drawing.Size(595, 401);
+            this.DGResultados_Filtro.TabIndex = 13;
             // 
             // btnDetalleProducto
             // 
@@ -3763,31 +3935,6 @@
             this.btnDetalleProducto.UseVisualStyleBackColor = true;
             this.btnDetalleProducto.Click += new System.EventHandler(this.btnDetalleProducto_Click);
             // 
-            // label14
-            // 
-            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(6, 23);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(121, 15);
-            this.label14.TabIndex = 11;
-            this.label14.Text = "Producto a Consultar";
-            // 
-            // TBBuscar
-            // 
-            this.TBBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBBuscar.Location = new System.Drawing.Point(133, 20);
-            this.TBBuscar.Name = "TBBuscar";
-            this.TBBuscar.Size = new System.Drawing.Size(366, 21);
-            this.TBBuscar.TabIndex = 12;
-            this.TBBuscar.TextChanged += new System.EventHandler(this.TBBuscar_TextChanged);
-            this.TBBuscar.Enter += new System.EventHandler(this.TBBuscar_Enter);
-            this.TBBuscar.Leave += new System.EventHandler(this.TBBuscar_Leave);
-            // 
             // lblTotal
             // 
             this.lblTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -3800,24 +3947,77 @@
             this.lblTotal.TabIndex = 14;
             this.lblTotal.Text = "------";
             // 
-            // DGResultados
+            // tabPage3
             // 
-            this.DGResultados.AllowUserToAddRows = false;
-            this.DGResultados.AllowUserToDeleteRows = false;
-            this.DGResultados.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tabPage3.Controls.Add(this.CBFiltro_Aplicables);
+            this.tabPage3.Controls.Add(this.label46);
+            this.tabPage3.Controls.Add(this.dataGridView1);
+            this.tabPage3.Location = new System.Drawing.Point(4, 24);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(607, 442);
+            this.tabPage3.TabIndex = 3;
+            this.tabPage3.Text = "Filtro Aplicables";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // CBFiltro_Aplicables
+            // 
+            this.CBFiltro_Aplicables.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.DGResultados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.DGResultados.BackgroundColor = System.Drawing.Color.White;
-            this.DGResultados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGResultados.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.DGResultados.Location = new System.Drawing.Point(6, 47);
-            this.DGResultados.Name = "DGResultados";
-            this.DGResultados.ReadOnly = true;
-            this.DGResultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGResultados.Size = new System.Drawing.Size(615, 443);
-            this.DGResultados.TabIndex = 13;
-            this.DGResultados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGResultados_CellDoubleClick);
+            this.CBFiltro_Aplicables.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CBFiltro_Aplicables.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBFiltro_Aplicables.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBFiltro_Aplicables.FormattingEnabled = true;
+            this.CBFiltro_Aplicables.Items.AddRange(new object[] {
+            "-",
+            "Aplica Para Compras",
+            "Aplica Para Ofertas",
+            "Aplica Para Ventas",
+            "Es Exportado",
+            "Es Fabricado",
+            "Es Importado",
+            "Maneja Comisión",
+            "Maneja Impuesto",
+            "Maneja Retensión",
+            "Maneja Vencimiento",
+            "Utiliza Balanza",
+            "Utiliza Empaque"});
+            this.CBFiltro_Aplicables.Location = new System.Drawing.Point(104, 6);
+            this.CBFiltro_Aplicables.Name = "CBFiltro_Aplicables";
+            this.CBFiltro_Aplicables.Size = new System.Drawing.Size(497, 23);
+            this.CBFiltro_Aplicables.Sorted = true;
+            this.CBFiltro_Aplicables.TabIndex = 214;
+            // 
+            // label46
+            // 
+            this.label46.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(6, 9);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(87, 15);
+            this.label46.TabIndex = 11;
+            this.label46.Text = "Filtro Aplicable";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dataGridView1.Location = new System.Drawing.Point(6, 35);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(595, 401);
+            this.dataGridView1.TabIndex = 13;
             // 
             // frmProducto
             // 
@@ -3873,7 +4073,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGDetalles_Stock)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.TCFiltro.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGResultados)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGResultados_Filtro)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -4117,5 +4326,16 @@
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Label lblTotal_Stock;
         private System.Windows.Forms.DataGridView DGDetalles_Stock;
+        private System.Windows.Forms.TabControl TCFiltro;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.DataGridView DGResultados_Filtro;
+        private System.Windows.Forms.ComboBox CBFiltro_General;
+        private System.Windows.Forms.ComboBox CBFiltro_Agrupado;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.ComboBox CBFiltro_Aplicables;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

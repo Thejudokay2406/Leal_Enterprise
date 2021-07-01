@@ -24,7 +24,7 @@ namespace Datos
                 SqlCommand Comando = new SqlCommand("Archivo.LI_Empaque", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
-                Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Consulta", SqlDbType.Int).Value = Auto;
 
                 SqlCon.Open();
                 Resultado = Comando.ExecuteReader();
