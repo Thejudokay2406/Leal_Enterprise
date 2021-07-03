@@ -54,6 +54,7 @@
     <Compile Include="Compra\Conexion_CotizacionDeCompra.cs" />
     <Compile Include="Archivo\Conexion_TipoDePago.cs" />
     <Compile Include="Archivo\Conexion_TipoDeProducto.cs" />
+    <Compile Include="Archivo\Conexion_Servicios.cs" />
     <Compile Include="Financiera\Conexion_Banco.cs" />
     <Compile Include="Gestion Humana\Conexion_Departamento.cs" />
     <Compile Include="Archivo\Conexion_GrupoDeCliente.cs" />

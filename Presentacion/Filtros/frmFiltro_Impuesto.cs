@@ -20,6 +20,11 @@ namespace Presentacion
             InitializeComponent();
         }
 
+        private void frmFiltro_Impuesto_Load(object sender, EventArgs e)
+        {
+
+        }
+
         //Mensaje de confirmacion
         private void MensajeOk(string mensaje)
         {
@@ -30,11 +35,6 @@ namespace Presentacion
         private void MensajeError(string mensaje)
         {
             MessageBox.Show(mensaje, "Leal Enterprise - Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        }
-
-        private void frmFiltro_Impuesto_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void TBBuscar_TextChanged(object sender, EventArgs e)
@@ -75,6 +75,7 @@ namespace Presentacion
                 string idimpuesto, impuesto, valor, descripcion;
 
                 frmProducto frmPro = frmProducto.GetInstancia();
+                frmServicios frmSer = frmServicios.GetInstancia();
 
                 if (frmPro.Examinar)
                 {
@@ -84,7 +85,15 @@ namespace Presentacion
                     descripcion = this.DGFiltro_Resultados.CurrentRow.Cells[3].Value.ToString();
                     frmPro.setImpuesto(idimpuesto, impuesto, valor, descripcion);
                     this.Hide();
-                }                
+                }
+                if (frmSer.Examinar)
+                {
+                    idimpuesto = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
+                    impuesto = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
+                    valor = this.DGFiltro_Resultados.CurrentRow.Cells[2].Value.ToString();
+                    frmSer.setImpuesto(idimpuesto, impuesto, valor);
+                    this.Hide();
+                }
             }
             catch (Exception ex)
             {

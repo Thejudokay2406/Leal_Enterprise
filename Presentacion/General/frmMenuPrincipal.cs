@@ -486,5 +486,18 @@ namespace Presentacion
             frmBanco_Contacto.Consultar = Convert.ToString(this.SQL_Consultar);
             frmBanco_Contacto.Imprimir = Convert.ToString(this.SQL_Imprimir);
         }
+
+        private void serviciosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmServicios frmServicios = frmServicios.GetInstancia();
+            frmServicios.MdiParent = this;
+            frmServicios.Show();
+
+            frmServicios.Guardar = Convert.ToString(this.SQL_Guardar);
+            frmServicios.Editar = Convert.ToString(this.SQL_Editar);
+            frmServicios.Eliminar = Convert.ToString(this.SQL_Eliminar);
+            frmServicios.Consultar = Convert.ToString(this.SQL_Consultar);
+            frmServicios.Imprimir = Convert.ToString(this.SQL_Imprimir);
+        }
     }
 }

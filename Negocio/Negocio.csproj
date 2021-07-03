@@ -52,6 +52,7 @@
     <Compile Include="Archivo\fProducto_Inventario.cs" />
     <Compile Include="fConfiguracion_SQLServer.cs" />
     <Compile Include="Financiera\fBanco.cs" />
+    <Compile Include="Archivo\fServicios.cs" />
     <Compile Include="Gestion Humana\fGestion_Departameto.cs" />
     <Compile Include="Gestion Humana\fGestion_TipoDeContrato.cs" />
     <Compile Include="Inventario\fIngreso_Bodega.cs" />

@@ -6713,11 +6713,6 @@ namespace Presentacion
             //Color de texboxt cuando este posee el FOCUS Activado
             this.TBValorBase_Inicial01.BackColor = Color.FromArgb(3, 155, 229);
 
-            //fFormato_Moneda fFormato_Moneda = new fFormato_Moneda();
-            //fFormato_Moneda.FormatoMoneda(TBValorBase_Inicial01);
-
-
-
             // El control TextBox ha perdido el foco. Referenciamos el control TextBox que ha desencadenado el evento.
             TextBox tb = (TextBox)sender;
 

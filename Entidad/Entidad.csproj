@@ -53,6 +53,7 @@
     <Compile Include="Compra\Entidad_CotizacionDeCompra.cs" />
     <Compile Include="Archivo\Entidad_TipoDePago.cs" />
     <Compile Include="Archivo\Entidad_GrupoDeCliente.cs" />
+    <Compile Include="Archivo\Entidad_Servicio.cs" />
     <Compile Include="Financiera\Entidad_Banco.cs" />
     <Compile Include="Gestion Humana\Entidad_Departamento.cs" />
     <Compile Include="Gestion Humana\Entidad_TipoDeContrato.cs" />

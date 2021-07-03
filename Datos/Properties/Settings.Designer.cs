@@ -33,5 +33,13 @@ namespace Datos.Properties {
                 return ((string)(this["Conexion_General"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Configuration.ConnectionStringSettings Valor {
+            get {
+                return ((global::System.Configuration.ConnectionStringSettings)(this["Valor"]));
+            }
+        }
     }
 }

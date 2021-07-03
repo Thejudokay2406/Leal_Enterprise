@@ -263,21 +263,21 @@
             this.TBIdproducto = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.TCFiltro = new System.Windows.Forms.TabControl();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label14 = new System.Windows.Forms.Label();
-            this.DGResultados = new System.Windows.Forms.DataGridView();
-            this.TBBuscar = new System.Windows.Forms.TextBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.CBFiltro_Agrupado = new System.Windows.Forms.ComboBox();
             this.CBFiltro_General = new System.Windows.Forms.ComboBox();
             this.label45 = new System.Windows.Forms.Label();
             this.DGResultados_Filtro = new System.Windows.Forms.DataGridView();
-            this.btnDetalleProducto = new System.Windows.Forms.Button();
-            this.lblTotal = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.CBFiltro_Aplicables = new System.Windows.Forms.ComboBox();
             this.label46 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label14 = new System.Windows.Forms.Label();
+            this.DGResultados = new System.Windows.Forms.DataGridView();
+            this.TBBuscar = new System.Windows.Forms.TextBox();
+            this.btnDetalleProducto = new System.Windows.Forms.Button();
+            this.lblTotal = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.TCPrincipal.SuspendLayout();
             this.TPDatosBasicos.SuspendLayout();
@@ -303,12 +303,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGDetalles_Stock)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.TCFiltro.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGResultados)).BeginInit();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGResultados_Filtro)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGResultados)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -3716,7 +3716,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TBIdigualdad_Producto.Location = new System.Drawing.Point(274, 502);
             this.TBIdigualdad_Producto.Name = "TBIdigualdad_Producto";
-            this.TBIdigualdad_Producto.Size = new System.Drawing.Size(53, 21);
+            this.TBIdigualdad_Producto.Size = new System.Drawing.Size(53, 22);
             this.TBIdigualdad_Producto.TabIndex = 15;
             // 
             // TBIdproducto_AutoSQL
@@ -3726,7 +3726,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TBIdproducto_AutoSQL.Location = new System.Drawing.Point(414, 502);
             this.TBIdproducto_AutoSQL.Name = "TBIdproducto_AutoSQL";
-            this.TBIdproducto_AutoSQL.Size = new System.Drawing.Size(58, 21);
+            this.TBIdproducto_AutoSQL.Size = new System.Drawing.Size(58, 22);
             this.TBIdproducto_AutoSQL.TabIndex = 14;
             // 
             // TBIdproducto
@@ -3736,7 +3736,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TBIdproducto.Location = new System.Drawing.Point(372, 502);
             this.TBIdproducto.Name = "TBIdproducto";
-            this.TBIdproducto.Size = new System.Drawing.Size(36, 21);
+            this.TBIdproducto.Size = new System.Drawing.Size(36, 22);
             this.TBIdproducto.TabIndex = 12;
             this.TBIdproducto.TextChanged += new System.EventHandler(this.TBIdproducto_TextChanged);
             // 
@@ -3751,6 +3751,7 @@
             this.groupBox2.Controls.Add(this.TBIdproducto_AutoSQL);
             this.groupBox2.Controls.Add(this.TBIdproducto);
             this.groupBox2.Controls.Add(this.lblTotal);
+            this.groupBox2.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(612, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(627, 532);
@@ -3769,73 +3770,16 @@
             this.TCFiltro.Size = new System.Drawing.Size(615, 470);
             this.TCFiltro.TabIndex = 170;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.label14);
-            this.tabPage2.Controls.Add(this.DGResultados);
-            this.tabPage2.Controls.Add(this.TBBuscar);
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(607, 442);
-            this.tabPage2.TabIndex = 0;
-            this.tabPage2.Text = "Filtro General";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // label14
-            // 
-            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(6, 9);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(121, 15);
-            this.label14.TabIndex = 11;
-            this.label14.Text = "Producto a Consultar";
-            // 
-            // DGResultados
-            // 
-            this.DGResultados.AllowUserToAddRows = false;
-            this.DGResultados.AllowUserToDeleteRows = false;
-            this.DGResultados.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.DGResultados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.DGResultados.BackgroundColor = System.Drawing.Color.White;
-            this.DGResultados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGResultados.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.DGResultados.Location = new System.Drawing.Point(6, 35);
-            this.DGResultados.Name = "DGResultados";
-            this.DGResultados.ReadOnly = true;
-            this.DGResultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGResultados.Size = new System.Drawing.Size(595, 401);
-            this.DGResultados.TabIndex = 13;
-            this.DGResultados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGResultados_CellDoubleClick);
-            // 
-            // TBBuscar
-            // 
-            this.TBBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBBuscar.Location = new System.Drawing.Point(133, 6);
-            this.TBBuscar.Name = "TBBuscar";
-            this.TBBuscar.Size = new System.Drawing.Size(468, 21);
-            this.TBBuscar.TabIndex = 12;
-            this.TBBuscar.TextChanged += new System.EventHandler(this.TBBuscar_TextChanged);
-            this.TBBuscar.Enter += new System.EventHandler(this.TBBuscar_Enter);
-            this.TBBuscar.Leave += new System.EventHandler(this.TBBuscar_Leave);
-            // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.CBFiltro_Agrupado);
             this.tabPage4.Controls.Add(this.CBFiltro_General);
             this.tabPage4.Controls.Add(this.label45);
             this.tabPage4.Controls.Add(this.DGResultados_Filtro);
-            this.tabPage4.Location = new System.Drawing.Point(4, 24);
+            this.tabPage4.Location = new System.Drawing.Point(4, 26);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(607, 442);
+            this.tabPage4.Size = new System.Drawing.Size(607, 440);
             this.tabPage4.TabIndex = 2;
             this.tabPage4.Text = "Filtro Agrupado";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -3893,7 +3837,7 @@
             this.label45.AutoSize = true;
             this.label45.Location = new System.Drawing.Point(6, 9);
             this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(90, 15);
+            this.label45.Size = new System.Drawing.Size(93, 17);
             this.label45.TabIndex = 11;
             this.label45.Text = "Filtro Agrupado";
             // 
@@ -3912,40 +3856,8 @@
             this.DGResultados_Filtro.Name = "DGResultados_Filtro";
             this.DGResultados_Filtro.ReadOnly = true;
             this.DGResultados_Filtro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGResultados_Filtro.Size = new System.Drawing.Size(595, 401);
+            this.DGResultados_Filtro.Size = new System.Drawing.Size(595, 399);
             this.DGResultados_Filtro.TabIndex = 13;
-            // 
-            // btnDetalleProducto
-            // 
-            this.btnDetalleProducto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDetalleProducto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDetalleProducto.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnDetalleProducto.FlatAppearance.BorderSize = 0;
-            this.btnDetalleProducto.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDetalleProducto.Image = global::Presentacion.Botones.btnAgregar;
-            this.btnDetalleProducto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDetalleProducto.Location = new System.Drawing.Point(478, 496);
-            this.btnDetalleProducto.Name = "btnDetalleProducto";
-            this.btnDetalleProducto.Size = new System.Drawing.Size(143, 30);
-            this.btnDetalleProducto.TabIndex = 169;
-            this.btnDetalleProducto.Text = "Detallar Producto";
-            this.btnDetalleProducto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDetalleProducto.UseVisualStyleBackColor = true;
-            this.btnDetalleProducto.Click += new System.EventHandler(this.btnDetalleProducto_Click);
-            // 
-            // lblTotal
-            // 
-            this.lblTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(6, 502);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(31, 15);
-            this.lblTotal.TabIndex = 14;
-            this.lblTotal.Text = "------";
             // 
             // tabPage3
             // 
@@ -3997,7 +3909,7 @@
             this.label46.AutoSize = true;
             this.label46.Location = new System.Drawing.Point(6, 9);
             this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(87, 15);
+            this.label46.Size = new System.Drawing.Size(90, 17);
             this.label46.TabIndex = 11;
             this.label46.Text = "Filtro Aplicable";
             // 
@@ -4018,6 +3930,95 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(595, 401);
             this.dataGridView1.TabIndex = 13;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.label14);
+            this.tabPage2.Controls.Add(this.DGResultados);
+            this.tabPage2.Controls.Add(this.TBBuscar);
+            this.tabPage2.Location = new System.Drawing.Point(4, 26);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(607, 440);
+            this.tabPage2.TabIndex = 0;
+            this.tabPage2.Text = "Filtro General";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label14
+            // 
+            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(6, 9);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(124, 17);
+            this.label14.TabIndex = 11;
+            this.label14.Text = "Producto a Consultar";
+            // 
+            // DGResultados
+            // 
+            this.DGResultados.AllowUserToAddRows = false;
+            this.DGResultados.AllowUserToDeleteRows = false;
+            this.DGResultados.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DGResultados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DGResultados.BackgroundColor = System.Drawing.Color.White;
+            this.DGResultados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGResultados.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DGResultados.Location = new System.Drawing.Point(6, 35);
+            this.DGResultados.Name = "DGResultados";
+            this.DGResultados.ReadOnly = true;
+            this.DGResultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGResultados.Size = new System.Drawing.Size(595, 399);
+            this.DGResultados.TabIndex = 13;
+            this.DGResultados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGResultados_CellDoubleClick);
+            // 
+            // TBBuscar
+            // 
+            this.TBBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TBBuscar.Location = new System.Drawing.Point(133, 6);
+            this.TBBuscar.Name = "TBBuscar";
+            this.TBBuscar.Size = new System.Drawing.Size(468, 22);
+            this.TBBuscar.TabIndex = 12;
+            this.TBBuscar.TextChanged += new System.EventHandler(this.TBBuscar_TextChanged);
+            this.TBBuscar.Enter += new System.EventHandler(this.TBBuscar_Enter);
+            this.TBBuscar.Leave += new System.EventHandler(this.TBBuscar_Leave);
+            // 
+            // btnDetalleProducto
+            // 
+            this.btnDetalleProducto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDetalleProducto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDetalleProducto.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnDetalleProducto.FlatAppearance.BorderSize = 0;
+            this.btnDetalleProducto.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDetalleProducto.Image = global::Presentacion.Botones.btnAgregar;
+            this.btnDetalleProducto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDetalleProducto.Location = new System.Drawing.Point(478, 496);
+            this.btnDetalleProducto.Name = "btnDetalleProducto";
+            this.btnDetalleProducto.Size = new System.Drawing.Size(143, 30);
+            this.btnDetalleProducto.TabIndex = 169;
+            this.btnDetalleProducto.Text = "Detallar Producto";
+            this.btnDetalleProducto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDetalleProducto.UseVisualStyleBackColor = true;
+            this.btnDetalleProducto.Click += new System.EventHandler(this.btnDetalleProducto_Click);
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Location = new System.Drawing.Point(6, 502);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(26, 17);
+            this.lblTotal.TabIndex = 14;
+            this.lblTotal.Text = "------";
             // 
             // frmProducto
             // 
@@ -4074,15 +4075,15 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.TCFiltro.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGResultados)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGResultados_Filtro)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGResultados)).EndInit();
             this.ResumeLayout(false);
 
         }
