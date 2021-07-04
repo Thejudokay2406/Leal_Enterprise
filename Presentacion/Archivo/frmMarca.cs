@@ -151,13 +151,12 @@ namespace Presentacion
                     {
                         if (this.Digitar)
                         {
-                            this.MensajeOk("Solicitud de Registro - Leal Enterprise \n\n" + "La Marca: " + this.TBNombre.Text + " ha Exitosamente");
+                            this.MensajeOk("Solicitud de Registro - Leal Enterprise \n\n" + "La Marca: “" + this.TBNombre.Text + "” ha Sido Registrada Exitosamente");
                         }
 
                         else
                         {
-                            this.MensajeOk("Los Datos de la Marca: " + this.TBNombre.Text + " \n\n han Sido Modificados Exitosamente" );
-                            //MessageBox.Show("la suma de los números es: " + suma + "\ny la diferencia de los números es :" + diferen);
+                            this.MensajeOk("Solicitud de Modificación - Leal Enterprise \n\n" + "Los Datos de la Marca: “" + this.TBNombre.Text + "” han Sido Modificados Exitosamente");
                         }
                     }
                     else

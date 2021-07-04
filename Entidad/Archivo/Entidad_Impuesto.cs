@@ -21,6 +21,8 @@ namespace Entidad
         private int _Compra;
         private int _Venta;
         private int _Servicio;
+        private int _ImpuestoGravado;
+        private int _ImpuestoRetencion;
 
         //Datos Auxiliares
         private int _Auto;
@@ -40,5 +42,7 @@ namespace Entidad
         public int Auto { get => _Auto; set => _Auto = value; }
         public int Eliminar { get => _Eliminar; set => _Eliminar = value; }
         public string Filtro { get => _Filtro; set => _Filtro = value; }
+        public int ImpuestoGravado { get => _ImpuestoGravado; set => _ImpuestoGravado = value; }
+        public int ImpuestoRetencion { get => _ImpuestoRetencion; set => _ImpuestoRetencion = value; }
     }
 }

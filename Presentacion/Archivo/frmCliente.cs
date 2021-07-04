@@ -196,6 +196,8 @@ namespace Presentacion
             //Panel - Datos Basicos
             this.CBTipo.SelectedIndex = 0;
             this.CBGrupo.SelectedIndex = 0;
+            this.TBIdcliente.Clear();
+            this.TBIdcliente_AutoSQL.Clear();
             this.TBDat_Nombre.Clear();
             this.TBDat_Nombre.Text = Campo;
             this.TBDat_Nombre.ForeColor = Color.FromArgb(255, 255, 255);
@@ -258,6 +260,7 @@ namespace Presentacion
             this.lblTotal_Financiera.Text = "Datos Registrados: 0";
 
             //Se realiza el FOCUS al panel y campo de texto iniciales
+            this.TBDat_Nombre.Select();
             this.TCPrincipal.SelectedIndex = 0;
 
             //SE PROCEDE A LIMPIAR LAS TABLAS DE LOS MULTIPLEX PANELES
@@ -547,7 +550,7 @@ namespace Presentacion
 
                 if (this.TBDat_Nombre.Text == Campo)
                 {
-                    MensajeError("Ingrese el nombre del Cliente a registrar");
+                    MensajeError("Ingrese el nombre del Cliente a Registrar");
                 }
                 else if (this.TBDat_Documento.Text == Campo)
                 {

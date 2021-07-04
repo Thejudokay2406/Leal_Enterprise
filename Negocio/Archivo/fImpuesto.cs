@@ -30,12 +30,13 @@ namespace Negocio
                 int auto,
 
                 //Datos Basicos
-                string impuesto, string valor, string descripcion, string montodecompra,
-                string montodeventa, string montodeservicio, int compra, int venta, int servicio
+                string impuesto, string valor, string descripcion, string montodecompra, string montodeventa, string montodeservicio, int compra, int venta, int servicio, int impuestogravado, int impuestoretencion
             )
         {
             Conexion_Impuesto Datos = new Conexion_Impuesto();
             Entidad_Impuesto Obj = new Entidad_Impuesto();
+
+            Obj.Auto = auto;
 
             Obj.Impuesto = impuesto;
             Obj.Valor = valor;
@@ -46,8 +47,9 @@ namespace Negocio
             Obj.Compra = compra;
             Obj.Venta = venta;
             Obj.Servicio = servicio;
+            Obj.ImpuestoGravado = impuestogravado;
+            Obj.ImpuestoRetencion = impuestoretencion;
 
-            Obj.Auto = auto;
             return Datos.Guardar_DatosBasicos(Obj);
         }
 
@@ -57,12 +59,13 @@ namespace Negocio
                 int auto, int idimpuesto,
 
                 //Datos Basicos
-                string impuesto, string valor, string descripcion, string montodecompra,
-                string montodeventa, string montodeservicio, int compra, int venta, int servicio
+                string impuesto, string valor, string descripcion, string montodecompra, string montodeventa, string montodeservicio, int compra, int venta, int servicio, int impuestogravado, int impuestoretencion
             )
         {
             Conexion_Impuesto Datos = new Conexion_Impuesto();
             Entidad_Impuesto Obj = new Entidad_Impuesto();
+
+            Obj.Auto = auto;
 
             Obj.Idimpuesto = idimpuesto;
             Obj.Impuesto = impuesto;
@@ -75,7 +78,6 @@ namespace Negocio
             Obj.Venta = venta;
             Obj.Servicio = servicio;
 
-            Obj.Auto = auto;
             return Datos.Editar_DatosBasicos(Obj);
         }
 

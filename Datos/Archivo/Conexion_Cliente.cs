@@ -20,7 +20,7 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.Cliente", SqlCon);
+                SqlCommand Comando = new SqlCommand("Cliente.LI_DatosBasicos", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
                 SqlCon.Open();
                 Resultado = Comando.ExecuteReader();
@@ -176,10 +176,10 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.Cliente", SqlCon);
+                SqlCommand Comando = new SqlCommand("Cliente.LI_DatosBasicos", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
-                Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Consulta", SqlDbType.Int).Value = Auto;
                 Comando.Parameters.Add("@Filtro", SqlDbType.VarChar).Value = Filtro;
 
                 SqlCon.Open();
@@ -208,7 +208,7 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.Cliente", SqlCon);
+                SqlCommand Comando = new SqlCommand("Cliente.LI_DatosBasicos", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 Comando.Parameters.Add("@Auto_Factura", SqlDbType.Int).Value = auto_impuesto;
@@ -240,7 +240,7 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.Cliente", SqlCon);
+                SqlCommand Comando = new SqlCommand("Cliente.LI_DatosBasicos", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 Comando.Parameters.Add("@Auto_Financiera", SqlDbType.Int).Value = auto_Financiera;
@@ -272,7 +272,7 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.Cliente", SqlCon);
+                SqlCommand Comando = new SqlCommand("Cliente.LI_DatosBasicos", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 Comando.Parameters.Add("@Auto_Contacto", SqlDbType.Int).Value = auto_Contacto;
@@ -304,7 +304,7 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.Cliente", SqlCon);
+                SqlCommand Comando = new SqlCommand("Cliente.LI_DatosBasicos", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 Comando.Parameters.Add("@Auto_Despacho", SqlDbType.Int).Value = auto_Despacho;
@@ -336,7 +336,7 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.Cliente", SqlCon);
+                SqlCommand Comando = new SqlCommand("Cliente.LI_DatosBasicos", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Auto;
@@ -802,7 +802,7 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.Cliente", SqlCon);
+                SqlCommand Comando = new SqlCommand("Cliente.LI_DatosBasicos", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Panel Datos Basicos

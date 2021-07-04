@@ -86,22 +86,24 @@
             this.label26 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.TPFacturacion = new System.Windows.Forms.TabPage();
-            this.btnModificar_Facturacion = new System.Windows.Forms.Button();
-            this.lblTotal_Facturacion = new System.Windows.Forms.Label();
-            this.DGDetalle_Facturacion = new System.Windows.Forms.DataGridView();
-            this.TBFac_Ciudad = new System.Windows.Forms.TextBox();
-            this.TBFac_Correo = new System.Windows.Forms.TextBox();
-            this.TBFac_Movil = new System.Windows.Forms.TextBox();
-            this.TBFac_DocumentoCliente = new System.Windows.Forms.TextBox();
-            this.TBFac_Cliente = new System.Windows.Forms.TextBox();
-            this.CH_Facturacion = new System.Windows.Forms.CheckBox();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label40 = new System.Windows.Forms.Label();
-            this.btnEliminar_Facturacion = new System.Windows.Forms.Button();
-            this.btnAgregar_Facturacion = new System.Windows.Forms.Button();
+            this.TPContacto = new System.Windows.Forms.TabPage();
+            this.btnModificar_Contacto = new System.Windows.Forms.Button();
+            this.TBCon_Parentesco = new System.Windows.Forms.TextBox();
+            this.TBCon_Correo = new System.Windows.Forms.TextBox();
+            this.TBCon_Movil = new System.Windows.Forms.TextBox();
+            this.TBCon_Direccion = new System.Windows.Forms.TextBox();
+            this.TBCon_Ciudad = new System.Windows.Forms.TextBox();
+            this.TBCon_Contacto = new System.Windows.Forms.TextBox();
+            this.lblTotal_Contacto = new System.Windows.Forms.Label();
+            this.DGDetalle_Contacto = new System.Windows.Forms.DataGridView();
+            this.label59 = new System.Windows.Forms.Label();
+            this.label58 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
+            this.label55 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.btnEliminar_Contacto = new System.Windows.Forms.Button();
+            this.btnAgregar_Contacto = new System.Windows.Forms.Button();
             this.TPDatosDeEnvio = new System.Windows.Forms.TabPage();
             this.btnModificar_Despacho = new System.Windows.Forms.Button();
             this.lblTotal_Despacho = new System.Windows.Forms.Label();
@@ -132,24 +134,26 @@
             this.btnEliminar_Financiera = new System.Windows.Forms.Button();
             this.btnAgregar_Financiera = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.TPContacto = new System.Windows.Forms.TabPage();
-            this.btnModificar_Contacto = new System.Windows.Forms.Button();
-            this.TBCon_Parentesco = new System.Windows.Forms.TextBox();
-            this.TBCon_Correo = new System.Windows.Forms.TextBox();
-            this.TBCon_Movil = new System.Windows.Forms.TextBox();
-            this.TBCon_Direccion = new System.Windows.Forms.TextBox();
-            this.TBCon_Ciudad = new System.Windows.Forms.TextBox();
-            this.TBCon_Contacto = new System.Windows.Forms.TextBox();
-            this.lblTotal_Contacto = new System.Windows.Forms.Label();
-            this.DGDetalle_Contacto = new System.Windows.Forms.DataGridView();
-            this.label59 = new System.Windows.Forms.Label();
-            this.label58 = new System.Windows.Forms.Label();
-            this.label57 = new System.Windows.Forms.Label();
-            this.label55 = new System.Windows.Forms.Label();
-            this.label54 = new System.Windows.Forms.Label();
-            this.label53 = new System.Windows.Forms.Label();
-            this.btnEliminar_Contacto = new System.Windows.Forms.Button();
-            this.btnAgregar_Contacto = new System.Windows.Forms.Button();
+            this.TPFacturacion = new System.Windows.Forms.TabPage();
+            this.btnModificar_Facturacion = new System.Windows.Forms.Button();
+            this.lblTotal_Facturacion = new System.Windows.Forms.Label();
+            this.DGDetalle_Facturacion = new System.Windows.Forms.DataGridView();
+            this.TBFac_Asesor = new System.Windows.Forms.TextBox();
+            this.TBFac_CodigoAsesor = new System.Windows.Forms.TextBox();
+            this.TBFac_Ciudad = new System.Windows.Forms.TextBox();
+            this.TBFac_Correo = new System.Windows.Forms.TextBox();
+            this.TBFac_Movil = new System.Windows.Forms.TextBox();
+            this.TBFac_DocumentoCliente = new System.Windows.Forms.TextBox();
+            this.TBFac_Cliente = new System.Windows.Forms.TextBox();
+            this.CH_Facturacion = new System.Windows.Forms.CheckBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.btnEliminar_Facturacion = new System.Windows.Forms.Button();
+            this.btnAgregar_Facturacion = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
+            this.btnExaminar_Asesor = new System.Windows.Forms.Button();
             this.TBIdcliente = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -160,21 +164,17 @@
             this.TBBuscar = new System.Windows.Forms.TextBox();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnExaminar_Asesor = new System.Windows.Forms.Button();
-            this.label20 = new System.Windows.Forms.Label();
-            this.TBFac_CodigoAsesor = new System.Windows.Forms.TextBox();
-            this.TBFac_Asesor = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.TCPrincipal.SuspendLayout();
             this.TPDatosBasicos.SuspendLayout();
-            this.TPFacturacion.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGDetalle_Facturacion)).BeginInit();
+            this.TPContacto.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGDetalle_Contacto)).BeginInit();
             this.TPDatosDeEnvio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGDetalle_Despacho)).BeginInit();
             this.TPDatosFinancieros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGDetalle_Financiera)).BeginInit();
-            this.TPContacto.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGDetalle_Contacto)).BeginInit();
+            this.TPFacturacion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGDetalle_Facturacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGResultados)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -487,7 +487,7 @@
             // 
             this.TBDat_Departamento.Location = new System.Drawing.Point(68, 202);
             this.TBDat_Departamento.Name = "TBDat_Departamento";
-            this.TBDat_Departamento.Size = new System.Drawing.Size(260, 22);
+            this.TBDat_Departamento.Size = new System.Drawing.Size(259, 22);
             this.TBDat_Departamento.TabIndex = 143;
             this.TBDat_Departamento.Enter += new System.EventHandler(this.TBDat_Departamento_Enter);
             this.TBDat_Departamento.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBDat_Departamento_KeyUp);
@@ -557,9 +557,9 @@
             // 
             // TBDat_Nombre
             // 
-            this.TBDat_Nombre.Location = new System.Drawing.Point(66, 34);
+            this.TBDat_Nombre.Location = new System.Drawing.Point(67, 34);
             this.TBDat_Nombre.Name = "TBDat_Nombre";
-            this.TBDat_Nombre.Size = new System.Drawing.Size(579, 22);
+            this.TBDat_Nombre.Size = new System.Drawing.Size(578, 22);
             this.TBDat_Nombre.TabIndex = 8;
             this.TBDat_Nombre.Enter += new System.EventHandler(this.TBDat_Nombre_Enter);
             this.TBDat_Nombre.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBDat_Nombre_KeyUp);
@@ -774,7 +774,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 90);
+            this.label4.Location = new System.Drawing.Point(6, 93);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 17);
             this.label4.TabIndex = 132;
@@ -819,213 +819,220 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Nombre";
             // 
-            // TPFacturacion
+            // TPContacto
             // 
-            this.TPFacturacion.Controls.Add(this.btnModificar_Facturacion);
-            this.TPFacturacion.Controls.Add(this.lblTotal_Facturacion);
-            this.TPFacturacion.Controls.Add(this.DGDetalle_Facturacion);
-            this.TPFacturacion.Controls.Add(this.TBFac_Asesor);
-            this.TPFacturacion.Controls.Add(this.TBFac_CodigoAsesor);
-            this.TPFacturacion.Controls.Add(this.TBFac_Ciudad);
-            this.TPFacturacion.Controls.Add(this.TBFac_Correo);
-            this.TPFacturacion.Controls.Add(this.TBFac_Movil);
-            this.TPFacturacion.Controls.Add(this.TBFac_DocumentoCliente);
-            this.TPFacturacion.Controls.Add(this.TBFac_Cliente);
-            this.TPFacturacion.Controls.Add(this.CH_Facturacion);
-            this.TPFacturacion.Controls.Add(this.label34);
-            this.TPFacturacion.Controls.Add(this.label36);
-            this.TPFacturacion.Controls.Add(this.label37);
-            this.TPFacturacion.Controls.Add(this.label40);
-            this.TPFacturacion.Controls.Add(this.btnEliminar_Facturacion);
-            this.TPFacturacion.Controls.Add(this.btnAgregar_Facturacion);
-            this.TPFacturacion.Controls.Add(this.label20);
-            this.TPFacturacion.Controls.Add(this.btnExaminar_Asesor);
-            this.TPFacturacion.Location = new System.Drawing.Point(4, 26);
-            this.TPFacturacion.Name = "TPFacturacion";
-            this.TPFacturacion.Padding = new System.Windows.Forms.Padding(3);
-            this.TPFacturacion.Size = new System.Drawing.Size(652, 393);
-            this.TPFacturacion.TabIndex = 4;
-            this.TPFacturacion.Text = "Facturación";
-            this.TPFacturacion.UseVisualStyleBackColor = true;
+            this.TPContacto.Controls.Add(this.btnModificar_Contacto);
+            this.TPContacto.Controls.Add(this.TBCon_Parentesco);
+            this.TPContacto.Controls.Add(this.TBCon_Correo);
+            this.TPContacto.Controls.Add(this.TBCon_Movil);
+            this.TPContacto.Controls.Add(this.TBCon_Direccion);
+            this.TPContacto.Controls.Add(this.TBCon_Ciudad);
+            this.TPContacto.Controls.Add(this.TBCon_Contacto);
+            this.TPContacto.Controls.Add(this.lblTotal_Contacto);
+            this.TPContacto.Controls.Add(this.DGDetalle_Contacto);
+            this.TPContacto.Controls.Add(this.label59);
+            this.TPContacto.Controls.Add(this.label58);
+            this.TPContacto.Controls.Add(this.label57);
+            this.TPContacto.Controls.Add(this.label55);
+            this.TPContacto.Controls.Add(this.label54);
+            this.TPContacto.Controls.Add(this.label53);
+            this.TPContacto.Controls.Add(this.btnEliminar_Contacto);
+            this.TPContacto.Controls.Add(this.btnAgregar_Contacto);
+            this.TPContacto.Location = new System.Drawing.Point(4, 26);
+            this.TPContacto.Name = "TPContacto";
+            this.TPContacto.Padding = new System.Windows.Forms.Padding(3);
+            this.TPContacto.Size = new System.Drawing.Size(652, 393);
+            this.TPContacto.TabIndex = 6;
+            this.TPContacto.Text = "Contacto";
+            this.TPContacto.UseVisualStyleBackColor = true;
             // 
-            // btnModificar_Facturacion
+            // btnModificar_Contacto
             // 
-            this.btnModificar_Facturacion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnModificar_Facturacion.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnModificar_Facturacion.FlatAppearance.BorderSize = 0;
-            this.btnModificar_Facturacion.Image = global::Presentacion.Botones.btnEditar;
-            this.btnModificar_Facturacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar_Facturacion.Location = new System.Drawing.Point(400, 357);
-            this.btnModificar_Facturacion.Name = "btnModificar_Facturacion";
-            this.btnModificar_Facturacion.Size = new System.Drawing.Size(120, 30);
-            this.btnModificar_Facturacion.TabIndex = 165;
-            this.btnModificar_Facturacion.Text = "Modificar - F8";
-            this.btnModificar_Facturacion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnModificar_Facturacion.UseVisualStyleBackColor = true;
-            this.btnModificar_Facturacion.Click += new System.EventHandler(this.btnModificar_Facturacion_Click);
+            this.btnModificar_Contacto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificar_Contacto.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnModificar_Contacto.FlatAppearance.BorderSize = 0;
+            this.btnModificar_Contacto.Image = global::Presentacion.Botones.btnEditar;
+            this.btnModificar_Contacto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModificar_Contacto.Location = new System.Drawing.Point(400, 357);
+            this.btnModificar_Contacto.Name = "btnModificar_Contacto";
+            this.btnModificar_Contacto.Size = new System.Drawing.Size(120, 30);
+            this.btnModificar_Contacto.TabIndex = 172;
+            this.btnModificar_Contacto.Text = "Modificar - F8";
+            this.btnModificar_Contacto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnModificar_Contacto.UseVisualStyleBackColor = true;
+            this.btnModificar_Contacto.Click += new System.EventHandler(this.btnModificar_Contacto_Click);
             // 
-            // lblTotal_Facturacion
+            // TBCon_Parentesco
             // 
-            this.lblTotal_Facturacion.AutoSize = true;
-            this.lblTotal_Facturacion.Location = new System.Drawing.Point(6, 364);
-            this.lblTotal_Facturacion.Name = "lblTotal_Facturacion";
-            this.lblTotal_Facturacion.Size = new System.Drawing.Size(124, 17);
-            this.lblTotal_Facturacion.TabIndex = 164;
-            this.lblTotal_Facturacion.Text = "Datos Registrados: 0";
+            this.TBCon_Parentesco.Location = new System.Drawing.Point(409, 62);
+            this.TBCon_Parentesco.Name = "TBCon_Parentesco";
+            this.TBCon_Parentesco.Size = new System.Drawing.Size(237, 22);
+            this.TBCon_Parentesco.TabIndex = 169;
+            this.TBCon_Parentesco.Enter += new System.EventHandler(this.TBCon_Parentesco_Enter);
+            this.TBCon_Parentesco.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCon_Parentesco_KeyUp);
+            this.TBCon_Parentesco.Leave += new System.EventHandler(this.TBCon_Parentesco_Leave);
             // 
-            // DGDetalle_Facturacion
+            // TBCon_Correo
             // 
-            this.DGDetalle_Facturacion.AllowUserToAddRows = false;
-            this.DGDetalle_Facturacion.AllowUserToDeleteRows = false;
-            this.DGDetalle_Facturacion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.DGDetalle_Facturacion.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.DGDetalle_Facturacion.BackgroundColor = System.Drawing.Color.White;
-            this.DGDetalle_Facturacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGDetalle_Facturacion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.DGDetalle_Facturacion.Location = new System.Drawing.Point(6, 118);
-            this.DGDetalle_Facturacion.Name = "DGDetalle_Facturacion";
-            this.DGDetalle_Facturacion.ReadOnly = true;
-            this.DGDetalle_Facturacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGDetalle_Facturacion.Size = new System.Drawing.Size(640, 233);
-            this.DGDetalle_Facturacion.TabIndex = 160;
-            this.DGDetalle_Facturacion.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGDetalle_Facturacion_CellContentClick);
+            this.TBCon_Correo.Location = new System.Drawing.Point(70, 90);
+            this.TBCon_Correo.Name = "TBCon_Correo";
+            this.TBCon_Correo.Size = new System.Drawing.Size(576, 22);
+            this.TBCon_Correo.TabIndex = 11;
+            this.TBCon_Correo.Enter += new System.EventHandler(this.TBCon_Correo_Enter);
+            this.TBCon_Correo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCon_Correo_KeyUp);
+            this.TBCon_Correo.Leave += new System.EventHandler(this.TBCon_Correo_Leave);
             // 
-            // TBFac_Ciudad
+            // TBCon_Movil
             // 
-            this.TBFac_Ciudad.Location = new System.Drawing.Point(385, 62);
-            this.TBFac_Ciudad.Name = "TBFac_Ciudad";
-            this.TBFac_Ciudad.Size = new System.Drawing.Size(260, 22);
-            this.TBFac_Ciudad.TabIndex = 34;
-            this.TBFac_Ciudad.Enter += new System.EventHandler(this.TBFac_Ciudad_Enter);
-            this.TBFac_Ciudad.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBFac_Ciudad_KeyUp);
-            this.TBFac_Ciudad.Leave += new System.EventHandler(this.TBFac_Ciudad_Leave);
+            this.TBCon_Movil.Location = new System.Drawing.Point(70, 62);
+            this.TBCon_Movil.Name = "TBCon_Movil";
+            this.TBCon_Movil.Size = new System.Drawing.Size(255, 22);
+            this.TBCon_Movil.TabIndex = 9;
+            this.TBCon_Movil.Enter += new System.EventHandler(this.TBCon_Movil_Enter);
+            this.TBCon_Movil.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBCon_Movil_KeyPress);
+            this.TBCon_Movil.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCon_Movil_KeyUp);
+            this.TBCon_Movil.Leave += new System.EventHandler(this.TBCon_Movil_Leave);
             // 
-            // TBFac_Correo
+            // TBCon_Direccion
             // 
-            this.TBFac_Correo.Location = new System.Drawing.Point(67, 90);
-            this.TBFac_Correo.Name = "TBFac_Correo";
-            this.TBFac_Correo.Size = new System.Drawing.Size(448, 22);
-            this.TBFac_Correo.TabIndex = 30;
-            this.TBFac_Correo.Enter += new System.EventHandler(this.TBFac_Correo_Enter);
-            this.TBFac_Correo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBFac_Correo_KeyUp);
-            this.TBFac_Correo.Leave += new System.EventHandler(this.TBFac_Correo_Leave);
+            this.TBCon_Direccion.Location = new System.Drawing.Point(70, 34);
+            this.TBCon_Direccion.Name = "TBCon_Direccion";
+            this.TBCon_Direccion.Size = new System.Drawing.Size(576, 22);
+            this.TBCon_Direccion.TabIndex = 5;
+            this.TBCon_Direccion.Enter += new System.EventHandler(this.TBCon_Direccion_Enter);
+            this.TBCon_Direccion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCon_Direccion_KeyUp);
+            this.TBCon_Direccion.Leave += new System.EventHandler(this.TBCon_Direccion_Leave);
             // 
-            // TBFac_Movil
+            // TBCon_Ciudad
             // 
-            this.TBFac_Movil.Location = new System.Drawing.Point(67, 62);
-            this.TBFac_Movil.Name = "TBFac_Movil";
-            this.TBFac_Movil.Size = new System.Drawing.Size(260, 22);
-            this.TBFac_Movil.TabIndex = 29;
-            this.TBFac_Movil.Enter += new System.EventHandler(this.TBFac_Movil_Enter);
-            this.TBFac_Movil.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBFac_Movil_KeyPress);
-            this.TBFac_Movil.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBFac_Movil_KeyUp);
-            this.TBFac_Movil.Leave += new System.EventHandler(this.TBFac_Movil_Leave);
+            this.TBCon_Ciudad.Location = new System.Drawing.Point(409, 6);
+            this.TBCon_Ciudad.Name = "TBCon_Ciudad";
+            this.TBCon_Ciudad.Size = new System.Drawing.Size(237, 22);
+            this.TBCon_Ciudad.TabIndex = 3;
+            this.TBCon_Ciudad.Enter += new System.EventHandler(this.TBCon_Ciudad_Enter);
+            this.TBCon_Ciudad.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCon_Ciudad_KeyUp);
+            this.TBCon_Ciudad.Leave += new System.EventHandler(this.TBCon_Ciudad_Leave);
             // 
-            // TBFac_DocumentoCliente
+            // TBCon_Contacto
             // 
-            this.TBFac_DocumentoCliente.Location = new System.Drawing.Point(67, 34);
-            this.TBFac_DocumentoCliente.Name = "TBFac_DocumentoCliente";
-            this.TBFac_DocumentoCliente.Size = new System.Drawing.Size(171, 22);
-            this.TBFac_DocumentoCliente.TabIndex = 27;
-            this.TBFac_DocumentoCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TBFac_DocumentoCliente.Enter += new System.EventHandler(this.TBFac_DocumentoCliente_Enter);
-            this.TBFac_DocumentoCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBFac_DocumentoCliente_KeyPress);
-            this.TBFac_DocumentoCliente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBFac_DocumentoCliente_KeyUp);
-            this.TBFac_DocumentoCliente.Leave += new System.EventHandler(this.TBFac_DocumentoCliente_Leave);
+            this.TBCon_Contacto.Location = new System.Drawing.Point(70, 6);
+            this.TBCon_Contacto.Name = "TBCon_Contacto";
+            this.TBCon_Contacto.Size = new System.Drawing.Size(278, 22);
+            this.TBCon_Contacto.TabIndex = 1;
+            this.TBCon_Contacto.Enter += new System.EventHandler(this.TBCon_Contacto_Enter);
+            this.TBCon_Contacto.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCon_Contacto_KeyUp);
+            this.TBCon_Contacto.Leave += new System.EventHandler(this.TBCon_Contacto_Leave);
             // 
-            // TBFac_Cliente
+            // lblTotal_Contacto
             // 
-            this.TBFac_Cliente.Location = new System.Drawing.Point(244, 34);
-            this.TBFac_Cliente.Name = "TBFac_Cliente";
-            this.TBFac_Cliente.Size = new System.Drawing.Size(401, 22);
-            this.TBFac_Cliente.TabIndex = 26;
-            this.TBFac_Cliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TBFac_Cliente.Enter += new System.EventHandler(this.TBFac_Cliente_Enter);
-            this.TBFac_Cliente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBFac_Cliente_KeyUp);
-            this.TBFac_Cliente.Leave += new System.EventHandler(this.TBFac_Cliente_Leave);
+            this.lblTotal_Contacto.AutoSize = true;
+            this.lblTotal_Contacto.Location = new System.Drawing.Point(6, 364);
+            this.lblTotal_Contacto.Name = "lblTotal_Contacto";
+            this.lblTotal_Contacto.Size = new System.Drawing.Size(124, 17);
+            this.lblTotal_Contacto.TabIndex = 168;
+            this.lblTotal_Contacto.Text = "Datos Registrados: 0";
             // 
-            // CH_Facturacion
+            // DGDetalle_Contacto
             // 
-            this.CH_Facturacion.AutoSize = true;
-            this.CH_Facturacion.BackColor = System.Drawing.Color.White;
-            this.CH_Facturacion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CH_Facturacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CH_Facturacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CH_Facturacion.Location = new System.Drawing.Point(521, 93);
-            this.CH_Facturacion.Name = "CH_Facturacion";
-            this.CH_Facturacion.Size = new System.Drawing.Size(124, 17);
-            this.CH_Facturacion.TabIndex = 37;
-            this.CH_Facturacion.Text = "Copiar Datos Basicos";
-            this.CH_Facturacion.UseVisualStyleBackColor = false;
-            this.CH_Facturacion.CheckedChanged += new System.EventHandler(this.CH_Facturacion_CheckedChanged);
+            this.DGDetalle_Contacto.AllowUserToAddRows = false;
+            this.DGDetalle_Contacto.AllowUserToDeleteRows = false;
+            this.DGDetalle_Contacto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DGDetalle_Contacto.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.DGDetalle_Contacto.BackgroundColor = System.Drawing.Color.White;
+            this.DGDetalle_Contacto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGDetalle_Contacto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DGDetalle_Contacto.Location = new System.Drawing.Point(6, 117);
+            this.DGDetalle_Contacto.Name = "DGDetalle_Contacto";
+            this.DGDetalle_Contacto.ReadOnly = true;
+            this.DGDetalle_Contacto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGDetalle_Contacto.Size = new System.Drawing.Size(640, 234);
+            this.DGDetalle_Contacto.TabIndex = 165;
             // 
-            // label34
+            // label59
             // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(333, 65);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(47, 17);
-            this.label34.TabIndex = 32;
-            this.label34.Text = "Ciudad";
+            this.label59.AutoSize = true;
+            this.label59.Location = new System.Drawing.Point(333, 64);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(71, 17);
+            this.label59.TabIndex = 12;
+            this.label59.Text = "Parentesco";
             // 
-            // label36
+            // label58
             // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(6, 92);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(45, 17);
-            this.label36.TabIndex = 24;
-            this.label36.Text = "Correo";
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(6, 93);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(45, 17);
+            this.label58.TabIndex = 10;
+            this.label58.Text = "Correo";
             // 
-            // label37
+            // label57
             // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(6, 63);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(37, 17);
-            this.label37.TabIndex = 23;
-            this.label37.Text = "Móvil";
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(6, 65);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(58, 17);
+            this.label57.TabIndex = 8;
+            this.label57.Text = "Móvil Pri.";
             // 
-            // label40
+            // label55
             // 
-            this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(6, 36);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(52, 17);
-            this.label40.TabIndex = 20;
-            this.label40.Text = "Nombre";
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(6, 37);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(60, 17);
+            this.label55.TabIndex = 4;
+            this.label55.Text = "Dirección";
             // 
-            // btnEliminar_Facturacion
+            // label54
             // 
-            this.btnEliminar_Facturacion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar_Facturacion.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnEliminar_Facturacion.FlatAppearance.BorderSize = 0;
-            this.btnEliminar_Facturacion.Image = global::Presentacion.Botones.btnEliminar;
-            this.btnEliminar_Facturacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar_Facturacion.Location = new System.Drawing.Point(526, 357);
-            this.btnEliminar_Facturacion.Name = "btnEliminar_Facturacion";
-            this.btnEliminar_Facturacion.Size = new System.Drawing.Size(120, 30);
-            this.btnEliminar_Facturacion.TabIndex = 163;
-            this.btnEliminar_Facturacion.Text = "Eliminar - F4";
-            this.btnEliminar_Facturacion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminar_Facturacion.UseVisualStyleBackColor = true;
-            this.btnEliminar_Facturacion.Click += new System.EventHandler(this.btnEliminar_Facturacion_Click);
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(356, 9);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(47, 17);
+            this.label54.TabIndex = 2;
+            this.label54.Text = "Ciudad";
             // 
-            // btnAgregar_Facturacion
+            // label53
             // 
-            this.btnAgregar_Facturacion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregar_Facturacion.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnAgregar_Facturacion.FlatAppearance.BorderSize = 0;
-            this.btnAgregar_Facturacion.Image = global::Presentacion.Botones.btnAgregar;
-            this.btnAgregar_Facturacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar_Facturacion.Location = new System.Drawing.Point(274, 357);
-            this.btnAgregar_Facturacion.Name = "btnAgregar_Facturacion";
-            this.btnAgregar_Facturacion.Size = new System.Drawing.Size(120, 30);
-            this.btnAgregar_Facturacion.TabIndex = 162;
-            this.btnAgregar_Facturacion.Text = "Agregar - F3";
-            this.btnAgregar_Facturacion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAgregar_Facturacion.UseVisualStyleBackColor = true;
-            this.btnAgregar_Facturacion.Click += new System.EventHandler(this.btnAgregar_Facturacion_Click);
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(6, 9);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(58, 17);
+            this.label53.TabIndex = 0;
+            this.label53.Text = "Contacto";
+            // 
+            // btnEliminar_Contacto
+            // 
+            this.btnEliminar_Contacto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminar_Contacto.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnEliminar_Contacto.FlatAppearance.BorderSize = 0;
+            this.btnEliminar_Contacto.Image = global::Presentacion.Botones.btnEliminar;
+            this.btnEliminar_Contacto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminar_Contacto.Location = new System.Drawing.Point(526, 357);
+            this.btnEliminar_Contacto.Name = "btnEliminar_Contacto";
+            this.btnEliminar_Contacto.Size = new System.Drawing.Size(120, 30);
+            this.btnEliminar_Contacto.TabIndex = 167;
+            this.btnEliminar_Contacto.Text = "Eliminar - F4";
+            this.btnEliminar_Contacto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminar_Contacto.UseVisualStyleBackColor = true;
+            this.btnEliminar_Contacto.Click += new System.EventHandler(this.btnEliminar_Contacto_Click);
+            // 
+            // btnAgregar_Contacto
+            // 
+            this.btnAgregar_Contacto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregar_Contacto.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnAgregar_Contacto.FlatAppearance.BorderSize = 0;
+            this.btnAgregar_Contacto.Image = global::Presentacion.Botones.btnAgregar;
+            this.btnAgregar_Contacto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregar_Contacto.Location = new System.Drawing.Point(274, 357);
+            this.btnAgregar_Contacto.Name = "btnAgregar_Contacto";
+            this.btnAgregar_Contacto.Size = new System.Drawing.Size(120, 30);
+            this.btnAgregar_Contacto.TabIndex = 166;
+            this.btnAgregar_Contacto.Text = "Agregar - F3";
+            this.btnAgregar_Contacto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregar_Contacto.UseVisualStyleBackColor = true;
+            this.btnAgregar_Contacto.Click += new System.EventHandler(this.btnAgregar_Contacto_Click);
             // 
             // TPDatosDeEnvio
             // 
@@ -1399,220 +1406,252 @@
             this.button1.TabIndex = 135;
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // TPContacto
+            // TPFacturacion
             // 
-            this.TPContacto.Controls.Add(this.btnModificar_Contacto);
-            this.TPContacto.Controls.Add(this.TBCon_Parentesco);
-            this.TPContacto.Controls.Add(this.TBCon_Correo);
-            this.TPContacto.Controls.Add(this.TBCon_Movil);
-            this.TPContacto.Controls.Add(this.TBCon_Direccion);
-            this.TPContacto.Controls.Add(this.TBCon_Ciudad);
-            this.TPContacto.Controls.Add(this.TBCon_Contacto);
-            this.TPContacto.Controls.Add(this.lblTotal_Contacto);
-            this.TPContacto.Controls.Add(this.DGDetalle_Contacto);
-            this.TPContacto.Controls.Add(this.label59);
-            this.TPContacto.Controls.Add(this.label58);
-            this.TPContacto.Controls.Add(this.label57);
-            this.TPContacto.Controls.Add(this.label55);
-            this.TPContacto.Controls.Add(this.label54);
-            this.TPContacto.Controls.Add(this.label53);
-            this.TPContacto.Controls.Add(this.btnEliminar_Contacto);
-            this.TPContacto.Controls.Add(this.btnAgregar_Contacto);
-            this.TPContacto.Location = new System.Drawing.Point(4, 26);
-            this.TPContacto.Name = "TPContacto";
-            this.TPContacto.Padding = new System.Windows.Forms.Padding(3);
-            this.TPContacto.Size = new System.Drawing.Size(652, 393);
-            this.TPContacto.TabIndex = 6;
-            this.TPContacto.Text = "Contacto";
-            this.TPContacto.UseVisualStyleBackColor = true;
+            this.TPFacturacion.Controls.Add(this.btnModificar_Facturacion);
+            this.TPFacturacion.Controls.Add(this.lblTotal_Facturacion);
+            this.TPFacturacion.Controls.Add(this.DGDetalle_Facturacion);
+            this.TPFacturacion.Controls.Add(this.TBFac_Asesor);
+            this.TPFacturacion.Controls.Add(this.TBFac_CodigoAsesor);
+            this.TPFacturacion.Controls.Add(this.TBFac_Ciudad);
+            this.TPFacturacion.Controls.Add(this.TBFac_Correo);
+            this.TPFacturacion.Controls.Add(this.TBFac_Movil);
+            this.TPFacturacion.Controls.Add(this.TBFac_DocumentoCliente);
+            this.TPFacturacion.Controls.Add(this.TBFac_Cliente);
+            this.TPFacturacion.Controls.Add(this.CH_Facturacion);
+            this.TPFacturacion.Controls.Add(this.label34);
+            this.TPFacturacion.Controls.Add(this.label36);
+            this.TPFacturacion.Controls.Add(this.label37);
+            this.TPFacturacion.Controls.Add(this.label40);
+            this.TPFacturacion.Controls.Add(this.btnEliminar_Facturacion);
+            this.TPFacturacion.Controls.Add(this.btnAgregar_Facturacion);
+            this.TPFacturacion.Controls.Add(this.label20);
+            this.TPFacturacion.Controls.Add(this.btnExaminar_Asesor);
+            this.TPFacturacion.Location = new System.Drawing.Point(4, 26);
+            this.TPFacturacion.Name = "TPFacturacion";
+            this.TPFacturacion.Padding = new System.Windows.Forms.Padding(3);
+            this.TPFacturacion.Size = new System.Drawing.Size(652, 393);
+            this.TPFacturacion.TabIndex = 4;
+            this.TPFacturacion.Text = "Facturación";
+            this.TPFacturacion.UseVisualStyleBackColor = true;
             // 
-            // btnModificar_Contacto
+            // btnModificar_Facturacion
             // 
-            this.btnModificar_Contacto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnModificar_Contacto.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnModificar_Contacto.FlatAppearance.BorderSize = 0;
-            this.btnModificar_Contacto.Image = global::Presentacion.Botones.btnEditar;
-            this.btnModificar_Contacto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar_Contacto.Location = new System.Drawing.Point(400, 357);
-            this.btnModificar_Contacto.Name = "btnModificar_Contacto";
-            this.btnModificar_Contacto.Size = new System.Drawing.Size(120, 30);
-            this.btnModificar_Contacto.TabIndex = 172;
-            this.btnModificar_Contacto.Text = "Modificar - F8";
-            this.btnModificar_Contacto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnModificar_Contacto.UseVisualStyleBackColor = true;
-            this.btnModificar_Contacto.Click += new System.EventHandler(this.btnModificar_Contacto_Click);
+            this.btnModificar_Facturacion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificar_Facturacion.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnModificar_Facturacion.FlatAppearance.BorderSize = 0;
+            this.btnModificar_Facturacion.Image = global::Presentacion.Botones.btnEditar;
+            this.btnModificar_Facturacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModificar_Facturacion.Location = new System.Drawing.Point(400, 357);
+            this.btnModificar_Facturacion.Name = "btnModificar_Facturacion";
+            this.btnModificar_Facturacion.Size = new System.Drawing.Size(120, 30);
+            this.btnModificar_Facturacion.TabIndex = 165;
+            this.btnModificar_Facturacion.Text = "Modificar - F8";
+            this.btnModificar_Facturacion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnModificar_Facturacion.UseVisualStyleBackColor = true;
+            this.btnModificar_Facturacion.Click += new System.EventHandler(this.btnModificar_Facturacion_Click);
             // 
-            // TBCon_Parentesco
+            // lblTotal_Facturacion
             // 
-            this.TBCon_Parentesco.Location = new System.Drawing.Point(409, 62);
-            this.TBCon_Parentesco.Name = "TBCon_Parentesco";
-            this.TBCon_Parentesco.Size = new System.Drawing.Size(237, 22);
-            this.TBCon_Parentesco.TabIndex = 169;
-            this.TBCon_Parentesco.Enter += new System.EventHandler(this.TBCon_Parentesco_Enter);
-            this.TBCon_Parentesco.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCon_Parentesco_KeyUp);
-            this.TBCon_Parentesco.Leave += new System.EventHandler(this.TBCon_Parentesco_Leave);
+            this.lblTotal_Facturacion.AutoSize = true;
+            this.lblTotal_Facturacion.Location = new System.Drawing.Point(6, 364);
+            this.lblTotal_Facturacion.Name = "lblTotal_Facturacion";
+            this.lblTotal_Facturacion.Size = new System.Drawing.Size(124, 17);
+            this.lblTotal_Facturacion.TabIndex = 164;
+            this.lblTotal_Facturacion.Text = "Datos Registrados: 0";
             // 
-            // TBCon_Correo
+            // DGDetalle_Facturacion
             // 
-            this.TBCon_Correo.Location = new System.Drawing.Point(70, 90);
-            this.TBCon_Correo.Name = "TBCon_Correo";
-            this.TBCon_Correo.Size = new System.Drawing.Size(576, 22);
-            this.TBCon_Correo.TabIndex = 11;
-            this.TBCon_Correo.Enter += new System.EventHandler(this.TBCon_Correo_Enter);
-            this.TBCon_Correo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCon_Correo_KeyUp);
-            this.TBCon_Correo.Leave += new System.EventHandler(this.TBCon_Correo_Leave);
+            this.DGDetalle_Facturacion.AllowUserToAddRows = false;
+            this.DGDetalle_Facturacion.AllowUserToDeleteRows = false;
+            this.DGDetalle_Facturacion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DGDetalle_Facturacion.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.DGDetalle_Facturacion.BackgroundColor = System.Drawing.Color.White;
+            this.DGDetalle_Facturacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGDetalle_Facturacion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DGDetalle_Facturacion.Location = new System.Drawing.Point(6, 118);
+            this.DGDetalle_Facturacion.Name = "DGDetalle_Facturacion";
+            this.DGDetalle_Facturacion.ReadOnly = true;
+            this.DGDetalle_Facturacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGDetalle_Facturacion.Size = new System.Drawing.Size(640, 233);
+            this.DGDetalle_Facturacion.TabIndex = 160;
+            this.DGDetalle_Facturacion.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGDetalle_Facturacion_CellContentClick);
             // 
-            // TBCon_Movil
+            // TBFac_Asesor
             // 
-            this.TBCon_Movil.Location = new System.Drawing.Point(70, 62);
-            this.TBCon_Movil.Name = "TBCon_Movil";
-            this.TBCon_Movil.Size = new System.Drawing.Size(255, 22);
-            this.TBCon_Movil.TabIndex = 9;
-            this.TBCon_Movil.Enter += new System.EventHandler(this.TBCon_Movil_Enter);
-            this.TBCon_Movil.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBCon_Movil_KeyPress);
-            this.TBCon_Movil.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCon_Movil_KeyUp);
-            this.TBCon_Movil.Leave += new System.EventHandler(this.TBCon_Movil_Leave);
+            this.TBFac_Asesor.Location = new System.Drawing.Point(244, 6);
+            this.TBFac_Asesor.Name = "TBFac_Asesor";
+            this.TBFac_Asesor.Size = new System.Drawing.Size(371, 22);
+            this.TBFac_Asesor.TabIndex = 159;
+            this.TBFac_Asesor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // TBCon_Direccion
+            // TBFac_CodigoAsesor
             // 
-            this.TBCon_Direccion.Location = new System.Drawing.Point(70, 34);
-            this.TBCon_Direccion.Name = "TBCon_Direccion";
-            this.TBCon_Direccion.Size = new System.Drawing.Size(576, 22);
-            this.TBCon_Direccion.TabIndex = 5;
-            this.TBCon_Direccion.Enter += new System.EventHandler(this.TBCon_Direccion_Enter);
-            this.TBCon_Direccion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCon_Direccion_KeyUp);
-            this.TBCon_Direccion.Leave += new System.EventHandler(this.TBCon_Direccion_Leave);
+            this.TBFac_CodigoAsesor.Location = new System.Drawing.Point(67, 6);
+            this.TBFac_CodigoAsesor.Name = "TBFac_CodigoAsesor";
+            this.TBFac_CodigoAsesor.Size = new System.Drawing.Size(171, 22);
+            this.TBFac_CodigoAsesor.TabIndex = 156;
+            this.TBFac_CodigoAsesor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // TBCon_Ciudad
+            // TBFac_Ciudad
             // 
-            this.TBCon_Ciudad.Location = new System.Drawing.Point(409, 6);
-            this.TBCon_Ciudad.Name = "TBCon_Ciudad";
-            this.TBCon_Ciudad.Size = new System.Drawing.Size(237, 22);
-            this.TBCon_Ciudad.TabIndex = 3;
-            this.TBCon_Ciudad.Enter += new System.EventHandler(this.TBCon_Ciudad_Enter);
-            this.TBCon_Ciudad.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCon_Ciudad_KeyUp);
-            this.TBCon_Ciudad.Leave += new System.EventHandler(this.TBCon_Ciudad_Leave);
+            this.TBFac_Ciudad.Location = new System.Drawing.Point(385, 62);
+            this.TBFac_Ciudad.Name = "TBFac_Ciudad";
+            this.TBFac_Ciudad.Size = new System.Drawing.Size(260, 22);
+            this.TBFac_Ciudad.TabIndex = 34;
+            this.TBFac_Ciudad.Enter += new System.EventHandler(this.TBFac_Ciudad_Enter);
+            this.TBFac_Ciudad.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBFac_Ciudad_KeyUp);
+            this.TBFac_Ciudad.Leave += new System.EventHandler(this.TBFac_Ciudad_Leave);
             // 
-            // TBCon_Contacto
+            // TBFac_Correo
             // 
-            this.TBCon_Contacto.Location = new System.Drawing.Point(70, 6);
-            this.TBCon_Contacto.Name = "TBCon_Contacto";
-            this.TBCon_Contacto.Size = new System.Drawing.Size(278, 22);
-            this.TBCon_Contacto.TabIndex = 1;
-            this.TBCon_Contacto.Enter += new System.EventHandler(this.TBCon_Contacto_Enter);
-            this.TBCon_Contacto.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBCon_Contacto_KeyUp);
-            this.TBCon_Contacto.Leave += new System.EventHandler(this.TBCon_Contacto_Leave);
+            this.TBFac_Correo.Location = new System.Drawing.Point(67, 90);
+            this.TBFac_Correo.Name = "TBFac_Correo";
+            this.TBFac_Correo.Size = new System.Drawing.Size(448, 22);
+            this.TBFac_Correo.TabIndex = 30;
+            this.TBFac_Correo.Enter += new System.EventHandler(this.TBFac_Correo_Enter);
+            this.TBFac_Correo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBFac_Correo_KeyUp);
+            this.TBFac_Correo.Leave += new System.EventHandler(this.TBFac_Correo_Leave);
             // 
-            // lblTotal_Contacto
+            // TBFac_Movil
             // 
-            this.lblTotal_Contacto.AutoSize = true;
-            this.lblTotal_Contacto.Location = new System.Drawing.Point(6, 364);
-            this.lblTotal_Contacto.Name = "lblTotal_Contacto";
-            this.lblTotal_Contacto.Size = new System.Drawing.Size(124, 17);
-            this.lblTotal_Contacto.TabIndex = 168;
-            this.lblTotal_Contacto.Text = "Datos Registrados: 0";
+            this.TBFac_Movil.Location = new System.Drawing.Point(67, 62);
+            this.TBFac_Movil.Name = "TBFac_Movil";
+            this.TBFac_Movil.Size = new System.Drawing.Size(260, 22);
+            this.TBFac_Movil.TabIndex = 29;
+            this.TBFac_Movil.Enter += new System.EventHandler(this.TBFac_Movil_Enter);
+            this.TBFac_Movil.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBFac_Movil_KeyPress);
+            this.TBFac_Movil.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBFac_Movil_KeyUp);
+            this.TBFac_Movil.Leave += new System.EventHandler(this.TBFac_Movil_Leave);
             // 
-            // DGDetalle_Contacto
+            // TBFac_DocumentoCliente
             // 
-            this.DGDetalle_Contacto.AllowUserToAddRows = false;
-            this.DGDetalle_Contacto.AllowUserToDeleteRows = false;
-            this.DGDetalle_Contacto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.DGDetalle_Contacto.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.DGDetalle_Contacto.BackgroundColor = System.Drawing.Color.White;
-            this.DGDetalle_Contacto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGDetalle_Contacto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.DGDetalle_Contacto.Location = new System.Drawing.Point(6, 117);
-            this.DGDetalle_Contacto.Name = "DGDetalle_Contacto";
-            this.DGDetalle_Contacto.ReadOnly = true;
-            this.DGDetalle_Contacto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGDetalle_Contacto.Size = new System.Drawing.Size(640, 234);
-            this.DGDetalle_Contacto.TabIndex = 165;
+            this.TBFac_DocumentoCliente.Location = new System.Drawing.Point(67, 34);
+            this.TBFac_DocumentoCliente.Name = "TBFac_DocumentoCliente";
+            this.TBFac_DocumentoCliente.Size = new System.Drawing.Size(171, 22);
+            this.TBFac_DocumentoCliente.TabIndex = 27;
+            this.TBFac_DocumentoCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBFac_DocumentoCliente.Enter += new System.EventHandler(this.TBFac_DocumentoCliente_Enter);
+            this.TBFac_DocumentoCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBFac_DocumentoCliente_KeyPress);
+            this.TBFac_DocumentoCliente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBFac_DocumentoCliente_KeyUp);
+            this.TBFac_DocumentoCliente.Leave += new System.EventHandler(this.TBFac_DocumentoCliente_Leave);
             // 
-            // label59
+            // TBFac_Cliente
             // 
-            this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(333, 64);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(71, 17);
-            this.label59.TabIndex = 12;
-            this.label59.Text = "Parentesco";
+            this.TBFac_Cliente.Location = new System.Drawing.Point(244, 34);
+            this.TBFac_Cliente.Name = "TBFac_Cliente";
+            this.TBFac_Cliente.Size = new System.Drawing.Size(401, 22);
+            this.TBFac_Cliente.TabIndex = 26;
+            this.TBFac_Cliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TBFac_Cliente.Enter += new System.EventHandler(this.TBFac_Cliente_Enter);
+            this.TBFac_Cliente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBFac_Cliente_KeyUp);
+            this.TBFac_Cliente.Leave += new System.EventHandler(this.TBFac_Cliente_Leave);
             // 
-            // label58
+            // CH_Facturacion
             // 
-            this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(6, 93);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(45, 17);
-            this.label58.TabIndex = 10;
-            this.label58.Text = "Correo";
+            this.CH_Facturacion.AutoSize = true;
+            this.CH_Facturacion.BackColor = System.Drawing.Color.White;
+            this.CH_Facturacion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CH_Facturacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CH_Facturacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CH_Facturacion.Location = new System.Drawing.Point(521, 93);
+            this.CH_Facturacion.Name = "CH_Facturacion";
+            this.CH_Facturacion.Size = new System.Drawing.Size(124, 17);
+            this.CH_Facturacion.TabIndex = 37;
+            this.CH_Facturacion.Text = "Copiar Datos Basicos";
+            this.CH_Facturacion.UseVisualStyleBackColor = false;
+            this.CH_Facturacion.CheckedChanged += new System.EventHandler(this.CH_Facturacion_CheckedChanged);
             // 
-            // label57
+            // label34
             // 
-            this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(6, 65);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(58, 17);
-            this.label57.TabIndex = 8;
-            this.label57.Text = "Móvil Pri.";
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(333, 65);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(47, 17);
+            this.label34.TabIndex = 32;
+            this.label34.Text = "Ciudad";
             // 
-            // label55
+            // label36
             // 
-            this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(6, 37);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(60, 17);
-            this.label55.TabIndex = 4;
-            this.label55.Text = "Dirección";
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(6, 92);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(45, 17);
+            this.label36.TabIndex = 24;
+            this.label36.Text = "Correo";
             // 
-            // label54
+            // label37
             // 
-            this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(356, 9);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(47, 17);
-            this.label54.TabIndex = 2;
-            this.label54.Text = "Ciudad";
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(6, 63);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(37, 17);
+            this.label37.TabIndex = 23;
+            this.label37.Text = "Móvil";
             // 
-            // label53
+            // label40
             // 
-            this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(6, 9);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(58, 17);
-            this.label53.TabIndex = 0;
-            this.label53.Text = "Contacto";
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(6, 36);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(52, 17);
+            this.label40.TabIndex = 20;
+            this.label40.Text = "Nombre";
             // 
-            // btnEliminar_Contacto
+            // btnEliminar_Facturacion
             // 
-            this.btnEliminar_Contacto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar_Contacto.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnEliminar_Contacto.FlatAppearance.BorderSize = 0;
-            this.btnEliminar_Contacto.Image = global::Presentacion.Botones.btnEliminar;
-            this.btnEliminar_Contacto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar_Contacto.Location = new System.Drawing.Point(526, 357);
-            this.btnEliminar_Contacto.Name = "btnEliminar_Contacto";
-            this.btnEliminar_Contacto.Size = new System.Drawing.Size(120, 30);
-            this.btnEliminar_Contacto.TabIndex = 167;
-            this.btnEliminar_Contacto.Text = "Eliminar - F4";
-            this.btnEliminar_Contacto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminar_Contacto.UseVisualStyleBackColor = true;
-            this.btnEliminar_Contacto.Click += new System.EventHandler(this.btnEliminar_Contacto_Click);
+            this.btnEliminar_Facturacion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminar_Facturacion.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnEliminar_Facturacion.FlatAppearance.BorderSize = 0;
+            this.btnEliminar_Facturacion.Image = global::Presentacion.Botones.btnEliminar;
+            this.btnEliminar_Facturacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminar_Facturacion.Location = new System.Drawing.Point(526, 357);
+            this.btnEliminar_Facturacion.Name = "btnEliminar_Facturacion";
+            this.btnEliminar_Facturacion.Size = new System.Drawing.Size(120, 30);
+            this.btnEliminar_Facturacion.TabIndex = 163;
+            this.btnEliminar_Facturacion.Text = "Eliminar - F4";
+            this.btnEliminar_Facturacion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminar_Facturacion.UseVisualStyleBackColor = true;
+            this.btnEliminar_Facturacion.Click += new System.EventHandler(this.btnEliminar_Facturacion_Click);
             // 
-            // btnAgregar_Contacto
+            // btnAgregar_Facturacion
             // 
-            this.btnAgregar_Contacto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregar_Contacto.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnAgregar_Contacto.FlatAppearance.BorderSize = 0;
-            this.btnAgregar_Contacto.Image = global::Presentacion.Botones.btnAgregar;
-            this.btnAgregar_Contacto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar_Contacto.Location = new System.Drawing.Point(274, 357);
-            this.btnAgregar_Contacto.Name = "btnAgregar_Contacto";
-            this.btnAgregar_Contacto.Size = new System.Drawing.Size(120, 30);
-            this.btnAgregar_Contacto.TabIndex = 166;
-            this.btnAgregar_Contacto.Text = "Agregar - F3";
-            this.btnAgregar_Contacto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAgregar_Contacto.UseVisualStyleBackColor = true;
-            this.btnAgregar_Contacto.Click += new System.EventHandler(this.btnAgregar_Contacto_Click);
+            this.btnAgregar_Facturacion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregar_Facturacion.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnAgregar_Facturacion.FlatAppearance.BorderSize = 0;
+            this.btnAgregar_Facturacion.Image = global::Presentacion.Botones.btnAgregar;
+            this.btnAgregar_Facturacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregar_Facturacion.Location = new System.Drawing.Point(274, 357);
+            this.btnAgregar_Facturacion.Name = "btnAgregar_Facturacion";
+            this.btnAgregar_Facturacion.Size = new System.Drawing.Size(120, 30);
+            this.btnAgregar_Facturacion.TabIndex = 162;
+            this.btnAgregar_Facturacion.Text = "Agregar - F3";
+            this.btnAgregar_Facturacion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregar_Facturacion.UseVisualStyleBackColor = true;
+            this.btnAgregar_Facturacion.Click += new System.EventHandler(this.btnAgregar_Facturacion_Click);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(6, 9);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(46, 17);
+            this.label20.TabIndex = 157;
+            this.label20.Text = "Asesor";
+            // 
+            // btnExaminar_Asesor
+            // 
+            this.btnExaminar_Asesor.BackgroundImage = global::Presentacion.Botones.btnExaminar;
+            this.btnExaminar_Asesor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnExaminar_Asesor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExaminar_Asesor.FlatAppearance.BorderSize = 0;
+            this.btnExaminar_Asesor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExaminar_Asesor.Location = new System.Drawing.Point(621, 6);
+            this.btnExaminar_Asesor.Name = "btnExaminar_Asesor";
+            this.btnExaminar_Asesor.Size = new System.Drawing.Size(25, 22);
+            this.btnExaminar_Asesor.TabIndex = 158;
+            this.btnExaminar_Asesor.UseVisualStyleBackColor = true;
+            this.btnExaminar_Asesor.Click += new System.EventHandler(this.btnExaminar_Asesor_Click);
             // 
             // TBIdcliente
             // 
@@ -1751,45 +1790,6 @@
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // btnExaminar_Asesor
-            // 
-            this.btnExaminar_Asesor.BackgroundImage = global::Presentacion.Botones.btnExaminar;
-            this.btnExaminar_Asesor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnExaminar_Asesor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExaminar_Asesor.FlatAppearance.BorderSize = 0;
-            this.btnExaminar_Asesor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExaminar_Asesor.Location = new System.Drawing.Point(620, 7);
-            this.btnExaminar_Asesor.Name = "btnExaminar_Asesor";
-            this.btnExaminar_Asesor.Size = new System.Drawing.Size(25, 22);
-            this.btnExaminar_Asesor.TabIndex = 158;
-            this.btnExaminar_Asesor.UseVisualStyleBackColor = true;
-            this.btnExaminar_Asesor.Click += new System.EventHandler(this.btnExaminar_Asesor_Click);
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(7, 10);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(46, 17);
-            this.label20.TabIndex = 157;
-            this.label20.Text = "Asesor";
-            // 
-            // TBFac_CodigoAsesor
-            // 
-            this.TBFac_CodigoAsesor.Location = new System.Drawing.Point(67, 7);
-            this.TBFac_CodigoAsesor.Name = "TBFac_CodigoAsesor";
-            this.TBFac_CodigoAsesor.Size = new System.Drawing.Size(171, 22);
-            this.TBFac_CodigoAsesor.TabIndex = 156;
-            this.TBFac_CodigoAsesor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // TBFac_Asesor
-            // 
-            this.TBFac_Asesor.Location = new System.Drawing.Point(244, 7);
-            this.TBFac_Asesor.Name = "TBFac_Asesor";
-            this.TBFac_Asesor.Size = new System.Drawing.Size(371, 22);
-            this.TBFac_Asesor.TabIndex = 159;
-            this.TBFac_Asesor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // frmCliente
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -1812,18 +1812,18 @@
             this.TCPrincipal.ResumeLayout(false);
             this.TPDatosBasicos.ResumeLayout(false);
             this.TPDatosBasicos.PerformLayout();
-            this.TPFacturacion.ResumeLayout(false);
-            this.TPFacturacion.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGDetalle_Facturacion)).EndInit();
+            this.TPContacto.ResumeLayout(false);
+            this.TPContacto.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGDetalle_Contacto)).EndInit();
             this.TPDatosDeEnvio.ResumeLayout(false);
             this.TPDatosDeEnvio.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGDetalle_Despacho)).EndInit();
             this.TPDatosFinancieros.ResumeLayout(false);
             this.TPDatosFinancieros.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGDetalle_Financiera)).EndInit();
-            this.TPContacto.ResumeLayout(false);
-            this.TPContacto.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGDetalle_Contacto)).EndInit();
+            this.TPFacturacion.ResumeLayout(false);
+            this.TPFacturacion.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGDetalle_Facturacion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGResultados)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();

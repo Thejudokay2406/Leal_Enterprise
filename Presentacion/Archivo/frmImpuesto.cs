@@ -17,7 +17,6 @@ namespace Presentacion
         // Variable con la cual se define si el procecimiento 
         // A realizar es Editar, Guardar, Buscar,Eliminar
         private bool Digitar = true;
-        private bool Filtrar = false;
         public bool Filtro = true;
         private string Campo = "Campo Obligatorio";
 
@@ -29,7 +28,7 @@ namespace Presentacion
 
         //********** Variables para la Validacion de los checkbox en el Pane Datos Basicos
 
-        private string Checkbox_Compra, Checkbox_Venta, Checkbox_Servicio = "";
+        private string Checkbox_Compra, Checkbox_Venta, Checkbox_Servicio, Checkbox_ImpuestoGrabador, Checkbox_ImpuestoRetencion = "";
 
         //********** Parametros para AutoCompletar los Texboxt **********************************
 
@@ -86,6 +85,7 @@ namespace Presentacion
         {
             //Panel - Datos Basicos
 
+            this.TBIdimpuesto.Clear();
             this.TBImpuesto.Clear();
             this.TBImpuesto.Text = Campo;
             this.TBImpuesto.ForeColor = Color.FromArgb(255, 255, 255);
@@ -100,12 +100,13 @@ namespace Presentacion
             this.CHCompra.Checked = false;
             this.CHVenta.Checked = false;
             this.CHServicio.Checked = false;
+            this.CHImpuesto_Gravado.Checked = false;
+            this.CHImpuesto_Retencion.Checked = false;
 
             this.TBBuscar.Clear();
 
             //Se realiza el FOCUS al panel y campo de texto iniciales
             this.TBImpuesto.Focus();
-            this.TBIdimpuesto.Focus();
         }
 
         private void Botones()
@@ -159,6 +160,24 @@ namespace Presentacion
             {
                 Checkbox_Servicio = "0";
             }
+
+            if (CHImpuesto_Gravado.Checked)
+            {
+                Checkbox_ImpuestoGrabador = "1";
+            }
+            else
+            {
+                Checkbox_ImpuestoGrabador = "0";
+            }
+
+            if (CHImpuesto_Retencion.Checked)
+            {
+                Checkbox_ImpuestoRetencion = "1";
+            }
+            else
+            {
+                Checkbox_ImpuestoRetencion = "0";
+            }
         }
 
         private void Guardar_SQL()
@@ -203,7 +222,7 @@ namespace Presentacion
                                  1,
 
                                  //Panel Datos Basicos
-                                 this.TBImpuesto.Text, this.TBValor.Text, this.TBDescripcion.Text, this.TBCompra.Text, this.TBVenta.Text, this.TBServicio.Text, Convert.ToInt32(Checkbox_Compra), Convert.ToInt32(this.Checkbox_Venta), Convert.ToInt32(Checkbox_Servicio)
+                                 this.TBImpuesto.Text, this.TBValor.Text, this.TBDescripcion.Text, this.TBCompra.Text, this.TBVenta.Text, this.TBServicio.Text, Convert.ToInt32(Checkbox_Compra), Convert.ToInt32(this.Checkbox_Venta), Convert.ToInt32(Checkbox_Servicio), Convert.ToInt32(Checkbox_ImpuestoGrabador), Convert.ToInt32(Checkbox_ImpuestoRetencion)
                             );
                     }
 
@@ -216,7 +235,7 @@ namespace Presentacion
                                  2, Convert.ToInt32(this.TBIdimpuesto.Text),
 
                                  //Panel Datos Basicos
-                                 this.TBImpuesto.Text, this.TBValor.Text, this.TBDescripcion.Text, this.TBCompra.Text, this.TBVenta.Text, this.TBServicio.Text, Convert.ToInt32(Checkbox_Compra), Convert.ToInt32(this.Checkbox_Venta), Convert.ToInt32(Checkbox_Servicio)
+                                 this.TBImpuesto.Text, this.TBValor.Text, this.TBDescripcion.Text, this.TBCompra.Text, this.TBVenta.Text, this.TBServicio.Text, Convert.ToInt32(Checkbox_Compra), Convert.ToInt32(this.Checkbox_Venta), Convert.ToInt32(Checkbox_Servicio), Convert.ToInt32(Checkbox_ImpuestoGrabador), Convert.ToInt32(Checkbox_ImpuestoRetencion)
                             );
                     }
 
@@ -224,11 +243,12 @@ namespace Presentacion
                     {
                         if (this.Digitar)
                         {
-                            this.MensajeOk("El Impuesto: " + this.TBImpuesto.Text + " a Sido Registrado Exitosamente");
+                            this.MensajeOk("Procedimiento de Digitalización Exitoso - Leal Enterprise \n\n" + "El Impuesto: “" + this.TBImpuesto.Text + "” a Sido Registrado Exitosamente");
                         }
+
                         else
                         {
-                            this.MensajeOk("Los Datos del Impuesto: " + this.TBImpuesto.Text + " Han Sido Modificado Exitosamente");
+                            this.MensajeOk("Procedimiento de Modificación Exitoso - Leal Enterprise \n\n" + "El Registro del Impuesto: “" + this.TBImpuesto.Text + "” a Sido Actualizado Exitosamente");
                         }
                     }
                     else
@@ -345,9 +365,6 @@ namespace Presentacion
                         this.Limpiar_Datos();
                     }
                 }
-
-                //Focus
-                this.TBImpuesto.Select();
             }
             catch (Exception ex)
             {

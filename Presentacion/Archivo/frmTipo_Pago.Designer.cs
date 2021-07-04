@@ -91,6 +91,8 @@
             this.TBBuscar.Size = new System.Drawing.Size(340, 22);
             this.TBBuscar.TabIndex = 2;
             this.TBBuscar.TextChanged += new System.EventHandler(this.TBBuscar_TextChanged);
+            this.TBBuscar.Enter += new System.EventHandler(this.TBBuscar_Enter);
+            this.TBBuscar.Leave += new System.EventHandler(this.TBBuscar_Leave);
             // 
             // label4
             // 
@@ -106,6 +108,8 @@
             // 
             // DGResultados
             // 
+            this.DGResultados.AllowUserToAddRows = false;
+            this.DGResultados.AllowUserToDeleteRows = false;
             this.DGResultados.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -115,6 +119,7 @@
             this.DGResultados.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DGResultados.Location = new System.Drawing.Point(6, 48);
             this.DGResultados.Name = "DGResultados";
+            this.DGResultados.ReadOnly = true;
             this.DGResultados.Size = new System.Drawing.Size(491, 153);
             this.DGResultados.TabIndex = 0;
             this.DGResultados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGResultados_CellDoubleClick);
@@ -197,7 +202,9 @@
             this.TBObservacion.Name = "TBObservacion";
             this.TBObservacion.Size = new System.Drawing.Size(299, 124);
             this.TBObservacion.TabIndex = 9;
+            this.TBObservacion.Enter += new System.EventHandler(this.TBObservacion_Enter);
             this.TBObservacion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBObservacion_KeyUp);
+            this.TBObservacion.Leave += new System.EventHandler(this.TBObservacion_Leave);
             // 
             // label3
             // 
@@ -220,7 +227,9 @@
             this.TBDescripcion.Name = "TBDescripcion";
             this.TBDescripcion.Size = new System.Drawing.Size(299, 22);
             this.TBDescripcion.TabIndex = 7;
+            this.TBDescripcion.Enter += new System.EventHandler(this.TBDescripcion_Enter);
             this.TBDescripcion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBDescripcion_KeyUp);
+            this.TBDescripcion.Leave += new System.EventHandler(this.TBDescripcion_Leave);
             // 
             // label2
             // 
@@ -243,7 +252,9 @@
             this.TBTipo.Name = "TBTipo";
             this.TBTipo.Size = new System.Drawing.Size(299, 22);
             this.TBTipo.TabIndex = 5;
+            this.TBTipo.Enter += new System.EventHandler(this.TBTipo_Enter);
             this.TBTipo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBTipo_KeyUp);
+            this.TBTipo.Leave += new System.EventHandler(this.TBTipo_Leave);
             // 
             // btnCancelar
             // 

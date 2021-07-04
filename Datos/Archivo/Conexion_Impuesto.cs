@@ -95,6 +95,8 @@ namespace Datos
                 Comando.Parameters.Add("@Compra", SqlDbType.Int).Value = Obj.Compra;
                 Comando.Parameters.Add("@Venta", SqlDbType.Int).Value = Obj.Venta;
                 Comando.Parameters.Add("@Servicio", SqlDbType.Int).Value = Obj.Servicio;
+                Comando.Parameters.Add("@ImpuestoGravado", SqlDbType.Int).Value = Obj.ImpuestoGravado;
+                Comando.Parameters.Add("@ImpuestoRetencion", SqlDbType.Int).Value = Obj.ImpuestoRetencion;
 
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Realizar el Registro";
@@ -137,6 +139,8 @@ namespace Datos
                 Comando.Parameters.Add("@Compra", SqlDbType.Int).Value = Obj.Compra;
                 Comando.Parameters.Add("@Venta", SqlDbType.Int).Value = Obj.Venta;
                 Comando.Parameters.Add("@Servicio", SqlDbType.Int).Value = Obj.Servicio;
+                Comando.Parameters.Add("@ImpuestoGravado", SqlDbType.Int).Value = Obj.ImpuestoGravado;
+                Comando.Parameters.Add("@ImpuestoRetencion", SqlDbType.Int).Value = Obj.ImpuestoRetencion;
 
                 SqlCon.Open();
                 Rpta = Comando.ExecuteNonQuery() == 1 ? "OK" : "Error al Actualizar el Registro";

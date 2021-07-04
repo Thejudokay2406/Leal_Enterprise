@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.CHImpuesto_Retencion = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.CHImpuesto_Gravado = new System.Windows.Forms.CheckBox();
             this.TBServicio = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.TBVenta = new System.Windows.Forms.TextBox();
@@ -64,9 +68,10 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.CHImpuesto_Retencion);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.CHImpuesto_Gravado);
             this.groupBox1.Controls.Add(this.TBServicio);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.TBVenta);
@@ -89,19 +94,54 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.TBValor);
             this.groupBox1.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 14);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(342, 291);
+            this.groupBox1.Size = new System.Drawing.Size(342, 358);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Leal Enterprise - Registro de Impuestos";
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 298);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(136, 17);
+            this.label12.TabIndex = 29;
+            this.label12.Text = "Impuesto de Retención";
+            // 
+            // CHImpuesto_Retencion
+            // 
+            this.CHImpuesto_Retencion.AutoSize = true;
+            this.CHImpuesto_Retencion.Location = new System.Drawing.Point(148, 297);
+            this.CHImpuesto_Retencion.Name = "CHImpuesto_Retencion";
+            this.CHImpuesto_Retencion.Size = new System.Drawing.Size(61, 21);
+            this.CHImpuesto_Retencion.TabIndex = 28;
+            this.CHImpuesto_Retencion.Text = "Si - No";
+            this.CHImpuesto_Retencion.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 271);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(109, 17);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "Impuesto Gravado";
+            // 
+            // CHImpuesto_Gravado
+            // 
+            this.CHImpuesto_Gravado.AutoSize = true;
+            this.CHImpuesto_Gravado.Location = new System.Drawing.Point(132, 270);
+            this.CHImpuesto_Gravado.Name = "CHImpuesto_Gravado";
+            this.CHImpuesto_Gravado.Size = new System.Drawing.Size(61, 21);
+            this.CHImpuesto_Gravado.TabIndex = 26;
+            this.CHImpuesto_Gravado.Text = "Si - No";
+            this.CHImpuesto_Gravado.UseVisualStyleBackColor = true;
+            // 
             // TBServicio
             // 
-            this.TBServicio.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBServicio.Location = new System.Drawing.Point(156, 155);
+            this.TBServicio.Location = new System.Drawing.Point(155, 161);
             this.TBServicio.Name = "TBServicio";
             this.TBServicio.Size = new System.Drawing.Size(179, 22);
             this.TBServicio.TabIndex = 25;
@@ -111,11 +151,8 @@
             // 
             // label11
             // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 158);
+            this.label11.Location = new System.Drawing.Point(6, 164);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(143, 17);
             this.label11.TabIndex = 24;
@@ -123,10 +160,7 @@
             // 
             // TBVenta
             // 
-            this.TBVenta.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBVenta.Location = new System.Drawing.Point(156, 128);
+            this.TBVenta.Location = new System.Drawing.Point(156, 133);
             this.TBVenta.Name = "TBVenta";
             this.TBVenta.Size = new System.Drawing.Size(179, 22);
             this.TBVenta.TabIndex = 23;
@@ -136,11 +170,8 @@
             // 
             // label10
             // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 131);
+            this.label10.Location = new System.Drawing.Point(6, 136);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(132, 17);
             this.label10.TabIndex = 22;
@@ -148,10 +179,7 @@
             // 
             // TBCompra
             // 
-            this.TBCompra.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBCompra.Location = new System.Drawing.Point(156, 101);
+            this.TBCompra.Location = new System.Drawing.Point(156, 105);
             this.TBCompra.Name = "TBCompra";
             this.TBCompra.Size = new System.Drawing.Size(179, 22);
             this.TBCompra.TabIndex = 21;
@@ -161,11 +189,8 @@
             // 
             // label9
             // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 104);
+            this.label9.Location = new System.Drawing.Point(6, 108);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(144, 17);
             this.label9.TabIndex = 20;
@@ -173,11 +198,8 @@
             // 
             // CHServicio
             // 
-            this.CHServicio.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.CHServicio.AutoSize = true;
-            this.CHServicio.Location = new System.Drawing.Point(132, 232);
+            this.CHServicio.Location = new System.Drawing.Point(132, 243);
             this.CHServicio.Name = "CHServicio";
             this.CHServicio.Size = new System.Drawing.Size(61, 21);
             this.CHServicio.TabIndex = 19;
@@ -186,11 +208,8 @@
             // 
             // label8
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 233);
+            this.label8.Location = new System.Drawing.Point(6, 243);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(122, 17);
             this.label8.TabIndex = 18;
@@ -198,11 +217,8 @@
             // 
             // CHVenta
             // 
-            this.CHVenta.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.CHVenta.AutoSize = true;
-            this.CHVenta.Location = new System.Drawing.Point(132, 207);
+            this.CHVenta.Location = new System.Drawing.Point(132, 216);
             this.CHVenta.Name = "CHVenta";
             this.CHVenta.Size = new System.Drawing.Size(61, 21);
             this.CHVenta.TabIndex = 17;
@@ -211,11 +227,8 @@
             // 
             // label7
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 208);
+            this.label7.Location = new System.Drawing.Point(6, 217);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(111, 17);
             this.label7.TabIndex = 16;
@@ -223,11 +236,8 @@
             // 
             // CHCompra
             // 
-            this.CHCompra.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.CHCompra.AutoSize = true;
-            this.CHCompra.Location = new System.Drawing.Point(132, 182);
+            this.CHCompra.Location = new System.Drawing.Point(132, 189);
             this.CHCompra.Name = "CHCompra";
             this.CHCompra.Size = new System.Drawing.Size(61, 21);
             this.CHCompra.TabIndex = 15;
@@ -236,11 +246,8 @@
             // 
             // label6
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 183);
+            this.label6.Location = new System.Drawing.Point(6, 190);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(123, 17);
             this.label6.TabIndex = 14;
@@ -248,10 +255,7 @@
             // 
             // TBIdimpuesto
             // 
-            this.TBIdimpuesto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBIdimpuesto.Location = new System.Drawing.Point(249, 228);
+            this.TBIdimpuesto.Location = new System.Drawing.Point(249, 258);
             this.TBIdimpuesto.Name = "TBIdimpuesto";
             this.TBIdimpuesto.Size = new System.Drawing.Size(40, 22);
             this.TBIdimpuesto.TabIndex = 11;
@@ -259,10 +263,7 @@
             // 
             // TBImpuesto
             // 
-            this.TBImpuesto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBImpuesto.Location = new System.Drawing.Point(85, 20);
+            this.TBImpuesto.Location = new System.Drawing.Point(85, 21);
             this.TBImpuesto.Name = "TBImpuesto";
             this.TBImpuesto.Size = new System.Drawing.Size(250, 22);
             this.TBImpuesto.TabIndex = 2;
@@ -272,10 +273,7 @@
             // 
             // TBDescripcion
             // 
-            this.TBDescripcion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBDescripcion.Location = new System.Drawing.Point(85, 74);
+            this.TBDescripcion.Location = new System.Drawing.Point(85, 77);
             this.TBDescripcion.Name = "TBDescripcion";
             this.TBDescripcion.Size = new System.Drawing.Size(250, 22);
             this.TBDescripcion.TabIndex = 5;
@@ -285,15 +283,12 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelar.FlatAppearance.BorderSize = 0;
             this.btnCancelar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Image = global::Presentacion.Botones.btnCancelar;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(216, 255);
+            this.btnCancelar.Location = new System.Drawing.Point(214, 322);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(120, 30);
             this.btnCancelar.TabIndex = 8;
@@ -304,9 +299,6 @@
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 23);
             this.label1.Name = "label1";
@@ -316,11 +308,8 @@
             // 
             // label3
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 77);
+            this.label3.Location = new System.Drawing.Point(6, 80);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 17);
             this.label3.TabIndex = 4;
@@ -328,15 +317,12 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGuardar.FlatAppearance.BorderSize = 0;
             this.btnGuardar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Image = global::Presentacion.Botones.btnGuardar;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(6, 255);
+            this.btnGuardar.Location = new System.Drawing.Point(6, 322);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(120, 30);
             this.btnGuardar.TabIndex = 7;
@@ -347,11 +333,8 @@
             // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 50);
+            this.label2.Location = new System.Drawing.Point(6, 52);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(36, 17);
             this.label2.TabIndex = 1;
@@ -359,10 +342,7 @@
             // 
             // TBValor
             // 
-            this.TBValor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBValor.Location = new System.Drawing.Point(85, 47);
+            this.TBValor.Location = new System.Drawing.Point(85, 49);
             this.TBValor.Name = "TBValor";
             this.TBValor.Size = new System.Drawing.Size(250, 22);
             this.TBValor.TabIndex = 3;
@@ -372,15 +352,12 @@
             // 
             // btnImprimir
             // 
-            this.btnImprimir.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnImprimir.FlatAppearance.BorderSize = 0;
             this.btnImprimir.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImprimir.Image = global::Presentacion.Botones.btnImprimir;
             this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImprimir.Location = new System.Drawing.Point(390, 255);
+            this.btnImprimir.Location = new System.Drawing.Point(390, 322);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(120, 30);
             this.btnImprimir.TabIndex = 10;
@@ -391,15 +368,12 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEliminar.FlatAppearance.BorderSize = 0;
             this.btnEliminar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.Image = global::Presentacion.Botones.btnEliminar;
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(264, 255);
+            this.btnEliminar.Location = new System.Drawing.Point(264, 322);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(120, 30);
             this.btnEliminar.TabIndex = 9;
@@ -412,19 +386,16 @@
             // 
             this.DGResultados.AllowUserToAddRows = false;
             this.DGResultados.AllowUserToDeleteRows = false;
-            this.DGResultados.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.DGResultados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DGResultados.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.DGResultados.BackgroundColor = System.Drawing.Color.White;
             this.DGResultados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGResultados.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.DGResultados.Location = new System.Drawing.Point(6, 44);
+            this.DGResultados.Location = new System.Drawing.Point(6, 49);
             this.DGResultados.Name = "DGResultados";
             this.DGResultados.ReadOnly = true;
             this.DGResultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGResultados.Size = new System.Drawing.Size(504, 205);
+            this.DGResultados.Size = new System.Drawing.Size(504, 267);
             this.DGResultados.TabIndex = 3;
             this.DGResultados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGResultados_CellDoubleClick);
             this.DGResultados.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DGResultados_KeyPress);
@@ -432,11 +403,8 @@
             // 
             // lblTotal
             // 
-            this.lblTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(6, 264);
+            this.lblTotal.Location = new System.Drawing.Point(6, 327);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(26, 17);
             this.lblTotal.TabIndex = 2;
@@ -444,22 +412,16 @@
             // 
             // TBBuscar
             // 
-            this.TBBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBBuscar.Location = new System.Drawing.Point(135, 17);
+            this.TBBuscar.Location = new System.Drawing.Point(138, 21);
             this.TBBuscar.Name = "TBBuscar";
-            this.TBBuscar.Size = new System.Drawing.Size(375, 22);
+            this.TBBuscar.Size = new System.Drawing.Size(372, 22);
             this.TBBuscar.TabIndex = 1;
             this.TBBuscar.TextChanged += new System.EventHandler(this.TBBuscar_TextChanged);
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 20);
+            this.label4.Location = new System.Drawing.Point(6, 24);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(126, 17);
             this.label4.TabIndex = 0;
@@ -467,9 +429,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.DGResultados);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.lblTotal);
@@ -477,22 +436,22 @@
             this.groupBox2.Controls.Add(this.btnEliminar);
             this.groupBox2.Controls.Add(this.btnImprimir);
             this.groupBox2.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(360, 12);
+            this.groupBox2.Location = new System.Drawing.Point(360, 14);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(516, 291);
+            this.groupBox2.Size = new System.Drawing.Size(516, 358);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Consulta de Impuesto Registrados - Leal ";
             // 
             // frmImpuesto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(885, 313);
+            this.ClientSize = new System.Drawing.Size(885, 384);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaximizeBox = false;
             this.Name = "frmImpuesto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -539,5 +498,9 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox TBServicio;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.CheckBox CHImpuesto_Retencion;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.CheckBox CHImpuesto_Gravado;
     }
 }

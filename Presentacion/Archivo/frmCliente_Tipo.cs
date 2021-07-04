@@ -128,11 +128,12 @@ namespace Presentacion
                     {
                         if (this.Digitar)
                         {
-                            this.MensajeOk("Registro Exitoso");
+                            this.MensajeOk("Solicitud de Registro - Leal Enterprise \n\n" + "La Tipo de Cliente: " + this.TBTipo.Text + " ha Exitosamente");
                         }
+
                         else
                         {
-                            this.MensajeOk("Registro Actualizado");
+                            this.MensajeOk("Los Datos del Tipo de Cliente: " + this.TBTipo.Text + " \n\n han Sido Modificados Exitosamente");
                         }
                     }
                     else

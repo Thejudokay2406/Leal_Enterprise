@@ -48,10 +48,10 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.TipoDePago", SqlCon);
+                SqlCommand Comando = new SqlCommand("Archivo.LI_TipoDePagos", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
-                Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Consulta", SqlDbType.Int).Value = Auto;
                 Comando.Parameters.Add("@Filtro", SqlDbType.VarChar).Value = Valor;
 
                 SqlCon.Open();
@@ -79,14 +79,14 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Archivo.LI_TipoDePago", SqlCon);
+                SqlCommand Comando = new SqlCommand("Archivo.LI_TipoDePagos", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Datos Auxiliares
                 Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Obj.Auto;
 
                 //Panel Datos Basicos
-                Comando.Parameters.Add("@Tipo", SqlDbType.VarChar).Value = Obj.Tipo;
+                Comando.Parameters.Add("@Nombre", SqlDbType.VarChar).Value = Obj.Tipo;
                 Comando.Parameters.Add("@Descripcion", SqlDbType.VarChar).Value = Obj.Descripcion;
                 Comando.Parameters.Add("@Observacion", SqlDbType.VarChar).Value = Obj.Observacion;
 
@@ -114,7 +114,7 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Archivo.LI_TipoDePago", SqlCon);
+                SqlCommand Comando = new SqlCommand("Archivo.LI_TipoDePagos", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Datos Auxiliares
@@ -122,7 +122,7 @@ namespace Datos
                 Comando.Parameters.Add("@Idtipodepago", SqlDbType.Int).Value = Obj.Idtipo;
 
                 //Panel Datos Basicos
-                Comando.Parameters.Add("@Tipo", SqlDbType.VarChar).Value = Obj.Tipo;
+                Comando.Parameters.Add("@Nombre", SqlDbType.VarChar).Value = Obj.Tipo;
                 Comando.Parameters.Add("@Descripcion", SqlDbType.VarChar).Value = Obj.Descripcion;
                 Comando.Parameters.Add("@Observacion", SqlDbType.VarChar).Value = Obj.Observacion;
 
@@ -151,7 +151,7 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.TipoDePago", SqlCon);
+                SqlCommand Comando = new SqlCommand("Archivo.LI_TipoDePagos", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Panel Datos Basicos

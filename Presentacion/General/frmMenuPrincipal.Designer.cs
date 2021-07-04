@@ -48,7 +48,6 @@
             this.tiposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ofertasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proveedorToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.retencionesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.serviciosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sucurzalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tiposDePagoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -236,7 +235,6 @@
             this.inventatioToolStripMenuItem,
             this.ofertasToolStripMenuItem,
             this.proveedorToolStripMenuItem1,
-            this.retencionesToolStripMenuItem1,
             this.serviciosToolStripMenuItem,
             this.sucurzalToolStripMenuItem,
             this.tiposDePagoToolStripMenuItem});
@@ -363,12 +361,6 @@
             this.proveedorToolStripMenuItem1.Size = new System.Drawing.Size(238, 22);
             this.proveedorToolStripMenuItem1.Text = "Proveedor - Distribuidor";
             this.proveedorToolStripMenuItem1.Click += new System.EventHandler(this.proveedorToolStripMenuItem1_Click);
-            // 
-            // retencionesToolStripMenuItem1
-            // 
-            this.retencionesToolStripMenuItem1.Name = "retencionesToolStripMenuItem1";
-            this.retencionesToolStripMenuItem1.Size = new System.Drawing.Size(238, 22);
-            this.retencionesToolStripMenuItem1.Text = "Retenciones";
             // 
             // serviciosToolStripMenuItem
             // 
@@ -1633,7 +1625,6 @@
         private System.Windows.Forms.ToolStripMenuItem impuestosToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem ofertasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem proveedorToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem retencionesToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem sucurzalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem operacionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ajustesDeInventarioToolStripMenuItem;

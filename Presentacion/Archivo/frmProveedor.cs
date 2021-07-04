@@ -175,11 +175,9 @@ namespace Presentacion
             this.CBTipoDeCuenta.SelectedIndex = 0;
             this.TBCuenta01.Clear();
 
-            //se realiza la seleccion al campo de texto para asi este salte
-            //al campo siguiente inicial el cual es TBNombre.Text
+            //FOCUS
             this.TCPrincipal.SelectedIndex = 0;
             this.TBNombre.Select();
-            this.TBIdproveedor.Clear();
         }
 
         private void Diseño_TablasGenerales()
@@ -481,12 +479,12 @@ namespace Presentacion
                     {
                         if (this.Digitar)
                         {
-                            this.MensajeOk("El Proveedor: “" + this.TBNombre.Text + "” a Sido Registrado Exitosamente");
+                            this.MensajeOk("Solicitud de Registro - Leal Enterprise \n\n" + "El Proveedor: " + this.TBNombre.Text + " ha Sido Registrada Exitosamente");
                         }
 
                         else
                         {
-                            this.MensajeOk("Los Datos del Proveedor: “" + this.TBNombre.Text + "” han Sido Modificados Exitosamente");
+                            this.MensajeOk("Solicitud de Modificación - Leal Enterprise \n\n" + "Los Datos del Proveedor: " + this.TBNombre.Text + " han Sido Modificados Exitosamente");
                         }
                     }
 

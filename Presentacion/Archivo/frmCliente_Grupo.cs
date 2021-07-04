@@ -142,11 +142,13 @@ namespace Presentacion
                     {
                         if (this.Digitar)
                         {
-                            this.MensajeOk("El Grupo de Cliente: " + this.TBGrupo.Text + " a Sido Registrado");
+                            this.MensajeOk("Solicitud de Registro - Leal Enterprise \n\n" + "El Grupo de Cliente: " + this.TBGrupo.Text + " ha Exitosamente");
                         }
+
                         else
                         {
-                            this.MensajeOk("Los Datos del Grupo de Cliente: " + this.TBGrupo.Text + " Han Sido Modificado Exitosamente");
+                            this.MensajeOk("Los Datos del Grupo de Cliente: " + this.TBGrupo.Text + " \n\n han Sido Modificados Exitosamente");
+                            //MessageBox.Show("la suma de los números es: " + suma + "\ny la diferencia de los números es :" + diferen);
                         }
                     }
                     else

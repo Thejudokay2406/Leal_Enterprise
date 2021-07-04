@@ -169,12 +169,6 @@
     <Compile Include="Archivo\frmTipo_Pago.Designer.cs">
       <DependentUpon>frmTipo_Pago.cs</DependentUpon>
     </Compile>
-    <Compile Include="Archivo\frmMateriales.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Archivo\frmMateriales.Designer.cs">
-      <DependentUpon>frmMateriales.cs</DependentUpon>
-    </Compile>
     <Compile Include="Filtros\frmFiltro_Impuesto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -397,9 +391,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Archivo\frmCliente.resx">
       <DependentUpon>frmCliente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Archivo\frmMateriales.resx">
-      <DependentUpon>frmMateriales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Archivo\frmTipo_Pago.resx">
       <DependentUpon>frmTipo_Pago.cs</DependentUpon>

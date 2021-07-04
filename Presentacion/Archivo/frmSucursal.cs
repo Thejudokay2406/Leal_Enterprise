@@ -173,11 +173,12 @@ namespace Presentacion
                     {
                         if (this.Digitar)
                         {
-                            this.MensajeOk("La Sucurzal: “" + this.TBSucurzal.Text + "” a Sido Registrada Exitosamente");
+                            this.MensajeOk("Solicitud de Registro - Leal Enterprise \n\n" + "La Sucursal: “" + this.TBSucurzal.Text + "” ha Sido Registrada Exitosamente");
                         }
+
                         else
                         {
-                            this.MensajeOk("Los Datos de la Sucurzal: " + this.TBSucurzal.Text + " han Sido Modificados Exitosamente");
+                            this.MensajeOk("Solicitud de Modificación - Leal Enterprise \n\n" + "Los Datos de la Sucursal: “" + this.TBSucurzal.Text + "” han Sido Modificados Exitosamente");
                         }
                     }
                     else

@@ -70,13 +70,13 @@ namespace Presentacion
         {
             //Panel - Datos Basicos
 
+            this.TBIdtipo.Clear();
             this.TBTipo.Clear();
             this.TBTipo.Text = Campo;
             this.TBDescripcion.Clear();
             this.TBObservacion.Clear();
 
             //Se realiza el FOCUS al panel y campo de texto iniciales
-            this.TBIdtipo.Focus();
             this.TBTipo.Select();
         }
 
@@ -108,11 +108,11 @@ namespace Presentacion
 
                 if (this.TBTipo.Text == Campo)
                 {
-                    MensajeError("Ingrese el nombre del Tipo");
+                    MensajeError("Ingrese el nombre del Tipo de Pago");
                 }
                 else if (this.TBDescripcion.Text == Campo)
                 {
-                    MensajeError("Ingrese la Descripcion del Tipo");
+                    MensajeError("Ingrese la Descripcion del Tipo de Pago");
                 }
                 else
                 {
@@ -129,11 +129,12 @@ namespace Presentacion
                     {
                         if (this.Digitar)
                         {
-                            this.MensajeOk("El Tipo de Pago: “" + this.TBTipo.Text + "” a Sido Registrada Exitosamente");
+                            this.MensajeOk("Solicitud de Registro - Leal Enterprise \n\n" + "El Tipo de Pago: “" + this.TBTipo.Text + "” ha Sido Registrado Exitosamente");
                         }
+
                         else
                         {
-                            this.MensajeOk("Los Datos del Tipo de Pago: " + this.TBTipo.Text + " han Sido Modificados Exitosamente");
+                            this.MensajeOk("Solicitud de Modificación - Leal Enterprise \n\n" + "Los Datos del Tipo de Pago: “" + this.TBTipo.Text + "” han Sido Modificados Exitosamente");
                         }
                     }
                     else
@@ -280,7 +281,7 @@ namespace Presentacion
                 {
                     // ENVIAN LOS DATOS A LA BASE DE DATOS Y SE EVALUAN QUE EXISTEN O ESTEN REGISTRADOS
 
-                    DataTable Datos = Negocio.fSucurzal.Buscar(this.TBIdtipo.Text, 2);
+                    DataTable Datos = Negocio.fTipoDePago.Buscar(this.TBIdtipo.Text, 2);
                     //Evaluamos si  existen los Datos
                     if (Datos.Rows.Count == 0)
                     {
@@ -290,9 +291,9 @@ namespace Presentacion
                     {
 
                         //Panel Datos Basicos
-                        Tipo = Datos.Rows[0][0].ToString();
-                        Descripcion = Datos.Rows[0][1].ToString();
-                        Observacion = Datos.Rows[0][2].ToString();
+                        Tipo = Datos.Rows[0][1].ToString();
+                        Descripcion = Datos.Rows[0][2].ToString();
+                        Observacion = Datos.Rows[0][3].ToString();
 
                         //SE PROCEDE A LLENAR LOS CAMPOS DE TEXTO SEGUN LA CONSULTA REALIZADA
                         this.TBTipo.Text = Tipo;
@@ -320,6 +321,68 @@ namespace Presentacion
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
+        }
+
+        private void TBTipo_Enter(object sender, EventArgs e)
+        {
+            //Se evalua si el campo de texto esta vacio y se espeicifca que es obligatorio en la base de datos
+            if (TBTipo.Text == Campo)
+            {
+                this.TBTipo.BackColor = Color.Azure;
+                this.TBTipo.ForeColor = Color.FromArgb(0, 0, 0);
+                this.TBTipo.Clear();
+            }
+            else
+            {
+                //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
+                this.TBTipo.BackColor = Color.Azure;
+                this.TBTipo.ForeColor = Color.FromArgb(0, 0, 0);
+            }
+        }
+
+        private void TBDescripcion_Enter(object sender, EventArgs e)
+        {
+            this.TBDescripcion.BackColor = Color.Azure;
+        }
+
+        private void TBObservacion_Enter(object sender, EventArgs e)
+        {
+            this.TBObservacion.BackColor = Color.Azure;
+        }
+
+        private void TBTipo_Leave(object sender, EventArgs e)
+        {
+            if (TBTipo.Text == string.Empty)
+            {
+                //Color de texboxt cuando este posee el FOCUS Activado
+                this.TBTipo.BackColor = Color.FromArgb(3, 155, 229);
+                this.TBTipo.Text = Campo;
+                this.TBTipo.ForeColor = Color.FromArgb(255, 255, 255);
+            }
+            else
+            {
+                this.TBTipo.BackColor = Color.FromArgb(3, 155, 229);
+            }
+        }
+
+        private void TBDescripcion_Leave(object sender, EventArgs e)
+        {
+            this.TBDescripcion.BackColor = Color.FromArgb(3, 155, 229);
+        }
+
+        private void TBObservacion_Leave(object sender, EventArgs e)
+        {
+            this.TBObservacion.BackColor = Color.FromArgb(3, 155, 229);
+        }
+
+        private void TBBuscar_Enter(object sender, EventArgs e)
+        {
+            this.TBBuscar.BackColor = Color.Azure;
+        }
+
+        private void TBBuscar_Leave(object sender, EventArgs e)
+        {
+            this.TBBuscar.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBTipo_KeyUp(object sender, KeyEventArgs e)
