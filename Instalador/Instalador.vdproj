@@ -16,19 +16,13 @@
         "Entry"
         {
         "MsmKey" = "8:_1D1DA9B9F989EA8C686AB62DB5C53F6C"
-        "OwnerKey" = "8:_7C8B444BE21C48D796340D88FD61EE8C"
+        "OwnerKey" = "8:_CE502E933EAF4C37B2FD65690480F00E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_6C4A06280C027BF94DDFAAFAEC9DC59B"
-        "OwnerKey" = "8:_7C8B444BE21C48D796340D88FD61EE8C"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_7C8B444BE21C48D796340D88FD61EE8C"
-        "OwnerKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_CE502E933EAF4C37B2FD65690480F00E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -40,13 +34,13 @@
         "Entry"
         {
         "MsmKey" = "8:_A063101236F302A7A6FA860A04CCA309"
-        "OwnerKey" = "8:_7C8B444BE21C48D796340D88FD61EE8C"
+        "OwnerKey" = "8:_CE502E933EAF4C37B2FD65690480F00E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_A77B0849399D34E86ADDB71B048B166D"
-        "OwnerKey" = "8:_7C8B444BE21C48D796340D88FD61EE8C"
+        "OwnerKey" = "8:_CE502E933EAF4C37B2FD65690480F00E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -64,19 +58,25 @@
         "Entry"
         {
         "MsmKey" = "8:_C1D9A58F16FDF9DBC93F5A533BF6A3C6"
-        "OwnerKey" = "8:_7C8B444BE21C48D796340D88FD61EE8C"
+        "OwnerKey" = "8:_CE502E933EAF4C37B2FD65690480F00E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_C3A7940AF167E4522D7B06491FB5A649"
-        "OwnerKey" = "8:_7C8B444BE21C48D796340D88FD61EE8C"
+        "OwnerKey" = "8:_CE502E933EAF4C37B2FD65690480F00E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_C3A7940AF167E4522D7B06491FB5A649"
         "OwnerKey" = "8:_6C4A06280C027BF94DDFAAFAEC9DC59B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_CE502E933EAF4C37B2FD65690480F00E"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -88,7 +88,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_7C8B444BE21C48D796340D88FD61EE8C"
+        "OwnerKey" = "8:_CE502E933EAF4C37B2FD65690480F00E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -499,11 +499,11 @@
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.0"
         "Manufacturer" = "8:Leal Enterprise"
-        "ARPHELPTELEPHONE" = "8:"
+        "ARPHELPTELEPHONE" = "8:+57 - 3124500249"
         "ARPHELPLINK" = "8:"
         "Title" = "8:Instalador - Leal Enterprise 1.0"
         "Subject" = "8:"
-        "ARPCONTACT" = "8:Alex Guerrero"
+        "ARPCONTACT" = "8:Alex Guerrero Cuello"
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
@@ -610,7 +610,7 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_75B84D10FEC6416FAFF12C5B739D45AF"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_C0857B2286444973A930DB1AF1512E1F"
             {
             "Name" = "8:Leal Enterprise"
             "Arguments" = "8:"
@@ -618,13 +618,13 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_7C8B444BE21C48D796340D88FD61EE8C"
-            "Folder" = "8:_9B30CB95C431448DAF807B0596190100"
+            "Target" = "8:_CE502E933EAF4C37B2FD65690480F00E"
+            "Folder" = "8:_EB1F379450734836AFFB6456366C385D"
             "WorkingFolder" = "8:_EB00702AE3AF49D98E13F83FDC935C16"
             "Icon" = "8:_85932F6BCCE44CA6BB5231ABCF34B8F8"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_BB99A5AE7BF84568B4D69CC2915AC16E"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_C4234C1295014A1D90B7CB15C7C78313"
             {
             "Name" = "8:Leal Enterprise"
             "Arguments" = "8:"
@@ -632,10 +632,10 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_7C8B444BE21C48D796340D88FD61EE8C"
-            "Folder" = "8:_EB1F379450734836AFFB6456366C385D"
+            "Target" = "8:_CE502E933EAF4C37B2FD65690480F00E"
+            "Folder" = "8:_9B30CB95C431448DAF807B0596190100"
             "WorkingFolder" = "8:_EB00702AE3AF49D98E13F83FDC935C16"
-            "Icon" = "8:"
+            "Icon" = "8:_85932F6BCCE44CA6BB5231ABCF34B8F8"
             "Feature" = "8:"
             }
         }
@@ -1037,7 +1037,7 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_7C8B444BE21C48D796340D88FD61EE8C"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_CE502E933EAF4C37B2FD65690480F00E"
             {
             "SourcePath" = "8:..\\Presentacion\\obj\\Release\\Leal Enterprise.exe"
             "TargetName" = "8:"

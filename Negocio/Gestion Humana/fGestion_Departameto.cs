@@ -27,7 +27,7 @@ namespace Negocio
         public static string Guardar_DatosBasicos
             (
                 //Datos Auxiliares y Llaves Primaria
-                int auto, int idempleado,
+                int auto,
 
                 //Datos Basicos
                 string Departamento, string AreaPrincipal, string AreaAuxiliar, DateTime Apertura, string Descripcion
@@ -38,7 +38,6 @@ namespace Negocio
 
             //Datos Auxiliares
             Obj.Auto = auto;
-            Obj.Idempleado = idempleado;
 
             //Datos Basicos
             Obj.Departamento = Departamento;
@@ -53,7 +52,7 @@ namespace Negocio
         public static string Editar_DatosBasicos
             (
                 //Datos Auxiliares y Llaves Primaria
-                int auto, int iddepartamento, int idempleado,
+                int auto, int iddepartamento,
 
                 //Datos Basicos
                 string Departamento, string AreaPrincipal, string AreaAuxiliar, DateTime Apertura, string Descripcion
@@ -65,7 +64,6 @@ namespace Negocio
             //Datos Auxiliares
             Obj.Auto = auto;
             Obj.Iddepartamento = iddepartamento;
-            Obj.Idempleado = idempleado;
 
             //Datos Basicos
             Obj.Departamento = Departamento;

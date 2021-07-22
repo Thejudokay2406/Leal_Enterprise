@@ -84,7 +84,6 @@ namespace Datos
 
                 //Datos Auxiliares y Llave Principal
                 Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Obj.Auto;
-                Comando.Parameters.Add("@Idempleado", SqlDbType.Int).Value = Obj.Idempleado;
 
                 //Panel Datos Basicos
                 Comando.Parameters.Add("@Nombre", SqlDbType.VarChar).Value = Obj.Departamento;
@@ -121,7 +120,6 @@ namespace Datos
 
                 //Datos Auxiliares
                 Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Obj.Auto;
-                Comando.Parameters.Add("@Idempleado", SqlDbType.Int).Value = Obj.Idempleado;
                 Comando.Parameters.Add("@Iddepartamento", SqlDbType.Int).Value = Obj.Iddepartamento;
 
                 //Panel Datos Basicos

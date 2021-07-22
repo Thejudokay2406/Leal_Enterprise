@@ -714,9 +714,9 @@
             this.label76.AutoSize = true;
             this.label76.Location = new System.Drawing.Point(388, 308);
             this.label76.Name = "label76";
-            this.label76.Size = new System.Drawing.Size(97, 17);
+            this.label76.Size = new System.Drawing.Size(105, 17);
             this.label76.TabIndex = 193;
-            this.label76.Text = "Utiliza Empaque";
+            this.label76.Text = "Maneja Empaque";
             // 
             // CHFabricado
             // 
@@ -796,9 +796,9 @@
             this.label44.AutoSize = true;
             this.label44.Location = new System.Drawing.Point(388, 377);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(88, 17);
+            this.label44.Size = new System.Drawing.Size(96, 17);
             this.label44.TabIndex = 157;
-            this.label44.Text = "Utiliza Balanza";
+            this.label44.Text = "Maneja Balanza";
             // 
             // TBComision
             // 
@@ -3864,10 +3864,10 @@
             this.tabPage3.Controls.Add(this.CBFiltro_Aplicables);
             this.tabPage3.Controls.Add(this.label46);
             this.tabPage3.Controls.Add(this.dataGridView1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 24);
+            this.tabPage3.Location = new System.Drawing.Point(4, 26);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(607, 442);
+            this.tabPage3.Size = new System.Drawing.Size(607, 440);
             this.tabPage3.TabIndex = 3;
             this.tabPage3.Text = "Filtro Aplicables";
             this.tabPage3.UseVisualStyleBackColor = true;

@@ -142,7 +142,7 @@ namespace Presentacion
             TCPrincipal.TabPages.Remove(TPFabricacion);
 
             //SE SELECCIONA EL FORMULARIO DE CONSULTA PRINCIPAL Y COMBOBOX DEL MISMI
-            TCFiltro.SelectedIndex =2;
+            TCFiltro.SelectedIndex = 2;
             this.CBFiltro_Agrupado.SelectedIndex = 0;
             this.CBFiltro_General.SelectedIndex = 0;
 
@@ -155,10 +155,10 @@ namespace Presentacion
         {
 
             //Panel - Datos Basicos
-            this.TBCodigo.ReadOnly = false;
-            this.TBCodigo.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBCodigo.ForeColor = Color.FromArgb(255, 255, 255);
-            this.TBCodigo.Text = Campo;
+            //this.TBCodigo.ReadOnly = false;
+            //this.TBCodigo.BackColor = Color.FromArgb(3, 155, 229);
+            //this.TBCodigo.ForeColor = Color.FromArgb(255, 255, 255);
+            //this.TBCodigo.Text = Campo;
             this.TBNombre.ReadOnly = false;
             this.TBNombre.BackColor = Color.FromArgb(3, 155, 229);
             this.TBNombre.ForeColor = Color.FromArgb(255, 255, 255);
@@ -668,6 +668,70 @@ namespace Presentacion
             this.TBDescripcion_Impuesto.Text = descripcion;
         }
 
+        private void Auto_CodigoSQL()
+        {
+            try
+            {
+                DataTable Datos = Negocio.fProducto_Inventario.AutoIncrementable(Convert.ToInt32(0));
+                //Evaluamos si  existen los Datos
+                if (Datos.Rows.Count != 0)
+                {
+                    //MessageBox.Show("Niveles de Seguridad no Cumplidos", "Leal Enterprise - Acceso Denegado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //this.TBCodigo.Enabled = true;
+
+                    Operacion = Datos.Rows[0][0].ToString();
+                    AutoIncrementable = Datos.Rows[0][1].ToString();
+
+                    if (Operacion == "A")
+                    {
+                        this.TBCodigo.Enabled = false;
+                        this.TBCodigo.Text = "1";
+                        this.TBCodigo.BackColor = Color.FromArgb(245, 245, 245);
+                    }
+                    else
+                    {
+                        this.TBCodigo.ReadOnly = false;
+                        this.TBCodigo.BackColor = Color.FromArgb(3, 155, 229);
+                        this.TBCodigo.ForeColor = Color.FromArgb(255, 255, 255);
+                        this.TBCodigo.Text = Campo;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void AutoIncrementable_SQL()
+        {
+            try
+            {
+                DataTable Datos = Negocio.fProducto_Inventario.AutoComplementar_SQL(0);
+                //Evaluamos si  existen los Datos
+
+                if (Datos.Rows.Count == 0)
+                {
+                    TBIdproducto_AutoSQL.Text = "1";
+                    //TBCodigoID.Text = "1";
+                    //MessageBox.Show("No Se Encontraron Registros en la Base de Datos", "Sistema Instituto Fundecar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    //Captura de Valores en la Base de Datos
+
+                    Idproducto = Datos.Rows[0][0].ToString();
+
+                    //Se procede a completar los campos de texto segun las consulta realizada anteriormente en la base de datos
+                    this.TBIdproducto_AutoSQL.Text = Idproducto;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
         private void Validaciones_SQL()
         {
             //Se valida el valor de los checbox que se encuentran en el panel de datos basicos
@@ -845,6 +909,18 @@ namespace Presentacion
             {
                 this.Tran_Proveedor = "0";
             }
+
+            //SE EVALUA EL TIPO DE OPERACION PARA LA GENERACION DEL CODIGO DEL PRODUCTO
+            //SI ES IGUAL A LA LETRA "A" ES AUTOMATICO SI ES IGUAL A LA LETRA "M" ES MANUAL
+            //SEGUN ESTO SE ENVIA EL TIPO DE REGISTRO A REALIZAR EN LA BASE DE DATOS DONDE 1 ES AUTOMATICO Y 0 ES MANUAL
+            if (Operacion == "A")
+            {
+                AutoIncrementable = "1";
+            }
+            else
+            {
+                AutoIncrementable = "0";
+            }
         }
 
         private void Diseño_TablasGenerales()
@@ -1015,63 +1091,6 @@ namespace Presentacion
             }
         }
 
-        private void Auto_CodigoSQL()
-        {
-            try
-            {
-                DataTable Datos = Negocio.fProducto_Inventario.AutoIncrementable(Convert.ToInt32(0));
-                //Evaluamos si  existen los Datos
-                if (Datos.Rows.Count != 0)
-                {
-                    //MessageBox.Show("Niveles de Seguridad no Cumplidos", "Leal Enterprise - Acceso Denegado", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //this.TBCodigo.Enabled = true;
-
-                    Operacion = Datos.Rows[0][0].ToString();
-                    AutoIncrementable = Datos.Rows[0][1].ToString();
-
-                    if (Operacion == "A")
-                    {
-                        this.TBCodigo.Enabled = false;
-                        this.TBCodigo.Text = "1";
-                        this.TBCodigo.BackColor = Color.FromArgb(245, 245, 245);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        private void AutoIncrementable_SQL()
-        {
-            try
-            {
-                DataTable Datos = Negocio.fProducto_Inventario.AutoComplementar_SQL(0);
-                //Evaluamos si  existen los Datos
-
-                if (Datos.Rows.Count == 0)
-                {
-                    TBIdproducto_AutoSQL.Text = "1";
-                    //TBCodigoID.Text = "1";
-                    //MessageBox.Show("No Se Encontraron Registros en la Base de Datos", "Sistema Instituto Fundecar", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    //Captura de Valores en la Base de Datos
-
-                    Idproducto = Datos.Rows[0][0].ToString();
-
-                    //Se procede a completar los campos de texto segun las consulta realizada anteriormente en la base de datos
-                    this.TBIdproducto_AutoSQL.Text = Idproducto;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
         private void Total_Fabricacion()
         {
             try
@@ -1180,18 +1199,19 @@ namespace Presentacion
                     if (this.Digitar)
                     {
 
+
                         rptaDatosBasicos = fProducto_Inventario.Guardar_DatosBasicos
 
                             (
-                                 //Datos Auxiliares y Llaves Primarias
-                                 1, Convert.ToInt32(this.CBMarca.SelectedValue), Convert.ToInt32(this.CBGrupo.SelectedValue), Convert.ToInt32(this.CBTipo.SelectedValue), Convert.ToInt32(this.CBEmpaque.SelectedValue),
+                                //Datos Auxiliares y Llaves Primarias
+                                Operacion, Convert.ToInt32(this.CBMarca.SelectedValue), Convert.ToInt32(this.CBGrupo.SelectedValue), Convert.ToInt32(this.CBTipo.SelectedValue), Convert.ToInt32(this.CBEmpaque.SelectedValue),
 
                                  //Variables para Ordenar Si se Ejecutan o No las Transacciones en SQL
                                  //Si los Datagriview estan vacios seran Iguales a 0 Si Tienen Datos Seran Iguales a 1
                                  Convert.ToInt32(Tran_Ubicacion), Convert.ToInt32(Tran_Igualdad), Convert.ToInt32(Tran_Impuesto), Convert.ToInt32(Tran_Proveedor), Convert.ToInt32(Tran_CodBarra), Convert.ToInt32(Tran_Compuesto), Convert.ToInt32(Tran_Exterior),
 
                                  //Panel Datos Basicos
-                                 this.CBArea.Text, this.TBCodigo.Text, this.TBNombre.Text, this.TBReferencia.Text, this.TBDescripcion01.Text, this.TBPresentacion.Text, Convert.ToInt64(this.TBComision.Text),
+                                 this.CBArea.Text, this.TBCodigo.Text, this.TBNombre.Text, this.TBReferencia.Text, this.TBDescripcion01.Text, this.TBDescripcion02.Text, this.TBDescripcion03.Text, this.TBPresentacion.Text, Convert.ToInt64(this.TBComision.Text),
 
                                  Convert.ToInt32(Checkbox_Vencimiento), Convert.ToInt32(Checkbox_Impuesto), Convert.ToInt32(Checkbox_Importado), Convert.ToInt32(Checkbox_Exportado), Convert.ToInt32(Checkbox_Ofertable), Convert.ToInt32(Checkbox_Fabricado), Convert.ToInt32(Checkbox_Comision), Convert.ToInt32(Checkbox_Empaque), Convert.ToInt32(Checkbox_Balanza), Convert.ToInt32(Checkbox_Retencion), Convert.ToInt64(TBCompraminima.Text), Convert.ToInt32(Checkbox_Compras), Convert.ToInt32(Checkbox_Ventas), Convert.ToInt64(TBCompraMaxima.Text), Convert.ToInt64(TBVentaMinima.Text), Convert.ToInt64(TBVentaMaxima.Text),
 
@@ -1234,7 +1254,7 @@ namespace Presentacion
                                  Convert.ToInt32(Tran_Ubicacion), Convert.ToInt32(Tran_Igualdad), Convert.ToInt32(Tran_Impuesto), Convert.ToInt32(Tran_Proveedor), Convert.ToInt32(Tran_CodBarra), Convert.ToInt32(Tran_Compuesto), Convert.ToInt32(Tran_Exterior),
 
                                  //Panel Datos Basicos
-                                 this.CBArea.Text, this.TBCodigo.Text, this.TBNombre.Text, this.TBReferencia.Text, this.TBDescripcion01.Text, this.TBPresentacion.Text, Convert.ToInt64(this.TBComision.Text),
+                                 this.CBArea.Text, this.TBCodigo.Text, this.TBNombre.Text, this.TBReferencia.Text, this.TBDescripcion01.Text, this.TBDescripcion02.Text, this.TBDescripcion03.Text, this.TBPresentacion.Text, Convert.ToInt64(this.TBComision.Text),
 
                                  Convert.ToInt32(Checkbox_Vencimiento), Convert.ToInt32(Checkbox_Impuesto), Convert.ToInt32(Checkbox_Importado), Convert.ToInt32(Checkbox_Exportado), Convert.ToInt32(Checkbox_Ofertable), Convert.ToInt32(Checkbox_Fabricado), Convert.ToInt32(Checkbox_Comision), Convert.ToInt32(Checkbox_Empaque), Convert.ToInt32(Checkbox_Balanza), Convert.ToInt32(Checkbox_Retencion), Convert.ToInt32(Checkbox_Compras), Convert.ToInt32(Checkbox_Ventas), Convert.ToInt64(TBCompraminima.Text), Convert.ToInt64(TBCompraMaxima.Text), Convert.ToInt64(TBVentaMinima.Text), Convert.ToInt64(TBVentaMaxima.Text),
 
@@ -9815,7 +9835,7 @@ namespace Presentacion
 
             else if (!Digitar)
             {
-                if (TBComision.Text !="0")
+                if (TBComision.Text != "0")
                 {
                     this.CHFabricado.Checked = true;
                 }
@@ -10611,7 +10631,7 @@ namespace Presentacion
                         this.CBUnidad.Text = Unidad;
                         this.TBValor_Unidad.Text = Unidad_Detallada;
 
-                        
+
                         //Se proceden a Validar los Chexboxt si estan activos o no
 
                         if (AplicaVentas == "0")

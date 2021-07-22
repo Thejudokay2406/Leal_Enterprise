@@ -93,24 +93,34 @@ namespace Presentacion
             this.TBProfesion.BackColor = Color.FromArgb(3, 155, 229);
             this.TBCargo.ReadOnly = false;
             this.TBCargo.BackColor = Color.FromArgb(3, 155, 229);
-            this.CBDepartamento.Enabled = true;
-            this.CBDepartamento.BackColor = Color.FromArgb(3, 155, 229);
-
-            //Datos de Contacto Domiciliario
-            this.TBPais_Dom.ReadOnly = false;
-            this.TBPais_Dom.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBCiudad_Dom.ReadOnly = false;
-            this.TBCiudad_Dom.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBFijo_Dom.ReadOnly = false;
-            this.TBFijo_Dom.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBExtension_Dom.ReadOnly = false;
-            this.TBExtension_Dom.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBTelefono01.ReadOnly = false;
+            this.TBTelefono01.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBTelefono02.ReadOnly = false;
+            this.TBTelefono02.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBMovil01.ReadOnly = false;
+            this.TBMovil01.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBMovil02.ReadOnly = false;
+            this.TBMovil02.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDireccion01.ReadOnly = false;
+            this.TBDireccion01.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDireccion02.ReadOnly = false;
+            this.TBDireccion02.BackColor = Color.FromArgb(3, 155, 229);
             this.TBCorreo.ReadOnly = false;
             this.TBCorreo.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBMovil_Dom.ReadOnly = false;
-            this.TBMovil_Dom.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBDireccion_Dom.ReadOnly = false;
-            this.TBDireccion_Dom.BackColor = Color.FromArgb(3, 155, 229);
+
+            //Datos Personales
+            this.TBDatP_NumeroHijos.ReadOnly = false;
+            this.TBDatP_NumeroHijos.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDatP_PersonasCargo.ReadOnly = false;
+            this.TBDatP_PersonasCargo.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDatP_Nacionalidad01.ReadOnly = false;
+            this.TBDatP_Nacionalidad01.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDatP_Nacionalidad02.ReadOnly = false;
+            this.TBDatP_Nacionalidad02.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDatP_NumeroPasaporte.ReadOnly = false;
+            this.TBDatP_NumeroPasaporte.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDatP_CiudadNacimiento.ReadOnly = false;
+            this.TBDatP_CiudadNacimiento.BackColor = Color.FromArgb(3, 155, 229);
 
             //Datos de Contacto Empresarial
             this.TBPais_Emp.ReadOnly = false;
@@ -128,6 +138,48 @@ namespace Presentacion
             this.TBDireccion_Emp.ReadOnly = false;
             this.TBDireccion_Emp.BackColor = Color.FromArgb(3, 155, 229);
 
+            //Datos de Contacto Domiciliario
+            this.TBDom_Nombre.ReadOnly = false;
+            this.TBDom_Nombre.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDom_Pais.ReadOnly = false;
+            this.TBDom_Pais.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDom_Ciudad.ReadOnly = false;
+            this.TBDom_Ciudad.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDom_Movil.ReadOnly = false;
+            this.TBDom_Movil.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDom_Direccion.ReadOnly = false;
+            this.TBDom_Direccion.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDom_Observacion.ReadOnly = false;
+            this.TBDom_Observacion.BackColor = Color.FromArgb(3, 155, 229);
+
+            //Datos de Experiencia
+            this.TBExp_Empresa.ReadOnly = false;
+            this.TBExp_Empresa.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBExp_Cargo.ReadOnly = false;
+            this.TBExp_Cargo.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBExp_Jefe.ReadOnly = false;
+            this.TBExp_Jefe.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBExp_Movil.ReadOnly = false;
+            this.TBExp_Movil.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBExp_Funciones.ReadOnly = false;
+            this.TBExp_Funciones.BackColor = Color.FromArgb(3, 155, 229);
+
+            //Datos de Formacion
+            this.TBFor_Titulo.ReadOnly = false;
+            this.TBFor_Titulo.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBFor_Entidad.ReadOnly = false;
+            this.TBFor_Entidad.BackColor = Color.FromArgb(3, 155, 229);
+
+            //Datos de Referencia
+            this.TBRef_Nombre.ReadOnly = false;
+            this.TBRef_Nombre.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBRef_Profesion.ReadOnly = false;
+            this.TBRef_Profesion.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBRef_Movil.ReadOnly = false;
+            this.TBRef_Movil.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBRef_Empresa.ReadOnly = false;
+            this.TBRef_Empresa.BackColor = Color.FromArgb(3, 155, 229);
+
             //Texboxt de Consulta
             this.TBBuscar.BackColor = Color.FromArgb(3, 155, 229);
         }
@@ -135,8 +187,11 @@ namespace Presentacion
         private void Limpiar_Datos()
         {
             //Panel - Datos Basicos
-            this.TBIdempleado.Clear();
             //this.TBCodigo.Clear();
+            //this.TBCodigo.BackColor = Color.FromArgb(3, 155, 229);
+            this.CBSucurzal.SelectedIndex =0;
+            this.CBTipodecontrato.SelectedIndex = 0;
+            this.CBDepartamento.SelectedIndex = 0;
             this.TBEmpleado.Clear();
             this.TBEmpleado.Text = Campo;
             this.TBEmpleado.ForeColor = Color.FromArgb(255, 255, 255);
@@ -145,18 +200,23 @@ namespace Presentacion
             this.TBDocumento.ForeColor = Color.FromArgb(255, 255, 255);
             this.TBProfesion.Clear();
             this.TBCargo.Clear();
-            this.CBSucurzal.SelectedIndex = 0;
-            this.CBDepartamento.SelectedIndex = 0;
-            this.CBTipodecontrato.SelectedIndex = 0;
-
-            //Datos de Contacto Domiciliario
-            this.TBPais_Dom.Clear();
-            this.TBCiudad_Dom.Clear();
-            this.TBFijo_Dom.Clear();
-            this.TBExtension_Dom.Clear();
+            this.TBTelefono01.Clear();
+            this.TBTelefono02.Clear();
+            this.TBMovil01.Clear();
+            this.TBMovil02.Clear();
+            this.TBDireccion01.Clear();
+            this.TBDireccion02.Clear();
             this.TBCorreo.Clear();
-            this.TBMovil_Dom.Clear();
-            this.TBDireccion_Dom.Clear();
+
+            //Datos Personales
+            this.CBPer_EstadoCivil.SelectedIndex = 0;
+            this.CBPer_Sexo.SelectedIndex = 0;
+            this.TBDatP_NumeroHijos.Clear();
+            this.TBDatP_PersonasCargo.Clear();
+            this.TBDatP_Nacionalidad01.Clear();
+            this.TBDatP_Nacionalidad02.Clear();
+            this.TBDatP_NumeroPasaporte.Clear();
+            this.TBDatP_CiudadNacimiento.Clear();
 
             //Datos de Contacto Empresarial
             this.TBPais_Emp.Clear();
@@ -166,6 +226,33 @@ namespace Presentacion
             this.TBCorreo.Clear();
             this.TBMovil_Emp.Clear();
             this.TBDireccion_Emp.Clear();
+
+            //Datos de Contacto Domiciliario
+            this.TBDom_Nombre.Clear();
+            this.TBDom_Pais.Clear();
+            this.TBDom_Ciudad.Clear();
+            this.TBDom_Movil.Clear();
+            this.TBDom_Direccion.Clear();
+            this.TBDom_Observacion.Clear();
+
+            //Datos de Experiencia
+            this.TBExp_Empresa.Clear();
+            this.TBExp_Cargo.Clear();
+            this.TBExp_Jefe.Clear();
+            this.TBExp_Movil.Clear();
+            this.TBExp_Funciones.Clear();
+
+            //Datos de Formacion
+            this.CBFor_Nivel.SelectedIndex = 0;
+            this.TBFor_Titulo.Clear();
+            this.TBFor_Entidad.Clear();
+
+            //Datos de Referencia
+            this.CBRef_Tipo.SelectedIndex = 0;
+            this.TBRef_Nombre.Clear();
+            this.TBRef_Profesion.Clear();
+            this.TBRef_Movil.Clear();
+            this.TBRef_Empresa.Clear();
 
             //Se realiza el FOCUS al panel y campo de texto iniciales
             this.TBEmpleado.Select();
@@ -184,6 +271,11 @@ namespace Presentacion
 
                 this.btnEliminar.Enabled = false;
                 this.btnCancelar.Enabled = false;
+
+                this.btnModificar_Domicilio.Enabled = false;
+                this.btnModificar_Formacion.Enabled = false;
+                this.btnModificar_Referencia.Enabled = false;
+                this.btnModificar_Experiencia.Enabled = false;
             }
             else if (!Digitar)
             {
@@ -192,6 +284,11 @@ namespace Presentacion
 
                 this.btnEliminar.Enabled = false;
                 this.btnCancelar.Enabled = true;
+
+                this.btnModificar_Domicilio.Enabled = true;
+                this.btnModificar_Formacion.Enabled = true;
+                this.btnModificar_Referencia.Enabled = true;
+                this.btnModificar_Experiencia.Enabled = true;
             }
         }
 
@@ -273,28 +370,28 @@ namespace Presentacion
 
                     if (this.Digitar)
                     {
-                        rptaDatosBasicos = fGestion_Empleados.Guardar_DatosBasicos
+                        //rptaDatosBasicos = fGestion_Empleados.Guardar_DatosBasicos
 
-                            (
-                                 //Datos Auxiliares y Llaves Primarias
-                                 1, Convert.ToInt32(CBDepartamento.SelectedValue), Convert.ToInt32(this.CBTipodecontrato.SelectedValue), Convert.ToInt32(CBSucurzal.SelectedValue),
+                        //    (
+                        //         //Datos Auxiliares y Llaves Primarias
+                        //         1, Convert.ToInt32(CBDepartamento.SelectedValue), Convert.ToInt32(this.CBTipodecontrato.SelectedValue), Convert.ToInt32(CBSucurzal.SelectedValue),
 
-                                 //Panel Datos Basicos
-                                 this.TBCodigo.Text, this.TBEmpleado.Text, this.TBDocumento.Text, this.TBProfesion.Text, this.TBCargo.Text, this.TBCorreo.Text, this.TBPais_Dom.Text, this.TBCiudad_Dom.Text, this.TBFijo_Dom.Text, this.TBExtension_Dom.Text, this.TBMovil_Dom.Text, this.TBDireccion_Dom.Text, this.TBPais_Emp.Text, this.TBCiudad_Emp.Text, this.TBFijo_Emp.Text, this.TBExtension_Emp.Text, this.TBMovil_Emp.Text, this.TBDireccion_Emp.Text, Imagen_Producto
-                            );
+                        //         //Panel Datos Basicos
+                        //         this.TBCodigo.Text, this.TBEmpleado.Text, this.TBDocumento.Text, this.TBProfesion.Text, this.TBCargo.Text, this.TBCorreo.Text, this.TBDom_Pais.Text, this.TBDom_Ciudad.Text, this.TBFijo_Dom.Text, this.TBExtension_Dom.Text, this.TBDom_Movil.Text, this.TBDom_Direccion.Text, this.TBPais_Emp.Text, this.TBCiudad_Emp.Text, this.TBFijo_Emp.Text, this.TBExtension_Emp.Text, this.TBMovil_Emp.Text, this.TBDireccion_Emp.Text, Imagen_Producto
+                        //    );
                     }
 
                     else
                     {
-                        rptaDatosBasicos = fGestion_Empleados.Editar_DatosBasicos
+                        //rptaDatosBasicos = fGestion_Empleados.Editar_DatosBasicos
 
-                            (
-                                 //Datos Auxiliares y Llaves Primarias
-                                 2, Convert.ToInt32(this.TBIdempleado.Text), Convert.ToInt32(CBDepartamento.SelectedValue), Convert.ToInt32(this.CBTipodecontrato.SelectedValue), Convert.ToInt32(CBSucurzal.SelectedValue),
+                        //    (
+                        //         //Datos Auxiliares y Llaves Primarias
+                        //         2, Convert.ToInt32(this.TBIdempleado.Text), Convert.ToInt32(CBDepartamento.SelectedValue), Convert.ToInt32(this.CBTipodecontrato.SelectedValue), Convert.ToInt32(CBSucurzal.SelectedValue),
 
-                                 //Panel Datos Basicos
-                                 this.TBCodigo.Text, this.TBEmpleado.Text, this.TBDocumento.Text, this.TBProfesion.Text, this.TBCargo.Text, this.TBCorreo.Text, this.TBPais_Dom.Text, this.TBCiudad_Dom.Text, this.TBFijo_Dom.Text, this.TBExtension_Dom.Text, this.TBMovil_Dom.Text, this.TBDireccion_Dom.Text, this.TBPais_Emp.Text, this.TBCiudad_Emp.Text, this.TBFijo_Emp.Text, this.TBExtension_Emp.Text, this.TBMovil_Emp.Text, this.TBDireccion_Emp.Text, Imagen_Producto
-                            );
+                        //         //Panel Datos Basicos
+                        //         this.TBCodigo.Text, this.TBEmpleado.Text, this.TBDocumento.Text, this.TBProfesion.Text, this.TBCargo.Text, this.TBCorreo.Text, this.TBDom_Pais.Text, this.TBDom_Ciudad.Text, this.TBFijo_Dom.Text, this.TBExtension_Dom.Text, this.TBDom_Movil.Text, this.TBDom_Direccion.Text, this.TBPais_Emp.Text, this.TBCiudad_Emp.Text, this.TBFijo_Emp.Text, this.TBExtension_Emp.Text, this.TBMovil_Emp.Text, this.TBDireccion_Emp.Text, Imagen_Producto
+                        //    );
                     }
 
                     if (rptaDatosBasicos.Equals("OK"))
@@ -461,6 +558,66 @@ namespace Presentacion
 
         }
 
+        private void btnAgregar_Domicilio_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnModificar_Domicilio_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEliminar_Domicilio_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAgregar_Experiencia_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnModificar_Experiencia_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEliminar_Experiencia_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAgregar_Formacion_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnModificar_Formacion_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEliminar_Formacion_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAgregar_Referencia_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnModificar_Referencia_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEliminar_Referencia_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void TBBuscar_TextChanged(object sender, EventArgs e)
         {
             try
@@ -599,65 +756,49 @@ namespace Presentacion
         private void TBPais_Enter(object sender, EventArgs e)
         {
             //Se evalua si el campo de texto esta vacio y se espeicifca que es obligatorio en la base de datos
-            if (TBPais_Dom.Text == Campo)
+            if (TBDom_Pais.Text == Campo)
             {
-                this.TBPais_Dom.BackColor = Color.Azure;
-                this.TBPais_Dom.ForeColor = Color.FromArgb(0, 0, 0);
-                this.TBPais_Dom.Clear();
+                this.TBDom_Pais.BackColor = Color.Azure;
+                this.TBDom_Pais.ForeColor = Color.FromArgb(0, 0, 0);
+                this.TBDom_Pais.Clear();
             }
             else
             {
                 //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
-                this.TBPais_Dom.BackColor = Color.Azure;
+                this.TBDom_Pais.BackColor = Color.Azure;
             }
         }
 
         private void TBCiudad_Enter(object sender, EventArgs e)
         {
             //Se evalua si el campo de texto esta vacio y se espeicifca que es obligatorio en la base de datos
-            if (TBCiudad_Dom.Text == Campo)
+            if (TBDom_Ciudad.Text == Campo)
             {
-                this.TBCiudad_Dom.BackColor = Color.Azure;
-                this.TBCiudad_Dom.ForeColor = Color.FromArgb(0, 0, 0);
-                this.TBCiudad_Dom.Clear();
+                this.TBDom_Ciudad.BackColor = Color.Azure;
+                this.TBDom_Ciudad.ForeColor = Color.FromArgb(0, 0, 0);
+                this.TBDom_Ciudad.Clear();
             }
             else
             {
                 //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
-                this.TBCiudad_Dom.BackColor = Color.Azure;
-            }
-        }
-
-        private void TBFijo_Enter(object sender, EventArgs e)
-        {
-            //Se evalua si el campo de texto esta vacio y se espeicifca que es obligatorio en la base de datos
-            if (TBFijo_Dom.Text == Campo)
-            {
-                this.TBFijo_Dom.BackColor = Color.Azure;
-                this.TBFijo_Dom.ForeColor = Color.FromArgb(0, 0, 0);
-                this.TBFijo_Dom.Clear();
-            }
-            else
-            {
-                //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
-                this.TBFijo_Dom.BackColor = Color.Azure;
+                this.TBDom_Ciudad.BackColor = Color.Azure;
             }
         }
 
         private void TBMovil_Enter(object sender, EventArgs e)
         {
             //Se evalua si el campo de texto esta vacio y se espeicifca que es obligatorio en la base de datos
-            if (TBExtension_Dom.Text == Campo)
-            {
-                this.TBExtension_Dom.BackColor = Color.Azure;
-                this.TBExtension_Dom.ForeColor = Color.FromArgb(0, 0, 0);
-                this.TBExtension_Dom.Clear();
-            }
-            else
-            {
-                //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
-                this.TBExtension_Dom.BackColor = Color.Azure;
-            }
+            //if (TBExtension_Dom.Text == Campo)
+            //{
+            //    this.TBExtension_Dom.BackColor = Color.Azure;
+            //    this.TBExtension_Dom.ForeColor = Color.FromArgb(0, 0, 0);
+            //    this.TBExtension_Dom.Clear();
+            //}
+            //else
+            //{
+            //    //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
+            //    this.TBExtension_Dom.BackColor = Color.Azure;
+            //}
         }
 
         private void TBCorreo_Enter(object sender, EventArgs e)
@@ -679,16 +820,16 @@ namespace Presentacion
         private void TBDireccion01_Enter(object sender, EventArgs e)
         {
             //Se evalua si el campo de texto esta vacio y se espeicifca que es obligatorio en la base de datos
-            if (TBMovil_Dom.Text == Campo)
+            if (TBDom_Movil.Text == Campo)
             {
-                this.TBMovil_Dom.BackColor = Color.Azure;
-                this.TBMovil_Dom.ForeColor = Color.FromArgb(0, 0, 0);
-                this.TBMovil_Dom.Clear();
+                this.TBDom_Movil.BackColor = Color.Azure;
+                this.TBDom_Movil.ForeColor = Color.FromArgb(0, 0, 0);
+                this.TBDom_Movil.Clear();
             }
             else
             {
                 //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
-                this.TBMovil_Dom.BackColor = Color.Azure;
+                this.TBDom_Movil.BackColor = Color.Azure;
             }
         }
 
@@ -713,16 +854,16 @@ namespace Presentacion
         private void TBCargo_Enter(object sender, EventArgs e)
         {
             //Se evalua si el campo de texto esta vacio y se espeicifca que es obligatorio en la base de datos
-            if (TBCargo.Text == Campo)
+            if (TBTelefono01.Text == Campo)
             {
-                this.TBCargo.BackColor = Color.Azure;
-                this.TBCargo.ForeColor = Color.FromArgb(0, 0, 0);
-                this.TBCargo.Clear();
+                this.TBTelefono01.BackColor = Color.Azure;
+                this.TBTelefono01.ForeColor = Color.FromArgb(0, 0, 0);
+                this.TBTelefono01.Clear();
             }
             else
             {
                 //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
-                this.TBCargo.BackColor = Color.Azure;
+                this.TBTelefono01.BackColor = Color.Azure;
             }
         }
 
@@ -768,25 +909,25 @@ namespace Presentacion
         private void TBPais_Leave(object sender, EventArgs e)
         {
             //Color de texboxt cuando este posee el FOCUS Activado
-            this.TBPais_Dom.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDom_Pais.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBCiudad_Leave(object sender, EventArgs e)
         {
             //Color de texboxt cuando este posee el FOCUS Activado
-            this.TBCiudad_Dom.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDom_Ciudad.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBFijo_Leave(object sender, EventArgs e)
         {
             //Color de texboxt cuando este posee el FOCUS Activado
-            this.TBFijo_Dom.BackColor = Color.FromArgb(3, 155, 229);
+            //this.TBFijo_Dom.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBMovil_Leave(object sender, EventArgs e)
         {
             //Color de texboxt cuando este posee el FOCUS Activado
-            this.TBExtension_Dom.BackColor = Color.FromArgb(3, 155, 229);
+            //this.TBExtension_Dom.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBPais_Dom_KeyUp(object sender, KeyEventArgs e)
@@ -797,7 +938,7 @@ namespace Presentacion
                 {
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
-                    this.TBCiudad_Dom.Select();
+                    this.TBDom_Ciudad.Select();
                 }
 
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
@@ -830,7 +971,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBPais_Dom.Select();
+                            this.TBDom_Pais.Select();
                         }
                     }
                     else
@@ -846,7 +987,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBPais_Dom.Select();
+                            this.TBDom_Pais.Select();
                         }
                     }
                 }
@@ -865,7 +1006,7 @@ namespace Presentacion
                 {
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
-                    this.TBFijo_Dom.Select();
+                    this.TBDom_Movil.Select();
                 }
 
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
@@ -898,7 +1039,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCiudad_Dom.Select();
+                            this.TBDom_Ciudad.Select();
                         }
                     }
                     else
@@ -914,143 +1055,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCiudad_Dom.Select();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        private void TBFijo_Dom_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
-                {
-                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
-
-                    this.TBExtension_Dom.Select();
-                }
-
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
-                {
-                    //Al precionar las teclas F10 se realizara el registro en la base de datos
-                    //Y se realizara las validaciones en el sistema
-
-                    if (Digitar)
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo,  MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            if (Guardar == "1")
-                            {
-                                //Clases y Focus
-                                this.Guardar_SQL();
-                            }
-                            else
-                            {
-                                                            MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
-                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
-                                this.Digitar = false;
-                                this.Limpiar_Datos();
-                            }
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBFijo_Dom.Select();
-                        }
-                    }
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los Campos Consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            //Clases y Focus
-                            this.Guardar_SQL();
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBFijo_Dom.Select();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        private void TBExtension_Dom_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
-                {
-                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
-
-                    this.TBMovil_Dom.Select();
-                }
-
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
-                {
-                    //Al precionar las teclas F10 se realizara el registro en la base de datos
-                    //Y se realizara las validaciones en el sistema
-
-                    if (Digitar)
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo,  MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            if (Guardar == "1")
-                            {
-                                //Clases y Focus
-                                this.Guardar_SQL();
-                            }
-                            else
-                            {
-                                                            MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
-                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
-                                this.Digitar = false;
-                                this.Limpiar_Datos();
-                            }
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBExtension_Dom.Select();
-                        }
-                    }
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los Campos Consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            //Clases y Focus
-                            this.Guardar_SQL();
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBExtension_Dom.Select();
+                            this.TBDom_Ciudad.Select();
                         }
                     }
                 }
@@ -1069,7 +1074,7 @@ namespace Presentacion
                 {
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
-                    this.TBDireccion_Dom.Select();
+                    this.TBDom_Direccion.Select();
                 }
 
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
@@ -1102,7 +1107,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBMovil_Dom.Select();
+                            this.TBDom_Movil.Select();
                         }
                     }
                     else
@@ -1118,7 +1123,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBMovil_Dom.Select();
+                            this.TBDom_Movil.Select();
                         }
                     }
                 }
@@ -1170,7 +1175,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBDireccion_Dom.Select();
+                            this.TBDom_Direccion.Select();
                         }
                     }
                     else
@@ -1186,7 +1191,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBDireccion_Dom.Select();
+                            this.TBDom_Direccion.Select();
                         }
                     }
                 }
@@ -1607,37 +1612,25 @@ namespace Presentacion
 
         private void TBPais_Dom_Enter(object sender, EventArgs e)
         {
-            this.TBPais_Dom.BackColor = Color.Azure;
+            this.TBDom_Pais.BackColor = Color.Azure;
         }
 
         private void TBCiudad_Dom_Enter(object sender, EventArgs e)
         {
             //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
-            this.TBCiudad_Dom.BackColor = Color.Azure;
-        }
-
-        private void TBFijo_Dom_Enter(object sender, EventArgs e)
-        {
-            //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
-            this.TBFijo_Dom.BackColor = Color.Azure;
-        }
-
-        private void TBExtension_Dom_Enter(object sender, EventArgs e)
-        {
-            //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
-            this.TBExtension_Dom.BackColor = Color.Azure;
+            this.TBDom_Ciudad.BackColor = Color.Azure;
         }
 
         private void TBMovil_Dom_Enter(object sender, EventArgs e)
         {
             //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
-            this.TBMovil_Dom.BackColor = Color.Azure;
+            this.TBDom_Movil.BackColor = Color.Azure;
         }
 
         private void TBDireccion_Dom_Enter(object sender, EventArgs e)
         {
             //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
-            this.TBDireccion_Dom.BackColor = Color.Azure;
+            this.TBDom_Direccion.BackColor = Color.Azure;
         }
 
         private void TBPais_Emp_Enter(object sender, EventArgs e)
@@ -1678,31 +1671,19 @@ namespace Presentacion
         private void TBPais_Dom_Leave(object sender, EventArgs e)
         {
             //Color de texboxt cuando este posee el FOCUS Activado
-            this.TBPais_Dom.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDom_Pais.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBCiudad_Dom_Leave(object sender, EventArgs e)
         {
             //Color de texboxt cuando este posee el FOCUS Activado
-            this.TBCiudad_Dom.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBFijo_Dom_Leave(object sender, EventArgs e)
-        {
-            //Color de texboxt cuando este posee el FOCUS Activado
-            this.TBFijo_Dom.BackColor = Color.FromArgb(3, 155, 229);
-        }
-
-        private void TBExtension_Dom_Leave(object sender, EventArgs e)
-        {
-            //Color de texboxt cuando este posee el FOCUS Activado
-            this.TBExtension_Dom.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDom_Ciudad.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBMovil_Dom_Leave(object sender, EventArgs e)
         {
             //Color de texboxt cuando este posee el FOCUS Activado
-            this.TBMovil_Dom.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDom_Movil.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void frmEmpleados_FormClosing(object sender, FormClosingEventArgs e)
@@ -1713,7 +1694,7 @@ namespace Presentacion
         private void TBDireccion_Dom_Leave(object sender, EventArgs e)
         {
             //Color de texboxt cuando este posee el FOCUS Activado
-            this.TBDireccion_Dom.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDom_Direccion.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBPais_Emp_Leave(object sender, EventArgs e)
@@ -1761,7 +1742,7 @@ namespace Presentacion
         private void TBDireccion01_Leave(object sender, EventArgs e)
         {
             //Color de texboxt cuando este posee el FOCUS Activado
-            this.TBMovil_Dom.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBDom_Movil.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBCodigo_KeyUp(object sender, KeyEventArgs e)
@@ -1918,16 +1899,14 @@ namespace Presentacion
                     this.TBEmpleado.Text = Empleado;
                     this.TBDocumento.Text = Documento;
                     this.TBProfesion.Text = Profesion;
-                    this.TBCargo.Text = Cargo;
+                    this.TBTelefono01.Text = Cargo;
                     this.TBCorreo.Text = Email;
 
                     //Datos de Envio Domiciliario
-                    this.TBPais_Dom.Text = Pais_Dom;
-                    this.TBCiudad_Dom.Text = Ciudad_Dom;
-                    this.TBFijo_Dom.Text = Fijo_Dom;
-                    this.TBExtension_Dom.Text = Extension_Dom;
-                    this.TBMovil_Dom.Text = Movil_Dom;
-                    this.TBDireccion_Dom.Text = Direccion_Dom;
+                    this.TBDom_Pais.Text = Pais_Dom;
+                    this.TBDom_Ciudad.Text = Ciudad_Dom;
+                    this.TBDom_Movil.Text = Movil_Dom;
+                    this.TBDom_Direccion.Text = Direccion_Dom;
 
                     //Datos de Envio Empresarial
                     this.TBPais_Emp.Text = Pais_Emp;
@@ -1955,7 +1934,7 @@ namespace Presentacion
         private void TBCargo_Leave(object sender, EventArgs e)
         {
             //Color de texboxt cuando este posee el FOCUS Activado
-            this.TBCargo.BackColor = Color.FromArgb(3, 155, 229);
+            this.TBTelefono01.BackColor = Color.FromArgb(3, 155, 229);
         }
 
         private void TBBuscar_Leave(object sender, EventArgs e)
@@ -2108,7 +2087,7 @@ namespace Presentacion
                 {
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
-                    this.TBCiudad_Dom.Select();
+                    this.TBDom_Ciudad.Select();
                 }
 
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
@@ -2141,7 +2120,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBPais_Dom.Select();
+                            this.TBDom_Pais.Select();
                         }
                     }
                     else
@@ -2157,211 +2136,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBPais_Dom.Select();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        private void TBCiudad_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
-                {
-                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
-
-                    this.TBFijo_Dom.Select();
-                }
-
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
-                {
-                    //Al precionar las teclas F10 se realizara el registro en la base de datos
-                    //Y se realizara las validaciones en el sistema
-
-                    if (Digitar)
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo,  MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            if (Guardar == "1")
-                            {
-                                //Clases y Focus
-                                this.Guardar_SQL();
-                            }
-                            else
-                            {
-                                                            MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
-                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
-                                this.Digitar = false;
-                                this.Limpiar_Datos();
-                            }
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCiudad_Dom.Select();
-                        }
-                    }
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los Campos Consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            //Clases y Focus
-                            this.Guardar_SQL();
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCiudad_Dom.Select();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        private void TBFijo_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
-                {
-                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
-
-                    this.TBExtension_Dom.Select();
-                }
-
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
-                {
-                    //Al precionar las teclas F10 se realizara el registro en la base de datos
-                    //Y se realizara las validaciones en el sistema
-
-                    if (Digitar)
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo,  MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            if (Guardar == "1")
-                            {
-                                //Clases y Focus
-                                this.Guardar_SQL();
-                            }
-                            else
-                            {
-                                                            MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
-                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
-                                this.Digitar = false;
-                                this.Limpiar_Datos();
-                            }
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBFijo_Dom.Select();
-                        }
-                    }
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los Campos Consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            //Clases y Focus
-                            this.Guardar_SQL();
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBFijo_Dom.Select();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        private void TBMovil_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Down))
-                {
-                    //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
-
-                    this.TBCorreo.Select();
-                }
-
-                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
-                {
-                    //Al precionar las teclas F10 se realizara el registro en la base de datos
-                    //Y se realizara las validaciones en el sistema
-
-                    if (Digitar)
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Campos Digitados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo,  MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            if (Guardar == "1")
-                            {
-                                //Clases y Focus
-                                this.Guardar_SQL();
-                            }
-                            else
-                            {
-                                                            MessageBox.Show("El Usuario Iniciado no Contiene Permisos Para Guardar Datos en el Sistema", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                                //Al realizar la validacion en la base de datos y encontrar que no hay acceso a al operacion solicitada
-                                //se procede limpiar los campos de texto y habilitaciond de los botones a su estado por DEFECTO.
-                                this.Digitar = false;
-                                this.Limpiar_Datos();
-                            }
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBExtension_Dom.Select();
-                        }
-                    }
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Actualizar los Campos Consultados?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            //Clases y Focus
-                            this.Guardar_SQL();
-                        }
-                        else
-                        {
-                            //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
-                            //Donde se realizo la operacion o combinacion de teclas
-                            this.TBExtension_Dom.Select();
+                            this.TBDom_Pais.Select();
                         }
                     }
                 }
@@ -2380,7 +2155,7 @@ namespace Presentacion
                 {
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
-                    this.TBPais_Dom.Select();
+                    this.TBDom_Pais.Select();
                 }
 
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
@@ -2448,7 +2223,7 @@ namespace Presentacion
                 {
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
-                    this.TBCargo.Select();
+                    this.TBTelefono01.Select();
                 }
 
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
@@ -2549,7 +2324,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCargo.Select();
+                            this.TBTelefono01.Select();
                         }
                     }
                     else
@@ -2565,7 +2340,7 @@ namespace Presentacion
                         {
                             //Se el usuario presiona NO en el mensaje el FOCUS regresara al campo de texto
                             //Donde se realizo la operacion o combinacion de teclas
-                            this.TBCargo.Select();
+                            this.TBTelefono01.Select();
                         }
                     }
                 }

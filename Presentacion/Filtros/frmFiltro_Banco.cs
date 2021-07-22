@@ -36,6 +36,47 @@ namespace Presentacion
             MessageBox.Show(mensaje, "Leal Enterprise - Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
+        private void Filtro_Bancos()
+        {
+            try
+            {
+                frmBanco_Contacto frmBanCon = frmBanco_Contacto.GetInstancia();
+                frmProveedor frmPro = frmProveedor.GetInstancia();
+                frmCliente frmCli = frmCliente.GetInstancia();
+                string idbanco, banco, documento;
+
+                if (frmPro.Examinar)
+                {
+                    idbanco = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
+                    banco = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
+                    documento = this.DGFiltro_Resultados.CurrentRow.Cells[2].Value.ToString();
+                    frmPro.setBanco(idbanco, documento, banco);
+                    this.Hide();
+                }
+
+                if (frmBanCon.Examinar)
+                {
+                    idbanco = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
+                    banco = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
+                    documento = this.DGFiltro_Resultados.CurrentRow.Cells[2].Value.ToString();
+                    frmBanCon.setBanco(idbanco, documento, banco);
+                    this.Hide();
+                }
+                if (frmCli.Examinar)
+                {
+                    idbanco = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
+                    banco = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
+                    documento = this.DGFiltro_Resultados.CurrentRow.Cells[2].Value.ToString();
+                    frmCli.setBanco(idbanco, documento, banco);
+                    this.Hide();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
         private void TBBuscar_TextChanged(object sender, EventArgs e)
         {
             try
@@ -65,27 +106,7 @@ namespace Presentacion
         {
             try
             {
-                frmBanco_Contacto frmBanCon = frmBanco_Contacto.GetInstancia();
-                frmProveedor frmPro = frmProveedor.GetInstancia();
-                string idbanco, banco, documento;
-
-                if (frmPro.Examinar)
-                {
-                    idbanco = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
-                    banco = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
-                    documento = this.DGFiltro_Resultados.CurrentRow.Cells[2].Value.ToString();
-                    frmPro.setBanco(idbanco, documento, banco);
-                    this.Hide();
-                }
-
-                if (frmBanCon.Examinar)
-                {
-                    idbanco = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
-                    banco = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
-                    documento = this.DGFiltro_Resultados.CurrentRow.Cells[2].Value.ToString();
-                    frmBanCon.setBanco(idbanco, documento, banco);
-                    this.Hide();
-                }                
+                this.Filtro_Bancos();
             }
             catch (Exception ex)
             {
@@ -128,34 +149,7 @@ namespace Presentacion
         {
             try
             {
-                try
-                {
-                    frmBanco_Contacto frmBanCon = frmBanco_Contacto.GetInstancia();
-                    frmProveedor frmPro = frmProveedor.GetInstancia();
-                    string idbanco, banco, documento;
-
-                    if (frmPro.Examinar)
-                    {
-                        idbanco = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
-                        banco = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
-                        documento = this.DGFiltro_Resultados.CurrentRow.Cells[2].Value.ToString();
-                        frmPro.setBanco(idbanco, documento, banco);
-                        this.Hide();
-                    }
-
-                    if (frmBanCon.Examinar)
-                    {
-                        idbanco = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
-                        banco = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
-                        documento = this.DGFiltro_Resultados.CurrentRow.Cells[2].Value.ToString();
-                        frmBanCon.setBanco(idbanco, documento, banco);
-                        this.Hide();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message + ex.StackTrace);
-                }
+                this.Filtro_Bancos();
             }
             catch (Exception ex)
             {

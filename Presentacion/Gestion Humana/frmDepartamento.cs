@@ -97,13 +97,17 @@ namespace Presentacion
             if (Digitar)
             {
                 this.btnGuardar.Enabled = true;
-                this.btnGuardar.Text = "Guardar";
+                this.btnGuardar.Text = "Guardar - F10";
+
+                this.btnEliminar.Enabled = false;
                 this.btnCancelar.Enabled = false;
             }
             else if (!Digitar)
             {
                 this.btnGuardar.Enabled = true;
-                this.btnGuardar.Text = "Editar";
+                this.btnGuardar.Text = "Editar - F10";
+
+                this.btnEliminar.Enabled = false;
                 this.btnCancelar.Enabled = true;
             }
         }
@@ -112,6 +116,18 @@ namespace Presentacion
         {
             this.TBIdempleado.Text = idempleado;
             this.TBDirector.Text = empleado;
+        }
+
+        //Mensaje de confirmacion
+        private void MensajeOk(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Leal Enterprise - Solicitud Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+        }
+
+        //Mensaje de Error
+        private void MensajeError(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Leal Enterprise - Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void Guardar_SQL()
@@ -139,7 +155,7 @@ namespace Presentacion
 
                             (
                                  //Datos Auxiliares y Llaves Primarias
-                                 1, Convert.ToInt32(TBIdempleado.Text),
+                                 1,
 
                                  //Panel Datos Basicos
                                  this.TBDepartamento.Text, this.TBAreaPrincipal.Text, this.TBAreaAuxiliar.Text, this.dateTimePicker1.Value, this.TBDescripcion.Text
@@ -152,7 +168,7 @@ namespace Presentacion
 
                             (
                                  //Datos Auxiliares y Llaves Primarias
-                                 2, Convert.ToInt32(TBIddepartamento.Text), Convert.ToInt32(TBIdempleado.Text),
+                                 2, Convert.ToInt32(TBIddepartamento.Text),
 
                                  //Panel Datos Basicos
                                  this.TBDepartamento.Text, this.TBAreaPrincipal.Text, this.TBAreaAuxiliar.Text, this.dateTimePicker1.Value, this.TBDescripcion.Text
@@ -188,18 +204,6 @@ namespace Presentacion
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
-        }
-
-        //Mensaje de confirmacion
-        private void MensajeOk(string mensaje)
-        {
-            MessageBox.Show(mensaje, "Leal Enterprise - Solicitud Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-        }
-
-        //Mensaje de Error
-        private void MensajeError(string mensaje)
-        {
-            MessageBox.Show(mensaje, "Leal Enterprise - Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

@@ -45,6 +45,37 @@ namespace Datos
             }
         }
 
+        public DataTable AutoComplementar_SQL(int Auto)
+        {
+            SqlDataReader Resultado;
+            DataTable Tabla = new DataTable();
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
+                SqlCommand Comando = new SqlCommand("Productos.LI_DatosBasicos", SqlCon);
+                Comando.CommandType = CommandType.StoredProcedure;
+
+                Comando.Parameters.Add("@Consulta", SqlDbType.Int).Value = Auto;
+
+                SqlCon.Open();
+                Resultado = Comando.ExecuteReader();
+                Tabla.Load(Resultado);
+                return Tabla;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open)
+                {
+                    SqlCon.Close();
+                }
+            }
+        }
+
         public DataTable Lista()
         {
             SqlDataReader Resultado;
@@ -521,37 +552,6 @@ namespace Datos
             }
         }
 
-        public DataTable AutoComplementar_SQL(int Auto)
-        {
-            SqlDataReader Resultado;
-            DataTable Tabla = new DataTable();
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Productos.LI_DatosBasicos", SqlCon);
-                Comando.CommandType = CommandType.StoredProcedure;
-
-                Comando.Parameters.Add("@Consulta", SqlDbType.Int).Value = Auto;
-
-                SqlCon.Open();
-                Resultado = Comando.ExecuteReader();
-                Tabla.Load(Resultado);
-                return Tabla;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                if (SqlCon.State == ConnectionState.Open)
-                {
-                    SqlCon.Close();
-                }
-            }
-        }
-
         public string Guardar_DatosBasicos(Entidad_Productos Obj)
         {
             string Rpta = "";
@@ -563,7 +563,7 @@ namespace Datos
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Datos Auxiliares
-                Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Obj.Auto;
+                Comando.Parameters.Add("@Operacion", SqlDbType.VarChar).Value = Obj.Operacion;
                 
                 Comando.Parameters.Add("@CodBarra_AutoSQL", SqlDbType.Int).Value = Obj.CodBarra_AutoSQL;
                 Comando.Parameters.Add("@Igualdad_AutoSQL", SqlDbType.Int).Value = Obj.Igualdad_AutoSQL;
@@ -584,34 +584,36 @@ namespace Datos
 
                 //Panel Datos Basicos -- Campos Obligatorios
                 Comando.Parameters.Add("@Idmarca", SqlDbType.Int).Value = Obj.Idmarca;
-                Comando.Parameters.Add("@Area", SqlDbType.VarChar).Value = Obj.Area;
+                Comando.Parameters.Add("@Idgrupo", SqlDbType.Int).Value = Obj.Idgrupo;
+                Comando.Parameters.Add("@Idtipo", SqlDbType.Int).Value = Obj.Idtipo;
+                Comando.Parameters.Add("@Idempaque", SqlDbType.Int).Value = Obj.Idempaque;
                 Comando.Parameters.Add("@Codigo", SqlDbType.VarChar).Value = Obj.Codigo;
+                Comando.Parameters.Add("@Area", SqlDbType.VarChar).Value = Obj.Area;
                 Comando.Parameters.Add("@Nombre", SqlDbType.VarChar).Value = Obj.Producto;
-                Comando.Parameters.Add("@ManVenc", SqlDbType.Int).Value = Obj.ManejaVencimiento;
-                Comando.Parameters.Add("@ManImpu", SqlDbType.Int).Value = Obj.ManejaImpuesto;
-                Comando.Parameters.Add("@Importado", SqlDbType.Int).Value = Obj.Importado;
-                Comando.Parameters.Add("@Exportado", SqlDbType.Int).Value = Obj.Exportado;
-                Comando.Parameters.Add("@Ofertable", SqlDbType.Int).Value = Obj.Ofertable;
-                Comando.Parameters.Add("@Fabricado", SqlDbType.Int).Value = Obj.Fabricado;
-                Comando.Parameters.Add("@ManComision", SqlDbType.Int).Value = Obj.ManejaComision;
-                Comando.Parameters.Add("@ManEmpaque", SqlDbType.Int).Value = Obj.ManejaEmpaque;
-                Comando.Parameters.Add("@ManBalanza", SqlDbType.Int).Value = Obj.ManejaBalanza;
-                Comando.Parameters.Add("@ManReten", SqlDbType.Int).Value = Obj.ManejaRetencion;
-                Comando.Parameters.Add("@Ventas", SqlDbType.Int).Value = Obj.Ventas;
-                Comando.Parameters.Add("@Compras", SqlDbType.Int).Value = Obj.Compras;
+                Comando.Parameters.Add("@Descripcion", SqlDbType.VarChar).Value = Obj.Descripcion;
+                Comando.Parameters.Add("@ComiPor", SqlDbType.Int).Value = Obj.Comision;
                 Comando.Parameters.Add("@CompMin", SqlDbType.BigInt).Value = Obj.CompraMinima;
                 Comando.Parameters.Add("@CompMax", SqlDbType.BigInt).Value = Obj.CompraMaxima;
                 Comando.Parameters.Add("@VentaMin", SqlDbType.BigInt).Value = Obj.VentaMinima;
                 Comando.Parameters.Add("@VentaMax", SqlDbType.BigInt).Value = Obj.VentaMaxima;
+                Comando.Parameters.Add("@Ventas", SqlDbType.Int).Value = Obj.Ventas;
+                Comando.Parameters.Add("@Ofertable", SqlDbType.Int).Value = Obj.Ofertable;
+                Comando.Parameters.Add("@Compras", SqlDbType.Int).Value = Obj.Compras;
+                Comando.Parameters.Add("@Fabricado", SqlDbType.Int).Value = Obj.Fabricado;
+                Comando.Parameters.Add("@Importado", SqlDbType.Int).Value = Obj.Importado;
+                Comando.Parameters.Add("@Exportado", SqlDbType.Int).Value = Obj.Exportado;
+                Comando.Parameters.Add("@Impuesto", SqlDbType.Int).Value = Obj.ManejaImpuesto;
+                Comando.Parameters.Add("@Vencimiento", SqlDbType.Int).Value = Obj.ManejaVencimiento;
+                Comando.Parameters.Add("@Empaque", SqlDbType.Int).Value = Obj.ManejaEmpaque;
+                Comando.Parameters.Add("@Comision", SqlDbType.Int).Value = Obj.ManejaComision;
+                Comando.Parameters.Add("@Retencion", SqlDbType.Int).Value = Obj.ManejaRetencion;
+                Comando.Parameters.Add("@Balanza", SqlDbType.Int).Value = Obj.ManejaBalanza;
 
                 //Panel Datos Basicos -- Campos NO Obligatorios
-                Comando.Parameters.Add("@Idgrupo", SqlDbType.Int).Value = Obj.Idgrupo;
-                Comando.Parameters.Add("@Idtipo", SqlDbType.Int).Value = Obj.Idtipo;
-                Comando.Parameters.Add("@Idempaque", SqlDbType.Int).Value = Obj.Idempaque;
-                Comando.Parameters.Add("@Descripcion", SqlDbType.VarChar).Value = Obj.Descripcion;
                 Comando.Parameters.Add("@Referencia", SqlDbType.VarChar).Value = Obj.Referencia;
+                Comando.Parameters.Add("@Descripcion02", SqlDbType.VarChar).Value = Obj.Descripcion02;
+                Comando.Parameters.Add("@Descripcion03", SqlDbType.VarChar).Value = Obj.Descripcion03;
                 Comando.Parameters.Add("@Presentacion", SqlDbType.VarChar).Value = Obj.Presentacion;
-                Comando.Parameters.Add("@Comision", SqlDbType.BigInt).Value = Obj.Comision;
 
                 //Panel Precios -- Campos Obligatorios
                 Comando.Parameters.Add("@ComProm", SqlDbType.VarChar).Value = Obj.Compra_Promedio;
@@ -706,39 +708,41 @@ namespace Datos
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Datos Auxiliares
-                Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Obj.Auto;
+                //Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Obj.Auto;
                 Comando.Parameters.Add("@Idproducto", SqlDbType.Int).Value = Obj.Idproducto;
 
                 //Panel Datos Basicos -- Campos Obligatorios
                 Comando.Parameters.Add("@Idmarca", SqlDbType.Int).Value = Obj.Idmarca;
-                Comando.Parameters.Add("@Codigo", SqlDbType.VarChar).Value = Obj.Codigo;
+                Comando.Parameters.Add("@Idgrupo", SqlDbType.Int).Value = Obj.Idgrupo;
+                Comando.Parameters.Add("@Idtipo", SqlDbType.Int).Value = Obj.Idtipo;
+                Comando.Parameters.Add("@Idempaque", SqlDbType.Int).Value = Obj.Idempaque;
+                Comando.Parameters.Add("@CodigoMa", SqlDbType.VarChar).Value = Obj.Codigo;
                 Comando.Parameters.Add("@Area", SqlDbType.VarChar).Value = Obj.Area;
                 Comando.Parameters.Add("@Nombre", SqlDbType.VarChar).Value = Obj.Producto;
-                Comando.Parameters.Add("@ManVenc", SqlDbType.Int).Value = Obj.ManejaVencimiento;
-                Comando.Parameters.Add("@ManImpu", SqlDbType.Int).Value = Obj.ManejaImpuesto;
-                Comando.Parameters.Add("@Importado", SqlDbType.Int).Value = Obj.Importado;
-                Comando.Parameters.Add("@Exportado", SqlDbType.Int).Value = Obj.Exportado;
-                Comando.Parameters.Add("@Ofertable", SqlDbType.Int).Value = Obj.Ofertable;
-                Comando.Parameters.Add("@Fabricado", SqlDbType.Int).Value = Obj.Fabricado;
-                Comando.Parameters.Add("@ManComision", SqlDbType.Int).Value = Obj.ManejaComision;
-                Comando.Parameters.Add("@ManEmpaque", SqlDbType.Int).Value = Obj.ManejaEmpaque;
-                Comando.Parameters.Add("@ManBalanza", SqlDbType.Int).Value = Obj.ManejaBalanza;
-                Comando.Parameters.Add("@ManReten", SqlDbType.Int).Value = Obj.ManejaRetencion;
-                Comando.Parameters.Add("@Ventas", SqlDbType.Int).Value = Obj.Ventas;
-                Comando.Parameters.Add("@Compras", SqlDbType.Int).Value = Obj.Compras;
+                Comando.Parameters.Add("@Descripcion", SqlDbType.VarChar).Value = Obj.Descripcion;
+                Comando.Parameters.Add("@ComiPor", SqlDbType.Int).Value = Obj.Comision;
                 Comando.Parameters.Add("@CompMin", SqlDbType.BigInt).Value = Obj.CompraMinima;
                 Comando.Parameters.Add("@CompMax", SqlDbType.BigInt).Value = Obj.CompraMaxima;
                 Comando.Parameters.Add("@VentaMin", SqlDbType.BigInt).Value = Obj.VentaMinima;
                 Comando.Parameters.Add("@VentaMax", SqlDbType.BigInt).Value = Obj.VentaMaxima;
+                Comando.Parameters.Add("@Ventas", SqlDbType.Int).Value = Obj.Ventas;
+                Comando.Parameters.Add("@Ofertable", SqlDbType.Int).Value = Obj.Ofertable;
+                Comando.Parameters.Add("@Compras", SqlDbType.Int).Value = Obj.Compras;
+                Comando.Parameters.Add("@Fabricado", SqlDbType.Int).Value = Obj.Fabricado;
+                Comando.Parameters.Add("@Importado", SqlDbType.Int).Value = Obj.Importado;
+                Comando.Parameters.Add("@Exportado", SqlDbType.Int).Value = Obj.Exportado;
+                Comando.Parameters.Add("@Impuesto", SqlDbType.Int).Value = Obj.ManejaImpuesto;
+                Comando.Parameters.Add("@Vencimiento", SqlDbType.Int).Value = Obj.ManejaVencimiento;
+                Comando.Parameters.Add("@Empaque", SqlDbType.Int).Value = Obj.ManejaEmpaque;
+                Comando.Parameters.Add("@Comision", SqlDbType.Int).Value = Obj.ManejaComision;
+                Comando.Parameters.Add("@Retencion", SqlDbType.Int).Value = Obj.ManejaRetencion;
+                Comando.Parameters.Add("@Balanza", SqlDbType.Int).Value = Obj.ManejaBalanza;
 
                 //Panel Datos Basicos -- Campos NO Obligatorios
-                Comando.Parameters.Add("@Idgrupo", SqlDbType.Int).Value = Obj.Idgrupo;
-                Comando.Parameters.Add("@Idtipo", SqlDbType.Int).Value = Obj.Idtipo;
-                Comando.Parameters.Add("@Idempaque", SqlDbType.Int).Value = Obj.Idempaque;
-                Comando.Parameters.Add("@Descripcion", SqlDbType.VarChar).Value = Obj.Descripcion;
                 Comando.Parameters.Add("@Referencia", SqlDbType.VarChar).Value = Obj.Referencia;
+                Comando.Parameters.Add("@Descripcion02", SqlDbType.VarChar).Value = Obj.Descripcion02;
+                Comando.Parameters.Add("@Descripcion03", SqlDbType.VarChar).Value = Obj.Descripcion03;
                 Comando.Parameters.Add("@Presentacion", SqlDbType.VarChar).Value = Obj.Presentacion;
-                Comando.Parameters.Add("@Comision", SqlDbType.BigInt).Value = Obj.Comision;
 
                 //Panel Precios -- Campos Obligatorios
                 Comando.Parameters.Add("@ComProm", SqlDbType.VarChar).Value = Obj.Compra_Promedio;

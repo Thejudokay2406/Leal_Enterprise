@@ -133,7 +133,7 @@
             this.label45 = new System.Windows.Forms.Label();
             this.btnEliminar_Financiera = new System.Windows.Forms.Button();
             this.btnAgregar_Financiera = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnExaminar_Banco = new System.Windows.Forms.Button();
             this.TPFacturacion = new System.Windows.Forms.TabPage();
             this.btnModificar_Facturacion = new System.Windows.Forms.Button();
             this.lblTotal_Facturacion = new System.Windows.Forms.Label();
@@ -1242,7 +1242,7 @@
             this.TPDatosFinancieros.Controls.Add(this.label45);
             this.TPDatosFinancieros.Controls.Add(this.btnEliminar_Financiera);
             this.TPDatosFinancieros.Controls.Add(this.btnAgregar_Financiera);
-            this.TPDatosFinancieros.Controls.Add(this.button1);
+            this.TPDatosFinancieros.Controls.Add(this.btnExaminar_Banco);
             this.TPDatosFinancieros.Location = new System.Drawing.Point(4, 26);
             this.TPDatosFinancieros.Name = "TPDatosFinancieros";
             this.TPDatosFinancieros.Size = new System.Drawing.Size(652, 393);
@@ -1272,6 +1272,7 @@
             this.TBFin_CodigoBanco.Name = "TBFin_CodigoBanco";
             this.TBFin_CodigoBanco.Size = new System.Drawing.Size(130, 22);
             this.TBFin_CodigoBanco.TabIndex = 170;
+            this.TBFin_CodigoBanco.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // TBFin_NumCuenta
             // 
@@ -1291,6 +1292,7 @@
             this.TBFin_Banco.Name = "TBFin_Banco";
             this.TBFin_Banco.Size = new System.Drawing.Size(367, 22);
             this.TBFin_Banco.TabIndex = 33;
+            this.TBFin_Banco.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblTotal_Financiera
             // 
@@ -1321,16 +1323,16 @@
             // 
             this.CBFin_Cuenta.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CBFin_Cuenta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CBFin_Cuenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBFin_Cuenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBFin_Cuenta.FormattingEnabled = true;
             this.CBFin_Cuenta.Items.AddRange(new object[] {
             "-",
             "Ahorro",
             "Corriente",
             "Electronica"});
-            this.CBFin_Cuenta.Location = new System.Drawing.Point(112, 33);
+            this.CBFin_Cuenta.Location = new System.Drawing.Point(112, 32);
             this.CBFin_Cuenta.Name = "CBFin_Cuenta";
-            this.CBFin_Cuenta.Size = new System.Drawing.Size(212, 21);
+            this.CBFin_Cuenta.Size = new System.Drawing.Size(212, 23);
             this.CBFin_Cuenta.Sorted = true;
             this.CBFin_Cuenta.TabIndex = 39;
             // 
@@ -1393,18 +1395,19 @@
             this.btnAgregar_Financiera.UseVisualStyleBackColor = true;
             this.btnAgregar_Financiera.Click += new System.EventHandler(this.btnAgregar_Financiera_Click);
             // 
-            // button1
+            // btnExaminar_Banco
             // 
-            this.button1.BackgroundImage = global::Presentacion.Botones.btnExaminar;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(621, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(25, 22);
-            this.button1.TabIndex = 135;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnExaminar_Banco.BackgroundImage = global::Presentacion.Botones.btnExaminar;
+            this.btnExaminar_Banco.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnExaminar_Banco.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExaminar_Banco.FlatAppearance.BorderSize = 0;
+            this.btnExaminar_Banco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExaminar_Banco.Location = new System.Drawing.Point(621, 6);
+            this.btnExaminar_Banco.Name = "btnExaminar_Banco";
+            this.btnExaminar_Banco.Size = new System.Drawing.Size(25, 22);
+            this.btnExaminar_Banco.TabIndex = 135;
+            this.btnExaminar_Banco.UseVisualStyleBackColor = true;
+            this.btnExaminar_Banco.Click += new System.EventHandler(this.btnExaminar_Banco_Click);
             // 
             // TPFacturacion
             // 
@@ -1945,7 +1948,7 @@
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.Button btnEliminar_Financiera;
         private System.Windows.Forms.Button btnAgregar_Financiera;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnExaminar_Banco;
         private System.Windows.Forms.TabPage TPContacto;
         private System.Windows.Forms.Button btnModificar_Contacto;
         private System.Windows.Forms.TextBox TBCon_Parentesco;

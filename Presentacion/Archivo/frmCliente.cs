@@ -320,6 +320,13 @@ namespace Presentacion
             this.TBFac_Asesor.Text = asesor;
         }
 
+        public void setBanco(string idbanco, string documento, string banco)
+        {
+            this.TBIdbanco.Text = idbanco;
+            this.TBFin_CodigoBanco.Text = documento;
+            this.TBFin_Banco.Text = banco;
+        }
+
         private void Actualizar_DetFacturacion()
         {
             this.DGDetalle_Facturacion.DataSource = fCliente.Lista_Facturacion(1, Convert.ToInt32(TBIdcliente.Text));
@@ -521,7 +528,7 @@ namespace Presentacion
                 //Evaluamos si  existen los Datos
                 if (Datos.Rows.Count == 0)
                 {
-                    MessageBox.Show("Actualmente no se Encuentran Clientes Registrados en la Base de Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //MessageBox.Show("Actualmente no se Encuentran Clientes Registrados en la Base de Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.TBIdcliente_AutoSQL.Text = "1";
                 }
                 else
@@ -538,6 +545,18 @@ namespace Presentacion
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
+        }
+
+        //Mensaje de confirmacion
+        private void MensajeOk(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Leal Enterprise - Solicitud Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+        }
+
+        //Mensaje de Error
+        private void MensajeError(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Leal Enterprise - Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void Guardar_SQL()
@@ -585,7 +604,7 @@ namespace Presentacion
 
                                 //Variables para Ordenar Si se Ejecutan o No las Transacciones en SQL
                                 //Si los Datagriview estan vacios seran Iguales a 0 Si Tienen Datos Seran Iguales a 1
-                                Convert.ToInt32(Tran_Facturacion), Convert.ToInt32(Tran_Despacho),  Convert.ToInt32(Tran_Financiera), Convert.ToInt32(Tran_Contacto),
+                                Convert.ToInt32(Tran_Facturacion), Convert.ToInt32(Tran_Despacho), Convert.ToInt32(Tran_Financiera), Convert.ToInt32(Tran_Contacto),
 
                                 //
                                 Convert.ToInt32(Checkbox_Efectivo), Convert.ToInt32(Checkbox_Debito), Convert.ToInt32(Checkbox_Credito), Convert.ToInt32(Checkbox_Contado)
@@ -598,7 +617,7 @@ namespace Presentacion
 
                             (
                                 //Datos Auxiliares
-                                2, Convert.ToInt32(TBIdcliente.Text),Convert.ToInt32(this.CBTipo.SelectedValue), Convert.ToInt32(this.CBGrupo.SelectedValue),
+                                2, Convert.ToInt32(TBIdcliente.Text), Convert.ToInt32(this.CBTipo.SelectedValue), Convert.ToInt32(this.CBGrupo.SelectedValue),
 
                                 //Panel Datos Basicos
                                 this.TBDat_Nombre.Text, Convert.ToInt64(this.TBDat_Documento.Text), Convert.ToInt64(this.TBDat_Telefono.Text), Convert.ToInt64(this.TBDat_Movil.Text), Convert.ToInt64(this.TBDat_TelefonoAux.Text), Convert.ToInt64(this.TBDat_MovilAux.Text), this.TBDat_Correo.Text, this.TBDat_Pais.Text, this.TBDat_Ciudad.Text, this.TBDat_Departamento.Text, this.TBDat_PaginaWeb.Text, this.TBDat_Direccion.Text, this.TBDat_Observacion.Text
@@ -641,16 +660,562 @@ namespace Presentacion
             }
         }
 
-        //Mensaje de confirmacion
-        private void MensajeOk(string mensaje)
+        private void Agregar_Contacto()
         {
-            MessageBox.Show(mensaje, "Leal Enterprise - Solicitud Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            try
+            {
+                if (Digitar)
+                {
+                    if (this.TBCon_Contacto.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Nombre de la Persona de Contacto");
+                        this.TBCon_Contacto.Select();
+                    }
+                    else if (this.TBCon_Ciudad.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique una Ciudad de Contacto");
+                        this.TBCon_Ciudad.Select();
+                    }
+                    else if (this.TBCon_Direccion.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique una Dirección de Contacto");
+                        this.TBCon_Direccion.Select();
+                    }
+                    else if (this.TBCon_Movil.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique un Número Movil de Contacto");
+                        this.TBCon_Movil.Select();
+                    }
+
+                    else
+                    {
+
+                        DataRow fila = this.DtDetalle_Contacto.NewRow();
+                        fila["Idcliente"] = Convert.ToInt32(this.TBIdcliente_AutoSQL.Text);
+                        fila["Contacto"] = this.TBCon_Contacto.Text;
+                        fila["Ciudad"] = this.TBCon_Ciudad.Text;
+                        fila["Dirección"] = this.TBCon_Direccion.Text;
+                        fila["Móvil"] = Convert.ToInt64(this.TBCon_Movil.Text);
+                        fila["Correo"] = this.TBCon_Correo.Text;
+                        fila["Parentesco"] = this.TBCon_Parentesco.Text;
+                        this.DtDetalle_Contacto.Rows.Add(fila);
+
+                        //
+                        this.TBIdcontacto.Clear();
+                        this.TBCon_Contacto.Clear();
+                        this.TBCon_Ciudad.Clear();
+                        this.TBCon_Direccion.Clear();
+                        this.TBCon_Movil.Clear();
+                        this.TBCon_Correo.Clear();
+                        this.TBCon_Parentesco.Clear();
+
+                        this.TBCon_Contacto.Select();
+                    }
+                }
+                else
+                {
+                    if (this.TBCon_Contacto.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Nombre de la Persona de Contacto");
+                        this.TBCon_Contacto.Select();
+                    }
+                    else if (this.TBCon_Ciudad.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique una Ciudad de Contacto");
+                        this.TBCon_Ciudad.Select();
+                    }
+                    else if (this.TBCon_Direccion.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique una Dirección de Contacto");
+                        this.TBCon_Direccion.Select();
+                    }
+                    else if (this.TBCon_Movil.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique un Número Móvil de Contacto");
+                        this.TBCon_Movil.Select();
+                    }
+
+                    else
+                    {
+                        DialogResult result = MessageBox.Show("¿Desea Registrar los Datos de Despacho del Cliente?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            string rptaDatosBasicos = "";
+                            rptaDatosBasicos = fCliente.Guardar_Contacto
+
+                                    (
+                                         //Datos Basicos
+                                         Convert.ToInt32(this.TBIdcliente.Text), this.TBCon_Contacto.Text, this.TBCon_Ciudad.Text, this.TBCon_Direccion.Text, Convert.ToInt64(this.TBCon_Movil.Text), this.TBCon_Correo.Text, this.TBCon_Parentesco.Text,
+
+                                        //Datos Auxiliares
+                                        1
+                                    );
+
+                            if (rptaDatosBasicos.Equals("OK"))
+                            {
+                                this.MensajeOk("Los Datos de Contacto del Cliente: " + TBDat_Nombre.Text + " han Sido Registrados Exitosamente");
+                            }
+
+                            else
+                            {
+                                this.MensajeError(rptaDatosBasicos);
+                            }
+
+                            //
+                            this.TBIdcontacto.Clear();
+                            this.TBCon_Contacto.Clear();
+                            this.TBCon_Ciudad.Clear();
+                            this.TBCon_Direccion.Clear();
+                            this.TBCon_Movil.Clear();
+                            this.TBCon_Correo.Clear();
+                            this.TBCon_Parentesco.Clear();
+
+                            this.Actualizar_DetContacto();
+                        }
+                        else
+                        {
+                            this.TBCon_Contacto.Select();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
-        //Mensaje de Error
-        private void MensajeError(string mensaje)
+        private void Agregar_Despacho()
         {
-            MessageBox.Show(mensaje, "Leal Enterprise - Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            try
+            {
+                if (Digitar)
+                {
+                    if (this.TBDes_Ciudad.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique la Ciudad a Enviar");
+                        this.TBDes_Ciudad.Select();
+                    }
+                    else if (this.TBDes_Receptor.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Nombre de la Persona que Recibe el Envio");
+                        this.TBDes_Receptor.Select();
+                    }
+                    else if (this.TBDes_Ciudad.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique la Ciudad de Destino del Envio");
+                        this.TBDes_Ciudad.Select();
+                    }
+                    else if (this.TBDes_Movil.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique un Número de Contacto");
+                        this.TBDes_Movil.Select();
+                    }
+                    else
+                    {
+
+                        DataRow fila = this.DtDetalle_Despacho.NewRow();
+                        fila["Idcliente"] = Convert.ToInt32(this.TBIdcliente_AutoSQL.Text);
+                        fila["Ciudad"] = this.TBDes_Ciudad.Text;
+                        fila["Receptor"] = this.TBDes_Receptor.Text;
+                        fila["Móvil"] = Convert.ToInt64(this.TBDes_Movil.Text);
+                        fila["Dirección"] = this.TBDes_Direccion.Text;
+                        fila["Observación"] = this.TBDes_Observacion.Text;
+                        this.DtDetalle_Despacho.Rows.Add(fila);
+
+                        //
+                        this.TBIddespacho.Clear();
+                        this.TBDes_Ciudad.Clear();
+                        this.TBDes_Receptor.Clear();
+                        this.TBDes_Direccion.Clear();
+                        this.TBDes_Movil.Clear();
+                        this.TBDes_Observacion.Clear();
+                    }
+                }
+                else
+                {
+                    if (this.TBDes_Ciudad.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique la Ciudad a Enviar");
+                        this.TBDes_Ciudad.Select();
+                    }
+                    else if (this.TBDes_Receptor.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Nombre de la Persona que Recibe el Envio");
+                        this.TBDes_Receptor.Select();
+                    }
+                    else if (this.TBDes_Ciudad.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique la Ciudad de Destino del Envio");
+                        this.TBDes_Ciudad.Select();
+                    }
+                    else if (this.TBDes_Movil.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique un Número de Contacto");
+                        this.TBDes_Movil.Select();
+                    }
+                    else
+                    {
+                        DialogResult result = MessageBox.Show("¿Desea Registrar los Datos de Despacho del Cliente?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            string rptaDatosBasicos = "";
+                            rptaDatosBasicos = fCliente.Guardar_Despacho
+
+                                    (
+                                         //Datos Basicos
+                                         Convert.ToInt32(this.TBIdcliente.Text), this.TBDes_Ciudad.Text, this.TBDes_Receptor.Text, Convert.ToInt64(this.TBDes_Movil.Text), this.TBDes_Direccion.Text, this.TBDes_Observacion.Text,
+
+                                        //Datos Auxiliares
+                                        1
+                                    );
+
+                            if (rptaDatosBasicos.Equals("OK"))
+                            {
+                                this.MensajeOk("Los Datos de Despacho del Cliente: " + TBDat_Nombre.Text + " han Sido Registrados Exitosamente");
+                            }
+
+                            else
+                            {
+                                this.MensajeError(rptaDatosBasicos);
+                            }
+
+                            //
+                            this.TBIddespacho.Clear();
+                            this.TBDes_Ciudad.Clear();
+                            this.TBDes_Receptor.Clear();
+                            this.TBDes_Direccion.Clear();
+                            this.TBDes_Movil.Clear();
+                            this.TBDes_Observacion.Clear();
+
+                            this.Actualizar_DetDespacho();
+                        }
+                        else
+                        {
+                            this.TBDes_Receptor.Select();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void Agregar_Financiera()
+        {
+            try
+            {
+                if (Digitar)
+                {
+                    if (this.TBFin_CodigoBanco.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Banco o Entidad Financiera");
+                        this.TBFin_CodigoBanco.Select();
+                    }
+                    else if (this.TBFin_Banco.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Banco o Entidad Financiera");
+                        this.TBFin_Banco.Select();
+                    }
+                    else if (this.TBFin_NumCuenta.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Número de Cuenta Bancaria");
+                        this.TBFin_NumCuenta.Select();
+                    }
+
+                    else
+                    {
+
+                        DataRow fila = this.DtDetalle_Financiera.NewRow();
+                        fila["Idcliente"] = Convert.ToInt32(this.TBIdcliente_AutoSQL.Text);
+                        fila["Idbanco"] = Convert.ToInt32(this.TBIdbanco.Text);
+                        fila["Código"] = this.TBFin_CodigoBanco.Text;
+                        fila["Banco"] = this.TBFin_Banco.Text;
+                        fila["Cuenta"] = this.CBFin_Cuenta.Text;
+                        fila["Nº. de Cuenta"] = Convert.ToInt64(this.TBFin_NumCuenta.Text);
+                        this.DtDetalle_Financiera.Rows.Add(fila);
+
+                        //
+                        this.TBIdfinanciera.Clear();
+                        this.TBFin_CodigoBanco.Clear();
+                        this.TBFin_Banco.Clear();
+                        this.TBFin_NumCuenta.Clear();
+                        this.CBFin_Cuenta.SelectedIndex = 0;
+                    }
+                }
+                else
+                {
+                    if (this.TBFin_CodigoBanco.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Banco o Entidad Financiera");
+                        this.TBFin_CodigoBanco.Select();
+                    }
+                    else if (this.TBFin_Banco.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Banco o Entidad Financiera");
+                        this.TBFin_Banco.Select();
+                    }
+                    else if (this.TBFin_NumCuenta.Text == String.Empty)
+                    {
+                        this.MensajeError("Por favor Especifique el Número de Cuenta Bancaria");
+                        this.TBFin_NumCuenta.Select();
+                    }
+                    else
+                    {
+                        DialogResult result = MessageBox.Show("¿Desea Registrar los Datos Financieros del Cliente?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            string rptaDatosBasicos = "";
+                            rptaDatosBasicos = fCliente.Guardar_Financiera
+
+                                    (
+                                         //Datos Basicos
+                                         Convert.ToInt32(this.TBIdcliente.Text), Convert.ToInt32(this.TBIdbanco.Text), this.CBFin_Cuenta.Text, Convert.ToInt64(this.TBFin_NumCuenta.Text),
+
+                                        //Datos Auxiliares
+                                        1
+                                    );
+
+                            if (rptaDatosBasicos.Equals("OK"))
+                            {
+                                this.MensajeOk("Los Datos Financieros del Cliente: " + TBDat_Nombre.Text + " han Sido Registrados Exitosamente");
+                            }
+
+                            else
+                            {
+                                this.MensajeError(rptaDatosBasicos);
+                            }
+
+                            //
+                            this.TBIdfinanciera.Clear();
+                            this.TBFin_CodigoBanco.Clear();
+                            this.TBFin_Banco.Clear();
+                            this.TBFin_NumCuenta.Clear();
+                            this.CBFin_Cuenta.SelectedIndex = 0;
+
+                            this.Actualizar_DetFinanciera();
+                        }
+                        else
+                        {
+                            this.TBFin_NumCuenta.Select();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void Agregar_Facturacion()
+        {
+            try
+            {
+                this.Agregar_Facturacion();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void Modificar_Contacto()
+        {
+            try
+            {
+                string rptaDatosBasicos = "";
+
+                rptaDatosBasicos = fCliente.Editar_Contacto
+
+                            (
+                                 //Datos Auxiliares
+                                 Convert.ToInt32(this.TBIdcontacto.Text), Convert.ToInt32(this.TBIdcliente.Text),
+
+                                 //Panel Datos Basicos
+                                 this.TBCon_Contacto.Text, this.TBCon_Ciudad.Text, this.TBCon_Direccion.Text, Convert.ToInt64(this.TBCon_Movil.Text), this.TBCon_Correo.Text, this.TBCon_Parentesco.Text,
+
+                                //SI ES IGUAL A 2 SE EDITARAN LOS REGISTROS EN LA BASE DE DATOS
+                                2
+                            );
+
+                if (rptaDatosBasicos.Equals("OK"))
+                {
+                    if (this.Digitar)
+                    {
+                        this.MensajeOk("El Registro de Contacto del Cliente: “" + this.TBDat_Nombre.Text + "” a Sido Actualizado Exitosamente");
+                    }
+
+                    //SE LIMPIAN LOS CAMPOS DE TEXTO
+                    this.TBIdcontacto.Clear();
+                    this.TBCon_Contacto.Clear();
+                    this.TBCon_Ciudad.Clear();
+                    this.TBCon_Direccion.Clear();
+                    this.TBCon_Movil.Clear();
+                    this.TBCon_Correo.Clear();
+                    this.TBCon_Parentesco.Clear();
+
+                    this.Actualizar_DetContacto();
+                }
+
+                else
+                {
+                    this.MensajeError(rptaDatosBasicos);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void Modificar_Despacho()
+        {
+            try
+            {
+                string rptaDatosBasicos = "";
+
+                rptaDatosBasicos = fCliente.Editar_Despacho
+
+                            (
+                                 //Datos Auxiliares
+                                 Convert.ToInt32(this.TBIddespacho.Text), Convert.ToInt32(this.TBIdcliente.Text),
+
+                                 //Panel Datos Basicos
+                                 this.TBDes_Ciudad.Text, this.TBDes_Receptor.Text, Convert.ToInt64(this.TBDes_Movil.Text), this.TBDes_Direccion.Text, this.TBDes_Observacion.Text,
+
+                                //SI ES IGUAL A 2 SE EDITARAN LOS REGISTROS EN LA BASE DE DATOS
+                                2
+                            );
+
+                if (rptaDatosBasicos.Equals("OK"))
+                {
+                    if (this.Digitar)
+                    {
+                        this.MensajeOk("El Registro de Despachos del Cliente: “" + this.TBDat_Nombre.Text + "” a Sido Actualizado Exitosamente");
+                    }
+
+                    //SE LIMPIAN LOS CAMPOS DE TEXTO
+                    this.TBIddespacho.Clear();
+                    this.TBDes_Ciudad.Clear();
+                    this.TBDes_Receptor.Clear();
+                    this.TBDes_Direccion.Clear();
+                    this.TBDes_Movil.Clear();
+                    this.TBDes_Observacion.Clear();
+
+                    this.Actualizar_DetDespacho();
+                }
+
+                else
+                {
+                    this.MensajeError(rptaDatosBasicos);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void Modificar_Financiera()
+        {
+            try
+            {
+                string rptaDatosBasicos = "";
+
+                rptaDatosBasicos = fCliente.Editar_Financiera
+
+                            (
+                                 //Datos Auxiliares
+                                 Convert.ToInt32(this.TBIdfinanciera.Text), Convert.ToInt32(this.TBIdcliente.Text), Convert.ToInt32(this.TBIdbanco.Text),
+
+                                 //Panel Datos Basicos
+                                 this.CBFin_Cuenta.Text, Convert.ToInt64(this.TBFin_NumCuenta.Text),
+
+                                //SI ES IGUAL A 2 SE EDITARAN LOS REGISTROS EN LA BASE DE DATOS
+                                2
+                            );
+
+                if (rptaDatosBasicos.Equals("OK"))
+                {
+                    if (this.Digitar)
+                    {
+                        this.MensajeOk("El Registro Financiero del Cliente: “" + this.TBDat_Nombre.Text + "” a Sido Actualizado Exitosamente");
+                    }
+
+                    //SE LIMPIAN LOS CAMPOS DE TEXTO
+                    this.TBIdfinanciera.Clear();
+                    this.TBFin_CodigoBanco.Clear();
+                    this.TBFin_Banco.Clear();
+                    this.TBFin_NumCuenta.Clear();
+                    this.CBFin_Cuenta.SelectedIndex = 0;
+
+                    this.Actualizar_DetFinanciera();
+                }
+
+                else
+                {
+                    this.MensajeError(rptaDatosBasicos);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void Modificar_Facturacion()
+        {
+            try
+            {
+                string rptaDatosBasicos = "";
+
+                rptaDatosBasicos = fCliente.Editar_Facturacion
+
+                            (
+                                 //Datos Auxiliares
+                                 Convert.ToInt32(this.TBIdfacturacion.Text), Convert.ToInt32(this.TBIdcliente.Text), Convert.ToInt32(this.TBIdempleado.Text),
+
+                                 //Panel Datos Basicos
+                                 this.TBFac_Asesor.Text, this.TBFac_CodigoAsesor.Text, this.TBFac_Cliente.Text, Convert.ToInt64(this.TBFac_DocumentoCliente.Text), Convert.ToInt64(this.TBFac_Movil.Text), this.TBFac_Ciudad.Text, this.TBFac_Correo.Text,
+
+                                //SI ES IGUAL A 2 SE EDITARAN LOS REGISTROS EN LA BASE DE DATOS
+                                2
+                            );
+
+                if (rptaDatosBasicos.Equals("OK"))
+                {
+                    if (this.Digitar)
+                    {
+                        this.MensajeOk("El Registro de Facturación del Cliente: “" + this.TBDat_Nombre.Text + "” a Sido Actualizado Exitosamente");
+                    }
+
+                    //SE LIMPIAN LOS CAMPOS DE TEXTO
+                    this.TBIdfacturacion.Clear();
+                    this.TBFac_Cliente.Clear();
+                    this.TBFac_Asesor.Clear();
+                    this.TBFac_DocumentoCliente.Clear();
+                    this.TBFac_CodigoAsesor.Clear();
+                    this.TBFac_Movil.Clear();
+                    this.TBFac_Correo.Clear();
+                    this.TBFac_Ciudad.Clear();
+                    this.CH_Facturacion.Checked = false;
+
+                    this.Actualizar_DetFacturacion();
+                }
+
+                else
+                {
+                    this.MensajeError(rptaDatosBasicos);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -783,46 +1348,7 @@ namespace Presentacion
         {
             try
             {
-                string rptaDatosBasicos = "";
-
-                rptaDatosBasicos = fCliente.Editar_Facturacion
-
-                            (
-                                 //Datos Auxiliares
-                                 Convert.ToInt32(this.TBIdfacturacion.Text), Convert.ToInt32(this.TBIdcliente.Text), Convert.ToInt32(this.TBIdempleado.Text),
-
-                                 //Panel Datos Basicos
-                                 this.TBFac_Asesor.Text, this.TBFac_CodigoAsesor.Text, this.TBFac_Cliente.Text, Convert.ToInt64(this.TBFac_DocumentoCliente.Text), Convert.ToInt64(this.TBFac_Movil.Text), this.TBFac_Ciudad.Text, this.TBFac_Correo.Text,
-
-                                //SI ES IGUAL A 2 SE EDITARAN LOS REGISTROS EN LA BASE DE DATOS
-                                2
-                            );
-
-                if (rptaDatosBasicos.Equals("OK"))
-                {
-                    if (this.Digitar)
-                    {
-                        this.MensajeOk("El Registro de Facturación del Cliente: “" + this.TBDat_Nombre.Text + "” a Sido Actualizado Exitosamente");
-                    }
-
-                    //SE LIMPIAN LOS CAMPOS DE TEXTO
-                    this.TBIdfacturacion.Clear();
-                    this.TBFac_Cliente.Clear();
-                    this.TBFac_Asesor.Clear();
-                    this.TBFac_DocumentoCliente.Clear();
-                    this.TBFac_CodigoAsesor.Clear();
-                    this.TBFac_Movil.Clear();
-                    this.TBFac_Correo.Clear();
-                    this.TBFac_Ciudad.Clear();
-                    this.CH_Facturacion.Checked = false;
-
-                    this.Actualizar_DetFacturacion();
-                }
-
-                else
-                {
-                    this.MensajeError(rptaDatosBasicos);
-                }
+                this.Modificar_Facturacion();
             }
             catch (Exception ex)
             {
@@ -834,43 +1360,7 @@ namespace Presentacion
         {
             try
             {
-                string rptaDatosBasicos = "";
-
-                rptaDatosBasicos = fCliente.Editar_Despacho
-
-                            (
-                                 //Datos Auxiliares
-                                 Convert.ToInt32(this.TBIddespacho.Text), Convert.ToInt32(this.TBIdcliente.Text),
-
-                                 //Panel Datos Basicos
-                                 this.TBDes_Ciudad.Text,this.TBDes_Receptor.Text, Convert.ToInt64(this.TBDes_Movil.Text), this.TBDes_Direccion.Text, this.TBDes_Observacion.Text,
-
-                                //SI ES IGUAL A 2 SE EDITARAN LOS REGISTROS EN LA BASE DE DATOS
-                                2
-                            );
-
-                if (rptaDatosBasicos.Equals("OK"))
-                {
-                    if (this.Digitar)
-                    {
-                        this.MensajeOk("El Registro de Despachos del Cliente: “" + this.TBDat_Nombre.Text + "” a Sido Actualizado Exitosamente");
-                    }
-
-                    //SE LIMPIAN LOS CAMPOS DE TEXTO
-                    this.TBIddespacho.Clear();
-                    this.TBDes_Ciudad.Clear();
-                    this.TBDes_Receptor.Clear();
-                    this.TBDes_Direccion.Clear();
-                    this.TBDes_Movil.Clear();
-                    this.TBDes_Observacion.Clear();
-
-                    this.Actualizar_DetDespacho();
-                }
-
-                else
-                {
-                    this.MensajeError(rptaDatosBasicos);
-                }
+                this.Modificar_Despacho();
             }
             catch (Exception ex)
             {
@@ -882,42 +1372,7 @@ namespace Presentacion
         {
             try
             {
-                string rptaDatosBasicos = "";
-
-                rptaDatosBasicos = fCliente.Editar_Financiera
-
-                            (
-                                 //Datos Auxiliares
-                                 Convert.ToInt32(this.TBIdfinanciera.Text), Convert.ToInt32(this.TBIdcliente.Text), Convert.ToInt32(this.TBIdbanco.Text),
-
-                                 //Panel Datos Basicos
-                                 this.CBFin_Cuenta.Text, Convert.ToInt64(this.TBFin_NumCuenta.Text),
-
-                                //SI ES IGUAL A 2 SE EDITARAN LOS REGISTROS EN LA BASE DE DATOS
-                                2
-                            );
-
-                if (rptaDatosBasicos.Equals("OK"))
-                {
-                    if (this.Digitar)
-                    {
-                        this.MensajeOk("El Registro Financiero del Cliente: “" + this.TBDat_Nombre.Text + "” a Sido Actualizado Exitosamente");
-                    }
-
-                    //SE LIMPIAN LOS CAMPOS DE TEXTO
-                    this.TBIdfinanciera.Clear();
-                    this.TBFin_CodigoBanco.Clear();
-                    this.TBFin_Banco.Clear();
-                    this.TBFin_NumCuenta.Clear();
-                    this.CBFin_Cuenta.SelectedIndex = 0;
-
-                    this.Actualizar_DetFinanciera();
-                }
-
-                else
-                {
-                    this.MensajeError(rptaDatosBasicos);
-                }
+                this.Modificar_Financiera();
             }
             catch (Exception ex)
             {
@@ -929,44 +1384,7 @@ namespace Presentacion
         {
             try
             {
-                string rptaDatosBasicos = "";
-
-                rptaDatosBasicos = fCliente.Editar_Contacto
-
-                            (
-                                 //Datos Auxiliares
-                                 Convert.ToInt32(this.TBIdcontacto.Text), Convert.ToInt32(this.TBIdcliente.Text),
-
-                                 //Panel Datos Basicos
-                                 this.TBCon_Contacto.Text, this.TBCon_Ciudad.Text, this.TBCon_Direccion.Text, Convert.ToInt64(this.TBCon_Movil.Text), this.TBCon_Correo.Text, this.TBCon_Parentesco.Text,
-
-                                //SI ES IGUAL A 2 SE EDITARAN LOS REGISTROS EN LA BASE DE DATOS
-                                2
-                            );
-
-                if (rptaDatosBasicos.Equals("OK"))
-                {
-                    if (this.Digitar)
-                    {
-                        this.MensajeOk("El Registro de Contacto del Cliente: “" + this.TBDat_Nombre.Text + "” a Sido Actualizado Exitosamente");
-                    }
-
-                    //SE LIMPIAN LOS CAMPOS DE TEXTO
-                    this.TBIdcontacto.Clear();
-                    this.TBCon_Contacto.Clear();
-                    this.TBCon_Ciudad.Clear();
-                    this.TBCon_Direccion.Clear();
-                    this.TBCon_Movil.Clear();
-                    this.TBCon_Correo.Clear();
-                    this.TBCon_Parentesco.Clear();
-
-                    this.Actualizar_DetContacto();
-                }
-
-                else
-                {
-                    this.MensajeError(rptaDatosBasicos);
-                }
+                this.Modificar_Contacto();
             }
             catch (Exception ex)
             {
@@ -979,110 +1397,7 @@ namespace Presentacion
         {
             try
             {
-                if (Digitar)
-                {
-                    if (this.TBFac_CodigoAsesor.Text == String.Empty)
-                    {
-                        this.MensajeError("Por favor seleccione el Empleado a Cargo de la Facturación del Cliente. En caso de no tener alguno Cargar un Empleado de Tipo Contado");
-                    }
-                    else if (this.TBFac_DocumentoCliente.Text == String.Empty)
-                    {
-                        this.MensajeError("Por favor especifique la Identificación del Cliente");
-                        this.TBFac_DocumentoCliente.Select();
-                    }
-                    else if (this.TBFac_Cliente.Text == String.Empty)
-                    {
-                        this.MensajeError("Por favor especifique el Nombre del Cliente");
-                        this.TBFac_Cliente.Select();
-                    }
-                    else
-                    {
-                        DataRow fila = this.DtDetalle_Facturacion.NewRow();
-                        fila["Idcliente"] = Convert.ToInt32(this.TBIdcliente_AutoSQL.Text);
-                        fila["Idempleado"] = Convert.ToInt32(this.TBIdempleado.Text);
-                        fila["Código"] = this.TBFac_CodigoAsesor.Text;
-                        fila["Empleado"] = this.TBFac_Asesor.Text;
-                        fila["Cliente"] = this.TBFac_Cliente.Text;
-                        fila["Documento"] = Convert.ToInt64(this.TBFac_DocumentoCliente.Text);
-                        fila["Movil"] = Convert.ToInt64(this.TBFac_Movil.Text);
-                        fila["Ciudad"] = this.TBFac_Ciudad.Text;
-                        fila["Correo"] = this.TBFac_Correo.Text;
-                        this.DtDetalle_Facturacion.Rows.Add(fila);
-
-                        //
-                        this.TBIdfacturacion.Clear();
-                        this.TBFac_Cliente.Clear();
-                        this.TBFac_Asesor.Clear();
-                        this.TBFac_DocumentoCliente.Clear();
-                        this.TBFac_CodigoAsesor.Clear();
-                        this.TBFac_Movil.Clear();
-                        this.TBFac_Correo.Clear();
-                        this.TBFac_Ciudad.Clear();
-                        this.CH_Facturacion.Checked = false;
-                    }
-                }
-                else
-                {
-                    if (this.TBFac_CodigoAsesor.Text == String.Empty)
-                    {
-                        this.MensajeError("Por favor seleccione el Empleado a Cargo de la Facturación del Cliente. En caso de no tener alguno Cargar un Empleado de Tipo Contado");
-                    }
-                    else if (this.TBFac_DocumentoCliente.Text == String.Empty)
-                    {
-                        this.MensajeError("Por favor especifique la Identificación del Cliente");
-                        this.TBFac_DocumentoCliente.Select();
-                    }
-                    else if (this.TBFac_Cliente.Text == String.Empty)
-                    {
-                        this.MensajeError("Por favor especifique el Nombre del Cliente");
-                        this.TBFac_Cliente.Select();
-                    }
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Datos de Facturación del Cliente?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            string rptaDatosBasicos = "";
-                            rptaDatosBasicos = fCliente.Guardar_Facturacion
-
-                                    (
-                                         //Datos Basicos
-                                         Convert.ToInt32(this.TBIdcliente.Text), Convert.ToInt32(this.TBIdempleado.Text), this.TBFac_Asesor.Text, this.TBFac_CodigoAsesor.Text, this.TBFac_Cliente.Text, Convert.ToInt64(this.TBFac_DocumentoCliente.Text), Convert.ToInt64(this.TBFac_Movil.Text), this.TBFac_Ciudad.Text, this.TBFac_Correo.Text,
-
-                                        //Datos Auxiliares
-                                        1
-                                    );
-
-                            if (rptaDatosBasicos.Equals("OK"))
-                            {
-                                this.MensajeOk("Los Datos de Facturacion del Cliente: " + TBDat_Nombre.Text + " han Sido Registrados Exitosamente");
-                            }
-
-                            else
-                            {
-                                this.MensajeError(rptaDatosBasicos);
-                            }
-
-                            //
-                            this.TBIdfacturacion.Clear();
-                            this.TBFac_Cliente.Clear();
-                            this.TBFac_Asesor.Clear();
-                            this.TBFac_DocumentoCliente.Clear();
-                            this.TBFac_CodigoAsesor.Clear();
-                            this.TBFac_Movil.Clear();
-                            this.TBFac_Correo.Clear();
-                            this.TBFac_Ciudad.Clear();
-                            this.CH_Facturacion.Checked = false;
-
-                            this.Actualizar_DetFacturacion();
-                        }
-                        else
-                        {
-                            this.TBFac_Cliente.Focus();
-                        }
-                    }
-                }
+                this.Agregar_Facturacion();
             }
             catch (Exception ex)
             {
@@ -1094,114 +1409,7 @@ namespace Presentacion
         {
             try
             {
-                if (Digitar)
-                {
-                    if (this.TBDes_Ciudad.Text == String.Empty)
-                    {
-                        this.MensajeError("Por favor Especifique la Ciudad a Enviar");
-                        this.TBDes_Ciudad.Select();
-                    }
-                    else if (this.TBDes_Receptor.Text == String.Empty)
-                    {
-                        this.MensajeError("Por favor Especifique el Nombre de la Persona que Recibe el Envio");
-                        this.TBDes_Receptor.Select();
-                    }
-                    else if (this.TBDes_Ciudad.Text == String.Empty)
-                    {
-                        this.MensajeError("Por favor Especifique la Ciudad de Destino del Envio");
-                        this.TBDes_Ciudad.Select();
-                    }
-                    else if (this.TBDes_Movil.Text == String.Empty)
-                    {
-                        this.MensajeError("Por favor Especifique un Número de Contacto");
-                        this.TBDes_Movil.Select();
-                    }
-                    else
-                    {
-
-                        DataRow fila = this.DtDetalle_Despacho.NewRow();
-                        fila["Idcliente"] = Convert.ToInt32(this.TBIdcliente_AutoSQL.Text);
-                        fila["Ciudad"] = this.TBDes_Ciudad.Text;
-                        fila["Receptor"] = this.TBDes_Receptor.Text;
-                        fila["Móvil"] = Convert.ToInt64(this.TBDes_Movil.Text);
-                        fila["Dirección"] = this.TBDes_Direccion.Text;
-                        fila["Observación"] = this.TBDes_Observacion.Text;
-                        this.DtDetalle_Despacho.Rows.Add(fila);
-
-                        //
-                        this.TBIddespacho.Clear();
-                        this.TBDes_Ciudad.Clear();
-                        this.TBDes_Receptor.Clear();
-                        this.TBDes_Direccion.Clear();
-                        this.TBDes_Movil.Clear();
-                        this.TBDes_Observacion.Clear();
-                    }
-                }
-                else
-                {
-                    if (this.TBDes_Ciudad.Text == String.Empty)
-                    {
-                        this.MensajeError("Por favor Especifique la Ciudad a Enviar");
-                        this.TBDes_Ciudad.Select();
-                    }
-                    else if (this.TBDes_Receptor.Text == String.Empty)
-                    {
-                        this.MensajeError("Por favor Especifique el Nombre de la Persona que Recibe el Envio");
-                        this.TBDes_Receptor.Select();
-                    }
-                    else if (this.TBDes_Ciudad.Text == String.Empty)
-                    {
-                        this.MensajeError("Por favor Especifique la Ciudad de Destino del Envio");
-                        this.TBDes_Ciudad.Select();
-                    }
-                    else if (this.TBDes_Movil.Text == String.Empty)
-                    {
-                        this.MensajeError("Por favor Especifique un Número de Contacto");
-                        this.TBDes_Movil.Select();
-                    }
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Datos de Despacho del Cliente?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            string rptaDatosBasicos = "";
-                            rptaDatosBasicos = fCliente.Guardar_Despacho
-
-                                    (
-                                         //Datos Basicos
-                                         Convert.ToInt32(this.TBIdcliente.Text), this.TBDes_Ciudad.Text, this.TBDes_Receptor.Text,Convert.ToInt64(this.TBDes_Movil.Text), this.TBDes_Direccion.Text, this.TBDes_Observacion.Text,
-
-                                        //Datos Auxiliares
-                                        1
-                                    );
-
-                            if (rptaDatosBasicos.Equals("OK"))
-                            {
-                                this.MensajeOk("Los Datos de Despacho del Cliente: " + TBDat_Nombre.Text + " han Sido Registrados Exitosamente");
-                            }
-
-                            else
-                            {
-                                this.MensajeError(rptaDatosBasicos);
-                            }
-
-                            //
-                            this.TBIddespacho.Clear();
-                            this.TBDes_Ciudad.Clear();
-                            this.TBDes_Receptor.Clear();
-                            this.TBDes_Direccion.Clear();
-                            this.TBDes_Movil.Clear();
-                            this.TBDes_Observacion.Clear();
-
-                            this.Actualizar_DetDespacho();
-                        }
-                        else
-                        {
-                            this.TBDes_Receptor.Select();
-                        }
-                    }
-                }
+                this.Agregar_Despacho();
             }
             catch (Exception ex)
             {
@@ -1213,101 +1421,7 @@ namespace Presentacion
         {
             try
             {
-                if (Digitar)
-                {
-                    if (this.TBFin_CodigoBanco.Text == String.Empty)
-                    {
-                        this.MensajeError("Por favor Especifique el Banco o Entidad Financiera");
-                        this.TBFin_CodigoBanco.Select();
-                    }
-                    else if (this.TBFin_Banco.Text == String.Empty)
-                    {
-                        this.MensajeError("Por favor Especifique el Banco o Entidad Financiera");
-                        this.TBFin_Banco.Select();
-                    }
-                    else if (this.TBFin_NumCuenta.Text == String.Empty)
-                    {
-                        this.MensajeError("Por favor Especifique el Número de Cuenta Bancaria");
-                        this.TBFin_NumCuenta.Select();
-                    }
-
-                    else
-                    {
-
-                        DataRow fila = this.DtDetalle_Financiera.NewRow();
-                        fila["Idcliente"] = Convert.ToInt32(this.TBIdcliente.Text);
-                        fila["Idbanco"] = this.TBFin_CodigoBanco.Text;
-                        fila["Cuenta"] = this.CBFin_Cuenta.Text;
-                        fila["Nº. de Cuenta"] = Convert.ToInt64(this.TBFin_NumCuenta.Text);
-                        this.DtDetalle_Financiera.Rows.Add(fila);
-
-                        //
-                        this.TBIdfinanciera.Clear();
-                        this.TBFin_CodigoBanco.Clear();
-                        this.TBFin_Banco.Clear();
-                        this.TBFin_NumCuenta.Clear();
-                        this.CBFin_Cuenta.SelectedIndex = 0;
-                    }
-                }
-                else
-                {
-                    if (this.TBFin_CodigoBanco.Text == String.Empty)
-                    {
-                        this.MensajeError("Por favor Especifique el Banco o Entidad Financiera");
-                        this.TBFin_CodigoBanco.Select();
-                    }
-                    else if (this.TBFin_Banco.Text == String.Empty)
-                    {
-                        this.MensajeError("Por favor Especifique el Banco o Entidad Financiera");
-                        this.TBFin_Banco.Select();
-                    }
-                    else if (this.TBFin_NumCuenta.Text == String.Empty)
-                    {
-                        this.MensajeError("Por favor Especifique el Número de Cuenta Bancaria");
-                        this.TBFin_NumCuenta.Select();
-                    }
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Datos Financieros del Cliente?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            string rptaDatosBasicos = "";
-                            rptaDatosBasicos = fCliente.Guardar_Financiera
-
-                                    (
-                                         //Datos Basicos
-                                         Convert.ToInt32(this.TBIdcliente.Text), Convert.ToInt32(this.TBIdbanco.Text), this.CBFin_Cuenta.Text, Convert.ToInt64(this.TBFin_NumCuenta.Text),
-
-                                        //Datos Auxiliares
-                                        1
-                                    );
-
-                            if (rptaDatosBasicos.Equals("OK"))
-                            {
-                                this.MensajeOk("Los Datos Financieros del Cliente: " + TBDat_Nombre.Text + " han Sido Registrados Exitosamente");
-                            }
-
-                            else
-                            {
-                                this.MensajeError(rptaDatosBasicos);
-                            }
-
-                            //
-                            this.TBIdfinanciera.Clear();
-                            this.TBFin_CodigoBanco.Clear();
-                            this.TBFin_Banco.Clear();
-                            this.TBFin_NumCuenta.Clear();
-                            this.CBFin_Cuenta.SelectedIndex = 0;
-
-                            this.Actualizar_DetFinanciera();
-                        }
-                        else
-                        {
-                            this.TBFin_NumCuenta.Select();
-                        }
-                    }
-                }
+                this.Agregar_Financiera();
             }
             catch (Exception ex)
             {
@@ -1319,119 +1433,7 @@ namespace Presentacion
         {
             try
             {
-                if (Digitar)
-                {
-                    if (this.TBCon_Contacto.Text == String.Empty)
-                    {
-                        this.MensajeError("Por favor Especifique el Nombre de la Persona de Contacto");
-                        this.TBCon_Contacto.Select();
-                    }
-                    else if (this.TBCon_Ciudad.Text == String.Empty)
-                    {
-                        this.MensajeError("Por favor Especifique una Ciudad de Contacto");
-                        this.TBCon_Ciudad.Select();
-                    }
-                    else if (this.TBCon_Direccion.Text == String.Empty)
-                    {
-                        this.MensajeError("Por favor Especifique una Dirección de Contacto");
-                        this.TBCon_Direccion.Select();
-                    }
-                    else if (this.TBCon_Movil.Text == String.Empty)
-                    {
-                        this.MensajeError("Por favor Especifique un Número Movil de Contacto");
-                        this.TBCon_Movil.Select();
-                    }
-
-                    else
-                    {
-
-                        DataRow fila = this.DtDetalle_Contacto.NewRow();
-                        fila["Idcliente"] = Convert.ToInt32(this.TBIdcliente_AutoSQL.Text);
-                        fila["Contacto"] = this.TBCon_Contacto.Text;
-                        fila["Ciudad"] = this.TBCon_Ciudad.Text;
-                        fila["Dirección"] = this.TBCon_Direccion.Text;
-                        fila["Móvil"] = Convert.ToInt64(this.TBCon_Movil.Text);
-                        fila["Correo"] = this.TBCon_Correo.Text;
-                        fila["Parentesco"] = this.TBCon_Parentesco.Text;
-                        this.DtDetalle_Contacto.Rows.Add(fila);
-
-                        //
-                        this.TBIdcontacto.Clear();
-                        this.TBCon_Contacto.Clear();
-                        this.TBCon_Ciudad.Clear();
-                        this.TBCon_Direccion.Clear();
-                        this.TBCon_Movil.Clear();
-                        this.TBCon_Correo.Clear();
-                        this.TBCon_Parentesco.Clear();
-                    }
-                }
-                else
-                {
-                    if (this.TBCon_Contacto.Text == String.Empty)
-                    {
-                        this.MensajeError("Por favor Especifique el Nombre de la Persona de Contacto");
-                        this.TBCon_Contacto.Select();
-                    }
-                    else if (this.TBCon_Ciudad.Text == String.Empty)
-                    {
-                        this.MensajeError("Por favor Especifique una Ciudad de Contacto");
-                        this.TBCon_Ciudad.Select();
-                    }
-                    else if (this.TBCon_Direccion.Text == String.Empty)
-                    {
-                        this.MensajeError("Por favor Especifique una Dirección de Contacto");
-                        this.TBCon_Direccion.Select();
-                    }
-                    else if (this.TBCon_Movil.Text == String.Empty)
-                    {
-                        this.MensajeError("Por favor Especifique un Número Móvil de Contacto");
-                        this.TBCon_Movil.Select();
-                    }
-
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("¿Desea Registrar los Datos de Despacho del Cliente?", "Leal Enterprise - Solicitud de Procedimiento", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            string rptaDatosBasicos = "";
-                            rptaDatosBasicos = fCliente.Guardar_Contacto
-
-                                    (
-                                         //Datos Basicos
-                                         Convert.ToInt32(this.TBIdcliente.Text), this.TBCon_Contacto.Text, this.TBCon_Ciudad.Text, this.TBCon_Direccion.Text, Convert.ToInt64(this.TBCon_Movil.Text), this.TBCon_Correo.Text, this.TBCon_Parentesco.Text,
-
-                                        //Datos Auxiliares
-                                        1
-                                    );
-
-                            if (rptaDatosBasicos.Equals("OK"))
-                            {
-                                this.MensajeOk("Los Datos de Contacto del Cliente: " + TBDat_Nombre.Text + " han Sido Registrados Exitosamente");
-                            }
-
-                            else
-                            {
-                                this.MensajeError(rptaDatosBasicos);
-                            }
-
-                            //
-                            this.TBIdcontacto.Clear();
-                            this.TBCon_Contacto.Clear();
-                            this.TBCon_Ciudad.Clear();
-                            this.TBCon_Direccion.Clear();
-                            this.TBCon_Movil.Clear();
-                            this.TBCon_Correo.Clear();
-                            this.TBCon_Parentesco.Clear();
-
-                            this.Actualizar_DetContacto();
-                        }
-                        else
-                        {
-                            this.TBCon_Contacto.Select();
-                        }
-                    }
-                }
+                this.Agregar_Contacto();
             }
             catch (Exception ex)
             {
@@ -3000,6 +3002,19 @@ namespace Presentacion
             }
         }
 
+        private void btnExaminar_Banco_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmFiltro_Banco frmFiltro_Banco = new frmFiltro_Banco();
+                frmFiltro_Banco.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
         private void TBDat_Movil_KeyPress(object sender, KeyPressEventArgs e)
         {
             try
@@ -3463,6 +3478,11 @@ namespace Presentacion
 
                     this.TBFac_Cliente.Select();
                 }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F3))
+                {
+                    //
+                    this.Agregar_Facturacion();
+                }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
                     //Al precionar las teclas F10 se realizara el registro en la base de datos
@@ -3530,6 +3550,11 @@ namespace Presentacion
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
                     this.TBFac_Movil.Select();
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F3))
+                {
+                    //
+                    this.Agregar_Facturacion();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
@@ -3599,6 +3624,11 @@ namespace Presentacion
 
                     this.TBFac_Ciudad.Select();
                 }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F3))
+                {
+                    //
+                    this.Agregar_Facturacion();
+                }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
                     //Al precionar las teclas F10 se realizara el registro en la base de datos
@@ -3667,6 +3697,11 @@ namespace Presentacion
 
                     this.TBFac_Correo.Select();
                 }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F3))
+                {
+                    //
+                    this.Agregar_Facturacion();
+                }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
                     //Al precionar las teclas F10 se realizara el registro en la base de datos
@@ -3734,6 +3769,11 @@ namespace Presentacion
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
                     this.TBFac_DocumentoCliente.Select();
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F3))
+                {
+                    //
+                    this.Agregar_Facturacion();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
@@ -3806,6 +3846,11 @@ namespace Presentacion
 
                     this.TBDes_Movil.Select();
                 }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F3))
+                {
+                    //
+                    this.Agregar_Despacho();
+                }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
                     //Al precionar las teclas F10 se realizara el registro en la base de datos
@@ -3873,6 +3918,11 @@ namespace Presentacion
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
                     this.TBDes_Ciudad.Select();
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F3))
+                {
+                    //
+                    this.Agregar_Despacho();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
@@ -3942,6 +3992,11 @@ namespace Presentacion
 
                     this.TBDes_Direccion.Select();
                 }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F3))
+                {
+                    //
+                    this.Agregar_Despacho();
+                }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
                     //Al precionar las teclas F10 se realizara el registro en la base de datos
@@ -4010,6 +4065,11 @@ namespace Presentacion
 
                     this.TBDes_Observacion.Select();
                 }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F3))
+                {
+                    //
+                    this.Agregar_Despacho();
+                }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
                     //Al precionar las teclas F10 se realizara el registro en la base de datos
@@ -4077,6 +4137,11 @@ namespace Presentacion
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
                     this.TBDes_Receptor.Select();
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F3))
+                {
+                    //
+                    this.Agregar_Despacho();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
@@ -4148,6 +4213,11 @@ namespace Presentacion
 
                     this.TBFin_NumCuenta.Select();
                 }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F3))
+                {
+                    //
+                    this.Agregar_Financiera();
+                }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
                     //Al precionar las teclas F10 se realizara el registro en la base de datos
@@ -4218,6 +4288,11 @@ namespace Presentacion
 
                     this.TBCon_Ciudad.Select();
                 }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F3))
+                {
+                    //
+                    this.Agregar_Contacto();
+                }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
                     //Al precionar las teclas F10 se realizara el registro en la base de datos
@@ -4285,6 +4360,11 @@ namespace Presentacion
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
                     this.TBCon_Direccion.Select();
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F3))
+                {
+                    //
+                    this.Agregar_Contacto();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
@@ -4354,6 +4434,11 @@ namespace Presentacion
 
                     this.TBCon_Movil.Select();
                 }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F3))
+                {
+                    //
+                    this.Agregar_Contacto();
+                }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
                     //Al precionar las teclas F10 se realizara el registro en la base de datos
@@ -4421,6 +4506,11 @@ namespace Presentacion
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
                     this.TBCon_Parentesco.Select();
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F3))
+                {
+                    //
+                    this.Agregar_Contacto();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
@@ -4490,6 +4580,11 @@ namespace Presentacion
 
                     this.TBCon_Contacto.Select();
                 }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F3))
+                {
+                    //
+                    this.Agregar_Contacto();
+                }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {
                     //Al precionar las teclas F10 se realizara el registro en la base de datos
@@ -4557,6 +4652,11 @@ namespace Presentacion
                     //Al precionar la tecla Bajar se realiza Focus al Texboxt Siguiente
 
                     this.TBCon_Correo.Select();
+                }
+                else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F3))
+                {
+                    //
+                    this.Agregar_Contacto();
                 }
                 else if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F10))
                 {

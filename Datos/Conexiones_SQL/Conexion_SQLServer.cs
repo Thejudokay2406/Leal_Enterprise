@@ -20,11 +20,11 @@ namespace Datos
 
         private Conexion_SQLServer()
         {
-            //this.Base = "Leal_Enterprise";
-            //this.Servidor = "(local)";
-            //this.Usuario = "LealTecnologia";
-            //this.Contraseña = "TecnologiaLealSQL.XXX";
-            //this.Seguridad = true;
+            this.Base = "Leal_Enterprise";
+            this.Servidor = "(local)";
+            this.Usuario = "LealTecnologia";
+            this.Contraseña = "TecnologiaLealSQL.XXX";
+            this.Seguridad = true;
         }
 
         public SqlConnection Conexion()
@@ -33,14 +33,14 @@ namespace Datos
             try
             {
                 ////CONEXION FUNCIONAL
-                Cadena.ConnectionString = Properties.Settings.Default.Conexion_General;
+                //Cadena.ConnectionString = Properties.Settings.Default.Conexion_General;
 
 
-                //Cadena.ConnectionString = "Server=" + Servidor + "; Database=" + Base + ";";
-                //if (this.Seguridad)
-                //{
-                //    Cadena.ConnectionString = Cadena.ConnectionString + "User Id=" + Usuario + "; Password=" + Contraseña;
-                //}
+                Cadena.ConnectionString = "Server=" + Servidor + "; Database=" + Base + ";";
+                if (this.Seguridad)
+                {
+                    Cadena.ConnectionString = Cadena.ConnectionString + "User Id=" + Usuario + "; Password=" + Contraseña;
+                }
             }
             catch (Exception ex)
             {

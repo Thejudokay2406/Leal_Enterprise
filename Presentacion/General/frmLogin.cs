@@ -109,14 +109,14 @@ namespace Presentacion
                     }
                     else
                     {
-                        DataTable Datos_Seguridad = Negocio.fEquipos.Seguridad_SQL(Equipo_SQL, HDD_SQL, MacSeguridad_SQL);
-                        //Evaluamos si  existen los Datos
-                        if (Datos_Seguridad.Rows.Count == 0)
-                        {
-                            MessageBox.Show("Niveles de Seguridad no Cumplidos", "Leal Enterprise - Acceso Denegado", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        else
-                        {
+                        //DataTable Datos_Seguridad = Negocio.fEquipos.Seguridad_SQL(Equipo_SQL, HDD_SQL, MacSeguridad_SQL);
+                        ////Evaluamos si  existen los Datos
+                        //if (Datos_Seguridad.Rows.Count == 0)
+                        //{
+                        //    MessageBox.Show("Niveles de Seguridad no Cumplidos", "Leal Enterprise - Acceso Denegado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //}
+                        //else
+                        //{
 
                             ////<<<<<<----- Al pasar las pruebas de seguridad se procede a verificar los usuarios ingresados
 
@@ -154,7 +154,7 @@ namespace Presentacion
                                 this.Hide();
 
                             }
-                        }
+                        //}
                     }
                 }
             }

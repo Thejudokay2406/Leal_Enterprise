@@ -117,13 +117,13 @@ namespace Negocio
         public static string Guardar_DatosBasicos
             (
                 //Llaves Auxiliares Datos Basicos
-                int Auto, int Idmarca, int Idgrupo, int Idtipo, int Idempaque,
+                string operacion, int Idmarca, int Idgrupo, int Idtipo, int Idempaque,
 
                 //Datos para Ejecutar las Transacciones en SQL
                 int Tran_Ubicacion, int Tran_Igualdad, int Tran_Impuesto, int Tran_Proveedor, int Tran_CodBarra, int Tran_Compuesto, int Tran_Exterior,
 
                 //Datos Basicos
-                string Area, string Codigo, string Producto, string Referencia, string Descripcion, string Presentacion, Int64 Comision, int ManejaVencimiento, int ManejaImpuesto, int Importado, int Exportado, int Ofertable, int Fabricado, int ManejaComision, int ManejaEmpaque, int ManejaBalanza, int ManejaRetencion, Int64 CompraMinima, int Compras, int Ventas, Int64 CompraMaxima, Int64 VentaMinina, Int64 VentaMaxima,
+                string Area, string Codigo, string Producto, string Referencia, string Descripcion, string Descripcion02, string Descripcion03, string Presentacion, Int64 Comision, int ManejaVencimiento, int ManejaImpuesto, int Importado, int Exportado, int Ofertable, int Fabricado, int ManejaComision, int ManejaEmpaque, int ManejaBalanza, int ManejaRetencion, Int64 CompraMinima, int Compras, int Ventas, Int64 CompraMaxima, Int64 VentaMinina, Int64 VentaMaxima,
 
                 //Valores
                 double Compra_Promedio, double Compra_Final, double Venta01, double Venta02, double Venta03, double Mayorista, double Venta01_Porcentaje, double Venta02_Porcentaje, double Venta03_Porcentaje, double Mayorista_Porcentaje, double Venta01_BaseInicial, double Venta02_BaseInicial, double Venta03_BaseInicial, double Mayorista_BaseInicial, double Venta01_Impuesto, double Venta02_Impuesto, double Venta03_Impuesto, double Mayorista_Impuesto,
@@ -144,7 +144,7 @@ namespace Negocio
             Entidad_Productos Obj = new Entidad_Productos();
 
             //Llaves Auxiliares Datos Basicos
-            Obj.Auto = Auto;
+            Obj.Operacion = operacion;
             Obj.Idmarca = Idmarca;
             Obj.Idgrupo = Idgrupo;
             Obj.Idtipo = Idtipo;
@@ -156,6 +156,8 @@ namespace Negocio
             Obj.Producto = Producto;
             Obj.Referencia = Referencia;
             Obj.Descripcion = Descripcion;
+            Obj.Descripcion02 = Descripcion02;
+            Obj.Descripcion03 = Descripcion03;
             Obj.Presentacion = Presentacion;
             Obj.Comision = Comision;
             Obj.CompraMinima = CompraMinima;
@@ -241,13 +243,13 @@ namespace Negocio
         public static string Editar_DatosBasicos
             (
                 //Llaves Auxiliares Datos Basicos
-                int Auto, int Idproducto, int Idmarca, int Idgrupo, int Idtipo, int Idempaque,
+                int operacion, int Idproducto, int Idmarca, int Idgrupo, int Idtipo, int Idempaque,
 
                 //Datos para Ejecutar las Transacciones en SQL
                 int Tran_Ubicacion, int Tran_Igualdad, int Tran_Impuesto, int Tran_Proveedor, int Tran_CodBarra, int Tran_Compuesto, int Tran_Exterior,
 
                 //Datos Basicos
-                string Area, string Codigo, string Producto, string Referencia, string Descripcion, string Presentacion, Int64 Comision, int ManejaVencimiento, int ManejaImpuesto, int Importado, int Exportado, int Ofertable, int Fabricado, int ManejaComision, int ManejaEmpaque, int ManejaBalanza, int ManejaRetencion, int Compras, int Ventas, Int64 CompraMinima, Int64 CompraMaxima, Int64 VentaMinina, Int64 VentaMaxima, 
+                string Area, string Codigo, string Producto, string Referencia, string Descripcion, string Descripcion02, string Descripcion03, string Presentacion, Int64 Comision, int ManejaVencimiento, int ManejaImpuesto, int Importado, int Exportado, int Ofertable, int Fabricado, int ManejaComision, int ManejaEmpaque, int ManejaBalanza, int ManejaRetencion, int Compras, int Ventas, Int64 CompraMinima, Int64 CompraMaxima, Int64 VentaMinina, Int64 VentaMaxima, 
 
                 //Valores
                 double Compra_Promedio, double Compra_Final, double Venta01, double Venta02, double Venta03, double Mayorista, double Venta01_Porcentaje, double Venta02_Porcentaje, double Venta03_Porcentaje, double Mayorista_Porcentaje, double Venta01_BaseInicial, double Venta02_BaseInicial, double Venta03_BaseInicial, double Mayorista_BaseInicial, double Venta01_Impuesto, double Venta02_Impuesto, double Venta03_Impuesto, double Mayorista_Impuesto,
@@ -268,7 +270,7 @@ namespace Negocio
             Entidad_Productos Obj = new Entidad_Productos();
 
             //Llaves Auxiliares Datos Basicos
-            Obj.Auto = Auto;
+            Obj.Auto = operacion;
             Obj.Idproducto = Idproducto;
             Obj.Idmarca = Idmarca;
             Obj.Idgrupo = Idgrupo;
@@ -281,6 +283,8 @@ namespace Negocio
             Obj.Producto = Producto;
             Obj.Referencia = Referencia;
             Obj.Descripcion = Descripcion;
+            Obj.Descripcion02 = Descripcion02;
+            Obj.Descripcion03 = Descripcion03;
             Obj.Presentacion = Presentacion;
             Obj.Comision = Comision;
             Obj.CompraMinima = CompraMinima;

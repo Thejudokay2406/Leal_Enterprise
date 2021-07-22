@@ -57,6 +57,39 @@ namespace Presentacion
             this.TBCorreo.BackColor = Color.FromArgb(245, 245, 245);
         }
 
+        private void Agregar_Filtro()
+        {
+            try
+            {
+                frmDepartamento frmDep = frmDepartamento.GetInstancia();
+                frmCliente frmCli = frmCliente.GetInstancia();
+
+                //Variables Para Los Filtros
+                string idempleado, empleado, documento;
+
+                if (frmDep.Filtro)
+                {
+                    idempleado = this.DGFiltro_Facturacion.CurrentRow.Cells[0].Value.ToString();
+                    empleado = this.DGFiltro_Facturacion.CurrentRow.Cells[2].Value.ToString();
+                    frmDep.setEmpleado(idempleado, empleado);
+                    this.Hide();
+                }
+
+                if (frmCli.Filtro)
+                {
+                    idempleado = this.DGFiltro_Facturacion.CurrentRow.Cells[0].Value.ToString();
+                    empleado = this.DGFiltro_Facturacion.CurrentRow.Cells[2].Value.ToString();
+                    documento = this.DGFiltro_Facturacion.CurrentRow.Cells[3].Value.ToString();
+                    frmCli.setEmpleado(idempleado, documento, empleado);
+                    this.Hide();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
         //private void Mostrar()
         //{
         //    this.dataListado.DataSource = NCliente.Mostrar();
@@ -106,28 +139,7 @@ namespace Presentacion
         {
             try
             {
-                //frmDepartamento frmDep = frmDepartamento.GetInstancia();
-                frmCliente frmCli = frmCliente.GetInstancia();
-
-                //Variables Para Los Filtros
-                string idempleado, empleado, documento;
-
-                //if (frmDep.Filtro)
-                //{
-                //    idempleado = this.DGFiltro_Facturacion.CurrentRow.Cells[0].Value.ToString();
-                //    empleado = this.DGFiltro_Facturacion.CurrentRow.Cells[2].Value.ToString();
-                //    frmDep.setEmpleado(idempleado, empleado);
-                //    this.Hide();
-                //}
-
-                if (frmCli.Filtro)
-                {
-                    idempleado = this.DGFiltro_Facturacion.CurrentRow.Cells[0].Value.ToString();
-                    empleado = this.DGFiltro_Facturacion.CurrentRow.Cells[2].Value.ToString();
-                    documento = this.DGFiltro_Facturacion.CurrentRow.Cells[3].Value.ToString();
-                    frmCli.setEmpleado(idempleado, documento, empleado);
-                    this.Hide();
-                }
+                this.Agregar_Filtro();
             }
             catch (Exception ex)
             {
@@ -139,19 +151,7 @@ namespace Presentacion
         {
             try
             {
-                frmCliente frmCli = frmCliente.GetInstancia();
-
-                //Variables Para Los Filtros
-                string idempleado, empleado, documento;
-
-                if (frmCli.Filtro)
-                {
-                    idempleado = this.DGFiltro_Facturacion.CurrentRow.Cells[0].Value.ToString();
-                    empleado = this.DGFiltro_Facturacion.CurrentRow.Cells[2].Value.ToString();
-                    documento = this.DGFiltro_Facturacion.CurrentRow.Cells[3].Value.ToString();
-                    frmCli.setEmpleado(idempleado, documento, empleado);
-                    this.Hide();
-                }
+                this.Agregar_Filtro();
             }
             catch (Exception ex)
             {
@@ -161,7 +161,14 @@ namespace Presentacion
 
         private void btnAgregarEmpl_General_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                this.Agregar_Filtro();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
 
         private void TBBuscar_Facturacion_TextChanged(object sender, EventArgs e)

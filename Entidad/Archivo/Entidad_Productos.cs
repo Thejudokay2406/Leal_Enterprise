@@ -48,6 +48,8 @@ namespace Entidad
         private string _Producto;
         private string _Referencia;
         private string _Descripcion;
+        private string _Descripcion02;
+        private string _Descripcion03;
         private string _Presentacion;
         private Int64 _Comision;
         private Int64 _CompraMinima;
@@ -55,18 +57,20 @@ namespace Entidad
         private Int64 _VentaMinima;
         private Int64 _VentaMaxima;
 
-        private int _ManejaVencimiento;
-        private int _ManejaImpuesto;
+        private int _Ventas;
+        private int _Ofertable;
+        private int _Compras;
+        private int _Fabricado;
         private int _Importado;
         private int _Exportado;
-        private int _Ofertable;
-        private int _Fabricado;
+        private int _ManejaVencimiento;
+        private int _ManejaImpuesto;
+                
         private int _ManejaComision;
         private int _ManejaEmpaque;
         private int _ManejaBalanza;
-        private int _ManejaRetencion; 
-        private int _Compras;
-        private int _Ventas;
+        private int _ManejaRetencion;
+        
 
         //Panel - Codigo de Barra
         private int _Idcodigodebarra;
@@ -201,8 +205,13 @@ namespace Entidad
         private int _Eliminar;
         private int _Producto_AutoSQL;
         private string _Filtro;
+        private string _Operacion;
 
         public int Idproducto { get => _Idproducto; set => _Idproducto = value; }
+        public int Idexterior { get => _Idexterior; set => _Idexterior = value; }
+        public int Idcompuesto { get => _Idcompuesto; set => _Idcompuesto = value; }
+        public int Idigualdad { get => _Idigualdad; set => _Idigualdad = value; }
+        public int Idubicacion { get => _Idubicacion; set => _Idubicacion = value; }
         public int Idmarca { get => _Idmarca; set => _Idmarca = value; }
         public int Idgrupo { get => _Idgrupo; set => _Idgrupo = value; }
         public int Idtipo { get => _Idtipo; set => _Idtipo = value; }
@@ -221,17 +230,27 @@ namespace Entidad
         public int AutoDet_Compuesto { get => _AutoDet_Compuesto; set => _AutoDet_Compuesto = value; }
         public int AutoDet_Exterior { get => _AutoDet_Exterior; set => _AutoDet_Exterior = value; }
         public int AutoDet_Impuesto { get => _AutoDet_Impuesto; set => _AutoDet_Impuesto = value; }
+        public string Area { get => _Area; set => _Area = value; }
         public string Codigo { get => _Codigo; set => _Codigo = value; }
         public string Producto { get => _Producto; set => _Producto = value; }
         public string Referencia { get => _Referencia; set => _Referencia = value; }
         public string Descripcion { get => _Descripcion; set => _Descripcion = value; }
+        public string Descripcion02 { get => _Descripcion02; set => _Descripcion02 = value; }
+        public string Descripcion03 { get => _Descripcion03; set => _Descripcion03 = value; }
         public string Presentacion { get => _Presentacion; set => _Presentacion = value; }
         public long Comision { get => _Comision; set => _Comision = value; }
-        public int ManejaVencimiento { get => _ManejaVencimiento; set => _ManejaVencimiento = value; }
-        public int ManejaImpuesto { get => _ManejaImpuesto; set => _ManejaImpuesto = value; }
+        public long CompraMinima { get => _CompraMinima; set => _CompraMinima = value; }
+        public long CompraMaxima { get => _CompraMaxima; set => _CompraMaxima = value; }
+        public long VentaMinima { get => _VentaMinima; set => _VentaMinima = value; }
+        public long VentaMaxima { get => _VentaMaxima; set => _VentaMaxima = value; }
+        public int Ventas { get => _Ventas; set => _Ventas = value; }
+        public int Ofertable { get => _Ofertable; set => _Ofertable = value; }
+        public int Compras { get => _Compras; set => _Compras = value; }
+        public int Fabricado { get => _Fabricado; set => _Fabricado = value; }
         public int Importado { get => _Importado; set => _Importado = value; }
         public int Exportado { get => _Exportado; set => _Exportado = value; }
-        public int Ofertable { get => _Ofertable; set => _Ofertable = value; }
+        public int ManejaVencimiento { get => _ManejaVencimiento; set => _ManejaVencimiento = value; }
+        public int ManejaImpuesto { get => _ManejaImpuesto; set => _ManejaImpuesto = value; }
         public int ManejaComision { get => _ManejaComision; set => _ManejaComision = value; }
         public int ManejaEmpaque { get => _ManejaEmpaque; set => _ManejaEmpaque = value; }
         public int ManejaBalanza { get => _ManejaBalanza; set => _ManejaBalanza = value; }
@@ -270,6 +289,8 @@ namespace Entidad
         public double Herramientas { get => _Herramientas; set => _Herramientas = value; }
         public double Herramientas_Manuales { get => _Herramientas_Manuales; set => _Herramientas_Manuales = value; }
         public double CostoFabricacion { get => _CostoFabricacion; set => _CostoFabricacion = value; }
+        public long DiasFormal { get => _DiasFormal; set => _DiasFormal = value; }
+        public long DiasProrrogado { get => _DiasProrrogado; set => _DiasProrrogado = value; }
         public double Ext_Aduana { get => _Ext_Aduana; set => _Ext_Aduana = value; }
         public double Ext_Comision { get => _Ext_Comision; set => _Ext_Comision = value; }
         public double Ext_Documento { get => _Ext_Documento; set => _Ext_Documento = value; }
@@ -289,6 +310,7 @@ namespace Entidad
         public DataTable Detalle_Exterior { get => _Detalle_Exterior; set => _Detalle_Exterior = value; }
         public DataTable Detalle_Compuesto { get => _Detalle_Compuesto; set => _Detalle_Compuesto = value; }
         public int Idbodega { get => _Idbodega; set => _Idbodega = value; }
+        public string Bodega { get => _Bodega; set => _Bodega = value; }
         public string Ubicacion { get => _Ubicacion; set => _Ubicacion = value; }
         public string Estante { get => _Estante; set => _Estante = value; }
         public string Nivel { get => _Nivel; set => _Nivel = value; }
@@ -335,20 +357,6 @@ namespace Entidad
         public int Eliminar { get => _Eliminar; set => _Eliminar = value; }
         public int Producto_AutoSQL { get => _Producto_AutoSQL; set => _Producto_AutoSQL = value; }
         public string Filtro { get => _Filtro; set => _Filtro = value; }
-        public int Idexterior { get => _Idexterior; set => _Idexterior = value; }
-        public int Idcompuesto { get => _Idcompuesto; set => _Idcompuesto = value; }
-        public int Idigualdad { get => _Idigualdad; set => _Idigualdad = value; }
-        public int Idubicacion { get => _Idubicacion; set => _Idubicacion = value; }
-        public int Fabricado { get => _Fabricado; set => _Fabricado = value; }
-        public string Bodega { get => _Bodega; set => _Bodega = value; }
-        public string Area { get => _Area; set => _Area = value; }
-        public long CompraMinima { get => _CompraMinima; set => _CompraMinima = value; }
-        public long CompraMaxima { get => _CompraMaxima; set => _CompraMaxima = value; }
-        public long VentaMinima { get => _VentaMinima; set => _VentaMinima = value; }
-        public long VentaMaxima { get => _VentaMaxima; set => _VentaMaxima = value; }
-        public Int64 DiasFormal { get => _DiasFormal; set => _DiasFormal = value; }
-        public Int64 DiasProrrogado { get => _DiasProrrogado; set => _DiasProrrogado = value; }
-        public int Compras { get => _Compras; set => _Compras = value; }
-        public int Ventas { get => _Ventas; set => _Ventas = value; }
+        public string Operacion { get => _Operacion; set => _Operacion = value; }
     }
 }
