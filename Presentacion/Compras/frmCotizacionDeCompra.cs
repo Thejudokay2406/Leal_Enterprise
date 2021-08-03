@@ -58,7 +58,7 @@ namespace Presentacion
             this.Botones();
             this.Habilitar();
             this.CrearTabla();
-            this.AutoCompletar_Combobox();
+            //this.AutoCompletar_Combobox();
 
             //Focus a Texboxt y Combobox
             this.TBCodigo.Select();
@@ -80,26 +80,16 @@ namespace Presentacion
             this.TBCodigo.BackColor = Color.FromArgb(3, 155, 229);
             this.TBCodigo.ForeColor = Color.FromArgb(255, 255, 255);
             this.TBCodigo.Text = Campo;
-            this.TBCodigo_Proveedor.ReadOnly = false;
-            this.TBCodigo_Proveedor.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBCodigo_Proveedor.ForeColor = Color.FromArgb(255, 255, 255);
-            this.TBCodigo_Proveedor.Text = Campo;
             this.TBCodigo_Producto.ReadOnly = false;
             this.TBCodigo_Producto.BackColor = Color.FromArgb(3, 155, 229);
             this.TBCodigo_Producto.ForeColor = Color.FromArgb(255, 255, 255);
             this.TBCodigo_Producto.Text = Campo;
-            this.TBCodigo_Bodega.ReadOnly = false;
-            this.TBCodigo_Bodega.BackColor = Color.FromArgb(3, 155, 229);
-            this.TBCodigo_Bodega.ForeColor = Color.FromArgb(255, 255, 255);
-            this.TBCodigo_Bodega.Text = Campo;
 
             //
             this.TBOrdendecompra.ReadOnly = false;
-            this.TBOrdendecompra.BackColor = Color.FromArgb(245, 245, 245);
+            this.TBOrdendecompra.BackColor = Color.FromArgb(3, 155, 229);
             this.TBBodega.Enabled = false;
             this.TBBodega.BackColor = Color.FromArgb(245, 245, 245);
-            this.TBProveedor.Enabled = false;
-            this.TBProveedor.BackColor = Color.FromArgb(245, 245, 245);
             this.TBProducto.Enabled = false;
             this.TBProducto.BackColor = Color.FromArgb(245, 245, 245);
 
@@ -113,7 +103,6 @@ namespace Presentacion
 
             //
             this.TBDescuento.Text = "0";
-            this.CBLista.Enabled = false;
         }
 
         private void Limpiar_Datos()
@@ -129,16 +118,11 @@ namespace Presentacion
 
                 this.TBCodigo.Clear();
                 this.TBCodigo.Text = Campo;
-                this.TBCodigo_Bodega.Clear();
-                this.TBCodigo_Bodega.Text = Campo;
                 this.TBCodigo_Producto.Clear();
                 this.TBCodigo_Producto.Text = Campo;
-                this.TBCodigo_Proveedor.Clear();
-                this.TBCodigo_Proveedor.Text = Campo;
                 this.TBBodega.Clear();
                 this.TBOrdendecompra.Clear();
                 this.TBProducto.Clear();
-                this.TBProveedor.Clear();
 
                 //
                 this.TBSubTotal.Clear();
@@ -180,20 +164,6 @@ namespace Presentacion
             }
         }
 
-        private void AutoCompletar_Combobox()
-        {
-            try
-            {
-                this.CBTipodepago.DataSource = fTipoDePago.Lista();
-                this.CBTipodepago.ValueMember = "Codigo";
-                this.CBTipodepago.DisplayMember = "Tipo";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
         private void CrearTabla()
         {
             try
@@ -212,7 +182,7 @@ namespace Presentacion
                 this.DGDetalles.Columns[0].HeaderText = "Idproducto";
                 this.DGDetalles.Columns[1].HeaderText = "Código";
                 this.DGDetalles.Columns[2].HeaderText = "Descripción";
-                this.DGDetalles.Columns[2].Width = 280;
+                this.DGDetalles.Columns[2].Width = 340;
                 this.DGDetalles.Columns[3].HeaderText = "Medida";
                 this.DGDetalles.Columns[3].Width = 60;
                 this.DGDetalles.Columns[4].HeaderText = "Cantidad";
@@ -271,18 +241,10 @@ namespace Presentacion
             this.TBProducto.Text = producto;
         }
 
-        public void setProveedor(string idproveedor, string proveedor, string documento)
-        {
-            this.TBIdproveedor.Text = idproveedor;
-            this.TBProveedor.Text = proveedor;
-            this.TBCodigo_Proveedor.Text = documento;
-        }
-
-        public void setBodega(string idbodega, string bodega, string documento)
+        public void setBodega(string idbodega, string bodega)
         {
             this.TBIdbodega.Text = idbodega;
             this.TBBodega.Text = bodega;
-            this.TBCodigo_Bodega.Text = documento;
         }
 
         public void Agregar_Detalle(int idproducto, string codigo, string nombre, string medida, string valor_compra)
@@ -388,15 +350,6 @@ namespace Presentacion
                 {
                     MensajeError("Por favor ingrese el Codigo de la Cotizacion a Registrar");
                 }
-                else if (this.TBCodigo_Bodega.Text == Campo)
-                {
-                    MensajeError("Por favor ingrese La Bodega de Almacenamiento");
-                }
-                else if (this.TBCodigo_Proveedor.Text == Campo)
-                {
-                    MensajeError("Por favor ingreso el nombre del Proveedor");
-                }
-
                 else
                 {
                     if (this.Digitar)
@@ -407,7 +360,7 @@ namespace Presentacion
                         }
 
                         //Se establece la variable para poder utilizar los campos de texto del segundo formulario
-                        frmTotalizar_CotizacionDeCompra frmTotCoti = frmTotalizar_CotizacionDeCompra.GetInstancia();
+                        //frmTotalizar_CotizacionDeCompra frmTotCoti = frmTotalizar_CotizacionDeCompra.GetInstancia();
 
                         //rptaDatosBasicos = fCotizacion_Compra.Guardar_DatosBasicos
 
@@ -469,6 +422,112 @@ namespace Presentacion
             }
         }
 
+        private void CBFechas_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Digitar)
+                {
+                    if (Guardar == "1")
+                    {
+                        //Metodo Guardar y editar
+                        this.Guardar_SQL();
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Guardar Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                        //Llamada de Clase
+                        this.Digitar = true;
+                        this.Botones();
+                        this.Limpiar_Datos();
+                    }
+                }
+
+                else
+                {
+                    if (Editar == "1")
+                    {
+                        //Metodo Guardar y editar
+                        this.Guardar_SQL();
+                    }
+                    else
+                    {
+                        MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Editar Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                        //Llamada de Clase
+                        this.Digitar = true;
+                        this.Botones();
+                        this.Limpiar_Datos();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void TBDescripcion_Enter(object sender, EventArgs e)
+        {
+            //Se evalua si el campo de texto esta vacio y se espeicifca que es obligatorio en la base de datos
+            if (TBOrdendecompra.Text == Campo)
+            {
+                this.TBOrdendecompra.BackColor = Color.Azure;
+                this.TBOrdendecompra.ForeColor = Color.FromArgb(0, 0, 0);
+                this.TBOrdendecompra.Clear();
+            }
+            else
+            {
+                //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
+                this.TBOrdendecompra.BackColor = Color.Azure;
+                this.TBOrdendecompra.ForeColor = Color.FromArgb(0, 0, 0);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmFiltro_Bodega frmFiltro_Bodega = new frmFiltro_Bodega();
+            frmFiltro_Bodega.ShowDialog();
+        }
+
+        private void btnExaminar_Proveedor_Click(object sender, EventArgs e)
+        {
+            frmFiltro_Proveedor frmFiltro_Proveedor = new frmFiltro_Proveedor();
+            frmFiltro_Proveedor.ShowDialog();
+        }
+
+        private void btnExaminar_Producto_Click(object sender, EventArgs e)
+        {
+            frmFiltro_Producto frmFiltro_Producto = new frmFiltro_Producto();
+            frmFiltro_Producto.ShowDialog();
+        }
+
+        private void btnEliminar_Detalles_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DGDetalles.Rows.RemoveAt(DGDetalles.CurrentRow.Index);
+
+                this.Calculo_Totales();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void TBBuscar_TextChanged(object sender, EventArgs e)
         {
             try
@@ -511,114 +570,6 @@ namespace Presentacion
             }
         }
 
-        private void CBFechas_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnExaminar_Proveedor_Click(object sender, EventArgs e)
-        {
-            frmFiltro_Proveedor frmFiltro_Proveedor = new frmFiltro_Proveedor();
-            frmFiltro_Proveedor.ShowDialog();
-        }
-
-        private void btnExaminar_Bodega_Click(object sender, EventArgs e)
-        {
-            frmFiltro_Bodega frmFiltro_Bodega = new frmFiltro_Bodega();
-            frmFiltro_Bodega.ShowDialog();
-        }
-
-        private void btnExaminar_Producto_Click(object sender, EventArgs e)
-        {
-            frmFiltro_Producto frmFiltro_Producto = new frmFiltro_Producto();
-            frmFiltro_Producto.ShowDialog();
-        }
-
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (this.TBCodigo.Text == Campo)
-                {
-                    MensajeError("Por favor ingrese el Codigo de la Cotizacion a Registrar");
-                }
-                else if (this.TBCodigo_Bodega.Text == Campo)
-                {
-                    MensajeError("Por favor ingrese La Bodega de Almacenamiento");
-                }
-                else if (this.TBCodigo_Proveedor.Text == Campo)
-                {
-                    MensajeError("Por favor ingreso el nombre del Proveedor");
-                }
-
-                else
-                {
-                    if (Digitar)
-                    {
-                        if (Guardar == "1")
-                        {
-                            frmTotalizar_CotizacionDeCompra frmTotalizar_CotizacionDeCompra = frmTotalizar_CotizacionDeCompra.GetInstancia();
-                            frmTotalizar_CotizacionDeCompra.ShowDialog();
-
-                            ////Metodo Guardar y editar
-                            //this.Guardar_SQL();
-                        }
-
-                        else
-                        {
-                            MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Guardar Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                            //Llamada de Clase
-                            this.Digitar = false;
-                            this.Limpiar_Datos();
-                        }
-                    }
-
-                    else
-                    {
-
-
-                        //if (Editar == "1")
-                        //{
-                        //    //Metodo Guardar y editar
-                        //    this.Guardar_SQL();
-                        //}
-                        //else
-                        //{
-                        //    MessageBox.Show("El Usuario Iniciado Actualmente no Contiene Permisos Para Editar Datos", "Leal Enterprise", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                        //    //Llamada de Clase
-                        //    this.Digitar = false;
-                        //    this.Limpiar_Datos();
-                        //}
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnEliminar_Detalles_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                DGDetalles.Rows.RemoveAt(DGDetalles.CurrentRow.Index);
-
-                this.Calculo_Totales();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
         private void TBCodigo_KeyPress(object sender, KeyPressEventArgs e)
         {
             try
@@ -648,80 +599,6 @@ namespace Presentacion
 
                         this.TBCodigo.Clear();
                         this.TBOrdendecompra.Clear();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void TBCodigo_Proveedor_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            try
-            {
-                if (e.KeyChar == Convert.ToChar(Keys.Enter))
-                {
-                    DataTable Datos = Negocio.fProveedor.Buscar(this.TBCodigo_Proveedor.Text, 4);
-                    //Evaluamos si  existen los Datos
-                    if (Datos.Rows.Count == 0)
-                    {
-                        MessageBox.Show(" El Proveedor que Desea Agregar no se Encuentra Registrado en su Base de Datos", "Leal Enterprise - 'Acceso Denegado' ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    }
-
-                    else
-                    {
-                        //Captura de Valores en la Base de Datos
-
-                        Idproveedor = Datos.Rows[0][0].ToString();
-                        Proveedor = Datos.Rows[0][2].ToString();
-                        Codigo_Proveedor = Datos.Rows[0][3].ToString();
-
-                        //Se procede a completar los campos de texto segun las consulta
-                        //Realizada anteriormente en la base de datos
-
-                        //Panel Datos Basicos
-                        this.TBIdproveedor.Text = Idproveedor;
-                        this.TBCodigo_Proveedor.Text = Codigo_Proveedor;
-                        this.TBProveedor.Text = Proveedor;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void TBCodigo_Bodega_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            try
-            {
-                if (e.KeyChar == Convert.ToChar(Keys.Enter))
-                {
-                    DataTable Datos = Negocio.fBodega.Buscar(this.TBCodigo_Bodega.Text, 4);
-                    //Evaluamos si  existen los Datos
-                    if (Datos.Rows.Count == 0)
-                    {
-                        MessageBox.Show(" El Proveedor que Desea Agregar no se Encuentra Registrado en su Base de Datos", "Leal Enterprise - 'Acceso Denegado' ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    }
-
-                    else
-                    {
-                        //Captura de Valores en la Base de Datos
-
-                        Idbodega = Datos.Rows[0][0].ToString();
-                        Bodega = Datos.Rows[0][1].ToString();
-                        Codigo_Bodega = Datos.Rows[0][2].ToString();
-
-                        //Se procede a completar los campos de texto segun las consulta
-                        //Realizada anteriormente en la base de datos
-
-                        //Panel Datos Basicos
-                        this.TBIdbodega.Text = Idbodega;
-                        this.TBCodigo_Bodega.Text = Codigo_Bodega;
-                        this.TBBodega.Text = Bodega;
                     }
                 }
             }
@@ -796,38 +673,9 @@ namespace Presentacion
             }
         }
 
-        private void TBCodigo_Proveedor_Enter(object sender, EventArgs e)
+        private void TBOrdendecompra_Enter(object sender, EventArgs e)
         {
-            //Se evalua si el campo de texto esta vacio y se espeicifca que es obligatorio en la base de datos
-            if (TBCodigo_Proveedor.Text == Campo)
-            {
-                this.TBCodigo_Proveedor.BackColor = Color.Azure;
-                this.TBCodigo_Proveedor.ForeColor = Color.FromArgb(0, 0, 0);
-                this.TBCodigo_Proveedor.Clear();
-            }
-            else
-            {
-                //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
-                this.TBCodigo_Proveedor.BackColor = Color.Azure;
-                this.TBCodigo_Proveedor.ForeColor = Color.FromArgb(0, 0, 0);
-            }
-        }
 
-        private void TBCodigo_Bodega_Enter(object sender, EventArgs e)
-        {
-            //Se evalua si el campo de texto esta vacio y se espeicifca que es obligatorio en la base de datos
-            if (TBCodigo_Bodega.Text == Campo)
-            {
-                this.TBCodigo_Bodega.BackColor = Color.Azure;
-                this.TBCodigo_Bodega.ForeColor = Color.FromArgb(0, 0, 0);
-                this.TBCodigo_Bodega.Clear();
-            }
-            else
-            {
-                //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
-                this.TBCodigo_Bodega.BackColor = Color.Azure;
-                this.TBCodigo_Bodega.ForeColor = Color.FromArgb(0, 0, 0);
-            }
         }
 
         private void TBCodigo_Producto_Enter(object sender, EventArgs e)
@@ -845,144 +693,6 @@ namespace Presentacion
                 this.TBCodigo_Producto.BackColor = Color.Azure;
                 this.TBCodigo_Producto.ForeColor = Color.FromArgb(0, 0, 0);
             }
-        }
-
-        private void TBDescripcion_Enter(object sender, EventArgs e)
-        {
-            //Se evalua si el campo de texto esta vacio y se espeicifca que es obligatorio en la base de datos
-            if (TBOrdendecompra.Text == Campo)
-            {
-                this.TBOrdendecompra.BackColor = Color.Azure;
-                this.TBOrdendecompra.ForeColor = Color.FromArgb(0, 0, 0);
-                this.TBOrdendecompra.Clear();
-            }
-            else
-            {
-                //Color de fondo del Texboxt cuando este tiene el FOCUS Activado
-                this.TBOrdendecompra.BackColor = Color.Azure;
-                this.TBOrdendecompra.ForeColor = Color.FromArgb(0, 0, 0);
-            }
-        }
-
-        private void TBCodigo_Leave(object sender, EventArgs e)
-        {
-            if (TBCodigo.Text == string.Empty)
-            {
-                //Color de texboxt cuando este posee el FOCUS Activado
-                this.TBCodigo.BackColor = Color.FromArgb(3, 155, 229);
-                this.TBCodigo.Text = Campo;
-                this.TBCodigo.ForeColor = Color.FromArgb(255, 255, 255);
-            }
-            else
-            {
-                this.TBCodigo.BackColor = Color.FromArgb(3, 155, 229);
-            }
-        }
-
-        private void CHProveedor_CheckedChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (CHProveedor.Checked)
-                {
-                    this.CHBodega.Checked = false;
-                    this.CBLista.Enabled = true;
-
-                    this.CBLista.DataSource = fProveedor.Lista(3);
-                    this.CBLista.ValueMember = "Código";
-                    this.CBLista.DisplayMember = "Proveedor";
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-        }
-
-        private void CHBodega_CheckedChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (CHBodega.Checked)
-                {
-                    this.CHProveedor.Checked = false;
-                    this.CBLista.Enabled = true;
-
-                    this.CBLista.DataSource = fBodega.Lista(3);
-                    this.CBLista.ValueMember = "Código";
-                    this.CBLista.DisplayMember = "Bodega";
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void TBCodigo_Proveedor_Leave(object sender, EventArgs e)
-        {
-            if (TBCodigo_Proveedor.Text == string.Empty)
-            {
-                //Color de texboxt cuando este posee el FOCUS Activado
-                this.TBCodigo_Proveedor.BackColor = Color.FromArgb(3, 155, 229);
-                this.TBCodigo_Proveedor.Text = Campo;
-                this.TBCodigo_Proveedor.ForeColor = Color.FromArgb(255, 255, 255);
-            }
-            else
-            {
-                this.TBCodigo_Proveedor.BackColor = Color.FromArgb(3, 155, 229);
-            }
-        }
-
-        private void TBCodigo_Bodega_Leave(object sender, EventArgs e)
-        {
-            if (TBCodigo_Bodega.Text == string.Empty)
-            {
-                //Color de texboxt cuando este posee el FOCUS Activado
-                this.TBCodigo_Bodega.BackColor = Color.FromArgb(3, 155, 229);
-                this.TBCodigo_Bodega.Text = Campo;
-                this.TBCodigo_Bodega.ForeColor = Color.FromArgb(255, 255, 255);
-            }
-            else
-            {
-                this.TBCodigo_Bodega.BackColor = Color.FromArgb(3, 155, 229);
-            }
-        }
-
-        private void TBCodigo_Producto_Leave(object sender, EventArgs e)
-        {
-            if (TBCodigo_Producto.Text == string.Empty)
-            {
-                //Color de texboxt cuando este posee el FOCUS Activado
-                this.TBCodigo_Producto.BackColor = Color.FromArgb(3, 155, 229);
-                this.TBCodigo_Producto.Text = Campo;
-                this.TBCodigo_Producto.ForeColor = Color.FromArgb(255, 255, 255);
-            }
-            else
-            {
-                this.TBCodigo_Producto.BackColor = Color.FromArgb(3, 155, 229);
-            }
-        }
-
-        private void TBDescripcion_Leave(object sender, EventArgs e)
-        {
-            if (TBOrdendecompra.Text == string.Empty)
-            {
-                //Color de texboxt cuando este posee el FOCUS Activado
-                this.TBOrdendecompra.BackColor = Color.FromArgb(3, 155, 229);
-                this.TBOrdendecompra.Text = Campo;
-                this.TBOrdendecompra.ForeColor = Color.FromArgb(255, 255, 255);
-            }
-            else
-            {
-                this.TBOrdendecompra.BackColor = Color.FromArgb(3, 155, 229);
-            }
-        }
-
-        private void frmCotizacionDeCompra_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            _Instancia = null;
         }
 
         private void DGDetalles_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -1027,6 +737,56 @@ namespace Presentacion
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void TBCodigo_Leave(object sender, EventArgs e)
+        {
+            if (TBCodigo.Text == string.Empty)
+            {
+                //Color de texboxt cuando este posee el FOCUS Activado
+                this.TBCodigo.BackColor = Color.FromArgb(3, 155, 229);
+                this.TBCodigo.Text = Campo;
+                this.TBCodigo.ForeColor = Color.FromArgb(255, 255, 255);
+            }
+            else
+            {
+                this.TBCodigo.BackColor = Color.FromArgb(3, 155, 229);
+            }
+        }
+
+        private void TBOrdendecompra_Leave(object sender, EventArgs e)
+        {
+            if (TBOrdendecompra.Text == string.Empty)
+            {
+                //Color de texboxt cuando este posee el FOCUS Activado
+                this.TBOrdendecompra.BackColor = Color.FromArgb(3, 155, 229);
+                this.TBOrdendecompra.Text = Campo;
+                this.TBOrdendecompra.ForeColor = Color.FromArgb(255, 255, 255);
+            }
+            else
+            {
+                this.TBOrdendecompra.BackColor = Color.FromArgb(3, 155, 229);
+            }
+        }
+
+        private void TBCodigo_Producto_Leave(object sender, EventArgs e)
+        {
+            if (TBCodigo_Producto.Text == string.Empty)
+            {
+                //Color de texboxt cuando este posee el FOCUS Activado
+                this.TBCodigo_Producto.BackColor = Color.FromArgb(3, 155, 229);
+                this.TBCodigo_Producto.Text = Campo;
+                this.TBCodigo_Producto.ForeColor = Color.FromArgb(255, 255, 255);
+            }
+            else
+            {
+                this.TBCodigo_Producto.BackColor = Color.FromArgb(3, 155, 229);
+            }
+        }
+
+        private void frmCotizacionDeCompra_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _Instancia = null;
         }
 
         private void TBDescuento_KeyPress(object sender, KeyPressEventArgs e)

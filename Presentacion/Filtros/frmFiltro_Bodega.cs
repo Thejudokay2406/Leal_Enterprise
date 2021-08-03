@@ -62,8 +62,7 @@ namespace Presentacion
                 {
                     idbodega = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
                     bodega = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
-                    documento = this.DGFiltro_Resultados.CurrentRow.Cells[2].Value.ToString();
-                    frmCComp.setBodega(idbodega, bodega, documento);
+                    frmCComp.setBodega(idbodega, bodega);
                     this.Hide();
                 }
 

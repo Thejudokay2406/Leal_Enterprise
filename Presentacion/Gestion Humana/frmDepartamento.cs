@@ -179,12 +179,12 @@ namespace Presentacion
                     {
                         if (this.Digitar)
                         {
-                            this.MensajeOk("El Departamento: " + this.TBDepartamento.Text + " a Sido Registrado");
+                            this.MensajeOk("Procedimiento de Digitalización Exitoso - Leal Enterprise \n\n" + "El Departamento: “" + this.TBDepartamento.Text + "” a Sido Registrado.");
                         }
 
                         else
                         {
-                            this.MensajeOk("El Registro del Departamento: " + this.TBDepartamento.Text + " a Sido Actualizado");
+                            this.MensajeOk("Procedimiento de Actualización Exitoso - Leal Enterprise \n\n" + "El Registro del Departamento: “" + this.TBDepartamento.Text + "” a Sido Modificado.");
                         }
                     }
 

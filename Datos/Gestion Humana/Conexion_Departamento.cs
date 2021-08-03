@@ -12,7 +12,7 @@ namespace Datos
 {
     public class Conexion_Departamento
     {
-        public DataTable Lista()
+        public DataTable Lista(int Auto)
         {
             SqlDataReader Resultado;
             DataTable Tabla = new DataTable();
@@ -20,8 +20,11 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.Departamento", SqlCon);
+                SqlCommand Comando = new SqlCommand("Gestion.LI_Departamento", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
+
+                Comando.Parameters.Add("@Consulta", SqlDbType.Int).Value = Auto;
+
                 SqlCon.Open();
                 Resultado = Comando.ExecuteReader();
                 Tabla.Load(Resultado);
@@ -48,10 +51,10 @@ namespace Datos
             try
             {
                 SqlCon = Conexion_SQLServer.getInstancia().Conexion();
-                SqlCommand Comando = new SqlCommand("Consulta.Departamento", SqlCon);
+                SqlCommand Comando = new SqlCommand("Gestion.LI_Departamento", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
 
-                Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Consulta", SqlDbType.Int).Value = Auto;
                 Comando.Parameters.Add("@Filtro", SqlDbType.VarChar).Value = Filtro;
 
                 SqlCon.Open();
@@ -157,7 +160,7 @@ namespace Datos
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 //Panel Datos Basicos
-                Comando.Parameters.Add("@Auto", SqlDbType.Int).Value = Auto;
+                Comando.Parameters.Add("@Eliminar", SqlDbType.Int).Value = Auto;
                 Comando.Parameters.Add("@IdDepartamento", SqlDbType.Int).Value = IDEliminar_Sql;
 
                 SqlCon.Open();

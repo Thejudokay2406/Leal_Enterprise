@@ -308,8 +308,8 @@ namespace Presentacion
         {
             try
             {
-                this.CBTipodepago.DataSource = fTipoDePago.Lista();
-                this.CBTipodepago.ValueMember = "Codigo";
+                this.CBTipodepago.DataSource = fTipoDePago.Lista(3);
+                this.CBTipodepago.ValueMember = "Código";
                 this.CBTipodepago.DisplayMember = "Tipo";
             }
             catch (Exception ex)

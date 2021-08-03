@@ -65,6 +65,24 @@
     <ApplicationIcon>Icono_Leal_Enterprise.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -145,12 +163,6 @@
     <Compile Include="Compras\frmCotizacionDeCompra.Designer.cs">
       <DependentUpon>frmCotizacionDeCompra.cs</DependentUpon>
     </Compile>
-    <Compile Include="Compras\frmTotalizar_CotizacionDeCompra.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Compras\frmTotalizar_CotizacionDeCompra.Designer.cs">
-      <DependentUpon>frmTotalizar_CotizacionDeCompra.cs</DependentUpon>
-    </Compile>
     <Compile Include="Filtros\frmFiltro_CotizacionDeCompra.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +234,12 @@
     </Compile>
     <Compile Include="Archivo\frmServicios.Designer.cs">
       <DependentUpon>frmServicios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporte.Designer.cs">
+      <DependentUpon>frmReporte.cs</DependentUpon>
     </Compile>
     <Compile Include="Sistema\frmCodigo_Archivo.cs">
       <SubType>Form</SubType>
@@ -370,6 +388,7 @@
     <Compile Include="Sistema\Informacion_Computer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Tablas.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -420,9 +439,6 @@
     <EmbeddedResource Include="Compras\frmCotizacionDeCompra.resx">
       <DependentUpon>frmCotizacionDeCompra.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Compras\frmTotalizar_CotizacionDeCompra.resx">
-      <DependentUpon>frmTotalizar_CotizacionDeCompra.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Filtros\frmFiltro_CotizacionDeCompra.resx">
       <DependentUpon>frmFiltro_CotizacionDeCompra.cs</DependentUpon>
     </EmbeddedResource>
@@ -446,6 +462,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Archivo\frmServicios.resx">
       <DependentUpon>frmServicios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporte.resx">
+      <DependentUpon>frmReporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sistema\frmCodigo_Archivo.resx">
       <DependentUpon>frmCodigo_Archivo.cs</DependentUpon>
@@ -640,6 +659,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icono_Leal_Enterprise.ico" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\btnLogin_Usuario.png" />
     <None Include="Resources\btnLogin_Contraseña.png" />
     <None Include="Resources\btnLimpiar.png" />

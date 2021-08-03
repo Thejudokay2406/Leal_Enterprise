@@ -31,7 +31,6 @@ namespace Presentacion
                 frmProducto frmPro = frmProducto.GetInstancia();
                 frmOrdenDeCompra frmOCom = frmOrdenDeCompra.GetInstancia();
                 frmInventario_Ingreso frmInv = frmInventario_Ingreso.GetInstancia();
-                frmCotizacionDeCompra frmCot = frmCotizacionDeCompra.GetInstancia();
 
                 //Variables para realizar los Filtro 
                 string idproveedor, proveedor, documento;
@@ -51,15 +50,6 @@ namespace Presentacion
                     proveedor = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
                     documento = this.DGFiltro_Resultados.CurrentRow.Cells[3].Value.ToString();
                     frmInv.setProveedor(idproveedor, proveedor, documento);
-                    this.Hide();
-                }
-
-                if (frmCot.Examinar)
-                {
-                    idproveedor = this.DGFiltro_Resultados.CurrentRow.Cells[0].Value.ToString();
-                    proveedor = this.DGFiltro_Resultados.CurrentRow.Cells[1].Value.ToString();
-                    documento = this.DGFiltro_Resultados.CurrentRow.Cells[3].Value.ToString();
-                    frmCot.setProveedor(idproveedor, proveedor, documento);
                     this.Hide();
                 }
 
@@ -89,7 +79,7 @@ namespace Presentacion
         {
             MessageBox.Show(mensaje, "Leal Enterprise - Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
-        
+
         private void TBBuscar_TextChanged(object sender, EventArgs e)
         {
             try

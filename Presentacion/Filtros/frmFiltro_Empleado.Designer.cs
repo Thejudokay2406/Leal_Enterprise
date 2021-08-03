@@ -43,6 +43,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.TBBuscar_General = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.TBIdempleado = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.TBCorreo = new System.Windows.Forms.TextBox();
             this.TBDepartamento = new System.Windows.Forms.TextBox();
@@ -61,7 +62,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.TBIdempleado = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -266,6 +266,14 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos Basicos del Producto - Leal Enterprise";
             // 
+            // TBIdempleado
+            // 
+            this.TBIdempleado.Location = new System.Drawing.Point(9, 342);
+            this.TBIdempleado.Name = "TBIdempleado";
+            this.TBIdempleado.Size = new System.Drawing.Size(100, 22);
+            this.TBIdempleado.TabIndex = 9;
+            this.TBIdempleado.TextChanged += new System.EventHandler(this.TBIdempleado_TextChanged);
+            // 
             // label4
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -460,14 +468,6 @@
             this.label12.Size = new System.Drawing.Size(58, 14);
             this.label12.TabIndex = 52;
             this.label12.Text = "Sucursal";
-            // 
-            // TBIdempleado
-            // 
-            this.TBIdempleado.Location = new System.Drawing.Point(9, 342);
-            this.TBIdempleado.Name = "TBIdempleado";
-            this.TBIdempleado.Size = new System.Drawing.Size(100, 22);
-            this.TBIdempleado.TabIndex = 9;
-            this.TBIdempleado.TextChanged += new System.EventHandler(this.TBIdempleado_TextChanged);
             // 
             // frmFiltro_Empleado
             // 

@@ -12,10 +12,10 @@ namespace Negocio
 {
     public class fGestion_Departameto
     {
-        public static DataTable Lista()
+        public static DataTable Lista(int Auto)
         {
             Conexion_Departamento Datos = new Conexion_Departamento();
-            return Datos.Lista();
+            return Datos.Lista(Auto);
         }
 
         public static DataTable Buscar(string Filtro, int auto)
@@ -45,7 +45,7 @@ namespace Negocio
             Obj.AreaAuxiliar = AreaAuxiliar;
             Obj.Apertura = Apertura;
             Obj.Descripcion = Descripcion;
-                    
+
             return Datos.Guardar_DatosBasicos(Obj);
         }
 

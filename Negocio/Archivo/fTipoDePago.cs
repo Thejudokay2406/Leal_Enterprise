@@ -12,10 +12,10 @@ namespace Negocio
 {
     public class fTipoDePago
     {
-        public static DataTable Lista()
+        public static DataTable Lista(int auto)
         {
             Conexion_TipoDePagos Datos = new Conexion_TipoDePagos();
-            return Datos.Lista();
+            return Datos.Lista(auto);
         }
 
         public static DataTable Buscar(string Filtro, int auto)

@@ -7880,7 +7880,6 @@ namespace Presentacion
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
-
         private void btnDetalleProducto_Click(object sender, EventArgs e)
         {
             try
